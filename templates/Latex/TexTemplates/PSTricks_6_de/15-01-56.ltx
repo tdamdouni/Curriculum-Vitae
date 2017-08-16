@@ -1,0 +1,38 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\def\Psaxes[#1](#2)(#3)(#4){%
+  \pspicture(5,1)\psaxes[#1](#2)(#3)(#4)\endpspicture}
+\StartShownPreambleCommands
+\usepackage{pst-plot}
+\StopShownPreambleCommands
+\begin{document}
+\hspace*{14mm}\parbox{11cm}{\psset{arrowscale=2.5,yAxis=false,arrows=-D>}
+\Psaxes[subticks=8](0,0)(-5,-1)(5,1)\\[4pt]
+\Psaxes[subticks=4,ticksize=-4pt 0,xlabelPos=top](0,0)(5,1)(-5,-1)\\[-10pt]
+\Psaxes[subticks=4,ticksize=-10pt 0](0,0)(-5,-5)(5,5)\\[4pt]
+\Psaxes[subticks=10,ticksize=0 -10pt](0,0)(-5,-5)(5,5)\\[5pt]
+\Psaxes[subticks=4,ticksize=0 10pt,xlabelPos=bottom](0,0)(5,5)(-5,-5)\\[4pt]
+\Psaxes[subticks=4,ticksize=0 -10pt,xlabelPos=top](0,0)(5,5)(-5,-5)\\[-3pt]
+\Psaxes[subticks=0](0,0)(-5,-5)(5,5)\\[4pt]
+\Psaxes[subticks=0,tickcolor=red,linecolor=blue,xlabelPos=top](0,0)(5,5)(-5,-5)\\
+\Psaxes[subticks=5,tickwidth=2pt,subtickwidth=1pt](0,0)(-5,-5)(5,5)\\[5pt]
+\Psaxes[subticks=0,tickcolor=red,xlabelPos=top](0,0)(5,5)(-5,-5)}
+\end{document}

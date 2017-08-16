@@ -1,0 +1,104 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\StartShownPreambleCommands
+\usepackage{pstricks}
+\parindent=0pt
+\makeatletter
+\def\@nameedef#1{\expandafter\edef\csname#1\endcsname}
+\newrgbcolor{jaunesale}{1.00 0.90 0.50}
+\newpsstyle{corde}{doubleline=true,
+                   doublecolor=jaunesale, linewidth=1pt,
+                   doublesep=4pt}
+\newpsobject{entier}{psccurve}{style=corde}
+\newpsobject{partie}{psecurve}{style=corde}
+
+\newcount\n@eudmax
+
+\def\noeud{%
+  \count@=0
+  \n@eud
+}
+\def\n@eud{%
+  \@ifnextchar+{\n@eudp}{\@ifnextchar({\n@eudm}{\n@@ud}}%
+}
+\def\n@eudp+(#1){%
+  \@namedef{noeud\the\count@}{(#1)}%
+  \@namedef{pos\the\count@}{+}%
+  \advance\count@\@ne
+  \n@eud
+}
+\def\n@eudm(#1){%
+  \@namedef{noeud\the\count@}{(#1)}%
+  \@namedef{pos\the\count@}{-}%
+  \advance\count@\@ne
+  \n@eud
+}
+\def\n@@ud{%
+  \n@eudmax=\count@
+  \advance\count@-1
+  \@nameedef{noeud-1}{\csname noeud\the\count@\endcsname}%
+  \@nameedef{pos-1}{\csname pos\the\count@\endcsname}%
+  \advance\count@\m@ne
+  \@nameedef{noeud-2}{\csname noeud\the\count@\endcsname}%
+  \@nameedef{pos-2}{\csname pos\the\count@\endcsname}%
+  \advance\count@2
+  \@nameedef{noeud\the\count@}{\csname noeud0\endcsname}%
+  \@nameedef{pos\the\count@}{\csname pos0\endcsname}%
+  \advance\count@\@ne
+  \@nameedef{noeud\the\count@}{\csname noeud1\endcsname}%
+  \@nameedef{pos\the\count@}{\csname pos1\endcsname}%
+  \count@=0
+  \def\chemin{}%
+  \loop
+    \edef\chemin{\chemin\csname noeud\the\count@\endcsname}%
+    \advance\count@\@ne
+  \ifnum\count@<\n@eudmax
+  \repeat
+  \expandafter\entier\chemin
+  \count@=0
+  \loop
+    \if\@nameuse{pos\the\count@}+\relax
+      \advance\count@-2
+      \edef\chemin{\csname noeud\the\count@\endcsname}%
+      \advance\count@\@ne
+      \edef\chemin{\chemin\csname noeud\the\count@\endcsname}%
+      \advance\count@\@ne
+      \edef\chemin{\chemin\csname noeud\the\count@\endcsname}%
+      \advance\count@\@ne
+      \edef\chemin{\chemin\csname noeud\the\count@\endcsname}%
+      \advance\count@\@ne
+      \edef\chemin{\chemin\csname noeud\the\count@\endcsname}%
+      \advance\count@-2
+      \expandafter\partie\chemin
+    \fi
+    \advance\count@\@ne
+  \ifnum\count@<\n@eudmax
+  \repeat
+}
+\makeatother
+
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(0,0)(7,5)
+  \noeud(0,2)(1,0)+(3,1)(3.1,1.4)(3.2,1.8)(3,3)(3,4)(4,5)+(5,4)(4,2)
+        +(3.2,1.8)(2,2)(1,1)(3,1)(4,1)(5,0)(6,0)(7,2)(6,4)(5,4)(4,3)
+        +(3,4)(2,4)(1,3)
+\end{pspicture}
+\end{document}

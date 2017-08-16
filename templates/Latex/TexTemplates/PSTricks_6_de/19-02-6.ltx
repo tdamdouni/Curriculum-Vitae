@@ -1,0 +1,54 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,pstricks-add,textcomp,ragged2e}
+\SpecialCoor
+\newsavebox\TBox
+\setlength\fboxsep{0pt}
+\newcommand\BoxText[4][3cm]{%
+  \savebox\TBox{\parbox{#1}{\RaggedRight#4}}
+  \rput[t](#2){\fbox{\psframebox[fillstyle=boxfill]{\usebox\TBox}}}%
+  \pnode(#2|0,0){A}\pnode(#2){B}
+  \ncline{->}{A}{B}%
+  \uput*{0.6cm}[-90](A){\footnotesize #3}% vertikaler Abstand
+}
+\StartShownPreambleCommands
+\usepackage{pst-fill}
+\StopShownPreambleCommands
+\begin{document}
+\psboxfill{\pspicture(0.25,0.25)\psframe[linecolor=black!15](0.25,0.25)\endpspicture}
+
+PEDERSS\O N, Geble \\
+\textborn\ um 1490 in Her\o y in Helgeland, Norwegen,\\
+\textdied\ 1557 als Bischof in Bergen in Westnorwegen
+
+\begin{pspicture}(-0.5,0.3)(2.5,-10)
+\psset{xunit=5}
+\psaxes[yAxis=false,Ox=1518]{|->}(0,0)(2.5,-10)%
+\BoxText[5cm]{2.2,-1.2}{17.3.}{%
+vom Dom\-kapitel beauf\-tragt mit dem K\"onig Christian II.
+\"uber die bevor\-stehen\-de Bischofswahl zu beraten}
+\BoxText[4cm]{1.1123,-2.6}{10.2.}{%
+Pfarrer an der alten Marien\-kirche}
+\BoxText{.767,-1.2}{15.10.}{%
+Mitglied des Dom\-kapitels}
+\end{pspicture}
+\end{document}

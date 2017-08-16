@@ -1,0 +1,8 @@
+\ProvidesFile{nowindow.lco}%
+\@setplength{firstheadwidth}{\textwidth}
+\@setplength{firstfootwidth}{\textwidth}
+\@setplength{fromrulewidth}{\textwidth}
+\@setplength{toaddrhpos}{\oddsidemargin}
+\@addtoplength{toaddrhpos}{1in}
+\KOMAoptions{backaddress=false}
+\endinput

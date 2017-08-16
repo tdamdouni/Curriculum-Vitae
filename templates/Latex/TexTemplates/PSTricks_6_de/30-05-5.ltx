@@ -1,0 +1,46 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pstricks-add} \SpecialCoor \psset{unit=0.5cm,dimen=middle}
+\newpsstyle{weiss}{fillstyle=solid,fillcolor=white}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(-12,-4)(6,10)
+\psframe*[linecolor=black!20](-5,-3)(5,7) \psframe*[linecolor=black!40](-5,3)(5,6)
+\pscircle(-8.19,5.51){0.2} \psframe[fillcolor=white,fillstyle=solid](-5.8,3.6)(4.3,5.8)
+\psframe(-8.98,3.14)(-5.8,6.32)
+\multido{\rA=-4.1+1.3}{5}{\rput(\rA,-2.4){\psframe[style=weiss](1.1,6)
+  \psline(0,0)(1.1,0.5)(0,1)(1.1,1.6)(0,2.2)(1.1,2.7)(0,3.2)(1.1,3.2)}}
+\pspolygon*(-4.1,3.7)(-4.1,3)(-3,3)(-3.01,3.7)(-3.54,4.19)
+\pspolygon*(1.09,3.7)(1.1,3)(2.2,3)(2.18,3.7)(1.65,4.24)
+\pspolygon*(-2.78,3.7)(-2.8,3)(-1.7,3)(-1.71,3.7)(-2.27,4.04)
+\pspolygon*(-1.51,3.7)(-1.5,3)(-0.4,3)(-0.41,3.7)(-1.02,4.17)
+\pspolygon*(-0.21,3.7)(-0.2,3)(0.9,3)(0.89,3.7)(0.3,4.04)
+\psline(-5,3.83)(-4.15,3.86)(-3.5,4.3)(-2.85,3.81)(-2.22,4.21)(-1.6,3.86)(-0.99,4.33)
+       (-0.28,3.83)(0.35,4.19)(0.97,3.83)(1.65,4.39)(2.2,4.01)(3.57,4.89)(2.41,5.8)
+  \psline(-5,5.8)(-5.78,5.8)  \psline(-5.78,5.47)(2.85,5.47)
+  \psline(-5.8,3.52)(-5,3.5)  \psline(3.57,4.89)(-5.8,4.89)
+  \psComment*[ref=r]{->}(-8.14,1.19)(-4.31,3.27){Mantelstift}
+  \psComment*[ref=r]{->}(-8.17,-0.56)(-4.37,1.59){Kernstift}[\ncarc]
+  \psComment*[ref=r]{->}(-7.91,-2.24)(-4.44,-0.23){Feder}[\ncarc]
+  \psComment[npos=-0.1]{->}(-3.48,8.72)(-1.33,5.46){Nur f\"ur Profil}
+\end{pspicture}
+\end{document}

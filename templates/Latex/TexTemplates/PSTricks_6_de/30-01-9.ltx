@@ -1,0 +1,38 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pstricks-add}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(-3,-3)(3,3)
+\psChart[userColor={red!30,green!30,blue!40,gray,cyan!50,magenta!60,cyan},
+  chartSep=30pt,shadow=true,shadowsize=5pt]{ 34.5,17.2,20.7,15.5,5.2,6.9}{6}{2}
+\psset{nodesepA=5pt,nodesepB=-10pt}
+\ncline{psChartO1}{psChart1}\nput{0}{psChartO1}{1000 (34.5\%)}
+\ncline{psChartO2}{psChart2}\nput{150}{psChartO2}{500 (17.2\%)}
+\ncline{psChartO3}{psChart3}\nput{-90}{psChartO3}{600 (20.7\%)}
+\ncline{psChartO4}{psChart4}\nput{0}{psChartO4}{450 (15.5\%)}
+\ncline{psChartO5}{psChart5}\nput{0}{psChartO5}{150 (5.2\%)}
+\ncline{psChartO6}{psChart6}\nput{0}{psChartO6}{200 (6.9\%)}
+\bfseries\rput(psChartI1){Taxes}\rput(psChartI2){Rent}\rput(psChartI3){Bills}
+\rput(psChartI4){Car}\rput(psChartI5){Gas}\rput(psChartI6){Food}
+\end{pspicture}
+\end{document}

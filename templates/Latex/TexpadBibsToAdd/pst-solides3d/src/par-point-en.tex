@@ -1,0 +1,88 @@
+\section{The object \texttt{point}}
+
+\subsection{Definition via coordinates}
+
+The object \Lkeyword{point} defines a \Index{point}. The simplest method is to use the argument \texttt{\Lkeyword{args}=$x$ $y$ $z$} to specify its coordinates.
+If we have already named a point $M(x, y, z)$ (see chapter ``\textit{Advanced usage\/}''), we can easily use the argument \texttt{args=$M$}.
+
+\subsection{Some other definitions}
+
+There are some other possibilities for defining a point. Here a list of possible definitions with the appropriate arguments:
+
+\begin{itemize}
+
+\item \texttt{\Lkeyword{definition}=\Lkeyval{solidgetsommet}};
+\texttt{\Lkeyword{args}= $solid$ $k$}.
+
+The vertex with index $k$ of the solid $solid$.
+
+\item \texttt{\Lkeyword{definition}=\Lkeyval{solidcentreface}};
+\texttt{\Lkeyword{args}=$solid$ $k$}.
+
+The centre of the face with index $k$ of the solid $solid$.
+
+\item \texttt{\Lkeyword{definition}=\Lkeyval{isobarycentre3d}};
+\texttt{\Lkeyword{args}=\{[ $A_0$ $\ldots $ $A_{n}$ ]\}}. 
+
+   {The isobarycentre of the system $[(A_0, 1);
+   \ldots ; (A_n, 1)]$.}
+
+\item \texttt{\Lkeyword{definition}=\Lkeyval{barycentre3d}};
+\Lkeyword{args}=  \{[ $A$ $a$ $B$ $b$ ] \}.
+
+   {The barycentre of the system $[(A, a) ; (B, b)]$.}
+
+\item \texttt{\Lkeyword{definition}=\Lkeyval{hompoint3d}};
+\texttt{\Lkeyword{args}={$M$ $A$ $\alpha $}}.
+
+   {The image of $M$ via a homothety with centre $A$ and ratio $\alpha $.}
+
+\item \texttt{\Lkeyword{definition}=\Lkeyval{sympoint3d}};
+\texttt{\Lkeyword{args}= {$M$ $A$}}.
+
+   {The image of $M$ via the center of symmetry $A$}%I don't understand
+
+\item \texttt{\Lkeyword{definition}=\Lkeyval{translatepoint3d}};
+\texttt{\Lkeyword{args}=   {$M$ $u$}}.
+
+   {The image of $M$ under the translation via the vector $\vec u$}
+
+\item \texttt{\Lkeyword{definition}=\Lkeyval{scaleOpoint3d}};
+\texttt{\Lkeyword{args}= {$x$ $y$ $z$  $k_1$ $k_2$ $k_3$}}.
+
+   {This gives a ``dilation'' \ of the coordinates of the point $M (x, y,
+   z)$ on the axes $Ox$, $Oy$ and $Oz$ each multiplied by an appropriate factor $k_1$,
+   $k_2$ and $k_3$}
+
+\item \texttt{\Lkeyword{definition}=\Lkeyval{rotateOpoint3d}};
+\texttt{\Lkeyword{args}= {$M$ $\alpha_x$ $\alpha_y$ $\alpha_z$}}.
+
+   {The image of $M$ through consecutive rotations---centered at $O$---and with respective angles
+   $\alpha_x$, $\alpha_y$ and $\alpha_z$ around the axes $Ox$,
+   $Oy$ and $Oz$.}
+
+
+
+%% Projection orthogonale d'un point 3d sur un plan
+%% Mx My Mz (=le point a projeter)
+%% Ax Ay Az (=un point du plan)
+%% Vx Vy Vz (un vecteur normal au plan)
+\item \Lkeyword{definition}=\Lkeyval{orthoprojplane3d};
+\texttt{\Lkeyword{args}= {$M$ $A$ $\vec v$}}.
+
+   {The projection of the point $M$ to the plane $P$ which is defined
+   by the point $A$ and the vector $\vec v$, perpendicular to $P$.}
+
+\item \texttt{\Lkeyword{definition}=\Lkeyval{milieu3d}};
+\texttt{\Lkeyword{args}= {$A$ $B$}}.
+
+   {The midpoint of $[AB]$}
+
+\item \texttt{\Lkeyword{definition}=\Lkeyval{addv3d}};
+\texttt{\Lkeyword{args}= {$A$ $u$}}.
+
+   {Gives the point $B$ so that $\overrightarrow {AB} = \vec u$}
+
+\end{itemize}
+
+\endinput

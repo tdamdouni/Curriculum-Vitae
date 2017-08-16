@@ -1,0 +1,169 @@
+\section{Parameterised surfaces}
+
+\subsection{The method}
+
+The parameterised \Index{surfaces} are setup as $[x(u,v),y(u,v),z(u,v)]$ and administered thanks to the macro \Lcs{psSolid} by the option
+\texttt{\Lkeyword{object}=\Lkeyval{surfaceparametree}} and defined either in \textit{Reverse Polish Notation}(\textit{RPN}):
+
+
+\begin{verbatim}
+\defFunction{shell}(u,v){1.2 v exp u Sin dup mul v Cos mul mul}% x(u,v)
+                        {1.2 v exp u Sin dup mul v Sin mul mul}% y(u,v)
+                        {1.2 v exp u Sin u Cos mul mul}        % z(u,v)
+\end{verbatim}
+
+or in \textit{algebraic notation}:
+
+\begin{verbatim}
+\defFunction[algebraic]{shell}(u,v){1.2^v*(sin(u)^2*cos(v))}% x(u,v)
+                                   {1.2^v*(sin(u)^2*sin(v))}% y(u,v)
+                                   {1.2^v*(sin(u)*cos(u))}  % z(u,v)
+\end{verbatim}
+
+The range for the values of $u$ and $v$ are defined within the option
+\texttt{\Lkeyword{range}=$\mathtt{u_{min}}$ $\mathtt{u_{max}}$ $\mathtt{v_{min}}$ %$
+$\mathtt{v_{max}}$}.
+
+The drawing of the function is activated with
+\texttt{\Lkeyword{function}=name}, this name is implied when the parametric equations are written:
+\verb+\defFunction{name}...+
+
+Any other choice of $u$ and $v$ are accepted. Let's remind that the argument of
+\texttt{Sin} and \texttt{Cos} must be in radians those of \texttt{sin} and
+\texttt{cos} in degrees if \textit{RPN} is  used. Within the algebraic notation, the argument is in radians.
+
+
+\subsection{Example 1: a \Index{sea shell}}
+\newcommand\quadrillage{%
+\psset{linecolor={[cmyk]{1,0,1,0.5}}}\green
+\multido{\ix=-4+1}{9}{%
+    \psPoint(\ix\space,4,-3){X1}
+    \psPoint(\ix\space,4 .2 add,-3){X2}
+    \psline(X1)(X2)
+    \uput[-120](X1){\small\ix}}
+\multido{\iy=-4+1}{9}{%
+    \psPoint(-4,\iy\space,-3){Y1}
+    \psPoint(-4 .2 sub,\iy\space,-3){Y2}
+    \psline(Y1)(Y2)
+    \uput[0](Y1){\small\iy}}
+\multido{\iz=-3+1}{7}{%
+    \psPoint(4,4,\iz\space){Z1}
+    \psPoint(4,4 .2 add,\iz\space){Z2}
+    \psline(Z1)(Z2)
+    \uput[l](Z1){\small\iz}}
+\psPoint(0,4 0.5 add,-3){X0}
+\uput[-120](X0){$x$}
+    \psPoint(-4 .5 sub,0,-3){Y0}
+\uput[0](Y0){$y$}}
+\begin{LTXexample}[width=7.8cm]
+\psset{unit=0.75}
+\begin{pspicture}(-5.5,-6)(4.5,4)
+\psframe*(-5.5,-6)(4.5,4)
+\psset[pst-solides3d]{viewpoint=20 120 30 rtp2xyz,
+  Decran=15,lightsrc=-10 15 10}
+% Parametric Surfaces
+\psSolid[object=grille,base=-4 4 -4 4,
+  action=draw*,linecolor={[cmyk]{1,0,1,0.5}}]
+  (0,0,-3)
+\defFunction{shell}(u,v)
+  {1.2 v exp u Sin dup mul v Cos mul mul}
+  {1.2 v exp u Sin dup mul v Sin mul mul}
+  {1.2 v exp u Sin u Cos mul mul}
+\psSolid[object=surfaceparametree,
+  linecolor={[cmyk]{1,0,1,0.5}},
+  base=0 pi pi 4 div neg 5 pi mul 2 div,
+  fillcolor=yellow!50,incolor=green!50,
+  function=shell,linewidth=0.5\pslinewidth,ngrid=25]%
+\psSolid[object=parallelepiped,a=8,b=8,c=6,
+  action=draw,linecolor={[cmyk]{1,0,1,0.5}}]%
+\quadrillage
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=7.8cm]
+\psset{unit=0.75}
+\begin{pspicture}(-5,-4)(5,6)
+\psframe*(-5,-4)(5,6)
+\psset[pst-solides3d]{viewpoint=20 20 -10 rtp2xyz,
+  Decran=15,lightsrc=5 10 2}
+% Parametric Surfaces
+\psSolid[object=grille,base=-4 4 -4 4,
+  action=draw*,linecolor=red](0,0,-3)
+\defFunction[algebraic]{shell}(u,v)
+  {1.21^v*(sin(u)*cos(u))}
+  {1.21^v*(sin(u)^2*sin(v))}
+  {1.21^v*(sin(u)^2*cos(v))}
+%% \defFunction{shell}(u,v)
+%%    {1.2 v exp u Sin u Cos mul mul}
+%%    {1.2 v exp u Sin dup mul v Sin mul mul}
+%%    {1.2 v exp u Sin dup mul v Cos mul mul}
+\psSolid[object=surfaceparametree,
+   linecolor={[cmyk]{1,0,1,0.5}},
+   base=0 pi pi 4 div neg 5 pi mul 2 div,
+   fillcolor=green!50,incolor=yellow!50,
+   function=shell,linewidth=0.5\pslinewidth,
+   ngrid=25]%
+\white%
+\gridIIID[Zmin=-3,Zmax=4,linecolor=white,
+  QZ=0.5](-4,4)(-4,4)
+\end{pspicture}
+\end{LTXexample}
+
+
+
+\subsection{Example 2: a \Index{helix}}
+\begin{LTXexample}[width=5.5cm]
+\psset{unit=0.75}
+\begin{pspicture}(-3,-4)(3,6)
+\psset[pst-solides3d]{viewpoint=20 10 2,Decran=20,
+  lightsrc=20 10 10}
+% Parametric Surfaces
+\defFunction{helix}(u,v)
+  {1 .4 v Cos mul sub u Cos mul 2 mul}
+  {1 .4 v Cos mul sub u Sin mul 2 mul}
+  {.4 v Sin mul u .3 mul add}
+\psSolid[object=surfaceparametree,linewidth=0.5\pslinewidth,
+  base=-10 10 0 6.28,fillcolor=yellow!50,incolor=green!50,
+  function=helix,
+  ngrid=60 0.4]%
+\gridIIID[Zmin=-3,Zmax=3](-2,2)(-2,2)
+\end{pspicture}
+\end{LTXexample}
+
+
+\subsection{Example 3: a \Index{cone}}
+\begin{LTXexample}[width=10cm]
+\psset{unit=0.5}
+\begin{pspicture}(-9,-7)(10,12)
+\psframe*(-9,-7)(10,12)
+\psset[pst-solides3d]{
+  viewpoint=20 5 10,
+  Decran=50,lightsrc=20 10 5}
+\psSolid[
+  object=grille,base=-2 2 -2 2,
+  linecolor=white](0,0,-2)
+% Parametric Surfaces
+\defFunction{cone}(u,v)
+  {u v Cos mul}{u v Sin mul}{u}
+\psSolid[object=surfaceparametree,
+   base=-2 2 0 2 pi mul,
+   fillcolor=yellow!50,
+   incolor=green!50,function=cone,
+   linewidth=0.5\pslinewidth,
+   ngrid=25 40]%
+\psset{linecolor=white}\white
+\gridIIID[Zmin=-2,Zmax=2]
+  (-2,2)(-2,2)
+\end{pspicture}
+\end{LTXexample}
+
+
+\subsection{An advised website}
+You will find on the website:
+
+\centerline{\url{http://k3dsurf.sourceforge.net/}}
+
+an excellent software to represent surfaces with numerous examples of parameterised surfaces and others.
+
+\endinput
+

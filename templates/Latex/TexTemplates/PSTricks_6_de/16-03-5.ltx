@@ -1,0 +1,34 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{94.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-node}\SpecialCoor
+\makeatletter \def\nodeBetween(#1)(#2)#3{%
+ \pst@getcoor{#1}\pst@tempa  \pst@getcoor{#2}\pst@tempb
+ \pnode(! \pst@tempa \tx@UserCoor /YA ED /XA ED
+          \pst@tempb \tx@UserCoor /YB ED /XB ED
+    XB XA add 2 div YB YA add 2 div){#3}}\makeatother
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}[showgrid](3,2)
+\psline[linestyle=dashed]{o-o}(0.25,0.33)(2.333,2)
+\nodeBetween(0.25,0.33)(2.333,2){Mitte}\pscircle*(Mitte){3pt}
+\end{pspicture}
+\end{document}

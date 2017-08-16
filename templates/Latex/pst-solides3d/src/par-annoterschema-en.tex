@@ -1,0 +1,119 @@
+\section{Adding dimensions to the scenery}
+
+It is very interesting to add  \Index{dimensions} to the scenery. We take the example
+of the methane molecule, where we want to insert the distances and angles.
+
+The first step consists of representing the molecule with its bonds and
+characteristic dimensions, and then draw it in a good looking way.
+
+\begin{center}
+\begin{pspicture}(-4,-4)(4,5)
+\psset{viewpoint=100 50 20 rtp2xyz,Decran=30,RotY=-30}
+{\psset{lightintensity=1,linewidth=0.5\pslinewidth}
+\psframe(-4,-4)(4,5)
+\codejps{
+  /L1 {
+     0 0.25 10.93  [8 6] newcylindre
+     {-90 0 0 rotateOpoint3d} solidtransform
+      dup (White) outputcolors
+   } def
+/L2 { L1 {0 0 -109.5 rotateOpoint3d} solidtransform } def
+/L3 { L2 {0 -120 0 rotateOpoint3d} solidtransform } def
+/L4 { L2 {0 120 0 rotateOpoint3d} solidtransform } def
+/L12 { L1 L2 solidfuz} def
+/L123 { L12 L3 solidfuz} def
+/Liaisons { L123 L4 solidfuz} def
+  Liaisons  drawsolid**}}
+\psPoint(0,10.93,0){H1}
+\psPoint(10.3,-3.64,0){H2}
+\psPoint(-5.15,-3.64,8.924){H3}
+\psPoint(-5.15,-3.64,-8.924){H4}
+\uput[0](H1){$\mathrm{H_1}$}
+\uput[l](H2){$\mathrm{H_2}$}
+\uput[u](H3){$\mathrm{H_3}$}
+\uput[d](H4){$\mathrm{H_4}$}
+\pcline[offset=0.25]{|-|}(H2)(H3)
+\pcline[offset=0.25]{<->}(H2)(H3)
+\aput{:U}{17,8 pm}
+\pcline[offset=0.15]{|-|}(H2)(O)
+\pcline[offset=0.15]{<->}(H2)(O)
+\aput{:U}{10,93 pm}
+\axesIIID(3,3,3)(14,16,14)
+\pspolygon[linestyle=dashed,linecolor=red](H1)(H2)(H3)
+\psline[linestyle=dashed,linecolor=red](H4)(H1)
+\psline[linestyle=dashed,linecolor=red](H4)(H2)
+\psline[linestyle=dashed,linecolor=red](H4)(H3)
+\psline[linestyle=dotted,linecolor=red](H4)(O)
+\psline[linestyle=dotted,linecolor=red](H3)(O)
+\psline[linestyle=dotted,linecolor=red](H2)(O)
+\psline[linestyle=dotted,linecolor=red](H1)(O)
+\pstMarkAngle[arrows=<->]{H1}{O}{H3}{\small 109,5$^{\mathrm{o}}$}
+\end{pspicture}
+\hfill
+\begin{pspicture}(-4,-4)(4,5)
+\psset{lightsrc=50 50 10,lightintensity=1,viewpoint=100 50 20 rtp2xyz,Decran=30,RotY=-30}
+{%
+\psset{linewidth=0.5\pslinewidth}
+\psframe(-4,-4)(4,5)
+\codejps{
+ /H1 {2  [18 16] newsphere
+ {-90 0 0 rotateOpoint3d} solidtransform
+ {0 10.93 0 translatepoint3d} solidtransform
+ dup (White) outputcolors} def
+  /L1 {
+     0 0.25 10  [12 10] newcylindre
+     {-90 0 0 rotateOpoint3d} solidtransform
+      dup (White) outputcolors
+   } def
+/HL1{ H1 L1  solidfuz} def
+/HL2 { HL1 {0 0 -109.5 rotateOpoint3d} solidtransform } def
+/HL3 { HL2 {0 -120 0 rotateOpoint3d} solidtransform } def
+/HL4 { HL2 {0 120 0 rotateOpoint3d} solidtransform } def
+ /C {3  [18 16] newsphere
+  {90 0 0 rotateOpoint3d} solidtransform
+   dup (gris) outputcolors} def
+/HL12 { HL1 HL2 solidfuz} def
+/HL123 { HL12 HL3 solidfuz} def
+/HL1234 { HL123 HL4 solidfuz} def
+/methane { HL1234 C solidfuz} def
+  methane  drawsolid**}
+\psPoint(0,10.93,0){H1}
+\psPoint(10.3,-3.64,0){H2}
+\psPoint(-5.15,-3.64,8.924){H3}
+\psPoint(-5.15,-3.64,-8.924){H4}}%
+\axesIIID(3,3,3)(14,16,14)
+\pspolygon[linestyle=dashed,linecolor=red](H1)(H2)(H3)
+\psline[linestyle=dashed,linecolor=red](H4)(H1)
+\psline[linestyle=dashed,linecolor=red](H4)(H2)
+\psline[linestyle=dashed,linecolor=red](H4)(H3)
+\psline[linestyle=dotted,linecolor=red](H4)(O)
+\psline[linestyle=dotted,linecolor=red](H3)(O)
+\psline[linestyle=dotted,linecolor=red](H2)(O)
+\psline[linestyle=dotted,linecolor=red](H1)(O)
+\end{pspicture}
+\end{center}
+
+The construction of the molecule is detailed in the document
+\texttt{molecules.tex}. To add a dimensioning you only need to find
+the vertices of the tetrahedron:
+\begin{verbatim}
+\psPoint(0,10.93,0){H1}
+\psPoint(10.3,-3.64,0){H2}
+\psPoint(-5.15,-3.64,8.924){H3}
+\psPoint(-5.15,-3.64,-8.924){H4}
+\end{verbatim}
+and then use the power of the package \texttt{pst-node}. For the distances:
+\begin{verbatim}
+\pcline[offset=0.25]{<->}(H2)(H3)
+\aput{:U}{17,8 pm}
+\pcline[offset=0.15]{<->}(H2)(O)
+\aput{:U}{10,93 pm}
+\psPoint(-5.15,-3.64,-8.924){H4}
+\end{verbatim}
+Then, for the angles, we take help from the package \texttt{pst-eucl}
+\begin{verbatim}
+\pstMarkAngle[arrows=<->]{H1}{O}{H3}{\small 109,5$^{\mathrm{o}}$}
+\end{verbatim}
+
+\endinput
+

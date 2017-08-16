@@ -1,0 +1,52 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\StartShownPreambleCommands
+\setlength\parindent{0pt}
+\usepackage{pstricks}
+\def\Hut{%
+ \pscustom[fillstyle=none,shadowcolor=lightgray,fillcolor=red]{
+  \psbezier(0,0)(1,1)(1,-1)(2,0)
+  \psbezier(3,1)(1,1)(2,2)
+  \closepath
+  \closedshadow[shadowsize=10pt,fillcolor=white,shadowangle=30]}}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}[showgrid](0,-0.25)(5,2)
+  \makeatletter
+  \bgroup
+  \def\pst@closedshadow{%
+    \addto@pscode{%
+        gsave
+        \psk@shadowsize \psk@shadowangle \tx@PtoC
+        \tx@Shadow
+        \pst@usecolor\psshadowcolor
+        gsave fill grestore
+        stroke grestore
+%        gsave
+%        \pst@usecolor\psfillcolor
+%        gsave fill grestore
+%        stroke
+%        grestore%
+  }}
+  \Hut\egroup
+  \makeatother
+  \rput(2.5,0){\Hut}
+\end{pspicture}
+\end{document}

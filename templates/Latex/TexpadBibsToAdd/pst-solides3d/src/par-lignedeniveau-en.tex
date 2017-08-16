@@ -1,0 +1,44 @@
+\section{Lines of \Index{intersecting planes}}
+
+For every object of the type \Lcs{psSolid}, it is possible to draw the lines
+of intersection between a chosen solid and one or more planes.
+
+The numeric argument \texttt{\Lkeyword{intersectiontype}=$k$} (value $-1$ by default)
+determines whether or not to draw the intersection lines. Set to $0$, the
+intersection lines are drawn.
+
+There are three keys to be handled:
+
+\begin{itemize}
+
+\item \texttt{\Lkeyword{intersectionplan}=\{[$eq_1$] ... [$eq_n$]\}}
+defines a list of the equations $eq_i$ of the intersecting planes. The $eq_i$
+could as well be some objects from the type \Lkeyword{plan} (see the related section).
+\begin{equation*}
+  ax+by+cz+d=0    \qquad \text{that would deliver $[a\, b\, c\, d\,]$ as one of the $n$ equations}
+\end{equation*}
+
+\item \texttt{\Lkeyword{intersectionlinewidth}=$w_1$ ... $w_n$}
+defines a list of the thickness in picas $w_i$ for each of the intersection lines.
+
+\item \texttt{\Lkeyword{intersectioncolor}=color$_1$ ... color$_n$}
+defines a list for the colors of the intersection lines.
+
+\end{itemize}
+
+\begin{LTXexample}[width=6cm]
+\psset{lightsrc=20 -20 10,viewpoint=50 -20 10 rtp2xyz,Decran=50}
+\psset{unit=0.5}
+\begin{pspicture*}(-5,-4)(5,5)
+\psSolid[object=cube,
+   intersectiontype=0,
+   intersectionplan={[1 0 .5 2] [1 0 .5 -1]},
+   intersectionlinewidth=1 2,
+   intersectioncolor=(bleu) (rouge),
+   RotX=20,RotY=90,RotZ=30,
+   a=6,
+   action=draw*]
+\end{pspicture*}
+\end{LTXexample}
+
+\endinput

@@ -1,0 +1,33 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{118.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pstricks}\SpecialCoor
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}[showgrid=true](0,1)(3,3)
+  \psset{dotscale=2,xunit=2,yunit=1.5}
+  \psdot(2;45)
+  \psdot[linecolor=cyan](! 2 45 cos mul 2 45 sin mul)
+  \psset{dotstyle=triangle*}
+  \psdot(1.5;70)
+  \psdot[linecolor=cyan](! 1.5 70 cos mul 1.5 70 sin mul)
+\end{pspicture}
+\end{document}

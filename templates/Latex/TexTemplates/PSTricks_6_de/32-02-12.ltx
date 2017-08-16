@@ -1,0 +1,101 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{uml}
+\StopShownPreambleCommands
+\begin{document}
+\umlDiagram[box=,sizeX=11cm,sizeY=14cm,ref=ADTdiagram,grayness=0.92]{}% End of diagram
+\umlSchema[pos=\umlTopRight{ADTdiagram},posDelta={-.5,-.5},refpoint=tr]{ADT}{% Attributes
+  \umlAttribute[visibility,type=String]{name}}{}{}{}{}
+\umlSchema[pos=\umlTopLeft{ADTdiagram},posDelta={.5,-1},refpoint=lt,abstract,
+  ref=ADTexample]{ADT-example}{%
+  \umlAttribute[visibility=-,
+    type=\emph{\umlColorsArgument\umlColorsAdjust type},default=null]{firstNode}
+  }{%Methods
+  }{%Arguments
+    \umlArgument[type=Metaclass]{type}
+  }{%Constraints
+  }{%Structure
+    \umlDiagram[box=,innerBorder=2mm,outerBorder]{%
+      \umlClass[pos={.5,.5}, ref=adtNode,box=]{Node}{%
+        \umlAttribute[visibility,
+            type=\emph{\umlColorsArgument\umlColorsAdjust type}]{data}}{}%
+      \umlAssociation[angleA=20, angleB=-20,arm=1em,arm=1em]{adtNode}{adtNode}%
+    }\cr% End of Diagram
+  }% End of ADT-example
+\umlInstance{ADTexample}{ADT}%
+\umlSchema[pos=\umlRight{ADTexample},posDelta={3,-1},refpoint=tl, ]{Graph}{% Attributes
+  }{% Methods
+    \umlMethod[visibility,]{insert}{\emph{\umlColorsArgument\umlColorsAdjust type} x}
+    \umlMethod[visibility,type=\emph{\umlColorsArgument\umlColorsAdjust type}]{%
+       dijkstra}{\emph{\umlColorsArgument\umlColorsAdjust type} x}
+    \umlMethod[visibility, type=boolean]{%
+      insertEdge}{\emph{\umlColorsArgument\umlColorsAdjust type} x}
+    \umlMethod[visibility, ]{delete}{\emph{\umlColorsArgument\umlColorsAdjust type} x}
+  }{% Arguments
+  }{% Constraints
+  }{% Structure
+    \umlDiagram[box=,innerBorder=2mm,outerBorder,sizeX=11em,sizeY=3.5em,ref=GraphDiagram]{%
+       \begin{umlColors}{\umlColorsSub}
+    \umlClass[pos=\umlBottomLeft{GraphDiagram},
+                  posDelta={1,1}, ref=graphNode]{Node}{}{}%
+        \umlAssociation[angleA=20,angleB=-20,armA=1em,armB=1em]{graphNode}{graphNode}%
+           \end{umlColors}
+          \umlLabelA[height=0mm,offset=1ex]{graphNodegraphNode}{*}%
+          \umlLabelB[height=0mm,offset=1ex,refpoint=t]{graphNodegraphNode}{*}%
+        \umlSymbol[fraction=.5]{graphNodegraphNode}{\pnode{gngn}}
+        \umlClass[pos=gngn,posDelta={2,0},ref=graphEdge, refpoint=l]{Edge}{%
+        \umlAttribute[type=real]{cost}}{}%
+      \umlAssociationClass[]{graphEdge}{gngn}%
+      }\cr% End of diagram
+    }% End of Graph
+  \umlSubclass{Graph}{ADTexample}
+  \umlSchema[posX=\umlLeft{ADTexample}, posDelta={3em,-1em},posY=\umlBottom{Graph},
+             refpoint=tl, ref=searchTree]{Search Tree}{% Attributes
+    }{% Methods
+    \umlMethod[visibility,]{%
+      insert}{\emph{\umlColorsArgument\umlColorsAdjust type} x}
+    \umlMethod[visibility,
+         type=\emph{\umlColorsArgument\umlColorsAdjust type}]{%
+      search}{\emph{\umlColorsArgument\umlColorsAdjust type} x}
+    \umlMethod[visibility, type=boolean]{%
+      search}{\emph{\umlColorsArgument\umlColorsAdjust type} x}
+    \umlMethod[visibility, ]{%
+      delete}{\emph{\umlColorsArgument\umlColorsAdjust type} x}
+    }{% Arguments
+    \umlArgument[type=Integer, initialValue=2]{arity}
+    \umlArgument[type={${\umlColorsArgument\umlColorsAdjust type}
+      \times {\umlColorsArgument\umlColorsAdjust type}\rightarrow$
+        boolean}, default=>]{sort}
+    }{% Constraints
+    }{% Structure
+      \umlDiagram[box=,sizeX=14em,sizeY=4em,innerBorder=2mm,outerBorder]{%
+        \begin{umlColors}{\umlColorsSub}
+        \umlClass[pos={.5, .5}, ref=treeNode]{Node}{}{}%
+        \umlAssociation[angleA=30,angleB=-30,armA=1em,armB=1em]{treeNode}{treeNode}%
+         \end{umlColors}
+          \umlLabelA[height=1mm,offset=4mm,refpoint=l]{treeNodetreeNode}{%
+            \emph{\umlColorsArgument\umlColorsAdjust arity}}%
+          \umlLabelB[refpoint=tl,height=-1mm,offset=4mm]{treeNodetreeNode}{1}%
+        }\cr% End of diagram
+    }%
+  \umlSubclass{searchTree}{ADTexample}%
+\end{document}

@@ -1,0 +1,34 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-eucl}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(-2,-2)(2,2)
+  \pstGeonode[PosAngle={20,90,0}]%
+    {O}(-.6,1.5){A}(1.6,-.5){B}
+  \pstSymO[CodeFigColor=blue,
+    PosAngle={-90,180}]{O}{A, B}[C]
+  \pspolygon[linewidth=1pt](A)(B)(C)(B')
+  \pstLineAB[linestyle=dashed]{<->}{A}{C}
+  \pstLineAB[linestyle=dashed]{<->}{B}{B'}
+\end{pspicture}
+\end{document}

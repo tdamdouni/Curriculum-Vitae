@@ -1,0 +1,59 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\usepackage{filecontents}
+\begin{filecontents*}{demo1.dat}
+1 99447169
+2 110351058
+3 123557238
+4 138346129
+5 145050826
+6 160363212
+7 174000394
+8 183856559
+9 189128691
+10 197634845
+11 213257357
+12 216899512
+13 230152738
+14 224144907
+15 247410024
+16 261168438
+17 252920343
+18 326153799
+19 319442110
+20 310351522
+21 381919943
+22 438043888
+23 357527766
+24 603304997
+\end{filecontents*}
+
+\StartShownPreambleCommands
+\usepackage{pst-plot}
+\StopShownPreambleCommands
+\begin{document}
+\readdata{\data}{demo1.dat} \pstScalePoints(1,0.000001){}{}
+\psset{llx=-1cm,lly=-.3cm}
+\begin{psgraph}[axesstyle=frame,xticksize=0 700,yticksize=0 25,subticks=0,
+  ylabelFactor={\cdot 10^6},Dx=5,dy=100\psyunit,Dy=100](0,0)(25,700){10cm}{5cm}
+   \listplot[linecolor=red,linewidth=2pt,showpoints]{\data}
+\end{psgraph}
+\end{document}

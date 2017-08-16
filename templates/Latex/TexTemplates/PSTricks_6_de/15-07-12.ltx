@@ -1,0 +1,36 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-plot}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(-7,-1.5)(7,1.5)
+  \psaxes[trigLabels,xunit=\psPi]{->}(0,0)(-2.2,-1.5)(2.2,1.5)
+  \psplot[linewidth=1.5pt,plotpoints=1000]{-7}{7}{x dup add RadtoDeg sin}
+\end{pspicture}
+
+\medskip
+\begin{pspicture}(-7,-1.5)(7,1.5)
+  \psaxes[trigLabels,trigLabelBase=2,dx=\psPiH,
+    xunit=\psPi]{->}(0,0)(-2.2,-1.5)(2.2,1.5)
+  \psplot[linewidth=1.5pt,plotpoints=1000]{-7}{7}{x dup mul RadtoDeg sin}
+\end{pspicture}
+\end{document}

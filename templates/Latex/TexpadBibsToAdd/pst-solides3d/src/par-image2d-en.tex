@@ -1,0 +1,394 @@
+\section{Projection of images}
+
+
+This command displays an eps image on a plane defined by an origin and a normal, this plan can be the face 
+of a predefined object: a  cube for example. The eps image must be prepared according to the method 
+described in the documentation for 
+`\textsf{pst-anamorphosis'}\footnote{\url{http://melusine.eu.org/syracuse/G/pst-anamorphosis/doc/}}.
+
+The macro includes various options:
+\begin{verbatim}
+    \psImage[file=<filename with extension>,
+             divisions=10,
+             normale=nx ny nz,
+             origine=xO yO zO,
+             phi=angle,
+             unitPicture=28.45](x,y)
+\end{verbatim}
+It focuses the image on the plane at the point defined by the origin, it may be moved to another point 
+by setting the \emph{optional} values \verb+(x,y)+. You can omit these values 
+if we do not translate the image into another point than the origin of the plan.
+
+\psframebox[linestyle=none,fillcolor=yellow,fillstyle=solid]{\texttt{divisions=20}} 
+selects the number of sub-segments for \texttt{lineto} in the image file to display. The higher the number, 
+the higher the projected image will be faithful to the original. However, the projection takes place on a 
+plane, the deformation will be small in all cases except one approaches very close to the plane, therefore 
+a small number of sub-divisions will generally give a correct result and will perform calculations quickly .
+
+\psframebox[linestyle=none,fillcolor=yellow,fillstyle=solid]{\texttt{phi}} can rotate the image of a fixed 
+value in degrees.
+
+\psframebox[linestyle=none,fillcolor=yellow,fillstyle=solid]{\texttt{unitImage=28.45}} 
+allows to resize the size of the eps image that is generally points per cm, a larger value will give a smaller image.
+
+If you want to place the image on the front of an object, it will follow the following procedure:
+\begin{itemize}
+   \item determine the number of faces of the object, see the documentation of `\textsf{pst-solides3d} ';
+   \item give to the normal of the face in question and origin at the center of that face. We can always 
+   shift the image with \verb+(x, y)+.
+\end{itemize}
+
+\begin{verbatim}
+\begin{pspicture}(-5,-5)(5,5)
+\psset{solidmemory}
+\psSolid[object=cube,a=8,action=draw,name=OBJECT,linecolor=red]%
+\psImage[file=tiger.eps,normal=OBJECT 0 solidnormaleface,
+         origine=OBJECT 0 solidcentreface,unitPicture=75]
+\psImage[file=tiger.eps,normal=OBJECT 1 solidnormaleface,
+         origine=OBJECT 1 solidcentreface,unitPicture=75]
+\psImage[file=tiger.eps,normal=OBJECT 4 solidnormaleface,
+         origine=OBJECT 4 solidcentreface,unitPicture=75]
+\psImage[file=tiger.eps,normal=OBJECT 3 solidnormaleface,
+         origine=OBJECT 3 solidcentreface,unitPicture=75]
+\psImage[file=tiger.eps,normal=OBJECT 2 solidnormaleface,
+         origine=OBJECT 2 solidcentreface,unitPicture=75]
+\end{pspicture}
+\end{verbatim}
+
+If the selected plan is not visible to the set position, it may, if desired, force the display of the 
+image with the \verb+visibility+.
+
+
+
+\begin{pspicture}(-10,-4)(6,13)
+\psframe(-10,-4)(6,13)
+\psset{viewpoint=12 60 20 rtp2xyz,Decran=10,lightsrc=viewpoint}
+\psImage[file=tiger.eps,normal=1 0 0,origine=0 2 2](0,3)
+\psSolid[object=plan,
+         definition=normalpoint,
+         args={0.01 2 2 [1 0 0 90]},
+         action=draw,linecolor=red,
+         planmarks,
+         showBase,
+         base=-2 2 -2 4]
+\psImage[file=tiger.eps,normal=0 1 0,origine=2 0 2]%(0,0)
+\psSolid[object=plan,
+         definition=normalpoint,
+         args={2 0.01 2 [0 1 0 180]},
+         action=draw,linecolor=red,
+         planmarks,
+         showBase,
+         base=-2 2 -2 2]
+\psImage[file=tiger.eps,normal=0 0 1,origine=2 2 0](2,0)
+\psSolid[object=plan,
+         definition=normalpoint,
+         args={2 2 0.01 [0 0 1 90]},
+         action=draw,linecolor=red,
+         planmarks,
+         showBase,
+         base=-2 3 -2 2]%
+\psImage[file=parrot.eps,normal=1 1 1,origine=5 5 5,unitPicture=75,phi=90]%(0,0)
+\psSolid[object=plan,
+         definition=normalpoint,
+         args={5 5 5 [1 1 1 180]},
+         action=draw,linecolor=red,
+         planmarks,
+         showBase,
+         base=-2 2 -2 2]
+\axesIIID(0,0,0)(4,5,6)
+\end{pspicture}
+
+
+\psset{unit=1cm}
+\psset{viewpoint=20 -120 30 rtp2xyz,Decran=20,unitPicture=15,lightsrc=viewpoint}
+\begin{pspicture}[solidmemory](-5,-7.5)(7,6)
+\psSolid[object=cube,a=8,name=OBJECT,linecolor=red,fillcolor=white%,numfaces=all,fontsize=100
+]
+\psset[pst-solides3d]{normal=OBJECT 0 solidnormaleface}
+\psImage[file=tiger.eps,origine=OBJECT 0 solidcentreface,phi=-90](0,0)
+%\psset[pst-solides3d]{normal=OBJECT 1 solidnormaleface}
+%\psImage[file=tiger.eps,
+%  origine=OBJECT 1 solidcentreface]
+%\psset[pst-solides3d]{normal=OBJECT 4 solidnormaleface}
+%\psImage[file=tiger.eps,origine=OBJECT 4 solidcentreface]
+\psset[pst-solides3d]{normal=OBJECT 3 solidnormaleface}
+\psImage[file=tiger.eps,origine=OBJECT 3 solidcentreface]
+\psset[pst-solides3d]{normal=OBJECT 2 solidnormaleface}
+\psImage[file=tiger.eps,origine=OBJECT 2 solidcentreface]
+\end{pspicture}
+
+
+
+\section{A bit of theory}
+
+\begin{minipage}{.45\textwidth}
+The image is projected into a plane defined by a normal $\vec{K}$ and origin $O'(x_O,y_O,z_O)$. 
+The coordinates of points in each image are given in reference to a benchmark plan 
+$(O,\vec {I},\vec{J})$ whose vectors are determined from $\vec{K}$ as follows:
+This vector $\vec{K}$ is defined by $\theta$ and $\varphi$, we calculate these values from the coordinates.
+With $(O,\vec{i},\vec{j},\vec{k})$
+
+\begin{align*}
+ \vec{K}=\left(
+ \begin{aligned}
+ \cos\varphi & \cos\theta\\
+ \cos\varphi & \sin\theta\\
+ \sin\varphi
+\end{aligned}% 
+\right)
+\end{align*}
+
+You must then choose the other two basis vectors
+ $(\vec{I},\vec{J},\vec{K})$.
+I choose to keep $\vec{I}$ at the plane $Oxy$
+\end{minipage}
+%
+\hfill
+%
+\begin{minipage}{0.45\textwidth}
+\begin{pspicture}(-3,-5)(4,5)
+\psset{unit=5}
+\psset{viewpoint=50 15 20  rtp2xyz ,Decran=35}
+\psset{solidmemory}
+\pstVerb{/Theta 45 def /Phi 45 def
+         /cosPhi {Phi cos} bind def
+         /sinPhi {Phi sin} bind def
+         /cosTheta {Theta cos} bind def
+         /sinTheta {Theta sin} bind def
+         /Kx {cosPhi cosTheta mul} bind def
+         /Ky {cosPhi sinTheta mul} bind def
+         /Kz sinPhi def}%
+\psSolid[object=plan,definition=normalpoint,args={0 0 0 [Kx Ky Kz 145]},action=draw,linecolor=blue,base=-1 1 -1 0]
+\psSolid[object=plan,definition=normalpoint,args={0 0 0 [0 0 1]},action=draw**,linecolor=red,base=-1 1 -1 1]
+\axesIIID(0,0,0)(1.25,1.25,1.25)
+\psSolid[object=plan,definition=normalpoint,args={0 0 0 [0 0 1]},action=none,linecolor=red,name=Oxy,base=-1 1 -1 1]
+\psset{plan=Oxy}%
+\psProjection[object=cercle,resolution=360,args=0 0 1,linecolor=gray,linestyle=dashed,range=0 360]
+\psProjection[object=texte,text=q,fontsize=5,PSfont=Symbol,isolatin=false,phi=90](.25,0.125)%
+\psSolid[object=plan,
+         definition=normalpoint,
+         args={0 0 0 [1 -1 0]},
+         action=none,linecolor=red,
+         name=Oxz,
+         base=-1 1 -1 1
+         ]%
+\psset{plan=Oxz}%
+\psProjection[object=cercle,resolution=360,
+              args=0 0 1,linecolor=gray,
+              linestyle=dashed,
+              range=0 90]%
+\psSolid[object=vecteur,
+        definition={[.02 .1]},
+        linecolor={[cmyk]{1,0,1,0.5}},
+        args=Kx Ky Kz](0,0,0)
+\psSolid[object=plan,
+         definition=normalpoint,
+         args={0 0 0 [Kx Ky Kz 145]},
+         action=draw,linecolor=blue,
+         base=-1 1 0 1,name=projection]%
+\psProjection[object=texte,plan=projection,text=plan de projection,fontsize=4](0,0.85)%
+\psSolid[object=vecteur,
+        definition={[.02 .1]},
+        linecolor=red,
+        args=sinTheta neg cosTheta 0 ](0,0,0)%
+\psSolid[object=plan,
+         definition=normalpoint,
+         args={0 0 0 [sinTheta cosTheta neg 0]},
+         action=none,linecolor=blue,
+         base=-1 1 -1 1,name=verticale]%
+\psProjection[object=texte,text=f,plan=verticale,PSfont=Symbol,isolatin=false,fontsize=4](0.5,0.2)%
+\psSolid[object=vecteur,
+        definition={[.02 .1]},
+        linecolor=blue,
+        args=cosTheta neg sinPhi mul sinTheta neg sinTheta mul cosPhi ](0,0,0)%
+\psPoint(Kx, Ky,Kz){K}
+\psPoint(Kx, Ky,0){XY}
+\psPoint(Kx,0,0){X}
+\psPoint(0, Ky,0){Y}
+\psPoint(0,0,0){O}
+\psPoint(cosTheta neg sinPhi mul, sinTheta neg sinTheta mul, cosPhi){J}
+\psPoint(sinTheta neg, cosTheta, 0){I}
+\psline(O)(XY)
+\psline[linestyle=dashed](XY)(K)
+\psline(X)(XY)(Y)
+\pstVerb{/xTube {t Cos 0.4 mul} def /yTube {t Sin 0.4 mul} def /zTube {0} def}%
+\defFunction{F}(t){xTube}{yTube}{zTube}%
+% choix de deux points très voisins sur le tube
+\pstVerb{/t1 0.22 pi mul def /t2 0.25 pi mul def }%
+\psPoint(/t t1 def xTube ,yTube,zTube){A}
+\psPoint(/t t2 def xTube ,yTube,zTube){B}
+\psSolid[object=courbe,
+   r=0,
+   function=F,
+   range=0 0.25 pi mul,
+   fillcolor=red]
+\psline[linecolor=red,arrowsize=0.03]{->}(A)(B)
+%
+\pstVerb{/xT {t Cos 0.4 mul cosPhi mul} def /yT {t Cos 0.4 mul cosPhi mul} def /zT {t Sin 0.4 mul} def}%
+\defFunction{F}(t){xT}{yT}{zT}%
+% choix de deux points très voisins sur le tube
+\pstVerb{/t1 0.22 pi mul def /t2 0.25 pi mul def }%
+\psPoint(/t t1 def xT ,yT,zT){A}
+\psPoint(/t t2 def xT ,yT,zT){B}
+\psSolid[object=courbe,
+   r=0,
+   function=F,
+   range=0 0.25 pi mul,
+   fillcolor={[rgb]{0.3,0.18,0.18}}]
+\psline[linecolor={[rgb]{0.3,0.18,0.18}},arrowsize=0.03]{->}(A)(B)
+\uput[u](J){\blue$\overrightarrow{J}$}
+\uput[ur](K){\color[cmyk]{1,0,1,0.5}{$\overrightarrow{K}$}}
+\uput[r](I){\red$\overrightarrow{I}$}    %$
+\end{pspicture}
+\end{minipage}
+
+\endinput
+
+
+
+Seen from above, in the plane $Oxy$:
+
+\begin{minipage}{.4\textwidth}
+\[
+\overrightarrow{I}=\left(%
+ \begin{aligned}
+ -\sin\theta\\
+ \hphantom{-}\cos\theta\\
+ 0
+ \end{aligned}
+ \right)
+ \]
+\end{minipage}
+\hfill
+\begin{minipage}{0.5\textwidth}
+
+\begin{pspicture}(-3,-4)(4,2)
+\psline{->}(4,0)\uput[0](4,0){$y$}
+\psline[linestyle=dashed](0,2)
+\psline{->}(0,-3.5)\uput[270](0,-3.5){$x$}
+\uput[135](0,0){O}
+{\psset{linewidth=2\pslinewidth}
+\psline{->}(0,-2)\uput[0](0,-2){$\overrightarrow{i}$}
+\psline{->}(2,0)\uput[90](2,0){$\overrightarrow{j}$}
+\psline[linestyle=dotted](3;-30)\uput[0](3;-30){$x'$}
+\psline[linecolor=red,doubleline=true]{->}(2;60)\uput[0](2;60){$\red \overrightarrow{I}$}
+}
+\psarc{->}(0,0){1.5}{-90}{-30}\uput[0](1.6;-60){$\theta$}
+\end{pspicture}
+\end{minipage}
+
+Il reste à trouver $\overrightarrow{J}$ pour que la base
+($\overrightarrow{I},\overrightarrow{J},\overrightarrow{K}$) soit directe :
+$\overrightarrow{J}=\overrightarrow{K}\times\overrightarrow{I}$
+\[
+\overrightarrow{J}=\left(\begin{aligned}
+ \cos\varphi\cos\theta\\
+ \cos\varphi\sin\theta\\
+ \sin\varphi
+ \end{aligned}
+ \right)
+\times
+\left(
+ \begin{aligned}{c}
+ -\sin\theta\\
+ \hphantom{-}\cos\theta\\
+ 0
+ \end{aligned}
+ \right)
+ =
+ \left(\begin{aligned}
+ -\sin\varphi\cos\theta\\
+ -\sin\varphi\sin\theta\\
+ \cos\varphi
+ \end{aligned}
+ \right)
+ \]
+ The transformation matrice:
+\[
+A=\left(%
+ \begin{array}{ccc}
+ -\sin\theta&-\sin\varphi\cos\theta&\cos\varphi\cos\theta\\
+ \hphantom{-}\cos\theta&-\sin\varphi\sin\theta&\cos\varphi\sin\theta\\
+ 0&\cos\varphi&\sin\varphi
+ \end{array}
+ \right)
+ \]
+
+to determine the coordinates ($ x, y, z $) of a point $M$ if one knows its
+  coordinates $(X, Y, Z)$ in the reference
+ $(O,\overrightarrow{I},\overrightarrow{J},\overrightarrow{K})$.
+
+ \[
+ \left(\begin{aligned}{c}
+ x\\
+ y\\
+ z
+ \end{aligned}
+ \right)
+ =\left(%
+ \begin{array}{ccc}
+ -\sin\theta&-\sin\varphi\cos\theta&\cos\varphi\cos\theta\\
+ \hphantom{-}\cos\theta&-\sin\varphi\sin\theta&\cos\varphi\sin\theta\\
+ 0&\cos\varphi&\sin\varphi
+ \end{array}
+ \right)
+\left(\begin{aligned}
+ X\\
+ Y\\
+ Z
+ \end{aligned}
+ \right)
+\]
+\[
+\left\lbrace\begin{array}{cccclcl}
+x&=&-X\sin\theta&-&Y\sin\varphi\cos\theta&+&Z\cos\varphi\cos\theta\\
+y&=&\hphantom{-}X\cos\theta&-&Y\sin\varphi\sin\theta&+&Z\cos\varphi\sin\theta\\
+z&=&0&+&Y\cos\varphi&+&Z\sin\varphi
+\end{array}
+\right.
+\]
+
+If we consider a point on the plane in the plane $XOY$
+
+\[
+\left\lbrace\begin{array}{ccccl}
+x&=&-X\sin\theta&-&Y\sin\varphi\cos\theta\\
+y&=&\hphantom{-}X\cos\theta&-&Y\sin\varphi\sin\theta\\
+z&=&0&+&Y\cos\varphi
+\end{array}
+\right.
+\]
+Et si maintenant, ce repère $OXYZ$ est translaté en un point
+$O'(x_{O'},y_{O'},z_{O'})$
+\[
+\left\lbrace\begin{array}{cccclcl}
+x&=&-X\sin\theta&-&Y\sin\varphi\cos\theta&+&x_{O'}\\
+y&=&\hphantom{-}X\cos\theta&-&Y\sin\varphi\sin\theta&+&y_{O'}\\
+z&=&0&+&Y\cos\varphi&+&z_{O'}
+\end{array}
+\right.
+\]
+
+Remarks:
+\begin{itemize}
+\item  $\overrightarrow{K}$ since we can obviously choose another associated base $ (\overrightarrow {I}, 
+\overrightarrow {J}) $ by turning the previously calculated around $ \overrightarrow {K} $ of the selected angle. 
+For this first draft order I preferred to rotate the image, which probably has the disadvantage lengthen calculations \ldots\
+
+\item Jean-Paul Vigneault made a different choice for the base $(\overrightarrow{I}, \overrightarrow{J} $, 
+he calculated $ \overrightarrow {J}$ from $\overrightarrow {K} $ by relation:
+\[
+\overrightarrow{J}=\overrightarrow{K}\wedge \left(%
+ \begin{array}{c}
+ 1\\
+ 0\\
+ 0
+ \end{array}
+ \right)
+\]
+ $\overrightarrow{I}=\overrightarrow{J}\wedge\overrightarrow{K}$.
+We can bring the system defined in `\textsf{pst-solides3d}' to the one I chose by setting the \textsf{phi} 
+of `\textsf{pst-solides3d}' (which allows you to turn the mark ) the proper value \ldots\ to calculate.
+
+\end{itemize}
+

@@ -1,0 +1,34 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-solides3d}
+\StopShownPreambleCommands
+\begin{document}
+\psset{unit=0.8}
+\begin{pspicture}(-3,-3)(3,9)\psset{viewpoint=50 10 15,lightsrc=8 8 8}
+\psSolid[object=sphere,r=4,fillcolor=blue!60!yellow!90,ngrid=36 36,intersectiontype=1,
+  intersectionplan={[1 1 1 -2]},intersectioncolor=(jaune),intersectionlinewidth=1](0,0,0)
+\psSolid[object=cone,r=3.944,h=12.7,linecolor=yellow,fillcolor=yellow!40,
+  opacity=0.4,lightsrc={},RotX=-35.26,RotY=-45,RotZ=-90,ngrid=12 36](0.667,0.667,0.667)
+\psPoint(8,8,8){ls}\uput[45](ls){Lichtquelle}\rput(ls){$\bullet$}
+\axesIIID[showOrigin=false](4,4,4)(11,6,6)
+\end{pspicture}
+\end{document}

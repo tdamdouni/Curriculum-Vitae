@@ -1,0 +1,9 @@
+[1] Config.pm:343> INFO - This is Biber 2.5
+[1] Config.pm:346> INFO - Logfile is '/Users/tdamdouni/Dropbox/Apps/Texpad/kjh-vita/.texpadtmp/kjh-vita.blg'
+[125] biber-darwin:290> INFO - === Wed Dec 21, 2016, 14:17:41
+[180] Biber.pm:351> INFO - Reading '/Users/tdamdouni/Dropbox/Apps/Texpad/kjh-vita/.texpadtmp/kjh-vita.bcf'
+[491] Biber.pm:776> INFO - Found 0 citekeys in bib section 0
+[514] Utils.pm:149> WARN - The file '/Users/tdamdouni/Dropbox/Apps/Texpad/kjh-vita/.texpadtmp/kjh-vita.bcf' does not contain any citations!
+[537] bbl.pm:526> INFO - Writing '/Users/tdamdouni/Dropbox/Apps/Texpad/kjh-vita/.texpadtmp/kjh-vita.bbl' with encoding 'UTF-8'
+[538] bbl.pm:619> INFO - Output to /Users/tdamdouni/Dropbox/Apps/Texpad/kjh-vita/.texpadtmp/kjh-vita.bbl
+[538] Biber.pm:108> INFO - WARNINGS: 1

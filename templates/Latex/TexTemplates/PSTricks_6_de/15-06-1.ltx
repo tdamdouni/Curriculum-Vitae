@@ -1,0 +1,34 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-plot}
+\StopShownPreambleCommands
+\begin{document}
+\def\data{ 0 0 1 3 2 4 3 1 4 2 5 3 6 5 }
+\psset{unit=0.75}
+\begin{pspicture}(-0.5,-0.5)(6,5)
+\psaxes[labelFontSize=\scriptstyle]{->}(0,0)(6,5)
+\psset{linewidth=1.5pt}
+\listplot[showpoints]{\data}
+\pstScalePoints(1,0.5){}{3 add}
+\listplot[showpoints,linecolor=black!40]{\data}
+\end{pspicture}
+\end{document}

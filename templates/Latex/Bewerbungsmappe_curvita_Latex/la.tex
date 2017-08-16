@@ -1,0 +1,101 @@
+\documentclass[11pt]{dinbrief}
+
+\usepackage[T1]{fontenc}
+
+\usepackage[applemac]{inputenc}%wenn ihr auch einen Mac verwendet
+
+\usepackage[ngerman]{babel}
+
+\usepackage{currvita}
+
+\usepackage{graphicx}
+
+% Kopf?/Fu?zeile
+
+\setlength{\unitlength}{1cm}
+
+\renewcommand{\labelitemi}{\labelitemii}
+
+\pagestyle{empty}
+
+\setlength{\parindent}{0pt}%keinen Absatzeinzug
+
+\nowindowtics %kein Falz am Rand
+
+\nowindowrules %keine Linien „uber und unter der Adresse
+
+\date{}% Muss leer sein sonst gibts ein Datum in die seite
+
+\begin{document}
+
+% Lebenslauf
+
+%siehe package currvita
+
+\begin{cv}{Lebenslauf}
+
+\begin{cvlist}{Persönliche Daten}
+
+\item[Anschrift] Frau Johanna Musterfrau \\
+
+Muster Straße 123\\
+
+44568 Musterhausen
+
+\item[Telefon](01 23 4) 5 67 89
+
+\item[E-Mail]deine@email-adresse.xy
+
+\item[Homepage]http://www.deine-homepage.de
+
+\item[Geboren]01.01.1900 in Lummerland
+
+\item[Staatsang.]deine Staatsangehörigkeit
+
+\item[Familienstand]dein Familienstand
+
+\end{cvlist}
+
+\begin{cvlist}{Schulische Ausbildung}
+
+\item[Monat/Jahr–Monat/Jahr]Grundschule Musterhausen
+
+\item[Monat/Jahr–Monat/Jahr]Deine weiterführende Schule Musterhausen
+
+\item[Monat/Jahr]Dein Abschluss
+
+\end{cvlist}
+
+\begin{cvlist}{Ausbildung/Studium/Was auch immer}
+
+\item[seit Monat/Jahr]Studium der Musterwissenschaften an der Muster-Universität Musterhausen
+
+\item[Monat/Jahr]falls Du noch wichtige Zwischenstationen erwähnen möchtest,
+
+\item[Monat/Jahr]kannst Du das hier
+
+\item[Monat/Jahr]beliebig oft tun
+
+\item[Monat/Jahr]Abschluss der Musteruniversität (Note: x.y)
+
+\end{cvlist}
+
+\begin{cvlist}{Sprachkenntnisse}
+
+\item[Monat/Jahr–Monat/Jahr]Englisch
+
+\item[Monat/Jahr–Monat/Jahr]Russisch
+
+\item[Monat/Jahr–Monat/Jahr]Hebräisch AG
+
+\item[Semester Jahr] Zertifikat in Spanisch
+
+\end{cvlist}
+
+\cvplace{Deine Stadt}
+
+\date{den \today}%setzt das heutige Datum ein
+
+\end{cv}
+
+\end{document}

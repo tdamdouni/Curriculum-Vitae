@@ -1,0 +1,37 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2008 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-circ}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(-2,-0.5)(2,2)
+  \pnode(-2,0){A} \pnode(2,0){B}
+  \resistor[labeloffset=0,intensity,intensitycolor=red,intensitylabel=$i_1$,
+    intensitylabelcolor=red,intensitylabeloffset=0.3,intensitywidth=2pt,
+    tension,tensioncolor=green,tensionoffset=-0.5,tensionlabel=$u_2$,
+    tensionlabelcolor=green,tensionlabeloffset=-0.75,tensionwidth=1pt](A)(B){$R$}
+  \capacitor[labeloffset=-0.75, parallel,parallelnode,parallelsep=0.2,parallelarm=1.5,
+    intensity,intensitycolor=red,intensitylabel=$i_2$,intensitylabelcolor=red,
+    intensitylabeloffset=0.3,intensitywidth=2\pslinewidth,
+    tension,tensioncolor=green,tensionoffset=0.75,tensionlabel=$u_2$,
+    tensionlabelcolor=green,tensionlabeloffset=1,tensionwidth=\pslinewidth](A)(B){$C$}
+\end{pspicture}
+\end{document}

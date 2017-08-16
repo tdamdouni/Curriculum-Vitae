@@ -1,0 +1,42 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{xcolor,multido}
+\definecolorseries{testC}{cmyk}{last}{white}[cmyk]{1,0,0,0}
+\resetcolorseries[10]{testC}
+\definecolorseries{testM}{cmyk}{last}{white}[cmyk]{0,1,0,0}
+\resetcolorseries[10]{testM}
+\definecolorseries{testY}{cmyk}{last}{white}[cmyk]{0,0,1,0}
+\resetcolorseries[10]{testY}
+\definecolorseries{testK}{cmyk}{last}{white}[cmyk]{0,0,0,1}
+\resetcolorseries[10]{testK}
+\setlength{\fboxsep}{2mm}
+\StopShownPreambleCommands
+\begin{document}
+\makebox[30mm][l]{cyan (C):}%
+\multido{\nColr=0+1}{10}{\colorbox{testC!![\nColr]}{0.\nColr}}\\
+\makebox[30mm][l]{magenta (M):}%
+\multido{\nColr=0+1}{10}{\colorbox{testM!![\nColr]}{0.\nColr}}\\
+\makebox[30mm][l]{yellow (Y):}%
+\multido{\nColr=0+1}{10}{\colorbox{testY!![\nColr]}{0.\nColr}}\\
+\makebox[30mm][l]{black (K):}%
+\multido{\nColr=0+1}{10}{\colorbox{testK!![\nColr]}{0.\nColr}}
+\end{document}

@@ -1,0 +1,54 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage[dvipsnames]{pstricks}
+\usepackage{pst-plot,pst-node,amssymb}
+\newcommand\R{\mathbb{R}}
+\newcommand\eps{\varepsilon}
+\StopShownPreambleCommands
+\begin{document}
+\psset{xunit=.35cm,yunit=.35cm}
+\begin{pspicture}(0,0)(29,9.5)
+   \psaxes[labels=none,ticks=none]{->}(3,2)(10,10)
+     \psline{->}(3,2)(0,0)
+   \psaxes[labels=none,ticks=none]{->}(20,4)(29,10)
+     \psline{->}(20,4)(16,0)
+   \psccurve[fillstyle=solid,fillcolor=Goldenrod](1.8,8.5)(3,9)%
+      (4.3,8.6)(6,8.2)(8,8.7)(9.2,8)(9.5,7)%
+      (9,5.7)(8.5,4.3)(8.6,3.4)(6,4)(4,3.5)(3,3.2)(2.5,3.1)(2,4)%
+      (2.1,4.8)(2.5,6)(1.9,7)(1,8)(1.5,8.2)
+   \psline[linestyle=dashed,dash=3pt 3pt]{-}(3,3.4)(3,7)
+   \psline{-}(3,7.2)(3,9)
+   \psarc*[linecolor=white](6.5,6){20pt}{0}{180}
+   \pscircle[linestyle=dashed,dash=3pt 2pt](6.5,6){20pt}
+   \psellipse[linestyle=dashed,dash=3pt 2pt,fillstyle=hlines*,%
+       hatchcolor=red](6.5,6)(20pt,10pt)
+   \qdisk(6.5,6){2pt} \uput[345](6.5,6){$p$}
+   \uput[110](8,7){$U$} \uput[r](8.5,3.5){$M$}
+   \pscircle[linestyle=dashed,dash=3pt 2pt](20,4){30pt}
+   \psellipse[linestyle=dashed,dash=3pt 2pt,fillstyle=hlines,%
+       hatchcolor=red](20,4)(30pt,15pt)
+   \qdisk(20,4){2pt} \uput[d](20,4){$0$}
+   \psbezier[showpoints=false]{<-}(21,3.5)(26.5,3.5)(19.5,2.9)(23.5,2.9)
+   \uput[r](23.5,2.9){$g(U)\cap\bigl(\R^2\times\{0\}\bigr)$}
+   \pccurve[angleA=0,angleB=155,linecolor=blue]{->}(10.5,6)(17,5) \Aput{$g$}
+\end{pspicture}
+\end{document}

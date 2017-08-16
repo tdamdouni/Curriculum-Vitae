@@ -1,0 +1,53 @@
+\section{\Index{Chamfering} a solid}
+
+\psset{lightsrc=10 0 10,viewpoint=50 -20 30 rtp2xyz,Decran=50}
+\begin{LTXexample}[width=6cm]
+\psset{unit=0.5}
+\begin{pspicture*}(-4,-4)(4,4)
+\psSolid[object=cube,
+   a=5,
+   fillcolor=red]
+\end{pspicture*}
+\end{LTXexample}
+
+
+\begin{LTXexample}[width=6cm]
+\psset{unit=0.5}
+\begin{pspicture*}(-4,-4)(4,4)
+\psSolid[object=cube,
+   a=5,
+   fillcolor=red,
+   chanfrein,
+   chanfreincoeff=.6]
+\end{pspicture*}
+\end{LTXexample}
+
+The option \Lkeyword{chanfrein} allows us to \Index{chamfer} a solid. This option
+uses the key \Lkeyword{chanfreincoeff} (value $0.8$ by default) which indicates the
+ratio $k$ with ($0<k<1$). This ratio is the one of a centre dilation with
+the centre in the middle of the chosen face.
+
+\psset{lightsrc=10 0 10,viewpoint=50 -20 30 rtp2xyz,Decran=30}
+\begin{LTXexample}[width=6cm]
+\psset{unit=0.5}
+\begin{pspicture*}(-4,-4)(4,4)
+\psSolid[object=dodecahedron,
+   a=5,
+   fillcolor=cyan]
+\end{pspicture*}
+\end{LTXexample}
+
+\psset{lightsrc=10 0 10,viewpoint=50 -20 30 rtp2xyz,Decran=30}
+\begin{LTXexample}[width=6cm]
+\psset{unit=0.5}
+\begin{pspicture*}(-4,-4)(4,4)
+\psSolid[object=dodecahedron,
+   a=5,
+   fillcolor=cyan,
+   chanfrein,
+   chanfreincoeff=.8]
+\end{pspicture*}
+\end{LTXexample}
+%\newpage
+
+\endinput

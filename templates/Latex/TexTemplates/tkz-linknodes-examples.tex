@@ -1,0 +1,88 @@
+% Author: Alain Matthes (http://altermundus.com/)
+\documentclass[a4paper,11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[upright]{fourier}
+\usepackage{amsmath,tkz-linknodes}
+\usepackage{tikz}
+%%%<
+\usepackage{verbatim}
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{5pt}%
+%%%>
+
+\begin{comment}
+:Title: Tkz-linknodes examples
+
+Demonstration of the `tkz-linknodes package`_, a package that makes it easy to link
+elements in an amsmath align or aligned environment.
+
+.. _tkz-linknodes package: http://www.ctan.org/tex-archive/help/Catalogue/entries/tkz-linknodes.html
+
+\end{comment}
+\begin{document}
+
+\parindent=0pt
+\begin{preview}
+\begin{center}
+  \fbox{%
+  \begin{minipage}{10cm}
+        \begin{NodesList}[margin=2 cm]
+       \begin{align}
+     3\left(x^2-\frac{2}{3}\right) &= 4                             \AddNode\\
+       3x^2-2  &= 4                                                 \AddNode\\
+       3x^2    &= 6                                                 \AddNode\\
+       \intertext{\hfil isolate the term with the variable \hfil}
+        x^2    &= 2                                                 \AddNode\\
+ \sqrt{x^2}    &= \sqrt{2}                                          \AddNode\\
+      |x|      &= \sqrt{2}                                          \AddNode\\
+       x       &= \pm\sqrt{2}                                       \AddNode
+         \end{align}
+ \LinkNodes{expand}%
+ \LinkNodes{$+2$}%
+ \LinkNodes{$\div 3$}
+ \LinkNodes{$\sqrt{\ldots}$}
+ \LinkNodes{$\sqrt{x}=|x|$}
+ \LinkNodes{so that}
+   \end{NodesList}
+  \end{minipage}}
+\end{center}
+
+This example is from  MathMode.pdf of Herbert Vo\ss
+
+\begin{NodesList}[margin=1cm]
+  \begin{displaymath}\displaywidth=.2\linewidth
+    \begin{aligned}
+    y &= 2x^2 -3x +5                          \AddNode\\
+  & \hphantom{= \ 2\left(x^2-\frac{3}{2}\,x\right. }%
+      \textcolor{blue}{%
+        \overbrace{\hphantom{+\left(\frac{3}{4}\right)^2- %
+          \left(\frac{3}{4}\right)^2}}^{=0}}   \\
+  &= 2\left(\textcolor{red}{%
+       \underbrace{%
+           x^2-\frac{3}{2}\,x + \left(\frac{3}{4}\right)^2}%
+   }%
+   \underbrace{%
+        - \left(\frac{3}{4}\right)^2 + \frac{5}{2}}%
+   \right)                                      \AddNode\\
+   &= 2\left(\qquad\textcolor{red}{\left(x-\frac{3}{4}\right)^2}
+   \qquad + \ \frac{31}{16}\qquad\right)  \AddNode\\
+y
+   &= 2\left(x\textcolor{cyan}{-\frac{3}{4}}\right)^2\textcolor{blue}{+\frac{31}{8}}\AddNode
+\end{aligned}
+         \end{displaymath}
+{%
+\tikzset{LabelStyle/.append style = {left,text=red}}
+    \LinkNodes{%
+    \begin{minipage}{5cm}
+      $2x^2 -3x$ is the beginning of an algebraic identity %
+       (binomial formula)
+      \end{minipage}}
+       \LinkNodes{$(a-b)^2=a^2-2ab+b^2$}
+       \LinkNodes{after simplication, the result is}%
+}
+\end{NodesList}
+\end{preview}
+
+
+\end{document} 

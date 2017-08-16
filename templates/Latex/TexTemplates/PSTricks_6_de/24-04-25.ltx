@@ -1,0 +1,40 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2008 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-circ}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(-4,0)(5,7)
+  \psset{logicWidth=1,logicHeight=1.4,dotsize=0.15}
+  \logic[logicWireLength=0](-2,0.75){A0}  \logic[logicWireLength=0](-2,4.7){A1}
+  \ncbar[angleA=-180,angleB=-180,arm=0.5]{A11}{A02}
+  \psline[dotsize=0.15]{-*}(-3.5,3.5)(-2.5,3.5) \uput[180](-3.5,3.5){$T$}
+  \psline(-3.5,0|A01)(A01)  \uput[180](-3.5,0|A01){$S$}
+  \psline(-3.5,0|A12)(A12)  \uput[180](-3.5,0|A02){$R$}
+  \psset{logicType=nor, logicLabelstyle=\normalsize}
+  \logic(1,1.1){nor1}  \logic(1,4.35){nor2}
+  \psline(nor2Q)(4,0|nor2Q)  \uput[0](4,0|nor2Q){$Q$}
+  \psline(nor1Q)(4,0|nor1Q)  \uput[0](4,0|nor1Q){$\overline{Q}$}
+  \psline{*-}(3,0|nor2Q)(3,4)(1,4)(0,3)(0,0|nor12)(nor12)
+  \psline{*-}(3,0|nor1Q)(3,3)(1,3)(0,4)(0,0|nor21)(nor21)
+  \psline(A0Q)(nor11)  \psline(A1Q)(nor22)
+\end{pspicture}
+\end{document}

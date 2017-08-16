@@ -1,0 +1,99 @@
+\section[Curves of functions from R in R\textsuperscript{3}]%
+{Curves of functions from $\mathbb{R}$ in $\mathbb{R}^3$} %$
+
+%% \section{Fonctions R --> R\textsuperscript{3}}
+
+The line of a defined \Index{function} calls the object \Lkeyval{courbe} and the option \Lkeyword{function}.
+We can realize a helix in algebraic notation with the function:
+
+\begin{verbatim}
+\defFunction[algebraic]{helice}(t){3*cos(4*t)}{3*sin(4*t)}{t}
+\end{verbatim}
+
+\psset{lightsrc=10 -20 50,viewpoint=50 -20 20 rtp2xyz,Decran=50}
+\begin{LTXexample}[width=6.5cm]
+\psset{unit=0.5}
+\begin{pspicture}(-6,-3)(6,8)
+\psframe*[linecolor=blue!50](-6,-3)(6,8)
+\psSolid[object=grille,base=-4 4 -4 4,linecolor=red,linewidth=0.5\pslinewidth]%
+\axesIIID(0,0,0)(4,4,7)
+\defFunction[algebraic]{helice}(t){3*cos(4*t)}{3*sin(4*t)}{t}
+\psSolid[object=courbe,
+        r=0,
+        range=0 6,
+        linecolor=blue,linewidth=0.1,
+        resolution=360,
+        function=helice]%
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=6.5cm]
+\psset{unit=0.5}
+\begin{pspicture}(-6,-3)(6,8)
+\psframe*[linecolor=blue!50](-6,-3)(6,8)
+\psset{lightsrc=10 -20 50,viewpoint=50 -20 30 rtp2xyz,Decran=50}
+\psSolid[object=grille,base=-4 4 -4 4,linecolor=red,linewidth=0.5\pslinewidth]%
+\axesIIID(0,0,0)(4,4,7)
+\psset{range=-4 4}
+\defFunction{cosRad}(t){ t 2 mul Cos 4 mul }{ t }{ 0 }
+\psSolid[object=courbe,linewidth=0.1,
+  r=0,linecolor=red,
+  resolution=360,
+  function=cosRad]
+\psSolid[object=grille,base=-4 4 -4 4,linecolor=blue,linewidth=0.5\pslinewidth](0,0,3)
+\psPoint(0,0,3){O1}\psPoint(0,0,7){Z1}\psline(O1)(Z1)\psline[linestyle=dashed](O1)(O)
+\pstVerb{/tmin -4 def /tmax 4 def}%
+\defFunction{sinRad}(t){ t }{ t Sin 3 mul }{ 3 }
+\psSolid[object=courbe,linewidth=0.1,
+  r=0,linecolor=blue,
+  resolution=30,
+  function=sinRad]
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=6.5cm]
+\psset{unit=0.5}
+\begin{pspicture}(-6.5,-3)(7,11)
+\psset{lightsrc=10 -20 50,viewpoint=50 -20 20 rtp2xyz,Decran=50}
+\psSolid[object=grille,base=-4 4 -4 4,
+  linecolor=lightgray,linewidth=0.5\pslinewidth]%
+\psSolid[object=grille,base=-4 4 0 8,
+  linecolor=lightgray,RotX=90,
+  linewidth=0.5\pslinewidth](0,4,0)
+\psSolid[object=grille,base=-4 4 -4 4,
+  linecolor=lightgray,RotY=90,
+  linewidth=0.5\pslinewidth](-4,0,4)
+\defFunction[algebraic]{helice}(t)%
+  {1.3*(1-cos(2.5*t))*cos(6*t)}
+  {1.3*(1-cos(2.5*t))*sin(6*t)}{t}
+\defFunction[algebraic]{helice_xy}(t)%
+  {1.3*(1-cos(2.5*t))*cos(6*t)}
+  {1.3*(1-cos(2.5*t))*sin(6*t)}{0}
+\defFunction[algebraic]{helice_xz}%
+  (t){1.3*(1-cos(2.5*t))*cos(6*t)}{4}{t}
+\defFunction[algebraic]{helice_yz}%
+  (t){-4}{1.3*(1-cos(2.5*t))*sin(6*t)}{t}
+\psset{range=0 8}
+\psSolid[object=courbe,r=0,linecolor=blue,
+  linewidth=0.05,resolution=360,
+  normal=0 0 1,function=helice_xy]
+\psSolid[object=courbe,r=0,
+  linecolor=green,linewidth=0.05,
+  resolution=360,normal=0 0 1,
+  function=helice_xz]
+\psSolid[object=courbe,r=0,
+  linewidth=0.05,resolution=360,
+  normal=0 0 1,function=helice_yz]
+\psSolid[object=courbe,r=0,
+  linecolor=red,linewidth=0.1,
+  resolution=360,function=helice]
+ \end{pspicture}
+\end{LTXexample}
+
+
+These last function lines are found in an animated form on the website:
+
+\centerline{\url{http://melusine.eu.org/syracuse/pstricks/pst-solides3d/animations/}}
+
+
+\endinput

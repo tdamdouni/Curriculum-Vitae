@@ -1,0 +1,36 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{94.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pstricks}
+\StopShownPreambleCommands
+\begin{document}
+\def\curve{\pscurve(-.1,.1)(-.15,.15)(0,.2)(.15,.15)(.1,.1)}
+\psset{unit=5cm,linewidth=5mm}
+\begin{pspicture}(-0.2,-0.6)(0.2,0.5)%
+\rput(0,.2){\psset{arrows=c-c}\curve}
+\rput(0,-.2){%
+  \psset{fillstyle=solid,fillcolor=red,arrows=c-c}%
+  \curve}
+\rput(0,-.6){%
+  \psset{fillstyle=solid,fillcolor=red,linecap=1}%
+  \curve}
+\end{pspicture}
+\end{document}

@@ -1,0 +1,37 @@
+\section{Numbering of the vertices}
+
+There is an option that permits the  marking of the \Index{vertices} (with a black circle) and/or numbers them either globally or individually.
+\begin{itemize}
+  \item \texttt{\Lkeyword{show}=all} marks all the vertices;
+  \item \texttt{\Lkeyword{num}=all} numbers all the vertices;
+  \item \verb+show=0 1 2 3+ marks the vertices with the index number 0, 1, 2 and 3;
+  \item \verb+num=0 1 2 3+ numbers the vertices with the index number 0, 1, 2 and 3.
+\end{itemize}
+%
+\begin{LTXexample}[width=6cm]
+\begin{pspicture}(-3,-2.5)(7,2.5)
+\psset{viewpoint=50 20 20 rtp2xyz,Decran=40}
+\psSolid[
+   action=draw,
+   object=cube,
+   RotZ=30,
+   show=all,
+   num=all
+    ]%
+\end{pspicture}
+\end{LTXexample}
+
+
+\begin{LTXexample}[width=6cm]
+\begin{pspicture}(-3,-2.5)(7,2.5)
+\psset{viewpoint=50 20 20 rtp2xyz,Decran=40}
+\psSolid[action=draw,
+   object=cube,
+   RotZ=30,
+   show=0 1 2 3,
+   num=0 1 2 3
+    ]%
+\end{pspicture}
+\end{LTXexample}
+
+\endinput

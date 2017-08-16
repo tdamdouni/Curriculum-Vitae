@@ -1,0 +1,120 @@
+\section{\Index{Solid strip}}
+
+The strip is a folding screen positioned horizontally on the floor. The base of the folding screen is defined in the plane $Oxy$ by the coordinates of its vertices by the parameter \Lkeyword{base}:
+\begin{verbatim}
+\psSolid[object=ruban,h=3,base=x1 y1 x2 y2 x3 y3 ...xn yn,ngrid=n](0,0,0)%
+\end{verbatim}
+
+\subsection{A simple \Index{folding screen}}
+\begin{LTXexample}[width=9.5cm]
+\psset{lightsrc=10 0 10,viewpoint=50 -20 30 rtp2xyz,Decran=50,unit=0.75}
+\begin{pspicture}(-5.5,-4.5)(7,5)
+\psSolid[object=grille,base=-4 6 -4 4,action=draw,linecolor=gray](0,0,0)
+\psSolid[object=ruban,h=3,fillcolor=red!50,
+      base=0 0 2 2 4 0 6 2,
+      num=0 1 2 3,
+      show=0 1 2 3,
+      ngrid=3
+      ](0,0,0)
+\axesIIID(0,2,0)(6,6,4.5)
+\end{pspicture}
+\end{LTXexample}
+
+
+\subsection{A sinusoidal folding screen}
+\psset{lightsrc=10 30 10,viewpoint=50 50 20 rtp2xyz,Decran=50}
+\begin{LTXexample}
+\psset{unit=0.35}
+\begin{pspicture}(-10,-6)(12,8)
+\defFunction{F}(t){2 t 4 mul cos mul}{t 20 div}{}
+\psSolid[object=grille,base=-6 6 -10 10,action=draw,linecolor=gray](0,0,0)
+\psSolid[object=ruban,h=2,fillcolor=red!50,
+      resolution=72,
+      base=-200 200 {F} CourbeR2+,  %% -200 5 200 {/Angle ED 2 Angle 4 mul cos mul Angle 20 div } for,
+      ngrid=4](0,0,0)
+\axesIIID(5,10,0)(7,11,6)
+\end{pspicture}
+\end{LTXexample}
+
+
+\subsection{A \Index{corrugated surface}}
+This is the same object as before with an additional rotation of $90^{\mathrm{o}}$ around $Oy$.
+
+\psset{lightsrc=10 30 10,viewpoint=50 50 20 rtp2xyz,Decran=30}
+\begin{LTXexample}
+\psset{unit=0.4}
+\begin{pspicture}(-14,-7)(8,5)
+\defFunction{F}(t){t 4 mul cos}{t 20 div}{}
+\psSolid[object=grille,base=0 16 -10 10,action=draw,linecolor=gray](0,0,0)
+\psSolid[object=ruban,h=16,fillcolor=red!50,RotY=90,incolor=green!20,
+      resolution=72,
+      base=-200 200 {F} CourbeR2+,
+      ngrid=16](0,0,1)
+\axesIIID(16,10,0)(20,12,6)
+\end{pspicture}
+\end{LTXexample}
+
+We can then imagine it to be like a corrugated iron roof of a shed.
+
+
+\subsection{An asteroidal folding screen: version 1}
+
+The contour of the folding screen is defined within a loop:
+\begin{verbatim}
+       base=0 72 360 {/Angle ED 5 Angle cos mul 5 Angle sin mul
+            3 Angle 36 add cos mul 3 Angle 36 add sin mul} for
+\end{verbatim}
+the blueish surface on the bottom is defined with the help of a polygon, where the vertices are calculated by the command\\
+\verb+\psPoint(x,y,z){P}+
+\begin{verbatim}
+\multido{\iA=0+72,\iB=36+72,\i=0+1}{6}{%
+    \psPoint(\iA\space cos 5 mul,\iA\space sin 5 mul,0){P\i}
+    \psPoint(\iB\space cos 3 mul,\iB\space sin 3 mul,0){p\i}
+    }%
+\pspolygon[fillstyle=solid,fillcolor=blue!50](P0)(p0)(P1)(p1)(P2)(p2)
+                                             (P3)(p3)(P4)(p4)(P5)(p5)
+\end{verbatim}
+
+\psset{lightsrc=10 0 10,viewpoint=50 20 30 rtp2xyz,Decran=50}
+\begin{LTXexample}[width=7.5cm]
+\psset{unit=0.45}
+\begin{pspicture}(-9,-5)(9,7)
+\multido{\iA=0+72,\iB=36+72,\i=0+1}{6}{%
+    \psPoint(\iA\space cos 5 mul,\iA\space sin 5 mul,0){P\i}
+    \psPoint(\iB\space cos 3 mul,\iB\space sin 3 mul,0){p\i}
+    }%
+\pspolygon[fillstyle=solid,fillcolor=blue!50](P0)(p0)(P1)(p1)(P2)(p2)(P3)(p3)(P4)(p4)(P5)(p5)
+\defFunction{F}(t){t cos 5 mul}{t sin 5 mul}{}
+\defFunction{G}(t){t 36 add cos 3 mul}{t 36 add sin 3 mul}{}
+\psSolid[object=grille,base=-6 6 -6 6,action=draw,linecolor=gray](0,0,0)
+\psSolid[object=ruban,h=1,fillcolor=red!50,
+      base=0 72 360 {/Angle exch def Angle F Angle G} for,
+      num=0 1 2 3,show=0 1 2 3,ngrid=2](0,0,0)
+\axesIIID(5,5,0)(6,6,6)
+\end{pspicture}
+\end{LTXexample}
+
+
+\subsection{An asteroidal folding screen: version 2}
+
+The bottom of the pot is defined by the object \Lkeyword{face} with the option
+\Lkeyword{biface}:
+
+\psset{lightsrc=10 0 10,viewpoint=50 -20 20 rtp2xyz,Decran=50}
+\begin{LTXexample}[width=7.5cm]
+\psset{unit=0.4}
+\begin{pspicture}(-9,-4)(9,7)
+\defFunction{F}(t){t cos 5 mul}{t sin 5 mul}{}
+\defFunction{G}(t){t 36 add cos 3 mul}{t 36 add sin 3 mul}{}
+\psSolid[object=face,fillcolor=blue!50,biface,
+      base=0 72 360 {/Angle exch def Angle F Angle G} for,](0,0,0)
+\psSolid[object=grille,base=-6 6 -6 6,action=draw,linecolor=gray](0,0,0)
+\psSolid[object=ruban,h=1,fillcolor=red!50,
+      base=0 72 360 {/Angle exch def Angle F Angle G} for,
+      ngrid=2](0,0,0)
+\axesIIID(5,5,0)(6,6,6)
+\end{pspicture}
+\end{LTXexample}
+
+
+\endinput

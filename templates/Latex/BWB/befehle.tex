@@ -1,0 +1,208 @@
+% Copyright 2009-2011 Dominik Wagenfuehr <dominik.wagenfuehr@deesaster.org>
+% Dieses Dokument unterliegt der Creative-Commons-Lizenz
+% "Namensnennung-Weitergabe unter gleichen Bedingungen 3.0 Deutschland"
+% [http://creativecommons.org/licenses/by-sa/3.0/de/].
+
+% Pakete
+\usepackage[utf8]{inputenc}   % UTF8-Kodierung für Umlaute
+\usepackage[T1]{fontenc}      % use TeX encoding then Type 1.
+\usepackage{lmodern}          % Bessere Schriftart (ersetzt CM-Schriften)
+\usepackage{ngerman}          % deutsche Silbentrennung
+\usepackage{graphicx}         % Einbindung von Grafiken
+\usepackage{fancyhdr}         % eigenes Layout einbinden
+\usepackage{pdfpages}         % PDF-Seiten einbinden
+\usepackage{xifthen}          % Wenn-dann-Abfragen
+\usepackage{charter}          % Charter-Schrift
+\usepackage{titlesec}         % Anpassung der Überschriften
+\usepackage{longtable}        % Tabellen über Seitenumbruch hinweg
+\usepackage{setspace}         % Zeilenabstand festlegen
+\usepackage{hyperref}         % Hyperlinks und interne PDF-Verweise
+
+% Layout
+\hbadness=10000                % unterdrückt unwichtige Fehlermeldungen
+\clubpenalty = 10000           % Keine "Schusterjungen"
+\widowpenalty = 10000          % Keine "Hurenkinder"
+\displaywidowpenalty = 10000
+
+% Linie im Kopf ausblenden und im Fuß eine feine Linie
+\renewcommand*{\headrulewidth}{0pt}
+\renewcommand*{\footrulewidth}{0.4pt}
+
+% Überschriftenlayout verändern
+\titlespacing{\section}{0mm}{2em}{2em}
+\titlespacing{\subsection}{0em}{0em}{0em}
+\titleformat{\section}{\normalfont\LARGE\scshape}{}{0mm}{\hspace*{\fill}}
+\titleformat{\subsection}{\normalfont\Large\bfseries\scshape}{}{0mm}{}[\vskip-1.5em\hrulefill]
+
+% Eigene Fusszeile festlegen, Kopfzeile leeren
+\pagestyle{fancy}
+\fancyhead{}
+\cfoot{\VollerName, \AbsenderStrasse, \AbsenderPLZOrt, \Telefon}
+
+% Absender
+\newcommand{\Absender}[1][\normalsize]{%
+    \rightline{\textbf{#1\VollerName}}
+    \rightline{\AbsenderStrasse}
+    \rightline{\AbsenderPLZOrt}
+    \rightline{\Telefon}
+    \rightline{\EMail}
+}
+
+% Adressat
+\newcommand{\Anschrift}{%
+    \textbf{\Firma}\\
+    \AnredeKopf{} \AdressatVorname{} \AdressatNachname\\
+    \AnschriftStrasse\\
+    \AnschriftPLZOrt\\
+}
+
+% Makro für Ort und Unterschrift
+\newcommand*{\UnterschriftOrt}{%
+    \Unterschrift\\
+    \OrtDatum\\
+}
+
+% Unterschrift als Bilddatei einfügen
+\newcommand*{\Unterschrift}[1][0.1cm]{%
+    \hspace*{#1}\includegraphics{\UnterschriftenDatei}%
+}
+
+% Tabelle für Lebenslauf
+\newlength{\AbstandAbschnitt}
+\newboolean{UnterabschnittBegonnen}
+\newenvironment{Abschnitt}[1][0em]
+{%
+    \setlength{\AbstandAbschnitt}{#1}%
+    \begin{longtable}{p{0.3\linewidth}p{0.64\linewidth}}%
+    \setboolean{UnterabschnittBegonnen}{false}%
+}
+{%
+    \end{longtable}%
+    \vspace{\AbstandAbschnitt}%
+}
+
+% Unterabschnitt in Lebenslauftabelle mit sonstigen Themen
+% Achtung, keine Umgebung, sondern ein Kommando!
+\newlength{\AbstandUnterabschnitt}
+\newcommand{\Unterabschnitt}[3][0em]
+{%
+    \end{longtable}%
+    \ifthenelse{\boolean{UnterabschnittBegonnen}}{%
+        \setlength{\AbstandUnterabschnitt}{-5em}%
+    }{%
+        \setlength{\AbstandUnterabschnitt}{-2em}%
+    }%
+    \addtolength{\AbstandUnterabschnitt}{#1}%
+    \vspace{\AbstandUnterabschnitt}%
+    \textit{#2} #3%
+    \setboolean{UnterabschnittBegonnen}{true}%
+    \begin{longtable}{p{0.3\linewidth}p{0.64\linewidth}}%
+    \\[1em]
+}
+
+% Anrede im Brief
+\newcommand*{\Anrede}{Sehr geehrte\AnredeText{} \AdressatNachname,}
+
+% Die Grußformel am Anschreibenende
+\newcommand{\Grussworte}{%
+Über die Einladung zu einem persönlichen Gespräch freue ich mich und verbleibe
+
+mit freundlichen Grüßen
+
+\Unterschrift\\[1em]
+}
+
+% Betreff
+\newcommand*{\Betreff}{\textbf{Bewerbung als \Bewerberstelle}}
+
+% Etwa Abstand vor dem Ort, um die Seite besser aufteilen zu können.
+\newlength{\AbstandVorOrt}
+\setlength{\AbstandVorOrt}{1em}
+
+% Abstand zwischen den Adressen im Anschreiben.
+\newlength{\AbstandZwischenAdressen}
+\setlength{\AbstandZwischenAdressen}{0em}
+
+\newcommand{\AnschreibenKopf}
+{%
+    % Anschreiben ohne Fuss- oder Kopfzeile
+    \thispagestyle{empty}
+
+    % Die Anschreibeseite wird bei Bedarf etwas vergrößert, da es hier keine
+    % Fußzeile gibt.
+    % \enlargethispage{3cm}
+    
+    \begin{spacing}{1.05}
+        % Meine Anschrift
+        \Absender
+
+        % ggf. will man etwas Abstand zwischen den Adressen.
+        \vspace*{\AbstandZwischenAdressen}
+
+        % Anschrift der Firma
+        \Anschrift
+
+        % ggf. braucht man hier etwas Abstand, je nachdem, wie
+        % viel Text man im Anschreiben hat.
+        \vspace*{\AbstandVorOrt}
+
+        % Ort und Datum
+        \rightline{\OrtDatum}
+    \end{spacing}
+
+}
+
+\newcommand{\Anschreiben}
+{%
+    \AnschreibenKopf
+    \begin{spacing}{1.15}
+        \Betreff
+        \begin{flushleft}
+            \Anrede
+
+            \AnschreibenText
+
+            \Grussworte
+
+            \AnschreibenAnlage
+        \end{flushleft}
+    \end{spacing} 
+}
+
+\newcommand{\MeineSeite}
+{%
+    \section{Zu meiner Person}
+
+    \begin{spacing}{1.3}
+        \Absender[\large]
+        \vskip2em
+
+        \rightline{geboren am \Geburtstag}
+        \rightline{in \Geburtsort}
+        \vskip1em
+
+        \rightline{\Details}
+
+        \rule{10cm}{0.6pt} \\
+        {\large \textbf{Ausbildungsgrad}}\\
+        \Ausbildungsgrad\\
+
+        \includegraphics[width=5cm]{\BewerberFoto}\\
+
+    \end{spacing}
+}
+
+\newcommand{\MeineMotivation}
+{%
+    \section{Über mich und meine Motivation}
+ 
+    \begin{spacing}{1.3}
+        \begin{flushleft}
+
+        \Motivationstext
+
+        \end{flushleft}
+    \end{spacing}
+    
+    \UnterschriftOrt
+}

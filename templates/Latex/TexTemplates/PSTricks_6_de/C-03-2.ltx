@@ -1,0 +1,37 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-node}\SpecialCoor
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(3,-3)
+  \newcommand{\richtig}{%
+    \pnode(0,0){A} \pnode(2,0){B} %
+    \psline[linestyle=dashed](A)(B)}
+  \pcline[linewidth=2pt](0,0)(3,-3)
+  \naput{\richtig}\nbput{richtig} % richtig
+  \renewcommand{\richtig}{%
+    \pnode(0,0){A} \pnode(2,0){B}%
+    \ncline[linestyle=dashed]{A}{B}}\hfill
+  \pcline[linewidth=2pt](0,0)(3,-3)
+  \naput{\richtig}\nbput{falsch} % falsch
+\end{pspicture}
+\end{document}

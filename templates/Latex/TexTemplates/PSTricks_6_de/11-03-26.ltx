@@ -1,0 +1,33 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{166.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pstricks}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}[showgrid](3,3)
+  \pscustom{\code{%
+      newpath
+      20 20 moveto 0 50 rlineto
+      50 0 rlineto 0 -50 rlineto
+     -50 0 rlineto closepath
+      2 setlinejoin 7.5 setlinewidth stroke}}
+\end{pspicture}
+\end{document}

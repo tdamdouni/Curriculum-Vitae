@@ -1,0 +1,456 @@
+% Rules
+% Author: Remus Mihail Prunescu
+\documentclass{minimal}
+\usepackage[a4paper,margin=1cm]{geometry}
+\usepackage{tikz}
+%%%<
+\usepackage{verbatim}
+%%%>
+
+\begin{comment}
+:Title:  Rules
+:Page: 1
+
+\end{comment}
+
+\usepackage{multicol}
+\usetikzlibrary{positioning,shapes,shadows,arrows}
+
+\begin{document}
+
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
+
+\tikzstyle{fact}=[rectangle, draw=none, rounded corners=1mm, fill=blue, drop shadow,
+        text centered, anchor=north, text=white]
+\tikzstyle{state}=[circle, draw=none, fill=orange, circular drop shadow,
+        text centered, anchor=north, text=white]
+\tikzstyle{leaf}=[circle, draw=none, fill=red, circular drop shadow,
+        text centered, anchor=north, text=white]
+\tikzstyle{comment}=[rectangle, draw=black, fill=black!60, rounded corners, drop shadow,
+        anchor=west, text=white, text width=6.5cm]
+
+\begin{multicols}{2}
+\begin{center}
+\begin{tikzpicture}[node distance=0.5cm]
+    \node (State00) [state] {$S_{00}$};
+    \node (Fact01) [fact,below=of State00] {$T_{01}$} edge [<-] (State00);
+    \node (State01) [state,below=of Fact01] {$S_{01}$} edge [<-] (Fact01);
+    \node (Rule01) [comment,right=of Fact01, rectangle split, rectangle split parts=4] {
+        \textbf{RULE-01}
+        \nodepart{second}IF ($S_{00}$) Engine overheats
+        \nodepart{third}AND ($T_{01}$) Engine itself is not the cause
+        \nodepart{fourth}THEN ($S_{01}$) Cooling system is responsible for overheat
+    };
+    
+    \begin{pgfonlayer}{background}
+        \path (State00.west |- State00.north)+(-0.4,0.4) node (a) {};
+        \path (Rule01.east |- State01.south)+(0.4,-0.4) node (b) {};
+        \path [fill=yellow!40,rounded corners, draw=black!50, dashed] (a) rectangle (b); 
+    \end{pgfonlayer}
+\end{tikzpicture}
+
+
+\begin{tikzpicture}[node distance=0.5cm]
+    \node (State00) [state] {$S_{01}$};
+    \node (Fact01) [fact,below=of State00] {$T_{02}$} edge [<-] (State00);
+    \node (State01) [state,below=of Fact01] {$S_{02}$} edge [<-] (Fact01);
+    \node (Rule01) [comment,right=of Fact01, rectangle split, rectangle split parts=4] {
+        \textbf{RULE-02}
+        \nodepart{second}IF ($S_{01}$) Cooling system is responsible for overheat
+        \nodepart{third}AND ($T_{02}$) Pressure gauge reading of FW is low
+        \nodepart{fourth}THEN ($S_{02}$) Loss of coolant occurs in FW loop
+    };
+    
+    \begin{pgfonlayer}{background}
+        \path (State00.west |- State00.north)+(-0.4,0.4) node (a) {};
+        \path (Rule01.east |- State01.south)+(0.4,-0.4) node (b) {};
+        \path [fill=yellow!40,rounded corners, draw=black!50, dashed] (a) rectangle (b); 
+    \end{pgfonlayer}
+\end{tikzpicture}
+
+\begin{tikzpicture}[node distance=0.5cm]
+    \node (State00) [state] {$S_{02}$};
+    \node (Fact01) [fact,below=of State00] {$T_{03}$} edge [<-] (State00);
+    \node (State01) [leaf,below=of Fact01] {$S_{03}$} edge [<-] (Fact01);
+    \node (Rule01) [comment,right=of Fact01, rectangle split, rectangle split parts=4] {
+        \textbf{RULE-03}
+        \nodepart{second}IF ($S_{02}$) Loss of coolant occurs in FW loop
+        \nodepart{third}AND ($T_{03}$) FW coolant pump is not operating
+        \nodepart{fourth}THEN ($S_{03}$) Stopped FW coolant pump is responsible for overheat
+    };
+    
+    \begin{pgfonlayer}{background}
+        \path (State00.west |- State00.north)+(-0.4,0.4) node (a) {};
+        \path (Rule01.east |- State01.south)+(0.4,-0.4) node (b) {};
+        \path [fill=red!20,rounded corners, draw=black!50, dashed] (a) rectangle (b); 
+    \end{pgfonlayer}
+\end{tikzpicture}
+
+\begin{tikzpicture}[node distance=0.5cm]
+    \node (State00) [state] {$S_{02}$};
+    \node (Fact01) [fact,below=of State00] {$T_{04}$} edge [<-] (State00);
+    \node (State01) [state,below=of Fact01] {$S_{04}$} edge [<-] (Fact01);
+    \node (Rule01) [comment,right=of Fact01, rectangle split, rectangle split parts=4] {
+        \textbf{RULE-04}
+        \nodepart{second}IF ($S_{02}$) Loss of coolant occurs in FW loop
+        \nodepart{third}AND ($T_{04}$) FW coolant pump is operating
+        \nodepart{fourth}THEN ($S_{04}$) Loss of coolant occurs in FW loop with pump operating
+    };
+    
+    \begin{pgfonlayer}{background}
+        \path (State00.west |- State00.north)+(-0.4,0.4) node (a) {};
+        \path (Rule01.east |- State01.south)+(0.4,-0.4) node (b) {};
+        \path [fill=yellow!40,rounded corners, draw=black!50, dashed] (a) rectangle (b); 
+    \end{pgfonlayer}
+\end{tikzpicture}
+
+\begin{tikzpicture}[node distance=0.5cm]
+    \node (State00) [state] {$S_{04}$};
+    \node (Fact01) [fact,below=of State00] {$T_{05}$} edge [<-] (State00);
+    \node (State01) [leaf,below=of Fact01] {$S_{05}$} edge [<-] (Fact01);
+    \node (Rule01) [comment,right=of Fact01, rectangle split, rectangle split parts=4] {
+        \textbf{RULE-05}
+        \nodepart{second}IF ($S_{04}$) Loss of coolant occurs in FW loop with pump operating
+        \nodepart{third}AND ($T_{05}$) Pressure gauge reading at suction valve of FW coolant pump is
+low
+        \nodepart{fourth}THEN ($S_{05}$) Closed suction valve of FW coolant pump is responsible for
+overheat
+    };
+    
+    \begin{pgfonlayer}{background}
+        \path (State00.west |- State00.north)+(-0.4,0.4) node (a) {};
+        \path (Rule01.east |- State01.south)+(0.4,-0.4) node (b) {};
+        \path [fill=red!20,rounded corners, draw=black!50, dashed] (a) rectangle (b); 
+    \end{pgfonlayer}
+\end{tikzpicture}
+
+
+\begin{tikzpicture}[node distance=0.5cm]
+    \node (State00) [state] {$S_{04}$};
+    \node (Fact01) [fact,below=of State00] {$T_{06}$} edge [<-] (State00);
+    \node (State01) [leaf,below=of Fact01] {$S_{06}$} edge [<-] (Fact01);
+    \node (Rule01) [comment,right=of Fact01, rectangle split, rectangle split parts=4] {
+        \textbf{RULE-06}
+        \nodepart{second}IF ($S_{04}$) Loss of coolant occurs in FW loop with pump operating
+        \nodepart{third}AND ($T_{06}$) Pressure gauge reading at delivery valve of FW coolant pump is
+high
+        \nodepart{fourth}THEN ($S_{06}$) Closed delivery valve of FW coolant pump is responsible for
+overheat
+    };
+    
+    \begin{pgfonlayer}{background}
+        \path (State00.west |- State00.north)+(-0.4,0.4) node (a) {};
+        \path (Rule01.east |- State01.south)+(0.4,-0.4) node (b) {};
+        \path [fill=red!20,rounded corners, draw=black!50, dashed] (a) rectangle (b); 
+    \end{pgfonlayer}
+\end{tikzpicture}
+
+\begin{tikzpicture}[node distance=0.5cm]
+    \node (State00) [state] {$S_{04}$};
+    \node (Fact01) [fact,below=of State00] {$T_{07}$} edge [<-] (State00);
+    \node (State01) [leaf,below=of Fact01] {$S_{07}$} edge [<-] (Fact01);
+    \node (Rule01) [comment,right=of Fact01, rectangle split, rectangle split parts=4] {
+        \textbf{RULE-07}
+        \nodepart{second}IF ($S_{04}$) Loss of coolant occurs in FW loop with pump operating
+        \nodepart{third}AND ($T_{07}$) Ammeter reading at motor of FW coolant pump is abnormal
+        \nodepart{fourth}THEN ($S_{07}$) Power decrease in motor of FW coolant pump is responsible for
+overheat
+    };
+    
+    \begin{pgfonlayer}{background}
+        \path (State00.west |- State00.north)+(-0.4,0.4) node (a) {};
+        \path (Rule01.east |- State01.south)+(0.4,-0.4) node (b) {};
+        \path [fill=red!20,rounded corners, draw=black!50, dashed] (a) rectangle (b); 
+    \end{pgfonlayer}
+\end{tikzpicture}
+
+\begin{tikzpicture}[node distance=0.5cm]
+    \node (State00) [state] {$S_{04}$};
+    \node (Fact01) [fact,below=of State00] {$T_{08}$} edge [<-] (State00);
+    \node (State01) [leaf,below=of Fact01] {$S_{08}$} edge [<-] (Fact01);
+    \node (Rule01) [comment,right=of Fact01, rectangle split, rectangle split parts=4] {
+        \textbf{RULE-08}
+        \nodepart{second}IF ($S_{04}$) Loss of coolant occurs in FW loop with pump operating
+        \nodepart{third}AND ($T_{08}$) Level gauge reading of expansion tank is low
+        \nodepart{fourth}THEN ($S_{08}$) There is a low water level in the expansion tank and bubbles in
+FW loop are responsible for overheat
+    };
+    
+    \begin{pgfonlayer}{background}
+        \path (State00.west |- State00.north)+(-0.4,0.4) node (a) {};
+        \path (Rule01.east |- State01.south)+(0.4,-0.4) node (b) {};
+        \path [fill=red!20,rounded corners, draw=black!50, dashed] (a) rectangle (b); 
+    \end{pgfonlayer}
+\end{tikzpicture}
+
+\begin{tikzpicture}[node distance=0.5cm]
+    \node (State00) [state] {$S_{04}$};
+    \node (Fact01) [fact,below=of State00] {$T_{09.1}$} edge [<-] (State00);
+    \node (Fact02) [fact,below=of Fact01] {$T_{09.2}$} edge [<-] (Fact01);
+    \node (State01) [leaf,below=of Fact02] {$S_{09}$} edge [<-] (Fact02);
+    \node (Rule01) [comment,right=of Fact01, yshift=-0.45cm, rectangle split, rectangle split parts=4] {
+        \textbf{RULE-09}
+        \nodepart{second}IF ($S_{04}$) Loss of coolant occurs in FW loop with pump operating
+        \nodepart{third}AND ($T_{09.1}$) Pressure gauge reading at delivery valve of FW coolant is low\newline AND ($T_{09.2}$) Pressure gauge reading at suction valve of FW coolant pump is normal
+        \nodepart{fourth}THEN ($S_{09}$) Impeller damage in FW coolant pump is responsible for overheat
+    };
+    
+    \begin{pgfonlayer}{background}
+        \path (State00.west |- State00.north)+(-0.4,0.4) node (a) {};
+        \path (Rule01.east |- State01.south)+(0.4,-0.4) node (b) {};
+        \path [fill=red!20,rounded corners, draw=black!50, dashed] (a) rectangle (b); 
+    \end{pgfonlayer}
+\end{tikzpicture}
+
+\begin{tikzpicture}[node distance=0.5cm]
+    \node (State00) [state] {$S_{01}$};
+    \node (Fact01) [fact,below=of State00] {$T_{10}$} edge [<-] (State00);
+    \node (State01) [state,below=of Fact01] {$S_{10}$} edge [<-] (Fact01);
+    \node (Rule01) [comment,right=of Fact01, rectangle split, rectangle split parts=4] {
+        \textbf{RULE-10}
+        \nodepart{second}IF ($S_{01}$) Cooling system is responsible for overheat
+        \nodepart{third}AND ($T_{10}$) Pressure gauge reading of FW is normal
+        \nodepart{fourth}THEN ($S_{10}$) Enough coolant circulates in FW loop
+    };
+    
+    \begin{pgfonlayer}{background}
+        \path (State00.west |- State00.north)+(-0.4,0.4) node (a) {};
+        \path (Rule01.east |- State01.south)+(0.4,-0.4) node (b) {};
+        \path [fill=yellow!40,rounded corners, draw=black!50, dashed] (a) rectangle (b); 
+    \end{pgfonlayer}
+\end{tikzpicture}
+
+
+\begin{tikzpicture}[node distance=0.5cm]
+    \node (State00) [state] {$S_{10}$};
+    \node (Fact01) [fact,below=of State00] {$T_{11}$} edge [<-] (State00);
+    \node (State01) [leaf,below=of Fact01] {$S_{11}$} edge [<-] (Fact01);
+    \node (Rule01) [comment,right=of Fact01, rectangle split, rectangle split parts=4] {
+        \textbf{RULE-11}
+        \nodepart{second}IF ($S_{10}$) Enough coolant circulates in FW loop
+        \nodepart{third}AND ($T_{11}$) Warm-up steam valve is open
+        \nodepart{fourth}THEN ($S_{11}$) Failure to close warm-up valve after startup of engine is
+responsible for overheat
+    };
+    
+    \begin{pgfonlayer}{background}
+        \path (State00.west |- State00.north)+(-0.4,0.4) node (a) {};
+        \path (Rule01.east |- State01.south)+(0.4,-0.4) node (b) {};
+        \path [fill=red!20,rounded corners, draw=black!50, dashed] (a) rectangle (b); 
+    \end{pgfonlayer}
+\end{tikzpicture}
+
+\begin{tikzpicture}[node distance=0.5cm]
+    \node (State00) [state] {$S_{10}$};
+    \node (Fact01) [fact,below=of State00] {$T_{12}$} edge [<-] (State00);
+    \node (State01) [state,below=of Fact01] {$S_{12}$} edge [<-] (Fact01);
+    \node (Rule01) [comment,right=of Fact01, rectangle split, rectangle split parts=4] {
+        \textbf{RULE-12}
+        \nodepart{second}IF ($S_{10}$) Enough coolant circulatcs in FW loop
+        \nodepart{third}AND ($T_{12}$) Temperature reading of FW at exit of heat exchanger is high
+        \nodepart{fourth}THEN ($S_{12}$) Heat exchanger is ineffective
+    };
+    
+    \begin{pgfonlayer}{background}
+        \path (State00.west |- State00.north)+(-0.4,0.4) node (a) {};
+        \path (Rule01.east |- State01.south)+(0.4,-0.4) node (b) {};
+        \path [fill=yellow!40,rounded corners, draw=black!50, dashed] (a) rectangle (b); 
+    \end{pgfonlayer}
+\end{tikzpicture}
+
+\begin{tikzpicture}[node distance=0.5cm]
+    \node (State00) [state] {$S_{12}$};
+    \node (Fact01) [fact,below=of State00] {$T_{13}$} edge [<-] (State00);
+    \node (State01) [leaf,below=of Fact01] {$S_{13}$} edge [<-] (Fact01);
+    \node (Rule01) [comment,right=of Fact01, rectangle split, rectangle split parts=4] {
+        \textbf{RULE-13}
+        \nodepart{second}IF ($S_{12}$) Heat exchanger is ineffective
+        \nodepart{third}AND ($T_{13}$) Temperature reading of SW at exit of heat exchanger is low
+        \nodepart{fourth}THEN ($S_{13}$) Fouled heat exchanger and hence poor heat transfer is responsible
+for overheat
+    };
+    
+    \begin{pgfonlayer}{background}
+        \path (State00.west |- State00.north)+(-0.4,0.4) node (a) {};
+        \path (Rule01.east |- State01.south)+(0.4,-0.4) node (b) {};
+        \path [fill=red!20,rounded corners, draw=black!50, dashed] (a) rectangle (b); 
+    \end{pgfonlayer}
+\end{tikzpicture}
+
+\begin{tikzpicture}[node distance=0.5cm]
+    \node (State00) [state] {$S_{12}$};
+    \node (Fact01) [fact,below=of State00] {$T_{14}$} edge [<-] (State00);
+    \node (State01) [state,below=of Fact01] {$S_{14}$} edge [<-] (Fact01);
+    \node (Rule01) [comment,right=of Fact01, rectangle split, rectangle split parts=4] {
+        \textbf{RULE-14}
+        \nodepart{second}IF ($S_{12}$) Heat exchanger is ineffective
+        \nodepart{third}AND ($T_{14}$) Temperature reading of SW at exit of heat exchanger is high
+        \nodepart{fourth}THEN ($S_{14}$) Loss of coolant occurs in SW loop
+    };
+    
+    \begin{pgfonlayer}{background}
+        \path (State00.west |- State00.north)+(-0.4,0.4) node (a) {};
+        \path (Rule01.east |- State01.south)+(0.4,-0.4) node (b) {};
+        \path [fill=yellow!40,rounded corners, draw=black!50, dashed] (a) rectangle (b); 
+    \end{pgfonlayer}
+\end{tikzpicture}
+
+
+\begin{tikzpicture}[node distance=0.5cm]
+    \node (State00) [state] {$S_{14}$};
+    \node (Fact01) [fact,below=of State00] {$T_{15}$} edge [<-] (State00);
+    \node (State01) [leaf,below=of Fact01] {$S_{15}$} edge [<-] (Fact01);
+    \node (Rule01) [comment,right=of Fact01, rectangle split, rectangle split parts=4] {
+        \textbf{RULE-15}
+        \nodepart{second}IF ($S_{14}$) Loss of coolant occurs in SW loop
+        \nodepart{third}AND ($T_{15}$) SW control valve is closed
+        \nodepart{fourth}THEN ($S_{15}$) Closed SW control valve is responsible for overheat
+    };
+    
+    \begin{pgfonlayer}{background}
+        \path (State00.west |- State00.north)+(-0.4,0.4) node (a) {};
+        \path (Rule01.east |- State01.south)+(0.4,-0.4) node (b) {};
+        \path [fill=red!20,rounded corners, draw=black!50, dashed] (a) rectangle (b); 
+    \end{pgfonlayer}
+\end{tikzpicture}
+
+\begin{tikzpicture}[node distance=0.5cm]
+    \node (State00) [state] {$S_{14}$};
+    \node (Fact01) [fact,below=of State00] {$T_{16}$} edge [<-] (State00);
+    \node (State01) [leaf,below=of Fact01] {$S_{16}$} edge [<-] (Fact01);
+    \node (Rule01) [comment,right=of Fact01, rectangle split, rectangle split parts=4] {
+        \textbf{RULE-16}
+        \nodepart{second}IF ($S_{14}$) Loss of coolant occurs in SW loop
+        \nodepart{third}AND ($T_{16}$) SW coolant pump is not operating
+        \nodepart{fourth}THEN ($S_{16}$) Stoppage in SW coolant pump is responsible for overheat
+    };
+    
+    \begin{pgfonlayer}{background}
+        \path (State00.west |- State00.north)+(-0.4,0.4) node (a) {};
+        \path (Rule01.east |- State01.south)+(0.4,-0.4) node (b) {};
+        \path [fill=red!20,rounded corners, draw=black!50, dashed] (a) rectangle (b); 
+    \end{pgfonlayer}
+\end{tikzpicture}
+
+\begin{tikzpicture}[node distance=0.5cm]
+    \node (State00) [state] {$S_{14}$};
+    \node (Fact01) [fact,below=of State00] {$T_{17}$} edge [<-] (State00);
+    \node (State01) [state,below=of Fact01] {$S_{17}$} edge [<-] (Fact01);
+    \node (Rule01) [comment,right=of Fact01, rectangle split, rectangle split parts=4] {
+        \textbf{RULE-17}
+        \nodepart{second}IF ($S_{14}$) Loss of coolant occurs in SW loop
+        \nodepart{third}AND ($T_{17}$) SW coolant pump is operating
+        \nodepart{fourth}THEN ($S_{17}$) Loss of coolant occurs in SW loop with pump operating
+    };
+    
+    \begin{pgfonlayer}{background}
+        \path (State00.west |- State00.north)+(-0.4,0.4) node (a) {};
+        \path (Rule01.east |- State01.south)+(0.4,-0.4) node (b) {};
+        \path [fill=yellow!40,rounded corners, draw=black!50, dashed] (a) rectangle (b); 
+    \end{pgfonlayer}
+\end{tikzpicture}
+
+\begin{tikzpicture}[node distance=0.5cm]
+    \node (State00) [state] {$S_{17}$};
+    \node (Fact01) [fact,below=of State00] {$T_{18}$} edge [<-] (State00);
+    \node (State01) [leaf,below=of Fact01] {$S_{18}$} edge [<-] (Fact01);
+    \node (Rule01) [comment,right=of Fact01, rectangle split, rectangle split parts=4] {
+        \textbf{RULE-18}
+        \nodepart{second}IF ($S_{17}$) Loss of coolant occurs in SW loop with pump operating
+        \nodepart{third}AND ($T_{18}$) Pressure gauge reading of SW is high
+        \nodepart{fourth}THEN ($S_{18}$) SW discharge valve is closed
+    };
+    
+    \begin{pgfonlayer}{background}
+        \path (State00.west |- State00.north)+(-0.4,0.4) node (a) {};
+        \path (Rule01.east |- State01.south)+(0.4,-0.4) node (b) {};
+        \path [fill=red!20,rounded corners, draw=black!50, dashed] (a) rectangle (b); 
+    \end{pgfonlayer}
+\end{tikzpicture}
+
+\begin{tikzpicture}[node distance=0.5cm]
+    \node (State00) [state] {$S_{17}$};
+    \node (Fact01) [fact,below=of State00] {$T_{19}$} edge [<-] (State00);
+    \node (State01) [leaf,below=of Fact01] {$S_{19}$} edge [<-] (Fact01);
+    \node (Rule01) [comment,right=of Fact01, rectangle split, rectangle split parts=4] {
+        \textbf{RULE-19}
+        \nodepart{second}IF ($S_{17}$) Loss of coolant occurs in SW loop with pump operating
+        \nodepart{third}AND ($T_{19}$) Pressure gauge reading at suction valve of SW coolant pump is
+low
+        \nodepart{fourth}THEN ($S_{19}$) Blocked strainer or closed suction valve of SW coolant pump is
+responsible for overheat
+    };
+    
+    \begin{pgfonlayer}{background}
+        \path (State00.west |- State00.north)+(-0.4,0.4) node (a) {};
+        \path (Rule01.east |- State01.south)+(0.4,-0.4) node (b) {};
+        \path [fill=red!20,rounded corners, draw=black!50, dashed] (a) rectangle (b); 
+    \end{pgfonlayer}
+\end{tikzpicture}
+
+\begin{tikzpicture}[node distance=0.5cm]
+    \node (State00) [state] {$S_{17}$};
+    \node (Fact01) [fact,below=of State00] {$T_{20}$} edge [<-] (State00);
+    \node (State01) [state,below=of Fact01] {$S_{20}$} edge [<-] (Fact01);
+    \node (Rule01) [comment,right=of Fact01, rectangle split, rectangle split parts=4] {
+        \textbf{RULE-20}
+        \nodepart{second}IF ($S_{17}$) Loss of coolant occurs in SW loop with pump operating
+        \nodepart{third}AND ($T_{20}$) Pressure gauge reading at delivery valve of SW coolant pump is
+high
+        \nodepart{fourth}THEN ($S_{20}$) Closed delivery valve of SW coolant pump is responsible for
+overheat
+    };
+    
+    \begin{pgfonlayer}{background}
+        \path (State00.west |- State00.north)+(-0.4,0.4) node (a) {};
+        \path (Rule01.east |- State01.south)+(0.4,-0.4) node (b) {};
+        \path [fill=yellow!40,rounded corners, draw=black!50, dashed] (a) rectangle (b); 
+    \end{pgfonlayer}
+\end{tikzpicture}
+
+
+\begin{tikzpicture}[node distance=0.5cm]
+    \node (State00) [state] {$S_{17}$};
+    \node (Fact01) [fact,below=of State00] {$T_{21}$} edge [<-] (State00);
+    \node (State01) [leaf,below=of Fact01] {$S_{21}$} edge [<-] (Fact01);
+    \node (Rule01) [comment,right=of Fact01, rectangle split, rectangle split parts=4] {
+        \textbf{RULE-21}
+        \nodepart{second}IF ($S_{17}$) Loss of Coolant occurs in SW loop with pump operating
+        \nodepart{third}AND ($T_{21}$) Ampere meter reading of motor of SW coolant pump is abnormal
+        \nodepart{fourth}THEN ($S_{21}$) Power decrease of motor of SW coolant pump is responsible for
+overheat
+    };
+    
+    \begin{pgfonlayer}{background}
+        \path (State00.west |- State00.north)+(-0.4,0.4) node (a) {};
+        \path (Rule01.east |- State01.south)+(0.4,-0.4) node (b) {};
+        \path [fill=red!20,rounded corners, draw=black!50, dashed] (a) rectangle (b); 
+    \end{pgfonlayer}
+\end{tikzpicture}
+
+\begin{tikzpicture}[node distance=0.5cm]
+    \node (State00) [state] {$S_{17}$};
+    \node (Fact01) [fact,below=of State00] {$T_{22.1}$} edge [<-] (State00);
+    \node (Fact02) [fact,below=of Fact01] {$T_{22.2}$} edge [<-] (Fact01);
+    \node (State01) [leaf,below=of Fact02] {$S_{22}$} edge [<-] (Fact02);
+    \node (Rule01) [comment,right=of Fact01, yshift=-0.45cm, rectangle split, rectangle split parts=4] {
+        \textbf{RULE-22}
+        \nodepart{second}IF ($S_{17}$) Loss of coolant occurs in SW loop with pump operating
+        \nodepart{third}AND ($T_{22.1}$) Pressure gauge reading at delivery valve of SW coolant pump is
+low\newline AND ($T_{22.2}$) Pressure gauge reading at suction valve of SW coolant pump is
+normal
+        \nodepart{fourth}THEN ($S_{22}$) Impeller damage in SW coolant pump is responsible for overheat
+    };
+    
+    \begin{pgfonlayer}{background}
+        \path (State00.west |- State00.north)+(-0.4,0.4) node (a) {};
+        \path (Rule01.east |- State01.south)+(0.4,-0.4) node (b) {};
+        \path [fill=red!20,rounded corners, draw=black!50, dashed] (a) rectangle (b); 
+    \end{pgfonlayer}
+\end{tikzpicture}
+
+\end{center}
+\end{multicols}
+\end{document}

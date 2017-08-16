@@ -1,0 +1,175 @@
+% Rule based diagram
+% Author: Remus Mihail Prunescu
+\documentclass{minimal}
+\usepackage[a4paper,margin=1cm,landscape]{geometry}
+\usepackage{tikz}
+
+%%%<
+\usepackage{verbatim}
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{5pt}%
+%%%>
+
+\begin{comment}
+:Title:  Rule based diagram
+
+\end{comment}
+
+\usetikzlibrary{positioning,shadows,arrows}
+
+\begin{document}
+\begin{center}
+\begin{tikzpicture}[
+    fact/.style={rectangle, draw=none, rounded corners=1mm, fill=blue, drop shadow,
+        text centered, anchor=north, text=white},
+    state/.style={circle, draw=none, fill=orange, circular drop shadow,
+        text centered, anchor=north, text=white},
+    leaf/.style={circle, draw=none, fill=red, circular drop shadow,
+        text centered, anchor=north, text=white},
+    level distance=0.5cm, growth parent anchor=south
+]
+\node (State00) [state] {$S_{00}$} [->]
+    child{
+        node (Fact01) [fact] {$T_{01}$}
+        child{ [sibling distance=9cm]
+            node (State01) [state] {$S_{01}$}
+            child{
+                node (Fact02) [fact] {$T_{02}$}
+                child{ [sibling distance=4cm]
+                    node (State02) [state] {$S_{02}$}
+                    child{
+                        node (Fact03) [fact] {$T_{03}$}
+                        child{
+                            node (State03) [leaf] {$S_{03}$}
+                        }
+                    }
+                    child{
+                        node (Fact04) [fact] {$T_{04}$}
+                        child{ [sibling distance=1.2cm]
+                            node (State04) [state] {$S_{04}$}
+                            child{
+                                node (Fact05) [fact] {$T_{05}$}
+                                child{
+                                    node (State05) [leaf] {$S_{05}$}
+                                }
+                            }
+                            child{
+                                node (Fact06) [fact] {$T_{06}$}
+                                child{
+                                    node (State06) [leaf] {$S_{06}$}
+                                }
+                            }
+                            child{
+                                node (Fact07) [fact] {$T_{07}$}
+                                child{
+                                    node (State07) [leaf] {$S_{07}$}
+                                }
+                            }
+                            child{
+                                node (Fact08) [fact] {$T_{08}$}
+                                child{
+                                    node (State08) [leaf] {$S_{08}$}
+                                }
+                            }
+                            child{
+                                node (Fact09) [fact] {$T_{09.0}$}
+                                child{
+                                    node (Fact09-1) [fact] {$T_{09.1}$}
+                                    child{
+                                        node (State09) [leaf] {$S_{09}$}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            child{ [sibling distance=4cm]
+                node (Fact10) [fact] {$T_{10}$}
+                child{
+                    node (State10) [state] {$S_{10}$}
+                    child{
+                        node (Fact11) [fact] {$T_{11}$}
+                        child{
+                            node (State11) [leaf] {$S_{11}$}
+                        }
+                    }
+                    child{
+                        node (Fact12) [fact] {$T_{12}$}
+                        child{
+                            node (State12) [state] {$S_{12}$}
+                            child{
+                                node (Fact13) [fact] {$T_{13}$}
+                                child{
+                                    node (State13) [leaf] {$S_{13}$}
+                                }
+                            }
+                            child{
+                                node (Fact14) [fact] {$T_{14}$}
+                                child{ [sibling distance=3cm]
+                                    node (State14) [state] {$S_{14}$}
+                                    child{
+                                        node (Fact15) [fact] {$T_{15}$}
+                                        child{
+                                            node (State15) [leaf] {$S_{15}$}
+                                        }
+                                    }
+                                    child{
+                                        node (Fact16) [fact] {$T_{16}$}
+                                        child{
+                                            node (State16) [leaf] {$S_{16}$}
+                                        }
+                                    }
+                                    child{
+                                        node (Fact17) [fact] {$T_{17}$}
+                                        child{ [sibling distance=1.2cm]
+                                            node (State17) [state] {$S_{17}$}
+                                            child{
+                                                node (Fact18) [fact] {$T_{18}$}
+                                                child{
+                                                    node (State18) [leaf] {$S_{18}$}
+                                                }
+                                            }
+                                            child{
+                                                node (Fact19) [fact] {$T_{19}$}
+                                                child{
+                                                    node (State19) [leaf] {$S_{19}$}
+                                                }
+                                            }
+                                            child{
+                                                node (Fact20) [fact] {$T_{20}$}
+                                                child{
+                                                    node (State20) [leaf] {$S_{20}$}
+                                                }
+                                            }
+                                            child{
+                                                node (Fact21) [fact] {$T_{21}$}
+                                                child{
+                                                    node (State21) [leaf] {$S_{21}$}
+                                                }
+                                            }
+                                            child{
+                                                node (Fact22) [fact] {$T_{22.0}$}
+                                                child{
+                                                    node (Fact22-1) [fact] {$T_{22.1}$}
+                                                    child{
+                                                        node (State22) [leaf] {$S_{22}$}
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }   
+;
+        
+\end{tikzpicture}
+\end{center}
+\end{document}

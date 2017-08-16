@@ -1,0 +1,25 @@
+[General]
+img_extIsRegExp=false
+img_extensions=.eps .jpg .jpeg .png .pdf .ps .fig .gif .dvi
+kileprversion=2
+kileversion=2.0
+lastDocument=Minimal.tex
+masterDocument=Minimal.tex
+name=Minimal
+pkg_extIsRegExp=false
+pkg_extensions=.cls .sty
+src_extIsRegExp=false
+src_extensions=.tex .ltx .latex .dtx .ins .bib .mp
+
+[Tools]
+MakeIndex=
+QuickBuild=
+
+[item:Minimal.tex]
+archive=true
+column=0
+encoding=ISO 8859-1
+highlight=LaTeX
+line=11
+open=true
+order=0

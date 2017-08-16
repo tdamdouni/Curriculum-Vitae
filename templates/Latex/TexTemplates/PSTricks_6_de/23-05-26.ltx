@@ -1,0 +1,40 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-3dplot,pst-grad} \psset{unit=1.5,linewidth=1.5pt}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(-2,-1.75)(2,2)
+  \pstThreeDCoor[xMin=0,xMax=2,yMin=0,yMax=2,zMin=0,zMax=2]
+  \pstThreeDBox[RotX=90,RotY=90,RotZ=90,linecolor=red](0,0,0)(.5,0,0)(0,1,0)(0,0,1.5)
+  \pstThreeDBox[RotSequence=xzy,RotX=90,RotY=90,RotZ=90,
+    linecolor=yellow](0,0,0)(.5,0,0)(0,1,0)(0,0,1.5)
+  \pstThreeDBox[RotSequence=zyx,RotX=90,RotY=90,RotZ=90,
+    linecolor=green](0,0,0)(.5,0,0)(0,1,0)(0,0,1.5)
+  \pstThreeDBox[RotSequence=zxy,RotX=90,RotY=90,RotZ=90,
+    linecolor=blue](0,0,0)(.5,0,0)(0,1,0)(0,0,1.5)
+  \pstThreeDBox[RotSequence=yxz,RotX=90,RotY=90,RotZ=90,
+    linecolor=cyan](0,0,0)(.5,0,0)(0,1,0)(0,0,1.5)
+  \pstThreeDBox[RotSequence=yzx,RotX=90,RotY=90,RotZ=90,
+    linecolor=magenta](0,0,0)(.5,0,0)(0,1,0)(0,0,1.5)
+  \pstThreeDBox[fillstyle=gradient,RotX=0](0,0,0)(.5,0,0)(0,1,0)(0,0,1.5)
+\end{pspicture}%
+\end{document}

@@ -1,0 +1,33 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2008 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-func}
+\StopShownPreambleCommands
+\begin{document}
+\psset{xunit=1.25cm,yunit=10cm}
+\begin{pspicture}(-6,-0.1)(6,.5)
+ \psaxes[Dy=0.1]{->}(0,0)(-4.5,0)(5.5,0.5)
+ \psset{linewidth=1pt,plotpoints=100}
+ \psGauss[mue=0,sigma=1]{-4.5}{4.5}
+ \psTDist[linecolor=blue]{-4}{4}
+ \psTDist[linecolor=red,nue=4]{-4}{4}
+\end{pspicture}
+\end{document}

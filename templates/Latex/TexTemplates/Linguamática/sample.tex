@@ -1,0 +1,251 @@
+\documentclass[a4paper, twocolumn, 11pt, twoside]{article}
+\usepackage[portuges]{babel} %% or \usepackage[spanish]{babel}
+\usepackage{linguamatica}
+\usepackage[utf8x]{inputenc}  %% or \usepackage[latin1]{inputenc}
+
+%% Para português (UTF-8)
+\usepackage{fullname_pt}
+%% Para português (Latin1)
+%%%% \usepackage{fullname_lt1_pt}
+%% Para espanhol 
+%%%% \usepackage{fullname_es}
+%% Para inglês
+%%%% \usepackage{fullname_en}
+
+
+\title{Exemplo de uso do estilo Linguamática\thanks{Agradecimento na página inicial.}}
+% Titulo em Inglês é OBRIGATORIO
+\titleEN{Sample Document for the use of Linguamática Style}
+
+\author{
+  Alberto Simões
+  \instituto{Universidade do Minho}
+  \email{ambs@ilch.uminho.pt} 
+  \and 
+  Xavier Gomez Guinovart
+  \instituto{Universidade de Vigo}
+  \email{xgg@uvigo.es}
+  \and 
+  José João Almeida
+  \instituto{Universidade do Minho}
+  \email{jj@di.uminho.pt}
+}
+
+\date{}
+
+\begin{document}
+
+\maketitle
+
+%% Adicione o resumo na língua do artigo
+\begin{resumo}
+  Este é um documento exemplo do estilo que os artigos submetidos à
+  revista \linguamatica{} devem seguir. É um estilo de duas colunas
+  que permite aproveitar devidamente o papel europeu de tamanho A4.
+
+  Ao contrário de outras revistas e conferências, a \linguamatica{}
+  permite que se usem vários parágrafos no resumo.
+\end{resumo}
+
+\palavraschave{\LaTeX, estilo}
+
+%% Adicione o resumo em inglês
+\begin{abstract}
+  Starting with year 4, Linguamática requires an abstract in English, together with
+  a list of keywords.
+\end{abstract}
+
+\keywords{\LaTeX, style}
+
+\section{Introdução}
+
+Este é o estilo usado pela revista \linguamatica. Pode ser usado em
+\LaTeX \cite{latexcompanion}, Microsoft Word ou OpenOffice.org. Para
+uma maior homogeneização dos artigos pede-se que façam uso do \LaTeX{}
+sempre que possível e que, juntamente com o documento final (camera
+ready), nos enviem também os documentos em formatos fonte (seja ele
+qual for).
+
+O documento deve começar com um título e informação sobre os
+autores. Para cada autor devem indicar a filiação (apenas uma), e o
+endereço de e-mail preferencial para contacto.
+
+Segue-se um resumo do documento. Sugere-se que o resumo, juntamente
+com as palavras chave, não ultrapassem a primeira coluna do
+artigo. Indique sempre entre 2 e 5 palavras chave. Entre as palavras
+chave e a primeira secção deixe 1~cm de espaçamento.
+
+\subsection{Língua}
+
+Tal como indicado na chamada, os artigos para a \linguamatica{} devem
+ser escrito numa das línguas indicadas de seguida. Se estiver a usar
+\LaTeX{} não esqueça de configurar o pacote Babel devidamente.
+\begin{itemize}
+\item português\hfill\verb.\usepackage[portuges]{babel}.
+\item galego\hfill\verb.\usepackage[galician]{babel}.
+\item catalão\hfill\verb.\usepackage[catalan]{babel}.
+\item castelhano\hfill\verb.\usepackage[spanish]{babel}.
+\item basco\hfill\verb.\usepackage[basque]{babel}.
+\end{itemize}
+Em relação à língua Portuguesa a \linguamatica{} não está (ainda) a
+obrigar o uso da sua variante pré ou pós acordo ortográfico de 1990.
+
+Se não estiver a usar \LaTeX{}, não esqueça de traduzir as palavras
+\emph{Palavra chave}, \emph{Resumo}, \emph{Referências},
+\emph{Figura} e \emph{Tabela}.
+
+\subsection{Secções}
+
+Sugerimos que o autor use, no máximo, três níveis de seccionação, ou
+seja, apenas os comandos \verb.\section., \verb.\subsection. e,
+esporadicamente, \verb.\subsubsection..
+
+Entre comandos de secção coloque algum texto introdutório ao que se
+segue. Ou seja, evite o uso de vários comandos de seccionação
+seguidos.
+
+\subsubsection{Secções solitárias}
+
+Sempre que possível evite o uso de subsecções ou sub-subsecções
+solitárias, ou seja, que são únicas na secção ou subsecção a que
+pertencem. Um exemplo é esta mesma subsecção.
+
+\subsection{Formatação}
+
+Evite o uso excessivo de formatação. Use \textit{itálicos} para
+palavras exemplo, use \texttt{verbatim} para comandos ou código.
+
+Sempre que possível, use o comando \verb.\url. para introduzir
+endereços Web. Nunca esqueça que um endereço só está completo com o
+devido protocolo. Por exemplo, \url{http://www.google.com/} ou
+\url{ftp://www.gnu.org/}.
+
+Se usar o pacote \texttt{hyperref}, tenha o cuidado de desligar a
+geração de cores, sublinhados ou caixas à volta do texto.
+
+\section{Fórmulas Matemáticas}
+
+Sugere-se que o uso de fórmulas matemáticas seja devidamente acompanhado por um número.
+Isto permite que sejam referidas mais tarde.
+\begin{equation}
+  \label{media}
+  \bar{x} = \frac{\sum_{i=1}^n x_i}{n}
+\end{equation}
+\begin{equation}
+  \label{desvio}
+  \sigma = \sqrt{\frac{\sum_{i=1}^n \left(x_i - \bar{x}\right)^2}{n}}
+\end{equation}
+A fórmula~\ref{media} apresenta a média aritmética de um conjunto de
+$n$ valores $x_i$, e a fórmula~\ref{desvio} usa-a para o cálculo do
+desvio padrão.
+
+\section{Tabelas e Figuras}
+
+Sempre que usar uma tabela ou uma figura não esqueça de a numerar
+devidamente (uma sequência diferente para cada um destes dois tipos),
+e juntar-lhe uma legenda.  Deve terminar a legenda com um ponto final.
+
+Caso a tabela ou figura não caiba numa única coluna é possível obrigar
+o \LaTeX{} a ocupar a largura da página com o ambiente \verb!table*! e
+\verb!figure*! respectivamente. É preferível que o artigo ocupe mais
+uma ou duas páginas, do que conter figuras que não são legíveis depois
+de impressas. Por exemplo, se evitar usar cores e imagens não
+vectoriais, a qualidade final será muito melhor.
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|c|ccccc|}
+    \hline
+    $\times$ & 1 & 2 & 3 & 4 & 5 \\
+    \hline
+     1 & 1 & 2 & 3 & 4 & 5 \\
+     2 & 2 & 4 & 6 & 8 & 10 \\
+     3 & 3 & 6 & 9 & 12 & 15 \\
+     4 & 4 & 8 & 12 & 14 & 20 \\
+     5 & 5 & 10 & 15 & 20 & 25 \\
+     \hline
+  \end{tabular}
+  \caption{Tabela multiplicativa.}
+\end{table}
+
+\section{A bibliografia}
+
+Para a bibliografia deve usar o estilo \LaTeX{} distribuído juntamente
+com este documento, de nome \verb.fullname.. Este formato permite
+citar a referência directamente \cite{linguamatica:1:09:forcada}, ou
+indicando que nos referimos a determinado autor, como por exemplo,
+\namecite{linguamatica:1:09:santos}.
+
+\section{Lorem Ipsum}
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+mollit anim id est laborum.
+
+\subsection{Lorem 1}
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+mollit anim id est laborum.
+
+\subsection{Lorem 2}
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+mollit anim id est laborum.
+
+\section{Ipsum Dolor}
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+mollit anim id est laborum.
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+mollit anim id est laborum.
+
+\section*{Agradecimentos}
+
+Para uma referência simples a um projecto use o comando
+\verb.\thanks. no título do artigo. Se precisar de um texto maior, use
+uma secção como esta no final do artigo.
+
+%% Para português (UTF-8)
+\bibliographystyle{fullname_pt}
+
+%% Para português (Latin 1)
+%% \bibliographystyle{fullname_lt1_pt}
+
+%% Para espanhol
+%% \bibliographystyle{fullname_es}
+
+%% Para inglês
+%% \bibliographystyle{fullname_en}
+
+\bibliography{sample.bib}
+\end{document}
+
+%% Local Variables:
+%%  ispell-local-dictionary: "portugues-preao"
+%%  eval: (flyspell-mode)
+%% End:

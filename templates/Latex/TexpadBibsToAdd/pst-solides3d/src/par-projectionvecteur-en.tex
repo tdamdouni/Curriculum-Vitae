@@ -1,0 +1,85 @@
+\section{Vectors}
+
+\subsection{Direct definition}
+
+The object \Lkeyword{vecteur} allows us to define and draw a \Index{vector}.
+To do so in a simple way, we use the option \Lkeyword{args} to define
+its components $(x,y)$ and we specify the point from where the
+vector starts with the macro \Lcs{psProjection} (or we may use a
+named point).
+
+As with points, we can save the components of a vector using the
+option \Lkeyword{name}.
+
+\begin{LTXexample}[width=7.5cm]
+\begin{pspicture}(-3,-3)(4,3.5)%
+\psframe*[linecolor=blue!50](-3,-3)(4,3.5)
+\psset{viewpoint=50 30 15,Decran=60}
+\psset{solidmemory}
+%% definition du plan de projection
+\psSolid[object=plan,
+   definition=equation,
+   args={[1 0 0 0] 90},
+   planmarks,
+   name=monplan]
+\psset{plan=monplan}
+%% definition du point A
+\psProjection[object=point,
+   args=-2 0.75,
+   name=A,text=A,
+   pos=dl]
+\psProjection[object=vecteur,
+   linecolor=red,
+   args=1 1,
+   name=U](1,0)
+\psProjection[object=vecteur,
+   args=U,
+   linecolor=blue](A)
+\composeSolid
+\axesIIID(4,2,2)(5,4,3)
+\end{pspicture}
+\end{LTXexample}
+
+
+\subsection{Some more definitions}
+
+There are other methods to define a vector in 2D. The options
+\Lkeyword{definition} and \Lkeyword{args} allow us a variety of supported
+methods:
+
+\begin{itemize}
+
+\item \texttt{\Lkeyword{definition}=\Lkeyval{vecteur}};
+\texttt{\Lkeyword{args}=$A$ $B$}.
+
+The vector $\overrightarrow {AB}$
+
+\item \texttt{\Lkeyword{definition}=\Lkeyval{orthovecteur}};
+\texttt{\Lkeyword{args}=$u$}.
+
+A vector perpendicular to $\vec u$ with the same length.
+
+\item \texttt{\Lkeyword{definition}=\Lkeyval{normalize}};
+\texttt{\Lkeyword{args}=$u$}.
+
+The vector $\Vert \vec u \Vert ^{-1} \vec u$
+if $\vec u \neq \vec 0$, and $\vec 0$ otherwise.
+
+\item \texttt{\Lkeyword{definition}=\Lkeyval{addv}};
+\texttt{\Lkeyword{args}=$u$ $v$}.
+
+The vector $\vec u + \vec v$
+
+\item \texttt{\Lkeyword{definition}=\Lkeyval{subv}};
+\texttt{\Lkeyword{args}=$u$ $v$}.
+
+The vector $\vec u - \vec v$
+
+\item \texttt{\Lkeyword{definition}=\Lkeyval{mulv}};
+\texttt{\Lkeyword{args}=$u$ $\alpha $}.
+
+The vector $\alpha \vec u$
+
+\end{itemize}
+
+\endinput

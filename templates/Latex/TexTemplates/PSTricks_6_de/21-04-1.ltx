@@ -1,0 +1,40 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2008 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-plot,pst-eps,graphicx,multido}
+\def\particle#1#2{\pscircle[fillstyle=solid,fillcolor=black](#1,#2){2pt} %particle
+  \pscircle[linestyle=dotted,dotsep=1.5pt,linewidth=0.5pt,linecolor=gray](#1,#2){6pt}}
+\StopShownPreambleCommands
+\begin{document}
+\PSTtoEPS[bbllx=-1cm,bblly=-0.5cm,bburx=7cm,bbury=7cm]{images/image1.eps}{%
+  \begin{pspicture}(-1,-0.5)(7,7)  \psset{linewidth=2pt}
+    \psframe[linecolor=white](-1,-0.5)(7,7)
+    \psgrid[subgriddiv=0,griddots=10,gridlabels=0,gridcolor=lightgray](0,0)(6,6)%grid
+    \psline[linewidth=1.5pt]{-}(-1,6)(7,6) %boundary
+    \psdots[dotscale=1,dotstyle=o,fillstyle=solid,fillcolor=red](3,6.5)  %photon
+    \psline[linewidth=0.5pt]{->}(3,6.5)(3,5.5) %direction
+    \multido{\ia=0+1}{7}{\multido{\ib=0+1}{7}{\particle{\ia}{\ib}}}
+  \end{pspicture}}
+\begin{figure}[htb] \centering
+\fbox{\includegraphics[scale=0.8]{images/image1}}
+\caption{Bilderzeugung "`on the fly"'}
+\end{figure}
+\end{document}

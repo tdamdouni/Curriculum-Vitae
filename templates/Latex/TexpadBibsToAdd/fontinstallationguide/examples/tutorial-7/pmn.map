@@ -1,0 +1,31 @@
+pmnr8r    Minion-Regular             <8r.enc <pmnr8a.pfb    "TeXBase1Encoding ReEncodeFont"
+pmnrc8r   Minion-RegularSC           <8r.enc <pmnrc8a.pfb   "TeXBase1Encoding ReEncodeFont"
+pmnri8r   Minion-Italic              <8r.enc <pmnri8a.pfb   "TeXBase1Encoding ReEncodeFont"
+pmnric8r  Minion-ItalicSC            <8r.enc <pmnric8a.pfb  "TeXBase1Encoding ReEncodeFont"
+pmns8r    Minion-Semibold            <8r.enc <pmns8a.pfb    "TeXBase1Encoding ReEncodeFont"
+pmnsc8r   Minion-SemiboldSC          <8r.enc <pmnsc8a.pfb   "TeXBase1Encoding ReEncodeFont"
+pmnsi8r   Minion-SemiboldItalic      <8r.enc <pmnsi8a.pfb   "TeXBase1Encoding ReEncodeFont"
+pmnsic8r  Minion-SemiboldItalicSC    <8r.enc <pmnsic8a.pfb  "TeXBase1Encoding ReEncodeFont"
+pmnb8r    Minion-Bold                <8r.enc <pmnb8a.pfb    "TeXBase1Encoding ReEncodeFont"
+pmnbj8r   Minion-BoldOsF             <8r.enc <pmnbj8a.pfb   "TeXBase1Encoding ReEncodeFont"
+pmnbi8r   Minion-BoldItalic          <8r.enc <pmnbi8a.pfb   "TeXBase1Encoding ReEncodeFont"
+pmnbij8r  Minion-BoldItalicOsF       <8r.enc <pmnbij8a.pfb  "TeXBase1Encoding ReEncodeFont"
+pmnc8r    Minion-Black               <8r.enc <pmnc8a.pfb    "TeXBase1Encoding ReEncodeFont"
+pmncj8r   Minion-BlackOsF            <8r.enc <pmncj8a.pfb   "TeXBase1Encoding ReEncodeFont"
+pmnr8x    MinionExp-Regular          <pmnr8x.pfb
+pmnri8x   MinionExp-Italic           <pmnri8x.pfb
+pmns8x    MinionExp-Semibold         <pmns8x.pfb
+pmnsi8x   MinionExp-SemiboldItalic   <pmnsi8x.pfb
+pmnb8x    MinionExp-Bold             <pmnb8x.pfb
+pmnbi8x   MinionExp-BoldItalic       <pmnbi8x.pfb
+pmnc8x    MinionExp-Black            <pmnc8x.pfb
+pmnriw7a  Minion-SwashItalic         <pmnriw7a.pfb
+pmnsiw7a  Minion-SwashSemiboldItalic <pmnsiw7a.pfb
+pmnrp     Minion-Ornaments           <pmnrp.pfb
+pmnrd8r   Minion-DisplayRegular      <8r.enc <pmnrd8a.pfb   "TeXBase1Encoding ReEncodeFont"
+pmnrcd8r  Minion-DisplayRegularSC    <8r.enc <pmnrcd8a.pfb  "TeXBase1Encoding ReEncodeFont"
+pmnrid8r  Minion-DisplayItalic       <8r.enc <pmnrid8a.pfb  "TeXBase1Encoding ReEncodeFont"
+pmnricd8r Minion-DisplayItalicSC     <8r.enc <pmnricd8a.pfb "TeXBase1Encoding ReEncodeFont"
+pmnrd8x   MinionExp-DisplayRegular   <pmnrd8x.pfb
+pmnrid8x  MinionExp-DisplayItalic    <pmnrid8x.pfb
+pmnriwd7a Minion-SwashDisplayItalic  <pmnriwd7a.pfb

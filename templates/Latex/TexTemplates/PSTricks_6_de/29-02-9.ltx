@@ -1,0 +1,33 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{94.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-eucl}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(-2,-2)(2,2)
+  \pstGeonode[PosAngle={0,180,0}]{O}(1.5;24){A}(1.8;-31){B}
+  \psset{arrows=->, arrowscale=2}
+  \pstArcOAB[linecolor=red, linewidth=1.5\pslinewidth]{O}{A}{B}
+  \pstArcOAB[linecolor=blue, linewidth=1.5\pslinewidth]{O}{B}{A}
+  \pstArcnOAB[linecolor=cyan]{O}{A}{B}
+  \pstArcnOAB[linecolor=magenta]{O}{B}{A}
+\end{pspicture}
+\end{document}

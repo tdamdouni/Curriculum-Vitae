@@ -1,0 +1,36 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{142.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-eucl}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(-2.5,-2.5)(2.5,2.5)
+  \pstGeonode{O}(2,0){A}  \pstCircleOA{O}{A}
+  \pstCurvAbsNode{O}{A}{M_1}{\pstDistVal{5.5}}
+  \pstArcOAB[linecolor=red,linewidth=1.5pt,
+    arrows=->]{O}{A}{M_1}
+  \pstCurvAbsNode[CurvAbsNeg=true]{O}{A}{M_2}{%
+    \pstDistAB{A}{M_1}}
+  \psset{linecolor=blue,linestyle=dashed,
+    linewidth=1.5pt,arrows=->}
+  \pstArcnOAB{O}{A}{M_2}  \pstLineAB{A}{M_1}
+\end{pspicture}
+\end{document}

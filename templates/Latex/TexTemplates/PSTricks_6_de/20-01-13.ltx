@@ -1,0 +1,35 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-plot,pst-coil}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(5,2)
+\psset{coilarm=5mm}
+\psaxes(5mm,0)(4.5,2)
+\pssin[periods=1.1cm,linestyle=dotted,
+  linecolor=red](0,1)(5,1)
+\pssin[periods=**1.1cm,linecolor=red](0,1)(5,1)
+\pssin[periods=2.2cm,linestyle=dotted,
+  linecolor=blue](0,1)(5,1)
+\pssin[periods=**2.2cm,linecolor=blue](0,1)(5,1)
+\end{pspicture}
+\end{document}

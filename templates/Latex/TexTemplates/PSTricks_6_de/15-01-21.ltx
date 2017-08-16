@@ -1,0 +1,34 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\usepackage{pst-plot}
+\StartShownPreambleCommands
+\usepackage{pstricks,eurosym}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(-1,-1)(3,2)
+  \psaxes[labels=none,Dy=0.5]{->}(3,2)
+  \rput[rC]{45}(1,-0.2){1. Quartal}
+  \rput[rC]{45}(2,-0.2){2. Quartal}
+  \rput[rC](-0.2,0.5){1T\euro}
+  \rput[rC](-0.2,1){2T\euro}
+  \rput[rC](-0.2,1.5){3T\euro}
+\end{pspicture}
+\end{document}

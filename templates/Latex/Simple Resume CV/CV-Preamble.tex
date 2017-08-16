@@ -1,0 +1,189 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% SIMPLE-RESUME-CV
+%% <https://github.com/zachscrivena/simple-resume-cv>
+%% This is free and unencumbered software released into the
+%% public domain; see <http://unlicense.org> for details.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Long table for page layout.
+\usepackage{longtable}
+
+% Geometry package for page margins.
+\usepackage[
+left=0.75in,
+right=0.75in,
+top=0.75in,
+bottom=0.6in,
+nohead,
+includefoot]{geometry}
+
+% Hyphenation: Disabled.
+\usepackage[none]{hyphenat}
+
+% XeLaTeX packages.
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+
+% Font: Use "Tinos" as the main typeface (\textnormal{}, \normalfont).
+% The "Tinos" fonts are released under the Apache License Version 2.0,
+% and can be downloaded for free at <http://www.fontsquirrel.com/fonts/tinos>.
+% Symbol table: <http://www.fileformat.info/info/unicode/font/tinos/grid.htm>
+\setmainfont
+[Path=./Fonts/Tinos/,
+ItalicFont=Tinos-Italic,
+BoldFont=Tinos-Bold,
+BoldItalicFont=Tinos-BoldItalic]
+{Tinos-Regular.ttf}
+
+% Sans-serif font: Switched to "Tinos".
+\renewcommand{\sffamily}{\rmfamily}
+
+% Typewriter (monospace) font: Switched to "Tinos".
+\renewcommand{\ttfamily}{\rmfamily}
+
+% Small caps font: Switched to "Tinos".
+\renewcommand{\scshape}{\rmfamily}
+
+% Secondary font: "GNU FreeFont".
+% The "GNU FreeFont" fonts are released under the
+% GNU General Public License Version 3, and can be downloaded
+% for free at <https://savannah.gnu.org/projects/freefont/>.
+\newcommand{\UseSecondaryFont}{\fontspec
+[Path=./Fonts/GNUFreeFont/,
+ItalicFont=FreeSerifItalic,
+BoldFont=FreeSerifBold,
+BoldItalicFont=FreeSerifBoldItalic]
+{FreeSerif.otf}}
+
+% Symbols (unicode).
+\newcommand{\BulletSymbol}{\char"25CF}
+\newcommand{\TildeSymbol}{\char"007E}
+
+% PDF settings and properties.
+\usepackage{hyperref}
+
+% Headers and footers: Blank header, page number in footer.
+\makeatletter
+\def\ps@plain{%
+\def\@oddhead{}%
+\def\@evenhead{}%
+\def\@oddfoot{\footnotesize\hfill{\thepage}\hfill}%
+\def\@evenfoot{\footnotesize\hfill{\thepage}\hfill}}
+\makeatother
+
+\pagestyle{plain}
+
+% Paragraph style: No indentation.
+\setlength{\parindent}{0in}
+
+% Footnotes: Use symbols instead of numbers for labels.
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+% Abbreviations for months.
+\newcommand{\LongMonth}[1]{%
+\ifcase#1\relax
+\or January%
+\or February%
+\or March%
+\or April%
+\or May%
+\or June%
+\or July%
+\or August%
+\or September%
+\or October%
+\or November%
+\or December%
+\fi}
+\newcommand{\ShortMonth}[1]{%
+\ifcase#1\relax
+\or Jan%
+\or Feb%
+\or Mar%
+\or Apr%
+\or May%
+\or Jun%
+\or Jul%
+\or Aug%
+\or Sep%
+\or Oct%
+\or Nov%
+\or Dec%
+\fi}
+
+% Select datestamp format.
+\def\DatestampFormatSelection{2}
+
+% Datestamp format: {yyyy}{MM}{dd} ---> yyyy-MM-dd (e.g., 2010-12-31).
+\ifnum\DatestampFormatSelection=1
+\newcommand{\DatestampYMD}[3]{\mbox{#1-#2-#3}}
+\newcommand{\DatestampYM}[2]{\mbox{#1-#2}}
+\newcommand{\DatestampY}[1]{#1}
+\fi
+
+% Datestamp format: {yyyy}{MM}{dd} ---> MMM yyyy (e.g., Dec 2010).
+\ifnum\DatestampFormatSelection=2
+\newcommand{\DatestampYMD}[3]{\mbox{\ShortMonth{#2} #1}}
+\newcommand{\DatestampYM}[2]{\mbox{\ShortMonth{#2} #1}}
+\newcommand{\DatestampY}[1]{#1}
+\fi
+
+% Datestamp format: {yyyy}{MM}{dd} ---> MMMM yyyy (e.g., December 2010).
+\ifnum\DatestampFormatSelection=3
+\newcommand{\DatestampYMD}[3]{\mbox{\LongMonth{#2} #1}}
+\newcommand{\DatestampYM}[2]{\mbox{\LongMonth{#2} #1}}
+\newcommand{\DatestampY}[1]{#1}
+\fi
+
+% Datestamp format: {yyyy}{MM}{dd} ---> yyyy (e.g., 2010).
+\ifnum\DatestampFormatSelection=4
+\newcommand{\DatestampYMD}[3]{#1}
+\newcommand{\DatestampYM}[2]{#1}
+\newcommand{\DatestampY}[1]{#1}
+\fi
+
+% Macro: title (name).
+\renewcommand{\title}[1]{%
+\pdfbookmark{#1}{#1}%
+\par\begin{center}%
+\par\begin{Huge}%
+\textbf{#1}%
+\par\end{Huge}%
+\par\end{center}%
+\par\vspace{-1.75em}\par}
+
+% Macro: subtitle (personal information below name).
+\newenvironment{subtitle}
+{\par\begin{center}%
+\par\begin{footnotesize}}
+{\par\end{footnotesize}%
+\par\end{center}\par}
+
+% Macro: body (rest of the document).
+\newenvironment{body}
+{\par\vspace{-1em}\par
+\begin{longtable}{p{0.15\textwidth}p{0.80\textwidth}}}
+{\par\end{longtable}\par}
+
+% Macro: section (new section for Education, Research Experience, etc.).
+\renewcommand{\section}[2]{\\[-1em]\pdfbookmark{#1}{#1}\\%
+\fontsize{9pt}{11pt}\selectfont\raggedright\textbf{\MakeUppercase{#2}}&}
+
+% Macro: EntryGap (vertical gap between entries in the same section).
+\newcommand{\EntryGap}{\\[-0.5em]~&}
+
+% Macro: SmallEntryGap (small vertical gap within a long entry).
+\newcommand{\SmallEntryGap}{\par\vspace{0.3em}\par}
+
+% Macro: BibSpace (small horizontal space in bibliographic entries).
+\newcommand{\BibSpace}{\hspace{0.5em}\ignorespaces}
+
+% Macro: detail (text in smaller font under an entry).
+\newenvironment{detail}
+{\par\begin{small}}
+{\par\end{small}\par}
+
+% Macro: hide.
+\newcommand{\hide}[1]{}

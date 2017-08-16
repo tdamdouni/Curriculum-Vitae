@@ -1,0 +1,83 @@
+% Title: Borromean_rings
+% Author: Dan Drake <http://math.kaist.ac.kr/~drake>
+% This document shows how to make the Borromean rings using TikZ. It's
+% not very complicated, but it shows you how much a TikZ picture is
+% really just like some source code.
+%
+% This document may be distributed and modified under the terms of the
+% Creative Commons Attribution-Share Alike 3.0 license. See
+% http://creativecommons.org/licenses/by-sa/3.0/.
+%
+% This document is available from
+% http://www.scribd.com/doc/3292620/Borromean-rings. The
+% LaTeX{} source code is available from http://math.kaist.ac.kr/~drake.
+
+\documentclass{article}
+\usepackage{tikz}
+\usepackage{verbatim}
+
+\begin{comment}
+:Title: Borromean rings
+:Tags: Paths, Clipping
+
+This document shows how to make the `Borromean rings`_ using TikZ. It's
+not very complicated, but it shows you how much a TikZ picture is
+really just like some source code.
+
+.. _Borromean rings: http://en.wikipedia.org/wiki/Borromean_rings
+
+:Author: `Dan Drake`_
+:Source: Dan Drake's `whatever page`_.
+
+.. _Dan Drake: http://math.kaist.ac.kr/~drake/index.html
+.. _whatever page: http://math.kaist.ac.kr/~drake/whatever.html
+
+\end{comment}
+
+% drawing parameters
+\newcommand{\circdist}{1}  % distance from origin to center of circles
+\newcommand{\circrad}{7/4} % radius of the circles
+\newcommand{\circlethickness}{6mm} % uh, thickness of the circles
+
+% distance from the origin to the three "interior" intersections
+\pgfmathsetmacro{\intrad}{sqrt((\circrad)^2 - 3*(\circdist)^2/4) - \circdist/2}
+
+% distance from the origin to the three "exterior" intersections
+\pgfmathsetmacro{\extrad}{sqrt((\circrad)^2 - 3*(\circdist)^2/4) + \circdist/2}
+
+% so we can just specify an angle and get the correct color for the circle
+\colorlet{180}{blue}
+\colorlet{60}{red}
+\colorlet{300}{green}
+
+% draws one of our circles
+\newcommand{\mycircle}[1]{%
+  \draw[thick, double distance=\circlethickness, double=#1]
+  (#1:\circdist) circle (\circrad);}
+
+\begin{document}
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+  % draw the circles
+  \foreach \angle in {180, 60, 300}
+  {
+    \mycircle{\angle}
+  }
+
+  % we need to re-do two of the intersections so that the rings
+  % interlock and aren't just piled on top of one another
+  \foreach \angle/\rad in {60/\intrad, 240/\extrad}
+  {
+    \begin{scope}
+      \clip (\angle:\rad) circle (5/4*\circlethickness);
+      %                          you may need to adjust the 5/4 above so
+      %                          the clipping area is big enough
+      \mycircle{300}
+      \mycircle{180}
+    \end{scope}
+  }
+\end{tikzpicture}
+\end{center}
+
+\end{document}

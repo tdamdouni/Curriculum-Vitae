@@ -1,0 +1,87 @@
+\input fontinst.sty
+\needsfontinstversion{1.926}
+
+\substitutesilent{bx}{b}
+\setint{smallcapsscale}{800}
+\setint{slant}{167}
+
+\recordtransforms{psb-rec.tex}
+
+\transformfont{psbr8r}{\reencodefont{8r}{\fromafm{psbr8a}}}
+\transformfont{psbri8r}{\reencodefont{8r}{\fromafm{psbri8a}}}
+\transformfont{psbb8r}{\reencodefont{8r}{\fromafm{psbb8a}}}
+\transformfont{psbbi8r}{\reencodefont{8r}{\fromafm{psbbi8a}}}
+
+\transformfont{psbrc8r}{\reencodefont{8r}{\fromafm{psbrc8a}}}
+\transformfont{psbrij8r}{\reencodefont{8r}{\fromafm{psbrij8a}}}
+\transformfont{psbbj8r}{\reencodefont{8r}{\fromafm{psbbj8a}}}
+\transformfont{psbbij8r}{\reencodefont{8r}{\fromafm{psbbij8a}}}
+
+\transformfont{psbro8r}{\slantfont{\int{slant}}\reencodefont{8r}{\fromafm{psbr8a}}}
+\transformfont{psbbo8r}{\slantfont{\int{slant}}\reencodefont{8r}{\fromafm{psbb8a}}}
+\transformfont{psbrco8r}{\slantfont{\int{slant}}\reencodefont{8r}{\fromafm{psbrc8a}}}
+\transformfont{psbboj8r}{\slantfont{\int{slant}}\reencodefont{8r}{\fromafm{psbbj8a}}}
+
+\installfonts
+\installfamily{T1}{psb}{}
+
+\installfont{psbr8t}{psbr8r,newlatin}{t1}{T1}{psb}{m}{n}{}
+\installfont{psbrc8t}{psbrc8r,psbr8r suffix lining,newlatin}{lining,t1}{T1}{psb}{m}{sc}{}
+\installfont{psbri8t}{psbri8r,newlatin}{t1}{T1}{psb}{m}{it}{}
+\installfont{psbro8t}{psbro8r,newlatin}{t1}{T1}{psb}{m}{sl}{}
+
+\installfont{psbb8t}{psbb8r,newlatin}{t1}{T1}{psb}{b}{n}{}
+\installfont{psbbc8t}{psbb8r,newlatin}{t1c}{T1}{psb}{b}{sc}{}
+\installfont{psbbi8t}{psbbi8r,newlatin}{t1}{T1}{psb}{b}{it}{}
+\installfont{psbbo8t}{psbbo8r,newlatin}{t1}{T1}{psb}{b}{sl}{}
+
+\endinstallfonts
+
+\installfonts
+\installfamily{TS1}{psb}{}
+
+\installfont{psbr8c}{psbr8r,psbrc8r suffix oldstyle,textcomp}{ts1}{TS1}{psb}{m}{n}{}
+\installfontas{psbr8c}{TS1}{psb}{m}{sc}{}
+\installfont{psbro8c}{psbro8r,psbrco8r suffix oldstyle,textcomp}{ts1}{TS1}{psb}{m}{sl}{}
+\installfont{psbri8c}{psbri8r,psbrij8r suffix oldstyle,textcomp}{ts1}{TS1}{psb}{m}{it}{}
+
+\installfont{psbb8c}{psbb8r,psbbj8r suffix oldstyle,textcomp}{ts1}{TS1}{psb}{b}{n}{}
+\installfontas{psbb8c}{TS1}{psb}{b}{sc}{}
+\installfont{psbbo8c}{psbbo8r,psbboj8r suffix oldstyle,textcomp}{ts1}{TS1}{psb}{b}{sl}{}
+\installfont{psbbi8c}{psbbi8r,psbbij8r suffix oldstyle,textcomp}{ts1}{TS1}{psb}{b}{it}{}
+
+\endinstallfonts
+
+\installfonts
+\installfamily{T1}{psbj}{}
+
+\installfont{psbrj8t}{psbr8r,psbrc8r suffix oldstyle,newlatin}{t1j}{T1}{psbj}{m}{n}{}
+\installfont{psbrcj8t}{psbrc8r,newlatin}{t1}{T1}{psbj}{m}{sc}{}
+\installfont{psbroj8t}{psbro8r,psbrco8r suffix oldstyle,newlatin}{t1j}{T1}{psbj}{m}{sl}{}
+\installfont{psbrij8t}{psbrij8r,newlatin}{t1}{T1}{psbj}{m}{it}{}
+
+\installfont{psbbj8t}{psbbj8r,newlatin}{t1}{T1}{psbj}{b}{n}{}
+\installfont{psbbcj8t}{psbbj8r,newlatin}{t1c}{T1}{psbj}{b}{sc}{}
+\installfont{psbboj8t}{psbboj8r,newlatin}{t1}{T1}{psbj}{b}{sl}{}
+\installfont{psbbij8t}{psbbij8r,newlatin}{t1}{T1}{psbj}{b}{it}{}
+
+\endinstallfonts
+
+\installfonts
+\installfamily{TS1}{psbj}{}
+
+\installfontas{psbr8c}{TS1}{psbj}{m}{n}{}
+\installfontas{psbr8c}{TS1}{psbj}{m}{sc}{}
+\installfontas{psbro8c}{TS1}{psbj}{m}{sl}{}
+\installfontas{psbri8c}{TS1}{psbj}{m}{it}{}
+
+\installfontas{psbb8c}{TS1}{psbj}{b}{n}{}
+\installfontas{psbb8c}{TS1}{psbj}{b}{sc}{}
+\installfontas{psbbo8c}{TS1}{psbj}{b}{sl}{}
+\installfontas{psbbi8c}{TS1}{psbj}{b}{it}{}
+
+\endinstallfonts
+
+\endrecordtransforms
+
+\bye

@@ -1,0 +1,74 @@
+% book example for classicthesis.sty
+\documentclass[
+  % Replace twoside with oneside if you are printing your thesis on a single side
+  % of the paper, or for viewing on screen.
+  %oneside,
+  twoside,
+  11pt, a4paper,
+  footinclude=true,
+  headinclude=true,
+  cleardoublepage=empty
+]{scrbook}
+
+\usepackage{lipsum}
+\usepackage[linedheaders,parts,pdfspacing]{classicthesis}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{acronym}
+\usepackage{bookmark}
+
+\title{Adaptivity}
+\author{Taha Dhiaeddine Amdouni}
+
+\begin{document}
+
+\maketitle
+
+\clearpage
+%\phantomsection
+%\addcontentsline{abstract}
+\include{FrontBackMatter/abstract}
+\clearpage
+%\phantomsection
+%\addcontentsline{dedication}
+\include{FrontBackMatter/dedication}
+\clearpage
+%\phantomsection
+%\addcontentsline{acknowledgements}
+\include{FrontBackMatter/acknowledgements}
+\clearpage
+%\phantomsection
+%\addcontentsline{declaration}
+\include{FrontBackMatter/declaration}
+\clearpage
+%\phantomsection
+%\addcontentsline{contents}
+\include{FrontBackMatter/contents}
+
+\part{First Part}
+
+\chapter{A Chapter}
+\lipsum[1] % This is just some filler text. Remove before you start writing
+
+\section{A Section}
+\lipsum[1] % This is just some filler text. Remove before you start writing
+
+\section{Another Section}
+\lipsum[1] % This is just some filler text. Remove before you start writing
+
+\chapter{Another Chapter}
+\lipsum[1] % This is just some filler text. Remove before you start writing
+
+\section{Yet Another Section}
+\lipsum[1] % This is just some filler text. Remove before you start writing
+
+\part{Another Part}
+
+\chapter{Yet Another Chapter}
+\lipsum[1] % This is just some filler text. Remove before you start writing
+  
+\part{Another Another Part}
+\chapter{Chapter}
+\lipsum[1]
+    
+\end{document}

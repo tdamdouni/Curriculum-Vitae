@@ -1,0 +1,144 @@
+\newpage
+\section{Lighting by a point light source}
+
+Two parameters, the first one positions the \Index{light source}, the second one sets the \Index{light intensity}:
+\begin{compactitem}
+    \item \Lkeyword{lightsrc}=20 30 50 in Cartesian coordinates, or
+\texttt{\Lkeyword{lightsrc}=\Lkeyval{viewpoint}} to put the light source at the view point.
+    \item \texttt{\Lkeyword{lightintensity}=2} (default value).
+\end{compactitem}
+\begin{center}
+\newcommand\LIGHTSRC[3]{%
+\pstVerb{
+         /xLIGHTSRC #1 def
+         /yLIGHTSRC #2 def
+         /zLIGHTSRC #3 def
+         /RADIUS 4 def
+         /THETA yLIGHTSRC xLIGHTSRC atan def
+         /DISTANCE xLIGHTSRC dup mul  yLIGHTSRC dup mul add zLIGHTSRC dup mul add sqrt def
+         /PHI zLIGHTSRC DISTANCE div arcsin def
+         /ALPHA RADIUS DISTANCE div arccos def
+         /OH ALPHA cos RADIUS mul def
+         /radius_cone ALPHA sin RADIUS mul def
+         /Hauteur_cone DISTANCE OH sub def
+         /X_C xLIGHTSRC OH mul DISTANCE div def
+         /Y_C yLIGHTSRC OH mul DISTANCE div def
+         /Z_C zLIGHTSRC OH mul DISTANCE div def
+         /rotX_axe_cone PHI 90 sub def
+         /rotZ_axe_cone THETA 90 sub def
+         }
+\psset{Decran=50,viewpoint=50 10 15}
+\psSolid[object=sphere,r=RADIUS,fillcolor=blue,ngrid=18 36,
+        lightsrc=xLIGHTSRC yLIGHTSRC zLIGHTSRC](0,0,0)
+\psPoint(xLIGHTSRC,yLIGHTSRC,zLIGHTSRC){LS}
+\psset{lightsrc=}
+\psSolid[object=cone,r=radius_cone,h=Hauteur_cone,fillcolor=yellow!50,
+       ngrid=1 36,RotX=rotX_axe_cone,RotZ=rotZ_axe_cone,opacity=0.5,
+       linecolor=yellow](X_C,Y_C,Z_C)
+\psdot(LS)}
+
+\begin{pspicture}(-2,-2.5)(5,5)
+\psset{unit=0.5}
+\LIGHTSRC{0}{8}{8}
+\uput[45](LS){Light Source}
+\axesIIID(4,4,4)(6,6,6)
+\end{pspicture}
+\begin{pspicture}(-4,-2.5)(5,2.5)
+\psset{unit=0.5}
+\LIGHTSRC{2}{-5}{0}
+\uput[l](LS){Light Source}
+\axesIIID(4,4,4)(6,6,6)
+\end{pspicture}
+
+\begin{pspicture}(-1,-2.5)(9,2.5)
+\psset{unit=0.5}
+\LIGHTSRC{0}{20}{0}
+\uput[r](LS){Light Source}
+\axesIIID(4,4,4)(6,6,6)
+\end{pspicture}
+\end{center}
+
+As you can see, the intersecting \Index{plane} (section of the sphere with the cone of
+\Index{light}) divides the object into two half spaces: the first half space
+(the one on the side of the \Index{light source}) is illuminated and the other half space is the shadow region referring to this light source position.
+
+Now it is clear, that if the view point is setup with the same coordiates as the light source, the object is illuminated uniquely.
+
+\encadre{In order to get some shadow regions to appear in the graphic---which emphasises the 3D character---we would suggest choosing the light source and the view point differently.}
+
+\newpage
+Here follow a few examples:
+
+\begin{pspicture}(-3,-2)(3,3)
+\psset{unit=0.3}
+\psset{Decran=1e3,
+    viewpoint=500 0 1000,
+    lightsrc=10 20 30,mode=3}
+\psSolid[object=sphere,r=5,fillcolor=blue](0,0,8)
+\rput(0,-3.5){\texttt{lightsrc=10 20 30}}
+\end{pspicture}
+\begin{pspicture}(-3,-2)(3,3)
+\psset{unit=0.3}
+\psset{Decran=1e3,
+    viewpoint=500 0 1000,
+    lightsrc=-10 -20 30,mode=3}
+\psSolid[object=sphere,r=5,fillcolor=blue](0,0,8)
+\rput(0,-3.5){\texttt{lightsrc=-10 -20 30}}
+\end{pspicture}
+\begin{pspicture}(-3,-2)(3,3)
+\psset{unit=0.3}
+\psset{Decran=1e3,
+    viewpoint=500 0 1000,
+    lightsrc=30 -20 30,mode=3}
+\psSolid[object=sphere,r=5,fillcolor=blue](0,0,8)
+\rput(0,-3.5){\texttt{lightsrc=30 -20 30}}
+\end{pspicture}
+
+When the option \verb+[lightsrc=value1 value2 value3]+
+is not specified, the object is uniformly illuminated.
+
+\begin{center}
+ \begin{pspicture}(-6,-2)(6,2)
+%\psframe(-6,-4)(6,4)
+\psset{viewpoint=50 50 30 rtp2xyz,Decran=40,unit=0.6}
+\psSolid[object=datfile,file=./tore1836,deactivatecolor]
+ %\psSolid[r1=3.5,r0=1,object=tore,ngrid=18 36,fillcolor={[rgb]{.372 .62 .628}}]%
+ \axesIIID(0,4.5,0)(6,6,4)
+ \end{pspicture}
+\end{center}
+
+
+
+Here are some examples, where we always keep the same object, the same view point, the same light
+source coordinates and just vary the \Lkeyword{lightintensity} value:
+
+\begin{pspicture}(-3,-2)(3,3)
+\psset{unit=0.3}
+\psset{Decran=1e3,
+    viewpoint=500 0 1000,
+    lightsrc=-10 -20 30,mode=4,lightintensity=1}
+\psSolid[object=sphere,r=5,fillcolor=green](0,0,8)
+\rput(0,-3.5){\texttt{lightintensity=2}}
+\end{pspicture}
+\begin{pspicture}(-3,-2)(3,3)
+\psset{unit=0.3}
+\psset{Decran=1e3,
+    viewpoint=500 0 1000,
+    lightsrc=-10 -20 30,mode=4,lightintensity=3}
+\psSolid[object=sphere,r=5,fillcolor=green](0,0,8)
+\rput(0,-3.5){\texttt{lightintensity=3}}
+\end{pspicture}
+\begin{pspicture}(-3,-2)(3,3)
+\psset{unit=0.3}
+\psset{Decran=1e3,
+    viewpoint=500 0 1000,
+    lightsrc=-10 -20 30,mode=4,lightintensity=8}
+\psSolid[object=sphere,r=5,fillcolor=green](0,0,8)
+\rput(0,-3.5){\texttt{lightintensity=8}}
+\end{pspicture}
+
+Here we can see, that by increasing the \Lkeyword{lightintensity} value, the shading nuances of the solid are decreasing.
+
+
+
+\endinput

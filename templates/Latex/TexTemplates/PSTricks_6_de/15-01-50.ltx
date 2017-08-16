@@ -1,0 +1,38 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\begin{filecontents}{demo1.dat}
+1 99447169    2 110351058   3 123557238  4 138346129
+5 145050826   6 160363212   7 174000394  8 183856559
+9 189128691  10 197634845  11 213257357 12 216899512
+13 230152738 14 224144907  15 247410024 16 261168438
+17 252920343 18 326153799  19 319442110 20 310351522
+21 381919943 22 438043888  23 357527766 24 603304997
+\end{filecontents}
+\StartShownPreambleCommands
+\usepackage{pst-plot}
+\StopShownPreambleCommands
+\begin{document}
+\readdata{\data}{demo1.dat}
+\pstScalePoints(1,0.000001){}{} \psset{llx=-1.5cm,lly=-.2cm,ury=.2cm}
+\psgraph[ylabelFactor=\cdot 10^6,Dx=5,Dy=100,ticksize=-5pt 0]{->}(0,0)(25,650){8cm}{4cm}
+   \listplot[linecolor=red,showpoints]{\data}
+\endpsgraph
+\end{document}

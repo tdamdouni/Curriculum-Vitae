@@ -1,0 +1,232 @@
+% resume.tex
+%
+% (c) 2007-2011 Jeremy B. R. Edberg <jedberg@gmail.com> http://www.jedberg.net
+%
+
+%%%%%%%%%%%%
+% Basic setup
+\documentclass[11pt]{article}
+\usepackage{fullpage}
+\usepackage{setspace}
+\pagestyle{empty}
+\setlength{\tabcolsep}{0in}
+\hyphenchar\font=-1
+\usepackage{geometry} 
+\geometry{legalpaper, twoside} 
+\setstretch{1}
+\usepackage{booktabs}
+\usepackage{topcapt}
+%\raggedbottom
+%\raggedright
+\usepackage{tabulary}
+\usepackage{hyphenat}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%
+% PDF setup
+\usepackage{ifpdf}
+\ifpdf
+  \usepackage[pdftex]{hyperref}
+\else
+  \usepackage[hypertex]{hyperref}
+\fi
+\hypersetup{
+    letterpaper,
+    colorlinks,
+    urlcolor=black,
+    pdfpagemode=none,
+    pdftitle={Resume},
+    pdfauthor={Jeremy Edberg},
+    pdfsubject={Resume},
+    pdfkeywords={reddit, eBay, python, pylons, unix, product, Engineering Leadership, cloud computing, virtualization, Unix/Linux administration, security, general technical operations, web development, UC Berkeley, Technology vision, scalable systems, highly reliable systems, enterprise computing, web architectures, web services, operating systems, systems management}
+}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%
+% Margin setup
+\oddsidemargin  -0.5in
+\evensidemargin -0.5in
+\textwidth      7.2in
+\headheight     -0.7in
+\topmargin      0.0in
+\textheight=13.0in
+%\footheight 1.0in 
+%%%%%%%%%%%%
+
+\begin{document}
+
+%% Heading
+\begin{center}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lcr}
+&{\textbf{\sc{Jeremy B. Edberg -- Summary Resum\'e}}}&\\
+jedberg@gmail.com &  & Mobile: (510) 501-1783\\
+\hline\hline
+\end{tabular*}
+\end{center}
+
+%% Experience Section
+
+% reddit
+\noindent 
+\\
+%\\
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+\textbf{reddit.com} & San Francisco, CA \\
+\emph{Chief Architect and Lead Technologist} & \emph{January 2011 to Present} \\
+\emph{Operations Manager} & \emph{March 2007 to January 2011}
+\end{tabular*}
+{\small
+
+\noindent
+\begin{list}{$\bullet$}{
+%\setlength{\itemsep}{ -5pt}
+%\setlength{\partopsep}{ -18pt}
+}
+\item Responsible for all technology -- system architecture, hiring, managing, capacity planning, budgeting, operations, vendors, maximizing automation while minimizing infrastructure.  Oversaw a 30X traffic growth and a five-fold growth in infrastructure.  Expert in virtualized environments (aka Cloud Computing) and rapid website scaling.
+\item  Involved in the design and testing of all major site features, marketing, determining new product directions and ideas,  writing open source code, promotion, management of a 18M+ user community, etc.  
+\item Expert on the system end-to-end, requiring learning and integrating new technologies quickly.  
+\item Built the tools to support 1B+ page views per month with just one system administrator -- a set of tools to reduce code deployment time from 30 minutes to 1 minute; a monitoring infrastructure to send alerts before problems become critical, including self-healing to minimize operator involvement; tools to monitor traffic in real-time.  
+\item Planned and carried out a move of reddit's servers from Boston to San Francisco with no downtime and then 1.5 years later planned and executed a move of reddit's servers from colocated hosting to Amazon's EC2.
+\item Designed, implemented and currently maintain a white-label embedable voting widget based on reddit technology that brings in millions of dollars in revenue annually. Used for interactive advertising that was nominated for the Best Interactive Advertising Webby Award.
+\end{list}
+}
+
+
+% eBay
+\noindent
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+\textbf{eBay, Inc.} & San Jose, CA \\
+\emph{Senior Systems Engineer} & \emph{July 2006 to March 2007} \\
+\emph{Senior Information Security Engineer} & \emph{July 2003 to June 2006}
+\end{tabular*}
+{\small
+\noindent
+\begin{list}{$\bullet$}{
+%\setlength{\itemsep}{ -5pt}
+%\setlength{\partopsep}{ -18pt}
+}
+\item Responsible for the daily operation of eBay's development lab.  Projects in the lab were Proof-of-Concepts for hardware and software with bleeding edge technology  and worked closely with the developers and architects to help plan what eBay's hardware will look like in a three year time-frame.
+\item Protected 210+ million users from external threats and the security of the largest transactional e-commerce system in the world.  Developed fraud detection and prevention software (patent pending); investigated computer crime; ran  the IDS and log aggregation/correlation system; served as a security consultant for the entire organization as well as customers.  Developed and tested the fraud prevention technology in the eBay toolbar.
+\item Deployed eBay's authenticated email infrastructure: created our Sender Policy Framework entries, defining eBay's record as the standard format for large mail installations.  Worked with vendors to define the DKIM standard and create use cases. 
+\item Designed and developed an automated Sarbanes-Oxley (SOX) data collection program in Perl to replace the scripts provided by Price Waterhouse Coopers, saving the company thousands of dollars
+\end{list}
+}
+
+% Sendmail
+\noindent 
+\\
+%\\
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+\textbf{Sendmail, Inc.} & Emeryville, CA \\
+\emph{Network / Security / Systems Administrator} & \emph{December 1999 to August 2001}
+\end{tabular*}
+
+% Yellow Phoenix
+\noindent 
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+\textbf{Yellow Phoenix Consulting} & Berkeley, Santa Clara, and Cupertino, CA \\
+\emph{Consultant / Principal} & \emph{August 2001 to Present}
+\end{tabular*}
+
+%UC Berkeley
+\noindent 
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+\textbf{University of California, Berkeley} & Berkeley, CA \\
+\emph{Special Projects Coordinator} & \emph{August 1996 to November 1999}
+\end{tabular*}
+
+%% Selected Talks & Presentations
+\noindent
+\\
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}}
+\large {\sc {Selected Talks \& Presentations}}\\
+\hline
+\end{tabular*}
+\\
+
+{\small
+\noindent 
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+\textbf{Velocity} -- \emph{War Stories: The mistakes we made and how you can avoid them} & Santa Clara, CA, \emph{Jun 16, 2011} \\
+\textbf{Interop} -- \emph{Understanding Big Data (Co-presenter)} & Las Vegas, NV, \emph{May 9, 2011} \\
+\textbf{Interop} -- \emph{Real World Case Study -- reddit.com} & Las Vegas, NV, \emph{May 8, 2011} \\
+\textbf{Cloud Connect} -- \emph{\textbf{Track Chair}: Data and Storage} & Santa Clara, CA, \emph{Mar, 2011} \\
+\textbf{Cloud Connect} -- \emph{How reddit Manages Their Data} & Santa Clara, CA, \emph{Mar 9, 2011} \\
+\textbf{Web 2.0 NYC} -- \emph{Are You (or your company) Naughty or Nice? (Online Reputation)} & New York, NY, \emph{Sep 29, 2010} \\
+\textbf{Interop} -- \emph{Clouds and Enterprises: Lessons Learned -- Panelist} & Las Vegas, NV, \emph{Apr 28, 2010} \\
+\textbf{Cloud Connect} -- \emph{Keynote Speaker -- Why Cloud Computing?} & Santa Clara, CA, \emph{Mar 17, 2010} \\
+\textbf{Amazon Invited Speaker} -- \emph{How Amazon Can Better Use EC2} & Seattle, WA, \emph{Feb 26, 2010} \\
+\textbf{Pycon} -- \emph{Scaling your Python Application on EC2} & Atlanta, GA, \emph{Feb 19, 2010} 
+\end{tabular*}
+}
+
+%% Education and Training
+\noindent
+\\
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}}
+\large {\sc {Education \& Training}}\\
+\hline
+\end{tabular*}
+
+%UC Berkeley
+\noindent 
+\\
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+\textbf{University of California, Berkeley} & \emph{January 1996 to December 1998} \\
+\emph{BA, Cognitive Science} & \emph{May 2002 to May 2003}
+\end{tabular*}
+
+%ArcSight
+\noindent
+\\  
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+\textbf{ArcSight Security Analyst Certification} -- \emph{ArcSight On-Site Training} & Cupertino, CA, \emph{April 2006}
+\end{tabular*}
+
+%SANS
+\noindent
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+\textbf{Forensics, Investigation and Response Certification} -- \emph{SANS Great Lakes} & Chicago, IL, \emph{May 2004}
+\end{tabular*}
+
+%Sun
+\noindent 
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+\textbf{Solaris Sysadmin Fast Track Certification} -- \emph{Sun Education Services} & Boston, MA, \emph{December 2000}
+\end{tabular*}
+
+%% Other Activities
+\noindent
+\\
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}}
+\large {\sc {Other Activities}}\\
+\hline
+\end{tabular*}
+
+%Year One Labs
+\noindent 
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+\textbf{Year One Labs} -- \emph{Mentor} & Montr\'eal, QC, CA, \emph{July 2010 to Present}
+\end{tabular*}
+
+%eBay Foundation
+\noindent 
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+\textbf{eBay Foundation} -- \emph{Member -- Grant Review Comittee} & San Jose, CA, \emph{October 2005 to October 2006}
+\end{tabular*}
+
+
+%Blue Hills
+\noindent 
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+\textbf{Blue Hills School} -- \emph{Classroom volunteer} & Saratoga, CA, \emph{August 2004 to Present}
+\end{tabular*}
+
+%Acmeinter.Net
+\noindent 
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+\textbf{Acmeinter.Net} -- \emph{Volunteer System Administrator / Founder} & Cupertino, CA, \emph{May 1998 to Present}
+\end{tabular*}
+
+
+\end{document}

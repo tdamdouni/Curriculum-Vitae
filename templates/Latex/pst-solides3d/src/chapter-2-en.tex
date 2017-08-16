@@ -1,0 +1,297 @@
+\section{Choice of the view point}
+
+\begin{center}
+
+\begin{pspicture}(-5,-5.7)(10,7)
+\psset{lightsrc=10 20 30,viewpoint=50 30 20 rtp2xyz}
+\definecolor{bleuciel}{rgb}{0.78,0.84,0.99}
+\psSolid[object=cube,fillcolor=bleuciel,a=2,action=draw*]%%
+%\psSolid[object=cubemaillage,fillcolor=bleuciel,a=2]%%
+\psSolid[object=grille,base=0 8 0 10,action=draw]%%
+\psSolid[object=grille,base=0 7 0 10,action=draw,RotY=90](0,0,7)%
+\psSolid[object=grille,base=0 8 0 7,action=draw,RotX=-90](0,0,7)%
+\psSolid[object=cube,fillcolor=bleuciel,a=1,action=draw*](0.5,0.5,0.5)%
+\psSolid[object=grille,base=-1 1 -1 1,action=draw,linecolor=blue](0,0,1)%
+\psSolid[object=grille,base=-1 1 -1 1,action=draw,RotY=90,linecolor=blue](1,0,0)%
+\psSolid[object=grille,base=-1 1 -1 1,action=draw,RotX=-90,linecolor=blue](0,1,0)%
+\axesIIID(1,1,1)(8,10,7)
+\pstVerb{
+   /dV 12 def % distance V
+   /dE 6 def % distance \'{e}cran
+   /Theta 60 def
+   /Phi 30 def
+   dV Theta Phi rtp2xyz
+   /zV exch def
+   /yV exch def
+   /xV exch def
+   dE Theta Phi rtp2xyz
+   /zE exch def
+   /yE exch def
+   /xE exch def
+         }%
+\psPoint(xV,yV,zV){V}
+\psPoint(xE,yE,zE){E}
+\psPoint(xV,yV,0){Vp}
+%
+% 5 distance \'{e}cran
+%\psPoint(dE Theta  cos mul Phi cos div dE Theta  sin mul Phi cos div 0){Vq}
+\psPoint(xV,0,0){Vx}
+\psPoint(0,yV,0){Vy}
+\psPoint(0,0,zV){Vz}
+\psdot(V)
+{\psset{linestyle=dashed,linecolor=red}
+\psline(V)(Vp)\psline(Vx)(Vp)\psline(Vy)(Vp)\psline(V)(Vz)\psline(V)(O)\psline(Vp)(O)}
+%\psSolid[object=grille,base=-5 5 -3 3,action=draw,RotX=-60,linecolor=red](xE,yE,zE)%
+\psTransformPoint[RotX=-60](-5 -3 0)(xE,yE,zE){A}
+\psTransformPoint[RotX=-60](-5 3 0)(xE,yE,zE){B}
+\psTransformPoint[RotX=-60](5 3 0)(xE,yE,zE){C}
+\psTransformPoint[RotX=-60](5 -3 0)(xE,yE,zE){D}
+\pspolygon[fillstyle=vlines,hatchcolor=yellow!90,hatchwidth=0.02,hatchsep=0.04](A)(B)(C)(D)
+%
+%
+\PointEcran(1,1,1){S1}
+\psPoint(1,1,1){s1}
+\psline(S1)(V)
+\psline[linestyle=dashed](s1)(S1)
+%
+\PointEcran(1,1,-1){S2}
+\psPoint(1,1,-1){s2}
+\psline(S2)(V)
+\psline[linestyle=dashed](s2)(S2)
+%
+\PointEcran(-1,1,-1){S3}
+\psPoint(-1,1,-1){s3}
+\psline(S3)(V)
+\psline[linestyle=dashed](s3)(S3)
+%
+\PointEcran(-1,1,1){S4}
+\psPoint(-1,1,1){s4}
+\psline(S4)(V)
+\psline[linestyle=dashed](s4)(S4)
+%
+\PointEcran(1,-1,-1){S5}
+\psPoint(1,-1,-1){s5}
+\psline(S5)(V)
+\psline[linestyle=dashed](s5)(S5)
+%
+\PointEcran(1,-1,1){S6}
+\psPoint(1,-1,1){s6}
+\psline(S6)(V)
+\psline[linestyle=dashed](s6)(S6)
+%
+\PointEcran(-1,-1,1){S7}
+\psPoint(-1,-1,1){s7}
+\psline(S7)(V)
+\psline[linestyle=dashed](s7)(S7)
+\psset{solidmemory}
+\psSolid[object=plan,
+   definition=equation,
+   args={[0 0 1 0]},
+   base=-5 5 -3 3,
+   RotX=-60,
+%   showBase,
+   action=none,
+   name=planbase,
+]
+%% here, we define the plantype object "Ecran"
+\codejps{
+   planbase
+   dup xE yE zE planputorigine
+   dup -180 rotateplan
+   /Ecran exch def
+}%
+%% uncomment follow line to draw "Ecran"
+%\psSolid[object=plan,args=Ecran,showBase,planmarks]
+\psProjection[object=texte,
+   plan=Ecran,
+   fontsize=20,
+   text=Projection Screen](-2,2)
+
+%
+\psset{linecolor=red,fillstyle=vlines,hatchsep=0.04,hatchwidth=0.02}
+\pspolygon[hatchcolor=red!60](S1)(S2)(S3)(S4)
+\pspolygon[,hatchcolor=red!60](S1)(S2)(S5)(S6)
+\pspolygon[hatchcolor=red!10](S1)(S4)(S7)(S6)
+\psdots(s1)(s2)(s3)(s4)(s5)(s6)(s7)(S1)(S2)(S3)(S4)(S5)(S6)(S7)
+\psbrace[ref=lC,linecolor=black](V)(E){$D$}
+\uput[45](V){View Point}
+\end{pspicture}
+\end{center}
+
+The coordinates of the object, in this case the bluish cube, are setup in the axes of coordinates $Oxyz$.  The \Index{coordinates} of the \Index{view point} ($V$), are setup in the same axes of coordinates, either in \Index{spherical coordinates}---with the adding option \verb+[rtp2xyz]+, or in Cartesian coordinates---which is the default option.
+
+Example: \verb+[viewpoint=50 30 20  rtp2xyz]+ \qquad (here the notation with spherical coordinates)
+
+
+See some examples:
+
+\def\decor{%
+\psset{solidmemory}
+ \psSolid[object=plan,
+   definition=equation,
+   base=-5 5 -5 5,
+   args={[0 0 1 0] 180},
+   name=P1]%
+\psset{fontsize=28.45,plan=P1}
+\psSolid[object=plan,
+   args=P1,
+   plangrid,action=none]
+\psProjection[object=texte,
+   linecolor=red,
+   text=pst-solides3d](0,3.5)
+ \psSolid[object=sphere,r=1,fillcolor=red!25,ngrid=18 36](4,4,1)
+ \psSolid[object=cone,h=3,r=1,fillcolor=cyan,mode=5](-4,4,0)
+ \psSolid[object=cube,a=2,fillcolor=magenta!20](-4,-4,1)
+ \psSolid[object=cylindre,r=1,h=4,fillcolor=blue!20,ngrid=4 16](4,-4,0)
+\axesIIID(0,0,0)(6,6,6)
+\psPoint(0,0,0){O}
+\psdot(O)}
+
+\begin{pspicture}(-3,-3)(3,3)
+%\psframe(-5,-3)(4,4)
+ \psset{viewpoint=20 25 15,Decran=20,lightsrc=viewpoint,unit=0.9}
+\decor
+\rput(0,-4){\texttt{viewpoint=20 25 15}}
+ \end{pspicture}\qquad\qquad\qquad\qquad
+\begin{pspicture}(-3,-3)(3,3)
+%\psframe(-5,-3)(4,4)
+ \psset{viewpoint=-10 0 30,Decran=20,lightsrc=viewpoint,unit=0.9}
+\decor
+\rput(0,-4){\texttt{viewpoint=-10 0 30}}
+ \end{pspicture}
+
+
+\begin{pspicture}(-3,-3)(3,4.5)
+%\psframe(-5,-3)(4,4)
+ \psset{viewpoint=-20 0 10,Decran=10,lightsrc=viewpoint,unit=0.9}
+\decor
+\rput(0,-4){\texttt{viewpoint=-20 0 10}}
+ \end{pspicture}\qquad\qquad\qquad\qquad
+ \begin{pspicture}(-3,-3)(3,4.5)
+%\psframe(-5,-3)(4,4)
+ \psset{viewpoint=-20 -10 25,Decran=20,lightsrc=viewpoint,unit=0.9}
+\decor
+\rput(0,-4){\texttt{viewpoint=-20 -10 25}}
+ \end{pspicture}
+
+\section{The definition of the option \texttt{\Index{Decran}}}
+The \Index{projection screen} is placed perpendicular to the direction $OV$---central
+perspective, at a distance $D$ from the view point $V$: We call that distance
+`Decran', with the default value of \texttt{\Lkeyword{Decran}=50}; this value can
+either be positive or negative.
+
+
+
+The following examples show the behaviour of the parameter \Lkeyword{Decran}.
+
+\begin{center}
+\begin{pspicture}(-2,-3)(2.5,3)
+\psaxes[yAxis=false](-2,-2)(2,2)
+\psset{viewpoint=0 0 5,Decran=5}
+\psSolid[object=grille,base=-2 2 -2 2]
+\psSolid[object=vecteur,args=0 0 0  2 2 0,linecolor=red,linewidth=2pt]
+\axesIIID(3,3,3)\pnode(2,-2){B}\pnode(2,2){A}
+\end{pspicture}
+\qquad
+\begin{pspicture}(-0.5,-3)(5,3)
+\psaxes[yAxis=false](0,-2)(5,2)
+\psset{viewpoint=5 0 5,Decran=5,RotX=-90}
+\psSolid[object=grille,base=-2 2 -2 2,RotX=89.9]
+\axesIIID[axisnames={x,z,y}](3,3,0)
+\psdot(5,0)\uput[0](5,0){V}
+\psline[tbarsize=3mm 5]{<->|}(0,-0.5)(5,-0.5)\rput*(2.5,-0.5){$D=V$}
+\psline[linestyle=dashed](0,2)(5,0)\psline[linestyle=dashed](0,-2)(5,0)
+\uput[-90](0,-2.5){Original}\uput[-90](0,-2.85){Image}
+\psline[linestyle=dotted](A)(0,2)
+\psline[linestyle=dotted](B)(0,-2)
+\rput(-1,2.75){Rotation: }
+\rput(-1,2.25){90$^\circ$ around $x$}
+\psSolid[object=vecteur,args=0 0 0  2 2 0,linecolor=red,linewidth=2pt]
+\end{pspicture}\\[\normalbaselineskip]
+%
+\begin{pspicture}(-2,-3)(2.5,3)
+\psaxes[yAxis=false](-2,-2)(2,2)
+\psset{viewpoint=0 0 5,Decran=2.5}
+\psSolid[object=grille,base=-2 2 -2 2]
+\psSolid[object=vecteur,args=0 0 0  2 2 0,linecolor=red,linewidth=2pt]
+\axesIIID(3,3,3)\pnode(1,-1){B}\pnode(1,1){A}
+\end{pspicture}
+\qquad
+\begin{pspicture}(-0.5,-3)(5,3)
+\psaxes[yAxis=false](0,-2)(5,2)
+\psset{viewpoint=5 0 5,Decran=2.5,RotX=-90}
+\psline[linewidth=1pt](0,2)(0,-2)
+\psline[linewidth=1.5pt,linecolor=red]{->}(0,0)(0,-2)
+\psdot(5,0)\uput[0](5,0){V}
+\psline[tbarsize=3mm 5]{<->|}(0,1.5)(5,1.5)\rput*(2.5,1.5){$V$}
+\psline[linestyle=dashed](0,2)(5,0)\psline[linestyle=dashed](0,-2)(5,0)
+\psline[tbarsize=3mm 5]{|<->|}(2.5,-1.5)(5,-1.5)\rput*(3.75,-1.5){$D$}
+\psline[linewidth=1.5pt](2.5,1)(2.5,-1)
+\psline[linewidth=1.5pt,linecolor=red]{->}(2.5,0)(2.5,-1)
+\psline{->}(2.5,0)(3.5,0)\uput[0](3.5,0){$z$}
+\uput[-90](0,-2.5){Original}\uput[-90](2.5,-2.5){Image}
+\psline[linestyle=dotted](A)(2.5,1)
+\psline[linestyle=dotted](B)(2.5,-1)
+\rput(-1.5,1.75){Rotation:}
+\rput(-1.5,1.25){90$^\circ$ around $x$}
+\end{pspicture}
+\end{center}
+
+
+If you keep the view point and make the \Lkeyword{Decran} value smaller, then the
+image gets smaller. If you make the \Lkeyword{Decran} value larger, then the image gets larger.
+
+Here are some examples, where we keep the same object, the same view point
+and just vary the \Lkeyword{Decran} value:
+
+\begin{center}
+\begin{pspicture}(-2,-2)(2,2)
+%\psgrid
+\psset{solidmemory}
+\psset{viewpoint=0 50 0,Decran=50}
+%\psSolid[object=sphere,r=2,ngrid=18 36]
+\psSolid[object=plan,definition=normalpoint,plangrid,linecolor=red,
+         base=-2 2 -2 2,args={0 0 0 [0 1 0 180]},name=monplan]
+\psset{plan=monplan}
+\psProjection[object=texte,
+              linecolor=red,
+              fontsize=105.35,
+              text=PS]%
+\composeSolid
+\rput*(0,-1.75){\texttt{Decran=50}}
+\end{pspicture}\qquad
+\begin{pspicture}(-2,-2)(2,2)
+%\psgrid
+\psset{solidmemory}
+\psset{viewpoint=0 50 0,Decran=25}
+%\psSolid[object=sphere,r=2,ngrid=18 36]
+\psSolid[object=plan,definition=normalpoint,plangrid,linecolor=red,
+         base=-2 2 -2 2,args={0 0 0 [0 1 0 180]},name=monplan]
+\psset{plan=monplan}
+\psProjection[object=texte,
+              linecolor=red,
+              fontsize=105.35,
+              text=PS]%
+\composeSolid
+\rput*(0,-1.75){\texttt{Decran=25}}
+\end{pspicture}\qquad
+\begin{pspicture}(-2,-2)(2,2)
+%\psgrid
+\psset{solidmemory}
+\psset{viewpoint=0 50 0,Decran=-50}
+\psSolid[object=plan,definition=normalpoint,plangrid,linecolor=red,
+         base=-2 2 -2 2,args={0 0 0 [0 1 0 180]},name=monplan]
+\psset{plan=monplan}
+\psProjection[object=texte,
+              linecolor=red,
+              fontsize=105.35,
+              text=PS]%
+\composeSolid
+\rput*(0,-1.75){\texttt{Decran=-50}}
+\end{pspicture}
+\end{center}
+
+
+\endinput
+
+

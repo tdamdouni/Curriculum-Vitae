@@ -1,0 +1,78 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pstricks}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(0,0.5)(10,-7)
+\rput(0,0.75){LA}\rput(9,0.75){RA}\rput(5,0.75){VE}
+\rput(0,-0.75){L}\rput(8,-0.75){R}
+\cput(0,0){\Large 23}\cput[linecolor=red,linestyle=dotted,linewidth=2pt](0,0){\Large 23}
+\rput(1,0){\Large 11}\rput(2,0){\Large 17}
+\rput(3,0){\Large 3}\rput(4,0){\Large 4}
+\rput(5,0){\Large 3}\psframe[linecolor=blue,linewidth=1.5pt](4.5,-0.5)(5.5,0.5)\rput(6,0){\Large 12}
+\rput(7,0){\Large 12}\cput[linecolor=red,linestyle=dotted,linewidth=2pt](8,0){\Large 1}
+\cput[linecolor=cyan,linewidth=1.5pt](9,0){\Large 10}
+\psline[linearc=.5,doublesep=1.5pt]{<->}(0.2,-0.5)(4,-1)(7.8,-0.5)
+% 2. Durchgang
+\rput(1,-2.75){L}\rput(7,-2.75){R}
+\psline{->}(6.8,-2.75)(5.2,-2.75)\rput(5,-2.75){R}
+\cput[linecolor=cyan,linewidth=1.5pt](0,-2){\Large \ 1}
+\rput(1,-2){\Large 11}\cput[linecolor=red,linestyle=dotted,linewidth=2pt](1,-2){\Large 11}
+\rput(2,-2){\Large 17}
+\rput(3,-2){\Large 3}\rput(4,-2){\Large 4}
+\rput(5,-2){\Large 3}\psframe[linecolor=blue,linewidth=1.5pt](4.5,-2.5)(5.5,-1.5)\rput(6,-2){\Large 12}
+\rput(7,-2){\Large 12}\cput[linecolor=red,linestyle=dotted,linewidth=2pt](7,-2){\Large 12}
+\rput(8,-2){\Large 23}
+\cput[linecolor=cyan,linewidth=1.5pt](9,-2){\Large 10}
+\cput[linecolor=red,linestyle=dotted,linewidth=2pt](5,-2){\Large 3}
+\psline{->}(6.5,-2)(5.5,-2)
+\psline[linearc=.5,doublesep=1.5pt]{<->}(1.2,-2.5)(3,-3)(4.8,-2.5)
+% 3. Durchgang
+\rput(2,-4.75){L}\rput(4,-4.75){R}
+\psline{->}(3.8,-4.75)(3.2,-4.75)\rput(3,-4.75){R}
+\cput[linecolor=cyan,linewidth=1.5pt](0,-4){\Large \ 1}
+\rput(1,-4){\Large 3}\psframe[linecolor=blue,linewidth=1.5pt](0.5,-4.5)(1.5,-3.5)
+\rput(2,-4){\Large 17}\cput[linecolor=red,linestyle=dotted,linewidth=2pt](2,-4){\Large 17}
+\rput(3,-4){\Large 3}\cput[linecolor=red,linestyle=dotted,linewidth=2pt](3,-4){\Large 3}
+\rput(4,-4){\Large 4}\cput[linecolor=red,linestyle=dotted,linewidth=2pt](4,-4){\Large 4}
+\rput(5,-4){\Large 11}
+\rput(6,-4){\Large 12}
+\rput(7,-4){\Large 12}
+\rput(8,-4){\Large 23}
+\cput[linecolor=cyan,linewidth=1.5pt](9,-4){\Large 10}
+\psline{->}(3.6,-4)(3.4,-4)
+\psline[linearc=.5,doublesep=1.5pt]{<->}(2.2,-4.5)(2.5,-4.8)(2.8,-4.5)
+% 4. Durchgang
+\rput(3,-6.75){L}\rput(2,-6.75){R}
+\cput[linecolor=cyan,linewidth=1.5pt](0,-6){\Large \ 1}
+\rput(1,-6){\Large 3}\psframe[linecolor=blue,linewidth=1.5pt](0.5,-6.5)(1.5,-5.5)
+\rput(2,-6){\Large 3}\cput[linecolor=red,linestyle=dotted,linewidth=2pt](2,-6){\Large 3}
+\rput(3,-6){\Large 17}\cput[linecolor=red,linestyle=dotted,linewidth=2pt](3,-6){\Large 17}
+\rput(4,-6){\Large 4}
+\rput(5,-6){\Large 11}
+\rput(6,-6){\Large 12}
+\rput(7,-6){\Large 12}
+\rput(8,-6){\Large 23}
+\cput[linecolor=cyan,linewidth=1.5pt](9,-6){\Large 10}
+\rput(0,-6.75){LA}\rput(9,-6.75){RA}
+\end{pspicture}
+\end{document}

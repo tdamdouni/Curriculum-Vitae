@@ -1,0 +1,91 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{392.64803pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pstricks,pst-node,multido,pst-xkey}
+\SpecialCoor
+\makeatletter
+\define@boolkey[psset]{}[Pst@]{zeigeSP}[true]{}% Schwerpunkt markieren?
+\psset{zeigeSP=true}                     % Vorgabe
+\def\Schwerpunkt{\@ifnextchar[{\Schwerpunkt@i}{\Schwerpunkt@i[]}}
+\def\Schwerpunkt@i[#1](#2)(#3)(#4)#5{{   %  damit alles lokal bleibt
+  \psset{#1}                             % Parameter setzen
+  \pst@getcoor{#2}\pst@tempA% Punkt A    % hole Kordinaten als x y
+  \pst@getcoor{#3}\pst@tempB% Punkt B    %  "
+  \pst@getcoor{#4}\pst@tempC% Punkt C    %  "
+  \pnode(!%                              % setze Knoten
+     \pst@tempA /YA exch \pst@number\psyunit div def
+     /XA exch \pst@number\psxunit div def % x y in user Koordinaten
+     \pst@tempB /YB exch \pst@number\psyunit div def
+     /XB exch \pst@number\psxunit div def
+     \pst@tempC /YC exch \pst@number\psyunit div def
+     /XC exch \pst@number\psxunit div def
+     XA XB XC add add 3.0 div            % xSP
+     YA YB YC add add 3.0 div            % ySP
+  ){#5}                                  % #5 = Knotenname
+  \ifPst@zeigeSP\qdisk(#5){2pt}\fi}%
+  \ignorespaces}     % markieren?
+\makeatother
+\StopShownPreambleCommands
+\begin{document}
+\psset{unit=0.7}
+\begin{pspicture}(-5,-5)(5,5)
+  \multido{\rA=-5+0.5,\rB=0+0.5,\rC=5+-0.5}{10}{%
+    \pnode(-5,\rA){A}\pnode(\rB,5){B}\pnode(\rC,-5){C}%
+    \pspolygon[linecolor=blue](A)(B)(C)%
+    \Schwerpunkt(A)(B)(C){SP}%
+  }
+  \multido{\rA=0+0.5,\rB=5+-0.5,\rC=0+-0.5}{10}{%
+    \pnode(-5,\rA){A}\pnode(5,\rB){B}\pnode(\rC,-5){C}%
+    \pspolygon[linecolor=red](A)(B)(C)%
+    \Schwerpunkt(A)(B)(C){SP}%
+  }
+  \multido{\rA=-5+0.5,\rB=0+-0.5,\rC=-5+0.5}{10}{%
+    \pnode(\rA,5){A}\pnode(5,\rB){B}\pnode(-5,\rC){C}%
+    \pspolygon[linecolor=cyan](A)(B)(C)%
+    \Schwerpunkt(A)(B)(C){SP}%
+  }
+  \multido{\rA=0+0.5,\rB=5+-0.5,\rC=0+0.5}{10}{%
+    \pnode(\rA,5){A}\pnode(\rB,-5){B}\pnode(-5,\rC){C}%
+    \pspolygon[linecolor=magenta](A)(B)(C)%
+    \Schwerpunkt(A)(B)(C){SP}%
+  }
+  \multido{\rA=5+-0.5,\rB=0+-0.5,\rC=-5+0.5}{10}{%
+    \pnode(5,\rA){A}\pnode(\rB,-5){B}\pnode(\rC,5){C}%
+    \pspolygon[linecolor=blue](A)(B)(C)%
+    \Schwerpunkt(A)(B)(C){SP}%
+  }
+  \multido{\rA=0+-0.5,\rB=-5+0.5,\rC=0+0.5}{10}{%
+    \pnode(5,\rA){A}\pnode(-5,\rB){B}\pnode(\rC,5){C}%
+    \pspolygon[linecolor=red](A)(B)(C)%
+    \Schwerpunkt(A)(B)(C){SP}%
+  }
+  \multido{\rA=5+-0.5,\rB=0+0.5,\rC=5+-0.5}{10}{%
+    \pnode(\rA,-5){A}\pnode(-5,\rB){B}\pnode(5,\rC){C}%
+    \pspolygon[linecolor=cyan](A)(B)(C)%
+    \Schwerpunkt(A)(B)(C){SP}%
+  }
+  \multido{\rA=0+-0.5,\rB=-5+0.5,\rC=0+-0.5}{10}{%
+    \pnode(\rA,-5){A}\pnode(\rB,5){B}\pnode(5,\rC){C}%
+    \pspolygon[linecolor=magenta](A)(B)(C)%
+    \Schwerpunkt(A)(B)(C){SP}%
+  }
+\end{pspicture}
+\end{document}

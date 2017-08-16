@@ -1,0 +1,35 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-node}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(3.5,2.5)
+  \rput(1.5,1.8){\ovalnode{A}{Wurzel}} \rput[lb](0,0){\ovalnode{B}{1}}
+  \rput[b](1.5,0){\ovalnode{C}{2}}     \rput[rb](3,0){\ovalnode{D}{3}}
+  \ncline{->}{A}{B} \ncline{->}{A}{C} \ncline{->}{A}{D}
+\end{pspicture} \qquad \begin{pspicture}(3.5,2.5)
+  \rput(1.5,1.8){\ovalnode{A}{Wurzel}} \rput[lb](0,0){\ovalnode{B}{1}}
+  \rput[b](1.5,0){\ovalnode{C}{2}}     \rput[rb](3,0){\ovalnode{D}{3}}
+  \ncdiag[arm=0,angleA=80,angleB=-160]{<-}{B}{A}  \ncline{->}{A}{C}
+  \ncdiag[arm=0,angleA=100,angleB=-20]{<-}{D}{A}
+\end{pspicture}
+\end{document}

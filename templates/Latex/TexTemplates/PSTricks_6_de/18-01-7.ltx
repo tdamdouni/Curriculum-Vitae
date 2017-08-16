@@ -1,0 +1,67 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pstricks,pst-text,pst-plot,multido}
+     \def\spiral{ 1 9 Pi mul div t DegtoRad mul t cos mul
+                 -1 9 Pi mul div t DegtoRad mul t sin mul }
+     \def\gSP#1#2{\parametricplot[plotstyle=curve]{#1}{#2}{\spiral}}%
+     \def\f{\gSP{180}{1620}}% pi / 2 to 9 pi / 2
+
+\StopShownPreambleCommands
+\begin{document}
+  \psset{xunit=0.75cm,yunit=0.75cm}
+   \begin{pspicture}(-5,-5)(5,5)
+     \psset{unit=1.6in,subgriddiv=20}%
+     \multido{\iA=1440+-180,\iB=1620+-180,\iC=0+1}{6}{%
+       \psclip{\pscustom[linestyle=none]{\gSP{\iA}{\iB}}}%
+         \psframe*[linecolor=%
+	  \ifcase\iC green\or green\or yellow\or yellow\or red\or red\fi](-1,-1)(1,1)
+       \endpsclip
+     } % end multido
+%
+     \psline(.88889,0)(-.7778,0)
+     \psline(-.4815,-.834)(.42953,.73773)
+     \psline(.46296,-.8019)(-.4074,.70565)
+     {\Large%
+      \pstextpath[c](-0.86,0.05){\gSP{1260}{1440}}{Planning}%
+      \pstextpath[c](0,0.05){    \gSP{1260}{1440}}{Low Level}%
+      \pstextpath[c](0.86,0.05){ \gSP{1260}{1440}}{Mid Level}%
+%
+      \pstextpath[c](-0.99,0.05){\gSP{1440}{1620}}{High Level}%
+      \pstextpath[c](-0.05,0.05){\gSP{1440}{1620}}{Testing}%
+      \pstextpath[c](0.99,0.05){ \gSP{1440}{1620}}{Documentation}%
+%
+      \pstextpath[l](0.1,-0.125){\gSP{540}{720}}{Cycle One $\longrightarrow$}%
+      \pstextpath[l](0.1,-0.125){\gSP{900}{1080}}{Cycle Two $\longrightarrow$}%
+      \pstextpath[l](0.1,-0.125){\gSP{1260}{1440}}{Cycle Three $\longrightarrow$}%
+     }%
+     \psclip{ \pscustom[linestyle=none]{\gSP{360}{540}} }%
+       \psframe*[linecolor=white](-1,-1)(1,1)
+     \endpsclip
+%
+     \psclip{ \pscustom[linestyle=none]{\gSP{180}{360}} }%
+       \psframe*[linecolor=white](-1,-1)(1,1)
+     \endpsclip
+     \rput[l](-0.25,-0.13){Start}%
+     \psline{->}(-0.225,-0.08)(-0.225,0)
+     \multido{\iA=180+180,\iB=360+180}{8}{\gSP{\iA}{\iB}}
+   \end{pspicture}%
+\end{document}

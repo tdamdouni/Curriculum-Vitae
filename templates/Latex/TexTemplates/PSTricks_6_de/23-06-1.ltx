@@ -1,0 +1,109 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\StartShownPreambleCommands
+\usepackage{pst-solides3d,pstricks-add}
+% pour le dessin du point de vue
+\def\PointEcran(#1,#2,#3)#4{% position du point sur l'ecran
+\pstVerb{/xM #1 def /yM #2 def /zM #3 def
+         /kC dE dup mul xM xE mul yM yE mul zM zE mul add add sub
+           xV xE mul xM xE mul sub
+           yV yE mul yM yE mul sub add
+           zV zE mul zM zE mul sub add
+           div def
+         /x_E kC xV xM sub mul xM add def
+         /y_E kC yV yM sub mul yM add def
+         /z_E kC zV zM sub mul zM add def}%
+\psPoint(x_E,y_E,z_E){#4}}
+\StopShownPreambleCommands
+\begin{document}
+\psset{lightsrc=10 20 30,viewpoint=50 30 20 rtp2xyz,Decran=35}
+\begin{pspicture}(-5,-5.7)(10,7)
+\definecolor{bleuciel}{rgb}{0.78,0.84,0.99}
+\psSolid[object=cube,fillcolor=bleuciel,a=2,action=draw*]
+\psSolid[object=grille,base=0 8 0 10,action=draw,linecolor=black!20]
+\psSolid[object=grille,base=0 7 0 10,action=draw,RotY=90,linecolor=black!20](0,0,7)%
+\psSolid[object=grille,base=0 8 0 7,action=draw,RotX=-90,linecolor=black!20](0,0,7)%
+\psSolid[object=cube,fillcolor=bleuciel,a=1,action=draw*](0.5,0.5,0.5)%
+\psSolid[object=grille,base=-1 1 -1 1,action=draw,linecolor=blue](0,0,1)%
+\psSolid[object=grille,base=-1 1 -1 1,action=draw,RotY=90,linecolor=blue](1,0,0)%
+\psSolid[object=grille,base=-1 1 -1 1,action=draw,RotX=-90,linecolor=blue](0,1,0)%
+\axesIIID(1,1,1)(8,10,7)
+\pstVerb{
+  /dV 12 def % distance V
+  /dE 6 def % distance Ècran
+  /Kc dV dE sub dV div def
+  /Theta 60 def
+  /Phi 30 def
+  /xV dV Phi cos mul Theta  cos mul def
+  /yV dV Phi cos mul Theta  sin mul def
+  /zV dV Phi sin mul def
+  /xE Kc xV mul def
+  /yE Kc yV mul def
+  /zE Kc zV mul def
+}%
+\psPoint(5,10,5){L}%
+\psPoint(xV,yV,zV){V}\psPoint(xE,yE,zE){E}\psPoint(xV,yV,0){Vp}
+% 5 distance ecran
+%\psPoint(dE Theta  cos mul Phi cos div dE Theta  sin mul Phi cos div 0){Vq}
+\psPoint(xV,0,0){Vx}\psPoint(0,yV,0){Vy}\psPoint(0,0,zV){Vz}\psdot(V)
+{\psset{linestyle=dashed,linecolor=red}
+\psline(V)(Vp)\psline(Vx)(Vp)\psline(Vy)(Vp)\psline(V)(Vz)\psline(V)(O)\psline(Vp)(O)}
+\psSolid[object=grille,base=-5 5 -3 3,action=draw,RotX=-60,linecolor=red](xE,yE,zE)%
+\psTransformPoint[RotX=-60](-5 -3 0)(xE,yE,zE){A}
+\psTransformPoint[RotX=-60](-5 3 0)(xE,yE,zE){B}
+\psTransformPoint[RotX=-60](5 3 0)(xE,yE,zE){C}
+\psTransformPoint[RotX=-60](5 -3 0)(xE,yE,zE){D}
+\pspolygon[fillcolor=yellow!50,fillstyle=solid,opacity=0.6](A)(B)(C)(D)
+{\psset{linecolor=black!60,linewidth=0.2pt}
+\PointEcran(1,1,1){S1}  \psPoint(1,1,1){s1}  \psline(s1)(S1)(V)
+\PointEcran(1,1,-1){S2} \psPoint(1,1,-1){s2} \psline(s2)(S2)(V)
+\PointEcran(-1,1,-1){S3}\psPoint(-1,1,-1){s3}\psline(s3)(S3)(V)
+\PointEcran(-1,1,1){S4} \psPoint(-1,1,1){s4} \psline(s4)(S4)(V)
+\PointEcran(1,-1,-1){S5}\psPoint(1,-1,-1){s5}\psline(s5)(S5)(V)
+\PointEcran(1,-1,1){S6} \psPoint(1,-1,1){s6} \psline(s6)(S6)(V)
+\PointEcran(-1,-1,1){S7}\psPoint(-1,-1,1){s7}\psline(s7)(S7)(V)}
+%
+\psset{solidmemory}
+\psSolid[object=plan,definition=equation,args={[0 0 1 0]},
+   base=-5 5 -3 3,RotX=-60,%   showBase,
+   action=none,name=planbase]
+%% here, we define the plantype object "Ecran"
+\codejps{
+  planbase
+  dup xE yE zE planputorigine
+  dup -180 rotateplan
+  /Ecran exch def
+}%
+%% uncomment follow line to draw "Ecran"
+%\psSolid[object=plan,args=Ecran,showBase,planmarks]
+\psProjection[object=texte,plan=Ecran,fontsize=20,text=Projektionsfl√§che](-2,2)
+\pspolygon[fillcolor=red!60,fillstyle=solid,opacity=0.6](S1)(S2)(S3)(S4)
+\pspolygon[fillcolor=red!60,fillstyle=solid,opacity=0.6](S1)(S2)(S5)(S6)
+\pspolygon[fillcolor=red!60,fillstyle=solid,opacity=0.6](S1)(S4)(S7)(S6)
+\psdots(s1)(s2)(s3)(s4)(s5)(s6)(s7)(S1)(S2)(S3)(S4)(S5)(S6)(S7)
+%
+\psbrace[ref=lC](V)(E){Decran}
+\uput[45](V){Beobachtungspunkt}
+\psdot(L)\uput[45](L){Lichtquelle}
+\end{pspicture}
+\end{document}

@@ -1,0 +1,75 @@
+
+* LaTeX-KOMA-template
+
+** Purpose of this project
+
+This is a generic template for [[http://en.wikipedia.org/wiki/LaTeX][LaTeX]] documents using [[http://www.komascript.de/][KOMA Script]] classes
+which are pretty common at least in German spoken countries.
+
+The template does *not* want to contain each and every trick but should
+provide a *clean*, *consistent* and *well documented* starting point for any
+document exceeding a few pages. So if you plan to write a longer report,
+a diploma thesis, a PhD thesis, or similar, this template should give you
+a good basis.
+
+The focus is that you - the author - is able to concentrate on the *content*
+of your work rather than start fiddling around with the look of the document.
+Several typographic optimizations are included in order to get a final document
+that is optimized to deliver your content.
+
+Please do read [[https://github.com/novoid/LaTeX-KOMA-template/blob/master/Template-Documentation.pdf][Template-Documentation.pdf]].
+
+** Requirements
+
+This template uses up-to-date technology like pdflatex, [[http://www.tex.ac.uk/tex-archive/info/translations/biblatex/de/][biblatex]]
+(instead of BibTeX-Format), [[http://en.wikipedia.org/wiki/Biber_(LaTeX)][biber]] (instead of bibtex-compiler), and
+optionally [[http://www.gnu.org/s/make/][GNU make.]]  You should be familiar with compiling LaTeX
+documents by yourself. If you are new to LaTeX please get basic
+knowledge from tutorial pages such as [[http://LaTeX.TUGraz.at][this one]].
+
+You can find out more in [[https://github.com/novoid/LaTeX-KOMA-template/blob/master/Template-Documentation.pdf][Template-Documentation.pdf]].
+
+** What makes this template special?
+
+The speciality of this consistent template is, that every setting in
+the preamble is *well documented* (in LaTeX). You can generate the
+documentation file "Template-Documentation.pdf" on your own by not
+removing the template documentation include command in the main LaTeX
+file and using [[http://www.gnu.org/software/make/][GNU make]] with the rule "templatedocu":
+
+#+begin_src sh
+make templatedocu
+#+end_src
+
+This command results in the "[[https://github.com/novoid/LaTeX-KOMA-template/blob/master/Template-Documentation.pdf][Template-Documentation.pdf]]" file
+containing the most current documentation of this template. Please
+refer to this PDF file for further information about the template.
+
+** How to start?
+
+Please do read the "[[https://github.com/novoid/LaTeX-KOMA-template/blob/master/Template-Documentation.pdf][Template-Documentation.pdf]]" file which contains a
+"How to use this LaTeX template" section.
+
+** License
+
+This template is licensed under a [[https://creativecommons.org/licenses/by-sa/3.0/][Creative Commons
+      Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0) license]]:
+
+- You can share (to copy, distribute and transmit) this template.
+- You can remix (adapt) this template.
+- You can make commercial use of the template.
+- In case you modify this template and share the derived template: You
+  must attribute the template such that you do not remove
+  (co-)authorship of Karl Voit and you must not remove the URL to [[https://github.com/novoid/LaTeX-KOMA-template][the
+  original repository on github]].
+- If you alter, transform, or build a new template upon this template,
+  you may distribute the resulting template only under the same or
+  similar license to this one.
+- There are *no restrictions* of any kind, however, related to the
+  resulting (PDF) document!
+- You may remove the colophon (but it's not recommended).
+
+** What is still work in progress?
+
+Please have a look at the file "[[https://github.com/novoid/LaTeX-KOMA-template/blob/master/template/todos.org][template/todos.org]]".
+  

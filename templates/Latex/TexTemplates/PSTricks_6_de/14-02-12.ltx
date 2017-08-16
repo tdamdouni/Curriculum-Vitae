@@ -1,0 +1,30 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{70.324pt}
+\StartShownPreambleCommands
+\usepackage{pstricks}
+\StopShownPreambleCommands
+\begin{document}
+\pstFPMul\Result{-34.05}{0.02345} \Result\quad
+\pstFPDiv\Result{-3.405}{0.02345} \Result\\
+\pstFPMul\Result{23.45}{-3.405} \Result\quad
+\pstFPDiv\Result{0.2345}{-0.03405} \Result\\
+\pstFPMul\Result{234.123}{33} \Result\quad
+\pstFPDiv\Result{234.123}{33} \Result
+\end{document}

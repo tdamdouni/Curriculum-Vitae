@@ -1,0 +1,108 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-node,amsmath}
+\SpecialCoor
+%___ POWER SCHEME ___
+%
+% \begin{PSpic_PowSch}{`width'}{`height'}{`label pow-in'}{`label pow-out'}
+%   \PowLoss[`inter pow flux label']%
+%         {`relative horizontal position'}%
+%         {`loss relative amount'}{`label'}
+%          ...
+%  \end{PSpic_PowSch}
+%
+\makeatletter
+\def\Mul#1#2#3{%
+\pst@dima=#1 pt\pst@dimb=#2\pst@dima%
+\edef\value{\pst@number\pst@dimb}%
+\let#3=\value%
+}
+\newcommand{\PowLoss}[4][ ]{%
+\Mul{#2}\Lrgh\DeltaX
+\Mul{#3}\PW\DeltaY
+\Mul\DeltaY{0.5}\HalfDeltaY
+\Mul\DeltaY\rCur\SmallRadius
+\Mul\DeltaY\rLarr\ArrowFly
+\Mul\DeltaY\rHarr\ArrowPeak
+%                               NODE DEFINITIONS
+    \pnode(CurPoint){PrevPoint}
+    \pnode(\DeltaX,0|PrevPoint){PointRelX}
+    \pnode([nodesep=\DeltaY,angle=-90]PrevPoint){PointRelY}
+    \pnode(PointRelX|PointRelY){CurPoint}
+    \pnode([nodesep=\SmallRadius,angle=90]PointRelX){PointRadius}
+    \pnode([nodesep=\SmallRadius,angle=0]PointRadius){PointOne}
+    \pnode([nodesep=\ArrowFly,angle=180]PointOne){PointTwo}
+    \pnode([nodesep=\DeltaY,angle=0]PointOne){PointThree}
+    \pnode([nodesep=\ArrowFly,angle=0]PointThree){PointFour}
+    \pnode([nodesep=\HalfDeltaY,angle=0]PointOne|[nodesep=\ArrowPeak,angle=90]PointOne){PointPeak}
+%                               DRAWING ARROW
+    \psline(PrevPoint)(PointRelX)
+    \ncarc[arcangle=-45]{-}{PointRelX}{PointOne}
+    \ncarc[arcangle=-45]{-}{CurPoint}{PointThree}
+    \psline(PointOne)(PointTwo)(PointPeak)(PointFour)(PointThree)
+    \nput[labelsep=.2]{90}{PointPeak}{#4}% loss label
+%                               OPTIONAL POWER FLUX LABEL
+    \ifx#1 \relax % if no label do nothing
+    \else\ncline[linestyle=none]{-}{PrevPoint}{PointRelX}\ncput{\pnode{MPointUp}}
+         \pnode(MPointUp|0,0){MPointDwn}
+         \ncline[linestyle=solid,linewidth=.5pt,nodesep=.05]{<->}{MPointUp}{MPointDwn}\naput{#1}\fi
+}
+\newlength{\ObjWidth}
+\newenvironment{PSpic_PowSch}[4]{% >>> OPENING ENVIRONMENT
+    \psset{unit=1cm,linestyle=solid,linewidth=.035}
+%                               DIMENSIONAL PARAMETERS DEFINITION
+    \def\Lrgh{#1}\def\Altz{#2}% PSpicture dimensions
+    \def\Hcoeff{.65}
+\Mul\Hcoeff\Altz\PW% pow-in relative value (`fp.sty' needed)
+    \def\rHarr{.8}\def\rLarr{.35}% loss arrows relative dimensions
+    \def\rCur{1}% arrows curvature radius relative value
+    \def\Punta{.5}% in-out peak dimension
+%                               PICTURE
+    \begin{pspicture}(\Lrgh,\Altz)
+        \pnode(!0 \Hcoeff\space \Altz\space mul){StartPoint}
+        \pnode(StartPoint){CurPoint}
+        \pnode(!\Punta\space \Hcoeff\space \Altz\space mul 2 div){MiddleSx}
+        \psline(0,0)(MiddleSx)(StartPoint)
+        \nput[labelsep=.3]{0}{MiddleSx}{#3}% pow-in label
+        \def\potUlabel{#4}}% pow-out label
+                                {% >>> CLOSING ENVIRONMENT
+        \pnode(\Lrgh,0){ExtPointDxDown}
+        \pnode(ExtPointDxDown|CurPoint){ExtPointDxUp}
+        \ncline[linestyle=none]{-}{ExtPointDxUp}{ExtPointDxDown}\ncput{\pnode{MiddleDx}}
+        \psline(CurPoint)([nodesep=\Punta,angle=180]ExtPointDxUp)(MiddleDx)%
+               ([nodesep=\Punta,angle=180]ExtPointDxDown)(0,0)
+        \settowidth{\ObjWidth}{\potUlabel}
+        \pnode([nodesep=\ObjWidth,angle=180]MiddleDx){LabelDx}
+        \nput[labelsep=-.3]{0}{LabelDx}{\potUlabel}
+    \end{pspicture}}
+\makeatother
+
+\StopShownPreambleCommands
+\begin{document}
+\psset{linecolor=red}
+\begin{PSpic_PowSch}{12}{6}{\(P_e\)}{\(P_u\)}
+    \PowLoss{.18}{.12}{\(R_s \, I_s2\)} % Joule
+    \PowLoss{.35}{.08}{\(G_{Fe} \, E_s^{\phantom{.}2}\)} % iron
+    \PowLoss[\(P_{tr}=\dfrac{\omega}{n} C_e\)]{.62}{.13}{\(R_R \, I_r2\)} % Joule
+    \PowLoss[\(\dfrac{\omega_m}{n} C_e\)]{.79}{.09}{\textit{attr}} % mec
+\end{PSpic_PowSch}
+\end{document}

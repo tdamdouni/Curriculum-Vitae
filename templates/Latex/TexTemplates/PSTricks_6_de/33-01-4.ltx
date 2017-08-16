@@ -1,0 +1,40 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{214.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-asr}
+\newpsstyle{dotted}{linestyle=dotted,linewidth=1.2pt,dotsep=1.6pt}
+\newpsstyle{crossing}{xed=true,xedtype=\xedcirc,style=dotted}
+\StopShownPreambleCommands
+\begin{document}
+\newtier{softpal,ant,dist,nasal}  \tiershortcuts
+\psset{xgap=1.5in,yunit=3em,ts=0 (Pg),sy=1 ([),ph=-1 (Cg),softpal=.3 (Sg),nasal=-.4 ([),
+   ant=-2 ([),dist=-3 ([),tssym=Place,sysym=\textrm{[+cons]},everyph=Coronal}
+\DefList{\softpalA{2.5},\antoffset{-.22},\distoffset{.36}} \quad \asr \1{}\1{}\1{}|
+\@(\softpalA,softpal){Soft Palate} \-(2,sy) % softpal features
+\@(\softpalA,nasal){\textrm{[+nas]}}   \-(\softpalA,softpal) % ant features
+\@(\antoffset,ant){\textrm{[-ant]}} \-(0,ph) \-[style=crossing](2,ph)
+\@[1](\antoffset,ant){\textrm{[$\alpha$ ant]}} \-(1,ph)
+\@[2](\antoffset,ant){\textrm{[-ant]}} \-(2,ph) % dist features
+\@(\distoffset,dist){\textrm{[-dist]}} \-(0,ph) \-[style=crossing](2,ph)
+\@[1](\distoffset,dist){\textrm{[$\beta$ dist]}} \-(1,ph)
+\@[2](\distoffset,dist){\textrm{[+dist]}}  \-(2,ph)
+|\endasr
+\end{document}

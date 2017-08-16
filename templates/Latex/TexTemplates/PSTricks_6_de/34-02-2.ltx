@@ -1,0 +1,58 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2008 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-plot,pst-slpe,animate}\SpecialCoor
+\StopShownPreambleCommands
+\begin{document}
+\newcounter{time}\newpsstyle{magenta40}{fillstyle=solid,fillcolor=magenta!40}
+\newpsstyle{blue40}{fillstyle=solid,fillcolor=blue!60}
+\newpsstyle{Blackball}{fillstyle=ccslope,slopebegin=white,slopeend=black,
+  slopecenter={0.6 0.6}}
+\newpsstyle{Blueball}{fillstyle=ccslope,slopebegin=white,slopeend=blue,
+  slopecenter={0.6 0.6}}
+\newpsstyle{Redball}{fillstyle=ccslope,slopebegin=white,slopeend=red,
+  slopecenter={0.6 0.6}}
+% inclined plane
+\newcommand*\VAngle{45 }% starting angle
+\newcommand*\VStart{10 }% starting speed in angle direction
+\newcommand*\VHeight{2 }% starting height
+\def\Vx{\VStart \VAngle cos mul }
+\def\Vy{\VStart \VAngle sin mul }
+\newcommand*\rBall{0.25 }\newcommand*\mass{1 }
+\def\SvonT#1{   % way as function of time, returns x y
+  \Vx #1 mul \Vy #1 mul % Sx Sy
+  \VHeight add 0.5 9.81 mul #1 dup mul mul sub }
+\def\OneShot#1{
+  \psaxes{->}(14,8)\psline[linestyle=dashed](0,\VHeight)(14,\VHeight)
+  \rput(0,\VHeight){\psline[arrowscale=2]{->}(\VStart mm;\VAngle)}
+  \pscircle[style=Blackball](! \SvonT{#1} ){\rBall}
+  \def\VAngle{60 }
+  \rput(0,\VHeight){\psline[arrowscale=2,linecolor=blue]{->}(\VStart mm;\VAngle)}
+  \pscircle[style=Blueball](! \SvonT{#1} ){\rBall}\def\VAngle{75 }
+  \rput(0,\VHeight){\psline[arrowscale=2,linecolor=red]{->}(\VStart mm;\VAngle)}
+  \pscircle[style=Redball](! \SvonT{#1} ){\rBall}}
+\begin{animateinline}[%
+  width=0.9\linewidth,begin={\begin{pspicture}(-1.75,-1.25)(14.5,8.5)},
+  end={\end{pspicture}},palindrome,controls,autoplay]{10}
+  \multiframe{49}{nTime=0.0+1.0}{%
+    \OneShot{ \nTime\space 20 div }}%
+\end{animateinline}
+\end{document}

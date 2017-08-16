@@ -1,0 +1,86 @@
+% Author: Robert Felty
+% Source: http://blog.robfelty.com/2007/02/14/pgf-gallery
+% Model structure from Rumelhart \& McClelland (1986, p .222)%
+
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage{verbatim}
+
+\begin{comment}
+:Title: Distributed processing
+:Tags: Foreach, Layers
+
+A neural network example recreated from an illustration in [1]_. 
+
+Note the use of a background layer to draw the lines connecting the nodes. This way
+we don't have to worry about overlapping lines.  
+
+
+:Author: Robert Felty
+:Source: `Deep Thoughts by Robert Felty`__
+
+.. __: http://blog.robfelty.com/2007/02/14/pgf-gallery
+
+.. [1] Rumelhart, D. E. and `McClelland, J. L`__. (1986). *On Learning the Past Tenses of English Verbs*. In Volume 2 of Rumelhart, McClelland, and the PDP Research Group (1986), pp. 216-271. 
+
+.. __: http://www.cnbc.cmu.edu/~jlm/
+\end{comment}
+
+\begin{document}
+
+% Declare layers
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+
+% Styles
+\tikzstyle{information text}=[text badly centered,font=\small,text width=3cm]
+\begin{tikzpicture}[scale=.8,cap=round]
+    % The graphic
+    \begin{scope}[>=stealth', line width=1pt]
+        \draw[->] (1,.9) node[below, information text]
+            {Phonological representation of root form } -- (1,1.8);
+        \draw[->] (5,-.2) node[below,information text]
+            {Wickelfeature representation of root form } -- (5,.8);
+        \draw[->] (11,-.2) node[below,information text]
+            {Wickelfeature representation of past tense } -- (11,.8);
+        \draw[->] (16,0.9) node[below,information text]
+            {Phonological representation of past tense } -- (16,1.8);
+    \end{scope}
+    \draw (3,6) node[information text] { Fixed Encoding Network };
+    \draw (8,6) node[information text, text width=4cm, ]
+        { Pattern Associator Modifiable Connections };
+    \draw (13.5,6) node[information text] { Decoding/Binding Network };
+    % draw the nodes
+    \foreach \x in {1,16}
+        \foreach \y in {2,3,4} {
+        \filldraw[fill=white] (\x,\y) circle (0.1);
+        }
+    \foreach \x in {5,11}
+        \foreach \y in {1,2,3,4,5} {
+            \filldraw[fill=white] (\x,\y) circle (0.1);
+        }
+    % The lines connecting the nodes are drawn in the background layer.
+    % This way we can hide the lines behind the nodes and don't worry
+    % about the width of each node.    
+    \begin{pgfonlayer}{background}
+        % we add the lines for the nodes starting in y 2,3, and 4
+        \foreach \xa / \xb in {1 / 5, 5 / 11 , 11 / 5 , 16 / 11}
+            \foreach \ya / \yb / \yc / \yd / \ye in {2 / 3 / 4 / 5 / 1, 
+            3 / 4 / 5 / 1 / 2, 4 / 5 / 1 / 2 / 3} {
+                \draw (\xa,\ya) -- (\xb,\ya);
+                \draw (\xa,\ya) -- (\xb,\yb);
+                \draw (\xa,\ya) -- (\xb,\yc);
+                \draw (\xa,\ya) -- (\xb,\yd);
+                \draw (\xa,\ya) -- (\xb,\ye);
+            }
+        % add remaining lines from y1 to y5
+        \foreach \xa / \xb in {5 / 11 , 11 / 5}
+            \foreach \ya / \yb in {1 / 5, 5 / 1} {
+            \draw (\xa,\ya) -- (\xb,\ya);
+            \draw (\xa,\ya) -- (\xb,\yb);
+        }
+    \end{pgfonlayer}
+\end{tikzpicture}
+
+\end{document}

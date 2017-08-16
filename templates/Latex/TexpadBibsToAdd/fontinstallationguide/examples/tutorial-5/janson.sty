@@ -1,0 +1,10 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{janson}[2002/12/30 v1.0 Monotype Janson]
+\RequirePackage[T1]{fontenc}
+\RequirePackage{textcomp}
+\RequirePackage{nfssext}
+\DeclareOption{lining}{\renewcommand*{\rmdefault}{mjnx}}
+\DeclareOption{oldstyle}{\renewcommand*{\rmdefault}{mjnj}}
+\ExecuteOptions{oldstyle}*
+\ProcessOptions
+\endinput

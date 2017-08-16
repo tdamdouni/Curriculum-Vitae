@@ -1,0 +1,344 @@
+% Polarization state of light
+% Author: Jeff Hein
+\documentclass{article}
+
+%========
+%packages
+%========
+\usepackage{tikz}          %tikz graphics package for drawing with pgf
+
+%%%<
+\usepackage{verbatim}
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{5pt}%
+%%%>
+
+\begin{comment}
+:Title: Polarization state of light
+
+This demonstrates the use of the `fixed point calculation package
+fp.sty<http://www.ctan.org/tex-archive/help/Catalogue/entries/fp.html>`_ to process user-defined parameters while rendering a TikZ
+picture.  In this example, a ellipse is rendered, representing the
+polarization state of light for an arbitrary x-amplitude y-amplitude,
+and relative phase.  See `<http://en.wikipedia.org/wiki/Polarization>`_ for
+background information on polarization states of light.
+
+In this example, a relatively simple command is called from within a
+tikzpicture environment:
+
+.. sourcecode:: latex
+
+	\begin{tikzpicture}
+	    %usage:  \polellipse{ E_{0x} }{ E_{0y} }{ phase }
+	    \polellipse{3}{2}{45}
+	\end{tikzpicture}
+
+The contents of the ``\polellipse`` command is rather lengthy, but can be
+broken down into two main parts.  The first part performs the
+necessary math to convert the user-defined parameters ``E_{0x}``,
+``E_{0y}``, and ``phase`` into values which are useful to the drawing
+process.  The second part uses the calculated numbers to draw a
+coordinate axis, the ellipse, and appropriate annotation.
+
+This example can be helpful when preparing a document describing
+various polarization states of light.  The document can contain an
+arbitrary number of ``\polellipse`` commands, each with an arbitrary
+configuration of parameters.  Each rendered figure is based on the
+same code, so a desired change to the style can update all figures.
+
+This general technique can be applied to any TikZ figure, where the
+document calls any number of commands with some passed parameters, and
+some computation is be performed to render the diagrams.
+
+\end{comment}
+
+\usepackage{fp}            %for fixed point math
+\usepackage{ifthen}      %for \ifthenelse{}{}{} conditional statements
+
+%===================
+%Style configuration
+%===================
+\pagestyle{empty}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{2mm}
+
+\usetikzlibrary{calc}
+
+%line thickness styles:  ultra thin, very thin, (thin), semithick, thick, very thick, ultra thick
+%line dash styles: loosely dashed, densely dashed, loosely dotted, densely dotted
+\tikzset{bkgd_line/.style={very thin,color=gray}}
+\tikzset{dashed_bkgd_line/.style={thin, dashed,color=gray}}
+
+\tikzset{dimension_line/.style={very thin,color=gray}}
+\tikzset{axis_line/.style={thin}}
+\tikzset{object_line/.style={thick}}
+\tikzset{textlabel/.style={color=red}}
+
+
+%===================
+%Command Definitions
+%===================
+
+%Command: polellipse
+%
+%parameters:
+%
+%1: x-axis magnitude
+%2: y-axis magnitude
+%3: phase between x-y components:  \phase = \delta_y - \delta_x
+%
+\newcommand{\polellipse}[3]{%
+%
+%NOTE:see http://spie.org/x32373.xml for some background on the math behind this calculation.
+%
+    \coordinate(origin) at (0,0);
+
+%constants
+\FPset{\LABELOFFSET}{.1}
+
+%input parameters
+%================
+
+%\Eoy:  Electric field magnitude in the y-direction, (Eoy \geq 0)
+\FPset{\Eoy}{#2}
+
+%\Eox:  Electric field magnitude in the x-direction, (Eoy \geq 0)
+\FPset{\Eox}{#1}
+
+%\phase:  phase difference between E_y and E_x, in degrees   (\phase \leq 0 < 360)
+\FPset{\phase}{#3}
+
+\FPiflt{\phase}{0}
+    \FPadd{\phase}{\phase}{360}
+\else \fi
+
+
+%\convert phase to radians
+\FPmul{\phase}{\phase}{\FPpi}      %\phase = \phase * \PI
+\FPdiv{\phase}{\phase}{180}        %\phase = \phase / 180
+
+%Begin calculations, and reality check
+%=====================================
+\ifthenelse{\equal{\Eox}{0}}{%
+    %error case: \Eox = \Eoy = 0
+    \FPifzero{\Eoy}
+        \errmessage{ELLIPSE PLOT ERROR: Both Eox and Eoy cannot be zero!}
+    \else \fi
+    
+    %special case: \Eox = 0
+    \FPdiv{\alp}{\FPpi}{2}          %\alp = \pi/2
+}
+{%
+    %normal case, \Eox \neq 0
+    \FPdiv{\scratch}{\Eoy}{\Eox}    %\scratch = \Eoy/\Eox
+    \FParctan{\alp}{\scratch}       %\alp = \arctan{\scratch}
+}
+
+%normalize magnitudes, used for plotting
+%=======================================
+
+\FPpow{\scratchy}{\Eoy}{2}            %\scratchy = \Eoy^2
+\FPpow{\scratchx}{\Eox}{2}            %\scratchx = \Eox^2
+\FPadd{\scratch}{\scratchy}{\scratchx}%\scratch = \scratchy + \scratchx
+\FProot{\norm}{\scratch}{2}           %\norm = \sqrt{\scratch}
+
+\FPdiv{\Eoynorm}{\Eoy}{\norm}         %\Eoynorm = \Eoy / \norm
+\FPdiv{\Eoxnorm}{\Eox}{\norm}         %\Eoynorm = \Eox / \norm
+
+%determine major and minor axes
+%==============================
+
+\FPmul{\scratch}{\alp}{2}             %\scratch = \alp* 2
+\FPsin{\sintwoalp}{\scratch}          %\alp = \sin\scratch
+
+%\sin2\chi = \sin2\alp \sin\phase
+\FPsin{\scratch}{\phase}              %\scratch = \sin\phase
+\FPmul{\sintwochi}{\scratch}{\sintwoalp} %\sintwochi = \scratch * \sintwoalp
+
+%solve for \tan\chi
+\FParcsin{\scratch}{\sintwochi}      %\scratch = \arcsin{\sintwochi}
+\FPdiv{\scratch}{\scratch}{2}        %\scratch = \scratch / 2
+\FPtan{\tanchi}{\scratch}            %\tanchi = \tan{\scratch}
+
+%if \tanchi is less than zero, the proceeding power operation will fail.
+\FPabs{\tanchi}{\tanchi}
+
+%\b = -\frac{\tanchi}{\sqrt{ 1 + \tanchi^2}}
+\FPpow{\scratch}{\tanchi}{2}         %\scratch = \tanchi^2
+
+\FPadd{\scratch}{\scratch}{1}        %\scratch = \scratch + 1
+\FProot{\scratch}{\scratch}{2}       %\scratch = \sqrt{\scratch}
+\FPdiv{\b}{\tanchi}{\scratch}        %\b = \tanchi / \scratch
+
+%\a = \sqrt{1 - \b^2}
+\FPpow{\scratch}{\b}{2}            %\scratch = \b^2
+\FPsub{\scratch}{1}{\scratch}      %\scratch = 1 - \scratch
+\FProot{\a}{\scratch}{2}           %\a = \sqrt{\scratch}
+
+
+%determine orientation angle
+%===========================
+
+%\tantwoalp = \tan{2\alp}
+\FPmul{\twoalp}{\alp}{2}      %\scratch = \alp * 2
+
+%check for infinite tan!
+\FPmul{\scratch}{\twoalp}{180}
+\FPdiv{\scratch}{\scratch}{\FPpi}
+\FPround{\scratch}{\scratch}{3}
+\ifthenelse{\equal{\scratch}{90.000}}{%
+    %special case: if \twoalp is 90 degrees, \tantwoalp will be infinite
+
+    \FPset{\orang}{\alp}                %force \orang to \alp
+}
+{
+    %regular case
+    \FPtan{\tantwoalp}{\twoalp}      %\tantwoalp = \tan\scratch
+
+    %\tantwopsi = \tantwoalp \cos\phase
+    \FPcos{\scratch}{\phase}        %\scratch = \cos\phase
+    \FPmul{\tantwopsi}{\tantwoalp}{\scratch} %\tantwopsi = \tantwoalp * \scratch
+    \FParctan{\scratch}{\tantwopsi}        %\scratch = \arctan{\tantwopsi}
+    \FPdiv{\orang}{\scratch}{2}        %\orang = \scratch / 2
+
+    %assign proper quadrant:  if the orientation angle is less than zero, increase by 90 degrees
+    \FPiflt{\orang}{0}
+        \FPdiv{\scratch}{\FPpi}{2}
+        \FPadd{\orang}{\orang}{\scratch}
+    \else \fi
+}
+
+%convert \phase to degrees
+\FPmul{\phase}{\phase}{180}
+\FPdiv{\phase}{\phase}{\FPpi}
+\FPround{\phase}{\phase}{1}
+
+%convert \orang to degrees
+\FPmul{\orang}{\orang}{180}
+\FPdiv{\orang}{\orang}{\FPpi}
+
+%final check on proper quadrant:  if \phase is between 90 and 270, increase orientation by 90 degrees
+\FPset{\scratch}{0}
+\FPifgt{\phase}{90.0}
+    %if the first test passes, then prime the increment amount
+    \FPset{\scratch}{90}
+\else \fi
+\FPiflt{\phase}{270}
+    %if the second test passes, then increment by amount.  This will be zero if the first test didn't pass, and so we have a makeshift AND operation here!
+    \FPadd{\orang}{\orang}{\scratch}    %add \pi/2 to orientation angle
+\else \fi
+
+%if Eox was zero to start with, just set orientation to 90 degrees
+\FPifzero{\Eox}
+    %special case: \Eox = 0
+    \FPset{\orang}{90}          %\orang = 90 degrees
+\else \fi
+
+%determine perpendicular axis direction for rendering minor axis
+
+%print output for testing
+%\draw (0,-2in) node{\FPprint{\scratch}};
+%\draw (0,-2in) node{$a$:\FPprint{\a}\quad\quad $b$:\FPprint{\b}\quad\quad orientation angle:\FPprint{\orang}};
+
+    %define points for labels
+    \begin{scope}[rotate around={\orang:(origin)}]
+        \coordinate (a) at ($ (\a in, 0) + (\LABELOFFSET in,0) $);
+        \coordinate (b) at ($ (0, \b in) + (0,\LABELOFFSET in)$);
+
+        %determine arrow position and direction
+        \coordinate (arrow1front) at ($ (0, \b in) $);
+        \coordinate (arrow2front) at ($ (0, -\b in) $);
+        \FPifgt{\phase}{180}
+            \coordinate (arrow1back) at ($ (0, \b in) - .001*(\a in,0) $);
+            \coordinate (arrow2back) at ($ (0, -\b in) + .001*(\a in,0) $);
+        \else 
+            \coordinate (arrow1back) at ($ (0, \b in) + .001*(\a in,0) $);
+            \coordinate (arrow2back) at ($ (0, -\b in) - .001*(\a in,0) $);
+        \fi
+    \end{scope}
+
+    %points for labels Eox, Eoy, \delta
+    \coordinate (e) at ($ .5*(\Eoxnorm in,0) + (0,-\Eoynorm in) $);
+    \coordinate (f) at ($ .5*(0,-\Eoynorm in) + (\Eoxnorm in,0) $);
+    \coordinate (g) at ($ (-.2in,0) + (0,\Eoynorm in) $);
+
+    %draw the x-y plane
+    \draw[axis_line, ->] (-1.25in,0) -- (1.25in,0) node[textlabel,anchor=west]{$x$};
+    \draw[axis_line, ->] (0,-1.25in) -- (0,1.25in) node[textlabel,anchor=south]{$y$};
+    
+    %draw the major and minor axis lines
+    \draw[dimension_line,rotate=\orang] (-\a in,0) -- (\a in,0);
+    \draw[dimension_line,rotate=\orang] (0, -\b in) -- (0, \b in);
+
+    %draw the x-y amplitude bounding box
+    \draw[dimension_line] (-\Eoxnorm in,-\Eoynorm in) rectangle (\Eoxnorm in,\Eoynorm in);
+
+    %draw the ellipse and arrows showing the sense of rotation
+    \draw[object_line,rotate=\orang,->] (0,0) ellipse (\a in and \b in);
+    \draw[object_line,->] (arrow1back) -- (arrow1front);
+    \draw[object_line,->] (arrow2back) -- (arrow2front);
+
+    %label major-minor axes
+    \FPifgt{\b}{.1}    %threshold for displaying major-minor axis labels
+        \draw (a) node[textlabel]{$a$}; %=\a);  %uncomment and merge if you want to display the major axis size.  Maybe do a \FPround{\a}{\a}{1} beforehand!
+        \draw (b) node[textlabel]{$b$}; %=\b);  %uncomment and merge if you want to display the minor axis size.  Maybe do a \FPround{\b}{\b}{1} beforehand!
+    \else \fi
+
+    %label the x-y components and delta
+    \draw (e) node[textlabel,anchor=north]{$E_{0x} = \Eox$};
+    \draw (f) node[textlabel,anchor=north west]{$E_{0y} = \Eoy$};
+    \draw (g) node[textlabel,anchor=south east]{$\delta = \phase^\circ$};
+
+    %label orinetation angle
+    \FPifgt{\orang}{1}    %threshold for displaying orientation angle
+        \draw[dimension_line] (.3in, 0) arc (0:\orang:.3in);
+        \FPdiv{\scratch}{\orang}{2}    %scratch = ema/2
+        \draw[rotate=\scratch] (.5in,0) node[textlabel]{$\psi$};
+    \else \fi
+}
+%end ellipse command
+
+
+%=============
+%main document
+%=============
+
+\begin{document}
+
+%\section*{Background}  %to render this, remove the preview environment
+%
+%\subsubsection*{Electric Field Vectors}
+%
+%\begin{align}\begin{split}
+%  E_x(t) &= E_{0x}\cos(\omega t)\\
+%  E_y(t) &= E_{0y}\cos(\omega t + \delta)\\
+%  \vec{E}(t) &= E_x(t)\hat{x} + E_y(t)\hat{y}
+%\end{split}\end{align}
+
+%For further information about polarization states of light and calculating the polarization ellipse, see your favorite optics book!
+
+\begin{tikzpicture}
+    %usage:  \polellipse{ E0x }{ E0y }{ phase }
+    \polellipse{3}{2}{45}
+\end{tikzpicture}
+
+%alternative example:
+%uncomment the following block and remove the preview environment from the beginning of the document
+
+%polarization ellipse figures
+%  \foreach \i in {1,3,5,9}
+%  {
+%    \foreach \j in {-40,-20,0,30,60,140}
+%    {
+%      \begin{tikzpicture}[scale=.25]
+%        %\polellipse{ E_{0x} }{ E_{0y} }{ \delta }
+%        \polellipse{4}{\i}{\j}
+%      \end{tikzpicture} 
+%    }
+    %newline for proper formatting!
+%  \\
+%  }
+
+
+\end{document}

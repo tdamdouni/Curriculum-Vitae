@@ -1,0 +1,59 @@
+% Seven-segment display
+% Author:  Germain Gondor
+% Source: http://www.sciences-indus-cpge.apinc.org/Afficheur-7-Segments-avec-PGF-TIKZ
+\documentclass{minimal}
+
+%%%<
+\usepackage{verbatim}
+\usepackage[active,tightpage]{preview}
+\setlength\PreviewBorder{5pt}%
+%%%>
+
+\begin{comment}
+:Title: Seven-segment display
+
+Two examples from the documentation of Germain Gondor's  `seven-segment display package <http://www.sciences-indus-cpge.apinc.org/Afficheur-7-Segments-avec-PGF-TIKZ>`_. 
+
+:Source: `<http://www.sciences-indus-cpge.apinc.org/Afficheur-7-Segments-avec-PGF-TIKZ>`_
+
+\end{comment}
+
+% SevenSeg.sty can be downloaded from
+% http://www.sciences-indus-cpge.apinc.org/Afficheur-7-Segments-avec-PGF-TIKZ
+\usepackage{SevenSeg} 
+
+\begin{document}
+
+\begin{preview}
+\begin{tikzpicture}[scale=0.8]
+    \coordinate(A)at(-6em,0);
+    \SSGLeg{A}
+    \begin{scope}[xslant=0.1]
+    \SSGNb{}{3}
+    \SSGDCB{}
+    \end{scope}
+    \foreach \x in{0,...,1} {
+        \fill[purple](-7em,-7em-\x*1em)circle(3pt)coordinate(B\x);
+        \draw[purple,very thick](B\x)node[left]{$B_\x$}--++(14em,0)-|(Bit\x);
+        \fill[purple](Bit\x|-B\x)circle(3pt);
+    }
+    \foreach \x in{2,...,3} {
+        \fill(-7em,-7em-\x*1em)circle(3pt)coordinate(B\x);
+        \draw[very thick](B\x)node[left]{$B_\x$}--++(14em,0)-|(Bit\x);
+        \fill(Bit\x|-B\x)circle(3pt);
+    }
+\end{tikzpicture}
+%
+\begin{tikzpicture}[scale=0.75]
+    \foreach \x in{0,...,3} {
+        \coordinate (L\x) at({(\x-0)*2.5} ,-3*1);
+        \SSGNb{L\x}{\x}
+    }
+    \foreach \x in{4,...,7} {
+        \coordinate (L\x) at({(\x-4)*2.5} ,-3*2);
+        \SSGNb{L\x}{\x}
+    }
+\end{tikzpicture}
+\end{preview}
+
+\end{document}

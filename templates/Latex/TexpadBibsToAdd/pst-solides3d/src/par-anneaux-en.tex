@@ -1,0 +1,397 @@
+
+\section{Solid rings}
+
+This paragraph discusses the cylindric \Index{rings}. Within the macro
+\Lcs{psSolid}, this object is passed with the option:
+\texttt{\Lkeyword{object}=\Lkeyval{anneau}}, that comes with 3 parameters:
+\begin{compactitem}
+  \item the inner radius \texttt{\Lkeyword{r}=1.5} (value by default);
+  \item the outer radius \texttt{\Lkeyword{R}=4} (value by default);
+  \item the height \texttt{\Lkeyword{h}=6} (value by default).
+\end{compactitem}
+
+The argument \Lkeyword{ngrid} defines the number of sections used to make a complete
+rotation of $360$~degrees. Its default value is $24$.
+
+The section of the ring, whose shape is \textit{rectangular} was chosen as default,
+and can be redesigned by the user.
+We will discuss different examples of sections for rings.
+
+\subsection{Predefined command: the ring with a rectangular section}
+
+This section is defined in the plane $Oyz$, it is parameterized with the
+triple $(r, R, h)$. The values of the outer radius $R$, inner radius $r$ and the
+height $h$ are passed in the macro \Lcs{psSolid}. By default, one has a ring with
+a variable rectangular section, and the definition takes place at the time
+of the transmission of the values $(r, R, h)$ into the options of \Lcs{psSolid}.
+
+If the user redefines the \TeX {} macro \verb+\Section+ with some numeric values
+instead of the  parameters $r$, $R$ and $h$, then
+the ring won't be variable anymore  and it is not necessary to transmit the
+values  $r$, $R$, and $h$ into the options of \Lcs{psSolid}.
+
+\begin{minipage}{0.45\linewidth}
+\begin{verbatim}
+\newcommand\Section{%
+% y z
+  R h 2 div neg % sommet 1
+  % S1 (R,-h/2)
+  R h 2 div     % sommet 2
+  % S2 (r,h/2)
+  r h 2 div     % sommet 3
+  % S3 (r,h/2)
+  r h 2 div neg % sommet 4
+  % S4 (r,-h/2)
+            }
+\end{verbatim}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\linewidth}
+\psset{unit=0.5}
+\begin{pspicture}(-5,-3)(5,3)
+\pstVerb{/R 4 def /r 2 def /h 2 def}%
+\newcommand\RectangularSection{%
+   \pspolygon[fillstyle=vlines,linewidth=2\pslinewidth]%
+   (!R h 2 div neg)(!R h 2 div)(!r h 2 div)(!r h 2 div neg)}
+\rput(0,0){\RectangularSection}\rput(-6,0){\RectangularSection}
+\psline(-2,1)(2,1)\psline(-2,-1)(2,-1)
+\psline[linestyle=dashed,dash=1 0.2 0.05 0.2]{->}(0,-3)(0,3)
+\psline[linestyle=dashed]{->}(-4,0)(4.2,0)
+\uput[u](0,3){$z$}\uput[r](4.1,0){$y$}\uput[dl](0,0){$O$}
+\psline{->}(0,1.5)(2,1.5)\uput[u](1,1.5){$r$}
+\psline{->}(0,2.5)(4,2.5)\uput[u](2,2.5){$R$}
+\psline{<->}(5,-1)(5,1)\uput[r](5,0){$h$}
+\uput[dr](!R h 2 div neg){1}
+\uput[ur](!R h 2 div ){2}
+\uput[ul](!r h 2 div ){3}
+\uput[dl](!r h 2 div neg){4}
+\end{pspicture}
+\end{minipage}
+\newpage
+\begin{LTXexample}[width=6cm]
+\psset{unit=0.5}
+\begin{pspicture}(-5,-4)(5,4)
+\psset[pst-solides3d]{viewpoint=50 20 40 rtp2xyz,
+  Decran=25,lightsrc=10 20 20}
+\psSolid[object=anneau,fillcolor=cyan,
+  h=3,R=8,r=6,ngrid=4,RotX=10](0,0,0)
+\end{pspicture}\\
+\begin{pspicture}(-5,-4)(5,4)
+\psset[pst-solides3d]{viewpoint=50 -20 -40 rtp2xyz,
+  Decran=25,lightsrc=-10 -20 -20}
+\psSolid[object=anneau,
+fillcolor=yellow,h=3,R=8,r=6,
+RotX=90,RotZ=10](0,0,0)
+\end{pspicture}
+\end{LTXexample}
+
+
+
+\subsection{Example 1: a simple ring with a triangular section}
+
+Below is a very simple ring with a fixed triangular section.
+ The section is defined by $3$~points $(6, -2)$, $(10, 0)$
+and $(6, 2)$ within the option \Lkeyword{section} of \Lcs{psSolid}.
+
+\begin{LTXexample}[width=6cm]
+\psset{unit=0.5}
+\begin{pspicture}(-5,-6)(5,6)
+\psset[pst-solides3d]{viewpoint=50 20 40 rtp2xyz,Decran=25,
+   lightsrc=10 20 20}
+\psSolid[object=anneau,
+   section=6 -2 10 0 6 2,
+   fillcolor=cyan,RotX=10]%
+\end{pspicture}
+\end{LTXexample}
+
+%\newpage
+
+\subsection{Example 2: a ring with a variable triangular section}
+
+\newcommand\SectionTriangulaire{
+         R h 2 div neg % sommet 1
+         R r add 2 div h 2 div % sommet 2
+         r h 2 div neg % sommet 3
+}
+
+\begin{minipage}{0.45\linewidth}
+\begin{verbatim}
+\newcommand\SectionTriangulaire{
+% y <----z---->
+  R h 2 div neg
+  % S1 (R,-h/2)
+  R r add 2 div h 2 div
+  % S2 ((R+r)/2,h/2)
+  r h 2 div neg
+  % S3 (r,-h/2)
+}
+\end{verbatim}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\linewidth}
+\psset{unit=0.5}
+\begin{pspicture}(-5,-3)(5,3)
+%\psgrid
+\pstVerb{/R 4 def /r 2 def /h 2 def}%
+\newcommand\TriangularSection{%
+   \pspolygon[fillstyle=vlines,linewidth=2\pslinewidth]%
+   (!R h 2 div neg)(!R r add 2 div h 2 div)(!r h 2 div neg)}
+\rput(0,0){\TriangularSection}\rput(-6,0){\TriangularSection}
+\psline(-3,1)(3,1)\psline(-4,-1)(4,-1)
+\psline[linestyle=dashed,dash=1 0.2 0.05 0.2]{->}(0,-3)(0,3)
+\uput[u](0,3){$z$}\uput[r](4.1,0){$y$}\uput[dl](0,0){$O$}
+\psline[linestyle=dashed](2,-1)(2,1.5)
+\psline[linestyle=dashed](4,-1)(4,2.5)
+\psline[linestyle=dashed]{->}(-4,0)(4.2,0)
+\psline{->}(0,1.5)(2,1.5)\uput[u](1,1.5){$r$}
+\psline{->}(0,2.5)(4,2.5)\uput[u](2,2.5){$R$}
+\psline{<->}(5,-1)(5,1)\uput[r](5,0){$h$}
+\uput[dr](!R h 2 div neg){1}
+\uput[u](!R r add 2 div h 2 div){2}
+\uput[dl](!r h 2 div neg){3}
+\end{pspicture}
+\end{minipage}
+\begin{center}
+%%
+\psset{unit=0.5}
+\begin{pspicture}(-5,-6)(5,6)
+\psframe(-5,-4)(5,4)
+\psset[pst-solides3d]{viewpoint=50 20 40 rtp2xyz,Decran=25,lightsrc=10 20 20}
+\psSolid[object=anneau,section=\SectionTriangulaire,fillcolor=cyan,h=3,R=8,r=4,RotX=10]%
+\end{pspicture}
+%%
+\begin{pspicture}(-5,-6)(5,5)
+\psframe(-5,-4)(5,4)
+\psset[pst-solides3d]{viewpoint=50 -20 -40 rtp2xyz,Decran=25,lightsrc=-10 -20 -20}
+\psSolid[object=anneau,section=\SectionTriangulaire,fillcolor=yellow,h=3,R=8,r=4,RotX=-90,RotZ=10]%
+\end{pspicture}
+\end{center}
+
+\begin{verbatim}
+\psSolid[object=anneau,section=\SectionTriangulaire,%
+         fillcolor=cyan,h=3,R=8,r=4,RotX=10](0,0,0)
+\psSolid[object=anneau,section=\SectionTriangulaire,%
+         fillcolor=yellow,h=3,R=8,r=4,RotX=-90,RotZ=10](0,0,0)
+\end{verbatim}
+
+%%\newpage
+
+\newcommand\SectionPneu{
+   /m {90 4 div} bind def
+   /Scos {m cos 2 m mul cos add 3 m mul cos add} bind def
+   /Z0 {h 4 div} bind def
+   /c {Z0 Scos div} bind def
+   /Z1 {Z0 c m cos mul add} bind def
+   /Z2 {Z1 c m 2 mul cos mul add} bind def
+   /R1 {R c m sin mul sub} bind def
+   /R2 {R1 c m 2 mul sin mul sub} bind def
+   /R3 {R2 c m 3 mul sin mul sub} bind def
+   R h 4 div neg % 1
+   R h 4 div % 2
+   R1 Z1 % 3
+   R2 Z2 % 4
+   R3 h 2 div % 5
+   r h 2 div  % 6
+   r h 2 div neg  % 7
+   R3 h 2 div neg % 8
+   R2 Z2 neg % 9
+   R1 Z1 neg % 10
+   }
+
+\subsection{Example 3: a ring with a``tyre''-like section: cylindric ring with chamfered edges}
+
+\begin{minipage}{0.45\linewidth}
+{\small
+\begin{verbatim}
+\renewcommand\SectionPneu{
+   /m {90 4 div} bind def
+   /Scos {m cos 2 m mul cos add 3 m mul cos add} bind def
+   /Z0 {h 4 div} bind def
+   /c {Z0 Scos div} bind def
+   /Z1 {Z0 c m cos mul add} bind def
+   /Z2 {Z1 c m 2 mul cos mul add} bind def
+   /R1 {R c m sin mul sub} bind def
+   /R2 {R1 c m 2 mul sin mul sub} bind def
+   /R3 {R2 c m 3 mul sin mul sub} bind def
+   R h 4 div neg % 1
+   R h 4 div % 2
+   R1 Z1 % 3
+   R2 Z2 % 4
+   R3 h 2 div % 5
+   r h 2 div  % 6
+   r h 2 div neg  % 7
+   R3 h 2 div neg % 8
+   R2 Z2 neg % 9
+   R1 Z1 neg % 10
+   }
+\end{verbatim}}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\linewidth}
+%\psset{unit=0.65}
+\begin{pspicture}(-2,-3)(5,6)
+%\psgrid
+\pstVerb{/R 4 def /r 2 def /h 2 def}%
+\pstVerb{/m {90 4 div} bind def
+   /Scos {m cos 2 m mul cos add 3 m mul cos add} bind def
+   /Z0 {h 4 div} bind def
+   /c {Z0 Scos div} bind def
+   /Z1 {Z0 c m cos mul add} bind def
+   /Z2 {Z1 c m 2 mul cos mul add} bind def
+   /R1 {R c m sin mul sub} bind def
+   /R2 {R1 c m 2 mul sin mul sub} bind def
+   /R3 {R2 c m 3 mul sin mul sub} bind def}%
+\pnode(!R h 4 div neg){S1}
+\pnode(!R h 4 div){S2}
+\pnode(!R1 Z1){S3}
+\pnode(!R2 Z2){S4}
+\pnode(!R3 h 2 div){S5}
+\pnode(!r h 2 div){S6}
+\pnode(!r h 2 div neg){S7}
+\pnode(!R3 h 2 div neg){S8}
+\pnode(!R2 Z2 neg){S9}
+\pnode(!R1 Z1 neg){S10}
+\newcommand\pneuSection{\pspolygon[fillstyle=vlines,linewidth=2\pslinewidth]%
+ (S1)(S2)(S3)(S4)(S5)(S6)(S7)(S8)(S9)(S10)}
+\rput(0,0){\pneuSection}\rput{180}{\pspolygon[fillstyle=vlines,linewidth=2\pslinewidth]%
+ (!R h 4 div neg)(!R h 4 div)(!R1 Z1)(!R2 Z2)(!R3 h 2 div)(!r h 2 div)(!r h 2 div neg)(!R3 h 2 div neg)(!R2 Z2 neg)(!R1 Z1 neg)}
+\psline(-3,1)(3,1)\psline(-3,-1)(3,-1)
+\psline[linestyle=dashed,dash=1 0.2 0.05 0.2]{->}(0,-3)(0,3)
+\uput[u](0,3){$z$}\uput[r](4.1,0){$y$}\uput[dl](0,0){$O$}
+\psline[linestyle=dashed](2,-1)(2,1.5)
+\psline[linestyle=dashed](4,-1)(4,2.5)
+\psline[linestyle=dashed]{->}(-4,0)(4.2,0)
+\psline{->}(0,1.5)(2,1.5)\uput[u](1,1.5){$r$}
+\psline{->}(0,2.5)(4,2.5)\uput[u](2,2.5){$R$}
+\psline{<->}(5,-1)(5,1)\uput[r](5,0){$h$}
+\uput[r](S1){1}
+\uput[r](S2){2}
+\uput[u](S3){3}
+\uput[u](S4){4}
+\uput[u](S5){5}
+\uput[ul](S6){6}
+\uput[dl](S7){7}
+\uput[dl](S8){8}
+\uput[dr](S9){9}
+\uput[r](S10){10}
+\psdots[linecolor=red](S1)(S2)(S3)(S4)(S5)(S6)(S7)(S8)(S9)(S10)
+\end{pspicture}
+\end{minipage}
+
+%\iffalse
+\begin{center}
+\psset{unit=0.7}
+\begin{pspicture}(-5,-5)(5,4)
+\psframe(-5,-4)(5,4)
+\psset[pst-solides3d]{viewpoint=50 20 40 rtp2xyz,Decran=25,lightsrc=10 20 20}
+\psSolid[object=anneau,section=\SectionPneu,fillcolor=cyan,h=3,R=8,r=4,RotX=10]%
+\end{pspicture}
+%%
+\begin{pspicture}(-5,-5)(5,4)
+\psframe(-5,-4)(5,4)
+\psset[pst-solides3d]{viewpoint=50 -20 -40 rtp2xyz,Decran=25,lightsrc=-10 -20 -20}
+\psSolid[object=anneau,section=\SectionPneu,fillcolor=yellow,h=3,R=8,r=4,RotX=-90,RotZ=10]%
+\end{pspicture}
+\end{center}
+%%
+
+\begin{verbatim}
+\psSolid[object=anneau,section=\SectionPneu,%
+         fillcolor=cyan,h=3,R=8,r=4,RotX=10](0,0,0)
+\psSolid[object=anneau,section=\SectionPneu,%
+         fillcolor=yellow,h=3,R=8,r=4,RotX=-90,RotZ=10]%
+\end{verbatim}
+
+%\fi
+\newpage
+
+\subsection{Example 4: an empty bobbin}
+
+\newcommand\SectionBobine{
+   r h 2 div % 1
+   r h 2 div neg % 2
+   R h 2 div neg % 3
+   R h 3 div neg % 4
+   R h 4 div sub h 3 div neg % 5
+   R h 4 div sub h 3 div % 6
+   R h 3 div % 7
+   R h 2 div % 8
+   }
+
+\begin{minipage}{0.45\linewidth}
+\begin{verbatim}
+\newcommand\SectionBobine{
+   r h 2 div % 1
+   r h 2 div neg % 2
+   R h 2 div neg % 3
+   R h 3 div neg % 4
+   R h 4 div sub h 3 div neg % 5
+   R h 4 div sub h 3 div % 6
+   R h 3 div % 7
+   R h 2 div % 8
+   }
+\end{verbatim}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\linewidth}
+\begin{pspicture}(-2,-2)(5,2)
+\pstVerb{/RB 4 def /rB 2 def /hB 3 def}%
+\pnode(!rB hB 2 div){S1}
+\pnode(!rB hB 2 div neg){S2}
+\pnode(!RB hB 2 div neg){S3}
+\pnode(!RB hB 3 div neg){S4}
+\pnode(!RB hB 4 div sub hB 3 div neg){S5}
+\pnode(!RB hB 4 div sub hB 3 div){S6}
+\pnode(!RB hB 3 div){S7}
+\pnode(!RB hB 2 div){S8}
+\newcommand\pneuSection{\pspolygon[fillstyle=vlines,linewidth=2\pslinewidth]%
+ (S1)(S2)(S3)(S4)(S5)(S6)(S7)(S8)}
+\rput(0,0){\pneuSection}\rput{180}{\pspolygon[fillstyle=vlines,linewidth=2\pslinewidth]%
+ (!rB hB 2 div)(!rB hB 2 div neg)(!RB hB 2 div neg)(!RB hB 3 div neg)(!RB hB 4 div sub hB 3 div neg)(!RB hB 4 div sub hB 3 div)(!RB hB 3 div)(!RB hB 2 div)}
+\psline(-3,1.5)(3,1.5)\psline(-3,-1.5)(3,-1.5)
+\psline[linestyle=dashed,dash=1 0.2 0.05 0.2]{->}(0,-3)(0,3)
+\uput[u](0,3){$z$}\uput[r](4.1,0){$y$}\uput[dl](0,0){$O$}
+\psline[linestyle=dashed](2,-1)(2,1.5)
+\psline[linestyle=dashed](4,-1)(4,2.5)
+\psline[linestyle=dashed](-4,-1)(4,-1)
+\psline[linestyle=dashed](-4,1)(4,1)
+\psline[linestyle=dashed]{->}(-4,0)(4.2,0)
+\psline{->}(0,1.8)(2,1.8)\uput[u](1,1.8){$r$}
+\psline{->}(0,2.5)(4,2.5)\uput[u](2,2.5){$R$}
+\psline{<->}(5,-1.5)(5,1.5)\uput[r](5,0){$h$}
+\uput[u](S1){1}
+\uput[d](S2){2}
+\uput[d](S3){3}
+\uput[r](S4){4}
+\uput[ur](S5){5}
+\uput[dr](S6){6}
+\uput[r](S7){7}
+\uput[r](S8){8}
+\psdots[linecolor=red](S1)(S2)(S3)(S4)(S5)(S6)(S7)(S8)
+\end{pspicture}
+\end{minipage}
+\begin{center}
+\begin{pspicture}(-5,-6)(5,5)
+\psframe*[linecolor=blue!50](-5,-5)(5,4)
+\psset[pst-solides3d]{viewpoint=70 40 10 rtp2xyz,Decran=25,lightsrc=0 30 100}
+\psSolid[object=grille,base=-15 15 -15 15,fillcolor=yellow!30!black!10](0,0,-8)
+%\psSolid[object=prisme,h=2,base=-15 1 -15 -1 15 -1 15 1](0,0,-8)
+\psSolid[object=anneau,section=\SectionBobine,fillcolor=gray!50,h=6,R=8,r=4,RotX=90,linecolor=gray]%
+\end{pspicture}
+\end{center}
+\begin{verbatim}
+\psSolid[object=grille,base=-15 15 -15 15,fillcolor=yellow!30](0,0,-8)
+\psSolid[object=anneau,section=\SectionBobine,%
+         fillcolor=gray!50,h=6,R=8,r=4,RotX=90,linecolor=gray]%
+\end{verbatim}
+
+
+
+\subsection{Some other rings}
+
+Three other examples are available on the website:
+
+\centerline{\url{http://syracuse.eu.org/lab/bpst/pst-solides3d/anneaux}}
+
+
+\endinput

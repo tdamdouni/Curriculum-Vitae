@@ -1,0 +1,88 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pstricks,pst-node,graphicx}
+\definecolor{Pink}{rgb}{1.,0.75,0.8}
+\newsavebox\PBox
+\StopShownPreambleCommands
+\begin{document}
+\psset{linearc=0} % it makes a round corner of connection link
+
+\savebox\PBox{%
+\begin{psmatrix}[rowsep=1cm,colsep=.5cm]
+& \psshadowbox[linearc=5mm,fillstyle=solid,fillcolor=Pink]
+   { \begin{tabular}{c}
+   $ f1  = a \, q_1 + b \, q_2 $ \\
+   $ f2  = c \, q_1 + d \, q_2 $ \\
+   \end{tabular} }  &   \\% end of 1st row
+\psshadowbox[linearc=5mm,shadow=true,fillstyle=solid,fillcolor=Pink]{
+\begin{tabular}{c}
+$L_1 = t (q_1+ q_2)\dot{q}_1 - \dot{q}_2 + \frac{dg}{dt}  $ \\
+when $a=0, b=1, c=2, d=1$
+\end{tabular}
+}
+& &
+\psshadowbox[linearc=5mm,shadow=true,fillstyle=solid,fillcolor=Pink]{
+\begin{tabular}{c}
+$L_1 = t (q_1+ q_2)\dot{q}_1 - \dot{q}_2 + \frac{dg}{dt}  $ \\
+when $a=0, b=1, c=2, d=1$
+\end{tabular}
+} \\
+\psshadowbox[linearc=5mm,shadow=true,fillstyle=solid,fillcolor=Pink]{
+\begin{tabular}{c}
+$L_1 = t (q_1+ q_2)\dot{q}_1 - \dot{q}_2 + \frac{dg}{dt}  $ \\
+when $a=0, b=1, c=2, d=1$
+\end{tabular}
+}
+& &
+\psshadowbox[linearc=5mm,shadow=true,fillstyle=solid,fillcolor=Pink]{
+\begin{tabular}{c}
+$L_1 = t (q_1+ q_2)\dot{q}_1 - \dot{q}_2 + \frac{dg}{dt}  $ \\
+when $a=0, b=1, c=2, d=1$
+\end{tabular}
+} \\
+\psshadowbox[linearc=5mm,shadow=true,fillstyle=solid,fillcolor=Pink]{
+\begin{tabular}{c}
+$L_1 = t (q_1+ q_2)\dot{q}_1 - \dot{q}_2 + \frac{dg}{dt}  $ \\
+when $a=0, b=1, c=2, d=1$
+\end{tabular}
+}
+& &
+\psshadowbox[linearc=5mm,shadow=true,fillstyle=solid,fillcolor=Pink]{
+\begin{tabular}{c}
+$L_1 = t (q_1+ q_2)\dot{q}_1 - \dot{q}_2 + \frac{dg}{dt}  $ \\
+when $a=0, b=1, c=2, d=1$
+\end{tabular}
+}
+\end{psmatrix}}%
+\rput[lt](0,0){\usebox\PBox}%
+{\psset{linewidth=1.5pt,arrowsize=7pt,angleA=-90,angleB=90,arm=0}%
+\ncdiag{->}{1,2}{4,1}%
+\ncdiag{->}{1,2}{4,3}%
+%
+\ncdiag{->}{1,2}{3,1}%
+\ncdiag{->}{1,2}{3,3}%
+%
+\ncdiag{->}{1,2}{2,1}%
+\ncdiag{->}{1,2}{2,3}}%
+%
+\rput[lt](0,0){\usebox\PBox}% again to put the boxes over the arrows
+\end{document}

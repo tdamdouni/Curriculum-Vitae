@@ -1,0 +1,30 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pstricks,pst-3dplot}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(-3,-2)(8,5)
+  \psset{Alpha=60,Beta=20}  \pstThreeDCoor[xMax=5,yMax=8,zMax=5]
+  \pstThreeDSphere(4,4,3){2}\pstThreeDDot[drawCoor](4,4,3)
+  \pstThreeDSphere[xyzLight=0 1 0](2,7,5){1.5}\pstThreeDDot[drawCoor](2,7,5)
+\end{pspicture}
+\end{document}

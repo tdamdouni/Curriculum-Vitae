@@ -1,0 +1,60 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{pstricks}
+\usepackage{pst-barcode}
+
+
+\begin{document}
+
+\title{QR codes and Barcodes in \LaTeX\ with \texttt{pst-barcode} package}
+\date{}
+\maketitle
+
+\section{QR code: WWW page}
+
+\begin{pspicture}(25mm,25mm)
+\psbarcode{http://www.sharelatex.com}{eclevel=H width=1.0 height=1.0}{qrcode}
+\end{pspicture}
+
+\section{QR code: vCard}
+
+\begin{pspicture}(25mm,25mm)
+\obeylines
+\psbarcode{%
+BEGIN:VCARD^^J
+VERSION:4.0^^J
+N:Smith;John^^J
+FN:John Smith^^J
+ORG:ShareLatex^^J
+URL:http://www.sharelatex.com^^J
+EMAIL:john.smith@emails.com^^J
+TEL;TYPE=work,voice;VALUE=uri:tel:+44-123-456-789^^J
+ADR;TYPE=home;LABEL="Street address, City, Province, Postal-code, Country":Post office box;Extended address;Street address;City;Province;Postal-code;Country^^J
+END:VCARD
+}{width=1.0 height=1.0}{qrcode}%
+\end{pspicture}
+
+\section{Barcode: ISBN number}
+
+\begin{pspicture}(50mm,30mm)
+\psbarcode{978-3-86541-114}{includetext}{isbn}
+\end{pspicture}
+
+\section{Barcode: simple text}
+
+\begin{pspicture}(50mm,30mm)
+\psbarcode{Hello world}{includetext}{code128}
+\end{pspicture}
+
+\vspace{3em}
+
+Important notes:
+\begin{itemize}
+\item compilation must be: \texttt{latex + dvips + ps2pdf} (due to using \texttt{pstricks})
+\item \texttt{eclevel} parameter specifies the level of error correction, and is one of L, M, Q, H (low to high)
+\item \texttt{includetext} parameter enable human readable text
+\end{itemize}
+
+\end{document}

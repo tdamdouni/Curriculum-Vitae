@@ -1,0 +1,85 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\StartShownPreambleCommands
+\usepackage{pstricks-add,booktabs,ragged2e,tabularx}
+\usepackage[utf8]{inputenc}
+\StopShownPreambleCommands
+\begin{document}
+\def\CMD#1{\texttt{\small\textbackslash#1}}
+\def\Lkeyword#1{\texttt{\small#1}}
+\psset{arrowscale=1.8,linecolor=red,unit=1cm,linewidth=0.75pt}
+\begin{tabularx}{\textwidth}{@{} p{3cm} | X  @{}}\toprule
+\emph{Name} & \emph{Beispiel}\\\midrule
+\Lkeyword{ArrowInside}\newline
+\psline[ArrowInside=->](0,0.1)(2,0.1)
+ &  \CMD{psline[ArrowInside=->](0,0)(2,0)}\tabularnewline
+%
+\Lkeyword{ArrowInsidePos} \newline
+\psline[ArrowInside=->, ArrowInsidePos=0.25](0,0.1)(2,0.1)
+&  \CMD{psline[ArrowInside=->,ArrowInsidePos=0.25](0,0)(2,0)}\tabularnewline
+%	\hspace*{2em}\texttt{ArrowInsidePos=0.25](0,0)(2,0)}\tabularnewline
+%
+\Lkeyword{ArrowInsidePos} \newline
+\psline[ArrowInside=->, ArrowInsidePos=10](0,0.1)(2,0.1)
+&  \CMD{psline[ArrowInside=->,ArrowInsidePos=10](0,0)(2,0)}\tabularnewline
+%	\hspace*{2em}\texttt{ArrowInsidePos=10](0,0)(2,0)}\tabularnewline
+%
+\Lkeyword{ArrowInsideNo} \newline
+\psline[ArrowInside=->, ArrowInsideNo=2](0,0.1)(2,0.1)
+&  \CMD{psline[ArrowInside=->,ArrowInsideNo=2](0,0)(2,0)}\tabularnewline
+%	\hspace*{2em}\texttt{ArrowInsideNo=2](0,0)(2,0)}\tabularnewline
+%
+\Lkeyword{ArrowInsideOffset} \newline
+\psline[ArrowInside=->, ArrowInsideNo=2,ArrowInsideOffset=0.1](0,0.1)(2,0.1)
+&  \CMD{psline[ArrowInside=->,ArrowInsideNo=2,}\newline
+%    \hspace*{2em}\texttt{ArrowInsideNo=2,}\newline
+    \hspace*{2em}\small\texttt{ArrowInsideOffset=0.1](0,0)(2,0)}\tabularnewline
+%
+\Lkeyword{ArrowInside} \newline
+\psline[ArrowInside=->]{->}(0,0)(2,0)
+&  \CMD{psline[ArrowInside=->]\{->\}(0,0)(2,0)}\tabularnewline
+%
+\Lkeyword{ArrowInsidePos} \newline
+\psline[ArrowInside=->, ArrowInsidePos=0.25]{->}(0,0)(2,0)
+&  \CMD{psline[ArrowInside=->,ArrowInsidePos=0.25]\{->\}(0,0)(2,0)}\tabularnewline
+%	\hspace*{2em}\texttt{ArrowInsidePos=0.25]\{->\}(0,0)(2,0)}\tabularnewline
+%
+\Lkeyword{ArrowInsidePos} \newline
+\psline[ArrowInside=->, ArrowInsidePos=10]{->}(0,0)(2,0)
+&  \CMD{psline[ArrowInside=->,ArrowInsidePos=10]\{->\}(0,0)(2,0)}\tabularnewline
+%	\hspace*{2em}\texttt{ArrowInsidePos=10]\{->\}(0,0)(2,0)}\tabularnewline
+%
+\Lkeyword{ArrowInsideNo} \newline
+\psline[ArrowInside=->, ArrowInsideNo=2]{->}(0,0)(2,0)
+&  \CMD{psline[ArrowInside=->,ArrowInsideNo=2]\{->\}(0,0)(2,0)}\tabularnewline
+%	\hspace*{2em}\texttt{ArrowInsideNo=2]\{->\}(0,0)(2,0)}\tabularnewline
+%
+\Lkeyword{ArrowInsideOffset} \newline
+\psline[ArrowInside=->, ArrowInsideNo=2,ArrowInsideOffset=0.1]{->}(0,0)(2,0) %
+& \CMD{psline[ArrowInside=->,ArrowInsideNo=2,}\newline
+	\hspace*{2em}\small\texttt{ArrowInsideOffset=0.1]\{->\}(0,0)(2,0)}\tabularnewline
+%
+\Lkeyword{ArrowFill} \newline
+\psline[arrowscale=3,ArrowFill=false]{<->>}(0,0)(2,0) %
+& \CMD{psline[arrowscale=3,ArrowFill=false]\{<->\/>\}(0,0)(2,0)}
+%	\hspace*{2em}\texttt{ArrowFill=false]\{<->\/>\}(0,0)(2,0)}\\
+\\\bottomrule
+\end{tabularx}
+\end{document}

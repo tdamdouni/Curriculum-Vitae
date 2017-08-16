@@ -1,0 +1,99 @@
+\section{Numbering of the faces}
+
+The option \Lkeyword{numfaces} gives permission to number every face with its correspondent index number.
+\begin{itemize}
+  \item \texttt{\Lkeyword{numfaces}=\Lkeyval{all}} all faces are numbered;
+  \item \verb+numefaces=0 1 2 3+ only the faces that have index 0, 1, 2 and 3 are numbered.
+\end{itemize}
+The option \Lkeyword{fontsize} allows to fix the measurement of the used character set.
+Finally, the Boolean \Lkeyword{visibility} the numbering of \Index{faces} that are not visible.
+By default, the Boolean is set to \texttt{\Lkeyword{visibility}=true}, so the visibility is set up (e.~g. numbers are not set to invisible faces).
+
+
+\psset{viewpoint=50 20 30 rtp2xyz,Decran=50}
+\begin{LTXexample}[width=8cm]
+\psset{unit=1}
+\begin{pspicture}(-4,-3)(3,1.5)
+\psSolid[object=grille,
+   base=0 4 -2 2,
+   numfaces=2 6 7 10,
+   linecolor=gray](0,0,0)
+\axesIIID(0,0,0)(4,2,1)
+\end{pspicture}
+\end{LTXexample}
+
+
+
+%% \begin{multicols}{2}
+%%
+%% \bgroup
+%% \psset{SphericalCoor=true,viewpoint=50 20 30}
+%% \begin{center}
+%% \psset{unit=0.75}
+%% \psset{lightsrc=30 -20 10,SphericalCoor=true,viewpoint=50 -20 10,Decran=50}
+%% \begin{pspicture*}(-5,-4)(6,6)
+%% \psframe(-5,-4)(6,6)
+%% \axesIIID(0,0,0)(4,4,4)
+%% \psSolid[object=cube,
+%%    RotY=90,
+%%    ngrid=4,
+%%    numfaces=2 6 10,
+%%    action=draw**](0,0,0)
+%% \end{pspicture*}
+%% \end{center}
+%% \egroup
+%%
+%% \columnbreak
+%%
+%% \begin{verbatim}
+%% \axesIIID(0,0,0)(4,4,4)
+%% \psSolid[object=cube,
+%%    RotY=90,
+%%    ngrid=4,
+%%    numfaces=2 6 10,
+%%    action=draw**](0,0,0)
+%% \end{verbatim}
+%%
+%% \end{multicols}
+
+
+
+
+\psset{viewpoint=50 -20 10 rtp2xyz,Decran=50}
+\begin{LTXexample}[width=8cm]
+\begin{pspicture*}(-4,-3)(4,3)
+\psSolid[object=cube,
+   RotY=90,
+   ngrid=4,
+   fontsize=15,
+   action=draw,
+   numfaces=all,](0,0,0)
+\end{pspicture*}
+\end{LTXexample}
+
+%%% exemple 3
+
+The options of \Lcs{psSolid} accept PostScript commands, in particular the \verb+for+ loop.
+
+With the instruction \verb+numfaces=0 1 5 {} for+ all faces with the index numbers between 0
+and 5 are set up. The instruction \verb+numfaces=8 3 23 {} for+ sets up every third index number between 8 and 23.
+
+\psset{viewpoint=50 -20 10 rtp2xyz,Decran=50}
+\begin{LTXexample}[width=8cm]
+\begin{pspicture*}(-4,-3)(4,3)
+\axesIIID(0,0,0)(8,3,2)
+\psSolid[object=grille,
+   RotY=90,
+   RotZ=180,
+   ngrid=1.,
+   fontsize=15,
+   numfaces=
+      0 1 5 {} for
+      8 3 23 {} for,
+   base=-2 2 -3 3,
+   visibility=false,
+   action=draw](0,0,0)
+\end{pspicture*}
+\end{LTXexample}
+
+\endinput

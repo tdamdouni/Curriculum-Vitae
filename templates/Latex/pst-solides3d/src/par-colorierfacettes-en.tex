@@ -1,0 +1,194 @@
+\section{\Index{Colouring} some single faces}
+
+The key value \texttt{\Lkeyword{fcol}=$i_0$~($c_0$) $i_1$~($c_1$) \dots $i_n$~($c_n$)},
+where $i_k$ are integers and $c_k$ the names of the colours, permits to
+specify a \Index{colour} for special \Index{faces}.
+To the face with the index $i_k$ corresponds the colour $c_k$. The
+integer $n$ must be lower than the maximum of the number of faces of the chosen solid.
+
+
+%% L'option \texttt{[fcol=1 (OliveGreen) 0 (color1) 4 (color2) etc.]}
+%% permet de sp\'{e}cifier dans l'ordre :
+%% \begin{compactitem}
+%%   \item le num\'{e}ro de la facette  de \texttt{0} \`{a} \texttt{n-1}, pour \texttt{n} facettes ;
+%%   \item la couleur de la facette.
+%% \end{compactitem}
+
+The colour names $c_k$, there are $68$~predefined values, are defined names in the
+\texttt{color.pro}. These values are:
+\textsl{GreenYellow},
+\textsl{Yellow},
+\textsl{Goldenrod},
+\textsl{Dandelion},
+\textsl{Apricot},
+\textsl{Peach},
+\textsl{Melon},
+\textsl{YellowOrange},
+\textsl{Orange},
+\textsl{BurntOrange},
+\textsl{Bittersweet},
+\textsl{RedOrange},
+\textsl{Mahogany},
+\textsl{Maroon},
+\textsl{BrickRed},
+\textsl{Red},
+\textsl{OrangeRed},
+\textsl{RubineRed},
+\textsl{WildStrawberry},
+\textsl{Salmon},
+\textsl{CarnationPink},
+\textsl{Magenta},
+\textsl{VioletRed},
+\textsl{Rhodamine},
+\textsl{Mulberry},
+\textsl{RedViolet},
+\textsl{Fuchsia},
+\textsl{Lavender},
+\textsl{Thistle},
+\textsl{Orchid},
+\textsl{DarkOrchid},
+\textsl{Purple},
+\textsl{Plum},
+\textsl{Violet},
+\textsl{RoyalPurple},
+\textsl{BlueViolet},
+\textsl{Periwinkle},
+\textsl{CadetBlue},
+\textsl{CornflowerBlue},
+\textsl{MidnightBlue},
+\textsl{NavyBlue},
+\textsl{RoyalBlue},
+\textsl{Blue},
+\textsl{Cerulean},
+\textsl{Cyan},
+\textsl{ProcessBlue},
+\textsl{SkyBlue},
+\textsl{Turquoise},
+\textsl{TealBlue},
+\textsl{Aquamarine},
+\textsl{BlueGreen},
+\textsl{Emerald},
+\textsl{JungleGreen},
+\textsl{SeaGreen},
+\textsl{Green},
+\textsl{ForestGreen},
+\textsl{PineGreen},
+\textsl{LimeGreen},
+\textsl{YellowGreen},
+\textsl{SpringGreen},
+\textsl{OliveGreen},
+\textsl{RawSienna},
+\textsl{Sepia},
+\textsl{Brown},
+\textsl{Tan},
+\textsl{Gray},
+\textsl{Black},
+\textsl{White}.
+The list of these $68$ colours is available in the command
+\verb+\colorfaces+ (see an example in the section about
+the grating  of a cube).
+
+Thinking on that case, the number of the faces
+$\mathtt{n_1\times n_2}+2\texttt{(outer faces  inner faces)}$
+must be lower than 68!
+
+However users can define their own \Index{colours}. There are two methods:
+
+\begin{compactitem}
+\item They can use one of the $4$~optional arguments  \texttt{color1},
+  \texttt{color2}, \texttt{color3}, \texttt{color4} from
+  \Lcs{psSolid}, then transmit to \Lkeyword{fcol} a pair of the type
+  $i$~\verb+(color1)+, where $i$ is the index of the chosen face. The
+  arguments \texttt{color1}, etc.  are used in the same way as the
+  arguments from \Lkeyword{color} and \Lkeyword{incolor}.\hfill \break
+  A possible command could be the following:
+  \begin{verbatim}
+   \psSolid[a=1,object=cube,color1=red!60!yellow!20,fcol=0 (color1)]%
+  \end{verbatim}
+\item They define their own colour names with the command
+  \verb+\pstVerb+, and then use these names with the argument
+  \Lkeyword{fcol}. For example:
+\begin{verbatim}
+\pstVerb{/hetre {0.764 0.6 0.204 setrgbcolor} def
+         /chene {0.568 0.427 0.086 setrgbcolor} def
+         /cheneclair {0.956 0.921 0.65 setrgbcolor} def
+         }%
+\end{verbatim}
+And therefore:
+\begin{verbatim}
+fcol=0 (hetre) 1 (chene)  2 (cheneclair)
+\end{verbatim}
+\end{compactitem}
+
+
+The $4$~arguments
+\verb+color1+,
+\verb+color2+,
+\verb+color3+,
+\verb+color4+ have default values:
+\begin{compactitem}
+    \item \textcolor{cyan!50}{color1=cyan!50}
+    \item \textcolor{magenta!60}{color2=magenta!60}
+    \item \textcolor{blue!30}{color3=blue!30}
+    \item \textcolor{red!50}{color4=red!50}
+\end{compactitem}
+
+
+
+
+\begin{LTXexample}[width=5cm]
+\psset{Decran=20,viewpoint=10 5 10,unit=0.5}
+\begin{pspicture}(-5,-5)(5,5)
+\psSolid[
+   fcol=0 (Apricot) 1 (Aquamarine)  2 (Bittersweet)
+        3 (ForestGreen) 4 (Goldenrod)
+        13 (GreenYellow)
+        40 (Mulberry),
+   object=cube,mode=3]%
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=4.9cm]
+\psset{Decran=20,viewpoint=10 5 10,unit=0.5}
+\begin{pspicture}(-5,-5)(5,5)
+\psSolid[
+   fcol=0 (Apricot) 2 (Lavender) 3 (SkyBlue)  11 (LimeGreen) 12 (OliveGreen),
+   object=cylindre,
+   h=4,
+   ngrid=4 10](0,0,-2)
+\end{pspicture}
+\end{LTXexample}
+
+The choice of the faces to be coloured can be specified with some PostScript code,
+\begin{verbatim}
+fcol=48 {i (Black) i 1 add (LimeGreen) i 2 add (Yellow) /i i 3 add store} repeat
+\end{verbatim}
+which will alternately colour the faces in black, green and yellow.
+\begin{center}
+\begin{LTXexample}[width=6.5cm]
+\begin{pspicture}(-3,-3)(3.5,2.5)
+\psset{Decran=7.5,viewpoint=10 10 5}
+\pstVerb{/iface 0 store}%
+\psSolid[
+fcol=48 {iface (Black)
+  iface 1 add (LimeGreen)
+  iface 2 add (Yellow) /iface
+  iface 3 add store} repeat,
+  r1=4,r0=1,
+  object=tore,
+  ngrid=8 18,
+  RotY=30]
+\end{pspicture}
+\end{LTXexample}
+\end{center}
+
+When the option \Lkeyword{hue} is activated, the faces of the solid are coloured with the nuance of the rainbow colours.
+
+\begin{LTXexample}[width=5.9cm]
+\begin{pspicture}(-3,-2.5)(3,2.5)
+\psset[pst-solides3d]{viewpoint=50 50 50,Decran=40,lightsrc=50 20 1e2}
+\psSolid[r1=5,r0=1,object=tore,ngrid=16 18,hue=0 1]%
+\end{pspicture}
+\end{LTXexample}
+
+\endinput

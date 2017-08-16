@@ -1,0 +1,72 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-solides3d,pst-plot}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(-2,-3)(2.5,3)
+\psaxes[yAxis=false](-2,-2)(2,2)
+\psset{viewpoint=0 0 5,Decran=5}
+\psSolid[object=grille,base=-2 2 -2 2]
+\psSolid[object=vecteur,args=0 0 0  2 2 0,linecolor=red,linewidth=2pt]
+%\axesIIID(4,4,4)
+\pnode(2,-2){B}\pnode(2,2){A}
+\end{pspicture}
+\qquad
+\begin{pspicture}(-0.5,-3)(5,3)
+\psaxes[yAxis=false](0,-2)(5,2)
+\psset{viewpoint=5 0 5,Decran=5,RotX=-90}
+\psSolid[object=grille,base=-2 2 -2 2,RotX=89.9]
+\psSolid[object=vecteur,args=0 0 0  2 2 0,linecolor=red,linewidth=2pt]
+\axesIIID[axisnames={x,z,y}](3,3,0)
+\psdot(5,0)\uput[0](5,0){$V$}
+\psline[tbarsize=5mm 5]{|<->|}(0,-0.5)(5,-0.5)\rput*(2.5,-0.5){$D=V$}
+\psline[linestyle=dashed](0,2)(5,0)\psline[linestyle=dashed](0,-2)(5,0)
+\uput[-90](0,-2.5){Original}\uput[-90](0,-2.85){Bild}
+\psline[linestyle=dotted](A)(0,2)
+\psline[linestyle=dotted](B)(0,-2)
+\end{pspicture}\\[\normalbaselineskip]
+%
+\begin{pspicture}(-2,-3)(2.5,3)
+\psaxes[yAxis=false](-2,-2)(2,2)
+\psset{viewpoint=0 0 5,Decran=2.5}
+\psSolid[object=grille,base=-2 2 -2 2]
+\psSolid[object=vecteur,args=0 0 0  2 2 0,linecolor=red,linewidth=2pt]
+\axesIIID(3,3,3)\pnode(1,-1){B}\pnode(1,1){A}
+\end{pspicture}
+\qquad
+\begin{pspicture}(-0.5,-3)(5,3)
+\psaxes[yAxis=false](0,-2)(5,2)
+\psset{viewpoint=5 0 5,Decran=2.5,RotX=-90}
+\psline[linewidth=1pt](0,2)(0,-2)
+\psline[linewidth=1.5pt,linecolor=red]{->}(0,0)(0,-2)
+\psdot(5,0)\uput[0](5,0){$V$}
+\psline[tbarsize=5mm 5]{|<->|}(0,1.5)(5,1.5)\rput*(2.5,1.5){$V$}
+\psline[linestyle=dashed](0,2)(5,0)\psline[linestyle=dashed](0,-2)(5,0)
+\psline[tbarsize=5mm 5]{|<->|}(2.5,-1.5)(5,-1.5)\rput*(3.75,-1.5){$D$}
+\psline[linewidth=1.5pt](2.5,1)(2.5,-1)
+\psline[linewidth=1.5pt,linecolor=red]{->}(2.5,0)(2.5,-1)
+\psline{->}(2.5,0)(3.5,0)\uput[0](3.5,0){$z$}
+\uput[-90](0,-2.5){Original}\uput[-90](2.5,-2.5){Bild}
+\psline[linestyle=dotted](A)(2.5,1)
+\psline[linestyle=dotted](B)(2.5,-1)
+\end{pspicture}
+\end{document}

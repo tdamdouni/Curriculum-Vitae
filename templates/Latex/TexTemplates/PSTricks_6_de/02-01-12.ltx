@@ -1,0 +1,33 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{xcolor}
+\definecolor{Light}{gray}{.80}
+\definecolor{Dark}{gray}{.20}
+\StopShownPreambleCommands
+\begin{document}
+\colorbox{red}{Schwarz auf Rot}\hfill%
+\fcolorbox{red}{cyan}{Black -- Text, cyan -- Hintergrund, red -- Rahmen}\\
+\colorbox{Light}{\textcolor{Dark}{Heller Hintergrund}}\hfill%
+\fcolorbox{red}{cyan}{\color{white}White -- Text, cyan -- Hintergrund,
+    red -- Rahmen}\\
+\colorbox{Dark}{\textcolor{white}{Dunkler Hintergrund}}
+\end{document}

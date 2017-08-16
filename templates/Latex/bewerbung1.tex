@@ -1,0 +1,77 @@
+\documentclass[fontsize=12pt]{scrlttr2} 
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{%
+	ngerman,
+	ae,
+	times,  %% hier kann man die Schriftart einstellen
+	graphicx,
+	url}
+ 
+% Hier die Optionen fuer scrlttr2 eintragen. 
+% S.a. scrguide.pdf ab Seite 150
+\KOMAoptions{paper=a4,fromalign=center,fromrule=aftername,
+backaddress=true,parskip=half,enlargefirstpage=true} 
+ 
+% Falls man das alte scrlettr vemisst, oder die Option 
+% "enlargefirstpage=true" aus den KOMAoptions 
+% benutzen will, muss man den folgenden Eintrag 
+% auskommentieren (einfach das %-Zeichen löschen).
+%\LoadLetterOption{KOMAold}
+ 
+% hier Name und darunter Anschrift einsetzen:
+\setkomavar{fromname}{Maxi Muster} 		
+\setkomavar{fromaddress}{Musterstr. 20\\
+                        12345 Musterstadt} 
+ 
+% hier die Signatur einsetzen:
+\setkomavar{signature}{Maxi Muster}		
+ 
+% hier einsetzen, als was man sich bewirbt:
+\setkomavar{subject}{Bewerbung als ...}
+ 
+% hier kommt dein Ort hin:
+\setkomavar{place}{Musterstadt} 	
+ 
+% die Signatur ist linksbuendig
+\let\raggedsignature=\raggedright		
+ 
+% Manche finden, dass scrlttr2 so eine riesige Fußzeile hat 
+% einfach die nächste Zeile auskommentieren, dann wird sie kleiner:
+% \setlength{\footskip}{-6pt}	    
+ 
+\begin{document}
+ % die Anschrift des Empfaengers
+ \begin{letter}{Muster GmbH \& Co. KG\\- Personalabteilung -\\
+		     Landstra"se 2\\12345 Musterstadt} 		
+ 
+\opening{Sehr geehrte Damen und Herren,}
+ 
+hier folgt der erste Absatz, der auch gleichzeitig die 
+\textbf{Einleitung} darstellt. Am besten kommt man gleich zur 
+Sache: Warum interessiert mich diese Stelle, und warum halte
+ich mich f"ur geeignet.
+ 
+Im zweiten Absatz beginnt der \textbf{ Hauptteil}. Hier stellt 
+man sich vor, und hier sollte man anhand von Qualifikationen 
+und Erfahrungen belegen, warum man die Anforderungen
+erf"ullt. Im Hauptteil sollte man auch pers"onliche Qualit"aten 
+erw"ahnen: Welche Hard und Soft Skills bringe ich mit (ich bin 
+teamf"ahig, flexibel, etc.).
+ 
+Der letzte Absatz geh"ort dem \textbf{Schluss}. Hier bekundet 
+man nocheinmal sein Interesse, sowie die Reaktion, die man sich 
+w"unscht. ("`"Uber eine Einladung zu einem pers"onlichen 
+Gespr"ach w"urde ich mich sehr freuen."')
+ 
+\closing{Mit freundlichen Gr"u"sen}
+ 
+% Der Anhang:
+ 
+\encl{%
+         Lebenslauf \\
+         Zeugnisse}
+ 
+ 
+\end{letter}
+\end{document}

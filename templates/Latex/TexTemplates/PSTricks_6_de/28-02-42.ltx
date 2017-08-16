@@ -1,0 +1,32 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2008 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-func,multido}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture*}(-5,-2)(5.5,2)
+  \pscircle(0,0){1}\psaxes{->}(0,0)(-5,-1.5)(5.5,2)
+  \multido{\rA=0.01+0.2}{5}{%
+    \psplotImp[linewidth=1pt,linecolor=blue,polarplot](-6,-6)(5,2.4){
+	 r dup mul 1.0 r div sub phi sin dup mul mul \rA\space sub }}
+  \rput[lb](0.5,1.3){$f(r,\phi)=\left(r^2-\frac{1}{r}\right)\cdot\sin^2\phi=0$}
+\end{pspicture*}
+\end{document}

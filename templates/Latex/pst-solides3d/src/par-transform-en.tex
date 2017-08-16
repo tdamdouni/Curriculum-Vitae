@@ -1,0 +1,157 @@
+\section{The option \texttt{transform}}
+
+The option \Lkeyword{transform}, which is nothing else than a formula $\mathbb{R}^3 \rightarrow  \mathbb{R}^3$,
+which is applied to every point of the solid. In the first example, the object that accepts the transformation is a cube.
+The referenced cube is yellow, the transformed cube is green and the cube before the \Index{transformation} is setup with a reticule.
+
+\subsection{Identical scaling factor in the three coordinates}
+
+The scaling factor is set to $0.5$. It is either introduced within the PostScript variable `\texttt{/Facteur}':
+\begin{verbatim}
+\pstVerb{/Facteur {.5 mulv3d} def}%
+\end{verbatim}
+and then passed to the option \verb+transform+:
+\begin{verbatim}
+\psSolid[object=cube,a=2,ngrid=3,
+         transform=Facteur](2,0,1)%
+\end{verbatim}
+or directly passed to the option:
+\begin{verbatim}
+\psSolid[object=cube,a=2,ngrid=3,
+         transform={.5 mulv3d}](2,0,1)%
+\end{verbatim}
+Here the \textit{jps} abbreviation \texttt{transform=\{.5 mulv3d\}} for a function $\mathbb{R}^3 \rightarrow \mathbb{R}^3$ was used.
+
+Another method would be to use the code
+\begin{verbatim}
+\defFunction[algebraic]{matransformation}(x,y,z)
+   {.5*x}
+   {.5*y}
+   {.5*z}
+\end{verbatim}
+and then pass it to the option
+\texttt{transform=matransformation}.
+\begin{LTXexample}[pos=t]
+\psset{viewpoint=20 60 20 rtp2xyz,lightsrc=viewpoint,Decran=20}
+\begin{pspicture}(-5,-3)(6,5)
+\psSolid[object=grille,base=-4 4 -4 4,fillcolor=red!50]%
+\axesIIID(0,0,0)(4,4,4)%
+\psSolid[object=cube,fillcolor=yellow!50,
+      a=2,ngrid=3](-2,0,1)
+\psSolid[object=cube,fillcolor=green!50,
+      a=2,transform={.5 mulv3d},
+      ngrid=3](2,0,1)
+\psSolid[object=cube,
+      action=draw,
+      a=2,ngrid=3](2,0,1)
+\end{pspicture}
+\end{LTXexample}
+
+\encadre{The scaling factor also affects the position coordinates of the cube's center.}
+
+\subsection{Different scaling factors for the three coordinates}
+
+Let's for example use a factor 0.75 for $x$, 4
+for $y$ and 0.5 for $z$ using the function \texttt{scaleOpoint3d} from the
+ \textit{jps} library---so a cube will be transformed to a cuboid.
+\begin{LTXexample}[pos=t]
+\psset{viewpoint=20 60 20 rtp2xyz,lightsrc=viewpoint,Decran=20}
+\begin{pspicture}(-5,-3)(6,5)
+\psSolid[object=grille,base=-4 4 -4 4,fillcolor=red!50]%
+\axesIIID(0,0,0)(4,4,4)%
+\psSolid[object=cube,fillcolor=yellow!50,
+      a=2,ngrid=3](-2,0,1)
+\psSolid[object=cube,fillcolor=green!50,
+      a=2,transform={.75 4 .5 scaleOpoint3d},
+      ngrid=3](2,0,1)
+\psSolid[object=cube,
+      action=draw,
+      a=2,ngrid=3](2,0,1)
+\end{pspicture}
+\end{LTXexample}
+
+\subsection{Transformation associated with the distance to the origin}
+
+Here an example applied to a cube:
+
+\begin{equation*}
+\left\lbrace\begin{aligned}
+x'&=\big(0.5\sqrt{x^2+y^2+z^2}+1-0.5\sqrt{3}\big)x \\
+y'&=\big(0.5\sqrt{x^2+y^2+z^2}+1-0.5\sqrt{3}\big)y \\
+z'&=\big(0.5\sqrt{x^2+y^2+z^2}+1-0.5\sqrt{3}\big)z
+\end{aligned}\right.
+\end{equation*}
+
+\begin{LTXexample}[width=7cm]
+\begin{pspicture}(-3,-4)(4,3)
+\psset{viewpoint=20 60 20 rtp2xyz,lightsrc=10 15 7,Decran=20}
+\pstVerb{
+/gro {
+4 dict begin
+   /M defpoint3d
+   /a .5 def
+   /b 1 a 3 sqrt mul sub def
+   /k M norme3d a mul b add def
+   M k mulv3d
+end
+} def}%
+\psset{linewidth=.02,linecolor=gray}
+\psSolid[object=cube,a=3,ngrid=9,
+      transform=gro]%
+\end{pspicture}
+\end{LTXexample}
+%\newpage
+
+\subsection{Bending and \Index{torsion} of beams}
+
+The solid to the left is a prism of the height 10 cm with 20 floors
+(\texttt{\Lkeyword{ngrid}=20 2}). In every floor, an additional angle of rotation---for example 10$^{\mathrm{o}}$ around the $Oz$ axis is---given.
+ Now that the adjacent floors have a distance of $0.5$~cm, one multiplies $z\times20$.
+
+La flexion est envisag\'{e}e dans le plan $xOz$ sous l'action d'une force perpendiculaire \`{a} la poutre appliqu\'{e}e en son extr\'{e}mit\'{e}.
+
+\begin{LTXexample}[pos=t]
+\psset{viewpoint=100 50 20 rtp2xyz,lightsrc=viewpoint,Decran=100,unit=0.65}
+\begin{pspicture}(-3,-1)(3.5,11)
+\psSolid[object=grille,base=-2 2 -2 2,ngrid=8]%
+\psSolid[object=prisme,h=10,ngrid=20 2,
+        base=0.5 0 0.5 0.5 0 0.5 -0.5 0.5 -0.5 0 -0.5 -0.5 0 -0.5 0.5 -0.5]%
+\end{pspicture}
+\begin{pspicture}(-3,-1)(3.5,11)
+\psSolid[object=grille,base=-2 2 -2 2,ngrid=8]%
+\pstVerb{
+/torsion {% on tourne de 10 degr\'{e}s suivant l'axe Oz \`{a} chaque niveau
+2 dict begin
+   /M defpoint3d % on r\'{e}cup\`{e}re les coordonn\'{e}es
+   M /z exch def pop pop
+    M 0 0 z 20 mul rotateOpoint3d
+end} def}%
+\psSolid[object=prisme,h=10,ngrid=20 2,
+        base=0.5 0 0.5 0.5 0 0.5 -0.5 0.5 -0.5 0 -0.5 -0.5 0 -0.5 0.5 -0.5,
+        transform=torsion]%
+\psTransformPoint[RotZ=20](2 0 10)(0,0,0){A}
+\psTransformPoint[RotZ=20](2 1 10)(0,0,0){A'}
+\psTransformPoint[RotZ=20](-2 0 10)(0,0,0){B}
+\psTransformPoint[RotZ=20](-2 -1 10)(0,0,0){B'}
+\psline[linecolor=red]{v-v}(A')(A)(B)(B')
+\end{pspicture}
+\begin{pspicture}(-3.5,-1)(3,11)
+\psSolid[object=grille,base=-2 2 -2 2,ngrid=8]%
+\pstVerb{%  id\'{e}e de Christophe Poulain
+/flexion {% on tourne de 2 degr\'{e}s suivant l'axe Oy \`{a} chaque niveau
+2 dict begin
+   /M defpoint3d % on r\'{e}cup\`{e}re les coordonn\'{e}es
+   M /z exch def pop pop
+    M 0 z 2 mul 0 rotateOpoint3d
+end} def}%
+\axesIIID(0,0,0)(3,3,10)
+\psSolid[object=prisme,h=10,ngrid=20 2,
+        base=0.5 0 0.5 0.5 0 0.5 -0.5 0.5 -0.5 0 -0.5 -0.5 0 -0.5 0.5 -0.5,
+        transform=flexion]%
+\psTransformPoint[RotY=20](0.5 0 10)(0,0,0){A}
+\psPoint(3 20 cos mul 20 sin 10 mul add 0.5 add,0, 20 cos 10 mul 20 sin 3 mul sub){A'}
+\psdot(A)\psline[linecolor=red]{-v}(A)(A')
+\end{pspicture}
+\end{LTXexample}
+
+\endinput

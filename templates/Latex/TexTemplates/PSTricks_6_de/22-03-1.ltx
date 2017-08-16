@@ -1,0 +1,55 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pstricks,pst-node,pst-blur}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture*}(0,0.75)(10,6)
+   \psframe[linewidth=4pt,fillcolor=lightgray,fillstyle=crosshatch,
+           shadow=true,blur=true,shadowsize=2cm,shadowangle=-35,
+           blurradius=1cm,shadowcolor=lightgray](-5,3)(5,10)
+   \pnode(5,3){A}
+   \pnode(5.3,2.9){A1}
+   \pnode(6.64,1.85){B}
+   \pnode(7.51,2.35){C}
+   \pscircle(6.64,1.85){1}
+   \ncline{|-|}{A}{B}
+   \bput(0.2){\texttt{shadowsize}}
+   \ncline{->}{B}{C}
+   \bput(1.5){\texttt{blurradius}}
+   \psline(5,3)(6,3)
+   \psarcn{->}(5,3){0.5}{0}{-35}
+   \rput(7,3.7){\rnode{D}{\texttt{shadowangle}}}
+   \nccurve[linewidth=0.5pt,angleA=-90,angleB=70]{->}{D}{A1}
+   \rput[l](6,5.6){\texttt{shadowcolor}}
+   \rput[l](8,5){\texttt{blurbg}}
+  {\psset{linestyle=dotted}
+   \psline(0,0.85)(6.64,0.85)
+   \psline(7.64,1.85)(7.64,6)
+   \psset{linestyle=dashed}
+   \psline(0,2.85)(5.64,2.85)
+   \psline(5.64,2.85)(5.64,6) }
+  \psset{linewidth=0.5pt}
+  \psline{*-}(5.64,5.3)(6,5.4)
+  \psline{*-}(7.64,4.75)(8,4.85)
+  \ncline{F}{F1}
+\end{pspicture*}
+\end{document}

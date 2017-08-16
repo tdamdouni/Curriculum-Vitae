@@ -1,0 +1,10 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{sabon}[2002/05/12 v1.1 Adobe Sabon]
+\RequirePackage[T1]{fontenc}
+\RequirePackage{textcomp}
+\RequirePackage{nfssext}
+\DeclareOption{lining}{\renewcommand*{\rmdefault}{psb}}
+\DeclareOption{oldstyle}{\renewcommand*{\rmdefault}{psbj}}
+\ExecuteOptions{oldstyle}
+\ProcessOptions*
+\endinput

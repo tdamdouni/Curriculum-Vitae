@@ -1,0 +1,145 @@
+% Hypercycle
+% Author: Florian Hollandt
+\documentclass{article}
+
+\usepackage{tikz}
+%%%<
+\usepackage{verbatim}
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{5pt}%
+%%%>
+
+\begin{comment}
+:Title:  Hypercycle
+:Grid: 2x1
+
+This example shows the power and flexibility of PGF's style mechanism.
+The same paths are used to draw the diagrams, but by altering styles
+different visual results are achieved. 
+
+\end{comment}
+\usetikzlibrary{shapes}
+
+\setlength\oddsidemargin{0in}
+
+
+\begin{document}
+
+\pagestyle{empty}
+
+
+\def\n{5}   % Number of Information carrier / Enzyme pairs
+\def\d{2}   % Width of the figure
+
+
+\tikzstyle{every picture}=[execute at end picture={
+\foreach \x in {1,...,\n}{
+        \path (360*\x/\n:\d)
+        node [info carrier] (I\x) {$I_{\x}$};
+    \draw [I to I]
+        (I\x.200+360*\x/\n) arc (140:360:\r/6) arc (0:20:\r/6);
+        \path (360*\x/\n:2*\d) 
+        node [enzyme] (E\x) {$E_{\x}$};
+    \draw  [I to E]
+        (I\x) to (E\x);
+    \draw [E to I]
+        (360*\x/\n-360/\n:2*\d) to (I\x.center);
+};
+}]
+
+
+\paragraph{Plain}
+
+\begin{center}
+\tikzstyle{radius}=[
+    execute at begin picture={
+        \def\r{2*3/4}
+    }
+]
+\tikzstyle{every node}=[
+    node distance=\d cm
+]
+\tikzstyle{info carrier}=[
+    inner sep=2pt
+]
+\tikzstyle{enzyme}=[]
+\tikzstyle{every path}=[
+    shorten >=2pt,
+    shorten <=2pt
+]
+\tikzstyle{I to E}=[
+    ->,
+    shorten >=2pt,
+    shorten <=2pt
+]
+\tikzstyle{E to I}=[
+    ->,
+    densely dotted,
+    shorten >=6mm,
+    shorten <=4mm
+]
+\tikzstyle{I to I}=[
+    ->,
+    rotate=360*\x/\n
+]
+\begin{tikzpicture}[radius]
+\end{tikzpicture}
+\end{center}
+
+\paragraph{Fancy}
+
+\begin{center}
+\tikzstyle{radius}=[
+    execute at begin picture={
+        \def\r{2.1}
+    }
+]
+\tikzstyle{every node}=[
+    node distance=\d cm
+]
+\tikzstyle{info carrier}=[
+    shape=rectangle,
+    draw=black,
+    rounded corners=0.5,
+    shading=radial,
+    outer color=orange,
+    inner color=white
+]
+\tikzstyle{enzyme}=[
+    inner sep=2pt,
+    shape=ellipse,
+    draw=black,
+    rounded corners=0.5,
+    ball color=green
+]
+\tikzstyle{every path}=[
+    shorten >=2pt,
+    shorten <=2pt,
+    thick
+]
+\tikzstyle{I to E}=[
+    -stealth,
+    controls=(10+360*\x/\n:\d*4/3) and (-10+360*\x/\n:\d*5/3),
+    shorten >=2pt,
+    shorten <=2pt,
+    in=360*\x/\n+225
+]
+\tikzstyle{E to I}=[
+    -stealth,
+    controls=(360*\x/\n-360/\n+30:\d*5/3) and (360*\x/\n-360/\n-00:\d*4/3),
+    densely dotted,
+    shorten >=8mm,
+    shorten <=5mm
+]
+\tikzstyle{I to I}=[
+    -stealth,
+    shorten >=0pt,
+    shorten <=2pt,
+    rotate=360*\x/\n
+]
+\begin{tikzpicture}[radius]
+\end{tikzpicture}
+\end{center}
+
+\end{document}

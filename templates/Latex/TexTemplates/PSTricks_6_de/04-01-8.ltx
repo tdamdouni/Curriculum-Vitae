@@ -1,0 +1,34 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{166.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pstricks}
+\StopShownPreambleCommands
+\begin{document}
+\pspicture(0,-1)(5,3)
+\psset{linestyle=symbol}
+\psline[symbol=163](0,0)(3,0)(5,-1)
+\psline[symbol=163,rotateSymbol,rot=30](0,1)(3,1)(5,0)
+\psline[symbol=042](0,1.5)(3,1.5)(5,0.5)
+\psline[symbol=042,rotateSymbol](0,2.5)(3,2.5)(5,1.5)
+\psline[symbol=375](0,3)(3,3)(5,2)
+\psline[symbol=375,rotateSymbol](0,3.5)(3,3.5)(5,2.5)
+\endpspicture
+\end{document}

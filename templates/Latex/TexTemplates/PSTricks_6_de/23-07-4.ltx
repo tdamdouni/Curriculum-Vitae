@@ -1,0 +1,57 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\def\Hintergrund{\psset{Sphere=false}{%
+ \psset{Xorigine=40}   % hintere Ebene
+ \pstSphereFrame[fillstyle=solid,fillcolor=OrangePale](-70,-50)(70,10)
+ \pstSphereGrid[linecolor=blue,linewidth=0.2mm,grille=10,
+                Ymin=-50,Ymax=10,Xmax=70,Xmin=-70](40,0,0)
+ \psset{normale=0 90,Xorigine=40,Yorigine=0,Zorigine=-10}    % untere Ebene
+ \pstSphereFrame[fillstyle=solid,fillcolor=cyan,opacity=0.5](-70,-30)(70,0)
+ \pstSphereGrid[linecolor=blue,linewidth=0.2mm,grille=10,
+                Ymin=-30,Ymax=0,Xmax=70,Xmin=-70](40,0,-10)
+ \psset{normale=90 0,Xorigine=40,Yorigine=70,Zorigine=-10}   % Linke Ebene
+ \pstSphereFrame[fillstyle=solid,fillcolor=yellow](0,0)(-30,-60)
+ \pstSphereGrid[linecolor=blue,linewidth=0.05mm,grille=10,
+                Ymin=-60,Ymax=0,Xmin=-30,Xmax=0](40,70,-10)
+ \psset{normale=90 0,Xorigine=40,Yorigine=-70,Zorigine=-10}  % Rechte Ebene
+ \pstSphereFrame[fillstyle=solid,fillcolor=yellow](0,0)(-30,-60)
+ \pstSphereGrid[linecolor=blue,linewidth=0.05mm,grille=10,
+                Ymin=-60,Ymax=0,Xmin=-30,Xmax=0](40,-70,-10)
+ \multido{\iY=-70+10}{15}{\pstSpherePoint(40,\iY,0){A}\uput[90](A){\small\red\iY}}
+ \multido{\iX=10+10}{4}{\pstSpherePoint(\iX,0,-10){A} \uput[-45](A){\small\blue\iX}}
+ \multido{\iZ=-10+10}{7}{\pstSpherePoint(40,0,\iZ){A} \uput[135](A){\small\green\iZ}}}}
+\StartShownPreambleCommands
+\usepackage{pst-mirror,pst-grad,multido}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(-5,-4)(5,5)  \Hintergrund% siehe Beispiel oben
+\multido{\iCY=-65+10,\iRotX=0+20}{7}{%
+ \psset{CY=\iCY,CZ=-5,CX=15,RotX=\iRotX,fillstyle=gradient,gradbegin=white,gradend=red,
+        gradmidpoint=0.2,linecolor=magenta,linewidth=0.05mm}
+ \ifnum\multidocount=7 \psset{CZ=0}\fi\ifnum\multidocount=3 \psset{CZ=20,opacity=0.3}\fi
+ \pstMirrorSphere{5}}
+\multido{\iCY=65+-10,\iRotX=0+15}{7}{%
+ \psset{CY=\iCY,CZ=-5,CX=15,RotX=\iRotX,fillstyle=gradient,gradbegin=white,gradend=red,
+        gradmidpoint=0.2,linecolor=magenta,linewidth=0.05mm}
+ \ifnum\multidocount=6 \psset{CZ=10}\fi\ifnum\multidocount=3 \psset{CZ=20,CY=5}\fi
+ \pstMirrorSphere{5}}
+\end{pspicture}
+\end{document}

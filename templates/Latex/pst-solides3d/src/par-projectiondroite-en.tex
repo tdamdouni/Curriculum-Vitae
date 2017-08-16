@@ -1,0 +1,106 @@
+\section{Lines}
+
+\subsection{Direct definition}
+
+The object \texttt{droite} allows us to define and draw a \Index{line}. In
+the \texttt{pst-solides3d} package, a line in 2D is defined by its
+two end-points.
+
+We use the option \Lkeyword{args} to specify the end-points of the
+chosen line. We can use coordinates or named points.
+
+As with points and vectors, we can save the coordinates of the
+line with the option \Lkeyword{name}.
+
+\begin{LTXexample}[width=7.5cm]
+\begin{pspicture}(-3,-3)(4,3.5)%
+\psframe*[linecolor=blue!50](-3,-3)(4,3.5)
+\psset{viewpoint=50 30 15,Decran=60}
+\psset{solidmemory}
+%% definition du plan de projection
+\psSolid[object=plan,
+   definition=equation,
+   args={[1 0 0 0] 90},
+   planmarks,name=monplan]
+\psset{plan=monplan}
+%% definition du point A
+\psProjection[object=point,
+   name=A,text=A,
+   pos=ur](-2,1.25)
+\psProjection[object=point,
+   name=B,text=B,
+   pos=ur](1,.75)
+\psProjection[object=droite,
+   linecolor=blue,
+   args=0 0 1 .5]
+\psProjection[object=droite,
+   linecolor=orange,
+   args=A B]
+\composeSolid
+\end{pspicture}
+\end{LTXexample}
+
+
+\subsection{Some other definitions}
+
+There are other methods to define a line in 2D. The options
+\Lkeyword{definition} and \Lkeyword{args} are used in these variants:
+
+
+
+\begin{itemize}
+
+\item \texttt{\Lkeyword{definition}=\Lkeyval{horizontale}};
+\texttt{\Lkeyword{args}=$b$}.
+
+The line with equation $y=b$.
+
+\item \texttt{\Lkeyword{definition}=\Lkeyval{verticale}};
+\texttt{\Lkeyword{args}=$a$}.
+
+The line with equation $x=a$.
+
+\item \texttt{\Lkeyword{definition}=\Lkeyval{paral}};
+\texttt{\Lkeyword{args}=$d$ $A$}.
+
+A line parallel to $d$ passing through
+$A$.
+
+\item \texttt{\Lkeyword{definition}=\Lkeyword{perp}};
+\texttt{\Lkeyword{args}=$d$ $A$}.
+
+A line perpendicular to $d$ passing
+through $A$.
+
+\item \texttt{\Lkeyword{definition}=\Lkeyval{mediatrice}};
+\texttt{\Lkeyword{args}=$A$ $B$}.
+
+The perpendicular bisector of the line
+segment $[AB]$.
+
+\item \texttt{\Lkeyword{definition}=\Lkeyword{bissectrice}};
+\texttt{\Lkeyword{args}=$A$ $B$ $C$}.
+
+The bisector of the angle $\widehat
+{ABC}$.
+
+\item \texttt{\Lkeyword{definition}=\Lkeyword{axesymdroite}};
+\texttt{\Lkeyword{args}=$d$ $D$}.
+
+The reflection of the line $d$ in the
+line $D$.
+
+\item \texttt{\Lkeyword{definition}=\Lkeyword{rotatedroite}};
+\texttt{\Lkeyword{args}=$d$ $I$ $r$}.
+
+The image of the line $d$ after a
+rotation with centre $I$ through an angle $r$ (in degrees)
+
+\item \texttt{\Lkeyword{definition}=\Lkeyword{translatedroite}};
+\texttt{\Lkeyword{args}=$d$ $u$}.
+
+The image of the line $d$ shifted by the vector $\vec u$.
+
+\end{itemize}
+
+\endinput

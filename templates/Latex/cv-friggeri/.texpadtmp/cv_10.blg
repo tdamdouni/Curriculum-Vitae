@@ -1,0 +1,57 @@
+[0] Config.pm:343> INFO - This is Biber 2.5
+[1] Config.pm:346> INFO - Logfile is '/Users/tdamdouni/Dropbox/Apps/Texpad/cv-friggeri/.texpadtmp/cv_10.blg'
+[94] biber-darwin:290> INFO - === Wed Dec 21, 2016, 13:54:55
+[138] Biber.pm:351> INFO - Reading '/Users/tdamdouni/Dropbox/Apps/Texpad/cv-friggeri/.texpadtmp/cv_10.bcf'
+[355] Biber.pm:776> INFO - Found 0 citekeys in bib section 0
+[355] Biber.pm:773> INFO - Using all citekeys in bib section 1
+[355] Biber.pm:776> INFO - Found 0 citekeys in bib section 0
+[356] Biber.pm:773> INFO - Using all citekeys in bib section 2
+[356] Biber.pm:776> INFO - Found 0 citekeys in bib section 0
+[356] Biber.pm:773> INFO - Using all citekeys in bib section 3
+[356] Biber.pm:776> INFO - Found 0 citekeys in bib section 0
+[356] Biber.pm:773> INFO - Using all citekeys in bib section 4
+[356] Biber.pm:776> INFO - Found 0 citekeys in bib section 0
+[357] Biber.pm:773> INFO - Using all citekeys in bib section 5
+[357] Biber.pm:776> INFO - Found 0 citekeys in bib section 0
+[357] Biber.pm:773> INFO - Using all citekeys in bib section 6
+[357] Biber.pm:776> INFO - Found 0 citekeys in bib section 0
+[492] Biber.pm:3493> INFO - Processing section 1
+[520] Biber.pm:3657> INFO - Looking for bibtex format file '/Users/tdamdouni/Dropbox/Apps/Texpad/cv-friggeri/bibliography.bib' for section 1
+[525] bibtex.pm:1187> INFO - Decoding LaTeX character macros into UTF-8
+[530] bibtex.pm:1048> INFO - Found BibTeX data source '/Users/tdamdouni/Dropbox/Apps/Texpad/cv-friggeri/bibliography.bib'
+[685] UCollate.pm:66> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[685] UCollate.pm:66> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[685] Biber.pm:3306> INFO - Sorting list 'ydnt/global/' of type 'entry' with scheme 'ydnt' and locale 'en-US'
+[685] Biber.pm:3310> INFO - No sort tailoring available for locale 'en-US'
+[736] Biber.pm:3493> INFO - Processing section 2
+[737] Biber.pm:3657> INFO - Looking for bibtex format file '/Users/tdamdouni/Dropbox/Apps/Texpad/cv-friggeri/bibliography.bib' for section 2
+[838] UCollate.pm:66> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[838] UCollate.pm:66> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[838] Biber.pm:3306> INFO - Sorting list 'ydnt/global/' of type 'entry' with scheme 'ydnt' and locale 'en-US'
+[838] Biber.pm:3310> INFO - No sort tailoring available for locale 'en-US'
+[889] Biber.pm:3493> INFO - Processing section 3
+[889] Biber.pm:3657> INFO - Looking for bibtex format file '/Users/tdamdouni/Dropbox/Apps/Texpad/cv-friggeri/bibliography.bib' for section 3
+[988] UCollate.pm:66> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[988] UCollate.pm:66> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[988] Biber.pm:3306> INFO - Sorting list 'ydnt/global/' of type 'entry' with scheme 'ydnt' and locale 'en-US'
+[988] Biber.pm:3310> INFO - No sort tailoring available for locale 'en-US'
+[1039] Biber.pm:3493> INFO - Processing section 4
+[1040] Biber.pm:3657> INFO - Looking for bibtex format file '/Users/tdamdouni/Dropbox/Apps/Texpad/cv-friggeri/bibliography.bib' for section 4
+[1196] UCollate.pm:66> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[1196] UCollate.pm:66> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[1196] Biber.pm:3306> INFO - Sorting list 'ydnt/global/' of type 'entry' with scheme 'ydnt' and locale 'en-US'
+[1197] Biber.pm:3310> INFO - No sort tailoring available for locale 'en-US'
+[1248] Biber.pm:3493> INFO - Processing section 5
+[1249] Biber.pm:3657> INFO - Looking for bibtex format file '/Users/tdamdouni/Dropbox/Apps/Texpad/cv-friggeri/bibliography.bib' for section 5
+[1347] UCollate.pm:66> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[1347] UCollate.pm:66> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[1347] Biber.pm:3306> INFO - Sorting list 'ydnt/global/' of type 'entry' with scheme 'ydnt' and locale 'en-US'
+[1347] Biber.pm:3310> INFO - No sort tailoring available for locale 'en-US'
+[1397] Biber.pm:3493> INFO - Processing section 6
+[1398] Biber.pm:3657> INFO - Looking for bibtex format file '/Users/tdamdouni/Dropbox/Apps/Texpad/cv-friggeri/bibliography.bib' for section 6
+[1500] UCollate.pm:66> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[1500] UCollate.pm:66> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[1500] Biber.pm:3306> INFO - Sorting list 'ydnt/global/' of type 'entry' with scheme 'ydnt' and locale 'en-US'
+[1500] Biber.pm:3310> INFO - No sort tailoring available for locale 'en-US'
+[1566] bbl.pm:526> INFO - Writing '/Users/tdamdouni/Dropbox/Apps/Texpad/cv-friggeri/.texpadtmp/cv_10.bbl' with encoding 'UTF-8'
+[1600] bbl.pm:619> INFO - Output to /Users/tdamdouni/Dropbox/Apps/Texpad/cv-friggeri/.texpadtmp/cv_10.bbl

@@ -1,0 +1,39 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pstricks-add}
+\StopShownPreambleCommands
+\begin{document}
+\psset{unit=1.8cm}
+\begin{pspicture}(-2.5,-1.5)(2.5,2.5)
+  \psaxes{->}(0,0)(-2.5,-1.5)(2.5,2.5)
+  \psplot[linewidth=1.5pt,algebraic]{-2.5}{+2.5}{(2*x+4)/(2+x^2)}
+  \psline[linestyle=dashed](-1.5,-1.5)(2.5,2.5)
+  \def\function{ xVal dup add 4 add xVal dup mul 2 add div }%
+  \pstVerb{ /xVal -1 def }% start value
+  \multido{\nA=0+1}{10}{%
+    \psline[linestyle=dotted](! xVal 0 )(! xVal xVal)
+    \psline[linecolor=red](! xVal xVal )(! xVal \function )
+    \psline[linecolor=red](! xVal \function )(! \function\space dup)
+    \pstVerb{ /xVal \function\space def}%
+  }
+\end{pspicture}
+\end{document}

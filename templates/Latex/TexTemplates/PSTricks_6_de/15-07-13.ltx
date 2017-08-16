@@ -1,0 +1,51 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-plot,pst-node}
+\StopShownPreambleCommands
+\begin{document}
+\psset{arrowscale=2,unit=1.25cm}
+  \begin{pspicture}(-1.2,-1.5)(1.2,1.5)
+    \psaxes[ticks=y,linecolor=red,subticks=1,
+    labelFontSize=\footnotesize,mathLabel=false]{->}(0,0)(-1,-1.25)(1,1.25)
+    \uput[-90](1.1,0){x}
+    \uput[180](0,1.1){y}
+    \pscircle(0,0){1}
+    \psplot[linewidth=1pt]{0}{1}{x}
+    \psarc[linewidth=1pt](0,0){0.5}{0}{45}
+    \rput[bl](0.12,0.04){$\alpha$}
+    \psline[linecolor=green](0.70,0)(0.7,0.70)%Sinus
+    \psline[linecolor=blue](0,0)(0.70,0)%Cosinus
+    \pnode(0.7,0.70){A}
+  \end{pspicture}
+%
+  \begin{pspicture}(-3.14,-1.5)(4.71,1.5)
+    \psaxes[xunit=1.570796327,showorigin=false,ticks=all,tickcolor=red,linecolor=red,
+    trigLabels,labelFontSize=\footnotesize,mathLabel=false]{->}(0,0)(-2,-1.5)(3.14,1.5)
+    \psplot[plotstyle=line,linewidth=1pt,linecolor=green]{-3.14}{3.14}{x 180 mul 3.14 div sin}
+    \psplot[plotstyle=line,linewidth=1pt,linecolor=blue]{-3.14}{3.14}{x 180 mul 3.14 div cos}
+    \psline[linecolor=red]{-}(0.7,0)(0.7,0.7)
+    \pcline[linestyle=dashed,linewidth=0.2pt](A)(0.7,0.7)
+    \uput[-90](0.70,0){$arc(\alpha)$}
+    \uput[-90](5,0){x}
+    \uput[180](0,1.4){y}
+  \end{pspicture}
+\end{document}

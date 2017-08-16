@@ -1,0 +1,61 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1,2,4,6
+
+\documentclass[paper=screen,mode=present,display=slidesnotes, style=ciment,nopagebreaks,fleqn]{exapd}
+\pagestyle{empty}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,esint,pst-node}
+\title{The theorems of Green}
+\author{Herbert Vo\ss}
+\psset{nodesep=3pt,linestyle=none}
+\definecolor{lila}{rgb}{0.6, 0.2, 0.5}
+\definecolor{darkyellow}{rgb}{1, 0.9, 0}
+\def\xstrut{\vphantom{\frac{(A)^1}{(B)^1}}}
+\pdsetup{rf=\textbf{Berlin},logohook=lb,logopos={5pt,5pt},
+  logocmd={\includegraphics[height=.5cm]{images/UIT}},trans=Dissolve}
+\StartShownPreambleCommands
+\documentclass[paper=screen,mode=present,display=slidesnotes,
+   style=ciment,nopagebreaks,fleqn,ngerman]{powerdot}
+\StopShownPreambleCommands
+\begin{document}
+\begin{wideslide}{Node example}%
+The bindung energy in the droplet model consits of the following parts:
+\begin{itemize}[type=0]
+\item<3-> the \rnode{b}{surface part,}
+\item<2-> the \rnode{a}{volume part,}
+\item[]% only dummy
+\end{itemize}
+\[E =
+\onslide{2-}{\rnode[t]{ae}{\psframebox*[fillcolor=darkyellow]{\xstrut a_vA}}+}
+\onslide{3-}{\rnode[t]{be}{\psframebox*[fillcolor=lightgray]{\xstrut-a_fA^{2/3}}}+}
+\onslide{4-}{\rnode[t]{ce}{\psframebox*[fillcolor=green]{%
+  \xstrut-a_c\frac{Z(Z-1)}{A^{1/3}}}}+}
+\onslide{5-}{\rnode[t]{de}{\psframebox*[fillcolor=cyan]{%
+  \xstrut-a_s\frac{(A-2Z)^2}{A}}}+}
+\onslide{6-}{\rnode[t]{ee}{\psframebox*[fillcolor=yellow]{\xstrut E_p}}}
+\]  \medskip \psset{linecolor=darkgray,linewidth=0.5pt,linestyle=solid}
+\begin{itemize}[type=0]
+\item<4-> the \rnode{c}{Coulomb part,}
+\item<5-> the \rnode{d}{symmetry energy,}
+\item<6-> and a \rnode{e}{pair building part.}
+\end{itemize}
+\onslide*{2-}{\nccurve[linecolor=darkyellow,angleA=-90,angleB=90]{->}{a}{ae}}
+\onslide*{3-}{\nccurve[linecolor=lightgray,angleB=45]{->}{b}{be}}
+\onslide*{4-}{\nccurve[linecolor=green,angleB=-90]{->}{c}{ce}}
+\onslide*{5-}{\nccurve[linecolor=cyan,angleB=-90]{->}{d}{de}}
+\onslide*{6-}{\nccurve[linecolor=yellow,angleB=-90]{->}{e}{ee}}
+\end{wideslide}
+\end{document}

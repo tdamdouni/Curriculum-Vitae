@@ -1,0 +1,38 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{xcolor,multido}
+\definecolorseries{testH}{hsb}{last}[hsb]{0,1,1}[hsb]{1,1,1}
+\resetcolorseries[10]{testH}
+\definecolorseries{testS}{hsb}{last}[hsb]{.1,0,1}[hsb]{.1,1,1}
+\resetcolorseries[10]{testS}
+\definecolorseries{testB}{hsb}{last}[hsb]{1,1,0}[hsb]{1,1,1}
+\resetcolorseries[10]{testB}
+\setlength{\fboxsep}{2mm}
+\StopShownPreambleCommands
+\begin{document}
+\makebox[30mm][l]{Hue (H):}%
+\multido{\nColr=0+1}{10}{\colorbox{testH!![\nColr]}{0.\nColr}}\\
+\makebox[30mm][l]{Saturation (S):}%
+\multido{\nColr=0+1}{10}{\colorbox{testS!![\nColr]}{0.\nColr}}\\
+\makebox[30mm][l]{Brightness (B):}%
+\multido{\nColr=0+1}{10}{\colorbox{testB!![\nColr]}{\color{white}0.\nColr}}\\
+\end{document}

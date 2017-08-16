@@ -1,0 +1,77 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-plot}
+\usepackage{filecontents}
+\begin{filecontents}{DotErrorBar.dat}
+1.295  0.033  0.351  0.029
+1.330  0.028  0.359  0.024
+1.335  0.031  0.366  0.016
+1.687  0.043  0.455  0.037
+3.584  0.132  0.993  0.057
+3.632  0.105  1.007  0.048
+3.932  0.092  1.095  0.032
+4.256  0.112  1.192  0.043
+\end{filecontents}
+\makeatletter
+\SpecialCoor
+\def\errorLine{\@ifnextchar[{\pst@errorLine}{\pst@errorLine[]}}
+\def\pst@errorLine[#1](#2)#3#4{{%
+     \ifx#1\empty\else\psset{#1}\fi
+     \pst@getcoor{#2}\pst@tempA
+     \def\@errorMin{#3 }
+     \def\@errorMax{#4 }
+     \psline[linewidth=1pt]{-|}(#2 exch log exch)(!%
+         \pst@tempA \pst@number\psyunit div /yDot exch def
+         \pst@number\psxunit div \@errorMin add log yDot)
+     \psline[linewidth=1pt]{-|}(#2 exch log exch)(!%
+         \pst@tempA \pst@number\psyunit div /yDot exch def
+         \pst@number\psxunit div \@errorMin sub log yDot)
+     \psline[linewidth=1pt]{-|}(#2 exch log exch)(!%
+         \pst@tempA \pst@number\psyunit div \@errorMax\space add exch
+         \pst@number\psxunit div log exch)
+     \psline[linewidth=1pt]{-|}(#2 exch log exch)(!%
+         \pst@tempA \pst@number\psyunit div \@errorMax\space sub exch
+         \pst@number\psxunit div log exch)}}
+%
+\def\GetCoordinates#1{\expandafter\GetCoordinates@i#1}
+\def\GetCoordinates@i #1{\GetCoordinates@ii#1}
+\def\GetCoordinates@ii#1 #2 #3 #4 #5 #6 #7 #8 {%
+     \DoCoordinate{#2}{#4}%
+     \errorLine[linecolor=red!50, linewidth=2pt](!#2 #4){#6}{#8}% <<<<<
+     \@ifnextchar D{\GetCoordinates@ii}{}}
+\makeatother
+\StopShownPreambleCommands
+\begin{document}
+\readdata{\Data}{DotErrorBar.dat}
+\psset{xunit=5,yunit=20}
+\begin{pspicture}(-1,-0.05)(1.2,0.32)
+   \psaxes[Ox=-1,Dy=0.05,dy=1.00cm,
+		logLines=x,xlogBase=10,
+		xsubticks=10,ysubticks=2,subtickcolor=black!30,
+		yticksize=0 5pt]{->}(-1,0)(1.1,0.31)
+   \def\DoCoordinate#1#2{\psdot[dotscale=2](!#1 log #2)}%
+   \GetCoordinates{\Data}
+% the following makes no sense, only for fun here
+   \pstScalePoints(1,1){ log }{ }
+   \listplot[plotstyle=curve,linewidth=1.5pt,linecolor=blue,plotNoMax=3,plotNo=1]{\Data}
+\end{pspicture}
+\end{document}

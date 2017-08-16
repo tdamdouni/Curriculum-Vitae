@@ -1,0 +1,55 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-map2dII,graphicx}
+\StopShownPreambleCommands
+\begin{document}
+\resizebox{\linewidth}{!}{%
+\begin{pspicture*}(-10,-138.5)(11,-117.5) % Zentrum auf Rom setzen
+  \psset{path=pst-geo/dataII,level=2,unit=40,%
+      type=8,latitude0=41.923611,longitude0=12.454167}
+  \WorldMapII[maillage=true,linewidth=0.75\pslinewidth,limiteL=190,borders=true,increment=2]
+  \pnodeMap(10,38){MerMed}
+  \rput{0}(MerMed){\shortstack{\Large\it MAR\\\Large\it MEDITERRANEO}}
+  \pnodeMap(15,43){MerAdriatique}
+  \rput{-35}(MerAdriatique){\Large\textit{MAR ADRIATICO}}
+  \pnodeMap(12,40){MerTyrr}
+  \rput{0}(MerTyrr){{\itshape\Large\shortstack{MAR\\TIRRENO}}}
+  \pnodeMap(18,39){MerIonienne}
+  \rput{0}(MerIonienne){{\itshape\shortstack{MAR\\JONIO}}}
+  \pnodeMap(17.25,40){GolfeTarente}
+  \rput{7}(GolfeTarente){\footnotesize\itshape\shortstack{Golfo di\\Taranto}}
+  \pnodeMap(14,40){Longitude40}
+  \rput{5}(Longitude40){\psframebox[fillstyle=solid,linestyle=none]{%
+    \large 40$^{\rm o}$N}}
+  \mapput[90](15.25,38.80){Stromboli}\psdot[linecolor=red,dotstyle=triangle](Stromboli)
+  \mapput[90](15,37.85){Etna}        \psdot[linecolor=red,dotstyle=triangle](Etna)
+  \mapput[90](14.97,38.433){Vulcano} \psdot[linecolor=red,dotstyle=triangle](Vulcano)
+  \pnodeMap(18.5,40.117){Otranto} \pnodeMap(19.328,40.313){Albania}
+  \pnodeMap(12.45,37.8){Marsala}  \pnodeMap(11.03,37.0167){Bon}
+  \pcline{<->}(Otranto)(Albania)  \lput*{:U}{70\,km}
+  \pcline{<->}(Bon)(Marsala)      \lput*{:U}{140\,km}
+  \rput(! 9 40 div -137.5 40 div){%
+    \psframebox[fillstyle=solid]{\textsf{\textit{pst-map2dII(2004-05-09)}}}}
+  \psset{mapCountry=Italy,nodeWidth=0.5mm} \def\psNodeLabelStyle{\small}
+  \input{cities.tex}
+\end{pspicture*}}
+\end{document}

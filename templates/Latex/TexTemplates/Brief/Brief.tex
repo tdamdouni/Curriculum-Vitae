@@ -1,0 +1,81 @@
+
+\documentclass[%
+ fontsize=12pt,%           Schriftgröße
+ paper=a4,%	      Papier
+ DIV=14,%           Seitengröße (siehe Koma Skript Dokumentation !)
+ BCOR=5mm,%        Zusätzlicher Rand auf der Innenseite
+ pagenumber=footcenter,%
+ parskip=half*,%
+ german%		      Sprache
+ ]{scrlttr2}%     Klassen: scrartcl, scrreprt, scrbook, scrletter
+
+\KOMAoptions{%
+ fromalign=left,%
+ fromrule=afteraddress,%
+ fromphone=false,%
+ fromemail=false,%
+ fromurl=false,%
+ foldmarks=false,%
+ backaddress=true,%
+ addrfield=true,%
+ %footsepline=true,
+ %headsepline=true
+ enlargefirstpage=true
+}
+
+%% Schriften ===================================================================================
+\input{fonts/Fonts}
+
+
+% *** Sprache *****************************
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+%\usepackage[latin1]{inputenc}
+\usepackage[applemac]{inputenc}
+%------------------------------------------
+
+%% Seitenlayout ================================================================================
+%
+\addtokomafont{fromname}{\sffamily}
+\addtokomafont{fromaddress}{\sffamily}
+
+\LoadLetterOption{DIN}
+%\LoadLetterOption{macros/nowindow}
+%\LoadLetterOption{macros/dateup}
+\LoadLetterOption{macros/footseperated}
+\LoadLetterOption{macros/fromaddressmatthias}
+
+\usepackage{typearea}
+
+% -- Kopfzeilen ---
+\usepackage[automark, nouppercase]{scrpage2}
+\pagestyle{scrplain}
+% \pagestyle{headings}
+%
+% ----------------------------------------------------------------------------------------------
+
+
+%% sonstige Pakete =============================================================================
+
+% ----------------------------------------------------------------------------------------------
+
+\begin{document}
+%%==============================================================================================
+\begin{letter}{EmpfŠnger}
+\setkomavar{toname}{Vorname Nachname}
+\setkomavar{toaddress}{Stra§e \\ Ort}
+%
+\setkomavar{place}{Hannover}
+
+%\setkomavar{title}{}
+\setkomavar{subject}{}
+%\setkomavar{signature}{Matthias Pospiech}
+
+\opening{Sehr geehrter Herr ...,}
+\closing{Mit freundlichen GrŸ§en}
+
+\end{letter}
+%%==============================================================================================
+\end{document}
+
+

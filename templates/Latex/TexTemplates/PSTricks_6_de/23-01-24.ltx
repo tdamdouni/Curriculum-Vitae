@@ -1,0 +1,68 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\usepackage{pst-3d}
+\makeatletter
+\def\xyEbene#1{%
+  \ThreeDput[normal=0 0 1](0,0,0){% xy-Ebene
+    \psgrid(0,0)(#1,#1)%
+    \psline{->}(0,0)(0,#1) \psline{->}(0,0)(#1,0)
+    \ifdim\psk@gridlabels pt>\z@
+      \uput[180]{0.2}(0,#1){$y$} \uput[-90]{0.2}(#1,0){$x$}%
+    \fi
+  }}
+\def\xzEbene#1{%
+  \ThreeDput[normal=0 -1 0](0,0,0){% xz-Ebene
+    \psgrid(0,0)(#1,#1)%
+    \psline{->}(0,0)(0,5) \psline{->}(0,0)(#1,0)
+    \ifdim\psk@gridlabels pt>\z@
+      \uput[180]{0.2}(0,#1){$z$} \uput[-90]{0.2}(#1,0){$x$}%
+    \fi
+  }}
+\def\yzEbene#1{%
+  \ThreeDput[normal=1 0 0](0,0,0){% yz-Ebene
+    \psgrid(0,0)(#1,#1)%
+    \psline{->}(0,0)(0,#1) \psline{->}(0,0)(#1,0)
+    \ifdim\psk@gridlabels pt>\z@
+      \uput[180]{0.2}(0,#1){$z$} \uput[-90]{0.2}(#1,0){$y$}%
+    \fi
+}}
+%
+\def\DreiDKOSystem{\@ifnextchar[{\DreiDKOSystem@i}{\DreiDKOSystem@i[]}}
+\def\DreiDKOSystem@i[#1]#2{{%
+  \psset{#1}%
+  \xyEbene{#2}\xzEbene{#2}\yzEbene{#2}}}
+\makeatother
+\StartShownPreambleCommands
+\usepackage{pst-3d}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(-4,-1.5)(3,5)
+  \psset{viewpoint=1 1.5 0.5} \DreiDKOSystem[subgriddiv=0,gridcolor=black!40]{5}
+  \ThreeDput(0,0,0){\psframe*[linecolor=gray!20](4,4)}
+  \ThreeDput(2,2,0){\huge\psrotatedown{xy-Ebene}}
+  \ThreeDput[normal=0 -1 0](0,0,0){\psframe*[linecolor=gray!15](4,4)}
+  \ThreeDput[normal=0 1 0](2,0,2){\huge xz-Ebene}
+  \ThreeDput[normal=1 0 0](0,0,0){\psframe*[linecolor=gray!10](4,4)}
+  \ThreeDput[normal=1 0 0](0,2,2){\huge yz-Ebene}
+  \ThreeDput[normal=0 0 1](0,0,0){\psline{->}(0,0)(0,5)\psline{->}(0,0)(5,0)}% xy
+  \ThreeDput[normal=0 1 0](0,0,0){\psline{->}(0,0)(0,5)}% xz
+\end{pspicture}
+\end{document}

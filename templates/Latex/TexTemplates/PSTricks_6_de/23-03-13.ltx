@@ -1,0 +1,39 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-gr3d}\SpecialCoor
+\StopShownPreambleCommands
+\begin{document}
+\def\PstGridThreeDHookEnd{{\psset{PstPicture=false,gridwidth=0.1}
+  {\def\PstGridThreeDHookNode{\PstGridThreeDNodeProcessor{blue}}
+   \PstGridThreeD[gridcolor=blue,GridThreeDZPos=3](0,7,0)}
+  {\def\PstGridThreeDHookNode{\PstGridThreeDNodeProcessor{red}}
+   \PstGridThreeD[gridcolor=red,GridThreeDXPos=1,GridThreeDZPos=1](0,3,1)}
+  {\def\PstGridThreeDHookNode{\PstGridThreeDNodeProcessor{green}}
+   \PstGridThreeD[gridcolor=green,GridThreeDYPos=6](1,1,1)}}}
+\PstGridThreeD[gridwidth=0.04,GridThreeDNodes=true](1,7,3)
+\rput([Rx=0.15,angle=140]Gr3dNode033){\psline[linecolor=blue]{<-}(0.8;150)}
+\rput([Rx=0.95,angle=140]Gr3dNode033){\shortstack{1d grid\\\small (X=8,Y=1,Z=1)}}
+\rput([Rx=0.15,angle=-50]Gr3dNode121){\psline[linecolor=red]{<-}(1.2;-50)}
+\rput([Rx=1.5,angle=-55]Gr3dNode121){\shortstack{2d grid\\\small (X=4,Y=2,Z=1)}}
+\rput([Rx=0.05,angle=-80]Gr3dNode160){\psline[linecolor=green]{<-}(0.8;-80)}
+\rput([Rx=0.3,angle=-80]Gr3dNode160){\shortstack{3d grid\\\small (X=2,Y=2,Z=2)}}
+\end{document}

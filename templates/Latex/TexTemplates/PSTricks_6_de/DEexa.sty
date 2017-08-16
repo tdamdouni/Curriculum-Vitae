@@ -1,0 +1,30 @@
+%
+% Style for the DANTE edition exa classes
+%
+% $Id: DEexa.sty 307 2010-04-28 13:01:36Z herbert $
+%
+\ProvidesPackage{DEexa}[2009/12/06 v0.01 (hv)]
+\RequirePackage[T1]{fontenc}
+%\RequirePackage[expert,de]{lucidabr}
+\RequirePackage[de,expert,uprightgreek]{lucbmath}
+\RequirePackage{libertine}
+\let\StartShownPreambleCommands\relax
+\let\StopShownPreambleCommands\relax
+% ignore second documentclass command for display in book:
+\renewcommand\documentclass[2][]{}
+\let\ps@origplain\ps@plain
+\let\ps@plain\ps@empty % this class doesn't produces page numbers
+                       % since this would make examples too big
+                       % but if necessary there is origplain
+
+\endinput
+
+\AtBeginDocument{
+\ifx\color\@undefined
+\else
+  \definecolor{blue}{cmyk}{1,0.56,0,0}
+  \definecolor{red}{cmyk}{0,0,0,.3}
+  \definecolor{green}{cmyk}{0,0,0,.2}
+  \definecolor{yellow}{cmyk}{0,0,0,.1}
+\fi
+}

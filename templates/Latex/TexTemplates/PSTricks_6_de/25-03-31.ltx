@@ -1,0 +1,52 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-optexp}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(11.7,6.4)
+  \addtopsstyle{Fiber}{linecolor=red!90!black}\psset{usefiberstyle, optboxwidth=1}
+  \pnode(1,6){LD}\pnode([Xnodesep=5.5]LD){CPLin1}\pnode([offset=-2]CPLin1){CPLin2}
+  \pnode([Xnodesep=2]CPLin1){CPLout1}\pnode([Xnodesep=2]CPLin2){CPLout2}
+  \optbox[endbox, labeloffset=0, fiber]([Xnodesep=0.1]LD)(LD){LD}
+  \optmzm([Xnodesep=0.1]LD)([Xnodesep=1.5]LD){MZM}\optamp([Xnodesep=1.5]LD)([Xnodesep=2.5]LD){EDFA}
+  \optfilter([Xnodesep=2.5]LD)([Xnodesep=3.5]LD){BPF}\optswitch([Xnodesep=3.5]LD)([Xnodesep=4.5]LD){SW}
+  \polcontrol([Xnodesep=4.5]LD)(CPLin1){}
+  \optcoupler[labeloffset=-0.4](CPLin1)(CPLin2)(CPLout1)(CPLout2){50\,\%}
+  \optamp(CPLout1)([Xnodesep=1]CPLout1){EDFA}\optfilter([Xnodesep=1]CPLout1)([Xnodesep=2]CPLout1){BPF}
+  \optbox[endbox, labeloffset=0, conn=f-f]([Xnodesep=2]CPLout1)([Xnodesep=2.2]CPLout1){RX}
+  \pnode([Xnodesep=3]CPLout2){LoopRT}\pnode([offset=-3.5]LoopRT){LoopRB}
+  \pnode([Xnodesep=-5]CPLin2){LoopLT}\pnode([offset=-3.5]LoopLT){LoopLB}
+  \optamp(CPLout2)([Xnodesep=-1]LoopRT){EDFA}
+  \psline[linearc=1, style=Fiber]([Xnodesep=-1]LoopRT)(LoopRT)([offset=-2]LoopRT)
+  \psline[linearc=1, style=Fiber]([offset=1.5]LoopRB)(LoopRB)([Xnodesep=-1]LoopRB)
+  \optfiber[labelalign=b, labeloffset=-1]([Xnodesep=-3]LoopRB)([Xnodesep=-1]LoopRB){%
+    \begin{tabular}{c}conventional\\fibre 89.8~km\end{tabular}}
+  \optamp([Xnodesep=-3]LoopRB)([Xnodesep=-4.5]LoopRB){EDFA}
+  \optfilter([Xnodesep=-4.5]LoopRB)([Xnodesep=-6]LoopRB){BPF}
+  \optfiber[fiberloops=1, labeloffset=-1, labelalign=b]([Xnodesep=-8.5]LoopRB)([Xnodesep=-6]LoopRB){DCF 16.2~km}
+  \optamp([Xnodesep=-8.5]LoopRB)(LoopLB){EDFA}
+  \psline[style=Fiber,linearc=1](LoopLB)([Xnodesep=-1]LoopLB)([Xnodesep=-1, offset=3.5]LoopLB)(LoopLT)
+  \optfilter(LoopLT)([Xnodesep=1.5]LoopLT){BPF}
+  \optswitch([Xnodesep=1.5]LoopLT)([Xnodesep=3.5]LoopLT){SW}
+  \polcontrol([Xnodesep=3.5]LoopLT)(CPLin2){}
+\end{pspicture}
+\end{document}

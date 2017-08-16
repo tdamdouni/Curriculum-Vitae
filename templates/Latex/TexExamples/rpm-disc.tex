@@ -1,0 +1,55 @@
+% Routine to draw segmented circles for use as timing strobes
+% Author: Simon Martin
+\documentclass{article}
+\usepackage{tikz}
+%%%<
+\usepackage{verbatim}
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{5pt}%
+%%%>
+\begin{comment}
+:Title: RPM disc
+:Tags: Foreach; Matrices;Engineering
+:Author: Simon Martin
+:Slug: rpm-disc
+
+This routine draws circles of specified radii that are divided into
+a definable number of alternating black and white segments. These discs
+can used to measure the speed of rotation of motors etc. When viewed
+under a light that is powered by mains electricity the patterns will
+appear stationary at certain rotation speeds. In Europe these speeds
+are given by 6000/N rpm - where N is the number of black segments.
+In the US and other areas that use a 60Hz mains frequency the formula
+becomes: 7200/N rpm.
+
+You can read about one application of discs of this type at:
+http://www.jeffree.co.uk/pages/speedmeasurement.html
+\end{comment}
+
+\newcommand{\segments}[3] {% draw circle divided into segments
+  % #1 = outer radius
+  % #2 = inner radius
+  % #3 = no of segments
+  % note number of segments is total number of black and white segments
+  % need to pass units with radius.
+  \def\radius{#1}
+  \def\nsegs{#3}
+  \def\segangle{360/\nsegs}
+  %draw dotted circle as guide for cutting out
+  \draw [dashed](0,0) circle (\radius);
+  \foreach \x in {1,3,...,\nsegs} %draw alternate segments
+      \filldraw[fill=black,draw=black] (0:0mm) -- ({(\x-1)*\segangle}:\radius )
+      arc ({(\x-1)*\segangle}:\x*\segangle:\radius ) -- cycle;
+  % draw an inner circle 
+  \draw[fill=white] circle(#2);}
+
+\begin{document}
+\begin{tikzpicture}
+  \matrix [column sep=-5mm, row sep=-5mm] {
+    \segments{7mm}{1mm}{12} & & \segments{7mm}{1mm}{18} \\
+          & \segments{21mm}{2mm}{6} & \\
+    \segments{7mm}{1mm}{24} & & \segments{7mm}{1mm}{30} \\};
+\end{tikzpicture}
+\end{document} 
+

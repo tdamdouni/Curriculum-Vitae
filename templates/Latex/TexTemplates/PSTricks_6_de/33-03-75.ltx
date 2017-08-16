@@ -1,0 +1,68 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\def\ParCol#1#2#3{%
+  \tabular{@{}c@{}}\bfseries#1 (\textcolor{Blue}{#2})\\
+    \bfseries(\textcolor{Brown}{#3})\endtabular}
+\StartShownPreambleCommands
+\usepackage[dvipsnames,svgnames]{pstricks}
+\usepackage{pst-pad,graphicx}
+\StopShownPreambleCommands
+\begin{document}
+\resizebox{0.9\linewidth}{!}{%
+\begin{pspicture}(-5,-4)(7.5,4)
+\PstPad[FluidMaxRadius=4,FluidMinRadius=3,FluidHeight=1,FSphereHeight=2,
+  FSphereFillColor=green!20!white,FluidFillColor=blue!10!white,FluidLineWidth=1.5pt,
+  FSphereLineWidth=0.1pt,WallLineWidth=3pt,WallLineColor=blue,
+  FSphereLineColor=magenta,FluidLineColor=green!50!black](0,0)
+  \sffamily\footnotesize%
+  \psset{linecolor=gray, linewidth=0.2pt} %% "Crosshair" for orientation:
+  \psline[linestyle=dashed](-5,0)(5,0)
+  \psline[linestyle=dashed](0,-3)(0,1.5)
+  %% Node definitions:
+  \pnode(0,0){center}\pnode(-4,-2.25){maxradiusLeft}\pnode(0,-2.25){maxradiusRight}
+  \pnode(-3,0){minradiusLeft}\pnode(3,0){minradiusRight}
+  \pnode([nodesep=4.5]center){fluidheightCenter}
+  \pnode([nodesep=4.5,offset=-1]center){fluidheightBottom}
+  \pnode([offset=-1]fluidheightBottom){wallThicknessBottom}
+  \pnode([nodesep=5.2,offset=1]center){fsphereheightBottom}
+  \pnode([offset=1]fsphereheightBottom){fsphereheightTop}
+%
+  \psset{arrows=|<->|,linewidth=0.8pt,linecolor=red,arrowscale=1.5}
+  \rput[l]([nodesep=.2,offset=.2]center){\textbf{(0,0)}}%% Center:
+  \ncline{minradiusLeft}{center}\nbput{\ParCol{FluidMinRadius}{0.5}{3}}
+  \ncline{maxradiusLeft}{maxradiusRight}\nbput{\ParCol{FluidMaxRadius}{1}{4}}
+  \ncline{fluidheightCenter}{fluidheightBottom}\naput{\ParCol{FluidHeight}{.5}{1}}
+  \ncline{fluidheightBottom}{wallThicknessBottom}\naput{\ParCol{WallThickness}{1}{1}}
+  \ncline{fsphereheightBottom}{fsphereheightTop}\nbput{\ParCol{FSphereHeight/2}{2}{2}}
+  \psline{->}(-.1,2.2)(-.3,1.6)
+  \rput(-.1,2.6){\ParCol{FSphereFillColor}{"lightgray"}{"green!20!white"}}
+  \psline{->}(4,2.2)(2.5,.6)
+  \rput(4,2.6){\ParCol{FluidFillColor}{"yellow"}{"blue!10!white"}}
+  \psline{->}([offset=.5,nodesep=3]minradiusRight)(minradiusRight)
+  \rput[l]([offset=-.1,nodesep=3.2]minradiusRight){\ParCol{FluidLineWidth}{1pt}{1.5pt}}
+  \rput[l]([offset=.8,nodesep=3.2]minradiusRight){%
+    \ParCol{FluidLineColor}{"black"}{"green!50!black"}}
+  \psline{->}(-4.3,2.2)(-3.5,1)\rput(-4.3,2.6){\ParCol{FSphereLineWidth}{1pt}{0.1pt}}
+  \rput(-4.3,3.4){\ParCol{FSphereLineColor}{"black"}{"magenta"}}
+  \psline{->}(1.5,-2.25)(1.5,-1)\rput[t](1.5,-2.5){\ParCol{WallLineWidth}{1pt}{3pt}}
+  \rput[t](1.5,-3.4){\ParCol{WallLineColor}{"black"}{"blue"}}
+\end{pspicture}}
+\end{document}

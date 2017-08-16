@@ -1,0 +1,137 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\StartShownPreambleCommands
+\usepackage{pst-plot,amsmath}
+\newcommand\htick[1]{\psline[linewidth=.1mm](#1,-.75mm)(#1,.75mm)}
+\newcommand\vtick[1]{\psline[linewidth=.1mm](-.75mm,#1)(.75mm,#1)}
+\psset{arrowsize=3pt 3,arrowlength=1.75,arrowinset=.2}
+\definecolor{redtwenty}{cmyk}{0,0.2,0.2,0}
+\definecolor{graytwenty}{cmyk}{0,0,0,0.2}
+\StopShownPreambleCommands
+\begin{document}
+\footnotesize\centering
+\psset{xunit=15mm,yunit=15mm,curvature=1 .1 .75,plotpoints=200}
+\begin{pspicture}(-0.3,-0.3)(4.0,2.5)
+\psaxes[Dx=0.5,dx=0.5,Dy=0.5,dy=0.5,labelsep=.75mm,arrowlength=1.75,ticksize=2pt,linewidth=0.17mm]{->}(0,0)(-0.3,-0.3)(4.0,2.5)
+\rput[Br](4,.15){$\text{Re}(z)$}
+\rput[tl](.1,2.5){$\text{Im}(z)$}
+\rput[Br](-.1,-.23){$0$}
+%
+\uput{3mm}[90]{40}(1,.75){$|z|=3$}
+\uput{1mm}[0](2.3,.96){$y$}
+\uput{1mm}[90](1.15,1.92){$x$}
+\uput{1mm}[0](2.85,1){$\sigma=40^\circ$}
+\uput{1mm}[45](2.298133329,1.928362829){$z$}
+%
+\psline[linewidth=.17mm]{->}(0,0)(2.298133329,1.928362829)
+\psline[linewidth=.17mm,linecolor=red,linestyle=dashed,dash=.7mm .5mm]%
+       (2.298133329,0)(2.298133329,1.928362829)(0,1.928362829)
+\psarc[linewidth=.17mm]{->}{4.5}{0}{40}
+\end{pspicture}
+
+\iffalse
+\psset{xunit=8mm,yunit=8mm,curvature=1 .1 .75,plotpoints=200}
+\begin{pspicture}(-0.1,-0.35)(8.0,3.5)
+\psaxes[labels=none,arrowlength=1.75,ticks=none,linewidth=0.17mm]{->}(0,0)(-0.2,-0.35)(8.0,3.5)
+\rput[Br](8,-.45){$\text{Re}(z)$}
+\rput[tl](.1875,3.5){$\text{Im}(z)$}
+\rput[B](1,-.45){$1$}
+\rput[r](-.1875,1){$1$}
+\htick{1}
+\htick{6}
+\vtick{1}
+%
+\uput{1mm}[90]{22.6198}(3,1.25){$|z|$}
+\uput{1mm}[0](2,.41){$\sigma$}
+\uput{1mm}[0](2.5,.25){$x=|z|\cos\sigma$}
+\uput{1mm}[0](6,1.25){$y=|z|\sin\sigma$}
+\uput{1mm}[45](6,2.5){$z=(x;y)$}
+%
+\psline[linewidth=.17mm,linestyle=dashed,dash=.7mm .5mm](6,0)(6,2.5)
+\psline[linewidth=.17mm,linecolor=red]{->}(0,0)(6,2.5)
+\psarc[linewidth=.17mm,linecolor=red]{->}{1.6}{0}{22.6198}
+\end{pspicture}
+\fi
+
+\vspace{10mm}
+\psset{xunit=10mm,yunit=10mm,curvature=1 .1 .75,plotpoints=200}
+\begin{pspicture}(-1.5,-1.7)(7,2.7)
+\psaxes[labelsep=.75mm,arrowlength=1.75,ticksize=2pt,linewidth=0.17mm]%
+{->}(0,0)(-1.5,-1.5)(7,2)
+\rput[Br](7,-.35){$\sigma$}
+\rput[tr](-.15,2){$y$}
+\rput[Br](-.15,-.35){$0$}
+%
+\uput{1mm}[45](3.1,.1){$\pi$}
+\uput{1mm}[45](2,.9){$y=\sin\sigma$}
+\uput{1mm}[135](6,.9){$y=\cos\sigma$}
+%
+\psline[linewidth=.17mm]{<->}(-1.283185307,-1.5)(5,-1.5)
+\psline[linewidth=.35mm](-1.283185307,0)(-1.283185307,.2836621856)
+\psline[linewidth=.17mm,linestyle=dashed,dash=.7mm .5mm](-1.283185307,.2836621856)(-0.3,.2836621856)
+\psline[linewidth=.17mm,linestyle=dashed,dash=.7mm .5mm](-1.283185307,.2836621856)(-1.283185307,-1.7)
+\psline[linewidth=.35mm](5,0)(5,.2836621856)
+\psline[linewidth=.17mm,linestyle=dashed,dash=.7mm .5mm](5,.2836621856)(4.5,.2836621856)
+\psline[linewidth=.17mm,linestyle=dashed,dash=.7mm .5mm](5,0)(5,-1.7)
+%
+\psline[linewidth=.17mm]{<->}(-.7831853072,2.5)(5.5,2.5)
+\psline[linewidth=.35mm](5.5,0)(5.5,-.7055403256)
+\psline[linewidth=.17mm,linestyle=dashed,dash=.7mm .5mm](5.5,2.7)(5.5,1.3)
+\psline[linewidth=.17mm,linestyle=dashed,dash=.7mm .5mm](5.5,.5)(5.5,0)
+\psline[linewidth=.17mm,linestyle=dashed,dash=.7mm .5mm](5.5,-.7055403256)(4.5,-.7055403256)
+\psline[linewidth=.35mm](-.7831853072,-.7055403256)(-.7831853072,0)
+\psline[linewidth=.17mm,linestyle=dashed,dash=.7mm .5mm](-.3,-.7055403256)(-.7831853072,-.7055403256)
+\psline[linewidth=.17mm,linestyle=dashed,dash=.7mm .5mm](-.7831853072,2.7)(-.7831853072,1.3)
+\psplot[linewidth=.35mm,linecolor=red]{-1.5}{7}{180 3.141592654 div x mul cos}
+\psplot[linewidth=.17mm]{-1.5}{7}{180 3.141592654 div x mul sin}
+%
+\rput(2.36,2.5){\psframebox*{$2\pi$}}
+\rput(1.86,-1.5){\psframebox*{$2\pi$}}
+\end{pspicture}
+
+\vspace{10mm}
+\psset{xunit=10mm,yunit=10mm,curvature=1 .1 .75,plotpoints=200}
+\begin{pspicture}(-2.7,-2.7)(3.5,3.5)
+\psaxes[labels=none,arrowlength=1.75,ticks=none,linewidth=0.17mm]{->}(0,0)(-2.7,-2.7)(3.5,3.5)
+\rput[Br](3.5,-.35){$\text{Re}(z)$}
+\rput[tl](.15,3.5){$\text{Im}(z)$}
+%
+\uput{1mm}[45](1.8,1.8){$\left(\frac{1}{2}\sqrt{2};\frac{1}{2}\sqrt{2}\right)$}
+\uput{1mm}[45](.8,.2){$45^\circ$}
+\uput{1mm}[45](.5,1.4){$90^\circ$}
+%
+\pscircle[linewidth=.17mm]{2.5}
+\psline[linewidth=.35mm,linecolor=red]{->}(0,0)(-2.5,0)
+\psline[linewidth=.17mm]{->}(0,0)(2.5,0)
+\psline[linewidth=.17mm](0,0)(0,1.5)
+\psline[linewidth=.35mm,linecolor=white]{->}(0,1.5)(0,2.5)
+\psline[linewidth=.17mm,linestyle=dashed,dash=.7mm .5mm]{->}(0,1.5)(0,2.5)
+\psline[linewidth=.17mm,linestyle=dashed,dash=.7mm .5mm](0,1.5)(0,2.5)
+\psline[linewidth=.17mm,linestyle=dashed,dash=.7mm .5mm]{->}(1.06,1.06)(1.767766,1.767766)
+\psline[linewidth=.17mm](0,0)(1.06,1.06)
+\psarc[linewidth=.17mm,linestyle=dashed,dash=.7mm .5mm]{->}{1.5}{0}{90}
+\psarc[linewidth=.17mm,linestyle=dashed,dash=.7mm .5mm]{->}{.8}{0}{45}
+%
+\uput{1mm}[90](2.5,.1){\psframebox*{$z$}}
+\uput{1mm}[90](-2.5,.1){\psframebox*{$z\circ z$}}
+\uput{1mm}[270](-2.5,-.1){\psframebox*{$(-1;0)$}}
+\uput{1mm}[270](2.4,-.1){\psframebox*{$(1;0)$}}
+\end{pspicture}
+\end{document}

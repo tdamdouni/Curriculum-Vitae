@@ -1,0 +1,52 @@
+\section{The grid}
+
+The object \verb+grille+ allows you to obtain a solid plane.
+The key \texttt{[base=$x{min}$ ${x{max}}$ ${y{min}}$
+${y{max}}$]} lets you specify the dimension of the grid. % $
+
+
+\psset{viewpoint=50 50 20 rtp2xyz,Decran=30}
+\begin{LTXexample}[width=6.5cm]
+\begin{pspicture}(-3.5,-1.5)(3.5,2.5)
+\psSolid[object=grille,
+   base=0 4 -3 3,
+   linecolor=gray](0,0,0)
+\axesIIID(0,0,0)(4,3,3)
+\end{pspicture}
+\end{LTXexample}
+
+
+The key \texttt{[ngrid=$n_1$ $n_2$]} lets you specify
+fineness of the grid. If $n_2$ is not set up, it is considered that $n_2 =
+n_1$.
+
+If $n_1$ is an integer, it represents the number of grid points along the
+$Ox$ axis. If it is a real, it represents the  step size along the
+$Ox$ axis. For example, the number \verb+1+ is an integer, the number \verb+1.+ is real (note the decimal point).
+
+
+
+\psset{viewpoint=50 50 20 rtp2xyz,Decran=30}
+\begin{LTXexample}[width=6.5cm]
+\begin{pspicture}(-3.5,-1.5)(3.5,2.5)
+\psSolid[object=grille,
+   ngrid=1,
+   base=0 4 -3 3,
+   linecolor=gray](0,0,0)
+\axesIIID(0,0,0)(3,3,3)
+\end{pspicture}
+\end{LTXexample}
+
+\psset{viewpoint=50 50 20 rtp2xyz,Decran=30}
+\begin{LTXexample}[width=6.5cm]
+\begin{pspicture}(-3.5,-1.5)(3.5,2.5)
+\psSolid[object=grille,
+   ngrid=1. 1,
+   base=0 4 -3 3,
+   linecolor=gray](0,0,0)
+\axesIIID(0,0,0)(3,3,3)
+\end{pspicture}
+\end{LTXexample}
+
+
+\endinput

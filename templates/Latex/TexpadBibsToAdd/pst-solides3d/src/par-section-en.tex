@@ -1,0 +1,955 @@
+\section{Sectioning a solid with a plane}
+
+\subsection{Drawing the \Index{intersection} between a plane and a solid}
+
+\subsubsection{The parameters}
+
+The option \texttt{intersectionplan=\{[a b c d]\}} allows the user
+to draw the intersection between a plane and a solid. The numbers
+between the braces are the coefficients of the affine plane with
+equation: $ax+by+cz+d=0$. It is possible to draw the intersection
+between a solid and more than one plane by placing the appropriate
+parameters in order, as in the following example.
+
+The drawing is activated with \texttt{\texttt{\Lkeyword{intersectiontype}=0}} or any
+value $\geq0$.
+
+The colour of the intersection line is chosen with the option
+\texttt{\Lkeyword{intersectioncolor}=(bleu) (rouge) etc.}. In the same order,
+the thickness of the appropriate line
+\texttt{\Lkeyword{intersectionlinewidth}=1 2 etc.} (dimensions in picas) is
+set up.
+
+
+The hidden parts, drawn with dashed lines, will be shown with
+\Lkeyword{action}=\Lkeyval{draw}.
+
+\begin{LTXexample}[width=7cm]
+\begin{pspicture}(-3,-2)(3,7.5)
+\psset{viewpoint=50 20 20 rtp2xyz,Decran=50}
+\psset{lightsrc=viewpoint} \psSolid[object=cylindre,
+   ngrid=1 24,
+   r=2,
+   fillcolor=yellow!25,
+   intersectiontype=0,
+   intersectionplan={
+      [0 0 1 -1]
+      [0 0 1 -2]
+      [0 0 1 -3]
+      [0.894 0 0.447 -1.8]},
+   intersectioncolor=(bleu) (rouge) (vert) (rose),
+   intersectionlinewidth=1 1.5 1.8 2.2]
+\axesIIID(2,2,6)(3,3,7)
+\end{pspicture}
+\end{LTXexample}
+
+\subsection{Slicing a solid}
+
+\subsubsection{Slicing a filled solid}
+
+The object under consideration is a cylinder. The plane that
+slices the object is defined by:
+
+ \begin{verbatim}
+  plansepare={[a b c d]}
+ \end{verbatim}
+
+The two parts are not drawn, but memorised with the name
+\texttt{\Lkeyword{name}=partiescylindre}:
+
+ \begin{verbatim}
+\psset{solidmemory}
+\psSolid[object=cylindre,
+   r=2,h=6
+   ngrid=6 24,
+   plansepare={[0.707 0 0.707 0]},
+   name=partiescylindre,
+   action=none](0,0,-3)
+ \end{verbatim}
+
+
+Then they are displayed separately using their respective index
+numbers. The numbering of the two parts is determined by the
+direction of the normal to the \Index{slicing} plane: 0 if above the
+normal, 1 if below. For both parts, the sliced face carries the
+number 0. If there are several sliced faces, as may happen in the
+case of a torus, they are numbered 0, 1 etc.
+
+
+ \begin{verbatim}
+\psSolid[object=load,
+   load=partiescylindre1,
+   fillcolor={[rgb]{0.7 1 0.7 }},
+   fcol=0 (1 1 0.7 setrgbcolor)]
+\psSolid[object=load,
+   load=partiescylindre0,RotZ=60,
+   fillcolor={[rgb]{0.7 1 0.7 }},
+   fcol=0 (1 1 0.7 setrgbcolor)](0,4,0)
+ \end{verbatim}
+
+\begin{center}
+\begin{pspicture}(-4,-5)(7,4)
+\psframe(-4,-5)(7,4)
+\psset{viewpoint=50 -40 10 rtp2xyz,Decran=50,linecolor=darkgray}
+%\lightsource
+\psset{lightsrc=viewpoint}
+\psSolid[object=grille,action=draw,
+   base=-3 5 -3 5,
+   linecolor=red](0,0,-3)
+\psset{solidmemory}
+\psSolid[object=cylindre,
+   r=2,h=6,
+   ngrid=6 24,
+   plansepare={[0.707 0 0.707 0]},
+   name=partiescylindre,
+   action=none](0,0,-3)
+\psSolid[object=load,
+   load=partiescylindre1,
+   fillcolor={[rgb]{0.7 1 0.7 }},
+   fcol=0 (1 1 0.7 setrgbcolor)]
+\psSolid[object=load,
+   load=partiescylindre0,RotZ=90,
+   fillcolor={[rgb]{0.7 1 0.7 }},
+   fcol=0 (1 1 0.7 setrgbcolor)](0,4,0)
+\psSolid[object=plan,action=draw,
+   definition=equation,
+   args={[0.707 0 0.707 0] 90},
+   base=-2 2 -3 3,planmarks,showBase]
+\axesIIID(0,0,0)(2.5,2.5,3.5)
+\end{pspicture}
+\end{center}
+
+\subsubsection{Slicing a \Index{hollow solid}}
+
+The options \verb+rm=0,hollow+ allow us to not only remove a
+face \verb+rm=0+ but also to see inside it \Lkeyword{hollow}.
+
+\begin{center}
+\begin{pspicture}(-4,-5)(7,4)
+\psframe(-4,-5)(7,4)
+\psset{viewpoint=50 -40 10 rtp2xyz,Decran=50,linecolor=darkgray}
+%\lightsource
+\psset{lightsrc=viewpoint}
+\psSolid[object=grille,action=draw,
+   base=-3 5 -3 5,
+   linecolor=red](0,0,-3)
+\psset{solidmemory}
+\psSolid[object=cylindre,
+   r=2,h=6,
+   ngrid=6 24,
+   plansepare={[0.707 0 0.707 0.5]},
+   name=partiescylindre,
+   action=none](0,0,-3)
+\psSolid[object=load,
+   load=partiescylindre1,
+   fillcolor={[rgb]{0.7 1 0.7 }},
+   rm=0,hollow,
+   incolor={[rgb]{1 1 0.7}}]
+\psSolid[object=load,
+   load=partiescylindre0,RotZ=90,
+   fillcolor={[rgb]{0.7 1 0.7 }},
+   rm=0,hollow,
+   incolor={[rgb]{1 1 0.7}}](0,4,0)
+\psSolid[object=plan,action=draw,
+   definition=equation,
+   args={[0.707 0 0.707 0.5] 90},
+   base=-2 2 -3 3,planmarks,showBase]
+\composeSolid
+\end{pspicture}
+\end{center}
+
+
+\subsection{\Index{Slice} of a \Index{pyramid}}
+
+\subsubsection{Highlighting the \Index{contour lines} and first slice}
+
+This pyramid is generated as \texttt{\Lkeyword{object}=\Lkeyval{new}} by giving a list
+of the coordinates of the vertices, and the vertices of each face.
+
+\begin{verbatim}
+   sommets=
+      0 -2 0 %% 0
+      -2 0 0 %% 1
+      0 4 0  %% 2
+      4 0 0  %% 3
+      0 0 5, %% 4
+   faces={
+    [3 2 1 0]
+    [4 0 3]
+    [4 3 2]
+    [4 2 1]
+    [4 1 0]
+}
+\end{verbatim}
+
+In the first diagram, the slicing lines are highlighted.
+
+ \begin{verbatim}
+   intersectiontype=0,
+   intersectionplan={[0 0 1 -1] [0 0 1 -2]},
+   intersectionlinewidth=1 2,
+   intersectioncolor=(bleu) (rouge)
+ \end{verbatim}
+
+Then we cut off the upper part, and draw the slicing plane as
+well.
+
+ \begin{verbatim}
+\psSolid[object=new,
+   sommets=
+      0 -2 0 %% 0
+      -2 0 0 %% 1
+      0 4 0  %% 2
+      4 0 0  %% 3
+      0 0 5, %% 4
+  faces={
+     [3 2 1 0]
+     [4 0 3]
+     [4 3 2]
+     [4 2 1]
+     [4 1 0]},
+   plansepare={[0 0 1 -2]},
+   name=firstSlice,
+   action=none]
+\psSolid[object=load,action=draw*,
+        load=firstSlice1]
+\psSolid[object=plan,
+       definition=equation,
+       args={[0 0 1 -2]},
+       base=-3 5 -3 5,action=draw]
+ \end{verbatim}
+
+To avoid having to repeatedly type the vertices and faces of the
+pyramid, we save these data to the files:
+\begin{itemize}
+  \item \texttt{Pyramid-couleurs.dat}
+  \item \texttt{Pyramid-faces.dat}
+  \item \texttt{Pyramid-sommets.dat}
+  \item \texttt{Pyramid-io.dat}
+\end{itemize}
+thanks to the command \Lkeyword{action}=\Lkeyval{writesolid}:
+
+ \begin{verbatim}
+\psSolid[object=new,
+   sommets=
+      0 -2 0 %% 0
+      -2 0 0 %% 1
+      0 4 0  %% 2
+      4 0 0  %% 3
+      0 0 5, %% 4
+  faces={
+     [3 2 1 0]
+     [4 0 3]
+     [4 3 2]
+     [4 2 1]
+     [4 1 0]
+},file=./Pyramid,fillcolor=yellow!50,
+  action=writesolid]
+ \end{verbatim}
+
+All these lines of code could then be removed and, thereafter, we
+would recall the data with the command:
+
+ \begin{verbatim}
+\psSolid[object=datfile,
+         file=./Pyramid]
+ \end{verbatim}
+
+\begin{center}
+\psset{unit=0.75}
+\begin{pspicture}(-5,-2)(5,7)
+%\psframe(-5,-2)(5,7)
+\psset{viewpoint=50 20 10 rtp2xyz,Decran=50}
+%\lightsource
+\psset{lightsrc=viewpoint}
+\psSolid[object=grille,
+   base=-3 5 -3 5,
+   linecolor=gray]
+%% create the pyramid with base area in xy-plane
+\psSolid[object=new,
+   sommets=
+      0 -2 0 %% 0
+      -2 0 0 %% 1
+      0 4 0  %% 2
+      4 0 0  %% 3
+      0 0 5, %% 4
+faces={
+   [3 2 1 0]
+   [4 0 3]
+   [4 3 2]
+   [4 2 1]
+   [4 1 0]
+}, action=draw*,
+   intersectiontype=0,
+   intersectionplan={[0 0 1 -1]
+                     [0 0 1 -2]},
+   intersectionlinewidth=1 2,
+   intersectioncolor=(bleu) (rouge)]
+\axesIIID[linecolor=blue](4,4,5)(5,5,6)
+\end{pspicture}
+\hfill
+\begin{pspicture}(-5,-2)(5,7)
+%\psframe(-5,-2)(5,7)
+\psset{viewpoint=50 20 10 rtp2xyz,Decran=50}
+%\lightsource
+\psset{lightsrc=viewpoint}
+\psSolid[object=grille,
+   base=-3 5 -3 5,
+   linecolor=gray]
+\psset{solidmemory}
+%% create the pyramid with base area in xy-plane
+\psSolid[object=new,
+   sommets=
+      0 -2 0 %% 0
+      -2 0 0 %% 1
+      0 4 0  %% 2
+      4 0 0  %% 3
+      0 0 5, %% 4
+faces={
+   [3 2 1 0]
+   [4 0 3]
+   [4 3 2]
+   [4 2 1]
+   [4 1 0]
+},
+   plansepare={[0 0 1 -2]},
+   name=firstSlice,
+   action=none]
+\psSolid[object=load,action=draw*,
+        load=firstSlice1]
+\psSolid[object=plan,
+       definition=equation,
+       args={[0 0 1 -2]},
+       base=-3 5 -3 5,action=draw]
+\axesIIID[linecolor=blue](4,4,2)(5,5,6)
+\end{pspicture}
+\end{center}
+
+\subsubsection{The second \Index{slice} and its insertion within the \Index{pyramid}}
+
+Having removed the upper part \texttt{firstSlice0} (which no
+longer appears), we slice the frustum of the pyramid
+\texttt{firstSlice1}, and keep the upper part of this as
+\texttt{secondSlice0}, then we record it and insert it into a wire
+frame model of the pyramid:
+
+
+ \begin{verbatim}
+\psset{solidmemory}
+\psSolid[object=datfile,
+         file=./Pyramid,
+   plansepare={[0 0 1 -2]},
+   name=firstSlice,
+   action=none]
+\psSolid[object=load,
+        load=firstSlice1,
+        action=none,
+        plansepare={[0 0 1 -1]},
+        name=secondSlice]
+\psSolid[object=load,action=draw*,
+        load=secondSlice0]
+\psSolid[object=load,
+       load=secondSlice0,
+       file=./slicePyramid,
+      action=writesolid]
+\psSolid[object=datfile,fillcolor=yellow!50,
+         file=./slicePyramid]
+ \end{verbatim}
+
+
+\begin{center}
+\psset{unit=0.75}
+\begin{pspicture}(-5,-2)(4,7)
+%\psframe(-4,-2)(4,7)
+\psset{viewpoint=50 20 10 rtp2xyz,Decran=50}
+%\lightsource
+\psset{lightsrc=viewpoint}
+\psSolid[object=grille,
+   base=-3 5 -3 5,
+   linecolor=gray]
+\psset{solidmemory}
+%% create the pyramid with base area in xy-plane
+%\psSolid[object=new,
+%   sommets=
+%      0 -2 0 %% 0
+%      -2 0 0 %% 1
+%      0 4 0  %% 2
+%      4 0 0  %% 3
+%      0 0 5, %% 4
+%  faces={
+%     [3 2 1 0]
+%     [4 0 3]
+%     [4 3 2]
+%     [4 2 1]
+%     [4 1 0]
+%},file=./Pyramid,fillcolor=yellow!50,
+%  action=writesolid]
+\psSolid[object=datfile,
+         file=./Pyramid,
+   plansepare={[0 0 1 -2]},
+   name=firstSlice,
+   action=none]
+\psSolid[object=plan,
+   definition=equation,
+   args={[0 0 1 -1]},action=draw,
+   base=-3 5 -3 5]
+\psSolid[object=load,
+        load=firstSlice1,
+        action=none,
+        plansepare={[0 0 1 -1]},
+        name=secondSlice]
+%\psSolid[object=load,action=draw*,
+%        load=secondSlice0]
+%\psSolid[object=load,
+%       load=secondSlice0,
+%       file=./slicePyramid,
+%      action=writesolid]
+\psSolid[object=datfile,fillcolor=yellow!50,
+         file=./slicePyramid]
+\psSolid[object=plan,
+       definition=equation,
+       args={[0 0 1 -2]},
+       base=-3 5 -3 5,action=draw]
+\axesIIID[linecolor=blue](0,0,2)(5,5,6)
+\end{pspicture}
+\hfill
+\begin{pspicture}(-4,-2)(6,7)
+\psset{viewpoint=50 20 10 rtp2xyz,Decran=50}
+%\lightsource
+\psset{lightsrc=viewpoint}
+\psSolid[object=grille,
+   base=-3 5 -3 5,
+   linecolor=gray]
+\psSolid[object=datfile,fillcolor=yellow!50,
+         file=./slicePyramid]
+\psSolid[object=datfile,
+         file=./Pyramid,action=draw]
+\axesIIID[linecolor=blue](4,4,2)(5,5,6)
+\end{pspicture}
+\end{center}
+
+\subsection{Slicing an \Index{octahedron} with a plane parallel to one of its faces}
+
+\subsubsection{The view inside}
+
+Recall that there are options \verb+rm=0,hollow+ that allow us,
+on the one hand, to remove a face \verb+rm=0+ and, on the other,
+to look inside \Lkeyword{hollow}.
+
+In the following example, we shall start by generating the
+required objects without drawing them (\texttt{\Lkeyword{action}=\Lkeyval{none}}).
+
+We construct the octahedron, giving the center of the face with
+index $1$ the name $G$, then define the point $H$ which satisfies
+$\overrightarrow{OH} = 0.8\,\overrightarrow{OG}$. After that we
+define $P$ to be the plane through $H$ parallel to the face of the
+octahedron with index $1$. Finally, we slice the octahedron using
+the plane $P$.
+
+\begin{LTXexample}[width=7.5cm]
+\begin{pspicture}(-3.5,-3)(4.5,5)
+\psset{viewpoint=100 5 10 rtp2xyz,Decran=80,
+   lightsrc=viewpoint,solidmemory,action=none}
+\psSolid[object=octahedron,
+   a=4,name=my_octahedron,]
+\psSolid[object=point,
+   definition=solidcentreface,
+   args=my_octahedron 1,
+   name=G,]
+\psSolid[object=point,
+   definition=mulv3d,
+   args=G .8,
+   name=H,]
+\psSolid[object=plan,
+   definition=solidface,
+   args=my_octahedron 1,
+   base=-4 4 -4 4,
+   name=P,](H,,)
+\psSolid[object=load,
+   load=my_octahedron,
+   plansepare=P,
+   name=part]
+\psSolid[object=load,load=part1,
+         rm=0,hollow,action=draw**,
+         fillcolor={[rgb]{0.7 1 0.7}},
+         incolor={[rgb]{1 1 0.7}},]
+\psSolid[object=plan,args=P,
+       action=draw,showBase]
+\psSolid[object=line,
+   args=0 0 0 H,
+   linestyle=dashed,]
+\psProjection[object=point,plan=P,args=0 0,
+    fontsize=20,pos=cl,text=H,phi=90,]
+\axesIIID[linecolor=blue,linewidth=0.4pt](0,0,0)(4,4,4)
+\end{pspicture}
+\end{LTXexample}
+
+\subsubsection{Regarding the solid as filled}
+
+The option \verb+fcol=0 (YellowOrange)+ allows us to colour the
+face with index 0.
+
+\begin{LTXexample}[width=7.5cm]
+\begin{pspicture}(-3.5,-3)(4.5,5)
+\psset{viewpoint=100 5 10 rtp2xyz,Decran=80,
+   lightsrc=viewpoint,solidmemory,action=none}
+\psSolid[object=octahedron,
+   a=4,name=my_octahedron,]
+\psSolid[object=point,
+   definition=solidcentreface,
+   args=my_octahedron 1,
+   name=G,]
+\psSolid[object=point,
+   definition=mulv3d,
+   args=G .8,
+   name=H,]
+\psSolid[object=plan,
+   definition=solidface,
+   args=my_octahedron 1,
+   base=-4 4 -4 4,
+   name=P,](H,,)
+\psSolid[object=load,
+   load=my_octahedron,
+   plansepare=P,
+   name=part]
+\psSolid[object=load,
+   load=part1,
+   fcol=0 (YellowOrange),
+   action=draw**,
+   fillcolor={[rgb]{0.7 1 0.7}},]
+\psSolid[object=plan,args=P,
+       action=draw,showBase]
+\psSolid[object=line,
+   args=0 0 0 H,
+   linestyle=dashed,]
+\psProjection[object=point,plan=P,args=0 0,
+    fontsize=20,pos=cl,text=H,phi=90,]
+\axesIIID[linecolor=blue,linewidth=0.4pt](0,0,0)(4,4,4)
+\end{pspicture}
+\end{LTXexample}
+
+\subsubsection{The two parts of a sliced solid}
+
+You will recall that the direction of the normal of the slicing
+plane determines the numbering of the two parts: 0 if above the
+normal, 1 if below. For both parts, the sliced face carries the
+number 0. If there are several sliced faces, as in the case of the
+torus, they are numbered 0, 1 etc.
+
+Using two steps, we memorise both parts of the sliced solid:
+
+ \begin{verbatim}
+\psSolid[object=load,
+   load=my_octahedron,
+   plansepare=P,
+   name=part]
+ \end{verbatim}
+
+Then we position and render each part:
+
+ \begin{verbatim}
+\psSolid[object=load,
+         fcol=0 (YellowOrange),
+         fillcolor={[rgb]{0.7 1 0.7}},
+        load=part1]
+\psSolid[object=load,
+         fillcolor={[rgb]{0.7 1 0.7}},
+        load=part0](H 2 mulv3d,,)
+\composeSolid
+ \end{verbatim}
+
+
+\begin{LTXexample}[width=7.5cm]
+\begin{pspicture}(-3.5,-3)(4.5,5)
+\psset{viewpoint=100 5 20 rtp2xyz,Decran=150,
+   lightsrc=viewpoint,solidmemory,action=none}
+\psSolid[object=octahedron,
+   a=2,name=my_octahedron,]
+\psSolid[object=point,
+   definition=solidcentreface,
+   args=my_octahedron 1,
+   name=G,]
+\psSolid[object=point,
+   definition=mulv3d,
+   args=G .7,
+   name=H,]
+\psSolid[object=plan,
+   definition=solidface,
+   args=my_octahedron 1,
+   base=-4 4 -4 4,
+   name=P,](H,,)
+\psSolid[object=load,
+   load=my_octahedron,
+   plansepare=P,
+   name=part]
+\psset{action=draw**}
+\psSolid[object=load,
+   load=part1,
+   fcol=0 (YellowOrange),
+   fillcolor={[rgb]{0.7 1 0.7}},]
+\psSolid[object=load,
+         fillcolor={[rgb]{0.7 1 0.7}},
+        load=part0](H 2 mulv3d,,)
+\composeSolid
+\end{pspicture}
+\end{LTXexample}
+
+\subsection{Slices of a cube}
+
+\subsubsection{Highlighting the edges of the cut}
+
+\begin{LTXexample}[width=8cm]
+\psset{viewpoint=100 30 20 rtp2xyz,Decran=150}
+\begin{pspicture}(-4,-3)(4,5)
+\psset{solidmemory}
+\psSolid[object=plan,definition=normalpoint,
+   args={1 1 1 [1 1 1]},action=none,name=P]
+\psSolid[object=cube,a=2,action=draw,
+   intersectiontype=0,
+   intersectionplan=P,
+   intersectionlinewidth=2,
+   intersectioncolor=(rouge),
+](1,1,1)
+\psProjection[object=point,
+   args=0 0,fontsize=10,pos=dc,
+   text=H,phi=-30,plan=P,
+]
+\psSolid[object=line,
+   linestyle=dashed,
+   args=0 0 0 1 1 1]
+\psSolid[object=vecteur,
+   linecolor=red,
+   args=1 1 1 .7 mulv3d](1,1,1)
+\axesIIID[linecolor=blue](2,2,2)(2.5,2.5,2.5)
+\end{pspicture}
+\end{LTXexample}
+
+\subsubsection{Showing the sliced cube with its hexagonal cut face}
+
+\begin{LTXexample}[width=8cm]
+\psset{viewpoint=100 30 20 rtp2xyz,Decran=150}
+\begin{pspicture}(-4,-3)(4,5)
+\psset{solidmemory}
+\psSolid[object=plan,action=none,definition=normalpoint,
+   args={1 1 1 [1 1 1]},name=P]
+\psSolid[object=cube,a=2,
+   plansepare=P,
+   action=none,
+   name=parts_cube,
+](1,1,1)
+\psSolid[object=load,
+         load=parts_cube1,
+         fcol=0 (Dandelion),
+         fillcolor={[rgb]{0.7 1 0.7}},
+]
+\psProjection[object=point,
+   args=0 0,fontsize=10,pos=dc,
+   text=H,phi=-30,plan=P,
+]
+\psSolid[object=vecteur,
+   linecolor=red,
+   args=1 1 1 .7 mulv3d](1,1,1)
+\axesIIID[linecolor=blue](2,2,2)(2.5,2.5,2.5)
+\end{pspicture}
+\end{LTXexample}
+
+\subsubsection{The sliced cube in various positions}
+
+Where we use the option that allows us to memorise a solid, in
+order to put the truncated cube, after undergoing various
+transformations, down on its cut face.
+
+ \begin{verbatim}
+\psset{solidmemory}
+\psSolid[object=datfile,
+         fcol=0 (Dandelion),
+         fillcolor={[rgb]{0.7 1 0.7}},
+         name=C1,
+         action=none,
+         file=./cubeHexagone]
+ \end{verbatim}
+
+
+\begin{center}
+\begin{pspicture}(-3,-3)(3,3)
+\psframe(-3,-2)(3,3)
+\psset{viewpoint=100 30 20 rtp2xyz,Decran=100}
+%\lightsource
+\psset{lightsrc=viewpoint}
+\psSolid[object=grille,
+   base=-2 3 -2 3,
+   linecolor=gray]
+\psSolid[object=datfile,
+         fcol=0 (Dandelion),
+         fillcolor={[rgb]{0.7 1 0.7}},
+         file=./cubeHexagone]
+\axesIIID[linecolor=blue](2,2,2)(2.5,2.5,2.5)
+\end{pspicture}
+
+\hfil
+
+\begin{pspicture}(-2,-3)(4,3)
+\psframe(-2,-2)(4,3)
+\psset{viewpoint=100 -30 20 rtp2xyz,Decran=100}
+%\lightsource
+\psset{lightsrc=viewpoint}
+\psSolid[object=grille,
+   base=-2 3 -2 3,
+   linecolor=gray]
+\psSolid[object=datfile,
+         fcol=0 (Dandelion),
+         fillcolor={[rgb]{0.7 1 0.7}},
+         file=./cubeHexagone]
+\axesIIID[linecolor=blue](2,2,2)(2.5,2.5,2.5)
+\end{pspicture}
+
+\begin{pspicture}(-3,-2)(3,3)
+\psframe(-3,-2)(3,3)
+\psset{viewpoint=100 225 20 rtp2xyz,Decran=100}
+%\lightsource
+\psset{lightsrc=viewpoint}
+\psSolid[object=grille,
+   base=-2 3 -2 3,
+   linecolor=gray]
+\psSolid[object=datfile,
+         fcol=0 (Dandelion),
+         fillcolor={[rgb]{0.7 1 0.7}},
+         file=./cubeHexagone]
+\axesIIID[linecolor=blue](0,0,0)(2.5,2.5,2.5)
+\end{pspicture}
+\hfil
+\begin{pspicture}(-3,-2)(3,3)
+\psframe(-3,-2)(3,3)
+\psset{viewpoint=100 30 20 rtp2xyz,Decran=100}
+%\lightsource
+\psset{lightsrc=viewpoint}
+\psSolid[object=grille,
+   base=-2 3 -2 3,
+   linecolor=gray]
+\psset{solidmemory}
+\psSolid[object=datfile,
+         fcol=0 (Dandelion),
+         fillcolor={[rgb]{0.7 1 0.7}},
+         name=C1,
+         action=none,
+         file=./cubeHexagone]
+\codejps{C1 {-1.5 -1.5 0 translatepoint3d} solidtransform
+drawsolid**
+}
+\axesIIID[linecolor=blue](0,0,0)(2.5,2.5,2.5)
+\end{pspicture}
+
+\begin{pspicture}(-3,-2)(3,4)
+\psframe(-3,-2)(3,3)
+\psset{viewpoint=100 30 20 rtp2xyz,Decran=100}
+%\lightsource
+\psset{lightsrc=viewpoint}
+\psSolid[object=grille,
+   base=-2 3 -2 3,
+   linecolor=gray]
+\psset{solidmemory}
+\psSolid[object=datfile,
+         fcol=0 (Dandelion),
+         fillcolor={[rgb]{0.7 1 0.7}},
+         name=C1,
+         action=none,
+         file=./cubeHexagone]
+\codejps{C1 {-1.5 -1.5 0 translatepoint3d} solidtransform
+            {0 0 45 rotateOpoint3d} solidtransform
+drawsolid**
+}
+%\composeSolid
+\axesIIID[linecolor=blue](0,0,0)(2.5,2.5,2.5)
+\end{pspicture}
+\hfil
+\begin{pspicture}(-3,-2)(3,4)
+\psframe(-3,-2)(3,3)
+\psset{viewpoint=100 30 20 rtp2xyz,Decran=100}
+%\lightsource
+\psset{lightsrc=viewpoint}
+\psSolid[object=grille,
+   base=-2 3 -2 3,
+   linecolor=gray]
+\psset{solidmemory}
+\psSolid[object=datfile,
+         fcol=0 (Dandelion),
+         fillcolor={[rgb]{0.7 1 0.7}},
+         name=C1,
+         action=none,
+         file=./cubeHexagone]
+\codejps{C1 {-1.5 -1.5 0 translatepoint3d} solidtransform
+            {0 0 45 rotateOpoint3d} solidtransform
+            {-35.2644 -90 add 0 0 rotateOpoint3d} solidtransform
+drawsolid*
+}
+\axesIIID[linecolor=blue](1,2.5,0.5)(2.5,3,2.5)
+\end{pspicture}
+\end{center}
+
+
+\subsection{Multiple sections}
+
+\subsubsection{Slicing a sphere with PStricks}
+
+\begin{LTXexample}[width=8cm]
+\begin{pspicture}(-4,-4)(4,4)
+\psset{viewpoint=100 20 20 rtp2xyz,Decran=75}
+\psset{solidmemory,lightsrc=viewpoint}
+\codejps{
+   /coeff 0.75 def /rO 4 def /OH coeff rO mul neg def}%
+\psSolid[object=sphere,
+   r=rO,ngrid=9 18,
+   plansepare={[1 0 0 OH]},
+   name=part,
+   action=none]
+\psSolid[object=load,
+   load=part1,plansepare={[-1 0 0 OH]},action=none,name=part]
+\psSolid[object=load,
+   load=part1,plansepare={[0 1 0 OH]},action=none,name=part]
+\psSolid[object=load,
+   load=part1,plansepare={[0 -1 0 OH]},action=none,name=part]
+\psSolid[object=load,
+   load=part1,plansepare={[0 0 1 OH]},action=none,name=part]
+\psSolid[object=load,
+   load=part1,plansepare={[0 0 -1 OH]},action=none,name=part]
+\psSolid[object=load,hue=.1 .8 0.5 1,
+   load=part1](0,0,0)
+\composeSolid
+\end{pspicture}
+\end{LTXexample}
+
+\subsubsection{Multiple sections of a \Index{parallelepiped}}
+
+Multiple sections are better carried out inside a PostScript loop,
+within \verb+\codejps+; it's easier and quicker!
+
+In this example, the original solid is a parallelepiped.
+Truncations of the vertices and chamfering of the edges are
+effected by means of slicing planes, starting off with the
+vertices and finishing with the edges.
+
+\begin{LTXexample}[width=7cm]
+\begin{pspicture}(-3.5,-4)(3.5,4)
+\psset{viewpoint=100 -20 10 rtp2xyz,Decran=100}
+%\lightsource
+\psset{lightsrc=viewpoint}
+\codejps{
+4 4 6 newparallelepiped
+45 90 360 {
+/iAngle exch def
+  /n_x iAngle cos 35.2644 cos mul def
+  /n_y iAngle sin 35.2644 cos mul def
+  /n_z 35.2644 sin def
+  /distance 2 3 add 3 sqrt div neg def
+[ n_x n_y n_z distance]
+solidplansepare
+} for
+45 90 360 {
+/iAngle exch def
+  /n_x iAngle cos 35.2644 cos mul def
+  /n_y iAngle sin 35.2644 cos mul def
+  /n_z 35.2644 sin neg def
+  /distance 2 3 add 3 sqrt div neg def
+[ n_x n_y n_z distance]
+solidplansepare
+} for
+45 90 360 {
+/iAngle exch def
+% plan : ax+by+cz-d=0
+[ iAngle cos % a
+  iAngle sin % b
+  0 % c
+  -2.5 % -d
+] solidplansepare
+} for
+dup [.5 .2] solidputhuecolors
+solidlightOn
+drawsolid*}
+\end{pspicture}
+\end{LTXexample}
+\subsection{Sections of a torus}
+%\begin{pspicture}(-6,-4)(6,4)
+%\psSolid[r1=3,r0=1.5,
+%         object=tore,
+%%         ngrid=18 60,
+%         file=./tore1860,action=writesolid]
+%\end{pspicture}
+
+\begin{center}
+\begin{pspicture}(-6,-4)(6,4)
+\pstVerb{/Ampl 3 2 sqrt mul def}%
+\psset{viewpoint=50 -10 30 rtp2xyz,Decran=50}
+%\lightsource
+\psset{lightsrc=viewpoint}
+\psframe[fillstyle=solid,fillcolor=gray!50](-6,-4)(6,4)
+%\psset{solidmemory}
+%\psSolid[object=datfile,file=./tore1860,
+%         plansepare={[1 0 0 -1.5]},
+%         name=lemniscate,
+%         action=none](0,0,0)
+%\psSolid[object=load,
+%        load=lemniscate1,
+%       file=./tore1860lemniscate,action=writesolid](0,0,0)
+\defFunction[algebraic]{lemniscate}(t){1.5}{Ampl*sin(t)/(1+cos(t)*cos(t))}{Ampl*sin(t)*cos(t)/(1+cos(t)*cos(t))}
+\psSolid[object=datfile,file=./tore1860lemniscate,
+        fcol=0 (0.5 0.72 0.5 setrgbcolor)
+             1 (0.5 0.72 0.5 setrgbcolor),
+        fillcolor=green!30,
+        intersectiontype=0,
+        intersectionplan={
+        [1 0 0 -1.5]},
+        intersectioncolor=(rouge),
+        intersectionlinewidth=2.2]
+\psSolid[object=courbe,r=0,linewidth=2pt,
+        range=0 6.28,
+        linecolor=red,
+        function=lemniscate]%
+\psSolid[object=plan,action=draw,
+   definition=equation,
+   args={[1 0 0 -1.5] 90},
+   base=-5 5 -2 2,planmarks,showBase]
+%\composeSolid
+\end{pspicture}
+\end{center}
+\begin{center}
+\begin{pspicture}(-6,-4)(6,4)
+\pstVerb{/Ampl 3 2 sqrt mul def}%
+\psset{viewpoint=50 -10 30 rtp2xyz,Decran=50}
+%\lightsource
+\psset{lightsrc=viewpoint}
+\psframe[fillstyle=solid,fillcolor=gray!50](-6,-4)(6,4)
+\defFunction[algebraic]{lemniscate}(t){1.5}{Ampl*sin(t)/(1+cos(t)*cos(t))}{Ampl*sin(t)*cos(t)/(1+cos(t)*cos(t))}
+\psSolid[object=datfile,file=./tore1860lemniscate,
+        hollow,
+        rm=0 1,
+        fillcolor=green!30,incolor=yellow!50]
+\psSolid[object=courbe,r=0,linewidth=2pt,
+        range=0 6.28,
+        linecolor=red,
+        function=lemniscate]%
+\psSolid[object=plan,action=draw,
+   definition=equation,
+   args={[1 0 0 -1.5] 90},
+   base=-5 5 -2 2,planmarks,showBase]
+\end{pspicture}
+\end{center}
+\subsection{Some more examples}
+\begin{enumerate}
+\item
+You will find a \textit{jps} coded version of this document
+within the \verb+\codejps+ command in the following document:
+
+\centerline{\url{http://melusine.eu.org/syracuse/mluque/solides3d2007/sections}}
+\item A lesson about conic sections on:
+
+\centerline{\url{http://melusine.eu.org/syracuse/mluque/solides3d2007/sections/sections-cone}}
+\item A lesson about cylindrical sections on:
+
+\centerline{\url{http://melusine.eu.org/syracuse/mluque/solides3d2007/sections/section-cylindre}}
+\item A lesson about sections of a torus on:
+
+\centerline{\url{http://melusine.eu.org/syracuse/mluque/solides3d2007/sections/section-tore}}
+\end{enumerate}
+
+
+\endinput

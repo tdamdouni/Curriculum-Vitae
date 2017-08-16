@@ -1,0 +1,366 @@
+\documentclass[12pt,letterpaper]{article}
+
+\def\myauthor{Paul Gessler}
+\def\mytitle{pdg-vita}
+\def\myemail{pdgessler@gmail.com}
+\def\myweb{pdgessler}
+\def\myphone{414-241-1627}
+\def\mykeywords{
+  paul gessler, 
+  resume, 
+  curriculum, 
+  vita, 
+  curriculum vita, 
+  cv, 
+  paul, 
+  gessler, 
+  pdg
+}
+
+\setlength\parindent{0pt}
+
+\newenvironment{itemize*}%
+{\begin{itemize}%
+  \setlength{\itemsep}{0pt}}%
+{\end{itemize}}
+
+\usepackage{url}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+%\usepackage{ocgtools}
+\usepackage{enumitem}
+\setlist{nolistsep,leftmargin=0.15in}
+\usepackage[log-declarations=false]{xparse}
+\usepackage[adobe-garamond]{mathdesign}
+\usepackage[no-math]{fontspec}
+\usepackage{microtype}
+\usepackage[margin=1.125in,top=1.375in,right=1in,left=2in]{geometry}
+\usepackage[strict]{changepage}
+\usepackage[
+  ocgcolorlinks,
+  urlcolor={[rgb]{0,0,0.54}},
+  unicode,
+  plainpages=false,
+  pdfpagelabels,
+  pdftitle={\mytitle},
+  pdfauthor={\myauthor},
+  pdfkeywords={\mykeywords}
+]{hyperref}
+
+% fix ocgcolor link breaking; thanks due to Benjamin Lerner (http://goo.gl/VZKR7M)
+\makeatletter
+\AtBeginDocument{%
+  \newlength{\temp@x}%
+  \newlength{\temp@y}%
+  \newlength{\temp@w}%
+  \newlength{\temp@h}%
+  \def\my@coords#1#2#3#4{%
+    \setlength{\temp@x}{#1}%
+    \setlength{\temp@y}{#2}%
+    \setlength{\temp@w}{#3}%
+    \setlength{\temp@h}{#4}%
+    \adjustlengths{}%
+    \my@pdfliteral{\strip@pt\temp@x\space\strip@pt\temp@y\space\strip@pt\temp@w\space\strip@pt\temp@h\space re}}%
+  \ifpdf
+    \typeout{In PDF mode}%
+    \def\my@pdfliteral#1{\pdfliteral page{#1}}% I don't know why % this command...
+    \def\adjustlengths{}%
+  \fi
+  \ifxetex
+    \def\my@pdfliteral #1{\special{pdf: literal direct #1}}% isn't equivalent to this one
+    \def\adjustlengths{\setlength{\temp@h}{-\temp@h}\addtolength{\temp@y}{1in}\addtolength{\temp@x}{-1in}}%
+  \fi%
+  \def\Hy@colorlink#1{%
+    \begingroup
+      \ifHy@ocgcolorlinks
+        \def\Hy@ocgcolor{#1}%
+        \my@pdfliteral{q}%
+        \my@pdfliteral{7 Tr}% Set text mode to clipping-only
+      \else
+        \HyColor@UseColor#1%
+      \fi
+  }%
+  \def\Hy@endcolorlink{%
+    \ifHy@ocgcolorlinks%
+      \my@pdfliteral{/OC/OCPrint BDC}%
+      \my@coords{0pt}{0pt}{\pdfpagewidth}{\pdfpageheight}%
+      \my@pdfliteral{F}% Fill clipping path (the url's text) with current color
+      \my@pdfliteral{EMC/OC/OCView BDC}%
+      \begingroup%
+        \expandafter\HyColor@UseColor\Hy@ocgcolor%
+        \my@coords{0pt}{0pt}{\pdfpagewidth}{\pdfpageheight}%
+        \my@pdfliteral{F}% Fill clipping path (the url's text) with \Hy@ocgcolor
+      \endgroup%
+      \my@pdfliteral{EMC}%
+      \my@pdfliteral{0 Tr}% Reset text to normal mode
+      \my@pdfliteral{Q}%
+    \fi
+    \endgroup
+  }%
+}
+\makeatother
+% end fixes
+
+\newcommand{\ML}{\textsc{Matlab}}
+\newcommand{\Simu}{Simulink}
+\newcommand{\MLS}{\ML{}/\Simu{}}
+\newcommand{\apdl}{\textsc{APDL}}
+\newcommand{\ansys}{\textsc{Ansys}}
+\newcommand{\fluent}{\textsc{Fluent}}
+\newcommand\CPP{C/C\ensuremath{+}\ensuremath{+}}
+\newcommand{\Star}{\textsc{Star-CCM\ensuremath{+}}}
+
+\newcommand{\mhead}[1]{\leavevmode\marginpar{\sffamily\footnotesize #1}}
+\newcommand{\rdate}[1]{{\addfontfeature{Numbers=OldStyle} \hfill #1}}
+\renewcommand{\date}[1]{{\addfontfeature{Numbers=OldStyle} #1}}
+\renewcommand{\labelitemi}{-} 
+\setmainfont{helvet}
+%\setmainfont[
+%  Ligatures={TeX,Common},
+%  BoldFont={AGaramondPro-Semibold},
+%]{Adobe Garamond Pro}
+%\setsansfont[
+%  Ligatures={TeX,Common},
+%  Letters=SmallCaps,
+%  Color=660000,
+%]{Adobe Garamond Pro}
+\setmonofont[Scale=0.85]{FontAwesome}
+
+\makeatletter % fix for \hrulefill w/ mathdesign package
+\def\hrulefill{\leavevmode\leaders \hrule height \rulethickness \hfill\kern\z@}
+\makeatletter
+
+\begin{document}\flushbottom
+\pagestyle{fancy} \setlength\headwidth{6.5in}
+\rhead{\textsc{paul d.~gessler—r\'{e}sum\'{e}—\thepage{} of \pageref*{LastPage}}} \cfoot{}
+\thispagestyle{empty}
+\begin{adjustwidth}{-1in}{}
+{\Huge
+  {\textsc{%
+    {\addfontfeature{Style=TitlingCaps}P}\kern-1.5ptaul 
+    {\addfontfeature{Style=TitlingCaps}D}\kern-2pt.~%
+    {\addfontfeature{Style=TitlingCaps}G}essler}
+  }
+}
+\hfill\hfill\hfill
+{
+  \begin{minipage}[b]{2in}
+    \flushleft \footnotesize 
+    4088 West Hawthorne Trace Road \\ 
+    Apartment 202 \\ 
+    Brown Deer, WI~~53209-1017
+  \end{minipage}
+  \hfill
+  \begin{minipage}[b]{1.2in}
+    \flushright \footnotesize 
+    \href{tel:\myphone}{\myphone} \\ %\texttt{}~
+    \href{mailto:\myemail}{\myemail} \\
+    \href{https://www.github.com/\myweb}{\texttt{}}~\href{https://www.linkedin.com/in/\myweb}{\texttt{}~\myweb}
+  \end{minipage}
+}\par
+\hrulefill
+\end{adjustwidth}  
+\reversemarginpar 
+\setlength\marginparwidth{0.85in}
+\smallskip
+\mhead{Education}%
+\textbf{Marquette University,} Milwaukee, Wisconsin \newline
+\emph{Master of Science, \href{http://www.marquette.edu/engineering/mechanical/}{Mechanical Engineering}} \rdate{2012–2014}
+\begin{itemize*}
+  \item Cumulative GPA: 3.44/4.00; {Energy Systems Specialization}
+  \item Thesis: \href{https://dl.dropboxusercontent.com/u/10724484/resume/pdg_thesis.pdf}{One-Dimensional Model of a Refrigeration Cycle Compressor Test Block}
+  \item Advisor: Dr.~Margaret M.~Mathison
+%  \item Coursework:\newline
+%    \begin{tabular}{ll}
+%      \addlinespace\toprule
+%      Advanced Engineering Mathematics & Transport Phenomena \\
+%      Approx.~Methods in Engineering Analysis & Advanced Fluid Mechanics \\
+%      Intermediate Thermodynamics & Sustainable Engineering \\
+%      Statistical Thermodynamics & Combustion \\
+%      \bottomrule
+%    \end{tabular}
+\end{itemize*}
+
+\medskip
+\textbf{Milwaukee School of Engineering,} Milwaukee, Wisconsin \newline
+\emph{Bachelor of Science, \href{http://www.msoe.edu/community/academics/mechanical-engineering-department/mechanical-engineering}{Mechanical Engineering}} \rdate{2008–2012}
+\begin{itemize*}
+  \item Cumulative GPA: 3.56/4.00; \href{http://www.msoe.edu/community/academics/minors/page/1448/mathematics-minor}{Mathematics Minor}
+  \item Senior Project: \href{https://dl.dropbox.com/u/10724484/resume/ME492_2012_Design_Report_PulseWaterJet.pdf}{Modeling of Pulsed Jet Impingement on Brittle Materials}
+  \item Advisors: Prof.~Thomas J.~Labus and Dr.~Vincent C.~Prantil
+%  \item Selected Coursework:\newline
+%    \begin{tabular}{ll}
+%      \addlinespace\toprule
+%      
+%      \bottomrule
+%    \end{tabular}
+\end{itemize*}
+
+\bigskip
+\mhead{Software \newline Proficiencies}%
+\emph{Working knowledge}\newline%—comfortable using in a professional setting
+\MLS{}, 
+Simulink Coder,
+\CPP{}, 
+Visual Studio, 
+ANSYS 
+(APDL, 
+Fluent CFD, and 
+Workbench), 
+\Star{}, 
+Engineering Equation Solver (EES), 
+REFPROP, 
+SolidWorks, 
+Microsoft Office Suite, 
+Adobe Creative Suite, 
+HTML/CSS,
+\LaTeX{},
+Vim, 
+Git,
+SVN,
+Arch Linux, 
+Mac OS X, 
+Windows 7/8
+
+\medskip
+\emph{Basic knowledge}\newline%—would require some training/use to refresh my memory
+Autodesk Products Suite, 
+PTC Creo (Pro/ENGINEER),
+LabVIEW,
+Fortran~77/90/95,
+Modelica/Dymola,
+COMSOL Multiphysics,
+CTH,
+eQUEST%,
+
+\bigskip
+\mhead{Honors \& \newline Awards}%
+Teaching Assistant Honors, Marquette University, Milwaukee, WI         \rdate{2014}\newline
+First Place, \href{https://dl.dropboxusercontent.com/u/10724484/resume/pdg_poster_2014.pdf}{Poster Competition}, Marquette University, Milwaukee, WI   \rdate{2014}\newline
+Outstanding Student Chapter Award, SAE International, Detroit, MI      \rdate{2011, 2012}\newline
+Outstanding Collegiate Chapter, SAE Milwaukee Section, Milwaukee, WI   \rdate{2011      }\newline
+First Place, Design Report Competition, SAE Supermileage, Marshall, MI \rdate{2011      }\newline
+Dean's List, MSOE, Milwaukee, WI                                       \rdate{2008–2012}
+
+\bigskip
+\mhead{Professional \newline Experience}%
+\textbf{Johnson Controls, Inc.,} Milwaukee, WI \newline
+\emph{HVAC Systems Engineer (Experis), Control Applications} \rdate{\textsc{june}~2014–\textsc{present}}
+\begin{itemize*}
+  \item Support engineers using existing thermodynamic models for system testing
+  \item Convert control algorithm assets for use in a \MLS{} development process
+  \item Collaborate as part of a small team working to promote model-based design and automatic 
+    code generation for a wider range of products
+\end{itemize*}
+
+\medskip
+\emph{Graduate Intern, Control Applications and Advanced Algorithms} \rdate{2010–2012}
+\begin{itemize*}
+  \item Designed, implemented, and tested 30 warning events for chiller control software
+  \item Planned and led nightly automated regression testing of 210 safety shutdown events
+  \item Improved automated testing speed in Excel/\MLS{} simulation by 15\%
+  \item Created and distributed release notes documenting new features and known issues
+%  \item Extended numerical chiller models to include two additional vessel configurations% and enhanced stall 
+%  \item Integrated existing building model into chiller control design simulation workflow
+\end{itemize*}
+
+\newgeometry{margin=1.125in,top=1in,right=1in,left=2in}
+\reversemarginpar\setlength\marginparwidth{0.85in}
+\mhead{Teaching \newline Experience}%
+\textbf{Marquette University,} Milwaukee, WI \newline
+\emph{Graduate Teaching Assistant, Mechanical Engineering Department} \rdate{2012–2014}
+MEEN~3210: Multidisciplinary Engineering Systems \rdate{\textsc{spring} 2013, \textsc{spring} 2014}\newline
+%Graded homework assignments, assisted students with hands-on laboratory exercises, and held open laboratory sessions\newline
+MEEN~2210: Electromechanical Engineering Systems \rdate{\textsc{spring} 2013, \textsc{spring} 2014}\newline
+MEEN~3340: Thermodynamics II \rdate{\textsc{fall} 2013}\newline
+%\begin{itemize*}
+%\item Prepared and delivered short introductory lectures for 3 experiments: %\newline %
+%  \emph{Uncertainty Analysis}, \emph{Refrigeration Cycle}, and \emph{Heat Exchanger Performance}
+%\item Guided and assisted 70 students in completing the aforementioned experiments
+%\item Graded student reports for aforementioned experiments and held office hours
+%\item Revised and updated the MEEN 3340 Laboratory Manual for future use
+%\end{itemize*}
+MEEN~3320: Fluid Mechanics \rdate{\textsc{fall} 2012}
+%Graded homework assignments and held office hours for 85 students in 3 sections
+
+\bigskip
+\mhead{Leadership \newline Experience}%
+\textbf{MSOE Society of Automotive Engineers,} Milwaukee, WI \newline
+\emph{Chairman} \rdate{2011–2012}
+\begin{itemize*}
+  \item Oversaw the general operation of the 150-member MSOE Student Chapter
+  \item Coordinated with professionals in nearby SAE Chapters to organize monthly events
+  \item Other Previous Positions: Program Coordinator and Webmaster (\date{2010–2011})
+\end{itemize*}
+
+\medskip
+\emph{Technical Lead, Supermileage Vehicle Steering Team} \rdate{2010–2011}
+\begin{itemize*}
+  \item Designed, analyzed, manufactured, and tested aluminum suspension frame
+  \item Responsible for steering/brake system performance and component integration
+%  \item Provided weekly progress reports to Project Manager and other team leaders
+  \item Co-authored and edited the \href{https://dl.dropbox.com/u/10724484/resume/MSOE_CarbonairDesignReport2011.pdf}{Design Report} (First Place, Design Report Competition)
+\end{itemize*}
+
+\bigskip
+\textbf{MSOE Residence Life,} Milwaukee, WI \newline
+\emph{Resident Assistant} \rdate{2010–2012}
+\begin{itemize*}
+  \item Provided academic, personal, and professional advice for 35 students
+  \item Planned events for residents, such as r\'{e}sum\'{e} workshops and indoor rock climbing
+  \item Resolved roommate conflicts and policy violations as needed
+\end{itemize*}
+
+\bigskip
+\mhead{Research \newline Experience}%
+\textbf{MSOE Rapid Prototyping Research,} Milwaukee, WI \newline
+\emph{Undergraduate Research Assistant} \rdate{2009–2011}
+\begin{itemize*}
+\item Designed and modeled mold flow passages to improve metal flow and solidification
+\item Prepared rapid-prototyped patterns and created ceramic molds
+\item Cast copper alloy nozzle structures using a novel vacuum-casting process
+\item Contributed to reports and presentations for two actively-cooled nozzle projects
+\end{itemize*}
+
+\bigskip
+\mhead{Publications}%
+%\emph{Conference paper}\\
+\par\vspace{-\baselineskip}\textbf{Gessler, P.D.,} Mathison, M.M., \& Bowman, A.J.~(\date{17 \textsc{july} 2014}).
+\emph{\href{https://www.conftool.com/2014Purdue/index.php/Gessler-2014-Modeling_of_a_Hot_Gas_Bypass_Test_Block_for_Centrifugal_Compressors-1549_a.pdf?page=downloadPaper&filename=Gessler-2014-Modeling_of_a_Hot_Gas_Bypass_Test_Block_for_Centrifugal_Compressors-1549_a.pdf&form_id=1549&form_version=final}{Modeling of a Hot Gas Bypass Test Block for Centrifugal Compressors}}.
+Paper presented at the {International Compressor Engineering Conference at Purdue University}, West Lafayette, IN.
+
+\medskip
+%\emph{Book}\\
+Prantil, V.C., Papadopoulos, C., \& \textbf{Gessler, P.D.} (\date{2013}). 
+\emph{\href{http://www.morganclaypool.com/doi/abs/10.2200/S00503ED1V01Y201305ENG023}{Lying By Approximation: The Truth about Finite Element Analysis}}.
+San Francisco, CA: Morgan \& Claypool Publishers.
+
+\bigskip
+\mhead{Invited Talks}%
+\textbf{Gessler, P.D.} (\date{6 \textsc{nov.}~2014}, \date{11 \textsc{nov.}~2013}).
+\emph{FEA for Thermal Applications: Developing a Transient, Two-dimensional Code.}
+Guest lecture at Milwaukee School of Engineering.
+
+\medskip
+\textbf{Gessler, P.D.} (\date{30 \textsc{sept.}~2013}).
+\emph{Introduction to Model-Based Design: With Transportation Examples.}
+Presentation delivered to the MSOE Society of Automotive Engineers.
+
+\bigskip
+\mhead{Professional \newline Affiliations}%
+Member ASHRAE \rdate{2012–2014}\newline
+Member SAE \rdate{2008–2013}
+
+\bigskip
+\mhead{Activities \& \newline Interests}%
+Varsity Crew (\date{2008–2010}), 
+Cycling, 
+Running, 
+Backpacking, 
+Canoeing, 
+%Woodworking, 
+Photography, 
+Graphic/Web Design,
+Computer System Administration,
+Trumpet Performance
+\end{document}

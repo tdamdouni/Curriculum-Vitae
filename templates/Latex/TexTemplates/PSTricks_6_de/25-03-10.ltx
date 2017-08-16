@@ -1,0 +1,37 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{166.324pt}
+\setlength\parindent{0pt}
+\def\Wishes{{%
+  \rput[lb](0,0){%
+    \Large\begin{minipage}{3cm}
+      \centering
+      \textbf{Alles Gute}\\\textbf{Jana},\\für dieses neue Jahr\\\Huge 2011!
+    \end{minipage}}}}
+\StartShownPreambleCommands
+\usepackage{pstricks,pst-lens,pst-3d}
+\renewcommand{\PstLensShape}{\psdiamond(1.5,1)}
+\StopShownPreambleCommands
+\begin{document}
+\psset{LensMagnification=1.5}
+\begin{pspicture}(0.8,-1.5)(5.3,3)
+  \pstilt{60}{%
+    \Wishes\PstLens[LensSize=1.5](2,2){\Wishes}}
+\end{pspicture}
+\end{document}

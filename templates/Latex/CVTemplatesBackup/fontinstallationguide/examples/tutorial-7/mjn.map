@@ -1,0 +1,12 @@
+mjnr8r  JansonMT                  <8r.enc <mjnr8a.pfb  "TeXBase1Encoding ReEncodeFont"
+mjnri8r JansonMT-Italic           <8r.enc <mjnri8a.pfb "TeXBase1Encoding ReEncodeFont"
+mjnb8r  JansonMT-Bold             <8r.enc <mjnb8a.pfb  "TeXBase1Encoding ReEncodeFont"
+mjnbi8r JansonMT-BoldItalic       <8r.enc <mjnbi8a.pfb "TeXBase1Encoding ReEncodeFont"
+mjnro8r JansonMT                  <8r.enc <mjnr8a.pfb  "TeXBase1Encoding ReEncodeFont 0.167 SlantFont"
+mjnbo8r JansonMT-Bold             <8r.enc <mjnb8a.pfb  "TeXBase1Encoding ReEncodeFont 0.167 SlantFont"
+mjnr8x  JansonExpertMT            <mjnr8x.pfb
+mjnri8x JansonExpertMT-Italic     <mjnri8x.pfb
+mjnb8x  JansonExpertMT-Bold       <mjnb8x.pfb
+mjnbi8x JansonExpertMT-BoldItalic <mjnbi8x.pfb
+mjnro8x JansonExpertMT            <mjnr8x.pfb          "0.167 SlantFont"
+mjnbo8x JansonExpertMT-Bold       <mjnb8x.pfb          "0.167 SlantFont"

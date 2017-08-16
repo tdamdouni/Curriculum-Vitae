@@ -1,0 +1,46 @@
+\documentclass{article}
+\usepackage[usenames,dvipsnames,pdftex]{xcolor}
+\usepackage{tikz,ifthen}
+\usepackage{verbatim}
+
+\begin{comment}
+:Title: Rotated triangle
+:Tags: Paths, Foreach
+
+A beautiful pattern created by rotating and scaling a triangle multiple times.
+Note the use of color fading to emphasis the illusion of depth. 
+
+.. _j-curve: http://en.wikipedia.org/wiki/J_curve
+
+:Author: `Alain Matthes`_
+:Source: `Altermundus.com`_
+
+.. _Altermundus.com: http://altermundus.com/pages/examples.html
+.. _Alain Matthes: http://altermundus.com/index.html
+
+\end{comment}
+
+\begin{document}
+\newcounter{density}
+\setcounter{density}{20}
+\begin{tikzpicture}
+    \def\couleur{MidnightBlue}
+    \path[coordinate] (0,0)  coordinate(A)
+                ++( 60:12cm) coordinate(B)
+                ++(-60:12cm) coordinate(C);
+    \draw[fill=\couleur!\thedensity] (A) -- (B) -- (C) -- cycle;
+    \foreach \x in {1,...,15}{%
+        \pgfmathsetcounter{density}{\thedensity+10}
+        \setcounter{density}{\thedensity}
+        \path[coordinate] coordinate(X) at (A){};
+        \path[coordinate] (A) -- (B) coordinate[pos=.15](A)
+                            -- (C) coordinate[pos=.15](B)
+                            -- (X) coordinate[pos=.15](C);
+        \draw[fill=\couleur!\thedensity] (A)--(B)--(C)--cycle;
+    }
+\end{tikzpicture}
+\end{document}
+% Name : RotateTriangle
+% Encoding : utf8
+% Engine : pdflatex
+% Author: Alain Matthes

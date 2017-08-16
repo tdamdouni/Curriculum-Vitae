@@ -1,0 +1,56 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\StartShownPreambleCommands
+\usepackage{pst-node,pst-dbicons}
+\seticonparams{entity}{shadow=true,fillcolor=black!30,fillstyle=solid}
+\seticonparams{attribute}{fillcolor=black!10,fillstyle=solid}
+\seticonparams{relationship}{shadow=true,fillcolor=black!20,fillstyle=solid}
+\StopShownPreambleCommands
+\begin{document}
+\begin{tabular}{cc}
+\begin{tabular}{c}
+\entity{tblpbl}[tbl\_pbl]\\[2cm]  \entity{tblinst}[tbl\_inst]\\[2cm]
+\entity{tbldsc}[tbl\_dsc] \\[2cm]
+\end{tabular}\hspace{6em}
+\begin{tabular}{c} ~\\[2cm]
+\entity{tbllvl}[tbl\_lvl]\\[2cm]  \entity{tblindx}[tbl\_indx]\\[2cm]
+\end{tabular}
+\attributeof{tblpbl}[3em]{0}{pbljrn}[pbl\_jrn]%attributes
+\attributeof{tblpbl}[3em]{90}{pbloth}[pbl\_oth]
+\attributeof{tblpbl}[3em]{30}{pblauth}[pbl\_auth]
+\attributeof{tblpbl}[3em]{150}{pblyr}[pbl\_yr]
+\attributeof{tblpbl}[3em]{180}[key]{pblid}[pbl\_id]
+\attributeof{tblinst}[3em]{150}[key]{instprm}[inst\_prm]
+\attributeof{tblinst}[3em]{180}[key]{instid}[inst\_id]
+\attributeof{tbldsc}[3em]{180}[key]{dscid}[dsc\_id]
+\attributeof{tbldsc}[3em]{150}{dscname}[dsc\_name]
+\attributeof{tbldsc}[3em]{220}{dscval}[dsc\_val]
+\attributeof{tbldsc}[3em]{270}{dscunit}[dsc\_unit]
+\attributeof{tbldsc}[3em]{320}{dscoth}[dsc\_oth]
+\attributeof{tbllvl}[3em]{0}[key]{lvlid}[lvl\_id]
+\attributeof{tbllvl}[3em]{90}{lvlname}[lvl\_name]
+\attributeof{tblindx}[3em]{0}[key]{indxid}[indx\_id]
+\attributeof{tblindx}[3em]{30}{indxname}[indx\_name]
+\attributeof{tblindx}[3em]{270}{indxrel}[indx\_rel]
+\relationshipbetween{tblpbl}{tblinst}{1:m}\relationshipbetween{tblinst}{tbldsc}{m:1}
+\relationshipbetween{tblinst}{tbllvl}{m:1}\relationshipbetween{tbldsc}{tblindx}{1:m}
+\relationshipbetween{tbllvl}{tblindx}{1:m}
+\end{tabular}
+\end{document}

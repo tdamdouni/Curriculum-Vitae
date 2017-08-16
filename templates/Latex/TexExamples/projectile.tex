@@ -1,0 +1,79 @@
+% Projectile
+% Author: Jon Engel
+\documentclass{beamer}
+
+%%%<
+\usepackage{verbatim}
+%%%>
+
+\begin{comment}
+:Title: Projectile
+
+I made it for an introductory physics class to explain a common demonstration:   if you aim a gun at a target held in the air, and fire the instant the target is dropped, you always hit the target, no matter how fast your bullet goes.  There are a lot of numbers hard coded in, but it's not hard to alter the second example so that the initial velocity of the bullet is different.  You just change v0 and the number of frames (and the arrow representing v0).  I'm sure it can be made much more elegant.
+\end{comment}
+
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing}
+\usepackage{animate}
+\usepackage{ifthen}
+\setbeamertemplate{navigation symbols}{}
+
+\begin{document}
+
+\begin{frame}
+\begin{columns}\begin{column}{6cm}
+\begin{animateinline}[poster=first,controls]{8}%
+   \multiframe{21}{rt=0+.1,icount=1+1,rvo=3+0}{%
+%rt is the time and rvo the initial velocity, in units in which g=2.
+   \begin{tikzpicture}[scale=.75]
+      \clip (-.3,-.3) rectangle (9,7);
+      \draw[ultra thick,-latex] (0,.5) -- node[above left]{$\vec{v}_0$} (1.5,2);
+      \node[draw=gray,name=tar0,text=gray,dashed,outer sep=6pt] at (6,6)  
+                                                                      {target};
+      \node[draw=red,fill=white,name=tar,text=red,outer sep=6pt] at 
+                                                        (6,6-\rt*\rt) {target}; 
+      \draw[blue] (0,0) circle (3pt);
+      \ifthenelse{\icount > 1}% 
+         {\draw[ultra thick,blue,->] (0,0) -- (\rvo*\rt,\rvo*\rt);
+          \foreach \x in {.0,.1,...,\rt} \draw[blue] 
+                                    (\rvo*\x,\rvo*\x-\x*\x) circle (3pt);}{}
+      \ifthenelse{\icount > 5}%
+         {\draw[ultra thick,blue,->,shorten < =5pt] 
+                      (\rvo*\rt,\rvo*\rt) -- (\rvo*\rt,\rvo*\rt-\rt*\rt);}{}
+      \ifthenelse{\icount > 7}
+         {\draw[decorate,decoration={brace,amplitude=2mm},red] 
+                                       (tar0.east) -- (tar.east);}{}
+      \ifthenelse{\icount > 14}
+         {\node[text=blue] at (4,4.8) {$\vec{v}_0 t$};
+          \node[text=blue] at (\rvo*\rt-.8,1.5+\rt) {$-\frac{gt^2}{2}\hat{j}$};
+          \node[text=red] at (7.9,6-.5*\rt*\rt) {$\frac{gt^2}{2}$};
+          \node[fill=yellow!20] at (2,6.5) 
+                          {$\vec{r}=\vec{v}_0 t-\frac{gt^2}{2}\hat{j}$};}{}
+   \end{tikzpicture}%
+   }
+\end{animateinline}
+%
+\end{column}\begin{column}{6cm}
+\begin{animateinline}[poster=first,controls]{8}%
+   \multiframe{16}{rt=0+.1,icount=1+1,rvo=4+0}{%
+   \begin{tikzpicture}[scale=.75]
+      \clip (-.3,-.3) rectangle (9,7);
+      \draw[ultra thick,-latex] (0,.5) -- node[above left]{$\vec{v}_0$} (2,2.5);
+      \node[draw=gray,text=gray,dashed,outer sep=6pt] at (6,6) {target};
+          \node[draw=red,fill=white,text=red,outer sep=6pt] at 
+                                                        (6,6-\rt*\rt) {target}; 
+      \draw[blue] (0,0) circle (3pt);
+      \ifthenelse{\icount > 1}%
+         {\draw[ultra thick,blue,->] (0,0) -- (\rvo*\rt,\rvo*\rt);
+          \foreach \x in {.0,.1,...,\rt} \draw[blue] 
+                                   (\rvo*\x,\rvo*\x-\x*\x) circle (3pt);}{}
+      \ifthenelse{\icount > 5}%
+         {\draw[ultra thick,blue,->,shorten < =5pt] 
+                      (\rvo*\rt,\rvo*\rt) -- (\rvo*\rt,\rvo*\rt-\rt*\rt);}{}
+   \end{tikzpicture}%
+   }%
+\end{animateinline}
+\end{column}\end{columns}
+\end{frame} 
+
+\end{document}

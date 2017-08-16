@@ -1,0 +1,44 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-coxcoor}
+\StopShownPreambleCommands
+\begin{document}
+\[
+\begin{array}{|c|c|c|}\hline
+2\{\frac52\}2\{5\}2\{3\}2&2\{5\}2\{3\}2\{\frac52\}2&2\{5\}2\{\frac52\}2\{3\}2\\\hline
+ \begin{pspicture}(-2,-2)(2,2)
+\psset{unit=1cm,linewidth=0.01mm}
+\CoxeterCoordinates[choice=76] %
+\end{pspicture}&
+\begin{pspicture}(-2,-2)(2,2)
+\psset{unit=1.3cm,linewidth=0.01mm}
+\CoxeterCoordinates[choice=77] %
+\end{pspicture}&
+\begin{pspicture}(-2,-2)(2,2)
+\psset{unit=1.3cm,linewidth=0.01mm}
+\CoxeterCoordinates[choice=78] %
+\end{pspicture}\\
+ \hline
+{\tt choice=76}&{\tt choice=77}&{\tt choice=78}\\\hline
+\end{array}
+\]
+\end{document}

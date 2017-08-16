@@ -1,0 +1,33 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-node}
+\StopShownPreambleCommands
+\begin{document}
+\psset{linewidth=1mm}
+\begin{pspicture}(4,2)
+  \pscurve[arrows=<->](0,1.3)(0.7,1.8)(3.3,0.5)(4,1.6)(0.4,0.4)
+\end{pspicture}\qquad
+\begin{pspicture}(4,2)
+  \pscurve[arrows=<->,linecolor=blue](0,1.3)(0.7,1.8)(3.3,0.5)(4,1.6)(0.4,0.4)
+  \psecurve[linecolor=red,linestyle=dashed](0,1.3)(0.7,1.8)(3.3,0.5)(4,1.6)(0.4,0.4)
+\end{pspicture}
+\end{document}

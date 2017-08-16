@@ -1,0 +1,42 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1,2
+
+\documentclass[paper=screen,mode=present,display=slidesnotes, style=husky,nopagebreaks,fleqn]{exapd}
+\pagestyle{empty}
+\usepackage[utf8]{inputenc}
+\usepackage[scaled]{luximono}
+\pdsetup{rf=\textbf{Berlin},logohook=lb,logopos={5pt,5pt},
+  logocmd={\includegraphics[height=.5cm]{images/UIT}},trans=Dissolve}
+\StartShownPreambleCommands
+\documentclass[paper=screen,mode=present,display=slidesnotes,
+   style=husky,nopagebreaks,fleqn,ngerman]{powerdot}
+\newcommand*\DANTE{{\usefont{OT1}{dante}{m}{n}\selectfont DANTE}}
+\usepackage{listings}
+\StopShownPreambleCommands
+\begin{document}
+\begin{slide}[method=file]{Verbatim-Example}
+\small\begin{verbatim}
+\newcommand*\DANTE{{\usefont{OT1}{dante}{m}{n}\selectfont DANTE}}
+\psshadowbox[shadowsize=14pt]{\Huge\DANTE\reflectbox{\Huge\DANTE}}
+\end{verbatim}
+
+\psshadowbox[shadowsize=14pt]{\Huge\DANTE\reflectbox{\Huge\DANTE}}
+\end{slide}
+\begin{slide}[method=file]{Listings-Example}
+\lstinputlisting[basicstyle=\ttfamily\footnotesize,
+  firstline=17,lastline=35]{\jobname.ltxpd}
+\end{slide}
+\end{document}

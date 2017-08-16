@@ -1,0 +1,43 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{392.64803pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-map3d}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture*}(-0.5\linewidth,-0.45\textheight)(0.5\linewidth,0.5\textheight)
+\psset{PHI=45,THETA=5,unit=7.5,path=pst-geo/data}
+\WorldMapThreeD[lakes=false,circlesep=0.25,gridmap=false,bordercolor=red,
+  rivers=false,mapcolor={[cmyk]{0.7,0,0.6,0.2}},coasts=false,islandcolor=blue]
+\WorldMapThreeD[gridmapcolor=yellow,circles=false,lakes,gridmapdiv=5,france,
+  islandcolor=blue,blueEarth=false,bordercolor=red,islands=false,borders=false,
+  rivers,coasts,coastcolor=blue]
+\psmeridien{13.30}\psparallel{52.52}
+\newpsstyle{NodeLabelStyle}{fillstyle=solid,fillcolor=yellow!50,framesep=0,
+  linestyle=none,opacity=0.5}
+\input{villesFrance3d}
+\newpsstyle{NodeLabelStyle}{fillstyle=solid,fillcolor=red!50,framesep=0,
+  linestyle=none,opacity=0.5}
+\newpsstyle{psNodeMapStyle}{fillstyle=solid,fillcolor=yellow!50,linecolor=red}
+\psset{nodeWidth=0.025\psunit,linecolor=red}
+\input{capitales3d}
+\psepicenter[circlecolor=red,waves=16,Rmax=2000](13.297,52.5222){Berlin}
+\end{pspicture*}
+\end{document}

@@ -1,0 +1,42 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{166.324pt}
+\setlength\parindent{0pt}
+\usepackage{filecontents}
+\begin{filecontents*}{data10.dat}
+0 1 6
+2 2 5
+5 3 3.5
+7 1.5 3
+10 0 7
+\end{filecontents*}
+\StartShownPreambleCommands
+\usepackage{pst-plot}
+\StopShownPreambleCommands
+\begin{document}
+\psset{lly=-10pt}\readdata{\data}{data10.dat}
+\begin{psgraph}[axesstyle=frame,ticksize=0 7,
+  ticklinestyle=dotted,labelFontSize=\scriptstyle
+ ](0,0)(10,7){2in}{1.4in}
+  \pscustom[fillstyle=solid,fillcolor=black!20]{%
+    \listplot[plotNo=2,plotNoMax=2]{\data}
+    \listplot[plotNo=1,plotNoMax=2,
+      ChangeOrder]{\data}}
+\end{psgraph}
+\end{document}

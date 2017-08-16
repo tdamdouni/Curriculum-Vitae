@@ -1,0 +1,32 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pstricks,pst-gr3d,pst-node,multido}\SpecialCoor
+\StopShownPreambleCommands
+\begin{document}
+\PstGridThreeD[GridThreeDNodes=true,unit=2.5](2,3,2)
+\multido{\ix=0+1}{3}{%
+    \multido{\iy=0+1}{4}{%
+        \multido{\iz=0+1}{3}{%
+            \rput*(Gr3dNode\ix\iy\iz){\footnotesize $\ix\iy\iz$}}}}
+\psset{linecolor=blue,linestyle=dashed,linewidth=0.3pt,arrowscale=2,nodesep=8pt}
+\pcline{->}(Gr3dNode000)(Gr3dNode202)\pccurve{->}(Gr3dNode000)(Gr3dNode232)
+\end{document}

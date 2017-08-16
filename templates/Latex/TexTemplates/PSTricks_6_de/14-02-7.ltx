@@ -1,0 +1,42 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-func}% fuer \psPrintValue
+\makeatletter
+\newcommand*\InitToks{\toks@={}}
+\newcommand\AddToks[1]{\toks@=\expandafter{\the\toks@ #1}}
+\newcommand*\PrintToks{\the\toks@}
+\newcommand*{\makeTable}[4][5mm]{%
+  \InitToks%
+  \AddToks{\begin{tabular}{|*{#2}{p{#1}|}@{}l@{}}\cline{1-#2}}
+  \psForeach{\iA}{#3}{\expandafter\AddToks\expandafter{\iA & }}
+  \AddToks{\\\cline{1-#2}}%
+  \psForeach{\iA}{#3}{\expandafter\AddToks\expandafter{\expandafter%
+    \psPrintValue\expandafter{\iA\space /x ED #4} & }}
+  \AddToks{\\\cline{1-#2}\end{tabular}}%
+  \PrintToks}
+\makeatother
+\StopShownPreambleCommands
+\begin{document}
+\psset{decimals=2,valuewidth=6}
+$y=\log\left(3^x\right)$\par
+\makeTable[1cm]{6}{2,4,6,8,10,12}{3 x exp log}
+\end{document}

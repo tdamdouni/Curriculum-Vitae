@@ -1,0 +1,102 @@
+\section{Emptying a solid}
+Several of the predefined solids have a ``\textit{hollow}'' relative which is naturally associated with it (the cone, the truncated cone, the cylinder, the prism and the spherical zone). For all those, the option \texttt{\Lkeyword{hollow}=true} is provided.
+Set to \texttt{false}, we get the ``filled'' solid; set to \texttt{true} we get the ``hollow'' version.
+
+
+\subsubsection{Example 1: a \Index{cylinder} and a \Index{hollow cylinder}}
+
+
+
+\begin{LTXexample}[width=5cm]
+\psset{unit=0.5}
+\psset{lightsrc=viewpoint,viewpoint=50 60 25 rtp2xyz,Decran=50}
+\begin{pspicture}(-2,-3)(6,6)
+\psSolid[object=cylindre,h=6,r=2,
+   fillcolor=yellow,
+      ](0,4,0)
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=5cm]
+\psset{unit=0.5}
+\psset{lightsrc=viewpoint,viewpoint=50 60 25 rtp2xyz,Decran=50}
+\begin{pspicture}(-2,-3)(6,6)
+\psSolid[object=cylindre,h=6,r=2,
+   fillcolor=yellow,incolor=red,
+   hollow](0,4,0)
+\end{pspicture}
+\end{LTXexample}
+
+
+\newpage
+
+\subsubsection{Example 2: a \Index{prism} and a \Index{hollow prism}}
+
+\begin{LTXexample}[width=8.7cm]
+\psset{unit=0.5}
+\psset{lightsrc=viewpoint,viewpoint=50 60 25 rtp2xyz,Decran=50}
+\begin{pspicture}(-9,-4)(4,8)
+\defFunction{F}(t){t cos 3 mul}{t sin 3 mul}{}
+\defFunction{G}(t){t cos}{t sin}{}
+\psSolid[object=grille,base=-6 6 -4 4,action=draw]%
+\psSolid[object=prisme,
+    h=8,fillcolor=yellow,
+    RotX=90,ngrid=8 18,
+    base=0 180 {F} CourbeR2+
+         180 0 {G} CourbeR2+](0,4,0)
+\axesIIID(3,4,3)(8,6,7)
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=8.7cm]
+\psset{unit=0.5}
+\psset{lightsrc=viewpoint,viewpoint=50 60 25 rtp2xyz,Decran=50}
+\begin{pspicture}(-9,-4)(3,8)
+\defFunction{F}(t){t cos 3 mul}{t sin 3 mul}{}
+\defFunction{G}(t){t cos}{t sin}{}
+\psSolid[object=grille,base=-6 6 -4 4,action=draw]%
+\psSolid[object=prisme,
+    h=8,fillcolor=yellow,incolor=red,
+    RotX=90,hollow,ngrid=8 18,
+    base=0 180 {F} CourbeR2+
+         180 0 {G} CourbeR2+](0,4,0)
+\axesIIID(3,4,3)(8,6,7)
+\end{pspicture}
+\end{LTXexample}
+
+\newpage
+\subsubsection{Example 3: a \Index{spherical zone} and a \Index{hollow spherical zone}}
+
+\begin{LTXexample}[width=7.5cm]
+\psset{unit=0.5}
+\psset{lightsrc=10 20 30,viewpoint=50 60 25 rtp2xyz,Decran=50}
+\begin{pspicture}(-7,-4)(5,7)
+\psSolid[object=grille,
+    base=-5 5 -5 5,
+    action=draw]%
+\psSolid[object=calottesphere,
+    r=3,ngrid=16 18,
+    fillcolor=cyan!50,
+    incolor=yellow,
+    theta=45,phi=-30](0,0,1.5)%
+\axesIIID(3,3,3.6)(6,6,5)
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=7.5cm]
+\psset{unit=0.5}
+\psset{lightsrc=10 20 30,viewpoint=50 60 25 rtp2xyz,Decran=50}
+\begin{pspicture}(-7,-5)(7,5)
+\psSolid[object=calottesphere,
+    r=3,ngrid=16 18,
+    fillcolor=cyan!50,
+    incolor=yellow,
+    theta=45,phi=-30,
+    hollow,
+    RotY=-80]%
+\axesIIID(0,3,3)(6,5,4)
+\end{pspicture}
+\end{LTXexample}
+
+
+\endinput

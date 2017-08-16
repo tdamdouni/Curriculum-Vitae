@@ -1,0 +1,257 @@
+\section{Tubes}
+
+This section is about to substitute a curve in two or three dimensions (2D or 3D),
+that are setup parameterised, by a \Index{tube}, where the initial curve is the axes and
+we can choose the radius and grid.  We find some mathematical elements concerning
+these objects on the following websites:
+
+\centerline{\url{http://fr.wikipedia.org/wiki/Tube_(math\%C3\%A9matiques)}}
+
+\centerline{\url{http://www.mathcurve.com/surfaces/tube/tube.shtml}}
+
+As usual, the \texttt{pst-solides3d} package offers two possibilities to draw the tubes:
+\begin{itemize}
+  \item via PSTricks and the argument \Lkeyword{object} of \Lcs{psSolid}
+  \item directly with \verb+\codejps+
+\end{itemize}
+
+\encadre{It is often advisable to calculate in advance, by hand or with a preferred software, the first derivatives of the parametric functions which define the coordinates.}
+
+However, if this derivative isn't defined explicitly by the user, the package makes some approximate calculations, but the result then is not always sufficient.
+
+
+\subsection{Usage with PSTricks}
+
+\subsubsection{Give your curves a relief}
+``\textit{Donnez du relief \`{a} vos courbes}'', this is the title of the article
+from Robert \textsc{Ferr\'{e}ol}, available on:
+
+\url{http://mapage.noos.fr/r.ferreol/atelecharger/textes/relief/courbes\%20en\%20relief.html}
+
+from who  the following functions were borrowed and which are analogous to a
+Lissajous figure enrolled around a cylinder.
+
+
+\begin{LTXexample}[pos=t]
+\begin{pspicture}(-3.5,-4)(4,4)
+\psset{lightsrc=80 30 30,viewpoint=100 45 30 rtp2xyz,Decran=110,linewidth=0.2pt}
+\defFunction[algebraic]{Func}(t){2.5*cos(t)}{2.5*sin(t)}{2*cos(5*t)}
+\defFunction[algebraic]{Func'}(t){-2.5*sin(t)}{2.5*cos(t)}{-10*sin(5*t)}
+\psSolid[object=courbe,range=0 6.28,hue=0 1 0.7 1,
+   ngrid=360 8,function=Func,r=0.15]
+\end{pspicture}
+\end{LTXexample}
+
+
+The argument \texttt{\Lkeyword{object}=\Lkeyval{courbe}} with the parameters
+\Lkeyword{r}, \Lkeyword{function} and \Lkeyword{range} is used to specify
+the radius of the tube, the name of the function to be used and the range.
+
+We can also refine the grid with the optional argument
+\texttt{\Lkeyword{ngrid}=$n_1$ $n_2$} where $n_1$ represents the number of
+vertices of a section of a tube (if $n_1 = 6$, this gives a tube with a
+hexagonal section) and $n_2$ represents the number of divisions along it.
+
+
+\subsubsection{A \Index{hairline curve} is produced  with the radius \texttt{r=0}}
+
+And thus, no fear to specify the derived function.
+
+\begin{LTXexample}[pos=t]
+\begin{pspicture}(-3.5,-4)(4,4)
+\psset{lightsrc=80 30 30,viewpoint=100 45 30 rtp2xyz,Decran=110}
+\defFunction[algebraic]{FI}(t){2.5*cos(t)}{2.5*sin(t)}{2*cos(5*t)}
+\psSolid[object=courbe,range=0 6.28,linewidth=2pt,linecolor=blue,function=FI,r=0]
+\end{pspicture}
+\end{LTXexample}
+
+
+\subsection{Usage with \texttt{\textbackslash{}codejps}}
+
+The syntax is \texttt{\textbackslash{}codejps\{t\_min t\_max (name\_function)
+radius\_tube [n1 n2] newtube\}}.
+
+
+\begin{LTXexample}[pos=t]
+\begin{pspicture}(-3.5,-3.5)(4,3.5)
+\psset{lightsrc=80 30 30,viewpoint=100 45 90 rtp2xyz,Decran=100,linewidth=0.2pt}
+\codejps{
+/rpn {tx@AlgToPs begin AlgToPs end cvx exec} def
+/xc {((2+1*cos(2.75*t))*cos(t)) rpn } def
+/yc {((2+1*cos(2.75*t))*sin(t)) rpn } def
+/zc {(1*sin(2.75*t)) rpn } def
+/xc' {(-2.75*sin(2.75*t)*cos(t)-(2+cos(2.75*t))*sin(t)) rpn } def
+/yc' {(-2.75*sin(2.75*t)*sin(t)+(2+cos(2.75*t))*cos(t)) rpn } def
+/zc' {(2.75*cos(2.75*t)) rpn } def
+/g { 3 dict begin /t exch def xc yc zc end } def
+/g' { % first derivative
+3 dict begin /t exch def xc' yc' zc' end } def
+/solenoide{
+% t_min t_max (name_function) radius_tube [resolution]
+   0 25.2 (g) 0.1 [360 8] newtube dup [0 1] solidputhuecolors} def
+solenoide
+drawsolid**
+}%
+\end{pspicture}
+\end{LTXexample}
+
+\subsection{Improving the speed of readout}
+
+The curve with the name ``\textit{horopter}'' is the subject of this website:
+
+\centerline{\url{http://www.mathcurve.com/courbes3d/horoptere/horoptere.shtml}}
+
+\subsubsection{Obtaining the curve directly}
+
+The following lines allow us to calculate the points and draw  the curve.
+The \Index{resolution} \texttt{\Lkeyword{ngrid}=72 12} of the curve was increased, so some
+more calculation time to produce the result, which some will judge as very long.
+\begin{verbatim}
+\begin{pspicture}(-7,-2)(7,4)
+\psset{lightsrc=80 30 30}
+\psset{viewpoint=1000 60 20 rtp2xyz,Decran=1000}
+\psframe(-7,-2)(7,4)
+\psset{solidmemory}
+\codejps{/a 2 def /b 2 def}%
+\defFunction[algebraic]{F3}(t)
+   {a*(1+cos(t))}
+   {b*tan(t/2)}
+   {a*sin(t)}
+\defFunction[algebraic]{F3'}(t)
+   {-a*sin(t)}
+   {b*(1+tan(1/2*t)^2)}
+   {a*cos(t)}
+\psSolid[object=courbe,
+   range=-2.7468 2.7468,
+   ngrid=72 12,
+   function=F3,hue=0 1 0.7 1,
+   action=none,name=H1,
+   r=1]%
+\psSolid[object=cylindrecreux,
+         h=20,r=1,RotX=90,
+         incolor=green!30,action=none,
+         name=C1,
+         ngrid=36 36](2,10,0)
+\psSolid[object=fusion,
+   base=H1 C1]
+\composeSolid
+\end{pspicture}
+\end{verbatim}
+
+\subsubsection{Saving the parameters of the curve}
+
+If this curve is used several times, it is advisable to backup all the
+characteristics of that curve, like:
+coordinates of the vertices, list of colours of the faces with placing
+the last command \texttt{\Lkeyword{action}=\Lkeyval{writesolid}}:
+\begin{verbatim}
+\psSolid[object=fusion,
+         base=H1 C1,
+         file=horoptere,
+         action=writesolid]
+\end{verbatim}
+The following sequence \Cadre{LaTeX fichier.tex->dvips->GSview
+  (Windows) or gv (Linux)} will generate 4 files:
+\begin{itemize}
+  \item \texttt{horoptere-couleurs.dat} $\rightarrow$ the colours of the faces;
+  \item \texttt{horoptere-faces.dat} $\rightarrow$ the list of faces;
+  \item \texttt{horoptere-sommets.dat} $\rightarrow$ the list of vertices;
+  \item \texttt{horoptere-io.dat} $\rightarrow$ the number of faces and vertices.
+\end{itemize}
+
+then read and execute the files with the command:
+\texttt{\textbackslash{}psSolid[object=datfile,file=horoptere]}, the time saved can be quite significant
+
+
+
+\encadre{By default, under Windows and Linux, the security of files on the hard drive is activated and doesn't allow to write on the drive.
+To deactivate that security option, more or less temporarily, here the two corresponding procedures:
+
+\begin{description}
+
+  \item[Linux:] The advice from Jean-Michel \textsc{Sarlat}: the simplest will be to use GhostScript directly, within the console. As there is no image to wait for:
+
+\$$>$ gs  -dNOSAFER  monfichier.ps quit.ps
+  \item[Windows:] Within the menue \texttt{Options}, the option
+    \textsf{Security of files} must be turned to unchecked.
+\end{description}}
+
+\subsubsection{The plot of the curve}
+
+\begin{LTXexample}[width=9cm]
+\begin{pspicture}(-5,-3.5)(4,3)
+\psset{lightsrc=80 30 30}
+\psset{viewpoint=100 60 20 rtp2xyz,
+       Decran=75}
+\psframe*[linecolor=cyan!30](-4.5,-3)(3.5,3)
+\psSolid[object=datfile,file=./horoptere]
+\end{pspicture}
+\end{LTXexample}
+
+
+\clearpage
+\subsection{Some other examples}
+
+
+\subsubsection{A straight line}
+
+\begin{LTXexample}[width=7cm]
+\begin{pspicture}(-3.5,-2)(3.5,2)
+\psset{viewpoint=100 -20 20 rtp2xyz,
+       Decran=75,unit=0.8}
+\psSolid[object=grille,base=-4 4 -4 4]%
+\defFunction[algebraic]{FIV}(t){t}{t}{0.5}
+\defFunction[algebraic]{FIV'}(t){1}{1}{0}
+\psSolid[object=courbe,
+   range=-4 4, ngrid=16 16,
+   function=FIV, r=0.5]
+\end{pspicture}
+\end{LTXexample}
+
+
+
+\subsubsection{A \Index{hypocycloid}}
+
+\begin{LTXexample}[width=7cm]
+\begin{pspicture}(-3.5,-3)(3.5,3)
+\psset{viewpoint=100 20 45 rtp2xyz,
+       Decran=75,unit=0.7}
+\psSolid[object=grille,base=-5 5 -5 5]%
+\defFunction[algebraic]{FII}(t)
+   {4*cos(t)+cos(4*t)/2}
+   {4*sin(t)-sin(4*t)/2}
+   {1}
+\defFunction[algebraic]{FII'}(t)
+   {-4*sin(t)-2*sin(4*t)}
+   {4*cos(t)-2*cos(4*t)}
+   {0}
+\psSolid[object=courbe,
+   range=0 6.28,ngrid=90 16,
+   function=FII,r=1]
+\end{pspicture}
+\end{LTXexample}
+
+\clearpage
+
+\subsubsection{The spring of Gaston}
+
+\begin{LTXexample}[width=7cm]
+\begin{pspicture}(-3.5,-4)(3.5,4.5)
+\psset{lightsrc=80 30 30,
+  viewpoint=100 20 20 rtp2xyz,Decran=50}
+\defFunction[algebraic]{FIII}(t)
+  {(t^2+3)*sin(15*t)}
+  {(t^2+3)*cos(15*t)}{2*t}
+\defFunction[algebraic]{FIII'}(t)
+  {2*t*sin(15*t)+15*(t^2+3)*cos(15*t)}
+  {2*t*cos(15*t)-15*(t^2+3)*sin(15*t)}{2}
+\psSolid[object=courbe,
+  range=-2 2,ngrid=360 6,
+  function=FIII,hue=0.2 0.3,
+  linewidth=0.1pt,r=0.2]
+\end{pspicture}
+\end{LTXexample}
+
+
+\endinput
+

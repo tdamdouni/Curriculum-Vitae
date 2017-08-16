@@ -1,0 +1,3 @@
+\ProvidesFile{textwidth.lco}%
+\@setplength{firstheadwidth}{\textwidth}
+\endinput

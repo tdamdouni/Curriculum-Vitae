@@ -1,0 +1,33 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{166.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pstricks-add}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}[showgrid=true](1,1)(5,5)
+  \psset{linecolor=red}
+  \psline{o-o}(1,1)(5,5)
+  \psLNode(1,1)(5,5){0.75}{P1}\qdisk(P1){4pt}
+  \psset{linecolor=blue}
+  \psline{o-o}(4,3)(2,5)
+  \psLNode(4,3)(2,5){-0.5}{P2}\qdisk(P2){4pt}
+\end{pspicture}
+\end{document}

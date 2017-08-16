@@ -1,0 +1,36 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-optic}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture*}(-7.5,-3)(7.5,2.5)
+ \rput(0,0){\lens[lensScale=0.6,XO=-4,nameF=F_1,nameA=A_1,nameB=B_1,
+                   nameFi=F'_1,nameAi={ },nameBi={},nameO=O_1,
+                   focus=1,OA=-2,lensGlass=true, lensWidth=0.5]}
+ \pspolygon[style=rayuresJaunes,linestyle=none](B)(I)(B')(I')(B)
+ \Transform
+ \rput(0,0){\lens[lensScale=1.2,XO=2,focus=2,nameA=A'_1,spotA=90,nameB=B'_1,spotB=270,
+                  nameO=O_2,nameAi=A'_2,spotAi=270,nameBi=B'_2,spotBi=90,nameF=F_2,
+                  nameFi=F'_2,lensTwo=true,lensGlass=true,lensWidth=0.5]}
+ \pspolygon[style=rayuresJaunes,linestyle=none](B)(I)(B')(I')(B)
+\end{pspicture*}
+\end{document}

@@ -1,0 +1,685 @@
+\documentclass[10pt,a4paper]{article}
+
+% Packages
+\usepackage{fancyhdr}           % For header and footer
+\usepackage{multicol}           % Allows multicols in tables
+\usepackage{tabularx}           % Intelligent column widths
+\usepackage{tabulary}           % Used in header and footer
+\usepackage{hhline}             % Border under tables
+\usepackage{graphicx}           % For images
+\usepackage{xcolor}             % For hex colours
+%\usepackage[utf8x]{inputenc}    % For unicode character support
+\usepackage[T1]{fontenc}        % Without this we get weird character replacements
+\usepackage{colortbl}           % For coloured tables
+\usepackage{setspace}           % For line height
+\usepackage{lastpage}           % Needed for total page number
+\usepackage{seqsplit}           % Splits long words.
+%\usepackage{opensans}          % Can't make this work so far. Shame. Would be lovely.
+\usepackage[normalem]{ulem}     % For underlining links
+% Most of the following are not required for the majority
+% of cheat sheets but are needed for some symbol support.
+\usepackage{amsmath}            % Symbols
+\usepackage{MnSymbol}           % Symbols
+\usepackage{wasysym}            % Symbols
+%\usepackage[english,german,french,spanish,italian]{babel}              % Languages
+
+% Document Info
+\author{Dave Child (DaveChild)}
+\pdfinfo{
+  /Title (python.pdf)
+  /Creator (Cheatography)
+  /Author (Dave Child (DaveChild))
+  /Subject (Python Cheat Sheet)
+}
+
+% Lengths and widths
+\addtolength{\textwidth}{6cm}
+\addtolength{\textheight}{-1cm}
+\addtolength{\hoffset}{-3cm}
+\addtolength{\voffset}{-2cm}
+\setlength{\tabcolsep}{0.2cm} % Space between columns
+\setlength{\headsep}{-12pt} % Reduce space between header and content
+\setlength{\headheight}{85pt} % If less, LaTeX automatically increases it
+\renewcommand{\footrulewidth}{0pt} % Remove footer line
+\renewcommand{\headrulewidth}{0pt} % Remove header line
+\renewcommand{\seqinsert}{\ifmmode\allowbreak\else\-\fi} % Hyphens in seqsplit
+% This two commands together give roughly
+% the right line height in the tables
+\renewcommand{\arraystretch}{1.3}
+\onehalfspacing
+
+% Commands
+\newcommand{\SetRowColor}[1]{\noalign{\gdef\RowColorName{#1}}\rowcolor{\RowColorName}} % Shortcut for row colour
+\newcommand{\mymulticolumn}[3]{\multicolumn{#1}{>{\columncolor{\RowColorName}}#2}{#3}} % For coloured multi-cols
+\newcolumntype{x}[1]{>{\raggedright}p{#1}} % New column types for ragged-right paragraph columns
+\newcommand{\tn}{\tabularnewline} % Required as custom column type in use
+
+% Font and Colours
+\definecolor{HeadBackground}{HTML}{333333}
+\definecolor{FootBackground}{HTML}{666666}
+\definecolor{TextColor}{HTML}{333333}
+\definecolor{DarkBackground}{HTML}{446785}
+\definecolor{LightBackground}{HTML}{DFE5EA}
+\renewcommand{\familydefault}{\sfdefault}
+\color{TextColor}
+
+% Header and Footer
+\pagestyle{fancy}
+\fancyhead{} % Set header to blank
+\fancyfoot{} % Set footer to blank
+\fancyhead[L]{
+\noindent
+\begin{multicols}{3}
+\begin{tabulary}{5.8cm}{C}
+    \SetRowColor{DarkBackground}
+    \vspace{-7pt}
+    {\parbox{\dimexpr\textwidth-2\fboxsep\relax}{\noindent
+        \hspace*{-6pt}\includegraphics[width=5.8cm]{/web/www.cheatography.com/public/images/cheatography_logo.pdf}}
+    }
+\end{tabulary}
+\columnbreak
+\begin{tabulary}{11cm}{L}
+    \vspace{-2pt}\large{\bf{\textcolor{DarkBackground}{\textrm{Python Cheat Sheet}}}} \\
+    \normalsize{by \textcolor{DarkBackground}{Dave Child (DaveChild)} via \textcolor{DarkBackground}{\uline{cheatography.com/1/cs/19/}}}
+\end{tabulary}
+\end{multicols}}
+
+\fancyfoot[L]{ \footnotesize
+\noindent
+\begin{multicols}{3}
+\begin{tabulary}{5.8cm}{LL}
+  \SetRowColor{FootBackground}
+  \mymulticolumn{2}{p{5.377cm}}{\bf\textcolor{white}{Cheatographer}}  \\
+  \vspace{-2pt}Dave Child (DaveChild) \\
+  \uline{cheatography.com/davechild} \\
+        \uline{\seqsplit{www}.addedbytes.com}
+  \end{tabulary}
+\vfill
+\columnbreak
+\begin{tabulary}{5.8cm}{L}
+  \SetRowColor{FootBackground}
+  \mymulticolumn{1}{p{5.377cm}}{\bf\textcolor{white}{Cheat Sheet}}  \\
+   \vspace{-2pt}Published 19th October, 2011.\\
+   Updated 24th November, 2014.\\
+   Page {\thepage} of \pageref{LastPage}.
+\end{tabulary}
+\vfill
+\columnbreak
+\begin{tabulary}{5.8cm}{L}
+  \SetRowColor{FootBackground}
+  \mymulticolumn{1}{p{5.377cm}}{\bf\textcolor{white}{Sponsor}}  \\
+  \SetRowColor{white}
+  \vspace{-5pt}
+  %\includegraphics[width=48px,height=48px]{dave.jpeg}
+  Measure your website readability!\\
+  www.readability-score.com
+\end{tabulary}
+\end{multicols}}
+
+
+
+
+\begin{document}
+\raggedright
+\raggedcolumns
+
+% Set font size to small. Switch to any value
+% from this page to resize cheat sheet text:
+% www.emerson.emory.edu/services/latex/latex_169.html
+\footnotesize % Small font.
+
+\begin{multicols*}{3}
+
+\begin{tabularx}{5.377cm}{x{2.43873 cm} x{2.53827 cm} }
+\SetRowColor{DarkBackground}
+\mymulticolumn{2}{x{5.377cm}}{\bf\textcolor{white}{Python sys Variables}}  \tn
+% Row 0
+\SetRowColor{LightBackground}
+argv & Command line args \tn 
+% Row Count 1 (+ 1)
+% Row 1
+\SetRowColor{white}
+\seqsplit{builtin\_module\_names} & Linked C modules \tn 
+% Row Count 3 (+ 2)
+% Row 2
+\SetRowColor{LightBackground}
+byteorder & Native byte order \tn 
+% Row Count 4 (+ 1)
+% Row 3
+\SetRowColor{white}
+check\_interval & Signal check frequency \tn 
+% Row Count 6 (+ 2)
+% Row 4
+\SetRowColor{LightBackground}
+exec\_prefix & Root directory \tn 
+% Row Count 7 (+ 1)
+% Row 5
+\SetRowColor{white}
+executable & Name of executable \tn 
+% Row Count 8 (+ 1)
+% Row 6
+\SetRowColor{LightBackground}
+exitfunc & Exit function name \tn 
+% Row Count 9 (+ 1)
+% Row 7
+\SetRowColor{white}
+modules & Loaded modules \tn 
+% Row Count 10 (+ 1)
+% Row 8
+\SetRowColor{LightBackground}
+path & Search path \tn 
+% Row Count 11 (+ 1)
+% Row 9
+\SetRowColor{white}
+platform & Current platform \tn 
+% Row Count 12 (+ 1)
+% Row 10
+\SetRowColor{LightBackground}
+stdin, stdout, stderr & File objects for I/O \tn 
+% Row Count 14 (+ 2)
+% Row 11
+\SetRowColor{white}
+version\_info & Python version info \tn 
+% Row Count 15 (+ 1)
+% Row 12
+\SetRowColor{LightBackground}
+winver & Version number \tn 
+% Row Count 16 (+ 1)
+\hhline{>{\arrayrulecolor{DarkBackground}}--}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+\begin{tabularx}{5.377cm}{x{3.23505 cm} p{1.74195 cm} }
+\SetRowColor{DarkBackground}
+\mymulticolumn{2}{x{5.377cm}}{\bf\textcolor{white}{Python sys.argv}}  \tn
+% Row 0
+\SetRowColor{LightBackground}
+sys.argv{[}0{]} & foo.py \tn 
+% Row Count 1 (+ 1)
+% Row 1
+\SetRowColor{white}
+sys.argv{[}1{]} & bar \tn 
+% Row Count 2 (+ 1)
+% Row 2
+\SetRowColor{LightBackground}
+sys.argv{[}2{]} & -c \tn 
+% Row Count 3 (+ 1)
+% Row 3
+\SetRowColor{white}
+sys.argv{[}3{]} & qux \tn 
+% Row Count 4 (+ 1)
+% Row 4
+\SetRowColor{LightBackground}
+sys.argv{[}4{]} & -{}-h \tn 
+% Row Count 5 (+ 1)
+\hhline{>{\arrayrulecolor{DarkBackground}}--}
+\SetRowColor{LightBackground}
+\mymulticolumn{2}{x{5.377cm}}{sys.argv for the command: \newline \$ python foo.py bar -c qux -{}-h}  \tn 
+\hhline{>{\arrayrulecolor{DarkBackground}}--}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+\begin{tabularx}{5.377cm}{x{1.34379 cm} x{3.63321 cm} }
+\SetRowColor{DarkBackground}
+\mymulticolumn{2}{x{5.377cm}}{\bf\textcolor{white}{Python os Variables}}  \tn
+% Row 0
+\SetRowColor{LightBackground}
+altsep & Alternative sep \tn 
+% Row Count 1 (+ 1)
+% Row 1
+\SetRowColor{white}
+curdir & Current dir string \tn 
+% Row Count 2 (+ 1)
+% Row 2
+\SetRowColor{LightBackground}
+defpath & Default search path \tn 
+% Row Count 3 (+ 1)
+% Row 3
+\SetRowColor{white}
+devnull & Path of null device \tn 
+% Row Count 4 (+ 1)
+% Row 4
+\SetRowColor{LightBackground}
+extsep & Extension separator \tn 
+% Row Count 5 (+ 1)
+% Row 5
+\SetRowColor{white}
+linesep & Line separator \tn 
+% Row Count 6 (+ 1)
+% Row 6
+\SetRowColor{LightBackground}
+name & Name of OS \tn 
+% Row Count 7 (+ 1)
+% Row 7
+\SetRowColor{white}
+pardir & Parent dir string \tn 
+% Row Count 8 (+ 1)
+% Row 8
+\SetRowColor{LightBackground}
+pathsep & Patch separator \tn 
+% Row Count 9 (+ 1)
+% Row 9
+\SetRowColor{white}
+sep & Path separator \tn 
+% Row Count 10 (+ 1)
+\hhline{>{\arrayrulecolor{DarkBackground}}--}
+\SetRowColor{LightBackground}
+\mymulticolumn{2}{x{5.377cm}}{Registered OS names: "posix", "nt", \newline "mac", "os2", "ce", "java", "riscos"}  \tn 
+\hhline{>{\arrayrulecolor{DarkBackground}}--}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+\begin{tabularx}{5.377cm}{x{2.53827 cm} x{2.43873 cm} }
+\SetRowColor{DarkBackground}
+\mymulticolumn{2}{x{5.377cm}}{\bf\textcolor{white}{Python Class Special Methods}}  \tn
+% Row 0
+\SetRowColor{LightBackground}
+\_\_new\_\_(cls) & \_\_lt\_\_(self, other) \tn 
+% Row Count 1 (+ 1)
+% Row 1
+\SetRowColor{white}
+\_\_init\_\_(self, args) & \_\_le\_\_(self, other) \tn 
+% Row Count 2 (+ 1)
+% Row 2
+\SetRowColor{LightBackground}
+\_\_del\_\_(self) & \_\_gt\_\_(self, other) \tn 
+% Row Count 3 (+ 1)
+% Row 3
+\SetRowColor{white}
+\_\_repr\_\_(self) & \_\_ge\_\_(self, other) \tn 
+% Row Count 4 (+ 1)
+% Row 4
+\SetRowColor{LightBackground}
+\_\_str\_\_(self) & \_\_eq\_\_(self, other) \tn 
+% Row Count 5 (+ 1)
+% Row 5
+\SetRowColor{white}
+\_\_cmp\_\_(self, other) & \_\_ne\_\_(self, other) \tn 
+% Row Count 6 (+ 1)
+% Row 6
+\SetRowColor{LightBackground}
+\_\_index\_\_(self) & \_\_nonzero\_\_(self) \tn 
+% Row Count 7 (+ 1)
+% Row 7
+\SetRowColor{white}
+\mymulticolumn{2}{x{5.377cm}}{\_\_hash\_\_(self)} \tn 
+% Row Count 8 (+ 1)
+% Row 8
+\SetRowColor{LightBackground}
+\mymulticolumn{2}{x{5.377cm}}{\_\_getattr\_\_(self, name)} \tn 
+% Row Count 9 (+ 1)
+% Row 9
+\SetRowColor{white}
+\mymulticolumn{2}{x{5.377cm}}{\seqsplit{\_\_getattribute\_\_(self}, name)} \tn 
+% Row Count 10 (+ 1)
+% Row 10
+\SetRowColor{LightBackground}
+\mymulticolumn{2}{x{5.377cm}}{\_\_setattr\_\_(self, name, attr)} \tn 
+% Row Count 11 (+ 1)
+% Row 11
+\SetRowColor{white}
+\mymulticolumn{2}{x{5.377cm}}{\_\_delattr\_\_(self, name)} \tn 
+% Row Count 12 (+ 1)
+% Row 12
+\SetRowColor{LightBackground}
+\mymulticolumn{2}{x{5.377cm}}{\_\_call\_\_(self, args, kwargs)} \tn 
+% Row Count 13 (+ 1)
+\hhline{>{\arrayrulecolor{DarkBackground}}--}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+\begin{tabularx}{5.377cm}{x{2.38896 cm} x{2.58804 cm} }
+\SetRowColor{DarkBackground}
+\mymulticolumn{2}{x{5.377cm}}{\bf\textcolor{white}{Python List Methods}}  \tn
+% Row 0
+\SetRowColor{LightBackground}
+append(item) & pop(position) \tn 
+% Row Count 1 (+ 1)
+% Row 1
+\SetRowColor{white}
+count(item) & remove(item) \tn 
+% Row Count 2 (+ 1)
+% Row 2
+\SetRowColor{LightBackground}
+extend(list) & reverse() \tn 
+% Row Count 3 (+ 1)
+% Row 3
+\SetRowColor{white}
+index(item) & sort() \tn 
+% Row Count 4 (+ 1)
+% Row 4
+\SetRowColor{LightBackground}
+\mymulticolumn{2}{x{5.377cm}}{insert(position, item)} \tn 
+% Row Count 5 (+ 1)
+\hhline{>{\arrayrulecolor{DarkBackground}}--}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+\begin{tabularx}{5.377cm}{x{2.43873 cm} x{2.53827 cm} }
+\SetRowColor{DarkBackground}
+\mymulticolumn{2}{x{5.377cm}}{\bf\textcolor{white}{Python String Methods}}  \tn
+% Row 0
+\SetRowColor{LightBackground}
+capitalize() * & lstrip() \tn 
+% Row Count 1 (+ 1)
+% Row 1
+\SetRowColor{white}
+center(width) & partition(sep) \tn 
+% Row Count 2 (+ 1)
+% Row 2
+\SetRowColor{LightBackground}
+count(sub, start, end) & replace(old, new) \tn 
+% Row Count 4 (+ 2)
+% Row 3
+\SetRowColor{white}
+decode() & rfind(sub, start ,end) \tn 
+% Row Count 6 (+ 2)
+% Row 4
+\SetRowColor{LightBackground}
+encode() & rindex(sub, start, end) \tn 
+% Row Count 8 (+ 2)
+% Row 5
+\SetRowColor{white}
+endswith(sub) & rjust(width) \tn 
+% Row Count 9 (+ 1)
+% Row 6
+\SetRowColor{LightBackground}
+expandtabs() & rpartition(sep) \tn 
+% Row Count 10 (+ 1)
+% Row 7
+\SetRowColor{white}
+find(sub, start, end) & rsplit(sep) \tn 
+% Row Count 12 (+ 2)
+% Row 8
+\SetRowColor{LightBackground}
+index(sub, start, end) & rstrip() \tn 
+% Row Count 14 (+ 2)
+% Row 9
+\SetRowColor{white}
+isalnum() * & split(sep) \tn 
+% Row Count 15 (+ 1)
+% Row 10
+\SetRowColor{LightBackground}
+isalpha() * & splitlines() \tn 
+% Row Count 16 (+ 1)
+% Row 11
+\SetRowColor{white}
+isdigit() * & startswith(sub) \tn 
+% Row Count 17 (+ 1)
+% Row 12
+\SetRowColor{LightBackground}
+islower() * & strip() \tn 
+% Row Count 18 (+ 1)
+% Row 13
+\SetRowColor{white}
+isspace() * & swapcase() * \tn 
+% Row Count 19 (+ 1)
+% Row 14
+\SetRowColor{LightBackground}
+istitle() * & title() * \tn 
+% Row Count 20 (+ 1)
+% Row 15
+\SetRowColor{white}
+isupper() * & translate(table) \tn 
+% Row Count 21 (+ 1)
+% Row 16
+\SetRowColor{LightBackground}
+join() & upper() * \tn 
+% Row Count 22 (+ 1)
+% Row 17
+\SetRowColor{white}
+ljust(width) & zfill(width) \tn 
+% Row Count 23 (+ 1)
+% Row 18
+\SetRowColor{LightBackground}
+\mymulticolumn{2}{x{5.377cm}}{lower() *} \tn 
+% Row Count 24 (+ 1)
+\hhline{>{\arrayrulecolor{DarkBackground}}--}
+\SetRowColor{LightBackground}
+\mymulticolumn{2}{x{5.377cm}}{Methods marked * are locale dependant for 8-bit strings.}  \tn 
+\hhline{>{\arrayrulecolor{DarkBackground}}--}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+\begin{tabularx}{5.377cm}{x{1.89126 cm} x{3.08574 cm} }
+\SetRowColor{DarkBackground}
+\mymulticolumn{2}{x{5.377cm}}{\bf\textcolor{white}{Python File Methods}}  \tn
+% Row 0
+\SetRowColor{LightBackground}
+close() & readlines(size) \tn 
+% Row Count 1 (+ 1)
+% Row 1
+\SetRowColor{white}
+flush() & seek(offset) \tn 
+% Row Count 2 (+ 1)
+% Row 2
+\SetRowColor{LightBackground}
+fileno() & tell() \tn 
+% Row Count 3 (+ 1)
+% Row 3
+\SetRowColor{white}
+isatty() & truncate(size) \tn 
+% Row Count 4 (+ 1)
+% Row 4
+\SetRowColor{LightBackground}
+next() & write(string) \tn 
+% Row Count 5 (+ 1)
+% Row 5
+\SetRowColor{white}
+read(size) & writelines(list) \tn 
+% Row Count 6 (+ 1)
+% Row 6
+\SetRowColor{LightBackground}
+\mymulticolumn{2}{x{5.377cm}}{readline(size)} \tn 
+% Row Count 7 (+ 1)
+\hhline{>{\arrayrulecolor{DarkBackground}}--}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+\begin{tabularx}{5.377cm}{x{1.44333 cm} x{3.53367 cm} }
+\SetRowColor{DarkBackground}
+\mymulticolumn{2}{x{5.377cm}}{\bf\textcolor{white}{Python Indexes and Slices}}  \tn
+% Row 0
+\SetRowColor{LightBackground}
+len(a) & 6 \tn 
+% Row Count 1 (+ 1)
+% Row 1
+\SetRowColor{white}
+a{[}0{]} & 0 \tn 
+% Row Count 2 (+ 1)
+% Row 2
+\SetRowColor{LightBackground}
+a{[}5{]} & 5 \tn 
+% Row Count 3 (+ 1)
+% Row 3
+\SetRowColor{white}
+a{[}-1{]} & 5 \tn 
+% Row Count 4 (+ 1)
+% Row 4
+\SetRowColor{LightBackground}
+a{[}-2{]} & 4 \tn 
+% Row Count 5 (+ 1)
+% Row 5
+\SetRowColor{white}
+a{[}1:{]} & {[}1,2,3,4,5{]} \tn 
+% Row Count 6 (+ 1)
+% Row 6
+\SetRowColor{LightBackground}
+a{[}:5{]} & {[}0,1,2,3,4{]} \tn 
+% Row Count 7 (+ 1)
+% Row 7
+\SetRowColor{white}
+a{[}:-2{]} & {[}0,1,2,3{]} \tn 
+% Row Count 8 (+ 1)
+% Row 8
+\SetRowColor{LightBackground}
+a{[}1:3{]} & {[}1,2{]} \tn 
+% Row Count 9 (+ 1)
+% Row 9
+\SetRowColor{white}
+a{[}1:-1{]} & {[}1,2,3,4{]} \tn 
+% Row Count 10 (+ 1)
+% Row 10
+\SetRowColor{LightBackground}
+b=a{[}:{]} & Shallow copy of a \tn 
+% Row Count 11 (+ 1)
+\hhline{>{\arrayrulecolor{DarkBackground}}--}
+\SetRowColor{LightBackground}
+\mymulticolumn{2}{x{5.377cm}}{Indexes and Slices of a={[}0,1,2,3,4,5{]}}  \tn 
+\hhline{>{\arrayrulecolor{DarkBackground}}--}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+\begin{tabularx}{5.377cm}{x{2.18988 cm} x{2.78712 cm} }
+\SetRowColor{DarkBackground}
+\mymulticolumn{2}{x{5.377cm}}{\bf\textcolor{white}{Python Datetime Methods}}  \tn
+% Row 0
+\SetRowColor{LightBackground}
+today() & fromordinal(ordinal) \tn 
+% Row Count 1 (+ 1)
+% Row 1
+\SetRowColor{white}
+\seqsplit{now(timezoneinfo)} & combine(date, time) \tn 
+% Row Count 2 (+ 1)
+% Row 2
+\SetRowColor{LightBackground}
+utcnow() & strptime(date, format) \tn 
+% Row Count 3 (+ 1)
+% Row 3
+\SetRowColor{white}
+\mymulticolumn{2}{x{5.377cm}}{fromtimestamp(timestamp)} \tn 
+% Row Count 4 (+ 1)
+% Row 4
+\SetRowColor{LightBackground}
+\mymulticolumn{2}{x{5.377cm}}{\seqsplit{utcfromtimestamp(timestamp)}} \tn 
+% Row Count 5 (+ 1)
+\hhline{>{\arrayrulecolor{DarkBackground}}--}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+\begin{tabularx}{5.377cm}{x{2.4885 cm} x{2.4885 cm} }
+\SetRowColor{DarkBackground}
+\mymulticolumn{2}{x{5.377cm}}{\bf\textcolor{white}{Python Time Methods}}  \tn
+% Row 0
+\SetRowColor{LightBackground}
+replace() & utcoffset() \tn 
+% Row Count 1 (+ 1)
+% Row 1
+\SetRowColor{white}
+isoformat() & dst() \tn 
+% Row Count 2 (+ 1)
+% Row 2
+\SetRowColor{LightBackground}
+\_\_str\_\_() & tzname() \tn 
+% Row Count 3 (+ 1)
+% Row 3
+\SetRowColor{white}
+\mymulticolumn{2}{x{5.377cm}}{strftime(format)} \tn 
+% Row Count 4 (+ 1)
+\hhline{>{\arrayrulecolor{DarkBackground}}--}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+\begin{tabularx}{5.377cm}{p{0.4977 cm} x{4.4793 cm} }
+\SetRowColor{DarkBackground}
+\mymulticolumn{2}{x{5.377cm}}{\bf\textcolor{white}{Python Date Formatting}}  \tn
+% Row 0
+\SetRowColor{LightBackground}
+\%a & Abbreviated weekday (Sun) \tn 
+% Row Count 1 (+ 1)
+% Row 1
+\SetRowColor{white}
+\%A & Weekday (Sunday) \tn 
+% Row Count 2 (+ 1)
+% Row 2
+\SetRowColor{LightBackground}
+\%b & Abbreviated month name (Jan) \tn 
+% Row Count 3 (+ 1)
+% Row 3
+\SetRowColor{white}
+\%B & Month name (January) \tn 
+% Row Count 4 (+ 1)
+% Row 4
+\SetRowColor{LightBackground}
+\%c & Date and time \tn 
+% Row Count 5 (+ 1)
+% Row 5
+\SetRowColor{white}
+\%d & Day (leading zeros) (01 to 31) \tn 
+% Row Count 6 (+ 1)
+% Row 6
+\SetRowColor{LightBackground}
+\%H & 24 hour (leading zeros) (00 to 23) \tn 
+% Row Count 7 (+ 1)
+% Row 7
+\SetRowColor{white}
+\%I & 12 hour (leading zeros) (01 to 12) \tn 
+% Row Count 8 (+ 1)
+% Row 8
+\SetRowColor{LightBackground}
+\%j & Day of year (001 to 366) \tn 
+% Row Count 9 (+ 1)
+% Row 9
+\SetRowColor{white}
+\%m & Month (01 to 12) \tn 
+% Row Count 10 (+ 1)
+% Row 10
+\SetRowColor{LightBackground}
+\%M & Minute (00 to 59) \tn 
+% Row Count 11 (+ 1)
+% Row 11
+\SetRowColor{white}
+\%p & AM or PM \tn 
+% Row Count 12 (+ 1)
+% Row 12
+\SetRowColor{LightBackground}
+\%S & Second (00 to 61$^{\textrm{4}}$) \tn 
+% Row Count 13 (+ 1)
+% Row 13
+\SetRowColor{white}
+\%U & Week number$^{\textrm{1}}$ (00 to 53) \tn 
+% Row Count 14 (+ 1)
+% Row 14
+\SetRowColor{LightBackground}
+\%w & Weekday$^{\textrm{2}}$ (0 to 6) \tn 
+% Row Count 15 (+ 1)
+% Row 15
+\SetRowColor{white}
+\%W & Week number$^{\textrm{3}}$ (00 to 53) \tn 
+% Row Count 16 (+ 1)
+% Row 16
+\SetRowColor{LightBackground}
+\%x & Date \tn 
+% Row Count 17 (+ 1)
+% Row 17
+\SetRowColor{white}
+\%X & Time \tn 
+% Row Count 18 (+ 1)
+% Row 18
+\SetRowColor{LightBackground}
+\%y & Year without century (00 to 99) \tn 
+% Row Count 19 (+ 1)
+% Row 19
+\SetRowColor{white}
+\%Y & Year (2008) \tn 
+% Row Count 20 (+ 1)
+% Row 20
+\SetRowColor{LightBackground}
+\%Z & Time zone (GMT) \tn 
+% Row Count 21 (+ 1)
+% Row 21
+\SetRowColor{white}
+\%\% & A literal "\%" character (\%) \tn 
+% Row Count 22 (+ 1)
+\hhline{>{\arrayrulecolor{DarkBackground}}--}
+\SetRowColor{LightBackground}
+\mymulticolumn{2}{x{5.377cm}}{$^{\textrm{1}}$ Sunday as start of week. All days in a new year preceding the first Sunday are considered to be in week 0. \newline $^{\textrm{2}}$ 0 is Sunday, 6 is Saturday. \newline $^{\textrm{3}}$ Monday as start of week. All days in a new year preceding the first Monday are considered to be in week 0. \newline $^{\textrm{4}}$ This is not a mistake. Range takes account of leap and double-leap seconds.}  \tn 
+\hhline{>{\arrayrulecolor{DarkBackground}}--}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+
+% That's all folks
+\end{multicols*}
+
+\end{document}

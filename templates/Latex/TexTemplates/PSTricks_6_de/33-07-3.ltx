@@ -1,0 +1,40 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\usepackage[utf8]{inputenc}
+\StartShownPreambleCommands
+\usepackage{pst-thick,multido}
+\def\Kreis(#1,#2)#3{% (x,y){Radius}
+ /xC #1 def  /yC #2 def  /x0 t cos #3 mul xC add def  /y0 t sin #3 mul yC add def
+ /dx t dt add cos #3 mul xC add x0 sub def /dy t dt add sin #3 mul yC add y0 sub def }
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(-4,-5)(3,5)
+\psthick[E=1,linewidth=0.1]{45}{315}{\Kreis(-1,-1){3}}
+\psthick[curveonly]{-45}{45}{\Kreis(-1,-1){3}} \psdot(-1,-1)
+\pscircle[linestyle=dashed](-1,-1){3}
+\multido{\i=-45+10}{10}{\pnode(!{ /t \i\space def /dt 1 def
+   \Kreis(-1,-1){3} /E 1 def  /ds dx dup mul dy dup mul add sqrt def
+   /dx dx ds div def /dy dy ds div def /nx E 2 div dy mul neg def % normal x
+   /ny E 2 div dx mul def % normal y
+   x0 nx add y0 ny add }){A}
+ \psdot(A) \pnode(! x0 nx sub y0 ny sub ){B}  \psdot(B) \psline(A)(B)}
+\end{pspicture}
+\end{document}

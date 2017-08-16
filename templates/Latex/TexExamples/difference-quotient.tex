@@ -1,0 +1,87 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DIFFERENCE QUOTIENT                            %
+% Author: Peter Kint                             %
+% Date: 28 dec 2009                              %
+% Using some PGF/TikZ features like              %
+%      'layer'                                   %
+%      'decorate'                                % 
+%       and the wonderful new 'spy'-feature      % 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Note: This example requires PGF > 2.0 or a recent
+% development version of PGF.
+\documentclass{article}
+\usepackage{pgf,tikz}
+%%%<
+\usepackage{verbatim}
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{5pt}%
+%%%>
+
+\begin{comment}
+:Title:  Difference quotient
+
+**Note**: Requires the development version of PGF due to the use of the spy library.
+
+\end{comment}
+
+\usepackage{pgfplots}
+\usetikzlibrary{spy}
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{decorations}
+\date{}
+\begin{document}
+\pagestyle{empty}
+%
+% declare extra background layer, (main = default)
+\pgfdeclarelayer{background layer}
+\pgfsetlayers{background layer,main}
+\definecolor{darkgray}{rgb}{0.25,0.25,0.25}
+\definecolor{lightgray}{rgb}{0.75,0.75,0.75}
+%
+\begin{tikzpicture}
+    [line cap=round,line join=round,x=2cm,y=2cm,
+     %using the 'spy' to magnify a part of the picture
+     spy using outlines={rectangle,lens={scale=3}, size=8cm, connect spies},
+     %using the decoration 'brace' (=a curly brace as path replacement)
+     decoration={brace,amplitude=2pt}]
+%main layer
+%creating the grid
+  \draw [color=lightgray,dash pattern=on 1pt off 1pt, xstep=2cm,ystep=2cm]
+                                                 (-0.1,-0.1) grid (2.3,2.3);
+%creating the ticks and xy-axis nodes
+  \draw[-latex,color=darkgray,thin] (-0.2,0) -- (2.4,0);
+   \foreach \x in {,1,2}
+   \draw[shift={(\x,0)},color=darkgray,thin] (0pt,1pt) -- (0pt,-1pt)
+                                   node[below] {\footnotesize $\x$};
+  \draw[-latex,color=darkgray] (0,-0.2) -- (0,2.6);
+      \foreach \y in {,1,2}
+      \draw[shift={(0,\y)},color=darkgray,thin] (1pt,0pt) -- (-1pt,0pt)
+                                    node[left] {\footnotesize $\y$};
+  \draw[color=black] (0pt,-8pt) node[left] {\footnotesize $0$};
+%some function
+  \draw[smooth,samples=1000,domain=0.0:2.2]
+   plot(\x,{8*\x-32.4*\x^2+53.48*\x^3-42.11*\x^4+17.594*\x^5
+                            -3.99*\x^6+0.465713*\x^7-0.0217374*\x^8});
+  \draw [blue] (0.22,0.67)--(0.58,0.42)
+         node [midway, above right]{\tiny$\frac{\Delta y}{\Delta x}$};
+  \draw [darkgray,ultra thin] (0,0.67)-- (0.22,0.67);
+  \draw [darkgray,ultra thin] (0,0.42)-- (0.58,0.42);
+  \draw [darkgray,ultra thin] (0.22,0.67)-- (0.22,0.0);
+  \draw [darkgray,ultra thin] (0.58,0.42)-- (0.58,0.0);
+%creating the curly braces with decorate
+  \draw [decorate,color=red] (0,0.42) -- (0,0.67)
+   node [midway,anchor=east,inner sep=2pt, outer sep=1pt]{\tiny$\Delta y$};
+  \draw [decorate,color=green!80!black] (0.58,0.0)--(0.22,0.0)
+   node [midway,anchor=north,inner sep=1pt, outer sep=1pt]{\tiny$\Delta x$};
+%using the 'spy' to magnify a piece of the picture
+  \spy [blue] on (0.4,0.4)
+             in node [left] at (6.5,1);
+%filling the background layer (all previous commands belong to main layer)
+  \begin{pgfonlayer}{background layer}
+   \fill[yellow!20] (-0.5,-1.5) rectangle (7,3.75);
+   \node at (1,3)[blue]{\Large$ \mathrm{Difference \, Quotient}$};
+  \end{pgfonlayer}
+\end{tikzpicture}
+\end{document}
+

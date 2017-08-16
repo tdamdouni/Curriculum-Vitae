@@ -1,0 +1,98 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\StartShownPreambleCommands
+\usepackage{pstricks,multido,array,textcomp,booktabs}
+\psset{dotscale=1.5}
+\def\Lkeyword#1{\texttt{\small#1}}
+\def\Lkeyval#1{\texttt{\small#1}}
+\def\Lcs#1{\texttt{\small\textbackslash#1}}
+\def\multiDot#1{~\multido{\nA=0+1}{3}{\psdot[dotstyle=#1](0,2pt)\kern0.8em}}
+\def\cmultiDot#1{~\multido{\nA=0+1}{3}{\psdot*[dotstyle=#1](0,2pt)\kern0.8em}}
+\StopShownPreambleCommands
+\begin{document}
+\begin{tabular}{@{}l@{\kern2em}>{\ttfamily}c>{\ttfamily}c|
+		   l@{\kern2em}>{\ttfamily}c>{\ttfamily}c@{}}\toprule
+\emph{Name} & \Lcs{psdot}    & \Lcs{psdot*} &
+\emph{Name} & \Lcs{psdot}    & \Lcs{psdot*} \\\midrule
+\Lkeyval{*}             & \multiDot{*}             & \cmultiDot{*} &%\\
+\Lkeyval{o}             & \multiDot{o}             & \cmultiDot{o}\\
+\Lkeyval{Bo}            & \multiDot{Bo}            & \cmultiDot{Bo}&%\\
+\Lkeyval{x}             & \multiDot{x}             & \cmultiDot{x}\\
+\Lkeyval{+}             & \multiDot{+}             & \cmultiDot{+}&%\\
+\Lkeyval{B+}            & \multiDot{B+}            & \cmultiDot{B+}\\
+\Lkeyval{Add}           & \multiDot{Add}           & \cmultiDot{Add}&%\\
+\Lkeyval{BoldAdd}       & \multiDot{BoldAdd}       & \cmultiDot{BoldAdd}\\
+\Lkeyval{Oplus}         & \multiDot{Oplus}         & \cmultiDot{Oplus}&%\\
+\Lkeyval{BoldOplus}     & \multiDot{BoldOplus}     & \cmultiDot{BoldOplus}\\
+\Lkeyval{SolidOplus}    & \multiDot{SolidOplus}    & \cmultiDot{SolidOplus} &
+\Lkeyval{Hexagon}       & \multiDot{Hexagon}       & \cmultiDot{Hexagon}\\
+\Lkeyval{BoldHexagon}   & \multiDot{BoldHexagon}   & \cmultiDot{BoldHexagon}&
+\Lkeyval{SolidHexagon}  & \multiDot{SolidHexagon}  & \cmultiDot{SolidHexagon}\\
+\Lkeyval{asterisk}      & \multiDot{asterisk}      & \cmultiDot{asterisk}&%\\
+\Lkeyval{Basterisk}     & \multiDot{Basterisk}     & \cmultiDot{Basterisk}\\
+\Lkeyval{Asterisk}      & \multiDot{Asterisk}      & \cmultiDot{Asterisk}&%\\
+\Lkeyval{BoldAsterisk}  & \multiDot{BoldAsterisk}  & \cmultiDot{BoldAsterisk}\\
+\Lkeyval{SolidAsterisk} & \multiDot{SolidAsterisk} & \cmultiDot{SolidAsterisk}&
+\Lkeyval{oplus}         & \multiDot{oplus}         & \cmultiDot{oplus}\\
+\Lkeyval{otimes}        & \multiDot{otimes}        & \cmultiDot{otimes}&
+\Lkeyval{Otimes}        & \multiDot{Otimes}        & \cmultiDot{Otimes}\\
+\Lkeyval{BoldOtimes}    & \multiDot{BoldOtimes}    & \cmultiDot{BoldOtimes}&
+\Lkeyval{SolidOtimes}   & \multiDot{SolidOtimes}   & \cmultiDot{SolidOtimes}\\
+\Lkeyval{Mul}           & \multiDot{Mul}           & \cmultiDot{Mul}&%\\
+\Lkeyval{BoldMul}       & \multiDot{BoldMul}       & \cmultiDot{BoldMul}\\
+\Lkeyval{|}             & \multiDot{|}             & \cmultiDot{|}&%\\
+\Lkeyval{B|}            & \multiDot{B|}            & \cmultiDot{B|}\\
+\Lkeyval{Bar}           & \multiDot{Bar}           & \cmultiDot{Bar}&%\\
+\Lkeyval{BoldBar}       & \multiDot{BoldBar}       & \cmultiDot{BoldBar}\\
+\Lkeyval{Bullet}        & \multiDot{Bullet}        & \cmultiDot{Bullet}&%\\
+\Lkeyval{Circle}        & \multiDot{Circle}        & \cmultiDot{Circle}\\
+\Lkeyval{BoldCircle}    & \multiDot{BoldCircle}    & \cmultiDot{BoldCircle}&%\\
+\Lkeyval{square}        & \multiDot{square}        & \cmultiDot{square}\\
+\Lkeyval{Bsquare}       & \multiDot{Bsquare}       & \cmultiDot{Bsquare} &
+\Lkeyval{square*}       & \multiDot{square*}       & \cmultiDot{square*}\\
+\Lkeyval{Square}        & \multiDot{Square}        & \cmultiDot{Square}&%\\
+\Lkeyval{BoldSquare}    & \multiDot{BoldSquare}    & \cmultiDot{BoldSquare}\\
+\Lkeyval{SolidSquare}   & \multiDot{SolidSquare}   & \cmultiDot{SolidSquare}&
+\Lkeyval{diamond}       & \multiDot{diamond}       & \cmultiDot{diamond}\\
+\Lkeyval{Bdiamond}      & \multiDot{Bdiamond}      & \cmultiDot{Bdiamond}&%\\
+\Lkeyval{diamond*}      & \multiDot{diamond*}      & \cmultiDot{diamond}\\
+\Lkeyval{Diamond}       & \multiDot{Diamond}       & \cmultiDot{Diamond}&%\\
+\Lkeyval{BoldDiamond}   & \multiDot{BoldDiamond}   & \cmultiDot{BoldDiamond}\\
+\Lkeyval{SolidDiamond}  & \multiDot{SolidDiamond}  & \cmultiDot{SolidDiamond}&
+\Lkeyval{triangle}      & \multiDot{triangle}      & \cmultiDot{triangle}\\
+\Lkeyval{Btriangle}     & \multiDot{Btriangle}     & \cmultiDot{Btriangle}&
+\Lkeyval{triangle*}     & \multiDot{triangle*}     & \cmultiDot{triangle*}\\
+\Lkeyval{Triangle}      & \multiDot{Triangle}      & \cmultiDot{Triangle}&%\\
+\Lkeyval{BoldTriangle}  & \multiDot{BoldTriangle}  & \cmultiDot{BoldTriangle}\\
+\Lkeyval{SolidTriangle} & \multiDot{SolidTriangle} & \cmultiDot{SolidTriangle}&
+\Lkeyval{pentagon}      & \multiDot{pentagon}      & \cmultiDot{pentagon}\\
+\Lkeyval{Bpentagon}     & \multiDot{Bpentagon}     & \cmultiDot{Bpentagon}&%\\
+\Lkeyval{pentagon*}     & \multiDot{pentagon*}     & \cmultiDot{pentagon*}\\
+\Lkeyval{Pentagon}      & \multiDot{Pentagon}      & \cmultiDot{Pentagon}&%\\
+\Lkeyval{BoldPentagon}  & \multiDot{BoldPentagon}  & \cmultiDot{BoldPentagon}\\
+\Lkeyval{SolidPentagon} & \multiDot{SolidPentagon} & \cmultiDot{SolidPentagon}&
+\Lkeyval{Hexagon}       & \multiDot{Hexagon}       & \cmultiDot{Hexagon}\\
+\Lkeyval{BoldHexagon}   & \multiDot{BoldHexagon}   & \cmultiDot{BoldHexagon}&
+\Lkeyval{SolidHexagon}  & \multiDot{SolidHexagon}  & \cmultiDot{SolidHexagon}\\
+\Lkeyval{Octogon}       & \multiDot{Octogon}       & \cmultiDot{Octogon} &
+\Lkeyval{BoldOctogon}   & \multiDot{BoldOctogon}   & \cmultiDot{BoldOctogon}\\
+\Lkeyval{SolidOctogon}  & \multiDot{SolidOctogon}  & \cmultiDot{SolidOctogon}\\\bottomrule
+\end{tabular}
+\end{document}

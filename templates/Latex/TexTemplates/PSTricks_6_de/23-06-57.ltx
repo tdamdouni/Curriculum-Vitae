@@ -1,0 +1,36 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{118.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-solides3d}
+\StopShownPreambleCommands
+\begin{document}
+\psset{viewpoint=50 -20 30 rtp2xyz,Decran=50}
+\begin{pspicture}(-1,0)(3,3)
+\psSolid[object=vecteur,args=0 0 2,
+  transform={2 mulv3d},linecolor=black,linestyle=dashed]
+\psSolid[object=vecteur,args=2 0 0,linecolor=orange]
+\psSolid[object=vecteur,args=0 2 0,linecolor=blue]
+\psSolid[object=vecteur,args=2 2 4]
+\psSolid[object=line,linestyle=dashed,
+  args= 2 2 4 2 2 0 0 2 0]
+\psSolid[object=line,linecolor=magenta,args=2 2 0 2 0 0]
+\end{pspicture}
+\end{document}

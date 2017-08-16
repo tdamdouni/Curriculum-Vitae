@@ -1,0 +1,114 @@
+\section{Curves of real-valued and \Index{parameterised functions}}
+
+\subsection{Curve of a real-valued function}
+
+The object \Lkeyword{courbe} allows us to draw a curve, where the
+name is given with the option \Lkeyword{function}. This \Index{function},
+with values in $\mathbb{R}$, has to be defined by the macro
+\verb+\defFunction+ (see the appropriate paragraph for more
+details).
+
+We can define this function either in algebraic notation, with the
+option \Lkeyword{algebraic}, or in Reverse Polish Notation (RPN),
+with variables like $(x,u,t\ldots)$, using an expression of the
+following form:
+
+
+\begin{verbatim}
+\defFunction[algebraic]{nom_fonction}(x){x*sin(x)}{}{}
+\end{verbatim}
+
+\begin{verbatim}
+\defFunction{nom_fonction}(x){x dup sin mul}{}{}
+\end{verbatim}
+
+
+\encadre{This expression needs to be included within a
+\texttt{pspicture} environment.}
+
+The limits of the variables are defined by the option
+\texttt{\Lkeyword{range}=$xmin$ $xmax$}, and the option \texttt{argument=$n$}
+defines the number of points to be plotted when drawing the \Index{curve}.
+
+\begin{LTXexample}[width=7.5cm]
+\begin{pspicture}(-3,-3)(4,3.5)%
+\psframe*[linecolor=blue!50](-3,-3)(4,3.5)
+\psset{lightsrc=50 20 20,viewpoint=50 30 15,Decran=60}
+\psset{solidmemory}
+\defFunction[algebraic]{1_sin}(x){2*sin(1/x)}{}{}
+\psSolid[object=grille,
+   base=-3 0 -3 3,
+   linewidth=0.5\pslinewidth,linecolor=gray,]
+%% definition du plan de projection
+\psSolid[object=plan,
+   definition=equation,
+   args={[1 0 0 0] 90},
+   base=-3.2 3.2 -2.2 2.2,
+   planmarks,
+   showBase,
+   name=monplan]
+\psset{plan=monplan}
+\psSolid[object=plan,
+   args=monplan,
+   linecolor=gray!40,
+   plangrid,
+   action=none]
+\psProjection[object=courbe,
+   linecolor=red,
+   range=-3 3,resolution=720,
+   function=1_sin]
+\composeSolid
+\axesIIID(4,2,2)(5,4,3)
+\end{pspicture}
+\end{LTXexample}
+
+\subsection{\Index{Parameterised curves}}
+
+The technique used here is analogous to the above, with the
+difference that the values now come from $\mathbb{R}^2$, and the
+object for the macro \Lcs{psProjection} is now \Lkeyword{courbeR2}.
+
+For example, to draw a circle of radius $3$ and centre $O$, we
+type:
+
+\begin{verbatim}
+\defFunction[algebraic]{cercle}(t){3*cos(t)}{3*sin(t)}{}
+\end{verbatim}
+
+
+Another example: \Index{Lissajous} curves.
+
+
+\begin{LTXexample}[width=7.5cm]
+\begin{pspicture}(-3,-3)(4,3.5)%
+\psframe*[linecolor=blue!50](-3,-3)(4,3.5)
+\psset{lightsrc=50 20 20,viewpoint=50 30 15,Decran=60}
+\psset{solidmemory}
+\defFunction[algebraic]{F}(t){2*sin(0.57735*t)}{2*sin(0.707*t)}{}
+\psSolid[object=grille,
+   base=-3 0 -3 3,
+   linewidth=0.5\pslinewidth,linecolor=gray,]
+%% definition du plan de projection
+\psSolid[object=plan,
+   definition=equation,
+   args={[1 0 0 0] 90},
+   base=-3.2 3.2 -2.2 2.2,
+   name=monplan,
+   planmarks,
+   showBase]
+\psset{plan=monplan}
+\psSolid[object=plan,
+   args=monplan,
+   linecolor=gray!40,
+   plangrid,
+   action=none]
+\psProjection[object=courbeR2,
+   range=-25.12 25.12,resolution=720,
+   normal=1 1 2,linecolor=red,
+   function=F]
+\composeSolid
+\axesIIID(4,2,2)(5,4,3)
+\end{pspicture}
+\end{LTXexample}
+
+\endinput 

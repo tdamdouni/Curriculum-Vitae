@@ -1,0 +1,51 @@
+% Intersecting rings
+% Author: Dominique Würtz
+% Source: http://www.nabble.com/Intersection-area-to15711124.html
+
+\documentclass{minimal}
+
+\usepackage{tikz}
+\usepackage{verbatim}
+
+\begin{comment}
+:Title: Intersecting rings
+:Tags: Clipping
+
+This example shows how to fill the intersection area of two rings. 
+The operation requires you to apply the ``even odd rule`` to the clipping path. Unfortunately
+you can not set some options directly when specifying the clipping path. You can easily solve
+this problem by putting the path inside a scope. (See Chapter 14.7 in the manual for an
+explanation)
+
+:Author: Dominique Würtz
+:Source: `pgf-users mailing list`_
+
+.. _pgf-users mailing list: http://www.nabble.com/Intersection-area-to15711124.html
+
+\end{comment}
+
+\begin{document}
+ 
+% Define the rings. Store them in macros to make things
+% more flexible. 
+\def\ringa{(-1,0) circle (2) (-1,0) circle (3)}
+\def\ringb{(1,0) circle (2) (1,0) circle (3)}
+
+\begin{tikzpicture}
+    % First we fill the intersecting area
+    % The \clip command does not allow options, therefore 
+    % we have to use a scope to set the even odd rule. 
+    \begin{scope}[even odd rule]
+        % Define a clipping path. All paths outside ringa will
+        % be cut because the even odd rule is set. 
+        \clip \ringa;
+        % Fill ringb. Since the even odd rule is set, only the
+        % ring will be filled, not the hole in the middle.  
+        \fill[fill=orange] \ringb;
+    \end{scope}
+    % Then we draw the rings
+    \draw \ringa;
+    \draw \ringb;
+\end{tikzpicture}
+
+\end{document}

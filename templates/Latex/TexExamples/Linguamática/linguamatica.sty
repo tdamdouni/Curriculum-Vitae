@@ -1,0 +1,322 @@
+%
+% linguamatica.sty
+% ----------------------------------------------------------------------
+%
+% This style is based on the style used by SEPLN.
+%   SEPLN version by P. Mart�nez-Barco y R. Mu�oz Guillena
+%   Linguam�tica version by Alberto Sim�es
+% ----------------------------------------------------------------------
+%
+
+%% check the sample.tex file for a simple example.
+
+\usepackage[left=22mm,right=18mm,top=22mm,bottom=22mm]{geometry}
+\usepackage{url}
+\usepackage{graphicx}
+\setlength\columnsep{7mm}
+
+\newlength\titlebox
+\setlength\titlebox{1.5in}
+\setlength\headheight{12pt}
+\setlength\headsep{1cm}
+\setlength\footskip{15pt}
+\setlength\parskip{2pt}
+\pagestyle{empty}         
+\thispagestyle{empty}     
+\flushbottom
+\twocolumn
+\sloppy
+
+\def\addcontentsline#1#2#3{}
+
+\newenvironment{resumo}
+{\noindent \small {\bfseries \abstractname}\\
+  \vspace{-.8em}\vspace{\z@}\hrule\vskip 3mm }
+{\normalfont} 
+
+\renewenvironment{abstract}
+{\noindent \small {\bfseries Abstract}\\
+  \vspace{-.8em}\vspace{\z@}\hrule\vskip 3mm }
+{\normalfont} 
+
+\usepackage{ifthen}
+
+\ifthenelse{\equal{\languagename}{portuges}}
+  {\def\dawords{Palavras chave}}
+  {\ifthenelse{\equal{\languagename}{spanish}}
+     {\def\dawords{Palabras clave}}
+     {\ifthenelse{\equal{\languagename}{english}}
+        {\def\dawords{Keywords}}
+        {\ifthenelse{\equal{\languagename}{basque}}
+           {\def\dawords{Gako-hitzak}}
+           {\ifthenelse{\equal{\languagename}{catalan}}
+              {\def\dawords{Paraules clau}}
+              {\ifthenelse{\equal{\languagename}{galician}}
+                 {\def\dawords{Palabras chave}}
+                 {\def\dawords{\languagename}}}}}}}
+
+\newcommand{\palavraschave}[1]{\thispagestyle{empty}
+  \par\vskip 2mm\noindent {\small {\bfseries \dawords{}}\\
+         \vspace{-.8em}\vspace{\z@}\hrule\vskip 2mm \noindent
+         #1} \par\vskip 1cm }
+
+\newcommand{\titleEN}[1]{\def\EnglishTitle{#1}}
+
+\newcommand{\keywords}[1]{\thispagestyle{empty}
+  \par\vskip 2mm\noindent {\small {\bfseries Keywords}\\
+         \vspace{-.8em}\vspace{\z@}\hrule\vskip 2mm \noindent
+         #1} \par\vskip 1cm }
+
+%\def\subsection{\@startsection {subsection}{2}{\z@}{1pt}{1pt} {\normalsize\bf}}
+
+% \newcommand{\tmpsection}[1]{}
+% \let\tmpsection=\section
+% \renewcommand{\section}[1]{\tmpsection{#1}\vskip -3mm\hrule\nobreak\vskip 2mm}
+
+% \def\section{%
+%     \@startsection{section}{1}{\z@}%
+%                   {1pt}%
+%                   {1pt}%
+%                   {\fontsize{12pt}{14pt}\bfseries \raggedright }}
+
+	
+
+\usepackage{titlesec}
+\titleformat{\section}[block]{\large\bfseries}{\thesection}{5pt}{}[\hrule]
+\titleformat{\subsection}{\bfseries}{\thesubsection}{5pt}{}
+\titleformat{\subsubsection}{\it}{\thesubsubsection}{5pt}{}
+
+% \def\subsection{%
+%     \@startsection{subsection}{2}{\z@}%
+%                   {-1.4ex plus -0.4ex minus -0.2ex}%
+%                   {0.6ex plus 0.2ex minus 0.1ex}%
+%                   {\fontsize{12pt}{14pt}\bf\raggedright}}
+% \def\subsubsection{%
+%     \@startsection{subsubsection}{3}{\z@}%
+%                   {-0.8ex plus -0.3ex minus -0.1ex}%
+%                   {0.4ex plus 0.1ex minus 0.1ex}%
+%                   {\normalsize\bf\raggedright}}
+
+% \def\paragraph{%
+%     \@startsection{paragraph}{4}{\z@}%
+%                   {-0.8ex plus -0.3ex minus -0.1ex}%
+%                   {-1em}%
+%                   {\normalsize\bf}}
+% \def\subparagraph{%
+%     \@startsection{subparagraph}{5}{\parindent}%
+%                   {0.4ex plus 0.3ex minus 0.1ex}%
+%                   {-1em}%
+%                   {\normalsize\bf}}
+
+\setlength\parindent{0.5cm}
+
+\leftmargin 2em \leftmargini\leftmargin \leftmarginii 2em
+\leftmarginiii 1.5em \leftmarginiv 1.0em \leftmarginv .5em \leftmarginvi .5em
+\labelwidth\leftmargini\advance\labelwidth-\labelsep \labelsep 5pt
+
+\renewcommand\topfraction{.9}
+\renewcommand\bottomfraction{.5}
+\renewcommand\dbltopfraction{.9}    % 2-column floats
+
+\renewcommand\textfraction{.1}
+
+\renewcommand\floatpagefraction{0.9}
+\renewcommand\dblfloatpagefraction{.9}
+
+\ifcase\@ptsize%
+    \renewcommand{\normalsize}{%                10pt
+        \@setsize\normalsize{11.3pt}\xpt\@xpt%
+        \abovedisplayskip 10\p@\@plus2\p@\@minus5\p@%
+        \abovedisplayshortskip\z@\@plus3\p@%
+        \belowdisplayshortskip 4\p@\@plus3\p@\@minus3\p@%
+        \belowdisplayskip\abovedisplayskip%
+        \let\@listi\@listI}%
+ \or%
+    \renewcommand{\normalsize}{%                11pt
+        \@setsize\normalsize{12.6pt}\xipt\@xipt%
+        \abovedisplayskip11\p@\@plus2\p@\@minus4\p@%
+        \abovedisplayshortskip\z@\@plus3\p@%
+        \belowdisplayshortskip5\p@\@plus3\p@\@minus2\p@%
+        \belowdisplayskip\abovedisplayskip%
+        \let\@listi\@listI}%
+ \or%
+    \renewcommand{\normalsize}{%                12pt
+        \@setsize\normalsize{13pt}\xiipt\@xiipt%
+        \abovedisplayskip 11\p@ \@plus3\p@ \@minus5\p@%
+        \abovedisplayshortskip \z@ \@plus3\p@%
+        \belowdisplayshortskip 5\p@ \@plus3\p@ \@minus2\p@%
+        \belowdisplayskip\abovedisplayskip%
+        \let\@listi\@listI}%
+ \fi
+
+% \small
+%
+\ifcase\@ptsize%
+    \renewcommand{\small}{%                 10pt
+        \@setsize\small{10.5pt}\ixpt\@ixpt%
+        \abovedisplayskip 8\p@ \@plus3\p@ \@minus3\p@%
+        \abovedisplayshortskip \z@ \@plus2\p@%
+        \belowdisplayshortskip 3\p@ \@plus2\p@ \@minus2\p@%
+        \belowdisplayskip\abovedisplayskip%
+        \def\@listi{\leftmargin\leftmargini%
+                    \topsep 3.5\p@ \@plus1.5\p@ \@minus1.5\p@%
+                    \parsep 1.5\p@ \@plus\p@ \@minus\p@%
+                    \itemsep \parsep}}%
+ \or%
+    \renewcommand{\small}{%                 11pt
+        \@setsize\small{11.3pt}\xpt\@xpt%
+        \abovedisplayskip 9\p@ \@plus2\p@ \@minus4\p@%
+        \abovedisplayshortskip \z@ \@plus3\p@%
+        \belowdisplayshortskip 5\p@ \@plus2.5\p@ \@minus2.5\p@%
+        \belowdisplayskip\abovedisplayskip%
+        \def\@listi{\leftmargin\leftmargini%
+                    \topsep 5\p@ \@plus2\p@ \@minus2\p@%
+                    \parsep 2\p@ \@plus2\p@ \@minus\p@%
+                    \itemsep \parsep}}%
+ \or%
+    \renewcommand{\small}{%                 12pt
+        \@setsize\small{12pt}\xipt\@xipt%
+        \abovedisplayskip 9\p@ \@plus3\p@ \@minus4\p@%
+        \abovedisplayshortskip \z@ \@plus3\p@%
+        \belowdisplayshortskip 5\p@ \@plus2.5\p@ \@minus2\p@%
+        \belowdisplayskip\abovedisplayskip%
+        \def\@listi{\leftmargin\leftmargini%
+                    \topsep 5.5\p@ \@plus2.5\p@ \@minus2.5\p@%
+                    \parsep 4\p@ \@plus1.5\p@ \@minus\p@%
+                    \itemsep \parsep}}%
+ \fi
+
+
+% \footnotesize
+%
+\ifcase\@ptsize
+    \renewcommand{\footnotesize}{%              10pt
+        \@setsize\footnotesize{9.3pt}\viiipt\@viiipt%
+        \abovedisplayskip 5\p@ \@plus2\p@ \@minus3\p@%
+        \abovedisplayshortskip \z@ \@plus\p@%
+        \belowdisplayshortskip 2.5\p@\@plus\p@\@minus2\p@%
+        \belowdisplayskip\abovedisplayskip%
+        \def\@listi{\leftmargin\leftmargini%
+                    \topsep 2.5\p@ \@plus\p@ \@minus\p@%
+                    \parsep 1.5\p@ \@plus\p@ \@minus\p@%
+                    \itemsep \parsep}}%
+ \or%
+    \renewcommand{\footnotesize}{%              11pt
+        \@setsize\footnotesize{10.3pt}\ixpt\@ixpt%
+        \abovedisplayskip 7\p@ \@plus2\p@ \@minus4\p@%
+        \abovedisplayshortskip \z@ \@plus\p@%
+        \belowdisplayshortskip 3\p@ \@plus2\p@ \@minus2\p@%
+        \belowdisplayskip\abovedisplayskip%
+        \def\@listi{\leftmargin\leftmargini%
+                    \topsep 3\p@ \@plus2\p@ \@minus2\p@%
+                    \parsep 2\p@ \@plus\p@ \@minus\p@%
+                    \itemsep \parsep}}%
+ \or%
+    \renewcommand{\footnotesize}{%              12pt
+        \@setsize\footnotesize{11pt}\xpt\@xpt%
+        \abovedisplayskip 9\p@ \@plus2\p@ \@minus4\p@%
+        \abovedisplayshortskip \z@ \@plus3\p@%
+        \belowdisplayshortskip 5\p@ \@plus3\p@ \@minus3\p@%
+        \belowdisplayskip\abovedisplayskip%
+        \def\@listi{\leftmargin\leftmargini%
+                    \topsep 4.5\p@ \@plus2\p@ \@minus2\p@%
+                    \parsep 3\p@ \@plus\p@ \@minus\p@%
+                    \itemsep \parsep}}%
+ \fi
+
+
+% \large
+%
+\ifcase\@ptsize%
+    \renewcommand{\large}{\@setsize\large{13pt}\xiipt\@xiipt}%  10pt
+ \or%
+    \renewcommand{\large}{\@setsize\large{13pt}\xiipt\@xiipt}%  11pt
+ \or%
+    \renewcommand{\large}{\@setsize\large{16pt}\xivpt\@xivpt}%  12pt
+ \fi
+
+% \Large
+%
+\ifcase\@ptsize%
+    \renewcommand{\Large}{\@setsize\Large{16pt}\xivpt\@xivpt}%  10pt
+ \or%
+    \renewcommand{\Large}{\@setsize\Large{16pt}\xivpt\@xivpt}%  11pt
+ \or%
+    \renewcommand{\Large}{\@setsize\Large{16pt}\xivpt\@xivpt}%  12pt
+ \fi
+
+
+%
+% Separaciones
+%
+\ifcase\@ptsize%
+    \setlength\floatsep{10\p@ \@plus 2\p@ \@minus 2\p@}%    10pt
+    \setlength\textfloatsep{16\p@ \@plus 2\p@ \@minus 4\p@}%
+    \setlength\intextsep{10\p@ \@plus 2\p@ \@minus 2\p@}%
+    \setlength\dblfloatsep{10\p@ \@plus 2\p@ \@minus 2\p@}%
+    \setlength\dbltextfloatsep{16\p@ \@plus 2\p@ \@minus 4\p@}%
+ \or%
+    \setlength\floatsep{10\p@ \@plus 2\p@ \@minus 2\p@}%    11pt
+    \setlength\textfloatsep{16\p@ \@plus 2\p@ \@minus 4\p@}%
+    \setlength\intextsep{10\p@ \@plus 2\p@ \@minus 2\p@}%
+    \setlength\dblfloatsep{10\p@ \@plus 2\p@ \@minus 2\p@}%
+    \setlength\dbltextfloatsep{16\p@ \@plus 2\p@ \@minus 4\p@}%
+ \or%
+    \setlength\floatsep{12\p@ \@plus 3\p@ \@minus 3\p@}%    12pt
+    \setlength\textfloatsep{18\p@ \@plus 2\p@ \@minus 4\p@}%
+    \setlength\intextsep{12\p@ \@plus 3\p@ \@minus 3\p@}%
+    \setlength\dblfloatsep{12\p@ \@plus 2\p@ \@minus 4\p@}%
+    \setlength\dbltextfloatsep{18\p@ \@plus 2\p@ \@minus 4\p@}%
+ \fi
+
+%
+% M�ximo nivel texto \normalsize
+%
+\ifcase\@ptsize%
+    \def\@listi{\leftmargin\leftmargini%            10pt
+                \topsep  6\p@ \@plus2\p@ \@minus2\p@%
+                \parsep  2\p@ \@plus0.5\p@ \@minus\p@%
+                \itemsep 2.5\p@ \@plus\p@ \@minus0.5\p@}%
+ \or%
+    \def\@listi{\leftmargin\leftmargini%            11pt
+                \topsep  8\p@ \@plus2\p@ \@minus2\p@%
+                \parsep  3\p@ \@plus1.5\p@ \@minus\p@%
+                \itemsep 3\p@ \@plus1.5\p@ \@minus\p@}%
+ \or%
+    \def\@listi{\leftmargin\leftmargini%            12pt
+                \topsep  9\p@ \@plus3\p@   \@minus4\p@%
+                \parsep  4\p@  \@plus2\p@ \@minus\p@%
+                \itemsep 4\p@  \@plus2\p@ \@minus\p@}%
+ \fi
+\let\@listI\@listi
+
+\newcommand{\email}[1]{\small\url{#1}}
+\newcommand{\instituto}[1]{\\ \small #1  \\}
+\def\nl{\\\small}
+\newcommand{\institute}[1]{\\ {\small #1  } \\}
+\newcommand{\linguamatica}{{\bf Lingua}{\sc m\'{a}tica}}
+
+\def\and{%                  % \begin{tabular}
+  \end{tabular}%
+  \hskip 1em \@plus.17fil%
+  \begin{tabular}[t]{c}}%   % \end{tabular}
+
+\def\@maketitle{%
+  \newpage
+  \null
+  \vskip 2em%
+  \begin{center}%
+  \let \footnote \thanks
+    {\LARGE \@title}\\[2mm]%
+    {\small \bf \EnglishTitle}%
+    \vskip 1.5em%
+    {\large
+      \lineskip .5em%
+      \begin{tabular}[t]{c}%
+        \@author
+      \end{tabular}\par}%
+    \vskip 1em%
+    {\large \@date}%
+  \end{center}%
+  \par
+  \vskip 1.5em}

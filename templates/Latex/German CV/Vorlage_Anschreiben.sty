@@ -1,0 +1,112 @@
+\ProvidesPackage{Vorlage_Anschreiben}
+
+\LetterOptionNeedsPapersize{DIN}{a4}
+
+% ============ Packages ============
+\RequirePackage{GemeinsameDaten}
+%\RequirePackage[utf8]{inputenc}
+\RequirePackage[ngerman=ngerman-x-latest]{hyphsubst}
+\RequirePackage[ngerman]{babel}% deutsch
+\RequirePackage{graphicx,
+	verbatim,% Kommentare
+	calc}
+\RequirePackage{marvosym}	% Tel. Symbole
+	
+
+\RequirePackage{xcolor}
+\RequirePackage{picture,eso-pic,etoolbox,tikz}
+	
+% ============ Koma Optionen ============
+%\KOMAoption{Option }{Werteliste }
+\KOMAoptions{
+	 BCOR=0mm			% Keine Bindekorrektur
+	%,draft=on			% Entwurfsstadium
+	,fontsize=12pt		% Schriftgr. 12 std. bis 10 ok.
+	,foldmarks=false	% Keine Faltmarken
+	,enlargefirstpage=true	% optionale vergroesserung des Txt Bereichs d. 1 Seite
+	,firstfoot=true		% Briefbogenfuss gesetzt? Mit enlargefirstpage verbandelt.
+	,firsthead=true		% Briefkopf an/aus. Def:an
+	,fromalign=right	% Absender rechts statt links. S.171
+	,fromrule=aftername	% Linie unter Absendername . S.171
+	%,locfield=wide		% Breite des Feldes für die Absenderergänzung narrow | wide
+	%% S.182
+	,addrfield=true			% Anschrift mit Rücksendeadresse
+	,backaddress=off		% Rücksendeadresse, oder "plain"
+%	,fromphone=true
+%	,fromfax=false
+%	,fromemail=true
+	,fromurl=false
+	,refline=narrow
+	%,headsepline=on%%         Line below the page number
+	,parskip=full%%           Space between paragraphs (groesser) Abstand der Absätze (
+	%(half = halbe Zeile, full = ganze Zeile, false = keine leerzeile)
+	%,fromrule=off%%           Line below the sender's area (aftername, afteraddress)
+}
+
+% ============ Daten Abgleich ============
+\setkomavar{backaddressseparator} {\ \strut\textcolor{color1}%
+%{\Neutral} }
+{ $\bullet$ }}
+
+\setkomavar{fromaddress}{\addresse}
+\newkomavar[Mobil]{mobilphone}
+\setkomavar{mobilphone}[]{\mobilNr}
+\setkomavar{fromphone}[]{\festnetzNr}
+
+
+\setkomavar{fromfax}[]{\faxNr}
+\setkomavar{fromemail}[]{\myEmail}
+\setkomavar{place}[BezeichnungPlace]{\wohnort}
+\setkomavar{fromname}{\vorname \ \nachname} % Opt. zwischen Args {}[Bez]
+
+\setkomafont{subject}{\normalcolor\fontseries{sb}\selectfont}
+
+% ============ Style ============
+
+
+\setkomavar{placeseparator}[]{, den }
+\setkomavar{enclseparator}[Anlagen]{} %Umbenennung, kein :
+
+% ------------ Kopf ------------
+\@setplength{firstheadvpos}{19mm} %Anfang header
+\setkomavar{firsthead}{%
+	\anschriftKopfZeile%
+}	
+% ------------ Fuss ------------
+\setkomavar{firstfoot}{\fussLinie{}{0mm}}
+\@setplength{firstfootvpos}{\paperheight-\fussAbstand}% 297-22.5 = 274.5 | org %{274.9mm}
+
+
+
+
+% ============ Abstaende KOMA ============
+%\@setplength{toaddrvpos}{32mm}	%Absenderzeile im Briefsichtfenster richten fuer DINmtext
+
+% ============ Notizen ============
+% Variablen  scrlttr2.				 		| Kap. 4.1 	S.145
+%	\setkomafont{Element }{Befehle }	| Kap. 3		S. 56
+% Fonts von Briefen							| Kap 4.9	S.164
+% \KOMAoption{subject}{left} 			|			 	S.191
+% \setkomavar{title}[]{Bewerbung }	| 				S.190
+% - Unterschrift / alt -
+%\renewcommand{\unterschrift}{\includegraphics[scale=0.15]{\unterschriftBild}}
+%\@setplength{sigbeforevskip}{-15pt}	% {0\baselineskip} 	% Abstand Grussfloskel Unterschrift
+%\setkomavar{signature}[]{ % siehe auch format.lco
+%	\unterschrift%\\					% use \raisebox?
+%	%\vspace{-0.4cm}\scriptsize
+%	%\usekomavar{fromname}
+%} 	% S.201
+
+% ============ TEMP ============
+%\setlength{\textheight}{700pt}
+%\\ \the\textheight	\\%635.5pt
+%\the\footskip	%50.75
+
+% ============ Fin ============
+\AtEndPreamble{
+	\recalctypearea	% Satzspiegel und Rändern neu berechnen
+	%\the\useplength{refvpos} % >> 229.04468pt			\@addtoplength{refvpos}{0}  	\@setplength{refvpos}{229pt}
+	%\@setplength{subjectaftervskip}{\baselineskip} %subjectaftervskip >>  29pt
+	%\setlength{\footskip}{-8pt} % -30pt Anlagen anpassen
+	%\setlength{\footskip}{0pt}
+}

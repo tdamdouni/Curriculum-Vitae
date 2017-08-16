@@ -1,0 +1,204 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2008 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage[dvipsnames,svgnames]{pstricks}
+\usepackage{pst-circ,graphicx}
+\StopShownPreambleCommands
+\begin{document}
+\resizebox{\linewidth}{!}{%
+\begin{pspicture}(0,-3.5)(29.25,11)
+  \rput[r](1.9,8){70/140MHz}
+  \pnode(2,8){N1}
+  \pnode(4,8){N2}
+  \amplifier[fillstyle=solid,fillcolor=Thistle,inputarrow=true](N1)(N2){IF~Amp}
+%
+  \pnode(6,8){N3}
+  \pnode(5,7){D1}
+  \mixer(N2)(N3)(D1){}{}
+%
+  \pnode(5,5){D2}
+  \amplifier[fillstyle=solid,fillcolor=CornflowerBlue,labeloffset=-1.5](D2)(D1){L-Band Buffers}
+  \pnode(3,5){D3}
+  \amplifier[fillstyle=solid,fillcolor=CornflowerBlue](D3)(D2){}
+  \pnode(2,5){D4}
+  \oscillator[output=right](D4){VCO}{fillstyle=solid,fillcolor=Orange}
+  \psframe(1.25,3)(2.75,5.75)
+  \rput[b](2,3.1){\large\textbf{L-band}}
+  \pnode(5,3){D5}
+  \amplifier[fillstyle=solid,fillcolor=CornflowerBlue](D2)(D5){}
+%
+  \pnode(2,2){R1}
+  \pnode(4,2){R2}
+  \amplifier[fillstyle=solid,fillcolor=Thistle](R2)(R1){IF~Amp}
+  \rput[r](1.9,2){70/140MHz}
+  \pnode(6,2){R3}
+  \filter(R3)(R2){}
+  \pnode(8,2){R4}
+  \pnode(7,3){D6}
+  \mixer[tripolestyle=top](R3)(R4)(D6){}{}
+  \ncline{D5}{D6}
+%
+  \pnode(8,8){N4}
+  \filter(N3)(N4){}
+  \pnode(10,8){N5}
+  \amplifier[fillstyle=solid,fillcolor=NavyBlue](N4)(N5){L-band Amp}
+  \pnode(12,8){N6}
+  \resistor[unit=0.5,dipolestyle=zigzag,variable=true,labeloffset=-0.8](N5)(N6){RF Atten}
+  \pnode(11,8){U0}
+%
+  \pnode(14,8){N7}
+  \amplifier[fillstyle=solid,fillcolor=NavyBlue](N6)(N7){}
+  \pnode(16,8){N8}
+  \pnode(15,7){D7}
+  \mixer(N7)(N8)(D7){Mixer}{fillstyle=solid,fillcolor=BurntOrange}
+  \pnode(18,8){N9}
+  \filter(N8)(N9){}
+  \pnode(20,8){N10}
+  \amplifier[fillstyle=solid,fillcolor=NavyBlue,labeloffset=-0.8](N9)(N10){L-band Amp}
+  \pnode(22,8){N11}
+  \pnode(21,7){X1}
+  \mixer(N10)(N11)(X1){Mixer}{fillstyle=solid,fillcolor=BurntOrange}
+  \pnode(24,8){N12}
+  \filter(N11)(N12){}
+  \pnode(26,8){N13}
+  \amplifier[fillstyle=solid,fillcolor=RubineRed,labeloffset=-0.8](N12)(N13){Ku-band Amp}
+%
+  \pnode(18,10){U2}
+  \pnode(20,10){U3}
+  \detector[fillstyle=solid,fillcolor=NavyBlue,dipoleinput=right](U2)(U3){Det L-Band}
+  \pnode(11,10){U1}
+  \ncline{U2}{U1}
+  \ncline{U1}{U0}
+  \pnode(24,10){U4}
+  \pnode(26,10){U5}
+  \detector[fillstyle=solid,fillcolor=RubineRed,dipoleinput=right](U4)(U5){Det Ku-Band}
+  \ncline{U4}{U3}
+  \ncline{U5}{N13}
+%
+  \pnode(15,5){D8}
+  \amplifier[fillstyle=solid,fillcolor=CornflowerBlue,labeloffset=-1.5](D8)(D7){L-Band Buffers}
+  \pnode(13,5){D9}
+  \amplifier[fillstyle=solid,fillcolor=CornflowerBlue](D9)(D8){}
+  \pnode(13,4){D10}
+  \ncline{D9}{D10}
+  \pnode(11,4){D11}
+  \vco[fillstyle=solid,fillcolor=Orange](D11)(D10){VCO}
+  \rput(10,4){\rnode{D12}{\psframebox{\textbf{PLL}}}}
+  \ncline{D11}{D12}
+  \pnode(10,6){D13}
+  \ncline{D12}{D13}
+  \pnode(11,6){D14}
+  \ncline{D13}{D14}
+  \pnode(13,6){D15}
+  \freqmult[fillstyle=solid,fillcolor=Goldenrod,dipolestyle=divider](D14)(D15){Prescaler}
+  \ncline{D15}{D9}
+  \psframe(9.5,3.25)(13.1,7)
+  \rput[tl](9.7,6.8){\large\textbf{L-Band}}
+%
+  \pnode(10,2){R5}
+  \amplifier[fillstyle=solid,fillcolor=NavyBlue](R5)(R4){L-band Amp}
+  \pnode(12,2){R6}
+  \resistor[unit=0.5,dipolestyle=zigzag,variable=true,labeloffset=-0.8](R5)(R6){RF Atten}
+  \pnode(14,2){R7}
+  \amplifier[fillstyle=solid,fillcolor=NavyBlue](R7)(R6){L-band Amp}
+  \pnode(16,2){R8}
+  \filter(R8)(R7){}
+  \pnode(18,2){R9}
+  \pnode(17,3){D17}
+  \mixer[tripolestyle=top](R8)(R9)(D17){Mixer}{fillstyle=solid,fillcolor=BurntOrange}
+%
+  \pnode(15,3){D16}
+  \amplifier[fillstyle=solid,fillcolor=CornflowerBlue](D8)(D16){}
+  \ncline{D16}{D17}
+%
+  \pnode(20,2){R10}
+  \amplifier[fillstyle=solid,fillcolor=NavyBlue](R10)(R9){L-band Amp}
+  \pnode(22,2){R11}
+  \amplifier[fillstyle=solid,fillcolor=NavyBlue](R11)(R10){L-band Amp}
+  \pnode(24,2){R12}
+  \filter(R12)(R11){}
+  \pnode(26,2){R13}
+  \pnode(25,1){R15}
+  \mixer(R12)(R13)(R15){Mixer}{fillstyle=solid,fillcolor=BurntOrange}
+  \pnode(28,2){R14}
+  \amplifier[fillstyle=solid,fillcolor=Purple](R14)(R13){Ku-band LNA}
+%
+  \pnode(25,-1){R16}
+  \amplifier[fillstyle=solid,fillcolor=OliveGreen,labeloffset=-1.6](R16)(R15){Ku-band Buffers}
+  \pnode(24,-1){R17}
+  \ncline{R16}{R17}
+  \pnode(24,-2){R18}
+  \ncline{R17}{R18}
+  \pnode(22,-2){R19}
+  \vco[fillstyle=solid,fillcolor=Red](R18)(R19){Ku-band}
+  \rput(21,-2){\rnode{R20}{\psframebox{\textbf{PLL}}}}
+  \ncline{R19}{R20}
+  \pnode(21,0){R21}
+  \ncline{R20}{R21}
+  \pnode(22,0){R22}
+  \ncline{R21}{R22}
+  \pnode(24,0){R23}
+  \freqmult[fillstyle=solid,fillcolor=Goldenrod,dipolestyle=divider](R22)(R23){Prescaler}
+  \ncline{R23}{R17}
+  \psframe(18,-3)(28.5,3)
+  \rput[br](28,-2.75){\large\textbf{LNB}}
+  \rput[bl](18,3.1){%
+    \begin{tabular}{l}
+    \textbf{950-1540 MHz}\\
+    \textbf{900-1700 MHz}
+    \end{tabular}}
+  \cnode(29,2){.1}{S2}
+  \ncline{R14}{S2}
+%
+  \pnode(21,5.5){X2}
+  \ncline{X1}{X2}
+  \pnode(24,5.5){X3}
+  \amplifier[fillstyle=solid,fillcolor=OliveGreen](X3)(X2){Ku-band Buffers}
+  \pnode(24,6.25){X4}
+  \ncline{X3}{X4}
+  \pnode(26,6.25){X5}
+  \freqmult[fillstyle=solid,fillcolor=Goldenrod,dipolestyle=divider,labeloffset=-0.7](X4)(X5){Prescaler}
+  \pnode(27,6.25){X6}
+  \ncline{X5}{X6}
+  \rput(27,4.75){\rnode{X7}{\psframebox{\textbf{PLL}}}}
+  \ncline{X6}{X7}
+  \pnode(26,4.75){X8}
+  \ncline{X7}{X8}
+  \pnode(24,4.75){X9}
+  \vco[fillstyle=solid,fillcolor=Red](X8)(X9){Ku-band}
+  \ncline{X9}{X3}
+  \psframe(23.75,3.25)(28.5,7)
+  \rput[br](28,3.5){\large\textbf{Ku-band}}
+%
+  \pnode(28.5,8){N14}
+  \amplifier[fillstyle=solid,fillcolor=RubineRed](N13)(N14){}
+  \cnode(29,8){.1}{S1}
+  \ncline{N14}{S1}
+  \psframe(26.25,7.25)(28.5,10)
+  \rput[t](27.375,9.75){\large \textbf{SSPA}}
+%
+  \rput[lt](2,0){\large%
+    \begin{tabular}{l}
+        \textbf{Tx/GHz: 13.75-14.00, 14.00-14.50}\\
+        \textbf{Rx/GHz: 10.95-11.70, 11.20-11.70, 11.70-12.20, 12.25-12.75}
+    \end{tabular}}
+\end{pspicture}}
+\end{document}

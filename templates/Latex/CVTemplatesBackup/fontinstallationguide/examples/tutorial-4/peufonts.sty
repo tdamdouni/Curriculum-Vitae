@@ -1,0 +1,22 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{peufonts}[2002/10/25 v1.0 Adobe Euro Fonts]
+\RequirePackage{textcomp}
+
+\DeclareRobustCommand{\eurrm}{{%
+  \fontencoding{U}\fontfamily{peu}\selectfont\char 128}}
+\DeclareRobustCommand{\eursf}{{%
+  \fontencoding{U}\fontfamily{peus}\selectfont\char 128}}
+\DeclareRobustCommand{\eurtt}{{%
+  \fontencoding{U}\fontfamily{peut}\selectfont\char 128}}
+
+\DeclareOption{serif}{\def\eur{\eurrm}}
+\DeclareOption{sans}{\def\eur{\eursf}}
+\DeclareOption{mono}{\def\eur{\eurtt}}
+\DeclareOption{textcomp}{%
+  \PackageInfo{peufonts}{Hijacking '\string\texteuro'}%
+  \def\texteuro{\eur}}
+
+\ExecuteOptions{sans}
+\ProcessOptions*
+
+\endinput

@@ -1,0 +1,202 @@
+\section{Definition of grating}
+
+The user can specify the \Index{grating} of the solid with the option
+\Lkeyword{ngrid} within the command \Lcs{psSolid}.
+
+For the objects
+\Lkeyval{cube},
+\Lkeyval{prisme},
+\Lkeyval{prismecreux},
+the syntax is \Lkeyword{ngrid}=$n_1$ where $n_1$ represents the number of vertical \Index{gridlines}.
+
+For the objects
+\Lkeyval{cylindre},
+\Lkeyval{cylindrecreux},
+\Lkeyval{cone},
+\Lkeyval{conecreux},
+\Lkeyval{tronccone},
+\Lkeyval{troncconecreux},
+%%\verb+tore+,
+the syntax is \texttt{\Lkeyword{ngrid}=$n_1$~$n_2$} where $n_1$ is an integer greater or equal
+to  1 ($2$ for \Lkeyval{tore}) representing the number of the vertical gridlines, and $n_2$ is an integer
+representing the number of divisions on the circle.
+
+For the object
+\Lkeyval{sphere},
+the syntax is \texttt{\Lkeyword{ngrid}=$n_1$~$n_2$} where $n_1$ is an integer, representing the number of divisions on the vertical axis, and
+$n_2$ is an integer representing the number of divisions on the circle
+horizontally.
+
+For the object
+\Lkeyval{tore},
+the syntax is \texttt{\Lkeyword{ngrid}=$n_1$~$n_2$} where $n_1$ and $n_2$
+are integers.
+
+Here are some examples:
+
+\subsection{The cube}
+
+\begin{center}
+\psset{unit=0.4}
+\begin{pspicture}(-7,-7)(7,7)
+%\psframe(-7,-7)(7,7)
+\psset[pst-solides3d]{viewpoint=50 40 20,Decran=50,lightsrc=10 10 10}
+\psSolid[a=8,object=cube,ngrid=4,fillcolor=yellow]%
+%\psSolid[a=8,object=cube,linewidth=2pt,action=draw]%
+\psPoint(0,0,0){O}
+%\uput[r](O){$O$}
+\psPoint(0,0,4){Ak}
+\psPoint(0,0,8){Az}
+\uput[u](Az){$z$}
+\psPoint(4,0,0){Ai}
+\psPoint(8,0,0){Ax}
+\uput[u](Ax){$x$}
+\psPoint(0,4,0){Aj}
+\psPoint(0,8,0){Ay}
+\uput[dr](Ay){$y$}
+\psPoint(4,-4,0){A1}
+\psPoint(4,4,0){A2}
+\psPoint(-4,4,0){A3}
+\psPoint(-4,-4,0){A4}
+\uput[dr](Ay){$y$}
+%\psline[linestyle=dashed](O)(Ai)
+%\psline[linestyle=dashed](O)(Aj)
+%\psline[linestyle=dashed](O)(Ak)
+\psline[linecolor=green,arrowsize=2mm,arrowinset=0.2]{->}(Aj)(Ay)
+\psline[linecolor=blue,arrowsize=2mm,arrowinset=0.2]{->}(Ai)(Ax)
+\psline[linecolor=red,arrowsize=2mm,arrowinset=0.2]{->}(Ak)(Az)
+\psdot[linecolor=green](Aj)
+\psdot[linecolor=blue](Ai)
+\psdot[linecolor=red](Ak)
+\end{pspicture}
+\hfill
+\begin{pspicture}(-7,-7)(7,7)
+%\psframe(-7,-7)(7,7)
+\psset[pst-solides3d]{viewpoint=50 45 10 rtp2xyz,Decran=40,lightsrc=30 45 0}
+\psSolid[a=8,object=cube,ngrid=3,fcol=\colorfaces,RotY=45,RotX=30,RotZ=20]%
+\end{pspicture}
+\end{center}
+
+
+For the first example, the grid is fixed to $4\times4$
+facettes/faces and the command is the following:
+\begin{verbatim}
+\psSolid[a=8,object=cube,ngrid=4,fillcolor=yellow]%
+\end{verbatim}
+In the second example, the face grid is set to $3\times3$
+and the colours of the faces are different.
+We use the package
+\texttt{arrayjob} to easily save the colours:
+\begin{verbatim}
+\newarray\colors
+\readarray{colors}{%
+    Apricot&Aquamarine%
+    etc.}
+\end{verbatim}
+The list of the colours is given by the command:
+\begin{verbatim}
+\edef\colorfaces{}%
+\multido{\i=0+1}{67}{%
+    \checkcolors(\i)
+    \xdef\colorfaces{%
+    \colorfaces\i\space(\cachedata)\space}
+     }
+\end{verbatim}
+One sets up:~\Lkeyword{fcol}\verb+=\colorfaces+.
+The gridded cube now is called with:
+\begin{verbatim}
+\psSolid[a=8,object=cube,ngrid=3,%
+        fcol=\colorfaces,
+        RotY=45,RotX=30,RotZ=20]%
+\end{verbatim}
+The option \Lkeyword{grid} suppresses the drawing of the gridlines.
+
+
+\subsection{Sphere}
+
+\begin{LTXexample}[width=6cm]
+\begin{pspicture}(-3,-3)(3,3)
+\psset{viewpoint=50 50 20 rtp2xyz,Decran=50,lightsrc=viewpoint}
+\psset{color1=cyan,color2=red}
+\psSolid[
+   fcol=251 (OliveGreen) 232 (color1) 214 (color2),
+   object=sphere,
+   ngrid=16 18,
+   RotX=180,RotZ=30]%
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=6cm]
+\begin{pspicture}(-3,-3)(3,3)
+\psset{viewpoint=50 50 20 rtp2xyz,Decran=50,lightsrc=viewpoint}
+\psset{color1=cyan,color2=red}
+\psSolid[
+   action=draw*,
+   fcol=0 (OliveGreen) 2 (color1) 3 (color2),
+   object=sphere,
+   ngrid=4 4,
+   RotX=180,RotZ=30]%
+\end{pspicture}
+\end{LTXexample}
+
+\subsection{Cylinders}
+
+\begin{LTXexample}[width=6cm]
+
+\begin{pspicture}(-3,-4)(3,4)
+\psset{viewpoint=50 50 20 rtp2xyz,Decran=50,lightsrc=viewpoint}
+\psset{color1=cyan,color2=red}
+\psSolid[
+   fcol=0 (OliveGreen) 2 (color1) 3 (color2),
+   h=5,r=2,
+   object=cylindrecreux,
+   ngrid=4 30,
+   RotZ=30
+](0,0,-2.5)
+\end{pspicture}
+\end{LTXexample}
+%
+\begin{LTXexample}[width=7cm]
+\begin{pspicture}(-3,-4)(4,4)
+\psset{viewpoint=50 50 20 rtp2xyz,Decran=50,lightsrc=viewpoint}
+\psset{color1=cyan,color2=red}
+\psSolid[
+   action=draw*,
+   fcol=0 (OliveGreen) 2 (color1) 3 (color2),
+   h=5,r=2,
+   object=cylindre,
+   ngrid=2 12,
+   RotY=-20
+](0,0,-2.5)
+\end{pspicture}
+\end{LTXexample}
+
+
+
+\subsection{Torus}
+
+\begin{LTXexample}[width=6cm]
+\begin{pspicture}(-3,-2)(3,2)
+\psset{viewpoint=50 50 30 rtp2xyz,Decran=25,lightsrc=viewpoint}
+\psSolid[r1=2.5,r0=1.5,
+    object=tore,
+    ngrid=4 36,
+    fillcolor=green!30,
+    action=draw**]%
+\axesIIID(4,4,0)(5,5,4)
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=6cm]
+\begin{pspicture}(-3,-2)(3,2)
+\psset{viewpoint=50 50 30 rtp2xyz,Decran=25,lightsrc=viewpoint}
+\psSolid[r1=3.5,r0=1,
+    object=tore,
+    ngrid=9 18,
+    fillcolor=magenta!30,
+    action=draw**]%
+\axesIIID(4.5,4.5,0)(5,5,4)
+\end{pspicture}
+\end{LTXexample}
+
+\endinput

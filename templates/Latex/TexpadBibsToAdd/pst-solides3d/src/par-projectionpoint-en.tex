@@ -1,0 +1,198 @@
+\section{Points}
+
+\subsection{Direct definition}
+
+The object \Lkeyword{point} defines a \Index{point}. The values $(x,y)$ of
+its coordinates can be passed directly to the macro
+\Lcs{psProjection} or indirectly via the option \Lkeyword{args}.
+
+Thus the two commands \verb+\psProjection[object=point](1,2)+ and
+\verb+\psProjection[object=point,arg=1 2]+ are equivalent and lead
+to the projection of the point with coordinates $(1,2)$ onto the
+chosen plane.
+
+\subsection{Labels}
+
+The option \texttt{\Lkeyword{text}=my text} allows us to project a string of
+characters onto the chosen plane next to a chosen point. The
+positioning is made with the argument \texttt{\Lkeyword{pos}=value} where
+\texttt{value} is one of the following $\{$ul, cl, bl, dl, ub, cb, bb,
+db, uc, cc, bc, dc, ur, cr, br, dr$\}$.
+
+The details of the parameter \Lkeyword{pos} will be discussed in a
+later paragraph.
+
+\begin{LTXexample}[width=7.5cm]
+\begin{pspicture}(-3,-3)(4,3.5)%
+\psframe*[linecolor=blue!50](-3,-3)(4,3.5)
+\psset{viewpoint=50 30 15,Decran=60}
+\psset{solidmemory}
+%% definition du plan de projection
+\psSolid[object=plan,
+   definition=equation,
+   args={[1 0 0 0] 90},
+   name=monplan,
+   planmarks,
+   showBase]
+\psset{plan=monplan}
+%% definition du point A
+\psProjection[object=point,
+   args=-2 1,
+   text=A,
+   pos=ur]
+\psProjection[object=point,
+   text=B,
+   pos=ur](2,1)
+\composeSolid
+\axesIIID(4,2,2)(5,4,3)
+\end{pspicture}
+\end{LTXexample}
+
+
+
+\subsection{Naming and memorising a point}
+
+If the option \texttt{\Lkeyword{name}=myName} is given, the coordinates
+$(x,y)$ of the chosen point are saved under the name \texttt{myName} and so
+can be reused.
+
+\subsection{Some other definitions}
+
+There are other methods to define a point in 2D. The options
+\Lkeyword{definition} and \Lkeyword{args} support the following
+methods:
+
+\begin{itemize}
+
+\item \texttt{\Lkeyword{definition}=\Lkeyval{milieu}};
+\texttt{\Lkeyword{args}=$A$ $B$}.
+
+The midpoint of the line segment $[AB]$
+
+\item \texttt{\Lkeyword{definition}=\Lkeyval{parallelopoint}};
+\texttt{\Lkeyword{args}=$A$ $B$ $C$}.
+
+The point $D$ for which $(ABCD)$ is a
+parallelogram.
+
+\item \texttt{\Lkeyword{definition}=\Lkeyval{translatepoint}};
+\texttt{\Lkeyword{args}=$M$ $u$}.
+
+The image of the point $M$ shifted by the vector
+$\vec u$
+
+
+\item \texttt{\Lkeyword{definition}=\Lkeyval{rotatepoint}};
+\texttt{\Lkeyword{args}=$M$ $I$ $r$}.
+
+The image of the point $M$ under a
+rotation about the point $I$ through an angle $r$ (in degrees)
+
+\item \texttt{\Lkeyword{definition}=\Lkeyval{hompoint}};
+\texttt{\Lkeyword{args}=$M$ $A$ $k$}.
+
+The point $M'$ satisfying
+$\overrightarrow {AM'} = k \overrightarrow {AM}$
+
+\item \texttt{\Lkeyword{definition}=\Lkeyval{orthoproj}};
+\texttt{\Lkeyword{args}=+$M$ $d$}.
+
+The orthogonal projection of the point
+$M$ onto the line $d$.
+
+\item \texttt{\Lkeyword{definition}=\Lkeyval{projx}};
+\texttt{\Lkeyword{args}=$M$}.
+
+The projection of the point $M$ onto the $Ox$
+axis.
+
+\item \texttt{\Lkeyword{definition}=\Lkeyval{projy}};
+\texttt{\Lkeyword{args}=$M$}.
+
+The projection of the point $M$ onto the $Oy$
+axis.
+
+\item \texttt{\Lkeyword{definition}=\Lkeyval{sympoint}};
+\texttt{\Lkeyword{args}=$M$ $I$}.
+
+The point of symmetry of $M$ with respect
+to the point $I$.
+
+\item \texttt{\Lkeyword{definition}=\Lkeyval{axesympoint}};
+\texttt{\Lkeyword{args}=$M$ $d$}.
+
+The axially symmetrical point of $M$ with
+respect to the line $d$.
+
+\item \texttt{\Lkeyword{definition}=\Lkeyval{cpoint}};
+\texttt{\Lkeyword{args}=$\alpha $ $C$}.
+
+The point corresponding to the
+angle $\alpha $ on the circle $C$
+
+\item \texttt{[definition=xdpoint]};
+\verb+args=+$x$ $d$.
+
+The $Ox$ intercept $x$ of the line $d$.
+
+\item \texttt{\Lkeyword{definition}=\Lkeyval{ydpoint}};
+\texttt{\Lkeyword{args}=$y$ $d$}.
+
+The $Oy$ intercept $y$ of the line $d$.
+
+\item \texttt{\Lkeyword{definition}=\Lkeyval{interdroite}};
+\texttt{\Lkeyword{args}=$d_1$ $d_2$}.
+
+The intersection point of the lines
+$d_1$ and $d_2$.
+
+\item \texttt{\Lkeyword{definition}=\Lkeyval{interdroitecercle}};
+\texttt{\Lkeyword{args}=$d$ $I$ $r$}.
+
+The intersection points of the line
+$d$ with a circle of centre $I$ and radius $r$.
+
+\end{itemize}
+
+In the example below, we define and name three points $A$, $B$ and
+$C$, and then calculate the point $D$ for which $(ABCD)$ is a
+parallelogram together with the centre of this parallelogram.
+
+\begin{LTXexample}[width=7.5cm]
+\begin{pspicture}(-3,-3)(4,3.5)%
+\psframe*[linecolor=blue!50](-3,-3)(4,3.5)
+\psset{viewpoint=50 30 15,Decran=60}
+\psset{solidmemory}
+%% definition du plan de projection
+\psSolid[object=plan,
+   definition=equation,
+   args={[1 0 0 0] 90},
+   name=monplan,
+   planmarks,
+   showbase]
+\psset{plan=monplan}
+%% definition du point A
+\psProjection[object=point,
+   text=A,pos=ur,name=A](-1,.7)
+%% definition du point B
+\psProjection[object=point,
+   text=B,pos=ur,name=B](2,1)
+%% definition du point C
+\psProjection[object=point,
+   text=C,pos=ur,name=C](1,-1.5)
+%% definition du point D
+\psProjection[object=point,
+   definition=parallelopoint,
+   args=A B C,
+   text=D,pos=ur,name=D]
+%% definition du point G
+\psProjection[object=point,
+   definition=milieu,
+   args=D B]
+\composeSolid
+\axesIIID(4,2,2)(5,4,3)
+\end{pspicture}
+\end{LTXexample}
+
+\endinput
+

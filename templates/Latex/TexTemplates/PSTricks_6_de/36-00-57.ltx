@@ -1,0 +1,31 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-solides3d}
+\StopShownPreambleCommands
+\begin{document}
+\psset{lightsrc=30 -10 10, viewpoint=50 20 20 rtp2xyz, Decran=17}
+\begin{pspicture}(-6,-2)(4,4)
+\psSurface[ngrid=0.4 0.4,algebraic,axesboxed,Zmin=-2,Zmax=10,
+  grid=false,ticklength=0.5,stepX=4,stepY=4,stepZ=2,hue=0 1]%
+   (-13,-13)(13,13){10*sin(sqrt((x^2+y^2)))/(sqrt(x^2+y^2)) }
+\end{pspicture}
+\end{document}

@@ -1,0 +1,46 @@
+\section{The \Index{jps code}}
+
+\textit{jps code} contains all the  PostScript code that is used by the library
+developed for the software \textit{jps2ps}.
+
+The \texttt{solides.pro} file of the \texttt{solides3d} package
+contains all the elements native
+to that library, which contains about $4\, 500$~functions and
+procedures.
+
+It allows us to have available some adapted commands in mathematical form, without
+having to construct them with the primitives
+ \verb+moveto+, \verb+lineto+, \verb+curveto+, etc.
+
+For example, we can define a function $F$ with $F(t) =
+(3\cos^3 t, 3\sin^3 t)$, and draw its curve
+%I'm not sure of the distinction between the curve and the path, as you use it
+with the \textit{jps code} \verb+0 360 {F} CourbeR2+.
+
+If we only want to have the path of that curve, we use the code
+\verb+0 360 {F} CourbeR2_+,
+and if we want to add this to the stack of points of the curve,
+we use \verb+0 360 {F} CourbeR2++.
+
+In all of the $3$~examples below, the number of points is declared by the global
+variable \Lkeyword{resolution}.
+
+In other words, with the \Index{function} $F$ named above and a fixed resolution of 36, the \textit{jps code}
+\begin{verbatim}
+   0 360 {F} CourbeR2+
+\end{verbatim}
+is equivalent to the PostScript code
+\begin{verbatim}
+   0 10 360 {
+      /angle exch def
+      3 angle cos 3 exp mul
+      3 angle sin 3 exp mul
+   } for
+\end{verbatim}
+
+We haven't yet developed documentation for the library hidden in the
+\texttt{solides.pro} file. For the moment we refer the
+\textit{Guide de l'utilisateur de jps2ps} for the interested user
+available at the website  \url{melusine.eu.org/syracuse/bbgraf}.
+
+\endinput

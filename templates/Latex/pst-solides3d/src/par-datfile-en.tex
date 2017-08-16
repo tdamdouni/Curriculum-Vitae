@@ -1,0 +1,162 @@
+\section{Using the data file types \texttt{.obj} and \texttt{.off}}
+
+Sometimes it will helpful to use external files, either for reading or writing.
+When there is a solid which needs a long time to be calculated and which
+will be tested in different views or different colors, it is very
+interesting to save them externally and then only reread them by
+avoiding the time expensive recalculations. In particular, this technique
+is often used to generate some animations.
+One can also export a solid by that method to reuse with another software.
+
+For \texttt{pst-solides3d}, all the procedures of reading$/$writing are
+delegated to the  PostScript interpreter (and not to \TeX {} or \LaTeX).
+ Consequently it is not the \LaTeX{} compilation that will cause the
+ execution of reading$/$writing, but the visualisation of the PostScript
+ file that is produced.
+
+Generally the reading of external files by a PostScript interpreter doesn't
+cause any trouble normally. The writing of files however, can cause some
+security problems and it is often the case that the PostScript viewer forbids
+the writing by default. So the system must be configured  to get authorisation for that writing.
+
+\encadre{By default, under Windows and Linux, the security of files on the
+hard drive is activated and doesn't allow to write on the drive.
+To deactivate that security option, more or less temporarily, here the two
+corresponding procedures:
+
+\begin{description}
+
+  \item[Linux:] The advice from Jean-Michel \textsc{Sarlat}: the simplest will
+  be to use GhostScript directly, within the console. As there is no image to wait for:
+
+\$$>$ gs  -dNOSAFER  monfichier.ps quit.ps
+  \item[Windows:] Within the menue \texttt{Options}, the option
+    \textsf{Security of files} must be turned to unchecked.
+\end{description}}
+
+
+\subsection{\texttt{\Index{.dat}} files (specific to \texttt{pst-solides3d})}
+
+In \texttt{pst-solides3d}, the data structure used for a solid has 4 fields.
+It can be stored in a set of $4$
+\texttt{.dat} files.
+
+
+\subsubsection{Writing \texttt{.dat} files}
+
+One uses the action \Lkeyword{writesolid} within \Lcs{psSolid}, and one
+uses the option \Lkeyword{file} to specify the name of the file.
+
+For example, let's look at the code below:
+\begin{verbatim}
+\psSolid[object=tore,
+   file=montore,
+   action=writesolid]
+\end{verbatim}
+
+The command chain
+\Cadre{LaTeX->dvips->GSview (Windows) or gv (Linux)}
+first compiles, then transforms into PostScript to finally get
+visualised.
+
+That last operation creates 4 files:
+\begin{compactitem}
+  \item \texttt{montore-sommets.dat  } $\rightarrow$ the list of the vertices;
+  \item \texttt{montore-faces.dat    } $\rightarrow$ the list of the faces;
+  \item \texttt{montore-couleurs.dat } $\rightarrow$ the colors of the faces;
+  \item \texttt{montore-io.dat       } $\rightarrow$ the limits of the indices
+  of the external and internal faces.
+\end{compactitem}
+\encadre{All these four files will automatically be saved within the same folder as the generating file.}
+
+\subsubsection{Reading \texttt{.dat} files}
+
+We use the object \Lkeyword{datfile} of \Lcs{psSolid}, with the argument
+\Lkeyword{file} to specify the name.
+Now the code
+\begin{verbatim}
+\psSolid[object=datfile, file=montore]
+\end{verbatim}
+will allow us to use the object---now saved in the \texttt{.dat} files generated---
+as described in the previous paragraph.
+
+\subsection{\texttt{.obj} files}
+
+We use only a simplified form of the \texttt{.obj} format. In particular, the
+files should not contain a character like
+\verb+#+ (the character for a comment in that format).
+
+This format just uses a single file and permits within this file to specify
+the vertices and the faces.
+
+\subsubsection{Writing \texttt{\Index{.obj}} files}
+
+One uses the action \Lkeyword{writeobj} in \Lcs{psSolid}, and one uses
+the option \Lkeyword{file} to specify the name of the file.
+
+For example, the code below:
+\begin{verbatim}
+\psSolid[object=tore,
+   file=montore,
+   action=writeobj]
+\end{verbatim}
+will produce a single file \texttt{montore.obj} (after compilation and
+visualisation of the \texttt{.ps} that was produced).
+
+\subsubsection{Reading \texttt{.obj} files}
+
+One uses the option \Lkeyword{objfile} of \Lcs{psSolid}, with the argument
+\Lkeyword{file} to specify the name of the file.
+Now the following code
+\begin{verbatim}
+\psSolid[object=objfile, file=montore]
+\end{verbatim}
+will allow to use the object---now saved in the \texttt{.obj} file generated---as
+described in the previous paragraph.
+
+\begin{LTXexample}[width=6cm]
+\psset{viewpoint=20 15 10 rtp2xyz,Decran=20}
+\begin{pspicture}(-3,-4)(3,3)
+\psframe*[linecolor=cyan!50](-3,-4)(1,3)
+\psSolid[object=objfile,
+         unit=20,RotX=60,
+         file=./rocket]%
+\end{pspicture}
+\end{LTXexample}
+
+
+
+\subsection{\texttt{.off} files}
+
+We use only a simplified form of the \texttt{.off} format. In particular, these
+files only comprise \verb+v+ and \verb+f+ entries.
+
+This format just uses a single file and permits within this file to specify the
+vertices and the faces.
+
+\subsubsection{Writing \texttt{\Index{.off}} files}
+
+We use the action \Lkeyword{writeobj} in \Lcs{psSolid}, and we use the option
+ \Lkeyword{file} to specify the name of the file.
+
+For example the code below:
+\begin{verbatim}
+\psSolid[object=tore,
+   file=montore,
+   action=writeoff]
+\end{verbatim}
+will produce the \texttt{montore.off} file (after compilation and
+visualisation of the \texttt{.ps} that was produced).
+
+\subsubsection{Reading.off files}
+
+We use the option \Lkeyword{offfile} of \Lcs{psSolid}, with the argument
+\Lkeyword{file} to specify the name of the file.
+Now the following code
+\begin{verbatim}
+\psSolid[object=offfile, file=montore]
+\end{verbatim}
+will allow to use the object---now saved in the \texttt{.off} file
+generated---like described in the previous paragraph.
+
+\endinput

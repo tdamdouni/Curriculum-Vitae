@@ -1,0 +1,94 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage[dvipsnames]{pstricks}% Manuel Luque
+\usepackage{pst-node}
+\definecolor{Bluea}{cmyk}{.2,0,0,0}
+\definecolor{MonGris}{rgb}{0.8,0.8,0.8}
+\definecolor{grisclair}{rgb}{0.85,0.8,0.8}
+\definecolor{Copper}{cmyk}{0,0.9,0.9,0.2}
+\def\lame{\psframe(0.5,2.5)}
+\def\demilame{\psframe(0,1)(0.5,1.5)} % arrive au niveau de l'eau
+\def\Pile{%
+  \rput(-1.5,0){%
+    \pscustom{%
+      \psline(-1,2)(-1,0)
+      \psellipticarc(0,0)(1,0.2){180}{0}
+      \psline(1,0)(1,2)}
+    \psellipse(0,2)(1,-0.2)
+    \psellipse(0,1)(1,0.2)
+    \psellipse[linecolor=blue,fillstyle=solid,fillcolor=cyan](0,1)(1,0.2)
+    \begin{psclip}{\psset{fillcolor=Copper,fillstyle=solid}\rput(-0.75,0){\lame}}
+      \psellipticarc(0,2)(1,0.2){180}{0}
+      \psellipticarc[linecolor=blue](0,1)(1,0.2){180}{0}
+    \end{psclip}%
+    \pscustom[linestyle=none]{%
+      \psline(-1,1)(-1,0)
+      \psellipticarc(0,0)(1,0.2){180}{0}
+      \psline(1,0)(1,1)
+      \psellipticarc(0,1)(1,0.2){0}{180}
+      \fill[fillstyle=hlines,hatchcolor=cyan,hatchsep=0.3\pslinewidth,hatchwidth=0.1\pslinewidth]}
+    \rput(-0.75,0){{\psset{linestyle=none,fillcolor=Copper,
+fillstyle=solid}\demilame}\psline(0,1)(0,2.5)(0.5,2.5)(0.5,1)}
+    \uput[180](-0.75,2.5){Cu}}
+%
+  \rput(1.5,0){%
+    \pscustom{%
+      \psline(-1,2)(-1,0)
+      \psellipticarc(0,0)(1,0.2){180}{0}
+      \psline(1,0)(1,2)}
+    \psellipse(0,2)(1,-0.2)
+    \psellipse(0,1)(1,0.2)
+    \begin{psclip}{\psset{fillcolor=lightgray,fillstyle=solid}\rput(0.25,0){\lame}}
+      \psellipticarc(0,2)(1,0.2){180}{0}
+      \psellipticarc(0,1)(1,0.2){180}{0}
+    \end{psclip}
+    \pscustom[linestyle=none]{%
+      \psline(-1,1)(-1,0)
+      \psellipticarc(0,0)(1,0.2){180}{0}
+      \psline(1,0)(1,1)
+      \psellipticarc(0,1)(1,0.2){0}{180}
+      \fill[fillstyle=hlines,hatchcolor=gray,
+        hatchsep=0.3\pslinewidth,hatchwidth=0.1\pslinewidth]}
+    \rput(.25,0){{\psset{linestyle=none,fillcolor=lightgray,
+      fillstyle=solid}{\demilame}}\psline(0,1)(0,2.5)(0.5,2.5)(0.5,1)}
+    \uput[0](0.75,2.5){Zn}}%
+}
+
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(-5,0)(5,4.5)
+  \psset{dimen=middle}
+% le dessin du pont
+  \psline[linearc=0.2,doubleline=true,doublesep=1mm](-0.75,0.5)(-0.75,2.5)(0.75,2.5)(0.75,0.5)
+  \Pile
+  \psline(-2,2.5)(-2,4)(2,4)(2,2.5)
+  \psframe[fillstyle=solid](0,3.8)(1,4.2)
+  \pscircle[fillstyle=solid](-1,4){0.4}
+  \rput(-1,4){A}
+  \uput{0.5cm}[155](-1,4){$+$}
+  \uput{0.5cm}[25](-1,4){$-$}
+% les parties visibles du pont
+  \psline[linearc=0.2,doubleline=true,doublesep=1mm](-0.75,2)(-0.75,2.5)(0.75,2.5)(0.75,2)
+  \psline[doubleline=true,doublesep=1mm](-0.75,1)(-0.75,1.3)
+  \psline[doubleline=true,doublesep=1mm](0.75,1)(0.75,1.3)
+\end{pspicture}
+\end{document}

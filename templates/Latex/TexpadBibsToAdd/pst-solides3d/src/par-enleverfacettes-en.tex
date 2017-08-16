@@ -1,0 +1,32 @@
+\section{Removing faces}
+
+The key value \texttt{\Lkeyword{rm}=1 2 8} allows to suppress the drawing of the
+faces with the index numbers 1, 2 and 8, to be able to have a look inside a \Index{hollow} solid.
+
+\begin{LTXexample}[width=5cm]
+\psset{Decran=12,grid=true,viewpoint=15 10 15}
+\begin{pspicture}(-2.5,-2.5)(2.5,2.5)
+\psSolid[object=cylindrecreux,
+    ngrid=2 6,
+    h=6,r=2,
+    fillcolor=green!60,
+    incolor=yellow!50,
+    RotZ=-60,
+    rm=1 3 6,](0,0,-3)
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=5cm]
+\psset{Decran=12,grid=true,viewpoint=15 10 15}
+\begin{pspicture}(-2.5,-2.5)(2.5,2.5)
+\psSolid[object=troncconecreux,
+    rm=1 12 13 14,
+    r0=3,r1=1,h=6,
+    fillcolor=green!60,
+    incolor=yellow,
+    mode=3](0,0,-3)
+\end{pspicture}
+\end{LTXexample}
+
+
+\endinput

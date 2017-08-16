@@ -1,0 +1,299 @@
+% resume.tex
+%
+% (c) 2007-2011 Jeremy B. R. Edberg <jedberg@gmail.com> http://www.jedberg.net
+%
+
+%%%%%%%%%%%%
+% Basic setup
+\documentclass[11pt]{article}
+\usepackage{fullpage}
+\usepackage{setspace}
+\pagestyle{empty}
+\setlength{\tabcolsep}{0in}
+\hyphenchar\font=-1
+\usepackage{geometry} 
+\geometry{a4paper, twoside} 
+\setstretch{1}
+\usepackage{booktabs}
+\usepackage{topcapt}
+%\raggedbottom
+%\raggedright
+\usepackage{tabulary}
+\usepackage{hyphenat}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%
+% PDF setup
+\usepackage{ifpdf}
+\ifpdf
+  \usepackage[pdftex]{hyperref}
+\else
+  \usepackage[hypertex]{hyperref}
+\fi
+\hypersetup{
+    letterpaper,
+    colorlinks,
+    urlcolor=black,
+    pdfpagemode=none,
+    pdftitle={Resume},
+    pdfauthor={Jeremy Edberg},
+    pdfsubject={Resume},
+    pdfkeywords={reddit, eBay, python, pylons, unix, product, cloud computing, virtualization, Unix/Linux administration, security, general technical operations, web development, UC Berkeley, Technology vision, scalable systems, highly reliable systems, enterprise computing, web architectures, web services, operating systems, systems management}
+}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%
+% Margin setup
+\oddsidemargin  -0.5in
+\evensidemargin -0.5in
+\textwidth      7.2in
+\headheight     -0.7in
+\topmargin      0.0in
+\textheight=10.7in
+%\footheight 1.0in 
+%%%%%%%%%%%%
+
+\begin{document}
+
+%% Heading
+\begin{center}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lcr}
+&\huge{\textbf{\sc{Jeremy B. Edberg}}}&\\
+jedberg@gmail.com &  & Mobile: (510) 501-1783\\
+\hline\hline
+\end{tabular*}
+\end{center}
+
+%% Experience Section
+\noindent
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}}
+\large {\sc {Experience}}\\
+\hline
+\end{tabular*}
+
+% reddit
+\noindent 
+\\
+%\\
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+\textbf{reddit.com} & San Francisco, CA \\
+\emph{Chief Architect and Lead Technologist} & \emph{January 2011 to Present} \\
+\emph{Operations Manager} & \emph{March 2007 to January 2011}
+\end{tabular*}
+{\small
+
+\noindent
+Responsible for all technology including system architecture, hiring, managing all engineers, capacity planning, budgeting, operations, vendor relations, and keeping costs down by maximizing automation while minimizing infrastructure.  Involved in the design and testing of all major site features, marketing, determining new product directions and ideas,  writing open source code, promotion, management of a 18M+ user community, and all other aspects of running reddit.com, and Alexa global top 100 website and one of  the largest Pylons installations on the internet.  Oversaw a 30X traffic growth.  Required to be an expert on how the system works end-to-end and learn and integrate new technologies quickly.  Represent reddit at major conferences as an expert in virtualized environments (aka Cloud Computing) and rapid website scaling.  Major accomplishments:
+
+\begin{list}{$\bullet$}{
+%\setlength{\itemsep}{ -5pt}
+%\setlength{\partopsep}{ -18pt}
+}
+\item Developed and executed a unique hiring process to select top engineers from a field of thousands.
+\item Keynoted at Cloud Connect and spoke at several major conferences like PyCon, Web2.0 and Velocity.
+\item Gave an invited talk at Amazon to their engineering team on how they can better utilize their EC2 product.
+\item Built the tools to support 1B+ page views per month with just one system administrator.
+\item Brought operational maturity.  Created a set of tools to reduce code deployment time from 30 minutes to 1 minute; a monitoring infrastructure to send alerts before problems become critical, including self-healing, to minimize operator involvement; tools to monitor traffic in real-time.  Oversaw a five-fold growth in infrastructure.
+\item Planned and carried out a move of reddit's servers from Boston to San Francisco with no downtime and then 1.5 years later planned and executed a move of reddit's servers from colocated hosting to Amazon's EC2.
+\item Designed, implemented and currently maintain a white-label embedable voting widget based on reddit technology.  With an advanced, self-documenting interface easy enough for non-technical editors, it is used by hundreds within Cond\'e Nast.  Used for interactive advertising that was nominated for the Best Interactive Advertising Webby Award.  The voting widget brings in millions of dollars in revenue annually.
+
+\end{list}
+}
+
+
+% eBay
+\noindent
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+\textbf{eBay, Inc.} & San Jose, CA \\
+\emph{Senior Systems Engineer} & \emph{July 2006 to March 2007}
+\end{tabular*}
+{\small
+\noindent
+Responsible for the daily operation of eBay's development lab.  Projects in the lab were Proof-of-Concepts for hardware and software with bleeding edge technology from such companies as Apple, F5, Azul Systems, Panta Systems, VMWare, Sun, HP, IBM, Cisco, Netgear and others.  Also worked closely with the developers and architects to help plan what eBay's hardware will look like in a three year time-frame.\\
+}
+
+\noindent
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+\emph{Senior Information Security Engineer} & \emph{July 2003 to June 2006}
+\end{tabular*}
+{\small
+\noindent
+Key member of a small team of engineers responsible for protecting 210+ million users from external threats and the security of the largest transactional e-commerce system in the world.  Responsibilities entailed developing fraud detection and prevention software (patent pending); investigating computer crime; developing investigation tools; making purchasing recommendations for software and hardware / appliance based security products; and serving as a security consultant for the entire organization as well as customers.  Key accomplishments:
+
+\begin{list}{$\bullet$}{
+%\setlength{\itemsep}{ -5pt}
+%\setlength{\partopsep}{ -18pt}
+}
+\item Deployed eBay's authenticated email infrastructure, which involved creating our Sender Policy Framework DNS entries and working with the developer of the standard, AOL, Microsoft and the community to make eBay's record the standard format for large mail installations; also entailed working with Cisco and Sendmail to help define the DKIM standard and help them create use cases.  Worked with the business units to help create business justification for deployment of DKIM infrastructure.
+\item Assisted with the design and deployment of eBay Inc's IDS and log aggregation/correlation system.
+\item Designed and developed an automated Sarbanes-Oxley (SOX) data collection program in Perl to replace the scripts provided by Price Waterhouse Coopers, saving the company thousands of dollars in consulting fees and saving computing resources by being able to run the program with 10\% of the resource utilization, reducing the time to run by 98\% and providing 100\% coverage.
+\item Developed and tested the fraud prevention technology in the eBay toolbar, which was deployed to over 5 million users.  Consulted with the Product team to define new features for future versions.
+\item Evaluated, recommended and implemented the web application scanner Webinspect for use by the entire QA organization and evaluated and recommended purchase of network scanning appliances.
+\end{list}
+}
+
+% Sendmail
+\noindent 
+\\
+%\\
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+\textbf{Sendmail, Inc.} & Emeryville, CA \\
+\emph{Network / Security / Systems Administrator} & \emph{December 1999 to August 2001}
+\end{tabular*}
+{\small
+
+\noindent
+Principal responsibility in multiple areas, including Linux/FreeBSD/Solaris administration; infrastructure projects; user support of a mixed Unix, Windows and Macintosh environment; configuration and maintenance of all network services, firewalls, routers and equipment for all offices worldwide; around the clock monitoring of mission critical, customer facing servers and all internal servers and services;  acting as Postmaster for the world's most bleeding edge Sendmail installation; answering user questions and solving problems in a timely manner via a helpdesk system. 
+
+% Yellow Phoenix
+\noindent 
+%\\
+%\\
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+\textbf{Yellow Phoenix Consulting} & Berkeley, Santa Clara, and Cupertino, CA \\
+\emph{Consultant / Principal} & \emph{August 2001 to Present}
+\end{tabular*}
+{\small
+
+\noindent
+Key engagements: Evaluation of competitors' websites and creation of a company's online strategy; Setup of an accounts receivable system for a law firm, increasing billability by 20\%; Database conversion, removing the need to hire an administrative assistant.
+}
+
+%UC Berkeley
+\noindent 
+%\
+%\\
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+\textbf{University of California, Berkeley} & Berkeley, CA \\
+\emph{Special Projects Coordinator} & \emph{August 1996 to November 1999}
+\end{tabular*}
+{\small
+
+\noindent
+Planned, designed and implemented networks and infrastructure, including programming, cabling and hardware installation; performed various technical writing and analytical functions.  Trained, hired and managed 35 employees.
+}
+
+%% Selected Talks & Presentations
+\noindent
+\\
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}}
+\large {\sc {Selected Talks \& Presentations}}\\
+\hline
+\end{tabular*}
+\\
+
+\noindent 
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+\textbf{Velocity} -- \emph{War Stories: The mistakes we made and how you can avoid them} & Santa Clara, CA, \emph{Jun 16, 2011} \\
+\textbf{Interop} -- \emph{Understanding Big Data (Co-presenter)} & Las Vegas, NV, \emph{May 9, 2011} \\
+\textbf{Interop} -- \emph{Real World Case Study -- reddit.com} & Las Vegas, NV, \emph{May 8, 2011} \\
+\textbf{Cloud Connect} -- \emph{\textbf{Track Chair}: Data and Storage} & Santa Clara, CA, \emph{Mar, 2011} \\
+\textbf{Cloud Connect} -- \emph{How reddit Manages Their Data} & Santa Clara, CA, \emph{Mar 9, 2011} \\
+\textbf{Web 2.0 NYC} -- \emph{Are You (or your company) Naughty or Nice? (Online Reputation)} & New York, NY, \emph{Sep 29, 2010} \\
+\textbf{Interop} -- \emph{Clouds and Enterprises: Lessons Learned -- Panelist} & Las Vegas, NV, \emph{Apr 28, 2010} \\
+\textbf{Cloud Connect} -- \emph{Keynote Speaker -- Why Cloud Computing?} & Santa Clara, CA, \emph{Mar 17, 2010} \\
+\textbf{Amazon Invited Speaker} -- \emph{How Amazon Can Better Use EC2} & Seattle, WA, \emph{Feb 26, 2010} \\
+\textbf{Pycon} -- \emph{Scaling your Python Application on EC2} & Atlanta, GA, \emph{Feb 19, 2010} 
+\end{tabular*}
+
+
+%% Education and Training
+\noindent
+\\
+\\
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}}
+\large {\sc {Education \& Training}}\\
+\hline
+\end{tabular*}
+
+%UC Berkeley
+\noindent 
+\\
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+\textbf{University of California, Berkeley} & \emph{January 1996 to December 1998} \\
+\emph{BA, Cognitive Science} & \emph{May 2002 to May 2003}
+\end{tabular*}
+{\small
+
+\noindent
+Emphasis in Cognitive Linguistics.  Took time off to start my own business, gain work experience and keep skills current.  Selected upper division coursework included: Cognitive Linguistics, Artificial Intelligence, Neural Theory of Language, Cognitive Metaphors, Cognitive Neuroscience, Consciousness and Phonetics and Phonology.
+}
+
+%ArcSight
+\noindent
+\\  
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+\textbf{ArcSight Security Analyst Certification} -- \emph{ArcSight On-Site Training} & Cupertino, CA, \emph{April 2006}
+\end{tabular*}
+
+%SANS
+\noindent
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+\textbf{Forensics, Investigation and Response Certification} -- \emph{SANS Great Lakes} & Chicago, IL, \emph{May 2004}
+\end{tabular*}
+
+%Sun
+\noindent 
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+\textbf{Solaris Sysadmin Fast Track Certification} -- \emph{Sun Education Services} & Boston, MA, \emph{December 2000}
+\end{tabular*}
+
+%% Other Activities
+\noindent
+\\
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}}
+\large {\sc {Other Activities}}\\
+\hline
+\end{tabular*}
+
+%Year One Labs
+\noindent 
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+\textbf{Year One Labs} -- \emph{Mentor} & Montr\'eal, QC, CA, \emph{July 2010 to Present}
+\end{tabular*}
+
+{\small
+
+\noindent
+Advisor to member startups; provide domain knowledge and expertise in the areas of operations and scaling as well as product and social media marketing.
+}
+
+%eBay Foundation
+\noindent 
+\\
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+\textbf{eBay Foundation} -- \emph{Member -- Grant Review Comittee} & San Jose, CA, \emph{October 2005 to October 2006}
+\end{tabular*}
+{\small
+
+\noindent
+Member of a small group who reviewed grant proposals submitted to the Foundation by eBay employees. Helped determine whether to award grants to the organizations and how much to award.  Grants were evaluated in areas such as program budget, leverage of grant money, measurable outcomes and other related categories.
+}
+
+
+%Blue Hills
+\noindent 
+\\
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+\textbf{Blue Hills School} -- \emph{Classroom volunteer} & Saratoga, CA, \emph{August 2004 to Present}
+\end{tabular*}
+{\small
+
+\noindent
+Classroom volunteer for a 4th grade classroom.  Help prepare science lessons, grade papers, prepare art projects, lead enrichment lessons and chaperone field trips, as well as any other duties helpful to the classroom teacher.
+}
+
+%Acmeinter.Net
+\noindent 
+\\
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+\textbf{Acmeinter.Net} -- \emph{Volunteer System Administrator / Founder} & Cupertino, CA, \emph{May 1998 to Present}
+\end{tabular*}
+{\small
+
+\noindent
+Acmeinter.Net provides web space and email services for non-mainstream publications and other non-profit organizations.  Before December 1999, it was a for profit ISP.  My responsibilities included the development and continuing maintenance of the ISP serving approximately 25 customers; planning and implementation of all network infrastructure; and creating budgets for the purchase of computer equipment and connectivity fees.  Responsibilities still include maintenance of the mail server, webserver, firewall and database.\\
+}
+
+
+\end{document}

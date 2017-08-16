@@ -1,0 +1,589 @@
+\documentclass[10pt]{beamer}    % using the Beamer class for presentations
+\usetheme{progressbar}          % using the custom theme "Progressbar"
+\usecolortheme{crane}           % using the yellow color theme "crane"
+\usepackage{pst-solides3d}      % loads the PSTricks package for 3D graphics
+\usepackage{animate}            % loads the package for animations
+\usepackage[T1]{fontenc}        % using the "Palatino" font
+ \usepackage{iwona}
+ \usepackage{palatino}
+
+
+\usepackage[percent]{overpic}   % used for insertion of graphics
+\usepackage{bbding}             % used for the hand symbol (\HandRight)
+
+\setlength{\parskip}{3mm}
+
+\title{\bf The maximally entangled permutation-symmetric quantum state}
+\author{Martin Aulbach}
+\institute{Post-Graduate Research Symposium \\
+  University of Leeds, UK}
+\date{June 30, 2010}
+% \date{\today}
+
+\begin{document}
+
+\frame[plain]{\titlepage}
+
+\section{Quantum Entanglement}
+
+\frame{
+  \frametitle{Quantum Entanglement}
+  
+  \begin{minipage}{100mm}
+    \begin{center}
+      \begin{figure}[ht]
+        \includegraphics[scale=0.5]{images/entanglement}
+      \end{figure}
+      {\scriptsize (Cover of Nature, October 2006 Vol 2 No 10) }
+    \end{center}
+  \end{minipage}
+}
+
+\frame{
+  Quantum Mechanics allows for \textbf{non-local correlations} between
+  spatially separated systems. This is known as \textbf{entanglement}.
+  
+  \[ \mbox{Example:} \quad \quad | \psi \rangle = \frac{1}{\sqrt{2}} \big(
+  \, | \! \uparrow \rangle_{1} | \! \uparrow \rangle_{2} + | \! \downarrow
+  \rangle_{1} | \! \downarrow \rangle_{2} \, \big) \]
+  
+  Measuring the spin of particle 1 yields either $| \! \uparrow
+  \rangle_{1}$ or $| \!  \downarrow \rangle_{1}$.
+  
+  Composite system then collapses into $| \psi \rangle = | \! \uparrow
+  \rangle_{1} | \!  \uparrow \rangle_{2}$ or $| \psi \rangle = | \!
+  \downarrow \rangle_{1} | \! \downarrow \rangle_{2}$.
+  
+  \vspace{3mm}
+  
+  $\:$ \HandRight $\:$ Spin of particle 2 instantaneously affected by
+  change of particle 1!
+}
+
+\frame{
+  \textbf{Applications for Entanglement:}
+  
+  \begin{itemize}
+  \item Quantum Computation (as introduced during Katherine's talk)
+
+  \item Quantum Teleportation
+    
+  \item Quantum Cryptography
+    
+  \item \textit{etc.}
+  \end{itemize}
+  
+  \pause
+  \vspace{2mm}
+  
+  $\:$ \HandRight $\:$ Need to quantify the amount of entanglement of
+  quantum states
+  
+  \vspace{2mm}
+  
+  For example, in \textit{measurement-based quantum computation} the
+  entanglement of the initial quantum state must come ``in the right
+  dose'', i.e. not too low and not too high.
+}
+
+\frame{
+  \textbf{Entanglement Measures:}
+  
+  \begin{itemize}
+  \item real-valued function $E( | \psi \rangle )$ on Hilbert-space:
+    \quad $E \! : \mathcal{H} \rightarrow \mathbb{R}$
+    
+  \item \textbf{separable} (non-entangled) states have zero entanglement: $E(|
+    \psi \rangle) = 0$
+
+  \item which quantum states are the maximally entangled ones?
+  \end{itemize}
+
+  \pause
+
+  $\:$ \HandRight $\:$ Maximally entangled state depends on choice of
+  $E$ !
+
+  \vspace{1mm}
+  
+  $\:$ \HandRight $\:$ \textbf{Here:} Geometric Measure of
+  Entanglement $E_G$
+  
+  \begin{itemize}
+  \item defined by scalar product overlap $\langle \psi | \lambda
+    \rangle$ with closest separable state $| \lambda \rangle$ (``the
+    further away $| \psi \rangle$ is from separable states, the more
+    entangled it is'')
+
+  \item somewhat easier to compute than other measures
+
+  \item close links to other entanglement measures
+    
+  \item \alert{visual representation possible for symmetric quantum states}
+  \end{itemize}
+}
+
+
+\section{Symmetric Quantum States}
+
+
+\frame{
+  \frametitle{Permutation-Symmetric Quantum States}
+  
+  \begin{definition}
+    A quantum state $| \psi \rangle$ is \textbf{symmetric} if it
+    remains invariant under the permutation of any two of its
+    subsystems:
+    
+    \begin{center}
+      $P_{ij} | \psi \rangle = | \psi \rangle$ \quad for all $i,j$
+    \end{center}
+  \end{definition}
+  
+  \begin{example}
+    $| \psi \rangle = | 001 \rangle \! + \! | 010 \rangle \! + \! |
+    100 \rangle$ is symmetric \vspace{2mm}
+
+    \quad \HandRight \quad $P_{12} | \psi \rangle = | 001 \rangle \! +
+    \! | 100 \rangle \! + \! | 010 \rangle = | \psi \rangle$
+    \checkmark \quad (same for $P_{13}$ and $P_{23}$)
+  \end{example}
+
+  \begin{example}
+    $| \psi \rangle = | 001 \rangle \! + \! | 010 \rangle \! - \! |
+    100 \rangle$ is not symmetric \vspace{2mm}
+
+    \quad \HandRight \quad $P_{12} | \psi \rangle = | 001 \rangle \! +
+    \! | 100 \rangle \! - \! | 010 \rangle \neq | \psi \rangle$
+  \end{example}
+}
+
+\frame{
+  \begin{minipage}{65mm}
+    A single qubit $| \phi \rangle$ can be represented \\
+    by a point on the \textbf{Bloch sphere}:
+    \vspace{5mm}
+
+    $| \phi \rangle = \cos \tfrac{\theta}{2} \, |0\rangle +
+    \text{e}^{\text{i} \varphi} \sin \tfrac{\theta}{2} |1\rangle$
+  \end{minipage}
+  \begin{minipage}{40mm}
+    \begin{center}
+      \begin{figure}[ht]
+        \begin{overpic}[scale=.45]{images/bloch_sphere}
+          \put(44,61){$\theta$}
+          \put(33,46.5){{\footnotesize $\varphi$}}
+        \end{overpic}
+      \end{figure}
+      \vspace{2mm}
+    \end{center}
+  \end{minipage}
+  \vspace{1mm}
+  
+  \alert{What about quantum systems consisting of several qubits?}
+  \vspace{1mm}
+
+  $\:$ \HandRight $\:$ In general no such representation exists.
+
+  $\:$ \HandRight $\:$ \textbf{But:} for symmetric states there exists
+  such a representation!
+}
+
+\frame{
+  \begin{block}{Definition of the \textbf{Majorana Representation}:}
+    Any symmetric state of $n$ qubits $| \psi \rangle$ can
+    be uniquely represented by $n$ single qubit states $| \phi_1
+    \rangle , \dotsc , | \phi_n \rangle$:
+    
+    \[| \psi \rangle = \sum_{ \text{perm} } | \phi_{1} \rangle |
+    \phi_{2} \rangle \dotsm | \phi_{n} \rangle\]
+  \end{block}
+
+  $\:$ \HandRight $\:$ Representation of $| \psi \rangle$ via $n$
+  points on Bloch sphere
+
+  \vspace{2mm}
+  \begin{example}
+    \begin{minipage}{52mm}
+      \vspace{1mm}
+     
+      $| \psi \rangle = |001\rangle + |010\rangle + |100\rangle$
+      \vspace{1.5mm}
+      
+      $| \phi_1 \rangle = | 0 \rangle$
+      
+      $| \phi_2 \rangle = | 0 \rangle$
+      
+      $| \phi_3 \rangle = | 1 \rangle$
+      \vspace{1.5mm}
+
+      the $| \sigma \rangle$ represent the closest \\
+      product states
+    \end{minipage}
+    \begin{minipage}{50mm}
+        \begin{figure}[ht]
+          \begin{overpic}[scale=.4]{images/bloch_w}
+            \put(29,84){{\footnotesize $| \phi_1 \rangle$}}
+            \put(54,84){{\footnotesize $| \phi_2 \rangle$}}
+            \put(54,10){{\footnotesize $| \phi_3 \rangle$}}
+            \put(-10,71){{\footnotesize $| \sigma \rangle$}}
+            \put(43,53){{\footnotesize $\theta$}}
+          \end{overpic}
+        \end{figure}
+    \end{minipage}
+  \end{example}
+}
+
+
+\section{Spherical Point Distributions}
+
+\frame{
+  \frametitle{Spherical Point Distributions}
+  
+  \begin{minipage}{100mm}
+    \begin{center}
+      \begin{figure}[ht]
+        \includegraphics[scale=0.30]{images/pollen}
+      \end{figure}
+      {\scriptsize (Martin Oeggerli, Ralf Buchner and Heidemarie
+        Halbritter, National Geographic) }
+    \end{center}
+  \end{minipage}
+}
+
+\frame{
+  Does our problem have similarities with ``classical'' point
+  distribution problems on the sphere?
+
+  \begin{block}{\textbf{T\'{o}th's Problem:}}
+    Distribute $n$ points on unit sphere so that the \textbf{minimum}
+    distance of all pairs of points is \textbf{maximised}, i.e.
+    
+    \[ \max_{ \{ \vec{r_k} \} } \, \min_{i \neq j} \, | \vec{r_i} -
+    \vec{r_j} | \]
+  \end{block}
+  
+  \begin{block}{\textbf{Thomson's Problem:}}
+    Distribute $n$ point charges (interacting through Coulomb's
+    inverse square law) on the unit sphere so that the
+    \textbf{potential energy} is \textbf{minimised}, i.e.
+    
+    \[ \min_{ \{ \vec{r_k} \} } \, \sum_{i \neq j} \, \frac{1}{|
+      \vec{r_i} - \vec{r_j} |} \]
+  \end{block}
+}
+
+\frame{
+  The vertices of the five \textbf{Platonic solids} are promising
+  candidates:
+  \vspace{-7mm}
+  
+  \begin{figure}[ht]
+    \hspace*{-7mm}
+    \begin{minipage}{140mm}
+        \begin{animateinline}[autoplay, loop, poster = first]{6}
+          \multiframe{60}{rtet=10+2}{
+            \psset{viewpoint=0 -100 30,Decran=58,lightsrc=-50 -100 80, lightintensity=1.2}
+            \begin{pspicture}(2.2,2.5)
+              \psSolid[object=tetrahedron,a=1,RotZ=\rtet,fillcolor=blue,
+              action=draw*](1.98,0,1.6)
+            \end{pspicture}
+          }
+        \end{animateinline}
+        \begin{animateinline}[autoplay, loop, poster = first]{6}
+          \multiframe{45}{roct=10+2}{
+            \psset{viewpoint=0 -100 30,Decran=102,lightsrc=-50 -100 80, lightintensity=1.2}
+            \begin{pspicture}(2.2,2.5)
+              \psSolid[object=octahedron,a=1,RotZ=\roct,fillcolor=red,
+              action=draw*](1.08,0,1.2)
+            \end{pspicture}
+          }
+        \end{animateinline}
+        \hspace{0.5mm}
+        \begin{animateinline}[autoplay, loop, poster = first]{6}
+          \multiframe{45}{rhex=15+2}{
+            \psset{viewpoint=0 -100 30,Decran=150,lightsrc=-50 -100 80, lightintensity=1.5}
+            \begin{pspicture}(2.2,2.5)
+              \psSolid[object=cube,a=1,RotZ=\rhex,fillcolor=orange,
+              action=draw*](0.75,0,0.8)
+            \end{pspicture}
+          }
+        \end{animateinline}
+        \hspace{0.5mm}
+        \begin{animateinline}[autoplay, loop, poster = first]{6}
+          \multiframe{36}{rico=0+2}{
+            \psset{viewpoint=0 -100 30,Decran=115,lightsrc=-50 -100 80, lightintensity=1.2}
+            \begin{pspicture}(2.2,2.5)
+              \psSolid[object=icosahedron,a=1,RotZ=\rico,fillcolor=yellow,
+              action=draw*](1.0,0,1.05)
+            \end{pspicture}
+          }
+        \end{animateinline}
+        \hspace{0.5mm}
+        \begin{animateinline}[autoplay, loop, poster = first]{6}
+          \multiframe{36}{rdod=0+2}{
+            \psset{viewpoint=0 -100 30,Decran=110,lightsrc=-50 -100 80, lightintensity=1.2}
+            \begin{pspicture}(2.2,2.5)
+              \psSolid[object=dodecahedron,a=1,RotZ=\rdod,fillcolor=green,
+              action=draw*](1.05,0,1.1)
+            \end{pspicture}
+          }
+        \end{animateinline}
+        \end{minipage}
+  \end{figure}
+
+  \vspace{-1mm}
+  \begin{minipage}{140mm}
+    \hspace*{-5mm} tetrahedron \quad octahedron \quad $\,\,$
+    hexahedron \quad $\,\,$ icosahedron \quad dodecahedron
+  \end{minipage}
+
+  \vspace{-2mm}
+  $n = 4$ \hspace{12mm} $n = 6$ \hspace{14mm} $n = 8$ \hspace{13mm} $n
+  = 12$ \hspace{12mm} $n = 20$
+
+  \pause
+
+  \vspace{1mm}
+  \alert{Do they solve T\'{o}th's and Thomson's problem?}
+  \vspace{-2mm}
+  
+  \begin{minipage}{50mm}
+    \begin{itemize}
+    \item \textbf{Yes}: for $n = 4, 6, 12$
+      
+    \item \textbf{No}: for $n = 8, 20$
+    \end{itemize}
+  \end{minipage}
+  \begin{minipage}{15mm}
+    \begin{center}
+      Example: n=8
+    \end{center}
+  \end{minipage}
+  \begin{minipage}{35mm}
+    \begin{center}
+      \begin{animateinline}[autoplay, loop, poster = first]{5}
+        \multiframe{45}{ranti=0+2}{
+          \psset{viewpoint=0 -100 30,Decran=150,lightsrc=-50 -100 80, lightintensity=1.5}
+          \begin{pspicture}(3.0,2.5)
+            \psSolid[object=new,RotZ=\ranti,fillcolor=orange,
+            sommets=
+            0.3289   0.7941  0.5110
+            -0.3289 -0.7941  0.5110
+            0.7941  -0.3289  0.5110
+            -0.7941  0.3289  0.5110
+            0.3289  -0.7941 -0.5110
+            -0.3289  0.7941 -0.5110
+            0.7941   0.3289 -0.5110
+            -0.7941 -0.3289 -0.5110,
+            faces={
+              [4 6 5 7]
+              [2 6 0]
+              [2 4 6]
+              [1 4 2]
+              [1 7 4]
+              [3 7 1]
+              [3 5 7]
+              [0 5 3]
+              [0 6 5]
+              [0 3 1 2]},
+            action=draw*](1.08,0,0.95)
+          \end{pspicture}
+        }
+      \end{animateinline}
+    \end{center}
+  \end{minipage}
+}
+
+
+\section{Results}
+
+\frame{
+  \frametitle{Results}
+  
+  \begin{itemize}
+  \item Relationship between coefficients of $| \psi \rangle$ and
+    point distributions, \newline
+    e.g. points are restricted to certain areas if coefficients are
+    all positive.
+    
+  \item Bound on maximal symmetric $n$ qubit entanglement:
+    $E_G^{\text{max}} = \mathcal{O}(\log n)$ (general non-symmetric
+    case: $E_G^{\text{max}} = \mathcal{O}(n)$ )
+
+  \item Upper bound on number of closest product states: 2n-4 \newline 
+    $\:$ \HandRight $\:$ this is intriguing, because for polyhedra
+    with $n$ vertices Euler's formula gives $2n-4$ as upper bound to
+    number of faces. Signature of a deeper connection?
+    
+  \item Found highly entangled symmetric states from the known
+    solutions of T\'{o}th's and Thomson's problem.
+  \end{itemize}    
+  \vspace{-3mm}
+
+  \begin{minipage}{50mm}
+    Example: ``Icosahedron state'' of 12 qubits, a strong candidate
+    for maximal entanglement.
+  \end{minipage}
+  \begin{minipage}{57mm}
+    \begin{center}
+      \begin{figure}[ht]
+        \begin{overpic}[scale=.33]{images/bloch_12b}
+        \end{overpic}
+        \hspace{1mm}
+        \begin{overpic}[scale=0.09]{images/icosahedronplot}
+        \end{overpic}
+      \end{figure}
+    \end{center}
+  \end{minipage}
+}
+
+\frame{
+  \begin{minipage}{53mm}
+    Analytical \& numerical results \\
+    $\Longrightarrow$ find maximally entangled \\
+    symmetric state of up to 12 qubits
+    \vspace{3mm}
+
+    \textbf{\underbar{3 qubits:}}
+    
+    \begin{itemize}
+    \item {\small $| W \rangle = |001\rangle \! + \!  |010\rangle \! +
+        \! |100\rangle$} maximally entangled
+
+    \item T\'{o}th's and Thomson's problem: equilateral triangle
+      (GHZ-state)
+    \end{itemize}
+    
+    \begin{figure}[ht]
+      \begin{overpic}[scale=.3]{images/bloch_w}
+        \put(27,84){{\scriptsize $| \phi_1 \rangle$}}
+        \put(54,84){{\scriptsize $| \phi_2 \rangle$}}
+        \put(54,10){{\scriptsize $| \phi_3 \rangle$}}
+        \put(-11,71){{\scriptsize $| \sigma \rangle$}}
+        \put(42,53){{\scriptsize $\theta$}}
+      \end{overpic}
+      \hspace{4mm}
+      \begin{overpic}[scale=.3]{images/bloch_ghz}
+        \put(-19,53){{\scriptsize $| \phi_1 \rangle$}}
+        \put(72,30){{\scriptsize $| \phi_2 \rangle$}}
+        \put(65,63){{\scriptsize $| \phi_3 \rangle$}}
+        \put(28,83){{\scriptsize $| \sigma_1 \rangle$}}
+        \put(28,9){{\scriptsize $| \sigma_2 \rangle$}}
+      \end{overpic}
+    \end{figure}
+    
+  \end{minipage}
+  \begin{minipage}{53mm}
+    \textbf{\underbar{4 qubits:}}
+    
+    \begin{itemize}
+    \item Tetrahedron solves T\'{o}th, Thomson and Majorana
+    \end{itemize}
+    \vspace{-2mm}
+    
+    \begin{figure}[ht]
+      \begin{overpic}[scale=.3]{images/bloch_4}
+        \put(27,85){{\footnotesize $| \phi_1 \rangle$}}
+        \put(-17,21){{\footnotesize $| \phi_2 \rangle$}}
+        \put(64,15){{\footnotesize $| \phi_3 \rangle$}}
+        \put(68,47){{\footnotesize $| \phi_4 \rangle$}}
+      \end{overpic}
+    \end{figure}
+    \vspace{-1mm}
+
+    \textbf{\underbar{5 qubits:}}
+
+    \begin{itemize}
+    \item again different solutions
+    \end{itemize}
+    \vspace{-2mm}
+
+    \begin{figure}[ht]
+      \begin{overpic}[scale=.3]{images/bloch_5a}
+        \put(27,83){{\scriptsize $| \phi_1 \rangle$}}
+        \put(7,34){{\scriptsize $| \phi_2 \rangle$}}
+        \put(75,31){{\scriptsize $| \phi_3 \rangle$}}
+        \put(74,56){{\scriptsize $| \phi_4 \rangle$}}
+        \put(27,11){{\scriptsize $| \phi_5 \rangle$}}
+      \end{overpic}
+      \hspace{4mm}
+      \begin{overpic}[scale=.3]{images/bloch_5b}
+        \put(27,85){{\scriptsize $| \phi_1 \rangle$}}
+        \put(20,15){{\scriptsize $| \phi_2 \rangle$}}
+        \put(63,20){{\scriptsize $| \phi_3 \rangle$}}
+        \put(74,50){{\scriptsize $| \phi_4 \rangle$}}
+        \put(4,49){{\scriptsize $| \phi_5 \rangle$}}
+      \end{overpic}
+    \end{figure}
+
+  \end{minipage}
+}
+
+\frame{
+  \hspace{-18mm}
+  \begin{minipage}{74mm}
+    \begin{figure}[ht]
+      \begin{minipage}{49mm}
+        \begin{center}
+          \begin{overpic}[scale=0.77, unit=1mm]{images/entanglement_graph}
+          \end{overpic}
+        \end{center}
+      \end{minipage}
+    \end{figure}
+  \end{minipage}
+  \begin{minipage}{48mm}
+    \textbf{Figure:} Scaling of maximal symmetric entanglement with
+    number of qubits $n$.
+    \vspace{2mm}
+    
+    \begin{itemize}
+      {\footnotesize
+      \item  black: upper and lower bounds
+        
+      \item  blue\&red: numerical solutions \newline
+        (for positive and general case)
+        
+      \item green: classical solutions
+      }
+    \end{itemize}
+    
+    \vspace{2mm}
+    Findings:
+    \vspace{1mm}
+    
+    \begin{itemize}
+      {\footnotesize
+      \item classical solutions are in general not optimal
+        
+      \item But: solutions of Thomson's problem are a good bound
+        
+      \item maximally entangled symmetric state has positive
+        coefficients only for low $n$ }
+    \end{itemize}
+  \end{minipage}
+}
+
+\section{Conclusion}
+
+\frame{
+  \begin{block}{Conclusion}
+    We found highly or maximally entangled states of symmetric $n$
+    qubit systems, and visualised them as spherical point
+    distributions.  This ``Majorana Representation'' is extremely
+    helpful both for theoretical and practical reasons.
+  \end{block}
+  \vspace{4mm}
+  
+  \begin{center}
+    {\Large \textbf{Thanks for your attention!}}
+    \vspace{4mm}
+    
+    For details see: \textbf{arXiv:1003.5643}
+    \vspace{-3mm}
+
+    (to be published in New J. Phys.)
+  \end{center}
+}
+
+\end{document}

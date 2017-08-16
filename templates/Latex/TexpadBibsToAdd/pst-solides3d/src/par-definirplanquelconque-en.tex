@@ -1,0 +1,631 @@
+\section{Defining a \Index{projection plane}}
+
+The \Index{plane} of projection is defined with the option
+\texttt{\Lkeyword{plan}=plantype} which expects an argument \textit{type of
+plane}. The creation of such an argument invariably happens
+through the command \verb+\psSolid[object=plan]+ (see the relevant
+paragraph of chapter 4 and the example below in sub-paragraph
+\textit{Labels\/} of the paragraph \textit{Points}).
+\endinput
+
+\section{Specifying a general projection plane}
+
+To define a plane of projection, we assume that the drawing to be
+projected resides on the plane $Oxy$, and the user has to specify
+the images of the origin $O$ and the basis $\overrightarrow{\imath}$,
+$\overrightarrow{\jmath}$, and $\overrightarrow{k}$.
+If they wish to abbreviate the syntax, users are required at most
+to specify the image of $O$ and the image of $\overrightarrow{k}$,
+in other words the image of the origin and the components of the
+normal to the plane of projection.
+
+The package then suggests an orientation of the plane of
+projection. If users are not happy with this orientation, they can
+specify it themselves.
+
+The following paragraphs detail the proposed syntax.
+
+
+\subsection{The origin}
+
+\texttt{(x,y,z)} are the projected coordinates of the origin of
+the plane, which are either numerical values or expressions that
+PostScript can handle.
+
+
+\texttt{\textbackslash psProjection[\ldots](1,2,3)} positions the
+origin of the plane at the coordinates $(1,2,3)$.
+
+
+\texttt{\textbackslash psProjection[\ldots](0.5 0.5 add,2 sqrt,1.5 2
+exp)} positions the origin of the plane at the coordinates
+$(1,\sqrt{2},1.5^2)$.
+
+
+If no coordinates are chosen (by the end of the command), it is
+interpreted as $(0,0,0)$, placing the origin at $O$.
+
+
+\subsection{Defining the normal to a plane}
+
+There are four ways to define a normal to a plane, two of which
+have an option to rotate the coordinate system of the plane around
+that normal: \Lkeyword{normal}
+
+\subsubsection{Method 1: giving the components of the normal vector}
+
+
+In this case \texttt{\Lkeyword{normal}=nx ny nz}, the argument consists of
+3 values: the components of the normal vector. For example
+\texttt{\Lkeyword{normal}=0 0 1} for the plane $Oxy$.
+
+\newpage
+
+\begin{LTXexample}[width=6.5cm]
+\psset{unit=0.5}
+\begin{pspicture}(-9,-6.5)(6,6)
+\psframe*[linecolor=blue!50](-6,-6)(6,6)
+\psset{lightsrc=10 -20 50,viewpoint=50 20 30 rtp2xyz,Decran=50}
+{\psset{linewidth=0.5\pslinewidth,linecolor=gray}
+\psSolid[object=grille,base=-4 4 -4 4]}
+\defFunction[algebraic]{f1}(x){3*cos(x)}{3*sin(x)}{}
+\psProjection[object=courbeR2,
+   range=-3.14 3.14,
+   linecolor=blue,
+   normal=0 0 1,
+   function=f1]
+\axesIIID(0,0,0)(4,4,4)
+\psProjection[object=chemin,
+  linewidth=.1,
+  linecolor=red,
+  normal=1 0 0,
+  path=newpath
+    0 0 smoveto
+    -1 0 slineto]
+\rput(0,-6.75){%
+  \psframebox[linecolor=blue!50]
+   {\texttt{$\backslash${}defFunction[algebraic]%
+    \{f\}(x)\{3*cos(x)\}\{3*sin(x)\}\{\}}}}
+\end{pspicture}
+\end{LTXexample}
+
+\newpage
+If we call
+$\big(\overrightarrow{i}(1,0,0),\overrightarrow{j}(0,1,0),\overrightarrow{k}(0,0,1)\big)$
+the basis of the referencing coordinate system and if
+$\big(\overrightarrow{I},\overrightarrow{J},\overrightarrow{K}\big)$
+is the basis of the coordinate system of the plane to be defined,
+with $\overrightarrow{K}$ being the chosen normal vector, then the
+following relations are verified and should be kept in mind:
+\begin{enumerate}
+  \item $\overrightarrow{J}=\overrightarrow{K}\wedge \overrightarrow{i}$
+  \item $\overrightarrow{I}=\overrightarrow{J}\wedge \overrightarrow{K}$
+\end{enumerate}
+If $\overrightarrow{K}=\overrightarrow{i}$ then
+$\overrightarrow{J}=\overrightarrow{j}$
+
+\encadre{With the convention: $\overrightarrow{K}$ is drawn in
+ red, $\overrightarrow{J}$ in blue and $\overrightarrow{I}$ in green.} %$
+
+\vfill
+\begin{minipage}{0.27\linewidth}
+\psset{unit=0.4}
+\centerline{\texttt{[normal=0 0 1]}}
+
+\begin{pspicture}(-6,-6)(4,7)%
+\psframe*[linecolor=blue!50](-6,-6)(6,6)
+\psset{lightsrc=10 -20 50,viewpoint=50 20 30 rtp2xyz,Decran=60}
+{\psset{linewidth=0.5\pslinewidth,linecolor=gray}
+\psSolid[object=grille,base=-4 4 -4 4]}
+\axesIIID(0,0,0)(4,4,4)
+\psProjection[object=chemin,
+      linewidth=.2,
+      linecolor=red,
+      normal=1 0 0,
+      path=newpath
+            0 0 smoveto
+            -1 0 slineto]
+\psProjection[object=chemin,
+      linewidth=.2,
+      linecolor=blue,
+      normal=0 0 1,
+      path=newpath
+            0 0 smoveto
+            0 1 slineto]
+\psProjection[object=chemin,
+      linewidth=.2,
+      linecolor=green,
+      normal=0 0 1,
+      path=newpath
+            0 0 smoveto
+            1 0 slineto]
+\end{pspicture}
+\end{minipage}
+\hfill
+\begin{minipage}{0.27\linewidth}
+\psset{unit=0.4}
+\centerline{\texttt{[normal=1 0 0]}}
+
+\begin{pspicture}(-6,-6)(4,7)
+\psframe*[linecolor=blue!50](-6,-6)(6,6)
+\psset{lightsrc=50 20 30,viewpoint=50 20 30,Decran=70}
+{\psset{linewidth=0.5\pslinewidth,linecolor=gray}
+\psSolid[object=grille,base=-4 4 -4 4,RotY=90]}
+\axesIIID(0,0,0)(4,4,4)
+\psProjection[object=chemin,
+      linewidth=.2,
+      linecolor=green,
+      normal=1 0 0,
+      path=newpath
+            0 0 smoveto
+            1 0 slineto]
+\psProjection[object=chemin,
+      linewidth=.2,
+      linecolor=blue,
+      normal=1 0 0,
+      path=newpath
+            0 0 smoveto
+            0 1 slineto]
+\psProjection[object=chemin,
+      linewidth=.2,
+      linecolor=red,
+      normal=0 0 1,
+      path=newpath
+            0 0 smoveto
+            1 0 slineto]
+\end{pspicture}
+\end{minipage}
+\hfill
+\begin{minipage}{0.27\linewidth}
+\psset{unit=0.4}
+
+\centerline{\texttt{[normal=0 1 0]}}
+
+\begin{pspicture}(-6,-6)(4,7)
+\psframe*[linecolor=blue!50](-6,-6)(6,6)
+\psset{lightsrc=50 60 30,viewpoint=50 60 30,Decran=70}
+{\psset{linewidth=0.5\pslinewidth,linecolor=gray}
+\psSolid[object=grille,base=-4 4 -4 4,RotX=-90]}
+\axesIIID(0,0,0)(4,4,4)
+\psProjection[object=chemin,
+      linewidth=.2,
+      linecolor=green,
+      normal=0 1 0,
+      path=
+         newpath
+            0 0 smoveto
+            1 0 slineto]
+\psProjection[object=chemin,
+      linewidth=.2,
+      linecolor=blue,
+      normal=0 1 0,
+      path=
+         newpath
+            0 0 smoveto
+            0 1 slineto]
+\psProjection[object=chemin,
+      linewidth=.2,
+      linecolor=red,
+      normal=0 0 1,
+      path=
+         newpath
+            0 0 smoveto
+            0 1 slineto]
+\end{pspicture}
+\end{minipage}
+
+\vfill
+
+\begin{minipage}{0.27\linewidth}
+\psset{unit=0.4}
+\centerline{\texttt{[normal=1 0 1]}}
+
+\begin{pspicture}(-6,-6)(4,7)%
+\psframe*[linecolor=blue!50](-6,-6)(6,6)
+\psset{lightsrc=50 20 20,viewpoint=50 20 20,Decran=70}
+{\psset{linewidth=0.5\pslinewidth,linecolor=gray}
+\psSolid[object=grille,base=-4 4 -4 4]
+\psSolid[object=grille,base=-4 0 -4 4,RotY=90]
+\psSolid[object=grille,base=-2 2 -4 4,RotY=45,linecolor=red](1.414,0,1.414)}
+\psPoint(2,0,2){O1}%\psdot(O1)
+\axesIIID(2.8,3,2.8)(4,4,4)
+\psPoint(1.414,0,1.414){O1}\psPoint(2.414,0,2.414){OK}
+\psline[linewidth=.2,linecolor=red](O1)(OK)
+\psProjection[object=chemin,
+      linewidth=.2,
+      linecolor=blue,
+      normal=1 0 1,
+      path=
+         newpath
+            0 0 smoveto
+            0 1 slineto](1.414,0,1.414)
+\psProjection[object=chemin,
+      linewidth=.2,
+      linecolor=green,
+      normal=1 0 1,
+      path=
+         newpath
+            0 0 smoveto
+            1 0 slineto](1.414,0,1.414)
+\end{pspicture}
+\end{minipage}
+\hfill
+\begin{minipage}{0.27\linewidth}
+\psset{unit=0.4}
+\centerline{\texttt{[normal=0 1 1]}}
+
+\begin{pspicture}(-6,-6)(4,7)%
+\psframe*[linecolor=blue!50](-6,-6)(6,6)
+\psset{lightsrc=30 20 20,viewpoint=30 20 20,Decran=45}
+{\psset{linewidth=0.5\pslinewidth,linecolor=gray}
+\psSolid[object=grille,base=-4 4 -4 4]
+\psSolid[object=grille,base=-4 0 -4 4,RotY=90,RotZ=90]
+\psSolid[object=grille,base=-4 4 -2 2,RotX=-45,linecolor=red](0,1.414,1.414)}
+\axesIIID(2.8,3,2.8)(4,4,4)
+\psPoint(0,1.414,1.414){O1}\psPoint(0,2.414,2.414){OK}
+\psline[linewidth=.2,linecolor=red](O1)(OK)
+\psProjection[object=chemin,
+      linewidth=.2,
+      linecolor=blue,
+      normal=0 1 1,
+      path=
+         newpath
+            0 0 smoveto
+            0 1 slineto](0,1.414,1.414)
+\psProjection[object=chemin,
+      linewidth=.2,
+      linecolor=green,
+      normal=0 1 1,
+      path=
+         newpath
+            0 0 smoveto
+            1 0 slineto](0,1.414,1.414)
+\end{pspicture}
+\end{minipage}
+\hfill
+\begin{minipage}{0.27\linewidth}
+\psset{unit=0.4}
+\centerline{\texttt{[normal=1 1 0]}}
+
+\begin{pspicture}(-6,-6)(4,7)%
+\psframe*[linecolor=blue!50](-6,-6)(6,6)
+\psset{lightsrc=30 20 20,viewpoint=30 20 20,Decran=45}
+{\psset{linewidth=0.5\pslinewidth,linecolor=gray}
+\psSolid[object=grille,base=0 2 -4 4,RotY=90,RotZ=45,linecolor=red]
+        (1.414,1.414,0)
+\psSolid[object=grille,base=-4 4 -4 4]
+\psSolid[object=grille,base= -2 0 -4 4,RotY=90,RotZ=45,linecolor=red]
+        (1.414,1.414,0)}
+\axesIIID(2.8,2.8,1)(4,4,4)
+\psPoint(1.414,1.414,0){O1}\psPoint(2.414,2.414,0){OK}
+\psline[linewidth=.2,linecolor=red](O1)(OK)
+\psProjection[object=chemin,
+      linewidth=.2,
+      linecolor=blue,
+      normal=1 1 0,
+      path=
+         newpath
+            0 0 smoveto
+            0 1 slineto](1.414,1.414,0)
+\psProjection[object=chemin,
+      linewidth=.2,
+      linecolor=green,
+      normal=1 1 0,
+      path=
+         newpath
+            0 0 smoveto
+            1 0 slineto](1.414,1.414,0)
+\end{pspicture}
+\end{minipage}
+
+\vfill
+
+\newpage
+
+\subsubsection{Method 2: giving the components of the normal vector and an angle
+of rotation}
+
+In this case \texttt{\Lkeyword{normal}=nx ny nz A}, the argument takes four
+values: the components of the normal vector and the angle of
+rotation (in degrees) around that axis.
+
+\begin{center}
+\begin{minipage}{0.34\linewidth}
+\psset{unit=0.5}
+\centerline{\texttt{[normal=1 0 1]}}
+
+\begin{pspicture}(-6,-6)(6,7)%
+\psframe*[linecolor=blue!50](-6,-6)(6,6)
+\psset{lightsrc=50 20 20,viewpoint=50 20 20,Decran=70}
+{\psset{linewidth=0.5\pslinewidth,linecolor=gray}
+\psSolid[object=grille,base=-4 4 -4 4]
+\psSolid[object=grille,base=-4 0 -4 4,RotY=90]
+\psSolid[object=grille,base=-2 2 -4 4,RotY=45,linecolor=red](1.414,0,1.414)}
+\psPoint(2,0,2){O1}%\psdot(O1)
+\axesIIID(2.8,3,2.8)(4,4,4)
+\psPoint(1.414,0,1.414){O1}\psPoint(2.414,0,2.414){OK}
+\psline[linewidth=.2,linecolor=red](O1)(OK)
+\psProjection[object=chemin,
+      linewidth=.2,
+      linecolor=blue,
+      normal=1 0 1,
+      path=
+         newpath
+            0 0 smoveto
+            0 1 slineto](1.414,0,1.414)
+\psProjection[object=chemin,
+      linewidth=.2,
+      linecolor=green,
+      normal=1 0 1,
+      path=
+         newpath
+            0 0 smoveto
+            1 0 slineto](1.414,0,1.414)
+\defFunction[algebraic]{fonction}(x){cos(x)}{x}{}
+\psProjection[object=courbeR2,
+   range=-4 4,
+   normal=1 0 1,
+   function=fonction](1.414,0,1.414)
+\end{pspicture}
+\end{minipage}
+\hfil
+\begin{minipage}{0.34\linewidth}
+\psset{unit=0.5}
+\centerline{\texttt{[normal=1 0 1 45]}}
+
+\begin{pspicture}(-6,-6)(6,7)%
+\psframe*[linecolor=blue!50](-6,-6)(6,6)
+\psset{lightsrc=50 20 20,viewpoint=50 30 20,Decran=70}
+{\psset{linewidth=0.5\pslinewidth,linecolor=gray}
+\psSolid[object=grille,base=-4 4 -4 4,action=draw]
+\psSolid[object=grille,base=-4 4 -4 4,RotY=90,action=draw]}
+\axesIIID(0,0,0)(4,4,4)
+\psPoint(1.414,0,1.414){O1}\psPoint(2.414,0,2.414){OK}
+\psline[linewidth=.2,linecolor=red](O1)(OK)
+\psProjection[object=chemin,
+      linewidth=.02,
+      linecolor=red,
+      normal=1 0 1 45,
+      path=newpath
+          -2 1 2
+          {-4 smoveto
+           0 8 srlineto} for
+           -4 1 4
+          {-2 exch smoveto
+           4 0 srlineto} for
+            ](1.414,0,1.414)
+\psProjection[object=chemin,
+      linewidth=.2,
+      linecolor=blue,
+      normal=1 0 1 45,
+      path=
+         newpath
+            0 0 smoveto
+            0 1 slineto](1.414,0,1.414)
+\psProjection[object=chemin,
+      linewidth=.2,
+      linecolor=green,
+      normal=1 0 1 45,
+      path=
+         newpath
+            0 0 smoveto
+            1 0 slineto](1.414,0,1.414)
+\defFunction[algebraic]{fonction}(x){cos(x)}{x}{}
+\psProjection[object=courbeR2,
+   range=-4 4,
+   normal=1 0 1 45 ,
+   function=fonction](1.414,0,1.414)
+\end{pspicture}
+\end{minipage}
+\end{center}
+
+%\newpage
+In the second figure, the normal (represented in red) is identical
+to the one in the first figure, but the plane is rotated 45
+degrees around that normal.
+
+
+\subsubsection{Method 3: defining the normal by the images of \textit{i}
+ and \textit{k}}
+
+In this case \texttt{\Lkeyword{normal}=ix iy iz kx ky kz}, the argument
+takes six values: the components of the images of
+$\overrightarrow{i}$ and $\overrightarrow{k}$, with:
+$\overrightarrow{J}=\overrightarrow{K}\wedge \overrightarrow{I}$.
+
+\begin{center}
+\begin{minipage}{0.34\linewidth}
+\psset{unit=0.5}
+\centerline{\texttt{[normal=0 1 0 1 0 0]}}
+
+\begin{pspicture}(-6,-6)(6,7)%
+\psframe*[linecolor=blue!50](-6,-6)(6,6)
+\psset{lightsrc=50 20 20,viewpoint=50 30 20,Decran=70}
+{\psset{linewidth=0.5\pslinewidth,linecolor=gray}
+\psSolid[object=grille,base=-4 4 -4 4]%
+\psSolid[object=grille,base=-4 4 -4 4,action=draw,RotX=90,RotZ=90]}%
+\defFunction[algebraic]{fonction}(x){x}{x*sin(x)}{}
+\axesIIID(0,0,0)(4,4,4)
+\psProjection[object=chemin,
+      linewidth=.1,
+      linecolor=green,
+      normal=0 1 0 1 0 0,
+      path=
+         newpath
+            0 0 smoveto
+            1 0 slineto]
+\psProjection[object=chemin,
+      linewidth=.1,
+      linecolor=blue,
+      normal=0 1 0 1 0 0,
+      path=
+         newpath
+            0 0 smoveto
+            0 1 slineto]
+\psProjection[object=chemin,
+      linewidth=.2,
+      linecolor=red,
+      normal=0 0 1,
+      path=
+         newpath
+            0 0 smoveto
+            1 0 slineto]
+\psProjection[object=courbeR2,
+   range=-4 4,
+   linecolor=green,
+   normal=0 1 0 1 0 0,
+   function=fonction]
+\end{pspicture}
+\end{minipage}
+\hfil
+\begin{minipage}{0.34\linewidth}
+\psset{unit=0.5}
+\centerline{\texttt{[normal=-1 1 0 1 1 2 ]}}
+
+\begin{pspicture}(-6,-6)(6,7)%
+\psframe*[linecolor=blue!50](-6,-6)(6,6)
+\psset{lightsrc=50 20 20,viewpoint=50 30 20,Decran=70}
+{\psset{linewidth=0.5\pslinewidth,linecolor=gray}
+\psSolid[object=grille,base=-4 4 -4 4]}%
+\defFunction[algebraic]{fonction}(x){x}{x*sin(x)}{}
+\axesIIID(0,0,0)(4,4,4)
+\psProjection[object=chemin,
+      linewidth=.1,
+      linecolor=green,
+      normal=-1 1 0 1 1 2 ,
+      path=
+         newpath
+            0 0 smoveto
+            1 0 slineto]
+\psProjection[object=chemin,
+      linewidth=.1,
+      linecolor=blue,
+      normal=-1 1 0 1 1 2 ,
+      path=
+         newpath
+            0 0 smoveto
+            0 1 slineto]
+\psPoint(0,0,0){O}\psPoint(0.4,0.4,0.8){K}
+\psline[linewidth=.1,linecolor=red](O)(K)
+\psProjection[object=courbeR2,
+   range=-4 4,
+   linecolor={[cmyk]{1,0,1,0.5}},
+   normal=-1 1 0 1 1 2 ,
+   function=fonction]
+\psProjection[object=chemin,
+      linewidth=.02,
+      linecolor=red,
+      normal=-1 1 0 1 1 2,
+      path=newpath
+          -4 1 4
+          {-4 exch smoveto
+           8 0 srlineto} for
+           -4 1 4
+          {-4 smoveto
+           0 8 srlineto} for]
+\end{pspicture}
+\end{minipage}
+\end{center}
+
+
+\newpage
+\subsubsection{Method 4: defining the normal by the images of
+  \textit{i}, \textit{k} and an angle of rotation}
+
+In this case \texttt{\Lkeyword{normal}=ix iy iz kx ky kz phi}, the argument
+takes seven values: the components of the images of
+$\overrightarrow{i}$, $\overrightarrow{k}$ and the angle of
+rotation (in degrees) around the normal, with:
+$\overrightarrow{J}=\overrightarrow{K}\wedge \overrightarrow{I}$.
+
+\begin{center}
+\begin{minipage}{0.34\linewidth}
+\psset{unit=0.5}
+\centerline{\texttt{[normal=0 1 0 1 0 0 90]}}
+
+\begin{pspicture}(-6,-6)(6,7)%
+\psframe*[linecolor=blue!50](-6,-6)(6,6)
+\psset{lightsrc=50 20 20,viewpoint=50 30 20,Decran=70}
+{\psset{linewidth=0.5\pslinewidth,linecolor=gray}
+\psSolid[object=grille,base=-4 4 -4 4]%
+\psSolid[object=grille,base=-4 4 -4 4,action=draw,RotX=90,RotZ=90]}%
+\defFunction[algebraic]{fonction}(x){x}{x*sin(x)}{}
+\axesIIID(0,0,0)(4,4,4)
+\psProjection[object=chemin,
+      linewidth=.1,
+      linecolor=green,
+      normal=0 1 0 1 0 0 90,
+      path=
+            0 0 smoveto
+            1 0 slineto]
+\psProjection[object=chemin,
+      linewidth=.1,
+      linecolor=blue,
+      normal=0 1 0 1 0 0 90,
+      path=
+            0 0 smoveto
+            0 1 slineto]
+\psProjection[object=chemin,
+      linewidth=.2,
+      linecolor=red,
+      normal=0 0 1,
+      path=
+            0 0 smoveto
+            1 0 slineto]
+\psProjection[object=courbeR2,
+   range=-4 4,
+   linecolor=green,
+   normal=0 1 0 1 0 0 90,
+   function=fonction]
+\end{pspicture}
+\end{minipage}
+\hfil
+\begin{minipage}{0.34\linewidth}
+\psset{unit=0.5}
+\centerline{\texttt{[normal=-1 1 0 1 1 2 90]}}
+
+\begin{pspicture}(-6,-6)(6,7)%
+\psframe*[linecolor=blue!50](-6,-6)(6,6)
+\psset{lightsrc=50 20 20,viewpoint=50 30 20,Decran=70}
+{\psset{linewidth=0.5\pslinewidth,linecolor=gray}
+\psSolid[object=grille,base=-4 4 -4 4]}%
+\defFunction[algebraic]{fonction}(x){x}{x*sin(x)}{}
+\axesIIID(0,0,0)(4,4,4)
+\psProjection[object=chemin,
+  linewidth=.1,
+  linecolor=green,
+  normal=-1 1 0 1 1 2 90,
+  path=newpath
+    0 0 smoveto
+    1 0 slineto]
+\psProjection[object=chemin,
+  linewidth=.1,
+  linecolor=blue,
+  normal=-1 1 0 1 1 2 90,
+  path=newpath
+    0 0 smoveto
+    0 1 slineto]
+\psPoint(0,0,0){O}\psPoint(0.4,0.4,0.8){K}
+\psline[linewidth=.1,linecolor=red](O)(K)
+\psProjection[object=courbeR2,
+   range=-4 4,
+   linecolor={[cmyk]{1,0,1,0.5}},
+   normal=-1 1 0 1 1 2 90,
+   function=fonction]
+\psProjection[object=chemin,
+  linewidth=.02,
+  linecolor=red,
+  normal=-1 1 0 1 1 2,
+  path=newpath
+  -4 1 4
+  {-4 exch smoveto
+   8 0 srlineto} for
+   -4 1 4
+  {-4 smoveto
+   0 8 srlineto} for]
+\end{pspicture}
+\end{minipage}
+\end{center}
+
+
+\endinput

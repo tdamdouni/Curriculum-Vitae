@@ -1,0 +1,36 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-optic}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(-8,-2)(8,5.75)
+  \pnode(-8,1.5){A}\pnode(8,1.5){B}
+  \uput[45](A){A}\uput[135](B){B}
+  \pnode(0,0){START}
+  \psframe[fillcolor=lightgray,fillstyle=solid,linecolor=blue](-8,-1.5)(B)
+  \psset{linecolor=red,arrowsize=3pt,arrows=->}
+  \multido{\n=20+5}{29}{%
+    \refractionRay(START)(1;\n)(A)(B){1.5}{1}{END}
+    \arrowLine(START)(END){2}\arrowLine(END)(END'){1}
+    \psOutLine[length=3](END)(END'){Q}\arrowLine(END')(Q){3} }
+\end{pspicture}
+\end{document}

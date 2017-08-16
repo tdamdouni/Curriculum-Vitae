@@ -1,0 +1,161 @@
+\section{Constitution of the package -- Distribution}
+
+\begin{compactitem}
+\item \textbf{Required files:} \texttt{pst-solides3d.sty}, \texttt{pst-solides3d.tex},
+\texttt{solides.pro} and the latest version of the basic PSTricks package.
+\item \textbf{Workflow:} This package is made for \texttt{dvips} and \texttt{ps2pdf}, however
+\texttt{pdf\TeX{}} won't work.
+\item \textbf{Documentation and examples:} \texttt{pst-solides3d-doc.tex(pdf)},
+\texttt{doc-exemples-solides3d.tex(pdf)}.
+\end{compactitem}
+
+This package is available on:
+\url{http://syracuse.eu.org/syracuse/pstricks/pst-solides3d/}
+as well as on CTAN.
+
+Numerous examples are available on:
+\url{http://syracuse.eu.org/lab/bpst/pst-solides3d}
+
+Finally, the actual developer's version is available on the
+\texttt{SVN} of \textit{m\'{e}lusine}:
+\url{http://syracuse-dev.org/pst-solides3d}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Installation hints}
+
+Here we give some hints on how to install \texttt{pst-solides3d}
+on your \TeX{} system.
+
+The \texttt{pst-solides3d} package consists of three main files:
+\begin{compactitem}
+\item \texttt{solides.pro}: the prolog file for \texttt{pst-solides3d}
+\item \texttt{pst-solides3d.sty}: the appropriate style file
+\item \texttt{pst-solides3d.tex}: the appropriate tex file
+\end{compactitem}
+as well as the actual PSTricks base files:
+\begin{compactitem}
+\item \texttt{pstricks.pro}: the prolog file for pstricks
+\item \texttt{pstricks.tex}: the appropriate tex file
+\end{compactitem}
+available on CTAN.
+
+Some extension files for \texttt{pst-rubans}:
+\begin{compactitem}
+\item \texttt{pst-rubans.sty}: the appropriate style file
+\item \texttt{pst-rubans.tex}: the appropriate tex file
+\end{compactitem}
+
+Save the files \texttt{pst-solides3d.sty|tex},
+\texttt{pst-rubans.sty|tex} and \texttt{pstricks.tex} in a
+directory which is part of your local \TeX{} tree.
+
+However the \texttt{solides.pro} and the \texttt{pstricks.pro} file should go into the
+folder \verb+$TEXMF/dvips/pstricks/+  %$
+
+Do not forget to run \texttt{texhash} to update this tree. For
+MiK\TeX{} users, do not forget to update the file name database
+(FNDB).
+
+For more detailed information see the documentation of your
+personal \LaTeX{} distribution on installing packages to your
+local \TeX{} system.
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Preface}
+
+The package presented in this documentation arose from teamwork
+initiated via the mailing list of the syracuse web site
+(\url{http://melusine.eu.org/syracuse}).
+
+The idea was born of a confrontation between the work of
+Jean-Paul \textsc{Vignault} on the software package \textit{jps2ps}%
+\footnote{\url{http://melusine.eu.org/syracuse/bbgraf/}}
+and Manuel \textsc{Luque}'s work on PSTricks%
+\footnote{\url{http://melusine.eu.org/syracuse/pstricks/pst-v3d/}},
+especially in relation to the subject of representing solids in
+three-dimensional space.
+
+The two authors decided to unify their efforts and co-author a
+PSTricks package dedicated to three-dimensional scenes. The work
+took place on the ``machine \textit{m\'{e}lusine}'' within an
+environment generated and maintained by Jean-Michel
+\textsc{Sarlat}.
+
+The team was completed with the addition of Arnaud
+\textsc{Schmittbuhl}, Herbert \textsc{Voss}
+and J\"{u}rgen \textsc{Gilg}, the latter specialising in animation-based beta-testing%
+\footnote{\url{http://melusine.eu.org/syracuse/pstricks/pst-solides3d/animations/}}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section {Presentation}
+
+The package \texttt{pst-solides3d}, with the help of PSTricks,
+allows for 3D views of predefined or user-generated solids. You
+will find most of the usual solids, which can be drawn with or
+without hidden edges, whose colour can be varied with lighting.
+
+This package can project text or simple graphics (in 2D) onto
+arbitrarily chosen planes or onto plane faces of solids that are
+created by the user.
+
+From the user's standpoint, most of its functionalities are
+accessible by way of three \TeX{} macros: \Lcs{psSolid}, which can
+manipulate objects in 3 dimensions, \Lcs{psSurface}, related to the
+first macro and designed to represent surfaces that are defined by
+an equation of the type $f(x,y) = z$ and \Lcs{psProjection} which
+allows the user to project two-dimensional graphics/text onto any
+plane face of a 3D solid.
+
+In using this package, two languages come together: on the one
+hand PSTricks, with its well-known macros and familiar syntax, and
+on the other PostScript code, which appears within the optional
+arguments of the former.
+
+We have made the decision to strictly limit the involvement of
+PSTricks. Its function is only to transmit parameters from \TeX{}
+to PostScript. All calculations and displays are done by the
+latter.
+
+A PostScript library, which was developed for another application
+(the software package \textit{jps2ps}), is used for all
+calculations and display routines. The PostScript code used in
+this library is called \textit{jps code}.
+
+The aim of the present document is to describe PSTricks syntax for
+each operation provided by the package.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Changes by comparison with previous versions}
+
+\subsection{Changes compared to version 3.0}
+
+\begin{compactitem}
+\item The macro \Lcs{psProjection} has been completely rewritten. We now need to use an
+object of type \Lkeyword{plan} to define a projection.
+\item The object \Lkeyword{courbe} now uses the argument $r$. To reproduce the previous behaviour
+we now have to specify $r=0$.
+\item The option \Lkeyword{resolution} of the object \Lkeyword{courbe} is replaced with the option
+\Lkeyword{ngrid}
+\item Suppression of the argument \Lkeyword{tracelignedeniveau}.
+\end{compactitem}
+
+\subsection{Changes compared to version 2.0}
+
+\begin{compactitem}
+\item The option \Lkeyword{hue} is not a Boolean anymore.
+\item The scaling in PostScript will from now on follow the workings of \textit{jps code}.
+To be consistent, the commands \verb+smoveto+,
+\verb+srmoveto+, \verb+slineto+, \verb+srlineto+ now
+respectively replace the commands \verb+moveto+,
+\verb+rmoveto+, \verb+lineto+, \verb+rlineto+.
+\end{compactitem}

@@ -1,0 +1,91 @@
+\documentclass{superfri}
+
+% ------------
+
+\bibliographystyle{plain}
+\begin{document}
+
+%\classify{MSC?}
+\author{I.M.~Scientist\footnote{\label{susu}South Ural State University}, U.R.~Author\footnoteref{susu}}
+
+\title{SuperFri article template}
+
+\maketitle{}
+
+\begin{abstract}%
+This template is devoted to helping you format your article the proper way in
+\LaTeX.
+
+\keywords{superfri, template, article formatting}
+\end{abstract}
+
+% -----------------------------------------------------------------------
+\section*{Introduction}
+\label{sec:intro}
+The template demonstrates how to use the \emph{superfri} class. It could be
+used as a basis for your article and meets all the formatting requirements of
+the SuperFri journal. Consult the author
+guidelines\footnote{\url{http://superfri.susu.ac.ru/superfri/about/submissions#authorGuidelines}}
+for details on that matter.
+
+\section{The class}
+
+\subsection{Installation}
+The class consists of a single file \verb=superfri.cls= which should reside
+along with your manuscript file.
+
+\subsection{Features}
+The class is based on the standard article class and supports all of its
+features, as well as these:
+\begin{itemize}
+\item title and author formatting;
+\item abstract and keywords;
+\item theorems, definitions, and proofs.
+\end{itemize}
+
+Begin your paper with the title and authors' names. After filling the
+necessary info in with \verb=\title= and \verb=\author= commands put it all
+together using the \verb=\maketitle= command.
+
+Define the structure of your article using up to three levels of nesting with
+the \verb=\section=, \verb=\subsection=, and \verb=\subsubsection= commands.
+You can use the environments \verb=theorem=, \verb=proof=, \verb=lemma=, etc.
+Here are two sample references:
+\cite{Cadez:2000:VNP:347090.347151,Stonebraker:1994:PND:190956.191247}.
+
+For further directions read the comments in \verb=superfri.cls= as a manual.
+
+\subsubsection{Subsubsection title}
+
+The equations look like
+
+\begin{equation}
+a^2 + b^2 = c^2 + \int_1^2 x+y \, \mathrm{d}y,
+\end{equation}
+
+where $2$ is a number.
+
+An example of a figure is shown in~\figref{pic-myfigure}, while a table
+is in~\tabref{tab-mytable}.
+
+\fig{width=5cm}{pic-myfigure}{An example of a figure}
+
+\tab{tab-mytable}{An example of a table}{
+	\begin{tabular}{rcl}
+	\hline
+	one & two & three \\
+	\hline
+	a & b & c \\
+	$\alpha$ & $\beta$ & $\gamma$ \\
+	$x$ & $y$ & $z$ \\
+	\hline
+	\end{tabular}
+}
+
+\ack{Put the acknowledgements after the last section, like this.}
+
+\bibliography{template}
+
+%\received{September 25, 2013}
+
+\end{document}

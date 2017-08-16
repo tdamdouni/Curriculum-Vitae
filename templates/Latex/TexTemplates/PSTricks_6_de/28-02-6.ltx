@@ -1,0 +1,46 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2008 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-func}
+\StopShownPreambleCommands
+\begin{document}
+\psset{showpoints=true,linewidth=1.5pt,unit=0.5}
+\begin{pspicture}(-2,-1)(2,2)% order 1 -- linear
+  \psBezier1{<->}(-2,0)(-2,2)\end{pspicture}\quad
+\begin{pspicture}(-2,-1)(2,2)% order 2 -- quadratric
+  \psBezier2{<->}(-2,0)(-2,2)(0,2)\end{pspicture}\quad
+\begin{pspicture}(-2,-1)(2,2)% order 3 -- cubic
+  \psBezier3{<->}(-2,0)(-2,2)(0,2)(2,2)\end{pspicture}\quad
+\begin{pspicture}(-2,-2)(2,2)% order 4 -- quartic
+  \psBezier4{<->}(-2,0)(-2,2)(0,2)(2,2)(2,0)\end{pspicture}\quad
+\begin{pspicture}(-2,-2)(2,2)% order 5 -- quintic
+  \psBezier5{<->}(-2,0)(-2,2)(0,2)(2,2)(2,0)(2,-2)\end{pspicture}
+
+\begin{pspicture}(-2,-2)(2,2)% order 6
+  \psBezier6{<->}(-2,0)(-2,2)(0,2)(2,2)(2,0)(2,-2)(0,-2)\end{pspicture}\quad
+\begin{pspicture}(-2,-2)(2,2)% order 7
+  \psBezier7{<->}(-2,0)(-2,2)(0,2)(2,2)(2,0)(2,-2)(0,-2)(-2,-2)\end{pspicture}\quad
+\begin{pspicture}(-2,-2)(2,2)% order 8
+  \psBezier8{<->}(-2,0)(-2,2)(0,2)(2,2)(2,0)(2,-2)(0,-2)(-2,-2)(-2,0)\end{pspicture}\quad
+\begin{pspicture}(-2,-2)(2,2)% order 9
+  \psBezier9{<->}(-2,0)(-2,2)(0,2)(2,2)(2,0)(2,-2)(0,-2)(-2,-2)(-2,0)(0,0)
+\end{pspicture}
+\end{document}

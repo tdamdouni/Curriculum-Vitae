@@ -1,0 +1,190 @@
+This is pdfTeX, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2007.5.28)  9 FEB 2010 09:15
+entering extended mode
+\write18 enabled.
+**la2.tex
+(./la2.tex
+LaTeX2e <2005/12/01>
+Babel <v3.8h> and hyphenation patterns for english, usenglishmax, dumylang, noh
+yphenation, arabic, basque, bulgarian, coptic, welsh, czech, slovak, german, ng
+erman, danish, esperanto, spanish, catalan, galician, estonian, farsi, finnish,
+ french, greek, monogreek, ancientgreek, croatian, hungarian, interlingua, ibyc
+us, indonesian, icelandic, italian, latin, mongolian, dutch, norsk, polish, por
+tuguese, pinyin, romanian, russian, slovenian, uppersorbian, serbian, swedish, 
+turkish, ukenglish, ukrainian, loaded.
+(/usr/local/gwTeX/texmf.texlive/tex/latex/dinbrief/dinbrief.cls
+
+Document Class/Style 'dinbrief' - Version 1.73 
+University of Karlsruhe - 2000/03/02 12:49:21 
+
+*** dinbrief: Running in LaTeX 2e mode!
+*** dinbrief: NFSS 2!
+Document Class: dinbrief 2000/03/02 LaTeX2e class
+\ka@db@tmpdima=\dimen102
+\ka@db@tmpdimb=\dimen103
+\@mainlbl=\write3
+\GZA=\dimen104
+\ltf@headheight=\dimen105
+\lts@headheight=\dimen106
+\ltf@headsep=\dimen107
+\lts@headsep=\dimen108
+\ltf@textheight=\dimen109
+\lts@textheight=\dimen110
+\ka@db@txtlmarg=\dimen111
+\addrhpos=\dimen112
+\addrvpos=\dimen113
+\addrwd=\dimen114
+\addrht=\dimen115
+\addroffset=\dimen116
+\ka@db@addrhoffs=\dimen117
+\backaddrht=\dimen118
+\reflinevpos=\dimen119
+\ufldmarkvpos=\dimen120
+\lfldmarkvpos=\dimen121
+\perfmarkvpos=\dimen122
+\ka@db@foldmarkhoffs=\dimen123
+\ka@db@perfmarkhoffs=\dimen124
+\ka@db@foldmarklen=\dimen125
+\ka@db@perfmarklen=\dimen126
+\bottomtextvpos=\dimen127
+\ka@db@headup=\dimen128
+\ka@db@vfuzz=\dimen129
+\ka@db@stdskip=\dimen130
+\ka@db@fieldwd=\dimen131
+\ka@db@fldskip=\dimen132
+\ka@db@shfldwd=\dimen133
+\ka@db@indadr=\dimen134
+\dlabelheight=\dimen135
+\dlabeltopmargin=\dimen136
+\dlabelwidth=\dimen137
+\clabelnumber=\count79
+\cspare=\count80
+\c@lt@state=\count81
+\c@letter=\count82
+\labelcount=\count83
+\c@labelgen=\count84
+\yearcnt=\count85
+\@betr=\box26
+(/usr/local/gwTeX/texmf.texlive/tex/latex/dinbrief/dinbrief.cfg))
+(/usr/local/gwTeX/texmf.texlive/tex/latex/base/fontenc.sty
+Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
+
+(/usr/local/gwTeX/texmf.texlive/tex/latex/base/t1enc.def
+File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
+))
+(/usr/local/gwTeX/texmf.texlive/tex/latex/base/inputenc.sty
+Package: inputenc 2006/05/05 v1.1b Input encoding file
+\inpenc@prehook=\toks14
+\inpenc@posthook=\toks15
+
+(/usr/local/gwTeX/texmf.texlive/tex/latex/base/applemac.def
+File: applemac.def 2006/05/05 v1.1b Input encoding file
+))
+(/usr/local/gwTeX/texmf.texlive/tex/generic/babel/babel.sty
+Package: babel 2005/11/23 v3.8h The Babel package
+
+(/usr/local/gwTeX/texmf.texlive/tex/generic/babel/ngermanb.ldf
+Language: ngermanb 2004/02/20 v2.6m new German support from the babel system
+
+(/usr/local/gwTeX/texmf.texlive/tex/generic/babel/babel.def
+File: babel.def 2005/11/23 v3.8h Babel common definitions
+\babel@savecnt=\count86
+\U@D=\dimen138
+)
+\l@naustrian = a dialect from \language\l@ngerman 
+Package babel Info: Making " an active character on input line 92.
+))
+(/usr/local/gwTeX/texmf.texlive/tex/latex/currvita/currvita.sty
+Package: currvita 1999/09/13 v0.9i Typesetting a Curriculum Vitae
+
+(/usr/local/gwTeX/texmf.texlive/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\@cvlistheading=\box27
+\cvlabelsep=\skip41
+\cvlabelskip=\skip42
+\cvlabelwidth=\skip43
+)
+(/usr/local/gwTeX/texmf.texlive/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/gwTeX/texmf.texlive/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks16
+)
+(/usr/local/gwTeX/texmf.texlive/tex/latex/graphics/graphics.sty
+Package: graphics 2006/02/20 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/gwTeX/texmf.texlive/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/local/gwTeX/texmf.texlive/tex/latex/config/graphics.cfg
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 90.
+
+(/usr/local/gwTeX/texmf.texlive/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2007/01/08 v0.04d Graphics/color for pdfTeX
+\Gread@gobject=\count87
+))
+\Gin@req@height=\dimen139
+\Gin@req@width=\dimen140
+)
+No file la2.aux.
+\openout1 = `la2.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+(/usr/local/gwTeX/texmf.texlive/tex/context/base/supp-pdf.tex
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count88
+\scratchdimen=\dimen141
+\scratchbox=\box28
+\nofMPsegments=\count89
+\nofMParguments=\count90
+\MPscratchCnt=\count91
+\MPscratchDim=\dimen142
+\MPnumerator=\count92
+\everyMPtoPDFconversion=\toks17
+)
+Underfull \hbox (badness 10000) in paragraph at lines 40--41
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 42--43
+
+ []
+
+[1
+
+{/usr/local/gwTeX/texmf.local/fonts/map/pdftex/updmap/pdftex.map}] ) 
+Here is how much of TeX's memory you used:
+ 1735 strings out of 94073
+ 21005 string characters out of 1163499
+ 2072996 words of memory out of 4524192
+ 5053 multiletter control sequences out of 10000+50000
+ 7043 words of font info for 19 fonts, out of 2000000 for 2000
+ 645 hyphenation exceptions out of 5000
+ 25i,4n,24p,180b,207s stack positions out of 5000i,500n,6000p,200000b,50000s
+{/usr/local
+/gwTeX/texmf.pkgs/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/local/gwTeX/te
+xmf.pkgs/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/gwTeX/texmf.pkgs/
+fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/gwTeX/texmf.pkgs/fonts/typ
+e1/public/cm-super/sfrm1095.pfb>
+Output written on la2.pdf (1 page, 56513 bytes).
+PDF statistics:
+ 19 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 131072)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

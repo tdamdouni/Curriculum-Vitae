@@ -1,0 +1,359 @@
+#LyX 1.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 221
+\textclass article
+\begin_preamble
+\frenchspacing
+\usepackage{amsmath}
+\usepackage{amssymb}
+\newcommand{\ø}{\raisebox{.3ex}{\tiny$\; \bullet \;$}}
+\renewcommand{\arraystretch}{1.25}
+\usepackage{fancyheadings}
+\pagestyle{fancy}
+\chead{\textit{Karl Weierstrass · Curriculum Vitae · 2005--2006}}
+\usepackage{mathpazo}
+\end_preamble
+\language american
+\inputencoding auto
+\fontscheme default
+\graphics default
+\paperfontsize 11
+\spacing single 
+\papersize letterpaper
+\paperpackage a4
+\use_geometry 1
+\use_amsmath 0
+\use_natbib 0
+\use_numerical_citations 0
+\paperorientation portrait
+\leftmargin 0.75in
+\topmargin 0.6in
+\rightmargin 0.75in
+\bottommargin 0.6in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip medskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+
+\layout Standard
+\align center 
+
+\size large 
+\noun on 
+karl weierstrass
+\noun default 
+
+\newline 
+
+\emph on 
+Department of Mathematics
+\newline 
+Nowhere University 
+\newline 
+City, State 00000-1111 USA
+\layout Standard
+\added_space_top 13pt \line_bottom 
+
+\series bold 
+Education
+\layout List
+\added_space_top -8pt \labelwidthstring 00.00.0000
+
+
+\noun on 
+1976 university of
+\noun default 
+ 
+\noun on 
+someplace
+\noun default 
+
+\newline 
+
+\emph on 
+Doctor of Philosophy in Mathematics, April 1976
+\layout List
+\labelwidthstring 00.00.0000
+
+
+\noun on 
+1971 someplace else university
+\noun default 
+
+\newline 
+
+\emph on 
+Bachelor of Arts in Mathematics, June 1971
+\layout Standard
+\line_bottom 
+
+\series bold 
+Academic Positions
+\layout List
+\added_space_top -8pt \labelwidthstring 00.00.0000
+
+1997--98 Resident Fellow, An Institute
+\layout List
+\labelwidthstring 00.00.0000
+
+1993-- Professor of Mathematics, Nowhere University
+\layout List
+\labelwidthstring 00.00.0000
+
+1991--92 Visiting Fellow, University of Someplace
+\layout List
+\labelwidthstring 00.00.0000
+
+1984--85 Visiting Fellow, University of Someplace
+\layout List
+\labelwidthstring 00.00.0000
+
+1983--92 Associate Professor of Mathematics, Nowhere University
+\layout List
+\labelwidthstring 00.00.0000
+
+1976--82 Assistant Professor of Mathematics, Nowhere University
+\layout List
+\labelwidthstring 00.00.0000
+
+1971--75 Teaching Assistant, University of Someplace
+\layout List
+\labelwidthstring 00.00.0000
+
+1970 Teaching Assistant, National Science Foundation Mathematics Program,
+ University of Couldbeanywhere
+\layout Standard
+\line_bottom 
+
+\series bold 
+Research Interests
+\layout List
+\added_space_top -8pt \labelwidthstring MMMMM
+
+\SpecialChar ~
+ Math stuff generally.
+\layout List
+\labelwidthstring MMMMM
+
+\SpecialChar ~
+ Numbers and all that.
+\layout Standard
+\line_bottom 
+
+\series bold 
+Research Projects: Current and Planned
+\layout List
+\added_space_top -8pt \labelwidthstring MMMMM
+
+\SpecialChar ~
+ Prime numbers
+\layout List
+\labelwidthstring MMMMM
+
+\SpecialChar ~
+ Not so prime numbers
+\layout Standard
+\line_bottom 
+
+\series bold 
+Research Submissions
+\layout List
+\added_space_top -8pt \labelwidthstring MMMMM
+
+2006 
+\begin_inset Quotes eld
+\end_inset 
+
+Why I Love Primes,
+\begin_inset Quotes erd
+\end_inset 
+
+ 
+\emph on 
+Archive for History of Prime Numbers,
+\emph default 
+ under review.
+\layout List
+\labelwidthstring MMMMM
+
+2006 
+\begin_inset Quotes eld
+\end_inset 
+
+It's Been a Prime Life: My Story,
+\begin_inset Quotes erd
+\end_inset 
+
+ 
+\emph on 
+Studies in History and Philosophy of Primes,
+\emph default 
+ under review.
+\layout Standard
+\line_bottom 
+
+\series bold 
+Research Publications
+\layout List
+\added_space_top -8pt \labelwidthstring MMMMM
+
+2006 
+\begin_inset Quotes eld
+\end_inset 
+
+Higher Primes, Like 7,
+\begin_inset Quotes erd
+\end_inset 
+
+ 
+\emph on 
+Unbelievable Mathematica,
+\emph default 
+ to appear.
+\layout List
+\labelwidthstring MMMMM
+
+2006 
+\begin_inset Quotes eld
+\end_inset 
+
+The Prime Number 5,
+\begin_inset Quotes erd
+\end_inset 
+
+ 
+\emph on 
+Could Not be Worse
+\emph default 
+ 
+\emph on 
+Mathematics, 
+\emph default 
+to appear.
+\layout List
+\labelwidthstring MMMMM
+
+2006 
+\begin_inset Quotes eld
+\end_inset 
+
+The Prime Number 3,
+\begin_inset Quotes erd
+\end_inset 
+
+ 
+\emph on 
+Archive of Even Worse Mathematics
+\emph default 
+ 60 (2006), 157--207.
+\layout List
+\labelwidthstring MMMMM
+
+2004 
+\begin_inset Quotes eld
+\end_inset 
+
+The Prime Number 2,
+\begin_inset Quotes erd
+\end_inset 
+
+ 
+\emph on 
+Journal of Not So Good Mathematics
+\emph default 
+ 58 (2004), 283--321.
+\layout List
+\labelwidthstring MMMMM
+
+1976 
+\begin_inset Quotes eld
+\end_inset 
+
+The First Prime Numbers,
+\begin_inset Quotes erd
+\end_inset 
+
+ Doctoral Dissertation, University of Someplace, April, 1976.
+\layout Standard
+\line_bottom 
+
+\series bold 
+Book Reviews
+\layout List
+\added_space_top -8pt \labelwidthstring MMMMM
+
+2001 Here's a book review.
+\layout List
+\labelwidthstring MMMMM
+
+2000 And another one.
+\layout Standard
+\line_bottom 
+
+\series bold 
+Major Invited Talks
+\layout List
+\added_space_top -8pt \labelwidthstring MMMMM
+
+1997 Talk Number 4.
+\layout List
+\labelwidthstring MMMMM
+
+1993 Talk Number 3.
+\layout List
+\labelwidthstring MMMMM
+
+1992 Talk Number 2.
+\layout List
+\labelwidthstring MMMMM
+
+1991 Talk Number 1.
+\layout Standard
+\line_bottom 
+
+\series bold 
+Honors and Awards
+\layout List
+\added_space_top -8pt \labelwidthstring MMMMM
+
+2000 Invited to be the 2001--2002 Daft Lecturer at the University of Overthere
+\layout List
+\labelwidthstring 00.00.0000
+
+2000 Nowhere University Excellence in Teaching Award, June 2000.
+\layout Standard
+\line_bottom 
+
+\series bold 
+Service
+\layout List
+\added_space_top -8pt \labelwidthstring MMMMM
+
+\SpecialChar ~
+ Reviewer for 
+\emph on 
+Journal of Abstruse Generalizations,
+\emph default 
+ 
+\emph on 
+Archive for the True but Trivial.
+\layout Standard
+\line_bottom 
+
+\series bold 
+Affiliations
+\layout List
+\added_space_top -8pt \labelwidthstring MMMMM
+
+\SpecialChar ~
+ Mathematical Association of America
+\layout List
+\labelwidthstring 00.00.0000
+
+\SpecialChar ~
+ American Mathematical Society
+\the_end

@@ -1,0 +1,32 @@
+% Graph paper
+% Author: Benjamin Abel
+\documentclass{article}
+\usepackage{geometry}
+\geometry{hmargin=1cm,vmargin=1cm}
+\usepackage{tikz}
+%%%<
+\usepackage{verbatim}
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength{\PreviewBorder}{10pt}%
+%%%>
+\begin{comment}
+:Title: Graph paper
+:Tags: Plotting;Transparency;Graphs;Plots
+:Author: Benjamin Abel
+:Slug: graph-paper
+A little document that permits to draw a graph paper for students.
+\end{comment}
+\def\width{18}
+\def\hauteur{13}
+
+\begin{document}
+
+\begin{tikzpicture}[x=1cm, y=1cm, semitransparent]
+\draw[step=1mm, line width=0.1mm, black!30!white] (0,0) grid (\width,\hauteur);
+\draw[step=5mm, line width=0.2mm, black!40!white] (0,0) grid (\width,\hauteur);
+\draw[step=5cm, line width=0.5mm, black!50!white] (0,0) grid (\width,\hauteur);
+\draw[step=1cm, line width=0.3mm, black!90!white] (0,0) grid (\width,\hauteur);
+\end{tikzpicture}
+
+\end{document}

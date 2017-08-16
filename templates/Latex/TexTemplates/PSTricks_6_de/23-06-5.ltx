@@ -1,0 +1,58 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-solides3d}
+\StopShownPreambleCommands
+\begin{document}
+\footnotesize
+\begin{pspicture}(-2,-2)(2,2)
+\psset{Decran=20,viewpoint=-20 20 20}
+\psSolid[object=grille,base=-2 2 -2 2,fillcolor=black!15]
+\axesIIID(2.5,2.5,2.5)
+\psSolid[object=cone,r=0.5,h=2,hue=0 1](-1.5,-1.5,0)
+\psSolid[object=sphere,r=0.5,hue=0 1](1.5,1.5,0.5)
+\psSolid[object=cylindrecreux,r=0.4,h=1.5,fillcolor=yellow](-1.5,1.5,0)
+\psSolid[object=cube,a=0.75,ngrid=4,hue=0 8](1.5,-1.5,0.375)
+\rput*(0,0){-20 20 20}
+\end{pspicture}
+%
+\begin{pspicture}(-2,-2)(2,2)
+\psset{Decran=20,viewpoint=20 -20 20}
+\psSolid[object=grille,base=-2 2 -2 2,fillcolor=black!15]
+\axesIIID(2.5,2.5,2.5)
+\psSolid[object=cone,r=0.5,h=2,hue=0 1](-1.5,-1.5,0)
+\psSolid[object=sphere,r=0.5,hue=0 1](1.5,1.5,0.5)
+\psSolid[object=cylindrecreux,r=0.4,h=1.5,fillcolor=yellow](-1.5,1.5,0)
+\psSolid[object=cube,a=0.75,ngrid=4,hue=0 8](1.5,-1.5,0.375)
+\rput*(0,0){20 -20 20}
+\end{pspicture}
+%
+\begin{pspicture}(-2,-2)(2,2)
+\psset{Decran=20,viewpoint=20 20 -20}
+\psSolid[object=grille,base=-2 2 -2 2,fillcolor=black!15]
+\axesIIID(2.5,2.5,2.5)
+\psSolid[object=cone,r=0.5,h=2,hue=0 1](-1.5,-1.5,0)
+\psSolid[object=sphere,r=0.5,hue=0 1](1.5,1.5,0.5)
+\psSolid[object=cylindrecreux,r=0.4,h=1.5,fillcolor=yellow](-1.5,1.5,0)
+\psSolid[object=cube,a=0.75,ngrid=4,hue=0 8](1.5,-1.5,0.375)
+\rput*(0,0){20 20 -20}
+\end{pspicture}
+\end{document}

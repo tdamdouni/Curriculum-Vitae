@@ -1,0 +1,42 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-node}
+\SpecialCoor
+\StopShownPreambleCommands
+\begin{document}
+\psset{unit=1.5}
+\begin{pspicture}(0,0.5)(5,3)
+  \cnode[fillstyle=solid,fillcolor=lightgray](1,1){1cm}{A}
+  \cnode[fillstyle=solid,fillcolor=lightgray](4,1){1cm}{B}
+  \pscustom[linecolor=blue,linewidth=0.1pt]{%
+        \translate(1,1)
+        \psline(0;60)(2;60)
+  }
+  \pscustom[linecolor=blue,linewidth=0.1pt]{%
+        \translate(4,1)
+        \psline(0;100)(2;100)
+  }
+  \psset{linewidth=1.5pt}
+  \nccurve[angleA=60,angleB=100,linecolor=red]{A}{B}
+  \pccurve[angleA=60,angleB=100,linecolor=cyan](A)(B)
+\end{pspicture}
+\end{document}

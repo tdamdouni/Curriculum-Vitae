@@ -1,0 +1,128 @@
+\documentclass[12pt,a4paper]{moderncv}
+\moderncvtheme[grey]{casual} %[blue, green, orange, red, grey]{casual, classic}
+\usepackage{lmodern}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Paramenter
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Titel}
+\newcommand {\myName} {Vorname}
+\newcommand {\myLastname} {Nachname}
+
+\newcommand {\street} {Straße 32a}
+\newcommand {\zip} {12345}
+\newcommand {\city} {Ort}
+
+\mobile{0123 / 444 5555}
+\phone{0123 / 444 5555}
+\email{mail@example.com}
+
+%\photo[5cm]{passbild} %
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Paramenter
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\firstname{\myName}
+\familyname{\myLastname}
+\address{\street}{{\zip} {\city}}
+
+\begin{document}
+\maketitle
+
+\section{Persönliche Daten} % Gruppenüberschrift
+
+\cventry{Name} % Titel des Eintrags
+		{{\myName} {\myLastname}} % fett
+		{} % kursiv
+		{} % normal
+		{} % normal
+		{} % normal
+		
+\cventry{Geburt}				
+		{01.01.1970}
+		{Ort}
+		{}
+		{}
+		{}
+		
+\cventry{Familienstand}
+		{ledig}
+		{}
+		{}
+		{}
+		{}
+		
+\cventry{Nationalitaet}
+		{deutsch}
+		{}
+		{}
+		{}
+		{}
+
+\cvline{}{}{} % Leere Zeile
+
+\section{Ausbildung}
+
+\subsection{Schule}
+\cventry{1980--1990}
+		{Grundschule}
+		{Schulname}
+		{}
+		{}
+		{}
+		
+\cventry{1990--2000}
+		{Gymnasium}
+		{Schulname}
+		{}
+		{}
+		{}
+		{}
+
+\subsection{Akademische Ausbildung}
+\cventry{2000--2010}
+		{Hochschule}
+		{Studiengang}
+		{}
+		{}
+		{}
+
+\subsection{Berufserfahrung}
+\cventry{2010--2020}
+		{Organisation}
+		{Abteilung}
+		{}
+		{}
+		{}
+
+\cvline{}{}{}
+
+\section{Qualifikationen}
+
+\subsection{Fortbildungen}
+\cventry{12/2010}
+		{Soft-Skill-Training}
+		{}
+		{}
+		{}
+		{}
+\null
+\vfill
+
+\city, \today 
+
+\cvline{}{}{}
+
+{{\myName} {\myLastname}}
+
+\end{document}

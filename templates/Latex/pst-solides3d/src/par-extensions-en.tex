@@ -1,0 +1,47 @@
+\section{Creating your own object}
+It is possible to create your own object in a separate file and
+import it into the list of objects recognized by
+\texttt{pst-solides3d}. Create a text file with the extension of \texttt{.pro}
+(myObj.pro) and enter the PostScript commands to define your
+\texttt{pst-solides3d} object.
+
+Reference your \texttt{.pro} file in the preamble with
+\begin{verbatim}
+    \pstheader{myObj.pro}
+\end{verbatim}
+Following this line, add this new object to the list of objects recognized by \texttt{pst-solides3d}
+with
+\begin{verbatim}
+    \addtosolideslistobject{myObj}
+\end{verbatim}
+
+For some examples of this technique, see the following web pages:
+
+\centerline{\url{http://melusine.eu.org/syracuse/mluque/solides3d2007/cristaux/}}
+
+\centerline{\url{http://melusine.eu.org/syracuse/mluque/solides3d2007/rhombicuboctaedre/}}
+
+
+\section{Creating a \texttt{.u3d} file}
+
+You can manipulate 3D objects created with \texttt{pst-solides3d};
+the following three steps are necessary:
+\begin{enumerate}
+\item Save your designed 3D object in the \texttt{.off} or
+    \texttt{.obj} format---see the chapter ``\textit{Usage of external files}''.
+
+\item Then use, for example, \textit{Meshlab}---an open source software---(\url{http://meshlab.sourceforge.net/}) to convert these files
+    into the \texttt{.u3d} format.
+
+\item The {\LaTeX} package \texttt{movie15} of Alexander \textsc{Grahn} embeds
+    files in the \texttt{.u3d} format into a PDF document, the document can then be viewed
+    using $\text{Adobe}^{\text{\tiny\circledR}}$ $\text{Reader}^{\text{\tiny\circledR}}$ 7 or later.
+\end{enumerate}
+
+You will find some examples on the following web pages:
+
+\centerline{\url{http://melusine.eu.org/syracuse/mluque/solides3d2007/pdf3d/}}
+
+\centerline{\url{http://melusine.eu.org/syracuse/mluque/solides3d2007/zeolithes/}}
+
+\endinput

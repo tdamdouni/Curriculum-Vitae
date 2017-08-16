@@ -1,0 +1,18 @@
+zpeur   EuroSerif-Regular    <zpeur.pfb
+zpeuri  EuroSerif-Italic     <zpeuri.pfb
+zpeub   EuroSerif-Bold       <zpeub.pfb
+zpeubi  EuroSerif-BoldItalic <zpeubi.pfb
+zpeuro  EuroSerif-Regular    <zpeur.pfb   "0.167 SlantFont"
+zpeubo  EuroSerif-Bold       <zpeub.pfb   "0.167 SlantFont"
+zpeurs  EuroSans-Regular     <zpeurs.pfb
+zpeuris EuroSans-Italic      <zpeuris.pfb
+zpeubs  EuroSans-Bold        <zpeubs.pfb
+zpeubis EuroSans-BoldItalic  <zpeubis.pfb
+zpeuros EuroSans-Regular     <zpeurs.pfb  "0.167 SlantFont"
+zpeubos EuroSans-Bold        <zpeubs.pfb  "0.167 SlantFont"
+zpeurt  EuroMono-Regular     <zpeurt.pfb
+zpeurit EuroMono-Italic      <zpeurit.pfb
+zpeubt  EuroMono-Bold        <zpeubt.pfb
+zpeubit EuroMono-BoldItalic  <zpeubit.pfb
+zpeurot EuroMono-Regular     <zpeurt.pfb  "0.167 SlantFont"
+zpeubot EuroMono-Bold        <zpeubt.pfb  "0.167 SlantFont"

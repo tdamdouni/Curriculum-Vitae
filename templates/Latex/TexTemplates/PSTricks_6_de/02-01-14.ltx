@@ -1,0 +1,33 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{118.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{xcolor}
+\StopShownPreambleCommands
+\begin{document}
+\definecolor{HTMLFarbe}{HTML}{006666}% #006666
+\ttfamily{\color{HTMLFarbe}HTML-Farbe 006666}\\
+rgb : \convertcolorspec{HTML}{006666}{rgb}\RGBFarbe
+\RGBFarbe\\
+cmyk: \convertcolorspec{HTML}{006666}{cmyk}\RGBFarbe
+\RGBFarbe\\
+hsb : \convertcolorspec{HTML}{006666}{hsb}\RGBFarbe
+\RGBFarbe
+\end{document}

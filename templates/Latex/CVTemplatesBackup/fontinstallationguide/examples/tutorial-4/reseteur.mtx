@@ -1,0 +1,8 @@
+\relax
+\metrics
+\resetglyph{euro}
+  \glyph{currency}{1000}
+\endsetglyph
+\setleftrightkerning{euro}{currency}{1000}
+\unsetglyph{currency}
+\endmetrics

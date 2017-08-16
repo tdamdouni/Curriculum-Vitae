@@ -1,0 +1,62 @@
+\section{Naming a solid}
+
+For certain purposes, it is helpful to save a solid in working
+storage to allow it to be referenced later on. To do so, we
+activate the Boolean \Lkeyword{solidmemory}, which allows the
+transmission of a variable throughout the code.
+
+Consequently, activation of this Boolean deactivates drawing
+by the macros \Lcs{psSolid}, \Lcs{psSurface} and \Lcs{psProjection}
+immediate. To obtain the drawing, we use the macro
+\Lkeyword{\composeSolid} at the end of the code.
+
+When \verb+\psset{solidmemory}+ is set up, we can use the option
+\Lkeyword{name} of the macro \Lcs{psSolid}.
+
+In the example below, a coloured solid is constructed, which is
+named $A$. It is drawn using the object \texttt{\Lkeyword{object}=cube} with
+the parameter \texttt{\Lkeyword{load}=$A$}.
+
+Note that \texttt{\Lkeyword{linecolor}=blue}, used while constructing our cube,
+has no effect on the drawing: only the structure of the solid is
+stored (vertices, faces, colours of faces), not the thickness of
+any line, nor its colour, nor the position of the light source.
+The settings of those parameters are taken into account at the
+time the solid is rendered.
+
+
+Finally, we demonstrate the use of the option
+\Lkeyword{deactivatecolor} which allows the cube to keep its
+original red colour (otherwise the default colours would be used
+within the object \Lkeyword{load}).
+
+\psset{lightsrc=10 0 10,viewpoint=50 -20 10 rtp2xyz,Decran=50}
+\begin{LTXexample}[width=6.5cm]
+\psset{unit=0.75}
+\begin{pspicture*}(-4,-4)(5,4)
+\psset{solidmemory}
+\psSolid[object=cube,
+      linecolor=blue,
+      a=4,fillcolor=red!50,
+      ngrid=3,
+      action=none,
+      name=A,
+      ](0,0,0)
+\psSolid[object=load,
+   deactivatecolor,
+   load=A]
+\composeSolid
+\end{pspicture*}
+\end{LTXexample}
+
+With the option \Lkeyword{solidmemory}, the names of variables are
+relatively well encapsulated, and there will be no conflict with
+the variables of the dvips driver. There remains however the risk
+of a collision with the names used in the \texttt{solides.pro}
+file. You could use only single letter variable names, for
+example, and it is necessary to avoid names like \verb+vecteur+,
+\verb+distance+, \verb+droite+, etc. which are already defined in
+the package.
+
+
+\endinput

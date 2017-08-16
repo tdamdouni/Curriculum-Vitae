@@ -1,0 +1,149 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                               %%
+%%  LaTeX2e template for the Proceedings of CMMSE            %%
+%%                                                               %%
+%%  Please don't change this format, which gives the appropiate  %%
+%%  appearance for the CMMSE series.                             %%
+%%                                                               %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass{cmmse2014}
+\usepackage{amssymb}
+\usepackage[pdftex]{graphicx}
+\usepackage{epstopdf}
+\epstopdfsetup{update}
+
+\begin{document}
+
+%\pagestyle{empty}
+
+%  Include here your own macros.
+
+\newcommand{\Eqref}[1]{(\ref{#1})}
+
+
+%  Data for the headings. Please fill both fields.
+
+\markboth
+  {Template for the CMMSE  proceedings} % abridged title
+  {Regino Criado, J. Vigo Aguiar}
+
+
+%  Full title. Use '\\' to force a line break.
+
+\title{\LaTeX\space Template for the CMMSE  Proceedings\\
+  and Instructions for Authors}
+
+
+%  Full author information.
+
+%\author{Full name}{e-mail}{affiliation number (below)}
+
+\author{First Author}{author1@example.com}{1}
+
+\author{Second Author}{author2@example.com}{1}
+
+\author{Third Author}{author3@example.org}{2}
+
+%\affiliation{number}{department}{university}
+
+\affiliation{1}{Department of First and Second Authors}
+  {University of First and Second Authors}
+
+\affiliation{2}{Department of Third Author}{University of Third Author}
+
+
+%  Abstract, key words and MSC codes.
+
+\begin{abstract}
+This is a template for the proceedings of CMMSE, with
+instructions for authors and some sample text.
+
+\keywords template, instructions \msccodes AMS codes (optional)
+\end{abstract}
+
+
+%
+%  Main text of the article.
+%
+
+
+\section{Introduction}
+
+This file is a \LaTeX2$\epsilon$ template for the Proceedings of
+CMMSE. 
+You should compile your contribution using pdf\TeX--pdf\LaTeX.
+
+\section{More}
+
+Remember the maximum number of pages: 11 for an invited talk, no
+limit for plenary.
+
+Please prepare your contribution (in English) without page numbers
+and send only the PDF file and a text file with the Title and author
+names as they should appear in the table of contents by
+ e-mail to {\tt
+cmmse@uwm.edu} before 17 May, 2014. Please use
+subject line ``CMMSE."  Note that the registration fee must be paid
+at that time to be included in the Proceedings. If payment is not
+possible by the due date, please email with a request for extension.
+It is not necessary to have an article in the Proceedings in order
+to give a talk.
+
+
+There should be no page numbers, as the CMMSE organizers will
+combine the PDF files electronically and then insert page numbers.
+Margins should be very wide: 1.5 inches on left and right (3.75 cm)  and 1.2 inches on top and bottom (3 cm).
+
+
+\newpage
+
+\section{Figures}
+
+If you have any figures, be aware that printing will not be in
+color, and any color figures will be translated to grayscale. Please
+make some effort to prevent huge files.  
+
+On a limited
+basis the CMMSE organizers will accept your source files and figures
+to compile to PDF format if you are unable to do this.  Send email
+requesting help and leave sufficient time before the due date to
+solve the problem.
+
+\section{Check list}
+Here you can find a short list with the more frequent errors in the compilation of the contributions.
+Please, check this items before sending yours.
+\begin{itemize}
+\item The geometry of the pages ({\bf the headers, footers, margins, fonts, font sizes} etc.) in the contribution is the same as in the template: Print the template and your contribution and put both side by side.
+\item {\bf Check the headers of your contribution}. They should contain the (maybe shorted) title of your contribution and the list of authors. If the list of authors do not fit in the header, please make it shorter by putting some of them and the clause ``et al.''.
+\item  {\bf Check the figures.} Some times the pdf\TeX{}  compilation leaves the space for the figure but do not put the figure inside; specially when one changes from the dvi$\to$ps$\to$pdf route to the pdf\TeX{}  route.
+\item {\bf Check the list of files in your contribution:} You must send all the files needed to compile your contribution just in case. 
+\item {\bf Check the overfull boxes:} 
+\end{itemize}
+\newpage
+ 
+\section*{Acknowledgements}
+
+This work has been partially supported by University of
+Wisconsin-Milwaukee Center for Industrial Mathematics.
+
+
+%
+%  Bibliography. Follow the usual conventions.
+%
+
+\begin{thebibliography}{99}
+
+\bibitem{book}
+  {\sc C.\,W. Misner, K.\,S. Thorne and J.\,A. Wheeler},
+  {\em Gravitation},
+  Freeman, San Francisco, 1970.
+
+\bibitem{paper}
+  {\sc E. Witten},
+  {\em Supersymmetry and Morse theory},
+  {\rm J.~Diff.\ Geom.} {\bf 17} (1982) 661--692.
+
+\end{thebibliography}
+
+\end{document}

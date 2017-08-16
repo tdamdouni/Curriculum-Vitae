@@ -1,0 +1,227 @@
+
+\documentclass[11pt]{dinbrief}
+
+\usepackage[T1]{fontenc}
+
+\usepackage[applemac]{inputenc}%wenn ihr auch einen Mac verwendet
+
+\usepackage[ngerman]{babel}
+
+\usepackage{currvita}
+
+\usepackage{graphicx}
+
+% Kopf?/Fu?zeile
+
+\setlength{\unitlength}{1cm}
+
+\renewcommand{\labelitemi}{\labelitemii}
+
+\pagestyle{empty}
+
+\setlength{\parindent}{0pt}%keinen Absatzeinzug
+
+\nowindowtics %kein Falz am Rand
+
+\nowindowrules %keine Linien „uber und unter der Adresse
+
+\date{}% Muss leer sein sonst gibts ein Datum in die seite
+
+\begin{document}
+
+% Lebenslauf
+
+%siehe package currvita
+
+\begin{cv}{Lebenslauf}
+
+\begin{cvlist}{Persönliche Daten}
+
+\item[Anschrift] Frau Johanna Musterfrau \\
+
+Muster Straße 123\\
+
+44568 Musterhausen
+
+\item[Telefon](01 23 4) 5 67 89
+
+\item[E-Mail]deine@email-adresse.xy
+
+\item[Homepage]http://www.deine-homepage.de
+
+\item[Geboren]01.01.1900 in Lummerland
+
+\item[Staatsang.]deine Staatsangehörigkeit
+
+\item[Familienstand]dein Familienstand
+
+\end{cvlist}
+
+\begin{cvlist}{Schulische Ausbildung}
+
+\item[Monat/Jahr–Monat/Jahr]Grundschule Musterhausen
+
+\item[Monat/Jahr–Monat/Jahr]Deine weiterführende Schule Musterhausen
+
+\item[Monat/Jahr]Dein Abschluss
+
+\end{cvlist}
+
+\begin{cvlist}{Ausbildung/Studium/Was auch immer}
+
+\item[seit Monat/Jahr]Studium der Musterwissenschaften an der Muster-Universität Musterhausen
+
+\item[Monat/Jahr]falls Du noch wichtige Zwischenstationen erwähnen möchtest,
+
+\item[Monat/Jahr]kannst Du das hier
+
+\item[Monat/Jahr]beliebig oft tun
+
+\item[Monat/Jahr]Abschluss der Musteruniversität (Note: x.y)
+
+\end{cvlist}
+
+\begin{cvlist}{Sprachkenntnisse}
+
+\item[Monat/Jahr–Monat/Jahr]Englisch
+
+\item[Monat/Jahr–Monat/Jahr]Russisch
+
+\item[Monat/Jahr–Monat/Jahr]Hebräisch AG
+
+\item[Semester Jahr] Zertifikat in Spanisch
+
+\end{cvlist}
+
+\cvplace{Deine Stadt}
+
+\date{den \today}%setzt das heutige Datum ein
+
+\end{cv}
+
+\end{document}
+Der Grundaufbau besteht aus dem Listentyp „cvlist“, dessen Spartenüberschrift (im obigen Beispiel Persönliche Daten, Schulische Ausbildung, Ausbildung/Studium, Sprachkenntnisse usw.) absolut frei gewählt werden können. Die Listenanzahl sowie die \item-Anzahl innerhalb einer Liste ist auch frei wählbar, wobei die Möglichkeit besteht, einen Zeitraum oder Zusatzinfo wie in den description-Listen in eckigen Klammern anzugeben:
+
+\item[Datum oder Beschreibung]Hier das Ereignis
+
+Lebenslauf plus Anschreiben gleich Kurzbewerbung
+
+Wie bereits gesagt, gibt es mit currvita auch die Möglichkeit, direkt eine ganze Kurzbewerbung mit allem drum und dran zu erstellen.
+
+Dabei ändert sich im Prinzip nichts am Aufbau der Bewerbung:
+
+Deckblatt mit Passfoto
+
+Für ein Deckblatt, welches vor dem Anschreiben erscheint, wird folgender Code direkt nach \begin{document} eingefügt.
+
+\address{}%Bitte LEER lassen
+
+\begin{letter}{}%Bitte LEER lassen
+
+\opening{}%Bitte LEER lassen
+
+%das wird ein Deckblatt
+
+\vspace{-9cm}
+
+\begin{center}\textsc{\Huge Bewerbung}\end{center}
+
+\hrule
+
+\vspace{4cm}
+
+\begin{center}
+
+\fbox{\resizebox{6cm}{!}{\includegraphics{passfoto}}}%hier bitte den Namen deiner Passfotodatei angeben, als jpg und ohne Endung
+
+\end{center}
+
+\begin{center}
+
+\begin{large}
+
+Frau Johanna Musterfrau \\
+
+Muster Straße 123\\
+
+44568 Musterhausen\par
+
+Telefon: (01 23 4) 5 67 89 \\
+
+E-Mail: deine@email-adresse.xy
+
+\end{large}
+
+\end{center}
+
+\closing{} %Bitte LEER lassen
+
+\end{letter}
+
+%Deckblatt Ende
+
+Anschreiben
+
+Möchte man nun auch noch den Bewerbungsbrief einfügen, geht das mit folgendem Code, der – wenn vorhanden – nach dem Deckblatt und vor dem CV eingefügt wird:
+
+% Hier f"angt jetzt der Berwerbungsbrief an siehe dinbrief package
+
+\place{Musterhausen}
+
+\date{den \today}
+
+\signature{$\overline{\hspace{1.5 cm}\textnormal{\textit{Johanna Musterfrau}}\hspace{1.5 cm}}$}
+
+\centeraddress
+
+\enabledraftstandard
+
+%hier muss die Gr“o“se von tabular auf deinen Namen so angepasst werden, dass die Seitenbreite voll ist aber keine Warnung wegen einer zu vollen Box kommt. Einfach ausprobieren. Du kannst hier aber auch selbst etwas reinschreiben.
+
+\bottomtext{
+
+\begin{minipage}[t]{16.5cm}
+
+\rule[1mm]{16.5cm}{0.4pt}
+
+\fontsize{8pt}{1ex}\selectfont
+
+%Achtung, hier beginnt eine Tabelle
+
+\begin{tabular}{llp{6.9cm}ll}
+
+Telefon:&(01 23 4) 5 67 89 \\
+
+E-Mail:&deine@email-adresse.xy\\
+
+\end{tabular}
+
+\end{minipage}
+
+}%bottomtext
+
+\subject{\textbf{Bewerbung}}
+
+\begin{letter}{Hier Der Adressat\\ und seine\\ umfängliche\\Adresse\\[1ex]PLZ Stadt des Adressaten}
+
+\opening{Sehr geehrte/r Frau/Herr Adressat,}
+
+hiermit bewerbe ich mich um eine der ausgeschriebenen Stellen als Musterarbeiter.\par
+
+Ich bin ganz toll für diesen Job, weil – \par
+
+Und falls das Anschreiben etwas länger wird … \par
+
+Ist auch Platz für noch einen Absatz …. \par
+
+Hier ein letzter Satz, dass Du Dich auf ein persönliches Gespräch freust (bitte keinen Konjunktiv!).
+
+\closing{Mit freundlichen Grüßen/Hochachtungsvoll/eine noch kreativere Grußformel}
+
+\vfill%wenn die „Anlagen“ am unteren Rand ausgerichtet sein sollen
+
+\encl{%Anlagen
+
+Kurzbewerbung}%oder auch: Vollständige Bewerbungsunterlagen, je nach dem
+
+\end{letter}

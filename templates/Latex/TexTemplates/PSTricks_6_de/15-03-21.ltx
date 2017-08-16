@@ -1,0 +1,40 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\usepackage{filecontents}
+\StartShownPreambleCommands
+\usepackage{pst-plot}
+\begin{filecontents*}{LSM.data}
+0.003298697 1.397785583
+0.003193358 1.615489564
+0.003094538 2.044019006
+0.003001651 2.259240127
+\end{filecontents*}
+\StopShownPreambleCommands
+\begin{document}
+\readdata{\data}{LSM.data}
+\pstScalePoints(10000,1){ 0.003 sub }{}
+\psset{lly=-1.75cm}
+\psgraph[arrows=->,Ox=0.0030,Dx=0.0001,dx=\psxunit](0,0)(3.2,3){10cm}{5cm}
+  \listplot[showpoints=true,linewidth=1pt,linecolor=blue]{\data}
+  \listplot[PstDebug=1,plotstyle=LSM,linewidth=0.1pt,linestyle=dashed,%
+    xStart=-0.25,xEnd=3.3]{\data}
+\endpsgraph
+\end{document}

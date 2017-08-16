@@ -1,0 +1,246 @@
+% Copyright 2009-2011 Dominik Wagenfuehr <dominik.wagenfuehr@deesaster.org>
+% Dieses Dokument unterliegt der Creative-Commons-Lizenz
+% "Namensnennung-Weitergabe unter gleichen Bedingungen 3.0 Deutschland"
+% [http://creativecommons.org/licenses/by-sa/3.0/de/].
+
+\documentclass[12pt,parskip=half-]{scrartcl}
+
+\input{befehle.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Eigene Definitionen
+% Ab hier sollte man selbst Änderungen vornehmen.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Eigene Adresse festgelegt.
+\newcommand*{\VollerName}{Max Mustermann}
+\newcommand*{\AbsenderStrasse}{Musterstraße 42}
+\newcommand*{\AbsenderPLZOrt}{12345 Berlin}
+\newcommand*{\Telefon}{Tel.: 01234 -- 567890}
+\newcommand*{\EMail}{mmustermann@musterstadt.de}
+\newcommand*{\OrtDatum}{Berlin, \today}
+\newcommand*{\Geburtstag}{1. Januar 1970}
+\newcommand*{\Geburtsort}{Berlin}
+\newcommand*{\Details}{ledig, ortsungebunden} % verheiratet, 2 Kinder, etc.
+\newcommand*{\Ausbildungsgrad}{Promovierter Veterinärmediziner}
+
+% Die Unterschrift sollte als Bilddatei vorliegen.
+\newcommand*{\UnterschriftenDatei}{signatur-bewerber.png}
+
+% Das Bewerberfoto.
+\newcommand*{\BewerberFoto}{foto-bewerber.png}
+
+% Adressat festlegen
+\newcommand*{\Firma}{Hell AG}
+\newcommand*{\AdressatVorname}{Ludwig-Christofer}
+\newcommand*{\AdressatNachname}{Funkel}
+\newcommand*{\AnschriftStrasse}{Route 66}
+\newcommand*{\AnschriftPLZOrt}{00000 Havenfürst}
+
+% Die beiden Anreden im Briefkopf und im Text müssen
+% unterschieden werden.
+\newcommand*{\AnredeKopf}{Herrn}   % alternativ: Frau
+\newcommand*{\AnredeText}{r Herr}  % alternativ: Frau
+
+% Die Stelle, auf die man sich bewirbt
+\newcommand*{\Bewerberstelle}{Veterinär-Mediziner (m/w)}
+
+% Der Anschreibentext.
+\newcommand{\AnschreibenText}
+{%
+    {\itshape
+        Hier steht nun der Bewerbungstext. Nicht zu lang, aber mit den
+        wichtigen Details, wieso man sich bewirbt und in der Firma
+        anfangen will.
+        
+        Den Hinweis hier natürlich löschen! Das heißt, alles, was in
+        den geschweiften Klammern steht, kann weg.
+    }
+}
+
+% Hinweis auf Anlagen
+% Wenn nicht benötigt, dann einfach auskommentieren.
+\newcommand{\AnschreibenAnlage}
+{%
+    Anlagen
+}
+
+% Text für die Motivationsseite
+\newcommand{\Motivationstext}
+{%
+    {\itshape
+        Hier steht nun der Motivationstext. Man sollte ein bisschen mehr
+        über sich erzählen und wieso man in der Firma anfangen will.
+        
+        Dabei kann man etwas weiter ausholen, frühere Tätigkeiten
+        beschreiben, aber auch auf private nützliche Dinge eingehen,
+        die bei der Arbeit helfen können.
+        
+        In dem Beispiel hier zum Beispiel die Erfahrungen der
+        Tierartzpraxis und die eigenen Haustiere.
+        
+        Den Hinweis hier natürlich löschen! Das heißt, alles, was in
+        den geschweiften Klammern steht, kann weg.        
+    }
+}
+
+
+% Titel und Autor des PDFs werden automatisch festgelegt,
+% was aber erst nach der Definition des Namens geht.
+\hypersetup{%
+    pdftitle={Bewerbung bei \Firma},
+    pdfauthor={\VollerName},
+    pdfcreator={\VollerName}
+}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Das Anschreiben
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% ggf. braucht man zwischen Anschrift und text etwas Abstand,
+% je nachdem, wie viel man im Anschreiben hat. (Standard ist 1em.)
+% \setlength{\AbstandVorOrt}{2em}
+
+% Normalerweise gibt es zwischen den zwei Adressen im Anschreiben
+% keinen Abstand. Wer dennoch einen will, einfach den Abstand
+% neu setzen. (Standard ist 0em.)
+%\setlength{\AbstandZwischenAdressen}{1em}
+
+\Anschreiben
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Meine Seite
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\MeineSeite
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Lebenslauf
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Ab hier muss man selbst tätig werden und Inhalt einfüllen!
+
+\section{Lebenslauf}
+
+\subsection{Promotion}
+
+\begin{Abschnitt}
+Mai 2000 & Doktor der Veterinärmedizin Dr.\,med. \\
+         & Doktorarbeit an der Freien Universität Berlin: \\
+	     & "`\textit{Habitatsverhalten von Meerschweinchen unter Einfluss von Halluzinogenen}"'
+\end{Abschnitt}
+
+\subsection{Studium}
+
+\begin{Abschnitt}
+September 1997 & Abschluss als Diplom-Veterinärmediziner (Bewertung "`sehr gut"') \\
+               & Diplomarbeit an der Freien Universität Berlin: \\
+	           & "`\textit{Motorische Analyse der Klapperschlange -- Bewegung und Fortpflanzung}"'\\
+\\
+1991 -- 1997  & Studium Diplom-Veterinärmedizin\\
+              & an der Freien Universität Berlin \\
+              & Schwerpunkte: Säugende Reptilien
+\end{Abschnitt}
+
+\subsection{Zivildienst}
+
+\begin{Abschnitt}
+1989 -- 1991 & Zivildienst Malteser-Krankenhaus Berlin
+\end{Abschnitt}
+
+\subsection{Schulbildung}
+
+\begin{Abschnitt}
+Juni 1989    & Abiturprüfung bestanden mit Note 1,3 \\
+1982 -- 1989 & Gymnasium Pestalozzischule Berlin
+\end{Abschnitt}
+
+% Neue Seite, die Überschrift muss jedesmal eingefügt werden!
+%\clearpage
+%\section{Lebenslauf}
+
+\subsection{Veröffentlichungen}
+
+\begin{Abschnitt}
+1995 & "`\textit{Cutting Glasses with the Teeth of Crotalus adamanteus}"' für "`Ninth International Conference of World Wide Veterinary Medicine"' in Barcelona (Spanien), Januar 1996
+\end{Abschnitt}
+
+\subsection{Praktische Tätigkeiten}
+
+\begin{Abschnitt}
+1988 -- 1989 und & Tierarzt-Praxis Dr. Hauser in Berlin \\
+\Unterabschnitt{Kernarbeitsgebiete:}{%
+\begin{itemize}
+\item Hunden die Pfötchen halten
+\item Katzen kraulen
+\end{itemize}
+}
+\Unterabschnitt{Weitere Aufgaben:}{Kaffee kochen}
+1991 -- 1997     & Aushilfe und Betreuung der Patienten \\
+\end{Abschnitt}
+
+\subsection{Besondere Kenntnisse}
+
+\begin{Abschnitt}
+\textbf{Sprachen} & Englisch: sehr gut in Schrift und gut in Sprache \\
+                  & Französisch: Grundkenntnisse \\
+                  & Latein: Abschluss mit Latinum \\
+\\
+\textbf{Medizin} & Allgemeine Veterinärmedizin, \\
+                 & Reptilien\\
+\end{Abschnitt}
+
+\subsection{Hobbys und Interessen}
+
+\begin{Abschnitt}
+ & Literatur \\
+ & Badminton
+\end{Abschnitt}
+
+\UnterschriftOrt
+
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Motivation
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\MeineMotivation
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Anlagen
+% Wenn man keine Anlagen hat, dann alles
+% auskommentieren oder löschen.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Anlagenverzeichnis}
+
+\begin{spacing}{1.1}
+    \subsection{Arbeitszeugnisse}
+    \begin{itemize}
+        \item Tierarzt-Praxis Dr. Hauser
+        \item Dienstzeugnis, Zivildienst Malteser-Krankenhaus Berlin
+    \end{itemize}
+    \vskip2em
+
+    \subsection{Zeugnisse}
+    \begin{itemize}
+        \item Doktorurkunde
+        \item Diplomurkunde
+        \item Diplomzeugnis
+        \item Abiturzeugnis
+    \end{itemize}
+\end{spacing}
+\clearpage
+
+
+% Hier folgen nun die einzelnen Anlagen, die als PDF vorliegen
+% \includepdf[pages=-]{zeugnis.pdf}
+
+
+\end{document}

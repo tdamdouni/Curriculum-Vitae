@@ -1,0 +1,36 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{166.324pt}
+\setlength\parindent{0pt}
+\usepackage{pstricks-add}
+\def\pshlabel#1{\footnotesize#1}
+\def\psvlabel#1{\footnotesize#1}
+\StartShownPreambleCommands
+\usepackage{pstricks-add}
+\StopShownPreambleCommands
+\begin{document}
+\psset{xunit=2}
+\def\FF{x dup mul} \def\dFF{x 2 mul}
+\begin{pspicture}(-0.25,-0.5)(2,4)
+  \psaxes[Dx=0.5,Dy=1]{->}(0,0)(2,3.75)
+  \psplot[linewidth=1.5pt]{0}{2}{\FF}
+  \psplotTangent{1}{1}{\FF}
+  \psdot(! 1 /x 1 def \FF)
+\end{pspicture}
+\end{document}

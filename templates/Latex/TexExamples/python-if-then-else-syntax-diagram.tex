@@ -1,0 +1,135 @@
+% Mobile ad-hoc network
+% Author: Dr. Ludger Humbert
+% Source: https://haspe.homeip.net/projekte/ddi/browser/tex/pgf2                                                                             
+% https://haspe.homeip.net/projekte/ddi/browser/tex/pgf2/Python_if-then-elif-else.tex $:
+%
+
+\documentclass{article}
+\usepackage[ngerman]{babel}
+
+\usepackage{tikz}
+\usepackage{verbatim}
+
+\begin{comment}
+:Title: Python if-then-else syntax diagram
+
+A `syntax diagram`_ (or railroad diagram) for a if-then-elif-else expression in Python. 
+
+.. _syntax diagram: http://en.wikipedia.org/wiki/Syntax_diagram
+
+:Author: Dr. `Ludger Humbert`_
+:Source: `https://haspe.homeip.net/projekte/ddi/browser/tex/pgf2`__
+
+.. __: https://haspe.homeip.net/projekte/ddi/browser/tex/pgf2
+.. _Ludger Humbert: https://haspe.homeip.net/cgi-bin/pyblosxom.cgi
+
+\end{comment}
+\usepackage{xxcolor}
+
+
+\usetikzlibrary{chains,matrix,scopes,decorations.shapes,arrows,shapes}
+
+% fuer Railroad-Diagramme
+\tikzset{
+  nonterminal/.style={
+    % The shape:
+    rectangle,
+    % The size:
+    minimum size=6mm,
+    % The border:
+    very thick,
+    draw=red!50!black!50,         % 50% red and 50% black,
+                                  % and that mixed with 50% white
+    % The filling:
+    top color=white,              % a shading that is white at the top...
+    bottom color=red!50!black!20, % and something else at the bottom
+    % Font
+    font=\itshape
+  },
+  terminal/.style={
+    % The shape:
+    rounded rectangle,
+    minimum size=6mm,
+    % The rest
+    very thick,draw=black!50,
+    top color=white,bottom color=black!20,
+    font=\ttfamily},
+  skip loop/.style={to path={-- ++(0,#1) -| (\tikztotarget)}}
+}
+{
+  \tikzset{terminal/.append style={text height=1.5ex,text depth=.25ex}}
+  \tikzset{nonterminal/.append style={text height=1.5ex,text depth=.25ex}}
+}
+
+
+\renewcommand\familydefault{\sfdefault}
+
+\listfiles
+
+\begin{document}
+
+
+%% if_stmt ::= "if" expression ":" suite
+%%                ( "elif" expression ":" suite )*
+%%                ["else" ":" suite]
+%%
+\hspace{-35ex}
+\begin{tikzpicture}[point/.style={coordinate},>=stealth',thick,draw=black!50,
+                    tip/.style={->,shorten >=0.007pt},every join/.style={rounded corners},
+                    hv path/.style={to path={-| (\tikztotarget)}},
+                    vh path/.style={to path={|- (\tikztotarget)}},
+                    text height=1.5ex,text depth=.25ex]     % um die Hoehe des Punktes festzuzurren
+  \matrix[ampersand replacement=\&,column sep=4mm] {
+    \node (p1)  [point]  {}; \&    \node (ifs)    [terminal]     {if};             \&
+    \node (p2)  [point]  {}; \&    \node (expr1)  [nonterminal]  {expr};           \&
+    \node (p3)  [point]  {}; \&    \node (colon1) [terminal]     {:};              \&
+    \node (p4)  [point]  {}; \&    \node (suite1) [nonterminal]  {suite};          \&
+    \node (p5)  [point]  {}; \&    \node (p6)     [point]  {};                     \&
+    \node (p6a) [point]  {}; \&    \node (p6b)    [point]  {};                     \&
+    \node (p7)  [point]  {}; \&    \node (elif)   [terminal]     {elif};           \&
+    \node (p8)  [point]  {}; \&    \node (expr2)  [nonterminal]  {expr};           \&
+    \node (p9)  [point]  {}; \&    \node (colon2) [terminal]     {:};              \&
+    \node (p10) [point]  {}; \&    \node (suite2) [nonterminal]  {suite};          \&
+    \node (p11) [point]  {}; \&    \node (p12)    [point]  {};                     \&
+    \node (p12a)[point]  {}; \&    \node (p12b)   [point]  {};                     \&
+    \node (p13) [point]  {}; \&    \node (else)   [terminal]     {else};           \&
+    \node (p14) [point]  {}; \&    \node (colon3) [terminal]     {:};              \&
+    \node (p15) [point]  {}; \&    \node (suite3) [nonterminal]  {suite};          \&
+    \node (p16) [point]  {}; \&    \node (p17)    [point]       {};\\
+  };
+
+  { [start chain]
+    \chainin (p1);
+    \chainin (ifs)    [join=by tip];
+    \chainin (p2)     [join];
+    \chainin (expr1)  [join=by tip];
+    \chainin (p3)     [join];
+    \chainin (colon1) [join=by tip];
+    \chainin (p4)     [join];
+    \chainin (suite1) [join=by tip];
+    \chainin (p7)     [join];
+    \chainin (elif)   [join=by tip];
+    \chainin (p8)     [join];
+    \chainin (expr2)  [join=by tip];
+    \chainin (p9)     [join];
+    \chainin (colon2) [join=by tip];
+    \chainin (p10)    [join];
+    \chainin (suite2) [join=by tip];
+    \chainin (p12a)   [join,join=with p6 by {skip loop=-11mm,tip}];
+    \chainin (p13)    [join];
+    \chainin (else)   [join=by tip];
+    \chainin (p14)    [join];
+    \chainin (colon3) [join=by tip];
+    \chainin (p15)    [join];
+    \chainin (suite3) [join=by tip];
+    \chainin (p16)    [join];
+    \chainin (p17)    [join=by tip];
+    \chainin (p16)    [join,join=with p12b by {skip loop=-11mm,tip}];
+    \chainin (p6b)    [join=with p11 by {skip loop=11mm,tip}];
+  }
+\end{tikzpicture}
+
+
+
+\end{document}
+

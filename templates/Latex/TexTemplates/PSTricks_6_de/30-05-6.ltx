@@ -1,0 +1,64 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pstricks,pst-grad}
+\SpecialCoor
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(-5,-2.75)(5,5.5)
+%\psgrid[griddots=10,gridlabels=7pt,subgriddiv=0]
+% dicke Kugeln
+\pscircle[fillstyle=gradient,gradbegin=white,%
+                gradend=black,gradmidpoint=0,gradangle=90](-4,-2){0.75}
+\pscircle[fillstyle=gradient,gradbegin=white,%
+                gradend=black,gradmidpoint=0,gradangle=90](4,2){0.75}
+\pscircle[linestyle=dashed](-4,2){0.75}
+\pscircle[linestyle=dashed](4,-2){0.75}
+% kleine Kugeln
+\psline[linewidth=0.5pt](-4,-0.75)(4,0.75)
+\psline[linewidth=0.5pt,linestyle=dashed](-4,0.75)(4,-0.75)
+\psline[linewidth=2pt](-0.5,-0.1)(0.5,0.1)
+\psline[linewidth=2pt](-0.5,0.1)(0.5,-0.1)
+\pscircle[fillstyle=gradient,gradbegin=white,%
+                gradend=black,gradmidpoint=0,gradangle=90](-4,-0.75){0.2}
+\pscircle[fillstyle=gradient,gradbegin=white,%
+                gradend=black,gradmidpoint=0,gradangle=90](4,0.75){0.2}
+\pscircle[linestyle=dashed](-4,0.75){0.2}
+\pscircle[linestyle=dashed](4,-0.75){0.2}
+\psline[linewidth=0.2pt](-5.2,-0.75)(-4.8,-0.75)
+\psline[linewidth=0.2pt](-5.2,-2)(-4.8,-2)
+\psline[linewidth=0.2pt,arrowscale=2]{<->}(-5,-2)(-5,-0.75)
+\uput[180](-5,-1.4){r}
+\psline[linewidth=0.2pt,arrowscale=2]{<->}(-4,-1.1)(0,-1.1)
+\psline[linewidth=0.2pt](0,-0.9)(0,-1.3)
+\uput[-90](-2,-1.1){a}
+\psarc[linewidth=0.2pt]{<->}(0,0){4.5}{-11}{11}
+\uput[0](4.5,0){$\varphi$}
+\psline[linewidth=0.2pt,linecolor=red,arrowscale=2]{->}(-3,5)(0,0)(5,3.8)
+\psline[linewidth=0.2pt,linecolor=red,arrowscale=2]{->}(0.8,5)
+\psarc[linewidth=0.2pt,arrowscale=2]{<->}(0,0){4.5}{37}{81}
+\uput[0](4;60){$2\varphi$}
+\psline[linewidth=0.2pt,arrowscale=2]{<->}(0.8,5)(5,3.8)
+\uput[45](3,4.5){s}
+\rput{-57}(6;124){\psframe[fillstyle=gradient,gradbegin=white,%
+                gradend=red,gradmidpoint=0,gradangle=90](0,0)(1.5,0.5)}
+\end{pspicture}
+\end{document}

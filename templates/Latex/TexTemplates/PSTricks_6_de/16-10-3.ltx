@@ -1,0 +1,49 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-node}
+\StopShownPreambleCommands
+\begin{document}
+$
+\def\arraystretch{1.2}
+\begin{array}{ll|l@{\kern25pt}l@{\kern15pt}l@{\kern15pt}l}
+    & (\mu, \nu)= & (0,0) & (0,1), & (1,0) \\\hline
+i=1 & \rnode{T1_1}{T_{1,-1}}=0& \rnode{T10}{T_{10} = f_{1}} \\
+    &             &                & \rnode{T21}{T_{21}}\\
+i=2 & T_{2,-1}=0  & \rnode{T20}{T_{20} = f_{1}} && \rnode{T32}{T_{32}}\\
+    &             &   & \rnode{T31}{T_{31}} && \rnode{T43}{T_{43}}\\
+i=3 & T_{3,-1}=0  & \rnode{T30}{T_{30}=f_{1}} && \rnode{T42}{T_{42}}\\
+    &             &                & \rnode{T41}{T_{41}} &\\
+\vdots&\vdots     &     \vdots
+\end{array}
+$
+\ncangle[angleA=-90,angleB=180,arrows=->,nodesepB=0.1]{T1_1}{T21}
+\psset{arm=0,angleA=0,angleB=180,arrows=->}
+\ncdiag{T10}{T21}
+\ncdiag{T20}{T21}
+\ncdiag{T21}{T32}
+\ncdiag{T31}{T32}
+\ncdiag{T20}{T31}\ncdiag{T32}{T43}
+\ncdiag{T30}{T31}\ncdiag{T42}{T43}
+\ncdiag{T31}{T42}
+\ncdiag{T41}{T42}
+\ncdiag{T30}{T41}
+\end{document}

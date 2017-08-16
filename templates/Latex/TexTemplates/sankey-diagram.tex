@@ -1,0 +1,376 @@
+\documentclass{article}
+\usepackage{tikz}
+%%%<
+\usepackage{verbatim}
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{10pt}%
+%%%>
+\begin{comment}
+:Title: Sankey diagram
+:Tags: Diagrams;Mathematical engine
+:Author: Paul Gaborit
+:Slug: sankey-diagram
+
+This document contains a new environment called sankeydiagram.
+
+Its optional argument is useful to fix some global parameters:
+
+ - sankey tot quantity is a number and represents the total quantity of the global flow (default value: 100 for 100%).
+ - sankey tot length is the width of the global flow (default value: 100pt).
+ - sankey min radius is the minimum radius of each turn (default value: 30pt).
+ - sankey fill is the style used to fill the flows.
+ - sankey draw is the style used to draw the flows.
+ - sankey debug (a flag) is useful to debug a diagram during its construction (default value: false).
+
+The sankeydiagram environment defines some useful commands to construct a sankey diagram:
+
+ - \sankeynode{prop}{angle}{name}{pos} makes a sankey node (a flow) of prop capacity (in quantity units), named name. Its orientation and position are given by angle and pos.
+ - \sankeynodestart and \sankeynodeend are similar to \sankeynode (same arguments) but make respectively and flow starting and a flow ending.
+ - \sankeyadvance{name}{distance} moves forward the sankey node named name.
+ - \sankeyturn{name}{angle} turns the sankey node named name.
+ - \sankeyfork{name}{list of forks} forks the sankey node named name. The list of forks is a list of pairs: quantity/name (the sum of quantities must be equal to the quantity of sankey node to fork).
+
+Uncomment the option `sankey` debug to get labels for drafting and debugging,
+as you can see in the second picture.
+
+This code was written by Paul Gaborit and published on TeX.SE.
+\end{comment}
+\usetikzlibrary{calc}
+\usepackage{etoolbox}
+
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfdeclarelayer{sankeydebug}
+\pgfsetlayers{background,main,foreground,sankeydebug}
+
+\newif\ifsankeydebug
+
+\newenvironment{sankeydiagram}[1][]{
+
+  \def\sankeyflow##1##2{% sn, en
+    \path[sankey fill]
+    let
+    \p1=(##1.north east),\p2=(##1.south east),
+    \n1={atan2(\x1-\x2,\y1-\y2)-90},
+    \p3=(##2.north west),\p4=(##2.south west),
+    \n2={atan2(\x3-\x4,\y3-\y4)+90}
+    in
+    (\p1) to[out=\n1,in=\n2] (\p3) --
+    (\p4) to[in=\n1,out=\n2] (\p2) -- cycle;
+    \draw[sankey draw]
+    let
+    \p1=(##1.north east),\p2=(##1.south east),
+    \n1={atan2(\x1-\x2,\y1-\y2)-90},
+    \p3=(##2.north west),\p4=(##2.south west),
+    \n2={atan2(\x3-\x4,\y3-\y4)+90}
+    in
+    (\p1) to[out=\n1,in=\n2] (\p3)
+    (\p4) to[in=\n1,out=\n2] (\p2);
+  }
+
+
+  \tikzset{
+    sankey tot length/.store in=\sankeytotallen,
+    sankey tot quantity/.store in=\sankeytotalqty,
+    sankey min radius/.store in=\sankeyminradius,
+    sankey arrow length/.store in=\sankeyarrowlen,
+    sankey debug/.is if=sankeydebug,
+    sankey debug=false,
+    sankey flow/.style={
+      to path={
+        \pgfextra{
+          \pgfinterruptpath
+          \edef\sankeystart{\tikztostart}
+          \edef\sankeytarget{\tikztotarget}
+          \sankeyflow{\sankeystart}{\sankeytarget}
+          \endpgfinterruptpath
+        }
+      },
+    },
+    sankey node/.style={
+      inner sep=0,minimum height={sankeyqtytolen(##1)},
+      minimum width=0,draw=none,line width=0pt,
+    },
+    % sankey angle
+    sankey angle/.store in=\sankeyangle,
+    % sankey default styles
+    sankey fill/.style={line width=0pt,fill,white},
+    sankey draw/.style={draw=black,line width=.4pt},
+  }
+
+  \newcommand\sankeynode[4]{%prop,orientation,name,pos
+    \node[sankey node=##1,rotate=##2] (##3) at (##4) {};
+    \ifsankeydebug
+    \begin{pgfonlayer}{sankeydebug}
+      \draw[red,|-|] (##3.north west) -- (##3.south west);
+      \pgfmathsetmacro{\len}{sankeyqtytolen(##1)/3}
+      \draw[red] (##3.west)
+      -- ($(##3.west)!\len pt!90:(##3.south west)$)
+      node[font=\tiny,text=black] {##3};
+    \end{pgfonlayer}
+    \fi
+  }
+
+  \newcommand\sankeynodestart[4]{%prop,orientation,name,pos
+    \sankeynode{##1}{##2}{##3}{##4}
+    \begin{scope}[shift={(##3)},rotate=##2]
+      \path[sankey fill]
+      (##3.north west) -- ++(-\sankeyarrowlen,0)
+      -- ([xshift=-\sankeyarrowlen/6]##3.west)
+      -- ([xshift=-\sankeyarrowlen]##3.south west)
+      -- (##3.south west) -- cycle;
+      \path[sankey draw]
+      (##3.north west) -- ++(-\sankeyarrowlen,0)
+      -- ([xshift=-\sankeyarrowlen/6]##3.west)
+      -- ([xshift=-\sankeyarrowlen]##3.south west)
+      -- (##3.south west);
+    \end{scope}
+  }
+
+  \newcommand\sankeynodeend[4]{%prop,orientation,name,pos
+    \sankeynode{##1}{##2}{##3}{##4}
+    \begin{scope}[shift={(##3)},rotate=##2]
+      \path[sankey fill]
+      (##3.north east)
+      -- ([xshift=\sankeyarrowlen]##3.east)
+      -- (##3.south west) -- cycle;
+      \path[sankey draw]
+      (##3.north east)
+      -- ([xshift=\sankeyarrowlen]##3.east)
+      -- (##3.south west);
+    \end{scope}
+  }
+
+  \newcommand\sankeyadvance[3][]{%newname,name,distance
+    \edef\name{##2}
+    \ifstrempty{##1}{
+      \def\newname{##2}
+      \edef\name{##2-old}
+      \path [late options={name=##2,alias=\name}];
+    }{
+      \def\newname{##1}
+    }
+    \path
+    let
+    % sankey node angle
+    \p1=(##2.north east),
+    \p2=(##2.south east),
+    \n1={atan2(\x1-\x2,\y1-\y2)-90},
+    % sankey prop
+    \p3=($(\p1)-(\p2)$),
+    \n2={sankeylentoqty(veclen(\x3,\y3))},
+    % next position
+    \p4=($(##2.east)!##3!-90:(##2.north east)$)
+    in
+    \pgfextra{
+      \pgfmathsetmacro{\prop}{\n2}
+      \pgfinterruptpath
+      \sankeynode{\prop}{\n1}{\newname}{\p4}
+      \path (\name) to[sankey flow] (\newname);
+      \endpgfinterruptpath
+    };
+  }
+
+  \newcommand\sankeyturn[3][]{%newname,name,angle
+    \edef\name{##2}
+    \ifstrempty{##1}{
+      \def\newname{##2}
+      \edef\name{##2-old}
+      \path [late options={name=##2,alias=\name}];
+    }{
+      \def\newname{##1}
+    }
+    \ifnumgreater{##3}{0}{
+      \typeout{turn acw: ##3}
+      \path
+      let
+      % sankey node angle
+      \p1=(##2.north east),
+      \p2=(##2.south east),
+      \p3=($(\p1)!-\sankeyminradius!(\p2)$),
+      \n1={atan2(\x1-\x2,\y1-\y2)-90},
+      % sankey prop
+      \p4=($(\p1)-(\p2)$),
+      \n2={sankeylentoqty(veclen(\x4,\y4))},
+      \p5=(##2.east),
+      \p6=($(\p3)!1!##3:(\p5)$)
+      in
+      \pgfextra{
+        \pgfmathsetmacro{\prop}{\n2}
+        \pgfinterruptpath
+        % \fill[red] (\p3) circle (2pt);
+        % \fill[blue](\p6) circle (2pt);
+        \sankeynode{\prop}{\n1+##3}{\newname}{\p6}
+        \path (\name) to[sankey flow] (\newname);
+        \endpgfinterruptpath
+      };
+    }{
+      \typeout{turn acw: ##3}
+      \path
+      let
+      % sankey node angle
+      \p1=(##2.south east),
+      \p2=(##2.north east),
+      \p3=($(\p1)!-\sankeyminradius!(\p2)$),
+      \n1={atan2(\x1-\x2,\y1-\y2)+90},
+      % sankey prop
+      \p4=($(\p1)-(\p2)$),
+      \n2={sankeylentoqty(veclen(\x4,\y4))},
+      \p5=(##2.east),
+      \p6=($(\p3)!1!##3:(\p5)$)
+      in
+      \pgfextra{
+        \pgfmathsetmacro{\prop}{\n2}
+        \pgfinterruptpath
+        % \fill[red] (\p3) circle (2pt);
+        % \fill[blue](\p6) circle (2pt);
+        \sankeynode{\prop}{\n1+##3}{\newname}{\p6}
+        \path (\name) to[sankey flow] (\newname);
+        \endpgfinterruptpath
+      };
+    }
+  }
+
+  \newcommand\sankeyfork[2]{%name,list of forks
+    \def\name{##1}
+    \def\listofforks{##2}
+    \xdef\sankeytot{0}
+    \path 
+    let
+    % sankey node angle
+    \p1=(\name.north east),
+    \p2=(\name.south east),
+    \n1={atan2(\x1-\x2,\y1-\y2)-90},
+    % sankey prop
+    \p4=($(\p1)-(\p2)$),
+    \n2={sankeylentoqty(veclen(\x4,\y4))}
+    in
+    \pgfextra{
+      \pgfmathsetmacro{\iprop}{\n2}
+    }
+    \foreach \prop/\name[count=\c] in \listofforks {
+      let
+      \p{start \name}=($(\p1)!\sankeytot/\iprop!(\p2)$),
+      \n{nexttot}={\sankeytot+\prop},
+      \p{end \name}=($(\p1)!\n{nexttot}/\iprop!(\p2)$),
+      \p{mid \name}=($(\p{start \name})!.5!(\p{end \name})$)
+      in
+      \pgfextra{
+        \xdef\sankeytot{\n{nexttot}}
+        \pgfinterruptpath
+        \sankeynode{\prop}{\n1}{\name}{\p{mid \name}}
+        \endpgfinterruptpath
+      }
+    }
+    \pgfextra{
+      \pgfmathsetmacro{\diff}{abs(\iprop-\sankeytot)}
+      \pgfmathtruncatemacro{\finish}{\diff<0.01?1:0}
+      \ifnumequal{\finish}{1}{}{
+        \message{*** Warning: bad sankey fork (maybe)...}
+        \message{\iprop-\sankeytot}
+      }
+    };
+  }
+
+  \tikzset{
+    % default values,
+    declare function={
+      sankeyqtytolen(\qty)=\qty/\sankeytotalqty*\sankeytotallen;
+      sankeylentoqty(\len)=\len/\sankeytotallen*\sankeytotalqty;
+    },
+    sankey tot length=100pt,
+    sankey tot quantity=100,
+    sankey min radius=30pt,%
+    sankey arrow length=10pt,%
+    % user values
+    #1}
+}{
+}
+
+
+
+\begin{document}
+\begin{tikzpicture}[x=1pt,y=1pt]
+
+  \begin{sankeydiagram}[
+    sankey tot length=90pt,%
+    sankey tot quantity=6,%
+    sankey min radius=15pt,%
+    sankey fill/.style={
+      draw,line width=0pt,
+      fill,
+      lime!50,
+    },
+    sankey draw/.style={
+      draw=black,
+      line width=1pt,
+      line cap=round,
+      line join=round,
+    },
+    %sankey debug,
+    ]
+    \sankeynodestart{6}{-90}{p0}{0,100};
+    \sankeyadvance{p0}{50pt}
+
+    \sankeyfork{p0}{3/p1,3/p2}
+
+    \sankeyturn{p1}{90}
+    \sankeyadvance{p1}{20pt}
+
+    \sankeyadvance{p2}{60pt}
+
+    \sankeyfork{p2}{2/p3,1/p4}
+
+    \sankeyturn{p3}{90}
+    \sankeyadvance{p3}{50pt}
+
+    \sankeyfork{p3}{1/p5,1/p6}
+
+    \sankeyadvance{p5}{70pt}
+
+    \sankeyfork{p1}{1/p7,1/p8,1/p9}
+    \sankeyadvance{p7}{50pt}
+    \sankeyadvance{p9}{50pt}
+
+    \sankeyadvance{p4}{40pt}
+    \sankeyturn{p4}{90}
+    \sankeyadvance{p4}{65pt}
+
+    \sankeyadvance{p7}{40pt}
+
+    \sankeynode{3}{0}{p11}{[shift={(50pt,-15pt)}]p7}
+    \sankeyfork{p11}{1/p7a,1/p9a,1/p5a}
+    \path (p7) to[sankey flow] (p7a);
+    \path (p9) to[sankey flow] (p9a);
+    \path (p5) to[sankey flow] (p5a);
+    \sankeyadvance{p11}{30pt}
+    \sankeynodeend{3}{0}{p11}{p11}
+
+    {
+      \tikzset{
+        sankey fill/.append style={
+          line width=0pt,
+          lime!50!green!50,
+        }
+      }
+      \sankeyturn{p8}{-90}
+      \sankeyadvance{p8}{40pt}
+
+      \sankeyturn{p6}{-90}
+      \sankeyturn{p4}{-90}
+
+      \sankeynode{3}{-90}{p10}{[shift={(-15pt,-60pt)}]p8}
+      \sankeyfork{p10}{1/p8a,1/p6a,1/p4a}
+      \path (p4) to[sankey flow] (p4a);
+      \path (p6) to[sankey flow] (p6a);
+      \path (p8) to[sankey flow] (p8a);
+      \sankeyadvance{p10}{30pt}
+      \sankeynodeend{3}{-90}{p10}{p10}
+    }
+
+
+
+  \end{sankeydiagram}
+\end{tikzpicture}
+\end{document}

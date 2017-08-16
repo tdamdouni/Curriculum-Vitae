@@ -1,0 +1,35 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\usepackage[utf8]{inputenc}
+\StartShownPreambleCommands
+\usepackage{pst-node}
+\StopShownPreambleCommands
+\begin{document}
+\section{\texttt{pst-node}: Knoten und \protect\rnode{C}{Verbindungen}}
+Das Basispaket \texttt{pstricks} verfügt zwar über einige \rnode{A}{Makros}, mit denen
+sich beliebige Verbindungslinien ziehen lassen, aber das Paket \texttt{pst-node} bietet
+eine hervorragende zur Unterstützung von Knoten und Verbindungen. Grundsätzlich geht es
+hier zum einen um das Setzen von so genannten Knoten, wie \verb+\rnode{A}{pstricks}+
+aus der ersten Zeile dieses Abschnitts und zum anderen um das Erstellen von Verbindungen,
+wie von \rnode{B}{hier} \ncarc[arcangleB=-90,linewidth=5pt,strokeopacity=0.4,
+  arrowscale=1.5]{->}{B}{A} zum oben festgelegten Knoten oder auch direkt in die
+Überschrift.\ncarc[arcangle=100,linestyle=dashed,arrowscale=1.5]{<->}{B}{C}
+\end{document}

@@ -1,0 +1,59 @@
+\section{One- and two-sided solids}
+
+The contour of \Lkeyword{face} is defined in the plane $Oxy$ by
+\begin{verbatim}
+\psSolid[object=face,base=x1 y1 x2 y2 x3 y3 ...xn yn](0,0,0)%
+\end{verbatim}
+The edge of \Lkeyword{face} is defined in the plane $Oxy$ by the coordinates
+of its vertices, given in counterclockwise order by the parameter \Lkeyword{base}:
+
+
+\clearpage
+\subsection{Triangular \texttt{`faces'}}
+
+\begin{LTXexample}[width=6.5cm]
+\psset{unit=0.4}
+\psset{viewpoint=50 -20 30 rtp2xyz,Decran=50}
+\begin{pspicture}(-5.5,-4.5)(7,3.5)
+\psSolid[object=grille,base=-4 6 -4 4,action=draw,linecolor=gray](0,0,0)
+\psSolid[object=face,fillcolor=yellow,action=draw*,
+  incolor=blue,biface,base=0 0 3 0 1.5 3,
+  num=all,show=all](0,1,0)
+\psSolid[object=face,fillcolor=yellow,
+  action=draw*,incolor=blue,
+  base=0 0 3 0 1.5 3,num=all,
+  show=all,biface,RotX=180](0,-1,0)
+\axesIIID(0,0,0)(6,6,3)
+\end{pspicture}
+\end{LTXexample}
+
+
+\subsection{\texttt{`face'} defined by a function}
+\begin{LTXexample}[width=7.5cm]
+\psset{unit=0.45}
+\psset{viewpoint=50 -20 30 rtp2xyz,Decran=50}
+\def\BASE{0 10 360{/Angle ED 5 Angle cos dup mul mul % x
+ 3 Angle cos 3 exp Angle sin mul mul } for}% y
+\begin{pspicture}(-7,-5.5)(9,6)
+\defFunction[algebraic]{F}(t){5*(cos(t))^2}
+   {3*(sin(t))*(cos(t))^3}{}
+\psSolid[object=grille,base=-6 6 -6 6,action=draw,linecolor=gray](0,0,0)
+\psSolid[object=face,fillcolor=magenta,action=draw*,
+  incolor=blue,biface,RotZ=90,
+  base=0 2 pi mul {F} CourbeR2+](0,0,0)
+\psSolid[object=face,fillcolor=yellow,action=draw*,
+  incolor=blue,biface,
+  base=0 2 pi mul {F} CourbeR2+](0,0,0)
+\psSolid[object=face,fillcolor=yellow,action=draw*,
+  incolor=blue,biface,RotY=180,
+  base=0 2 pi mul {F} CourbeR2+](0,0,0)
+\psSolid[object=face,fillcolor=yellow,action=draw*,
+  incolor=red,biface,RotY=180,RotZ=90,
+  base=0 2 pi mul {F} CourbeR2+](0,0,0)
+\axesIIID(0,0,0)(6,6,5)
+\end{pspicture}
+\end{LTXexample}
+
+
+
+\endinput

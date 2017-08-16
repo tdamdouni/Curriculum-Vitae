@@ -1,0 +1,37 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2008 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\def\pshlabel#1{\footnotesize#1} \def\psvlabel#1{\footnotesize#1}
+\def\dt{\ensuremath{\,\mathrm{d}t}}
+\StartShownPreambleCommands
+\usepackage{pst-func}
+\StopShownPreambleCommands
+\begin{document}
+\psset{xunit=0.75}
+\begin{pspicture}(-0.25,-2)(15,2) \psaxes[dx=1cm,Dx=2]{->}(0,0)(-0.25,-2)(15,2)
+  \psplot[plotpoints=500]{0.01}{14.5}{ x RadtoDeg sin x div }
+  \psSi[plotpoints=500,linecolor=red,linewidth=1pt]{0.01}{14.5}
+  \pssi[plotpoints=500,linecolor=blue,linewidth=1pt]{0.01}{14.5}
+  \rput(5,1){\color{red}$Si(x)=\int\limits_{0}^x \frac{\sin(t)}{t}\dt$}
+  \rput(4.5,-1.5){\color{blue}$si(x)=-\int\limits_{x}^{\infty}
+     \frac{\sin(t)}{t}\dt=Si(x)-\frac{\pi}{2}$}
+  \rput(8,.5){$f(x)= \frac{\sin(t)}{t}$}
+\end{pspicture}
+\end{document}

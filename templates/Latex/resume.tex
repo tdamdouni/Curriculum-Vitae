@@ -1,0 +1,145 @@
+\documentclass[a4paper,12pt,openany,oneside]{memoir} 
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{utopia}
+%\usepackage{palatino}	% this works
+%\raggedright
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{tabulary}
+
+%\usepackage{microtype} % does not help with ligature bug
+%\DisableLigatures[f]{encoding=T1, family=*}
+
+% my global lengths
+\newlength{\myparskip}
+\setlength{\myparskip}{1.0ex plus 0.2ex minus 0.2ex}
+\newlength{\myindent}
+\setlength{\myindent}{3ex}
+\newlength{\myskipbig}		% for headings
+\setlength{\myskipbig}{5ex plus 1.0ex minus 1.0ex}
+\newlength{\myskipsmall}		% for headings
+\setlength{\myskipsmall}{1.5ex plus 0.3ex minus 0.3ex}
+
+% page layout
+\pagestyle{plain}
+\setlrmarginsandblock{35mm}{35mm}{*}
+\setulmarginsandblock{25mm}{25mm}{*}
+\setlength{\footskip}{8mm}
+\checkandfixthelayout
+
+% paragraphs
+\setlength{\parindent}{0pt}
+\abnormalparskip{\myparskip}
+
+% the headings
+\setsecnumdepth{chapter} % number chapters but not lesser headings
+
+% h1 - same as chapter heading but no number
+\newcommand{\mytitle}[1]%
+    {{\newpage\vspace*{-1.2\topskip}%
+     \Large\mdseries\raggedright{#1}%
+     \vspace{\myskipbig}}} % is a group
+
+% h2 - chapter heading
+\chapterstyle{section}
+\renewcommand*{\chapterheadstart}{\vspace*{-1.4\topskip}} % space before
+\renewcommand*{\chapnumfont}{\Large\mdseries\raggedright}
+\renewcommand*{\afterchapternum}{\hspace{1.0ex}} % space after number
+\renewcommand*{\chaptitlefont}{\Large\mdseries\raggedright}
+\setlength{\afterchapskip}{\myskipbig} % space after
+
+% h3 - section heading
+\setbeforesecskip{-\myskipbig} % - for no hdr indent
+\setsecheadstyle{\large\mdseries\raggedright}
+\setaftersecskip{\myskipsmall}
+
+% h4 - subsection heading
+\setbeforesubsecskip{-\myskipbig} % - for no hdr indent
+\setsubsecheadstyle{\itshape\raggedright}
+\setaftersubsecskip{\myskipsmall}
+
+% h5 & h6 subsubsection heading - runin
+\setbeforesubsubsecskip{-\myskipbig} % - for no hdr indent
+\setsubsubsecheadstyle{\itshape\raggedright}
+\setaftersubsubsecskip{-1.4ex} % for runin heading
+    
+% lists, using enumitem
+\newenvironment{myul}%   % unordered list
+    {\begin{itemize} [topsep=0pt, partopsep=0pt, itemsep=0pt, %
+     parsep=\parskip, leftmargin=\myindent, labelindent=1.0pt, %
+     labelsep=*, label={\rule[0.2ex]{0.7ex}{0.7ex}}]}%
+    {\end{itemize} \vspace{0ex} }
+
+\newenvironment{myol}%   % ordered list
+    {\begin{enumerate} [topsep=0pt, partopsep=0pt, itemsep=0pt, %
+     parsep=\parskip, leftmargin=\myindent, labelindent=0.5pt, %
+     labelsep=*, label=\arabic*]}%
+    {\end{enumerate} \vspace{0ex} }
+
+% miscellaneous
+\newenvironment{myblockquote}%
+    {\leftskip=\myindent}%
+    {}
+
+% verbatim: zero the space above and below trivlists, for verbatim
+% caution: affects all trivlist environments (eg centering) beneficially
+\zerotrivseps					
+\verbatimindent=0ex		% for memoir verbatim
+\newenvironment{myverbatim}%
+    {\verbatim\leftskip=\myindent}%
+    {\endverbatim}
+
+\pfbreakskip=\myskipbig	% hr -> \pfbreak; set the gap
+%\newcommand{\myhr}%    old hr
+%    {{\centering\rule[0.4ex]{10ex}{0.3pt}\par}} % inner set {} is group
+
+\begin{document}
+
+\mytitle{Eric Drechsel}
+
+Portland Oregon | <a href="mailto:eric@pdxhub.org">eric@pdxhub.org</a> | (+1) 503-609-0837 | <a href="http://wiki.pdxhub.org/people/eric">wiki.pdxhub.org/people/eric</a> 
+
+\chapter{Objective}
+
+Support the development of humane information networks.
+
+\chapter{Summary}
+
+Front and backend web developer, systems integrator, and UNIX administrator.
+
+\chapter{Qualifications and Expertise}
+
+\begin{myul}
+\item Develop layered web systems using a variety of common languages and frameworks.
+\item Plan releases, write documentation, create tests, and automate common tasks.
+\item Administer mission-critical infrastructure and assets.
+\item Facilitate communication in physical meetings and online channels.
+\item Solve dif\kern0pt{}ficult problems through careful research and coordination with upstream engineers. 
+\end{myul}
+
+\chapter{Portfolio}
+
+\begin{myul}
+\item <a href="http://wiki.pdxhub.org/ops/">PDXHub</a> - tech cooperative supporting neighborhood-scale networks
+\item <a href="http://nikemedia.com/">Nike Media</a> - brand marketing platform (Drupal)
+\item <a href="http://slctherapy.com/">SLC Therapy</a> - professional group site with backend CMS (Silverstripe)
+\item <a href="http://pdx.edu/">PDX.edu Channels</a> - interdepartmental editorial workflow for news, events, and profiles (Drupal)
+\item <a href="http://spiritandsong.com/">Spirit and Song</a> - online music portal developed using pair programming and Scrum
+\item <a href="http://marbledfabrics.com">MLB Marbled Fabrics</a> - rapidly-deployed ecommerce site using Ubercart
+\end{myul}
+
+\chapter{History}
+
+\begin{myul}
+\item 2005-2010 Bachelors of Science Mathematics, Physics minor, <a href="http://www.mth.pdx.edu">Portland State University</a>
+\item 2008 Web Developer, <a href="http://www.sticky.tv/">Sticky</a>
+\item 2006-2007 Information Architect, <a href="http://pdx.edu/ucomm">Portland State University Communications</a>
+\item 2005 Web Developer, <a href="http://ocp.org/">Oregon Catholic Press</a>
+\item 2005 Systems Administrator, <a href="http://www.pps.k12.or.us/">Portland Public Schools</a>
+\item 2005-present Consultant, <a href="http://wiki.pdxhub.org/">PDXHub</a>
+\item 2004-2005 Network engineer, <a href="http://pioneer-net.com/">Pioneer Net</a>
+\item 2000-2004 Consultant, Umpqua Computer Services
+\end{myul}
+\end{document}

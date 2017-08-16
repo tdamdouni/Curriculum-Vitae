@@ -1,0 +1,199 @@
+pstricks.tex --------
+versions like 2.47a have only changes in other files, but not
+in this main package.
+
+2.60  2014-10-25  - make it compatible for using it with ConTeXt
+2.57  2014-08-27  - take option correctAngle into account for \psellipticwedge
+2.56  2014-07-31  - added gridstyleA and fixed bug with Ellipse and move
+                    to start point
+2.55  2014-07-28  - added \psellipseAB: draw an ellipse between two given points
+2.54a 2014-05-19  - fixed introduced bug in pst-algparser.pro
+2.54  2014-05-19  - allow circle and ellipse in \pscustom with moving
+                    the currentpoint to the start point and not the center.
+2.53a 2014-03-30  - changes in pst-algparser.pro
+2.53  2014-03-12  - added cubic splines
+2.52  2014-03-01  - allow rot=.. for all elliptic macros
+                  - enable \SpecialCoor as default
+2.51  2014-02-03  - make strokeopacity available for dots
+2.50  2014-01-16  - added experimental fillstyle oefill, the inverse of eofill
+                  - allow PostScript notation for \pst@checknum
+2.49c 2013-12-27  - moved overlay functions into an own package 
+2.49b 2013-12-21  - moved overlay functions into an own dictionary 
+2.49a 2013-12-09  - changes in pstricks.sty 
+2.49  2013-12-09  - added \reversepath 
+2.48  2013-11-29  - fixed trailing space for !! 
+2.47a 2013-11-28  - changes in pst-ovl
+2.47  2013-11-26  - added special coor type !! for Postfix notation
+                    in user coordinates
+2.46  2013-08-13  - fixed bug with \pstcustomize (delete a line)
+2.45  2013-07-08  - moved the overlay part into pst-ovl
+                  - added \@tfor macros if used without \LaTeX
+2.44  2013-06-24  - add macros \pssetMonochrome and \pssetGrayscale
+                  - added coor option ** for (f(y) y) 
+2.43  2013-05-12  - allow option ! to the labelsep of \uput
+2.42  2013-04-26  - add option + for coordinates to allow
+                    (+{x} {f(x)}) both in algebraic notation where
+                    x must be expanded to a value.
+2.41  2013-04-17  - add option for using the pgf PS functions.
+                    in some cases they are missing. They are
+                    defined in pst-tools.pro which is loaded
+                    by default.
+2.40  2013-04-05  - fix for showgrid=top. Uses now the
+                    same units as showgrid=bottom
+                  - added \psRing 
+2.39  2013-04-04  - fix for introduced bug for showgrid
+2.38  2013-04-03  - fix for showgrid=true
+2.37  2013-03-12  - fix for \uput@vii#1#2
+2.36  2013-02-09  - fix for introduced bug for pst@dotFill
+2.35  2012-12-21  - fix for introduced bug with missing
+                    definition for \@width
+2.34  2012-11-18  - make package pgffor available
+2.33  2012-09-23  - fix a trailing space in \pst@Pyth
+2.32  2012-09-20  - added more blendmodes for distiller
+2.31  2012-08-24  - fixed bug with the star version of \psellipticarc
+                    and the additional setting of showpoints
+2.30  2012-08-13  - fixed bug with the star version of \psellipticarc
+                  - added fillstyle options eovlines, eohlines, 
+                                            eovlines*, and eohlines* 
+2.29  2012-06-04  - fixed itroduced trailing space with boolkey
+2.28  2012-05-24  - added \add@psCode, which uses \pstVerb
+                    instead of \pstverb
+2.27  2012-03-11  - activate \tx@strokeopacity for \psgrid
+2.26  2012-02-19  - showgrid=top is now possible
+2.25  2012-02-12  - modifications to the code of curveticks
+2.24  2012-02-09  - add option for curveticks with option symbol
+2.23  2011-09-04  - change also \psx|ylabelsep for pst-plot
+2.22  2011-07-09  - added fillstyle dots
+2.21  2011-06-07  - fix bug with a trailing space in \psForeach
+2.20  2011-04-23  - load pst-tools.pro
+2.19  2011-03-25  - fixed a bug with missing coordinates for pspicture
+2.18  2011-02-15  - fixed a bug with correctAngle and showpoints of
+                    \psellipticarc
+                  - fixed introduced bug with arrowscale=...
+2.17  2011-01-30  - added \psLoop for loops without a defined counter
+2.16  2010-12-18  - added optional argument dashcolor and new linestyle
+                    coloreddashed
+2.15  2010-11-25  - bugfix for using \pstCheckCoorType
+2.14  2010-11-14  - bugfix for using \pst@pyth. Now \pst@Pyth, which uses
+                    no dimen registers
+2.13  2010-11-01  - new macro and counter for the type of read coordinates
+                    \pstCheckCoorType{#1} sets the macro \pst@C@@rType
+% \pst@C@@rType = 0 cartesian (x,y)
+%               = 1 polar     (r;phi)
+%               = 2 PS        (! x y)
+%               = 3 mixed     ((x,y)|(x,y))
+%               = 4 algebraic (*x f(x))
+%               = 5 node      (A)
+%               = 6 special node ([...]A)
+%               = 7 node      (>A) 
+  
+2.12  2010-09-16  - new optional argument for setflat  
+                  - fix bug with doubled linecap definition
+                  - fix bug with missing linejoin in \psls@solid
+2.11  2010-09-09  - new optional arguments for setting a variable  
+                    linewidth and variable color
+2.10  2010-08-27  - new optional argument noCurrentPoint, which is
+                    preset to false. 
+2.09  2010-07-28  - fix bug with rotation values like *0 (ms) 
+2.08  2010-06-06  - fix bug with uput@vii 
+2.07  2010-05-24  - fix bug with uput and node setting (ms)
+2.06  2010-04-27  - fix bug with trailing space in \pst@isnum 
+2.05  2010-04-26  - fix bug with missing \psk@rot for Ellipse 
+2.04  2010-04-24  - take \psk@rot into account for \psellipse (hv)
+                  - new version of \pst@divide (ms)
+2.03  2010-04-12  - add keyword correctAngle=true to get an
+		    elliptic arc with correct bow length
+2.02  2010-02-23  - fix a spurious blank in \NormalCoor
+2.01  2010-02-15  - fix problem with nonlinear angles for
+                    \psellipticarc
+                  - fix problem with tex: pst-xkey must be loaded
+                    after we are sure having all latex macros 
+                    defined
+2.00  2010-02-11  - use pst-xkey to get rid of dependencies with
+                    other packages
+1.33  2009-12-22  - add linestyle symbol
+1.32  2009-12-14  - fixed bug with \hskip and fnode in psmatrix
+                    with a new \pshspace#1
+                  - moved the algebraic option from pstricks-add
+                    to the main pstricks.tex
+1.31  2009-11-27  - fixed introduced problem with \pst@def
+1.30  2009-10-25  - revert the changes for the \pst@object, it now
+                    use \def\pst@par{}
+1.29  2009-05-19  - new option pType for a parabola with two points
+1.28  2009-03-17  - fix spurious blank for \SpecialCoor
+1.27  2009-01-25  - updated \pssetlength to check for special coor
+	          - renamed internal \next to \ps@next to prevent problems
+                    with other packages
+                  - added \psPline(p1)(p2)(p3) for the shortest distance 
+                    of P1 to the line p2p3
+                  - added \psarcAB and \psarcnAB for arcs with a given
+                    center and two points
+1.26  2008-07-31  - fixed bug with double arrow and arrowscale 
+		  - fix bug with arrows longer than the arc/line ...
+		  - fix bug with pst@theheaders
+		  - fix bug with trailing spaces
+1.25  2008-06-17  added fill style penrose
+1.24  2008-06-17  added \psDEBUG[#1]#2 for better dubugging
+1.23  2008-05-23  - add octogon symbol (hv)
+		  - fix bug with D>-<D (hv) 
+1.22  2008-04-14  - added shift=* option to get vertically centered
+		    pspicture box. It is the old \pspciture[0.5] option
+		  - add \pscircleOA(center)(point on the circle)
+1.21  2008-01-24  - changed code for transparency making distiller work 
+1.20  2008-01-01  - added opacity for normal stroke operation (lines)
+	          - added the arrowtype <D-D> and <D<D-D>D>, which draws the
+		    sides as betier curves (ArrowD type in pstricks.pro)
+                  - add special coor type (*x f(x)), which invokes the
+                    algebraic parser for f(x) before using the default
+		    (!x y) coor type
+		  - add option linejoin=0,1,or 2 for connecting lines
+		  - add option linecap=0,1,or 2 for line ends
+		  - small tweaks to psellipticarc x y -> xOrig yOrig
+		  - fix introduced bug with \newpsstyle: \pst@tempa->\pst@tempA
+    		  - add PS subroutines /UserCoor and /ScreenCoor for easy
+		    transforming into user or screen coordinates
+		  - changed wrong name of \psk@shift to \pst@shift
+		  - fix bug with pst-node and \\[name=...]. It now uses
+		    \ps@ifnextchar for scanning the next token
+		  - fix bug with pst@tempg in \polar@coor. It was already used in
+		    \pst@getangle.
+		  - new option gridfont for the label font of \psgrid
+		    can now be any of the PS-fonts Helvetica (Default),
+		    Times-Roman, Palatino-Roman, ... 
+1.15a 2007-01-05  - \parabola->\psparabola (old name still valid) (hv) 
+1.15  2006-12-19  - add support for more dot styles (from Etienne Riga) 
+1.14c 2006-04-29  - add option linecap for dashed lines 
+1.14b 2006-04-20  - fix a bug in \psset@linetype 
+1.14a 2006-02-06  - revert the changes for pslongbox (introduced bug)
+1.14  2005-12-17  - make the color part compatible to color/xcolor
+1.13  2005-12-15  - fix bug of \psdot*
+1.12  2005-10-25  - spurious blank for \multirput
+                  - shift only for an absolute length
+		  - add the missing arrows ]-[)-(
+1.11  2005-09-08  - rename \rotateleft | right | down to 
+                    \psrotateleft | right | down to be consistant to the
+		    other PSTricks macro names
+		  - new fillstyle options
+		  - move the code for arcs of an ellipse into pstricks.pro
+1.10  2005-08-13  - fix bug with \multips (spurious blank) (hv)
+                  - allow empty optional arrow argument \psline[..]{}(2,2)
+		  - redefined \psarc@iv for negative loops of \nccircle
+		  - introduce new options shift and showgrid for the
+		    main pspicture environment
+                  - rename \scalebox and \scaleboxto to 
+                    \psscalebox(to) to be consistant to the
+		    other PSTricks macro names
+1.08  2005-06-02  fix bug with \multips (spurious blank) (hv)
+1.07  2005-05-06  make \nccircle working for counter-clockwise
+                  orientation (hv)
+1.06  2005-02-24  fix spurious blank in doublestroke (hv)
+
+pst-fp.tex ----------- (hv)
+ v 0.06  2010-05-14 delete catcode change of @
+ v 0.05  2010-01-17 add \pst@Int
+		    add \pst@int
+ v 0.04  2009-11-24 add \pstFPadd
+ v 0.03  2009-11-14 add \pstFPmul
+ v 0.02  2009-04-02 initial version
+
+

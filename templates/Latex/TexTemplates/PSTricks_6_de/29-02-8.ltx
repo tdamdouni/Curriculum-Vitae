@@ -1,0 +1,39 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-eucl}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(-2.5,-2.5)(4,2.5)
+  \psset{linewidth=2\pslinewidth}
+  \pstGeonode[PosAngle={0,-135,90}]%
+    (1,0){A}(-2,-1){B}(0,1){C}
+  \pstCircleOA{A}{C}
+  \pstCircleOA[linestyle=dashed,
+    DistCoef=0.5,Radius=\pstDistAB{A}{B}]{A}{}
+  \pstCircleOA[linecolor=cyan,
+    Radius=\pstDistAB{B}{C}]{A}{}
+  \pstCircleOA[linecolor=magenta,
+    DistCoef=0.75,Radius=\pstDistAB{B}{C}]{A}{}
+  \pstCircleAB{B}{C}
+  \pstCircleAB[linestyle=dotted]{A}{C}
+\end{pspicture}
+\end{document}

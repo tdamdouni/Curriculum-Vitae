@@ -1,0 +1,31 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\usepackage[utf8]{inputenc}
+\StartShownPreambleCommands
+\usepackage{pstricks}
+\StopShownPreambleCommands
+\begin{document}
+In der Regel wird man seine PSTricks-Grafik in einer eigenen Box darstellen
+und nicht unbedingt über den laufenden Text schreiben wollen, was grundsätzlich
+möglich ist und jetzt hier rein exemplarisch anhand der gestrichelten Linie
+gezeigt wird, die einfach mitten im Text erscheint.
+\psline[linewidth=1pt,linestyle=dashed,linecolor=red,dotscale=2]{-|}(0,1.5)
+\end{document}

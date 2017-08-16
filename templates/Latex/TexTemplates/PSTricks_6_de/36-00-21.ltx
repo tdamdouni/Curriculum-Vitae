@@ -1,0 +1,53 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pstricks}
+\definecolor{lightred}{rgb}{1.0, 0.8, 0.8}
+\newsavebox\pstBox
+\newlength\pstWidth
+\newlength\pstHeight
+\makeatletter
+\def\psLBox{\@ifnextchar[{\psLBox@i}{\psLBox[]}}
+\def\psLBox@i[#1]#2{%
+  \psset{linearc=0.4,shadow=true,shadowsize=0.2,%
+      fillstyle=solid,fillcolor=white}
+  \ifx#1\empty\else\psset{#1}\fi
+  \sbox\pstBox{#2}
+  \pstWidth=\wd\pstBox
+  \pstHeight=\ht\pstBox
+  \advance\pstHeight by \dp\pstBox
+  \advance\pstHeight by \pslinearc
+  \advance\pstWidth by \pslinearc
+  \begin{pspicture}(\pstWidth,\pstHeight)
+    \psline(\pstWidth,0)(0,0)(0,\pstHeight)(\pstWidth,\pstHeight)%
+    \psline[shadow=false](\pstWidth,\pstHeight)(\pstWidth,0)
+    \rput(0.5\pstWidth,0.5\pstHeight){#2}
+  \end{pspicture}
+}
+\makeatother
+
+\StopShownPreambleCommands
+\begin{document}
+\psLBox[fillcolor=lightred]{Some text in a box}%
+\psLBox[fillcolor=yellow]{%
+  \parbox{3cm}{Some text in a box with line arcs only on the left side}%
+}
+\end{document}

@@ -1,0 +1,35 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-eucl}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(5,5)
+  \pstTriangle[PointSymbol=none,
+    linewidth=1pt](3,1){A}(0,4){B}(5,4.2){C}
+  \psset{RightAngleType=german,PosAngle=90,
+    linecolor=red,CodeFigColor=red,nodesep=-0.5}
+  \pstMediatorAB{B}{A}{I}{M_I}
+  \pstMediatorAB[PointSymbol=none,
+    PointNameB=none]{A}{C}{J}{M_J}
+  \pstMediatorAB[PosAngleA=45]{C}{B}{K}{M_K}
+\end{pspicture}
+\end{document}

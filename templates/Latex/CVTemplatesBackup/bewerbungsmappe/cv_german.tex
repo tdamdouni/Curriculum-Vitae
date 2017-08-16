@@ -1,0 +1,190 @@
+%% start of file `cv_german.tex', based on `template_en.tex` by Xavier Danaux (xdanaux@gmail.com).
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+% 
+% Thomas Quaritsch <t.quaritsch@student.tugraz.at>
+
+\documentclass[11pt,a4paper]{moderncv}
+
+\usepackage[german]{babel}
+\usepackage{moderncv-additions}
+
+% moderncv themes
+\moderncvtheme{casual}   % optional arguments are 'blue' (default), 'orange', 'red', 'green', 'grey' and 'roman' (for roman fonts, instead of sans serif fonts)
+%\moderncvtheme[green]{classic}                % idem
+
+% character encoding
+\usepackage[utf8]{inputenc}                   % replace by the encoding you are using
+
+% adjust the page margins
+\usepackage[scale=0.8]{geometry}
+\setlength{\hintscolumnwidth}{3cm}			  % if you want to change the width of the column with the dates
+%\AtBeginDocument{\setlength{\maketitlenamewidth}{6cm}}  % only for the classic theme, if you want to change the width of your name placeholder (to leave more space for your address details
+
+\AtBeginDocument{\recomputelengths}           % required when changes are made to page layout lengths
+
+% personal data
+\firstname{Max}
+\familyname{Mustermann}
+%\title{Resumé title (optional)}               % optional, remove the line if not wanted
+\address{Musterstraße 08/15}{8010 Graz}        % optional, remove the line if not wanted
+\mobile{+43 123 45 678 90}                     % optional, remove the line if not wanted
+%\phone{phone (optional)}                      % optional, remove the line if not wanted
+%\fax{fax (optional)}                          % optional, remove the line if not wanted
+\email{max@mustermann.at}                      % optional, remove the line if not wanted
+%\extrainfo{additional information (optional)} % optional, remove the line if not wanted
+\photo[64pt]{picture}                          % '64pt' is the height the picture must be resized to and 'picture' is the name of the picture file; optional, remove the line if not wanted
+\quote{``Das ist ein toller Frusterspruch\\ von Friede Frusterfrau.'' -- Friede Frusterfrau}                 % optional, remove the line if not wanted
+
+%\nopagenumbers{}                             % uncomment to suppress automatic page numbering for CVs longer than one page
+
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+
+\begin{document}
+
+% color redefinitions must be after \begin{document}!
+\definecolor{firstnamecolor}{RGB}{125,85,85}
+\definecolor{familynamecolor}{RGB}{138,74,57}
+\definecolor{quotecolor}{RGB}{125,85,85}
+\definecolor{addresscolor}{RGB}{125,85,85}
+\definecolor{sectionrectanglecolor}{RGB}{138,74,57}
+\definecolor{sectiontitlecolor}{RGB}{138,74,57}
+\definecolor{subsectioncolor}{RGB}{125,85,85}
+\definecolor{footersymbolcolor}{RGB}{125,85,85}	
+
+\makeatletter
+
+\pagestyle{empty}
+\chapter*{Bewerbungs}{unterlagen}
+
+\vspace*{50mm}
+\begin{minipage}{\textwidth}
+	\vspace*{3mm}
+	\familynamestyle{\@firstname}~~\firstnamestyle{\@familyname} 	
+	\hspace*{5mm}{{\color{firstnamecolor}\includegraphics[width=64pt]{picture}}}\\[3mm]
+	\@addressstreet, \@addresscity ~~~ \mobilesymbol~\@mobile ~~~ \emailsymbol~\@email
+\end{minipage}
+\begin{minipage}{70pt}
+	
+\end{minipage}
+
+\vfill
+
+\begin{minipage}{1.0\textwidth}
+	\section{Inhalt}
+	\tableofcontents
+\end{minipage}
+
+\newpage
+\pagestyle{fancy}
+\chapter{Curriculum}{~Vit\ae}
+\makequote
+
+\section{Persönliche Daten}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cvline{Name}{\@firstname~\@familyname}
+\cvline{Anschrift}{\@addressstreet, \@addresscity}
+\cvline{Telefon}{\@mobile}
+\cvline{E-Mail}{\@email}
+\cvline{Geburtsdaten}{1. Januar 1970 in Musterstadt}
+\cvline{Staatsbürgerschaft}{Österreichisch}
+\cvline{Familienstand}{ledig}
+\cvline{Präsenzdienst}{abgeleistet}
+\cvline{Führerschein}{A,B,C,D,E,F,G}
+\makeatother 
+
+\cventry{year--year}{Degree}{Institution}{City}{\textit{Grade}}{Description}  % arguments 3 to 6 are optional
+
+\section{Ausbildung} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cventry{xx/xxxx -- xx/xxxx}{Akadem. Grad}{Institution}{Stadt}{\textit{Abschluss}}{Bemerkung}  % arguments 3 to 6 are optional
+
+\cventry{xx/xxxx -- xx/xxxx}{Akadem. Grad}{Institution}{Stadt}{\textit{Abschluss}}{Bemerkung} 
+
+\section{Berufserfahrung} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cventry{xx/xxxx -- xx/xxxx}{Musterkaufmann}{Musterfirma}{Musterort}{}{Bemerkung}
+
+\section{Sprachen} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cvline{Deutsch}{Muttersprache}{}
+\cvline{Englisch}{Verstehen A1, Sprechen B2, Schreiben C3 \hfill {\scriptsize \itshape Europäische Kompetenzstufe}}
+
+\section{IT Kompetenzen} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cvline{Musterkategorie}{Mustermethode 1 (z.B. mit Musterprogramm 2), Mustermethode 2 (z.B. mit Musterprogramm 4)}
+
+\newpage
+
+\section{Auszeichnungen} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cvline{xx/xxxx}{Musterpreis}
+
+
+\section{Außeruniversitäre Tätigkeiten} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cvline{....}{....}
+
+\section{Interessen}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cvline{....}{....}
+
+\section{Publikationen} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Konferenzen und Workshops}
+
+\cvline{mm/jjjj}{Autor 1 und Autor 2. \textbf{Mustertitel: Unser tolles Paper.} In \textit{Proceedings of the First Muster Workshop 1970}, Musterstadt, Musterland, YYYY.}
+
+% \newpage
+
+\subsection{Technical Reports}
+
+\cvline{....}{....}
+
+\cvline{....}{alternativ kann man auch BibTex verwenden:}
+
+\renewcommand*{\refname}{Abschlussarbeiten}
+\nocite{*}
+\bibliographystyle{cv}
+\bibliography{publications}       % 'publications' is the name of a BibTeX file
+
+\newpage
+\chapter{Bachelor}{zeugnis}
+\vspace*{1cm}
+\begin{center}
+	% \fbox{\includegraphics[height=0.85\textheight]{Bakk-Zeugnis}}	
+\end{center}
+
+\newpage
+\chapter{Master}{zeugnis}
+\vspace*{1cm}
+\begin{center}
+	% \fbox{\includegraphics[height=0.85\textheight]{Masterzeugnis}}	
+\end{center}
+
+\vspace*{1cm}
+\begin{center}
+	% \fbox{\includegraphics[height=0.85\textheight]{Masterzeugnis-2}}	
+\end{center}
+
+% \newpage
+% \chapter{Abschluss}{zeugnis}
+% \vspace*{1cm}
+% \begin{center}
+% 	% \fbox{\includegraphics[height=0.85\textheight]{Abschlusszeugnis}}	
+% \end{center}
+
+\end{document}
+
+% end of file `cv_german.tex'

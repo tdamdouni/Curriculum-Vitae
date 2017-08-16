@@ -1,0 +1,56 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-optexp, nicefrac}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(8.4,6.3)
+  \addtopsstyle{Beam}{linewidth=2\pslinewidth}
+  \psset{mirrorwidth=0.6,plateheight=0.7,outerheight=0.7,labeloffset=0.7,labelstyle=\scriptsize,
+    lens=1.2 1.2 0.8, bssize=0.5}
+  \pnode(1.5,5.3){Laser}\pnode([Xnodesep=2.5]Laser){PBS}\pnode([Xnodesep=2.5]PBS){PBS2}
+  \pnode([offset=0.7]PBS2){piezo}\pnode([offset=-3]PBS){BSFwd}\pnode(PBS2|BSFwd){BSBwd}
+  \pnode([Xnodesep=-2]BSFwd){BS4f}\pnode([offset=-1.5]BS4f){M4f3}\pnode([Xnodesep=1.5]BSBwd){M4f1}
+  \pnode([offset=-1.5]M4f1){M4f2}\pnode([Xnodesep=-1]BS4f){CCD}
+  \psline[style=Beam](Laser)(PBS2)(piezo)(BSBwd)(M4f1)(M4f2)(M4f3)(BS4f)(CCD)
+  \psline[style=Beam](PBS)(BSFwd)(BS4f)
+  \optbox[endbox, labeloffset=0](PBS)(Laser){\parbox{1.5cm}{\centering Nd:YAG\\ 532\,nm}}
+  \lens[lens=0.5 0.5 0.5, position=0.2](Laser)(PBS){MO}
+  \pinhole[position=0.3, labelangle=180](Laser)(PBS){PH}
+  \lens(Laser)(PBS){L}\optretplate[position=0.8](Laser)(PBS){$\nicefrac{\lambda}{2}$}
+  \beamsplitter(Laser)(PBS)(BSFwd){PBS}
+  \optretplate[position=0.4](PBS)(BSFwd){$\nicefrac{\lambda}{2}$}
+  \polarization(PBS)(BSFwd)\polarization(PBS2)(BSBwd)
+  \lens[position=0.8](PBS)(BSFwd){L} \optretplate(PBS)(PBS2){$\nicefrac{\lambda}{2}$}
+  \beamsplitter(PBS)(PBS2)(piezo){PBS}
+  \optretplate[abspos=0.5](PBS2)(piezo){$\nicefrac{\lambda}{4}$}
+  \mirror[mirrortype=piezo, labelangle=90](PBS2)(piezo)(PBS2){PZ}
+  \lens[position=0.2](BSBwd)(PBS2){L}
+  \crystal[crystalwidth=1, crystalheight=0.5, voltage, lamp,
+     fillstyle=solid, fillcolor=yellow!90!black, labeloffset=0.8, beam](BSFwd)(BSBwd){SBN:Ce}
+  \beamsplitter(PBS)(BSFwd)(BSBwd){BS}
+  \beamsplitter[labelangle=-90](PBS2)(BSBwd)(BSFwd){BS}
+  \mirror[labeloffset=0.4](BSBwd)(M4f1)(M4f2){M}\mirror[labeloffset=0.4](M4f1)(M4f2)(M4f3){M}
+  \lens(M4f3)(M4f2){L}\mirror[labeloffset=0.4](M4f2)(M4f3)(BS4f){M}
+  \beamsplitter(M4f3)(BS4f)(CCD){BS}\optbox[endbox, labeloffset=0, optboxwidth=1](BS4f)(CCD){CCD}
+  \lens[abspos=0.7](BS4f)(BSFwd){L}\lens[abspos=0.7](BSBwd)(M4f1){L}
+\end{pspicture}
+\end{document}

@@ -1,0 +1,82 @@
+\documentclass[12pt,a4paper]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{%
+  ngerman,
+  ae,
+  times,
+  %picins, 
+  graphicx,
+  hyperref,
+  currvita}
+ 
+%% Hier schreibt man die PDF Eigenschaften hinein:
+\hypersetup{
+  pdftitle={Lebenslauf von Maxi Muster}, %%
+  pdfauthor={Maxi Muster}, %%
+  pdfsubject={}, %%
+  pdfcreator={LaTeX2e and pdfLaTeX with hyperref-package.},  
+  pdfproducer={}, %%
+ 
+ 
+  pdfkeywords={} %%
+}
+ 
+\newcommand*{\ac}[1]{\mbox{#1}}
+\tolerance=600
+ 
+\begin{document}
+ 
+\thispagestyle{empty}
+%% Hier kann man ein Bewerbungsportrait oder eine andere 
+%% Grafik ins Dokument einbinden. Einfach die naechste 
+%% Zeile auskommentieren:
+% \parpic[r]{\includegraphics[width=0.25\textwidth]{meinBewerbungsfoto}}
+ 
+%% Hier folgt der Lebenslauf. Einfach an die eigenen Beduerfnisse 
+%% anpassen:
+\begin{cv}{Lebenslauf}
+\vspace{0.5cm}
+  \begin{cvlist}{Maxi Muster}
+  \item[Adresse:] Muster~Str.~20\\12345 Musterstadt
+  \item[Telefon:] (01\,23)~4\,56\,78\,90
+%  \item[Mobil:] (01\,23)~4\,56\,78\,90
+  \item[E-Mail:] maxi@muster.de
+%  \item[WWW:] http://www.
+  \item[Geboren~am:]01. Juli 1977 
+  \item[Ort:] Musterstadt
+  \item[Familienstand:] Ledig
+  \item[Nationalit"at] Deutsch
+  \end{cvlist}
+ 
+  \begin{cvlist}{Schule \& Studium}
+  \item[1994 -- 1997] Abitur in Musterstadt
+  \item[1997 -- 2004] Studium der Politik und Philosophie, 
+Universit"at Musterstadt
+  \item[Januar 2004] Magister der Politischen Wissenschaft mit der 
+Note \textit{sehr gut}
+  \end{cvlist}
+ 
+  \begin{cvlist}{Berufspraxis}
+  \item[2000 -- 2003] Call Center Agent f"ur Musterfabrik
+  \item[2004 -- 2005] Praktikum bei der Allgemeinen Musterzeitung
+  \end{cvlist}
+ 
+  \begin{cvlist}{Fremdsprachen}
+  \item[] Sehr gute Englisch-Kenntnisse in Wort und Schrift.
+  \item[] Grundkenntnisse in Franz"osisch
+  \end{cvlist}
+ 
+  \begin{cvlist}{Kenntnisse \& Interessen}
+  \item[] Sehr guter Umgang mit \LaTeX und HTML.
+  \end{cvlist}
+ 
+  \begin{cvlist}{Besondere F"ahigkeiten}
+  \item[] Spa"s am Kontakt und Austausch mit Menschen.
+  \item[] Interesse am politischen Tagesgeschehen.
+  \end{cvlist}
+ 
+  \cvplace{Musterstadt}
+  \date{den \today}
+\end{cv}
+\end{document}

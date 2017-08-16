@@ -1,0 +1,103 @@
+% Guitar chords
+% Author: Christoph
+% Source: http://rio.eta-ori.net/latex-chords/chords.sty
+%         http://rio.eta-ori.net/latex-chords/example.tex
+\documentclass{article}
+\usepackage{subfig}
+\usepackage{tikz}
+\usepackage{verbatim}
+
+\begin{comment}
+:Title: Guitar chords
+
+Demonstration of `chords.sty`_, a library for generating guitar chord diagrams. 
+
+.. _chords.sty: http://rio.eta-ori.net/latex-chords/chords.sty
+\end{comment}
+
+%% Code from chords.sty
+% Counters
+\newcounter{chords-string}
+\newcounter{chords-fret}
+
+% Variables
+\newcommand{\chordreset}{
+  \def\chordtuning{E,A,D,G,B,E}
+  \def\chordfretstart{1}
+  \def\chordfretend{4}
+}
+\chordreset
+
+% The chord environmant
+% \begin{chord}
+% \begin{chord}[D,G,D,G,H,E]
+\newenvironment{chord}
+{
+  % A single note
+  % \single <string> <fret> <finger>
+  \newcommand{\single}[3]{
+    \draw node[single] at (##1,##2) {##3};
+  }
+  % A bar
+  % \bar <startstring> <fret> <finger>
+  \renewcommand{\bar}[3]{
+    \draw[bar] (##1,##2) -- node[midway] {##3} (1,##2);
+  }
+  % No strike
+  % \nostrike <string>
+  \newcommand{\nostrike}[1]{
+    \draw[nostrike] (##1,\chordfretstart-.5) +(-135:.2cm) -- +(45:.2cm);
+    \draw[nostrike] (##1,\chordfretstart-.5) +(135:.2cm) -- +(-45:.2cm);
+  }
+  \begin{tikzpicture}[
+    single/.style={draw,circle,fill=white},
+    bar/.style={cap=round,double,double distance=18pt},
+    nostrike/.style={line width=.8mm},
+    cm={0,-0.8,1,0,(0,0)}
+  ]
+  \setcounter{chords-string}{6}
+  \foreach \tuning in \chordtuning
+  {
+    \node at (\value{chords-string},\chordfretstart-1) {\tuning};
+    \addtocounter{chords-string}{-1}
+  }
+  \draw[yshift=-0.5cm] (1,\chordfretstart) grid (6,\chordfretend+1);
+
+  \foreach \fret in {\chordfretstart,...,\chordfretend}
+  {
+    \setcounter{chords-fret}\fret
+    \draw node at (0,\fret) {\Roman{chords-fret}};
+  }
+}
+{
+  \end{tikzpicture}
+}
+
+%% End of chords.sty file
+
+\begin{document}
+
+\begin{figure}
+\subfloat[F major]{
+\begin{chord}
+  \bar 6 1 1    % bar from 6th string down with index finger on 1st fret
+  \single 5 3 3 % ringfinger on 5th string 3rd fret
+  \single 4 3 4 % pinky on 4th string 3rd fret
+  \single 3 2 2 % index on 3rd string 2nd fret
+\end{chord}
+\chordreset}
+%
+\subfloat[D major bared]{
+\def\chordfretstart{5} % start diagram at 5th fret
+\def\chordfretend{8}   % end diagram at 8th fret
+\begin{chord}
+  \bar 5 5 1
+  \single 2 7 4
+  \single 3 7 3
+  \single 4 7 2
+  \nostrike 6 % do not strike 6th string
+\end{chord}
+\chordreset}
+\end{figure}
+
+\end{document}

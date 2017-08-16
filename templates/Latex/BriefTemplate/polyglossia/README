@@ -1,0 +1,38 @@
+
+   ¦----------------------------------------------¦
+   ¦                                              ¦
+   ¦       THE POLYGLOSSIA PACKAGE v1.33.5        ¦
+   ¦                                              ¦
+   ¦     Modern multilingual typesetting          ¦
+   ¦        with XeLaTeX and LuaLaTeX             ¦
+   ¦                                              ¦
+   ¦----------------------------------------------¦
+
+This package provides a complete Babel replacement for users of XeLaTeX and 
+(at an early stage) LuaLaTeX. This version includes support for 74 different
+languages.
+
+Polyglossia makes it possible to automate the following tasks:
+
+* Loading the appropriate hyphenation patterns.
+* Setting the script and language tags of the current font (if possible and
+  available), using the package fontspec.
+* Switching to a font assigned by the user to a particular script or language.
+* Adjusting some typographical conventions in function of the current language
+  (such as afterindent, frenchindent, spaces before or after punctuation marks,
+  etc.).
+* Redefining the document strings (like “chapter”, “figure”, “bibliography”).
+* Adapting the formatting of dates (for non-gregorian calendars via external
+  packages bundled with polyglossia: currently the Hebrew, Islamic and Farsi
+  calendars are supported).
+* For languages that have their own numeration system, modifying the formatting
+  of numbers appropriately.
+* Ensuring the proper directionality if the document contains languages
+  written from right to left (via the package bidi, available separately).
+
+BUGS
+
+Polyglossia has no bug, of course.
+
+Hum, sorry, wishful thinking.  Please report any bugs, problems or requests on:
+http://github.com/reutenauer/polyglossia/issues

@@ -1,0 +1,26 @@
+%\documentclass[sans]{moderncv}
+%\moderncvstyle{oldstyle}       
+%\moderncvcolorstyle{blue}
+
+\documentclass[11pt,a4paper]{moderncv}
+\include{moderncv-additions}
+\usepackage[ngerman]{babel}
+\usepackage{moderncv-additions}
+\moderncvtheme[blue, roman]{casual}
+
+\firstname{My}
+\familyname{Name}
+\address{my street}{my city}{my country}
+%
+\usepackage{lipsum,blindtext,xstring}
+\DeclareRobustCommand\bcolor[2][color1]{%
+    {\bfseries\textcolor{#1}{\StrLeft{#2}{3}}%
+    \textcolor{black}{\StrGobbleLeft{#2}{3}}
+    }}
+\begin{document}
+\makecvtitle
+
+\section{education} %standard section
+\section{\bcolor{experience}} %bicolor section with standard color
+\section{\bcolor[orange]{applications}} %bicolor section with custom color
+\end{document}

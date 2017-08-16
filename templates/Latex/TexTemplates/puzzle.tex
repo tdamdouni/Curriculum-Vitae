@@ -1,0 +1,119 @@
+%Author: Marc van Dongen
+\documentclass[12pt]{article}       
+
+%%%<
+\usepackage{verbatim}
+\usepackage[active,tightpage]{preview}
+\setlength\PreviewBorder{5pt}%
+%%%>
+
+
+\begin{comment}
+:Title: Puzzle
+:Tags: Clipping, Paths
+:Author: Marc van Dongen
+
+This tikz example display a puzzle with a text inside.
+
+\end{comment}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{scopes}
+
+\makeatletter
+
+\newif\ifpuzzle@hole
+\newif\ifpuzzle@hole@A
+\newif\ifpuzzle@hole@B
+\newif\ifpuzzle@hole@C
+\newif\ifpuzzle@hole@D
+\def\puzzle@width{0.25cm}
+\def\puzzle@height{0.20cm}
+\def\puzzle@holes{true,true,false,false}
+\def\puzzle@set@hole@A#1,#2,#3,#4,{\csname puzzle@hole@A#1\endcsname}
+\def\puzzle@set@hole@B#1,#2,#3,#4,{\csname puzzle@hole@B#2\endcsname}
+\def\puzzle@set@hole@C#1,#2,#3,#4,{\csname puzzle@hole@C#3\endcsname}
+\def\puzzle@set@hole@D#1,#2,#3,#4,{\csname puzzle@hole@D#4\endcsname}
+\pgfkeys{/puzzle/width/.store in=\puzzle@width}                      
+\pgfkeys{/puzzle/height/.store in=\puzzle@height}                    
+\pgfkeys{/puzzle/holes/.store in=\puzzle@holes}                      
+
+\def\tikzIsFun{
+    \foreach \x in {0,1,2} {
+        \foreach \y in {1,2} {
+            \draw[puzzle piece,thick] (1.5*\x,\y) to +(1.5,1.0);
+        }                                                                    
+    }                                                                        
+    \foreach \xy in {1,2} {                                                  
+       \draw[puzzle piece,thick] (0,\xy) to +(1.5,1.0);                      
+       \draw[puzzle piece,thick] (1.5*\xy,0) to +(1.5,1.0);                  
+    }                                                                        
+    \draw (2.25,1.5) node[rotate=30] {\Huge\texttt{tikz} is fun};            
+}                                                                            
+
+\def\drawPuzzleSide#1#2#3{%
+    let \p{mid}=($(#1)!0.5!(#2)$),
+        \p{diff}=($(#2)-(#1)$),   
+        \p{diff 90}=($(0,0)!1.0!\csname ifpuzzle@hole@#3\endcsname90\else270\fi:(\p{diff})$),                                                                   
+        \n{len}={veclen(\x{diff},\y{diff})},                                    
+        \n{height}={\puzzle@height},                                            
+        \n{width}={\puzzle@width},                                              
+        \p{dy}=($(\n{height}*\x{diff 90}/\n{len},\n{height}*\y{diff 90}/\n{len})$),                                                                             
+        \p{dx}=($(\n{width}*\x{diff}/\n{len},\n{width}*\y{diff}/\n{len})$),     
+        \p{xx}=($(\p{diff})-(\p{dx})$),                                         
+        \p{11}=($(#1)+0.20*(\p{xx})-0.020*(\p{diff 90})$),                      
+        \p{12}=($(#1)+0.35*(\p{xx})-0.030*(\p{diff 90})$),                      
+        \p{13}=($(\p{mid})-0.5*(\p{dx})-0.030*(\p{diff 90})$),                  
+        \p{21}=($(#2)-0.20*(\p{xx})-0.020*(\p{diff 90})$),                      
+        \p{22}=($(#2)-0.35*(\p{xx})-0.030*(\p{diff 90})$),                      
+        \p{23}=($(\p{mid})+0.5*(\p{dx})-0.030*(\p{diff 90})$),                  
+        \p{14}=($(\p{13})+0.60*(\p{dx})+0.80*(\p{dy})$),                        
+        \p{24}=($(\p{23})-0.60*(\p{dx})+0.80*(\p{dy})$),                        
+        \p{00}=($(\p{mid})+(\p{dy})$),                                          
+        \p{15}=($(\p{00})-1.6*(\p{dx})-0.04*(\p{dy})$),                         
+        \p{25}=($(\p{15})!2.0!(\p{00})$)                                        
+    in .. controls (\p{11}) and (\p{12}) .. (\p{13})                            
+       .. controls (\p{14}) and (\p{15}) .. (\p{00})                            
+       .. controls (\p{25}) and (\p{24}) .. (\p{23})                            
+       .. controls (\p{22}) and (\p{21}) .. (#2)                                
+}                                                                               
+
+\def\puzzle@set@holes{%
+    \expandafter\puzzle@set@hole@A\puzzle@holes,
+    \expandafter\puzzle@set@hole@B\puzzle@holes,
+    \expandafter\puzzle@set@hole@C\puzzle@holes,
+    \expandafter\puzzle@set@hole@D\puzzle@holes,
+}
+\def\drawPuzzlePiece{%
+   let \p1=(\tikztostart),
+       \p2=(\tikztotarget) in
+    (\p1) \drawPuzzleSide{\p1}{\p1-|\p2}{A}
+          \drawPuzzleSide{\p1-|\p2}{\p2}{B}
+          \drawPuzzleSide{\p2}{\p1|-\p2}{C}
+          \drawPuzzleSide{\p1|-\p2}{\p1}{D}
+}
+
+\tikzset{test/.style={to path={\drawPuzzlePiece}}}
+\tikzset{puzzle piece/.style={to path={\drawPuzzlePiece},
+                              execute at begin to=\puzzle@set@holes}}
+
+\makeatother
+\begin{document}
+\thispagestyle{empty}
+\begin{preview}
+\begin{tikzpicture}
+   \begin{scope}[even odd rule]
+      \clip (-1,-1) rectangle (5,4)
+            {[puzzle piece] (0,0) to (1.5,1.0)};
+      \tikzIsFun
+   \end{scope}
+   \draw (0.1,0.1)
+         node{\begin{tikzpicture}
+                 \clip {[puzzle piece] (0,0) to (1.5,1.0)};
+                 \draw[puzzle piece] (0,0) to (1.5,1.0);
+                 \tikzIsFun
+              \end{tikzpicture}};
+\end{tikzpicture}
+\end{preview}
+\end{document}

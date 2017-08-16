@@ -1,0 +1,497 @@
+\section{Colours and the nuances of a colour}
+
+The key word \texttt{\Lkeyword{fillcolor}=colourname} allows us to specify the wanted colour for the outer faces of a solid.
+The key word \texttt{\texttt{\Lkeyword{incolor}=colourname}} allows us to specify the wanted colour for the inner faces of a solid.
+
+The possible values for \textit{name} are those known to PSTricks (and particularly those of the package \texttt{xcolor}).
+
+We can directly use the colour nuances in the color schemes of
+HSB, RGB or CMYK. In that case we use the key values \Lkeyval{hue},
+\Lkeyval{inhue} or \Lkeyval{inouthue} for the outer faces, the inner faces, or for all the faces.
+The number of arguments \Lkeyval{hue} determines nuances.
+
+\subsection{Predefined \Index{colours} by the option \texttt{dvipsnames}}
+
+There are $68$~predefined \Index{colours}, which are identified by
+\texttt{solides.pro}: \texttt{Black}, \texttt{White}, and the
+$66$~colours below.
+
+\bgroup\centering
+\newcommand{\colorcube}[1]{%
+\begin{pspicture}(-1.2,-1)(1.2,1)
+\psframe(-1.2,-1)(1.2,1)
+\psset{viewpoint=50 50 20 rtp2xyz,Decran=150,lightsrc=viewpoint}
+\psSolid[object=datfile,
+    file=./cubecolor,
+    linewidth=0.07\pslinewidth,
+    linecolor=#1!50,
+    fillcolor=#1,
+    action=draw**]
+\rput(0,-0.75){\footnotesize \texttt{#1}}
+\end{pspicture}
+}
+
+\parindent0pt
+%\parskip-8pt
+\colorcube{GreenYellow}
+\colorcube{Yellow}
+\colorcube{Goldenrod}
+\colorcube{Dandelion}
+\colorcube{Apricot}
+\colorcube{Peach}
+
+\colorcube{Melon}
+\colorcube{YellowOrange}
+\colorcube{Orange}
+\colorcube{BurntOrange}
+\colorcube{Bittersweet}
+\colorcube{RedOrange}
+
+\colorcube{Mahogany}
+\colorcube{Maroon}
+\colorcube{BrickRed}
+\colorcube{Red}
+\colorcube{OrangeRed}
+\colorcube{RubineRed}
+
+\colorcube{WildStrawberry}
+\colorcube{Salmon}
+\colorcube{CarnationPink}
+\colorcube{Magenta}
+\colorcube{VioletRed}
+\colorcube{Rhodamine}
+
+\colorcube{Mulberry}
+\colorcube{RedViolet}
+\colorcube{Fuchsia}
+\colorcube{Lavender}
+\colorcube{Thistle}
+\colorcube{Orchid}
+
+\colorcube{DarkOrchid}
+\colorcube{Purple}
+\colorcube{Plum}
+\colorcube{Violet}
+\colorcube{RoyalPurple}
+\colorcube{BlueViolet}
+
+\colorcube{Periwinkle}
+\colorcube{CadetBlue}
+\colorcube{CornflowerBlue}
+\colorcube{MidnightBlue}
+\colorcube{NavyBlue}
+\colorcube{RoyalBlue}
+
+\colorcube{Blue}
+\colorcube{Cerulean}
+\colorcube{Cyan}
+\colorcube{ProcessBlue}
+\colorcube{SkyBlue}
+\colorcube{Turquoise}
+
+\colorcube{TealBlue}
+\colorcube{Aquamarine}
+\colorcube{BlueGreen}
+\colorcube{Emerald}
+\colorcube{JungleGreen}
+\colorcube{SeaGreen}
+
+\colorcube{Green}
+\colorcube{ForestGreen}
+\colorcube{PineGreen}
+\colorcube{LimeGreen}
+\colorcube{YellowGreen}
+\colorcube{SpringGreen}
+
+\colorcube{OliveGreen}
+\colorcube{RawSienna}
+\colorcube{Sepia}
+\colorcube{Brown}
+\colorcube{Tan}
+\colorcube{Gray}
+
+\egroup
+
+\subsection{Predefined \Index{colours} by the option \texttt{svgnames}}
+
+The following colours are known by PSTricks, when the option \texttt{svgnames} is given.
+These ones are not identified by the file \texttt{solides.pro}: we can use them directly with the option \Lkeyword{fcol}.
+
+\bgroup
+\newcommand{\colorcone}[1]{%
+\begin{pspicture}(-1.2,-1)(1.2,1)
+\psframe(-1.2,-1)(1.2,1)
+\psset{viewpoint=50 50 20 rtp2xyz,Decran=150,lightsrc=viewpoint}
+\psSolid[object=cone,
+    linewidth=0.07\pslinewidth,
+%    linecolor=#1!50,
+    fillcolor=#1,
+    ngrid=4 12,
+    r=0.2,h=0.37,
+    action=draw**](0,0,-0.05)
+\rput(0,-0.75){\footnotesize \texttt{#1}}
+\end{pspicture}
+}
+
+
+\parindent0pt
+%\parskip-8pt
+
+These colours are delivered from the package \texttt{xcolor}.
+\bigskip
+
+{\centering
+\colorcone{AliceBlue}
+\colorcone{AntiqueWhite}
+\colorcone{Aqua}
+\colorcone{Aquamarine}
+\colorcone{Azure}
+\colorcone{Beige}
+
+\colorcone{Bisque}
+\colorcone{Black}
+\colorcone{BlanchedAlmond}
+\colorcone{Blue}
+\colorcone{BlueViolet}
+\colorcone{Brown}
+
+\colorcone{BurlyWood}
+\colorcone{CadetBlue}
+\colorcone{Chartreuse}
+\colorcone{Chocolate}
+\colorcone{Coral}
+\colorcone{CornflowerBlue}
+
+\colorcone{Cornsilk}
+\colorcone{Crimson}
+\colorcone{Cyan}
+\colorcone{DarkBlue}
+\colorcone{DarkCyan}
+\colorcone{DarkGoldenrod}
+
+\colorcone{DarkGray}
+\colorcone{DarkGreen}
+\colorcone{DarkGrey}
+\colorcone{DarkKhaki}
+\colorcone{DarkMagenta}
+\colorcone{DarkOliveGreen}
+
+\colorcone{DarkOrange}
+\colorcone{DarkOrchid}
+\colorcone{DarkRed}
+\colorcone{DarkSalmon}
+\colorcone{DarkSeaGreen}
+\colorcone{DarkSlateBlue}
+
+\colorcone{DarkSlateGray}
+\colorcone{DarkSlateGrey}
+\colorcone{DarkTurquoise}
+\colorcone{DarkViolet}
+\colorcone{DeepPink}
+\colorcone{DeepSkyBlue}
+
+\colorcone{DimGray}
+\colorcone{DimGrey}
+\colorcone{DodgerBlue}
+\colorcone{FireBrick}
+\colorcone{FloralWhite}
+\colorcone{ForestGreen}
+
+\colorcone{Fuchsia}
+\colorcone{Gainsboro}
+\colorcone{GhostWhite}
+\colorcone{Gold}
+\colorcone{Goldenrod}
+\colorcone{Gray}
+
+\colorcone{Grey}
+\colorcone{Green}
+\colorcone{GreenYellow}
+\colorcone{Honeydew}
+\colorcone{HotPink}
+\colorcone{IndianRed}
+
+\colorcone{Indigo}
+\colorcone{Ivory}
+\colorcone{Khaki}
+\colorcone{Lavender}
+\colorcone{LavenderBlush}
+\colorcone{LawnGreen}
+
+\colorcone{LemonChiffon}
+\colorcone{LightBlue}
+\colorcone{LightCoral}
+\colorcone{LightCyan}
+\colorcone{LightGoldenrodYellow}
+\colorcone{LightGray}
+
+\colorcone{LightGreen}
+\colorcone{LightGrey}
+\colorcone{LightPink}
+\colorcone{LightSalmon}
+\colorcone{LightSeaGreen}
+\colorcone{LightSkyBlue}
+
+\colorcone{LightSlateGray}
+\colorcone{LightSlateGrey}
+\colorcone{LightSteelBlue}
+\colorcone{LightYellow}
+\colorcone{Lime}
+\colorcone{LimeGreen}
+
+\colorcone{Linen}
+\colorcone{Magenta}
+\colorcone{Maroon}
+\colorcone{MediumAquamarine}
+\colorcone{MediumBlue}
+\colorcone{MediumOrchid}
+
+\colorcone{MediumPurple}
+\colorcone{MediumSeaGreen}
+\colorcone{MediumSlateBlue}
+\colorcone{MediumSpringGreen}
+\colorcone{MediumTurquoise}
+\colorcone{MediumVioletRed}
+
+\colorcone{MidnightBlue}
+\colorcone{MintCream}
+\colorcone{MistyRose}
+\colorcone{Moccasin}
+\colorcone{NavajoWhite}
+\colorcone{Navy}
+
+\colorcone{OldLace}
+\colorcone{Olive}
+\colorcone{OliveDrab}
+\colorcone{Orange}
+\colorcone{OrangeRed}
+\colorcone{Orchid}
+
+\colorcone{PaleGoldenrod}
+\colorcone{PaleGreen}
+\colorcone{PaleTurquoise}
+\colorcone{PaleVioletRed}
+\colorcone{PapayaWhip}
+\colorcone{PeachPuff}
+
+\colorcone{Peru}
+\colorcone{Pink}
+\colorcone{Plum}
+\colorcone{PowderBlue}
+\colorcone{Purple}
+\colorcone{Red}
+
+\colorcone{RosyBrown}
+\colorcone{RoyalBlue}
+\colorcone{SaddleBrown}
+\colorcone{Salmon}
+\colorcone{SandyBrown}
+\colorcone{SeaGreen}
+
+\colorcone{Seashell}
+\colorcone{Sienna}
+\colorcone{Silver}
+\colorcone{SkyBlue}
+\colorcone{SlateBlue}
+\colorcone{SlateGray}
+
+\colorcone{SlateGrey}
+\colorcone{Snow}
+\colorcone{SpringGreen}
+\colorcone{SteelBlue}
+\colorcone{Tan}
+\colorcone{Teal}
+
+\colorcone{Thistle}
+\colorcone{Tomato}
+\colorcone{Turquoise}
+\colorcone{Violet}
+\colorcone{Wheat}
+\colorcone{White}
+
+\colorcone{WhiteSmoke}
+\colorcone{Yellow}
+\colorcone{YellowGreen}
+
+}
+\egroup
+
+\subsection{Nuances in the \Index{colour scheme} of \Index{HSB}, \Index{saturation} and maximum \Index{brilliance}}
+
+There are 2 key values: \texttt{\Lkeyword{hue}=$h_0$ $h_1$} where
+the numbers $h_0$ and $h_1$ with $0\leq h_0 < h_1 \leq 1$
+respect the limits of the colour scheme of HSB.
+
+
+
+\psset{viewpoint=50 50 20 rtp2xyz,Decran=30}
+\begin{LTXexample}[width=7.5cm]
+\psset{unit=1}
+\begin{pspicture}(-4,-1.5)(3,1)
+\psSolid[object=grille,
+   base=-3 5 -3 3,
+   linecolor=gray,
+   hue=0 1](0,0,0)
+\end{pspicture}
+\end{LTXexample}
+
+
+
+\psset{viewpoint=50 50 20 rtp2xyz,Decran=30}
+\begin{LTXexample}[width=7.5cm]
+\psset{unit=1}
+\begin{pspicture}(-4,-1.5)(3,1)
+\psSolid[object=grille,
+   base=-3 5 -3 3,
+   linecolor=gray,
+   hue=0 .3](0,0,0)
+\end{pspicture}
+\end{LTXexample}
+
+
+
+\psset{viewpoint=50 50 20 rtp2xyz,Decran=30}
+\begin{LTXexample}[width=7.5cm]
+\psset{unit=1}
+\begin{pspicture}(-4,-1.5)(3,1)
+\psSolid[object=grille,
+   base=-3 5 -3 3,
+   linecolor=gray,
+   hue=.5 .6](0,0,0)
+\end{pspicture}
+\end{LTXexample}
+
+
+\subsection{Nuances in the \Index{colour scheme} of \Index{HSB}, \Index{saturation} and fixed \Index{brilliance}}
+
+There are 4 key values: \texttt{\Lkeyword{hue}=$h_0$ $h_1$ $s$ $b$} or
+the numbers $h_0$ and $h_1$ with $0\leq h_0 < h_1 \leq 1$
+respect the limits of the colour scheme HSB and $s$
+and $b$ are the values for \texttt{saturation} and \texttt{brillance}.
+
+\psset{viewpoint=50 50 20 rtp2xyz,Decran=30}
+\begin{LTXexample}[width=7.5cm]
+\psset{unit=1}
+\begin{pspicture}(-4,-1.5)(3,1)
+\psSolid[object=grille,
+   base=-3 5 -3 3,
+   linecolor=gray,
+   hue=0 1 .8 .7](0,0,0)
+\end{pspicture}
+\end{LTXexample}
+
+
+
+
+\psset{viewpoint=50 50 20 rtp2xyz,Decran=30}
+\begin{LTXexample}[width=7.5cm]
+\psset{unit=1}
+\begin{pspicture}(-4,-1.5)(3,1)
+\psSolid[object=grille,
+   base=-3 5 -3 3,
+   linecolor=gray,
+   hue=0 1 .5 1](0,0,0)
+\end{pspicture}
+\end{LTXexample}
+
+\subsection{Nuances in the \Index{colour scheme} of \Index{HSB}, gneral case}
+
+There are 7 key values: \texttt{\Lkeyword{hue}=$h_0$ $s_0$ $b_0$ $h_1$ $s_1$
+$b_1$ (hsb)} or the numbers $h_i$, $s_i$ and $b_i$ respecting the limits of the parameters of HSB.
+
+
+
+\psset{viewpoint=50 50 20 rtp2xyz,Decran=30}
+\begin{LTXexample}[width=7.5cm]
+\psset{unit=1}
+\begin{pspicture}(-4,-1.5)(3,1)
+\psSolid[object=grille,
+   base=-3 5 -3 3,
+   linecolor=gray,
+   hue=0 .8 1 1 1 .7 (hsb)](0,0,0)
+\end{pspicture}
+\end{LTXexample}
+
+\subsection{Nuances in the \Index{colour scheme} of \Index{RGB}}
+
+There are 6 key values: \texttt{\Lkeyword{hue}=$r_0$ $g_0$ $b_0$ $r_1$ $g_1$
+$b_1$} or the numbers $r_i$, $g_i$ and $b_i$ respecting the limits of the $3$ parameters of RGB.
+
+
+
+\psset{viewpoint=50 50 20 rtp2xyz,Decran=30}
+\begin{LTXexample}[width=7.5cm]
+\psset{unit=1}
+\begin{pspicture}(-4,-1.5)(3,1)
+\psSolid[object=grille,
+   base=-3 5 -3 3,
+   linecolor=gray,
+   hue=1 0 0 0 0 1](0,0,0)
+\end{pspicture}
+\end{LTXexample}
+
+
+\subsection{Nuances in the \Index{colour scheme} of \Index{CMYK}}
+
+There are 8 key values: \texttt{\Lkeyword{hue}=$c_0$ $m_0$ $y_0$ $k_0$ $c_1$ $m_1$
+$y_1$ $k_1$} or the numbers $c_i$, $m_i$, $y_i$ and $k_i$ respecting the limits of the $4$ parameters of CMYK.
+
+
+
+\psset{viewpoint=50 50 20 rtp2xyz,Decran=30}
+\begin{LTXexample}[width=7.5cm]
+\psset{unit=1}
+\begin{pspicture}(-4,-1.5)(3,1)
+\psSolid[object=grille,
+   base=-3 5 -3 3,
+   linecolor=gray,
+   hue=1 0 0 0 0 0 1 0](0,0,0)
+\end{pspicture}
+\end{LTXexample}
+
+\subsection{Nuances between 2 named colours}
+
+There are 2 key values
+\texttt{\Lkeyword{hue}=(color1) (color2)} where
+\texttt{color1} and \texttt{color2} are the names of colours known by \verb+solides.pro+.
+
+
+
+\psset{viewpoint=50 50 20 rtp2xyz,Decran=30}
+\begin{LTXexample}[width=7.5cm]
+\psset{unit=1}
+\begin{pspicture}(-4,-1.5)(3,1)
+\psSolid[object=grille,
+   base=-3 5 -3 3,
+   linecolor=gray,
+   hue=(jaune) (CadetBlue)](0,0,0)
+\end{pspicture}
+\end{LTXexample}
+
+If we like to use some defined colours of \texttt{xcolor}, we use the
+key values \texttt{color1}, \texttt{color2}, etc. from \Lcs{psSolid}.
+
+\psset{viewpoint=50 50 20 rtp2xyz,Decran=30}
+\begin{LTXexample}[width=7.5cm]
+\psset{unit=1}
+\begin{pspicture}(-4,-1.5)(3,1)
+\psSolid[object=grille,
+   base=-3 5 -3 3,
+   linecolor=gray,
+   color1=red!50,
+   color2=green!20,
+   hue=(color1) (color2)](0,0,0)
+\end{pspicture}
+\end{LTXexample}
+
+\subsection{Deactivation of the colour application}
+For specific purposes it is possible to disable the application of colour.
+This is particularly the case, when an  object is already memorized or defined in external files.
+ Within these configurations, if we do not deactivate the colours and
+ if we do not define some new colours, these will be the colours by default that overwrite the colours that were defined.
+
+
+To deactivate the colour application we use the option
+\Lkeyword{deactivatecolor}.
+
+\endinput

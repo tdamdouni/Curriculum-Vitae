@@ -1,0 +1,36 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-blur}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(8,2)
+  \psset{shadow=true,blur=true,shadowsize=10pt,
+     blurradius=5pt,linestyle=none,linecolor=lightgray}
+  \psframe[shadow=false](2,2)\pscircle[linestyle=solid](0.8,1.2){0.75}
+  \psframe*[shadow=false](4,0)(6,2)
+  \pscircle[linestyle=solid,fillcolor=yellow,blurbg=lightgray](4.8,1.2){0.75}
+  \psframe*[linecolor=red,shadow=false](2,0)(4,2)
+  \pscircle[linestyle=solid,fillcolor=blue,blurbg=red](2.8,1.2){0.75}
+  \psframe*[linecolor=cyan,shadow=false](6,0)(8,2)
+  \pscircle[linestyle=solid,fillcolor=magenta,blurbg=cyan](6.8,1.2){0.75}
+\end{pspicture}
+\end{document}

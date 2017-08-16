@@ -1,0 +1,201 @@
+%% start of file `template.tex'.
+%% Copyright 2006-2010 Xavier Danaux (xdanaux@gmail.com).
+%% Copyright 2010-2011 Mark Liu (markwayneliu@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+\documentclass[11pt,a4paper,sans,banking]{moderncv}
+
+\usepackage{verbatim}
+
+% moderncv themes
+%\moderncvstyle{classic}
+%\moderncvcolor{blue}
+%\usepackage{moderncvstylecasual}
+%\usepackage{moderncvcolorblue}
+
+% character encoding
+\usepackage[utf8]{inputenc}                   % replace by the encoding you are using
+
+% adjust the page margins
+\usepackage[scale=0.8]{geometry}
+%\setlength{\hintscolumnwidth}{3cm}						% if you want to change the width of the column with the dates
+%\AtBeginDocument{\setlength{\maketitlenamewidth}{6cm}}  % only for the classic theme, if you want to change the width of your name placeholder (to leave more space for your address details
+%\AtBeginDocument{\recomputelengths}                     % required when changes are made to page layout lengths
+
+
+% personal data
+\firstname{Mark}
+\familyname{Liu}
+\address{(omitted for web)}{(omitted for web)}    % optional, remove the line if not wanted
+\mobile{(omitted for web)}                    % optional, remove the line if not wanted
+\email{markwayneliu@gmail.com}                      % optional, remove the line if not wanted
+\homepage{http://markliu.me}                % optional, remove the line if not wanted
+%\extrainfo{\url{http://markliu.me}} % optional, remove the line if not wanted
+
+% to show numerical labels in the bibliography; only useful if you make citations in your resume
+%\makeatletter
+%\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
+%\makeatother
+
+%\nopagenumbers{}                             % uncomment to suppress automatic page numbering for CVs longer than one page
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+\maketitle
+
+\section{Education}
+\cventry{2009--2011}{MS, Environmental Studies}{University of Wisconsin - Madison}{Madison, WI}{}{}
+\cvline{advisor:}{\small Professor Mutlu Ozdogan}
+\cventry{2007--2009}{MS, Computer Science}{University of Wisconsin - Madison}{Madison, WI}{}{}
+\cvline{advisor:}{\small Professor Eric Bach}
+\cventry{2003--2007}{BS, Computer Science and Engineering}{UCLA}{Los Angeles, CA}{}{}  % arguments 3 to 6 can be left empty
+\cvline{gpa:}{\small 3.76/4.0}
+\cvline{honors:}{\small Cum Laude}
+
+
+\section{Experience}
+
+\cventry{2013--2014}{VP of Technology}{8to18 Media}{Chicago, IL}{}{
+8to18 acquired Leaguevine and brought my co-founder and I on to lead their entire tech team.
+Architected a long term migration path of their old existing products into a more stable and scalable system.
+Hired interns and developers, helped set the path for most parts of the business, helped set the technical roadmap, worked on launching new products, managed existing products, and contributed to the primary existing code base which is in Rails.
+}
+
+\cventry{2012--Present}{Developer, Product Lead}{PACE Systems}{Naperville, IL}{}{
+Built a scheduling system (\url{http://pacescheduler.com/}) for Fire Departments to schedule and manage their employees.
+Built a proprietary method to optimize the schedules based on inputs including the seniority of the employee, the times employees can work, the days and times the employees prefer, which roles each employee can take on, and how many shifts the fire chief ideally wants to give to each employee.
+Used a custom variant of projected gradient descent in the continuous space to solve a constrained linear least squares problem formulation.
+}
+
+\cventry{2012--Present}{Founder, President}{Upkeep Charlie}{Greenville, SC and Chicago, IL}{}{
+Founded Upkeep Charlie (\url{http://upkeepcharlie.com}) with Stefan Hahn and Peter Barth, the managing director of The Iron Yard.
+Our company offers handyman services, lawn care services, and cleaning services to homeowners.
+Jobs can be booked online and our custom built backend scheduling system automates a good amount of the work required in scheduling and managing accounts. 
+This backend is built in Python/Django, and integrates with payments (Stripe), email (IMAP/Gmail), text/phone/voicemail (Twilio), and chat (Olark).
+}
+
+\cventry{summer 2012}{Participant}{The Iron Yard}{Greenville, SC}{}{
+Attended a 13 week startup accelerator program called The Iron Yard (\url{http://www.theironyard.com/}) in Greenville, SC.
+Leaguevine was one of 10 companies selected for the program out of over 350 applicants worldwide.
+The Iron Yard provided seed capital, tons of advisors, business interns, design interns, office space, and legal services in exchange for 6\% equity.
+}
+
+\cventry{2010--Present}{Founder, CEO}{Leaguevine}{Madison, WI, Chicago, IL, and Greenville, SC}{}{
+Developed the site \url{http://leaguevine.com} using Python and the Django framework.
+The business focuses on giving non-professional athletes their own online sports profile with access to real-time statistics applications to show to off their accomplishments.
+Built the initial site myself, brought on a co-founder, raised seed capital, brought on interns and contract workers, cultivated a thriving group of developers who build products on our API, and sold the company in 2013.
+}
+
+\cventry{2009--2011}{Research Assistant}{University of Wisconsin - Madison}{Madison, WI}{}{
+Conducted research in remote sensing under Professor Mutlu Ozdogan with the assistance of Professor Jerry Zhu within the Centre for Sustainability and the Global Environment (SAGE). 
+Worked on developing new statistical classification algorithms to utilize satellite images of varying spatial and temporal resolutions concurrently.
+} 
+
+\cventry{summer 2009}{Intern}{India Institute of Science}{Bangalore, India}{}{
+Worked at the Center for Sustainable Technologies primarily assisting other graduate students with various water quality projects.
+Traveled to villages 1-2 hours outside Bangalore to perform water quality analysis.
+Learned standard techniques for analyzing water samples and performing on site assessments.
+}
+
+\cventry{2008--2009}{Project Manager}{Engineers Without Borders}{Orongo, Kenya and Madison, WI}{}{
+Led the EWB-UW Madison Kenya project for one of my four years while being involved.
+Recruited and organized the beginning of the group, bringing in approximately 40 students the first year.
+Determined the direction of the project.
+Managed finances, funding, and logistics both in Madison and in Kenya.
+Wrote reports, documented our project, and presented our work at various venues.
+Traveled to Kenya four times for approximately 20-28 days each time.
+}
+
+\cventry{2008--2011}{Webmaster}{Engineers Without Borders}{Madison, WI}{}{
+Created a website from scratch (\url{http://www.ewbuw.org}) using the Drupal CMS.
+Used PHP, HTML, CSS, and MySQL to create dynamic pages that allow officers to update content quickly and easily.
+Taught future webmasters how to create and manage a simple website such as this one.
+}
+
+\cventry{2007--2009}{Teaching Assistant}{University of Wisconsin - Madison}{Madison, WI}{}{
+Was a teaching assistant for courses titled ``Foundations of Scientific Computing'', ``Machine Organization and Basic Systems'', and ``Introduction to Algorithms.''
+Held weekly review sessions and office hours.
+Gave lectures while the instructors are out of town.
+Wrote and graded assignments.
+Proctored and graded exams.
+}
+
+\cventry{2006--2007}{Undergraduate Research Assistant}{UCLA}{Los Angeles, CA}{}{
+Worked for Professor Miodrag Potkonjak on hardware authentication problems.
+Wrote a complex C++ program using linear programming to solve whether or not a digital logic circuit contains unwanted circuitry inserted by an 'attacker'.
+}
+
+\cventry{2005--2007}{Webmaster}{Tau Beta Pi, UCLA}{Los Angeles, CA}{}{
+Set up a LAMP (Linux, Apache, MySQL, PHP) server and created the website \url{http://tbp.seas.ucla.edu} using the Dragonfly CMS.
+Used PHP, MySQL, JavaScript, and HTML to write custom pages for logged in users to contribute content.
+Created a searchable, password protected collection of past examinations.
+Trained future webmasters.
+}
+
+\cventry{2005--2007}{Webmaster}{Smaug}{Los Angeles, CA}{}{
+Helped build and maintain a website for UCLA's Ultimate Frisbee team (\url{http://www.smaugultimate.com}).
+Created a PHP program to take human readable text output from a palm pilot statistics program and parse it to enter the relevant information into a MySQL database.
+Created dynamic pages for users to view team results and statistics.
+}
+
+\cventry{2005--2007}{Lab Assistant}{Automated Reasoning Group, UCLA}{Los Angeles, CA}{}{
+Assisted in the development of a Java based Bayesian Network tool called Samiam (\url{http://reasoning.cs.ucla.edu/samiam/}).
+Managed the server and website.
+Set up an additional website for privileged users for bug tracking and usage statistics.
+Assisted graduate students by writing testing scripts in Perl.
+}
+
+\cventry{summer 2001, 2003, 2004}{Intern}{PACE Systems}{Naperville, IL}{}{
+Configured and assembled large numbers of PCs and servers as specified by high volume clients.
+Worked on customer service helping physicians of Illinois obtain and set up high speed internet.
+Helped maintain a staffing service website along with significant paperwork and data entry.
+}
+
+\section{Technical Experience}
+\subsection{Extremely Proficient With}
+\cvline{languages}{C, C++, Python, Ruby, JavaScript, Matlab, HTML, CSS, JSON}
+\cvline{technologies}{Django, Rails, Drupal CMS, MySQL, SQLite, \LaTeX{}, Bash Scripting, Git, Vim, PostgreSQL, jQuery, Bootstrap, Backbone, Windows, Ubuntu \& Red Hat Linux, OSX}
+\subsection{Have Experience With}
+\cvline{languages}{PHP, Java, Objective C, Fortran, Perl, Scheme, OCaml, ML, Lisp, Prolog, VHDL, IDL}
+\cvline{technologies}{Apache, Nginx, DB2, Joomla CMS, Dragonfly CMS, Emacs, Flash, Photoshop, Seashore, HAML, SQL Server, ENVI, Visual Studio, Eclipse, .NET}
+
+\section{Relevant Coursework}
+\subsection{University of California, Los Angeles}
+\cvline{computer science}{Programming in C++, Digital Design, VHDL, CAD tools, Machine Language (MIPS), Computer Network Fundamentals, Physical Layer of Computer Networks, Programming Languages, Computer Architecture, Algorithms, Complexity Theory, Databases, Operating Systems, Digital Graphics}
+\cvline{electrical engineering}{Electromagnetics, Semiconductors, Systems and Signals, Circuit Analysis}
+\subsection{University of Wisconsin, Madison}
+\cvline{computer science}{Quantum Computing, Arithmetic Algorithms, Advanced Complexity Theory, Harmonic Analysis of Boolean Functions, Computational Cognitive Science, Bioinformatics, Combinatorics, Artificial Intelligence, Advanced Databases}
+\cvline{remote sensing}{Environmental Remote Sensing, Digital Image Processing}
+\cvline{business}{Entrepreneurship and Small Business Management, Venture Creation}
+
+\section{Honors}
+\cvline{honor societies}{Tau Beta Pi, Eta Kappa Nu, Golden Key, Upsilon Pi Epsilon}
+\cvline{dean's list}{2 semesters at UCLA}
+\cvline{fellowships}{Offered Southern California's Provost Ph.D. Fellowship in Electrical Engineering}
+
+\section{Activities}
+\cventry{2004--2007}{Ultimate Frisbee Club Team}{UCLA}{Los Angeles, CA}{}{
+Practiced four times a week and traveled across the western united states for between 10 and 12 tournaments each year.
+}
+\cventry{2007--2011}{Ultimate Frisbee Club Teams}{UW-Madison}{Madison, WI}{}{
+Practiced and traveled with three Madison based ultimate frisbee club teams.
+Played in numerous recreational leagues.
+}
+\cventry{2007--2011}{Engineers Without Borders}{UW-Madison}{Madison, WI and Orongo, Kenya}{}{
+Began a long term irrigation system project to allow the members of Orongo to grow more profitable crops.
+Started an income generating agroforestry project at a Kenyan Primary School.
+Built and tested prototype biosand filters in both Kenya and Madison.
+Built and tested prototype low cost solar cookers in both Kenya and Madison.
+}
+\cventry{2011-present}{Ultimate Frisbee Club Teams}{Ultimate Chicago}{Chicago, IL}{}{
+Coached, captained, and played on several teams in recreational leagues.
+}
+\cventry{}{Other Current Hobbies}{}{}{}{
+Web Programming, Camping, Hiking, Backpacking, Traveling, Road Trips, Basketball, Piano, Guitar
+}
+
+\end{document}

@@ -1,0 +1,35 @@
+% Truncated Cone
+% Author: Mathias Magdowski
+\documentclass{article}
+\usepackage{tikz}
+%%%<
+\usepackage{verbatim}
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength{\PreviewBorder}{10pt}%
+%%%>
+\begin{comment}
+:Title: Truncated Cone
+:Tags: 3D;Angles;Annotations;Basics;Mathematics;Geometry
+:Author: Mathias Magdowski
+:Slug: truncated-cone
+The graphic shows a truncated cone. The diameter of the cone changes from d_1 to d_2 along the x-direction.
+\end{comment}
+\usetikzlibrary{calc}
+\usepackage{amssymb}
+
+\begin{document}
+\begin{tikzpicture}
+	\draw[dashed,color=gray] (0,0) arc (-90:90:0.5 and 1.5);% right half of the left ellipse
+	\draw[semithick] (0,0) -- (4,1);% bottom line
+	\draw[semithick] (0,3) -- (4,2);% top line
+	\draw[semithick] (0,0) arc (270:90:0.5 and 1.5);% left half of the left ellipse
+	\draw[semithick] (4,1.5) ellipse (0.166 and 0.5);% right ellipse
+	\draw (-1,1.5) node {$\varnothing d_1$};
+	\draw (3.3,1.5) node {$\varnothing d_2$};
+	\draw[|-,semithick] (0,-0.5) -- (4,-0.5);
+	\draw[|->,semithick] (4,-0.5) -- (4.5,-0.5);
+	\draw (0,-1) node {$x=0$};
+	\draw (4,-1) node {$x=l$};
+\end{tikzpicture}
+\end{document}

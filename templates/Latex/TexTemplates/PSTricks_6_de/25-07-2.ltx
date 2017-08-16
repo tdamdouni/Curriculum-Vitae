@@ -1,0 +1,36 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-map2dII,graphicx}
+\StopShownPreambleCommands
+\begin{document}
+\psset{path=pst-geo/dataII}
+\resizebox{.8\linewidth}{!}{\begin{pspicture*}(-7,-75)(10,-55)
+  \psframe(-7,-75)(10,-55)
+  \psset{xunit=25,yunit=25,level=50,type=8,latitude0=48.85,longitude0=2.316667}
+  \WorldMapII[maillage=true,linewidth=0.75\pslinewidth,limiteL=190,borders=true]
+  \input{capitales.tex} \input{villesFrance.tex}
+  \pnodeMap(20,35){MerMed}  \rput{15}(MerMed){\shortstack{MER\\MÉDITERANNÉE}}
+  \pnodeMap(35,43){MerNoire}\rput{15}(MerNoire){\shortstack{MER\\NOIRE}}
+  \pnodeMap(-15,50){OceanAtlan}\rput{80}(OceanAtlan){OCÉAN ATLANTIQUE}
+  \pnodeMap(4,56){MerNoire} \rput(MerNoire){\shortstack{Mer\\du\\Nord}}
+\end{pspicture*}}
+\end{document}

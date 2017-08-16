@@ -1,0 +1,4 @@
+\ProvidesFile{dateup.lco}%
+\@setplength{refvpos}{\useplength{toaddrvpos}}
+\@addtoplength{refaftervskip}{\useplength{toaddrheight}}
+\endinput

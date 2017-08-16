@@ -1,0 +1,305 @@
+\section{Positioning a solid}
+
+\subsection{\Index{Translation}}
+
+The following command~
+\texttt{\Lcs{psSolid}[object=cube,+\textit{options}](x,y,z)} shifts the
+centre of the cube to the point with the coordinates $\mathtt{(x,y,z)}$.
+
+The next example will copy the cube with edge length of 1
+\begin{pspicture}(-0.5,-0.5)(.5,.5)
+\psset{Decran=40,viewpoint=50 35 35 rtp2xyz,a=1,lightsrc=50 30 20}
+\psset{fillcolor=yellow,mode=3}
+\psSolid[object=cube](0.5,0.5,0.5)% c1
+\end{pspicture}
+to the points with the coordinates $\mathtt{(0.5,0.5,0.5)}$,
+ $\mathtt{(4.5,0.5,0.5)}$ etc. so that the copied cubes setup the vertices
+ of a new cube with the edge length 5.
+\begin{center}
+\begin{pspicture}(-4,-5)(5,5)
+\psframe(-4,-5)(5,5)
+%\psset{SphericalCoor,Decran=3,viewpoint=10 35 35,a=1,lightsrc=50 20 10}
+\psset{Decran=40,viewpoint=50 35 35 rtp2xyz,a=1,lightsrc=50 30 20}
+\psSolid[object=grille,base=0 6 0 6,fillcolor=gray!40]%%
+\psSolid[object=grille,base=0 6 0 6,RotY=90,fillcolor=gray!30](0,0,6)%
+\psSolid[object=grille,base=0 6 0 6,RotX=-90,fillcolor=gray!20](0,0,6)%
+\psPoint(1,0.5,0.5){c11}
+\psPoint(0.5,0.5,1){c12}
+\psPoint(0.5,1,0.5){c13}
+\psPoint(4.5,4.5,1){c21}
+\psPoint(4,4.5,0.5){c22}
+\psPoint(4.5,4,0.5){c23}
+\psPoint(4,0.5,0.5){c41}
+\psPoint(4.5,0.5,1){c42}
+\psPoint(4.5,1,0.5){c43}
+\psPoint(0.5,4,0.5){c51}
+\psPoint(0.5,4.5,1){c52}
+\psPoint(1,4.5,0.5){c53}
+\psPoint(0.5,0.5,4){c61}
+\psPoint(0.5,1,4.5){c62}
+\psPoint(1,0.5,4.5){c63}
+\psPoint(4,0.5,4.5){c71}
+\psPoint(4.5,1,4.5){c72}
+\psPoint(4.5,0.5,4){c73}
+\axesIIID(1,1,1)(6,6,6)
+{\psset{fillcolor=yellow,mode=3}
+\psSolid[object=cube](0.5,0.5,0.5)% c1
+\psline[linestyle=dashed,linecolor=red,linewidth=1.5pt](c11)(c41)
+\psline[linestyle=dashed,linecolor=red,linewidth=1.5pt](c12)(c61)
+\psline[linestyle=dashed,linecolor=red,linewidth=1.5pt](c13)(c51)
+\psSolid[object=cube](4.5,0.5,0.5)
+\psSolid[object=cube](0.5,4.5,0.5)
+\psSolid[object=cube](0.5,0.5,4.5)
+\psSolid[object=cube](4.5,4.5,4.5)
+\psSolid[object=cube](4.5,0.5,4.5)
+\psSolid[object=cube](4.5,4.5,0.5)
+\psSolid[object=cube](0.5,4.5,4.5)}
+\psSolid[object=grille,base=0 5 0 5,action=draw,linecolor=blue!70,linewidth=1.2pt](0,0,5)%
+\psSolid[object=grille,base=0 5 0 5,action=draw,linecolor=blue!70,RotY=90,linewidth=1.2pt](5,0,5)%
+\psSolid[object=grille,base=0 5 0 5,action=draw,RotX=-90,linecolor=blue!70,linewidth=1.2pt](0,5,5)%
+\end{pspicture}
+\end{center}
+\begin{verbatim}
+\psset{fillcolor=yellow,mode=3}
+\psSolid[object=cube](0.5,0.5,0.5)
+\psSolid[object=cube](4.5,0.5,0.5)
+\psSolid[object=cube](0.5,4.5,0.5)
+\psSolid[object=cube](0.5,0.5,4.5)
+\psSolid[object=cube](4.5,4.5,4.5)
+\psSolid[object=cube](4.5,0.5,4.5)
+\psSolid[object=cube](4.5,4.5,0.5)
+\psSolid[object=cube](0.5,4.5,4.5)
+\end{verbatim}
+
+
+\subsection{Rotation}
+
+\subsection{Default sequence xyz}
+
+The \Index{rotation} is effected around the three axes $Ox$, $Oy$ and $Oz$. Let's take a cuboid as an example,
+\begin{pspicture}(-1,-0.2)(1,.5)
+\psset{Decran=40,viewpoint=50 35 35 rtp2xyz,a=2,b=3,c=1,lightsrc=50 30 30}
+\psset{fillcolor=yellow,unit=0.5,
+  fcol= 0 (Apricot)
+        1 (Lavender)
+        2 (SkyBlue)
+        3 (LimeGreen)
+        4 (OliveGreen)
+        5 (Yellow)
+        6 (Bittersweet)}
+\psSolid[object=parallelepiped](0.5,0.5,0.5)%
+\end{pspicture}
+which will be rotated seperately around the axes $Ox$, $Oy$ and $Oz$.
+
+\begin{multicols}{4}
+\psset{Decran=40,viewpoint=50 35 35 rtp2xyz,a=2,b=3,c=1}
+\psset{unit=0.5,
+  fcol= 0 (Apricot)
+        1 (Lavender)
+        2 (SkyBlue)
+        3 (LimeGreen)
+        4 (OliveGreen)
+        5 (Yellow)
+        6 (Bittersweet),
+  object=parallelepiped}
+\setlength{\columnseprule}{1pt}
+\centerline{
+\begin{pspicture}(-2.75,-2.5)(2.95,2.5)
+\psframe(-2.75,-2.5)(2.95,2.5)
+\psSolid%%
+\axesIIID(1,1.5,1)(3,3,2)
+\end{pspicture}}
+\columnbreak
+\centerline{
+\begin{pspicture}(-2.75,-2.5)(2.95,2.5)
+\psframe(-2.75,-2.5)(2.95,2.5)
+\psSolid[RotZ=60]%%
+\psSolid[action=draw,linewidth=0.5\pslinewidth]%%
+\axesIIID(1,1.5,1)(2,3,2)
+\end{pspicture}}
+
+\centerline{\texttt{[RotZ=60]}}
+
+\columnbreak
+\centerline{%
+\begin{pspicture}(-2.75,-2.5)(2.95,2.5))
+\psframe(-2.75,-2.5)(2.95,2.5)
+\psSolid[RotX=30]%%
+\psSolid[action=draw,linewidth=0.5\pslinewidth]%%
+\axesIIID(1,1.5,1)(2,3,2)
+\end{pspicture}}
+
+\centerline{\texttt{[RotX=30]}}
+
+\columnbreak
+\centerline{%
+\begin{pspicture}(-2.75,-2.5)(2.95,2.5)
+\psframe(-2.75,-2.5)(2.95,2.5)
+\psSolid[RotY=45]%%
+\psSolid[action=draw,linewidth=0.5\pslinewidth]%%
+\axesIIID(1,1.5,1)(2,3,2)
+\end{pspicture}}
+
+\centerline{\texttt{[RotY=-45]}}
+\end{multicols}
+
+
+\subsection{Rotations Sequence}
+
+\newpsstyle{sol}{fillstyle=crosshatch,hatchcolor=green,hatchwidth=0.25\pslinewidth,hatchsep=5\pslinewidth}
+\makeatletter
+\def\Die#1#2#3#4{
+\pstVerb{/posP \pst@solides@a\space 0.3 mul def
+         /rP \pst@solides@a\space 0.1 mul def
+         /dP \pst@solides@a\space 2 div neg def
+         /a_2 \pst@solides@a\space 2 div def}%
+\psset{solidmemory}
+%\psset{visibility=false}
+\psSolid[action=draw**,
+         object=cube,
+RotX=#2,RotY=#3,RotZ=#4,RotSequence=#1,
+         fontsize=15,
+         trunccoeff=.1,
+         trunc=all,
+%         fillcolor=yellow,
+         fcol=6 1 13 { (rouge) } for,
+         name=A
+         ](0,0,0)%
+\psSolid[object=plan,action=none,
+         definition=solidface,args=A 0,name=P0]
+\psset{plan=P0}
+\psProjection[object=cercle,fillstyle=solid,fillcolor=black,
+              args=0 0 rP,
+              range=0 360]
+\psSolid[object=plan,action=none,
+         definition=solidface,args=A 1,name=P1]
+\psset{plan=P1}
+\psProjection[object=cercle,fillstyle=solid,fillcolor=black,
+              args=0 0 rP,
+              range=0 360]
+\psProjection[object=cercle,fillstyle=solid,fillcolor=black,
+              args=posP posP rP,
+              range=0 360]
+\psProjection[object=cercle,fillstyle=solid,fillcolor=black,
+              args=posP neg posP neg rP,
+              range=0 360]
+\psSolid[object=plan,action=none,
+         definition=solidface,args=A 2,name=P2]
+\psset{plan=P2}
+\psProjection[object=cercle,fillstyle=solid,fillcolor=black,
+              args=posP posP rP,
+              range=0 360]
+\psProjection[object=cercle,fillstyle=solid,fillcolor=black,
+              args=posP neg posP neg rP,
+              range=0 360]
+\psSolid[object=plan,action=none,
+         definition=solidface,args=A 3,name=P3]
+\psset{plan=P3}
+\psProjection[object=cercle,fillstyle=solid,fillcolor=black,
+              args=posP posP rP,
+              range=0 360]
+\psProjection[object=cercle,fillstyle=solid,fillcolor=black,
+              args=posP posP neg rP,
+              range=0 360]
+\psProjection[object=cercle,fillstyle=solid,fillcolor=black,
+              args=posP neg posP rP,
+              range=0 360]
+\psProjection[object=cercle,fillstyle=solid,fillcolor=black,
+              args=posP neg posP neg rP,
+              range=0 360]
+\psSolid[object=plan,action=none,
+         definition=solidface,args=A 4,name=P4]
+\psset{plan=P4}
+\psProjection[object=cercle,fillstyle=solid,fillcolor=black,
+              args=0 0 rP,
+              range=0 360]
+\psProjection[object=cercle,fillstyle=solid,fillcolor=black,
+              args=posP posP rP,
+              range=0 360]
+\psProjection[object=cercle,fillstyle=solid,fillcolor=black,
+              args=posP neg posP neg rP,
+              range=0 360]
+\psProjection[object=cercle,fillstyle=solid,fillcolor=black,
+              args=posP posP neg rP,
+              range=0 360]
+\psProjection[object=cercle,fillstyle=solid,fillcolor=black,
+              args=posP neg posP rP,
+              range=0 360]
+\psSolid[object=plan,action=none,
+         definition=solidface,args=A 5,name=P5]
+\psset{plan=P5}
+\psProjection[object=cercle,fillstyle=solid,fillcolor=black,
+              args=0 posP rP,
+              range=0 360]
+\psProjection[object=cercle,fillstyle=solid,fillcolor=black,
+              args=0 posP neg rP,
+              range=0 360]
+\psProjection[object=cercle,fillstyle=solid,fillcolor=black,
+              args=posP posP rP,
+              range=0 360]
+\psProjection[object=cercle,fillstyle=solid,fillcolor=black,
+              args=posP neg posP neg rP,
+              range=0 360]
+\psProjection[object=cercle,fillstyle=solid,fillcolor=black,
+              args=posP posP neg rP,
+              range=0 360]
+\psProjection[object=cercle,fillstyle=solid,fillcolor=black,
+              args=posP neg posP rP,
+              range=0 360]
+\psSolid[object=vecteur,
+         args=4 0 0,
+         linecolor=green](a_2,0,0)%
+\psSolid[object=vecteur,
+         args=0 4 0,
+         linecolor=red](0,a_2,0)
+\psSolid[object=vecteur,
+         args=0 0 4,
+         linecolor=blue](0,0,a_2)
+\rput(0,-2.5){\texttt{RotSequence=#1}}
+}
+\makeatother
+
+\begin{center}
+\psset{viewpoint=50 60 25 rtp2xyz,Decran=25,lightsrc=viewpoint,a=4,solidmemory}%
+\begin{pspicture}(-3,-3)(3,3)
+\psframe(-3,-3)(3,3)
+\Die{xyz}{0}{0}{0}
+\rput(0,-2){\texttt{RotX=0,RotY=0,RotZ=0}}
+\end{pspicture}
+
+\begin{pspicture}(-3,-3)(3,3)
+\psframe(-3,-3)(3,3)
+\Die{xyz}{90}{90}{90}
+\rput(0,-2){\texttt{RotX=90,RotY=90,RotZ=90}}
+\end{pspicture}
+\begin{pspicture}(-3,-3)(3,3)
+\psframe(-3,-3)(3,3)
+\Die{xzy}{90}{90}{90}
+\rput(0,-2){\texttt{RotX=90,RotY=90,RotZ=90}}
+\end{pspicture}
+
+\begin{pspicture}(-3,-3)(3,3)
+\psframe(-3,-3)(3,3)
+\Die{yxz}{90}{90}{90}
+\rput(0,-2){\texttt{RotX=90,RotY=90,RotZ=90}}
+\end{pspicture}
+\begin{pspicture}(-3,-3)(3,3)
+\psframe(-3,-3)(3,3)
+\Die{yzx}{90}{90}{90}
+\rput(0,-2){\texttt{RotX=90,RotY=90,RotZ=90}}
+\end{pspicture}
+
+\begin{pspicture}(-3,-3)(3,3)
+\psframe(-3,-3)(3,3)
+\Die{zxy}{90}{90}{90}
+\rput(0,-2){\texttt{RotX=90,RotY=90,RotZ=90}}
+\end{pspicture}
+\begin{pspicture}(-3,-3)(3,3)
+\psframe(-3,-3)(3,3)
+\Die{zyx}{90}{90}{90}
+\rput(0,-2){\texttt{RotX=90,RotY=90,RotZ=90}}
+\end{pspicture}
+\end{center}
+
+
+\endinput

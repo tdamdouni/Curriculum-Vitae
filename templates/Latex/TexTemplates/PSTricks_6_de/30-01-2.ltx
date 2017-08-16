@@ -1,0 +1,42 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pstricks-add}
+\def\majorette{\psline[linewidth=0.5mm](0,2)\pscircle[fillstyle=solid]{0.1}
+  \pscircle[fillstyle=solid](0,2){0.1}}
+\StopShownPreambleCommands
+\begin{document}
+\psset{unit=0.8}
+\begin{pspicture}(0,-6)(15,5)
+\psaxes[linewidth=0.5pt]{->}(0,0)(0,-5)(15,5)
+\pstVerb{/V0 10 def /Alpha 45 def}% v0 und Anfangswinkel
+\multido{\nT=0.0+0.05,\iA=0+40}{41}{%
+ \pstVerb{ /nT \nT\space def }
+ \rput(!V0 Alpha cos mul nT mul -9.81 2 div nT dup mul mul V0 Alpha sin mul nT
+   mul add){\psrotate(0,1){\iA}{\majorette\psdot[linecolor=red](0,1)%
+   \psdot[linecolor=green](0,2)}}}% ende \multido
+\parametricplot[linecolor=red]{0}{2}{% Schwerpunktweg
+  V0 Alpha cos mul t mul -9.81 2 div t dup mul mul V0 Alpha sin mul t mul add 1 add}
+\parametricplot[linecolor=green,plotpoints=360]{0}{2}{% Weg s=f(x,y)
+  V0 Alpha cos mul t mul 800 t mul sin sub % x(t)
+  -9.81 2 div t dup mul mul V0 Alpha sin mul t mul add 1 add 800 t mul cos add }%y(t)
+\end{pspicture}
+\end{document}

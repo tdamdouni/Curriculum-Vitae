@@ -1,0 +1,88 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-uml}
+\usepackage[utf8]{inputenc}
+\StopShownPreambleCommands
+\begin{document}
+\newcommand\StateGlobal{%
+  \umlState{état global de l'objet \texttt{Graphe}}{\umlEmptyBox{13cm}{16cm}}}
+\newcommand\StateNRSA{\umlState{non routé \\ sans arêtes}{\space}}
+\newcommand\StateNRI{\umlState{non routé \\ incomplet}{\space}}
+\newcommand\StateNRC{\umlState{non routé \\ complet}{\space}}
+\newcommand\StateROU{\umlState{routé \\ \mbox{}}{\space}}
+\newcommand\StateVisu{\umlState{Visualisable \\ \mbox{}}{do/superviser()}}
+\newcommand\StateAnu{%
+  \umlState{GrapheAnnulable}{%
+    \hspace*{2.25cm}\rmfamily%
+    \begin{psmatrix}[colsep=1,rowsep=1.5,mnode=r]
+                                       \\[-1.4cm]
+       [name=StateInAnu] \umlStateIn   \\[-0.5cm]
+       [name=StateNRSA]   \StateNRSA     \\[0cm]
+       [name=StateNRI]  \StateNRI    \\[1cm]
+       [name=StateNRC]   \StateNRC     \\[0.5cm]
+       [name=StateROU]   \StateROU
+          &   \umlPutStateOut{0,0}{StateOutAnu}  \\[-1.5cm]
+          {}
+    \end{psmatrix}\hspace*{1.5cm}
+    {\ttfamily\small%
+      \ncEXS[offsetA=0.25,offsetB=0.5]{StateNRSA}{StateNRSA}
+      \ncput*[npos=1.7]{ajouterSommet}
+      \ncWXS[offsetA=-0.25,offsetB=-0.5]{StateNRSA}{StateNRSA}
+      \ncput*[npos=1.7]{retirerSommet}
+      \ncEXS[offsetA=0.25,offsetB=0.5]{StateNRI}{StateNRI}
+      \ncput*[npos=1.7]{ajouterArête}
+      \ncWXS[offsetA=-0.25,offsetB=-0.5]{StateNRI}{StateNRI}
+      \ncput*[npos=1.7]{retirerArête}
+      \ncEXN[offsetA=-0.0,offsetB=-0.5]{StateNRI}{StateNRI}
+      \ncput*[npos=1.7]{ajouterSommet}
+      \ncWXN[offsetA=0.0,offsetB=0.5]{StateNRI}{StateNRI}
+      \ncput*[npos=1.7]{retirerSommet}
+      \ncEXS[offsetA=0.25,offsetB=0.5]{StateNRC}{StateNRC}
+      \ncput*[npos=1.7]{ajouterRoute}
+      \ncWXS[offsetA=-0.25,offsetB=-0.5]{StateNRC}{StateNRC}
+      \ncput*[npos=1.7]{retirerRoute}
+      \ncWXS[offsetA=-0.25,offsetB=-0.5]{StateROU}{StateROU}
+      \ncput*[npos=1.7]{réoptimiser}
+      \ncline{->}{StateInAnu}{StateNRSA}\naput[npos=0.3]{}
+      \ncline{->}{StateNRSA}{StateNRI}\naput[npos=0.3]{ajouterArête}
+      \ncline{->}{StateNRI}{StateNRC}\naput[npos=0.3]{graphComplet}
+      \naput{graphComplet}
+      \ncline{->}{StateNRC}{StateROU}
+      \ncput*[npos=0.3]{\umlStack{[ClientPrioritaireSatisfait] DemandeFin}}
+      \ncline{->}{StateROU}{StateOutAnu}%
+}}}
+\resizebox{0.9\linewidth}{!}{%
+  \begin{pspicture}(-5,-9.5)(9.5,8)%\psgrid
+    \psset{linearc=0.3,armA=1.2,armB=0.8,arrows=->,arrowscale=2,ncurv=2}
+    \rput(2.4,-0.75){\rnode{StateGlobal}{\StateGlobal}}\umlPutStateIn{6,5}{StateIn}
+    \rput(0,-1){\rnode{StateAnu}{\StateAnu}}\rput(6,-3){\rnode{StateVisu}{\StateVisu}}
+    \rput(6,0){\rnode{StateOut}{\umlStateOut}}
+    \ttfamily\small
+    \ncEXN[offsetA=-0.25,offsetB=-0.5,armA=0.5]{StateVisu}{StateVisu}
+    \ncput*[npos=1.7]{zoomer}
+    \ncSW[offsetB=-5]{->}{StateIn}{StateAnu}\naput[npos=1.3]{NewGraphAsked}
+    \ncEN{->}{StateOutAnu}{StateVisu}\nbput[npos=0.9]{/Sauvegarder}
+    \ncline{->}{StateVisu}{StateOut}\ncES[offsetA=3]{->}{StateAnu}{StateOut}
+    \naput[npos=0.99]{\umlStack[umlAlign=l]{\ Annuler\\\ /DemanderConfirmation}}
+  \end{pspicture}%
+}
+\end{document}

@@ -1,0 +1,59 @@
+\section{Right angle}
+
+\subsection{Direct definition}
+
+The object \Lkeyword{rightangle} allows us to specify and draw a
+\Index{right angle}. The syntax is: \texttt{[object=rightangle,args=$A$
+$B$ $C$]}
+
+\begin{LTXexample}[width=7.5cm]
+\begin{pspicture}(-3,-2.5)(3.5,2.5)%
+\psframe*[linecolor=blue!50](-3,-2.5)(3.5,2.5)
+\psset{lightsrc=viewpoint,viewpoint=50 30 15,Decran=40}
+\psset{solidmemory}
+%% definition du plan de projection
+\psSolid[object=plan,
+   definition=equation,
+   args={[1 0 1 0] 90},
+   base=-4 4 -3 3,
+   fillcolor=white,
+   linecolor=gray!30,
+%   plangrid,
+   planmarks,
+   name=monplan]
+\psset{plan=monplan,visibility=false}
+%% definition droite d
+\psProjection[object=droite,
+   definition=horizontale,
+   args=-1,name=d]
+\psset{fontsize=15}
+%% definition du point M
+\psProjection[object=point,
+   args=-2 1,
+   name=M,text=M,
+   pos=ul]
+%% definition du point H
+\psProjection[object=point,
+   definition=orthoproj,
+   args=M d,
+   name=H,text=H,
+   pos=dr]
+%% definition du point H' pour orienter l'angle droit
+%% et mettre la legende
+\psProjection[object=point,
+   definition=xdpoint,
+   args=2 d,name=H',
+   action=none,
+   text=d,pos=ur]
+%% definition d'une ligne
+\psProjection[object=line,
+   args=M H]
+%% dessin angle droit
+\psProjection[object=rightangle,
+   args=M H H']
+\composeSolid
+%\axesIIID(4,4,2)(5,5,6)
+\end{pspicture}
+\end{LTXexample}
+
+\endinput

@@ -1,0 +1,188 @@
+%% start of file `template.tex'.
+%% Copyright 2006-2013 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+\documentclass[11pt,a4paper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+% moderncv themes
+\moderncvstyle{banking}                             % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
+\moderncvcolor{blue}                               % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+%\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+%\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+
+% character encoding
+%\usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
+%\usepackage{CJKutf8}                              % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
+
+% adjust the page margins
+\usepackage[scale=0.75]{geometry}
+%\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
+\setlength{\makecvtitlenamewidth}{12cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+\usepackage[german]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+
+% personal data
+\name{Siddhartha}{Moitra}
+\title{Curriculum Vitae}                               % optional, remove / comment the line if not wanted
+\address{Vogeliusweg 27.2.2102}{33098 Paderborn}{Germany}% optional, remove / comment the line if not wanted; the "postcode city" and "country" arguments can be omitted or provided empty
+\phone[mobile]{+49~176~726~82777}                   % optional, remove / comment the line if not wanted; the optional "type" of the phone can be "mobile" (default), "fixed" or "fax"
+%\phone[fixed]{+2~(345)~678~901}
+%\phone[fax]{+3~(456)~789~012}
+\email{siddhartha.moitra21@gmail.com}                               % optional, remove / comment the line if not wanted
+%\homepage{www.johndoe.com}                         % optional, remove / comment the line if not wanted
+%\social[linkedin]{http://de.linkedin.com/in/siddharthamoitra/}                        % optional, remove / comment the line if not wanted
+%\social[xing]{https://www.xing.com/profile/Siddhartha_Moitra}                             % optional, remove / comment the line if not wanted
+%\social[github]{jdoe}                              % optional, remove / comment the line if not wanted
+%\extrainfo{additional information}                 % optional, remove / comment the line if not wanted
+%\photo[64pt][0.4pt]{picture}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
+%\quote{Some quote}                                 % optional, remove / comment the line if not wanted
+
+% to show numerical labels in the bibliography (default is to show no labels); only useful if you make citations in your resume
+%\makeatletter
+%\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
+%\makeatother
+%\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}% CONSIDER REPLACING THE ABOVE BY THIS
+
+% bibliography with mutiple entries
+%\usepackage{multibib}
+%\newcites{book,misc}{{Books},{Others}}
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+%\begin{CJK*}{UTF8}{gbsn}                          % to typeset your resume in Chinese using CJK
+%-----       resume       ---------------------------------------------------------
+\makecvtitle
+
+\section{Professional Experience}
+%\subsection{Vocational}
+\cventry{01/2014--Present}{Software Developer - Werkstudent}{Universit{\"a}t Paderborn}{Paderborn, Germany}{}{The research project aims at dynamically compose services on the world wide markets with prime focus on analysis methods for service compositions. Supports parent project by providing feedback on properties like protocol compatibility, deadlock freedom, etc.\newline{}%
+Detailed achievements:%
+\begin{itemize}%
+\item Developed an Eclipse-plugin which creates dummy service compositions for predicting functional properties and does functional analysis;
+\item Extended the Palladio Component Model(PCM) to include new elements for protocol analysis;
+\item Developed a new Eclipse editor to integrate analysis related tasks together in a single view;
+\item Technologies used: Java, ProMeLa, JUnit, Eclipse Plugin Development, Eclipse Modelling Framework, Eclipse GEF;
+\item Tools:             Eclipse Kepler, SPIN, SVN, Trac(for Issue Tracking);
+\end{itemize}}
+
+\cventry{10/2011--09/2013}{Senior Technical Analyst}{BlackRock}{India}{}{The project aimed at developing a suite of services that integrated the CRM system(Quasar) with all the financial sytems used within the organization. It formed the integration framework within the organization providing information to account managers and other business entities.\newline{}%
+Detailed achievements:%
+\begin{itemize}%
+\item Design and review service APIs using Google Protocol buffers;
+\item Developed SQL procedures/functions for data retreival;
+\item Used Spring 3.x for middleware business development;
+\item Developed a Java Swing based Test tool for testing the services, functional and performance, for the QA team.
+\item Developed a XML based validation framework, used by business functions to write business rules and reduce development time by 20\%.
+\item Financial CRM knowledge and data modelling in Assignment-Opportunity design.
+\item Technologies used: Java, JUnit, Spring 3.x, MS-SQL, Google Protocol Buffers, Apache ANT, Apache IVY;
+\item Tools:             Eclipse based Spring Toolsuite, MS SQL Client, MS SQL Profiler, SVN;
+\item SCM Tools:         Crucible, JIRA, Hudson;
+\item Development model: Agile, Test Driven Development;
+\end{itemize}}
+
+\cventry{01/2010--09/2011}{Software Engineer}{Infosys Technologies}{India}{}{The project aimed at developing a web-based billing solution for Vodafone Global encompassing B2B customers. Enhanced the Oracle's eBilling solution in 4 EU countries.\newline{}%
+Detailed achievements:%
+\begin{itemize}%
+\item Requirement analysis and enhancement of the Web based application.
+\item Implemented Fusion Charts v3.0.2 for reporting.
+\item Developed Ajax-based information and billing hierarchy for the customers using ebilling application. 
+\item Technologies used: Java, JUnit, Struts 1, jQuery, XML, HTML, Fusion Charts;
+\item Tools:             Eclipse Galileo, TOAD for Oracle9i, CVS;
+\item SCM Tools:         Crucible, JIRA, Hudson;
+\item Development model: Iterative and incremental development;
+\end{itemize}}
+%\subsection{Miscellaneous}
+%\cventry{year--year}{Job title}{Employer}{City}{}{Description}
+
+\section{Skill set}
+\cvitem{Languages}{Java, Basics of JEE, Unix, XML and Oracle SQL, PL/SQL} %\newline{}%
+\cvitem{Technology}{Core and Advanced Java, JDBC, JSP, JSF, XHTML, Eclipse Plugin Development, Oracle 9i,11g} %\newline{}%
+\cvitem{Tools}{Netbeans, Eclipse, Eclipse RCP, GlassFish, Jenkins, SVN, CVS, Git, Maven, SQL Developer} %\newline{}%
+
+\section{Education}
+\cventry{10/2013--Present}{Masters in Informatik}{University of Paderborn}{Germany}{\textit{Grade - 1.6 (till date)}}{}
+\cvitem{Specialization}{ Software Technology and Information Systems \newline{}}%Web Engineering,Software Quality Assurance, Model Driven Software Development, Model Checking
+\cventry{2004--2008}{Bachelor of Technology in Computer Science \& Technology}{Uttar Pradesh Technical University}{Uttar Pradesh, India}{\textit{Grade - 2.3}}{}{}
+%\cvitem{}{}  % arguments 3 to 6 can be left empty Software Engineering, Computer Architecture, Data Structures, Object Oriented Analysis and Design
+\section{Master Thesis}
+\cvitem{Title}{\emph{Master Thesis Title}}
+%\cvitem{supervisors}{Prof. Dr. Gregor Engels, Masud Fazal-Baqaie M.Sc.}
+\cvitem{Description}{Description.}
+%\cvitem{technology}{Java, Eclipse Plug-in Development, Eclipse Indigo IDE, SVN}
+
+
+
+\section{Master Project}
+\cvitem{Title}{\emph{Text Search Engines}}
+\cvitem{Supervisor}{Prof. Dr. Steffan B\"{o}ttcher}
+\cvitem{Description}{Description}
+\cvitem{Technology}{Java, Data Structures}
+\cvitem{Tools}{Eclipse Kepler, Git}
+
+\section{Languages}
+\cvitem{German}{Basic, A2 Level} 
+\cvitem{English}{Bilingual Proficiency} 
+\cvitem{Hindi}{Mother Tongue} 
+
+\section{Interests and Hobbies}
+\begin{itemize}%
+\item{Fitness, Photography, Cooking} 
+\end{itemize}  
+
+
+%\section{References}
+%\begin{cvcolumns}
+%  \cvcolumn{Category 1}{\begin{itemize}\item Person 1\item Person 2\item Person 3\end{itemize}}
+%  \cvcolumn{Category 2}{Amongst others:\begin{itemize}\item Person 1, and\item Person 2\end{itemize}(more upon request)}
+%  \cvcolumn[0.5]{All the rest \& some more}{\textit{That} person, and \textbf{those} also (all available upon request).}
+%\end{cvcolumns}
+
+% Publications from a BibTeX file without multibib
+%  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% CONSIDER MERGING WITH PREAMBLE PART
+%  to redefine the heading string ("Publications"): \renewcommand{\refname}{Articles}
+\nocite{*}
+\bibliographystyle{plain}
+\bibliography{publications}                        % 'publications' is the name of a BibTeX file
+
+% Publications from a BibTeX file using the multibib package
+%\section{Publications}
+%\nocitebook{book1,book2}
+%\bibliographystylebook{plain}
+%\bibliographybook{publications}                   % 'publications' is the name of a BibTeX file
+%\nocitemisc{misc1,misc2,misc3}
+%\bibliographystylemisc{plain}
+%\bibliographymisc{publications}                   % 'publications' is the name of a BibTeX file
+
+\clearpage
+%-----       letter       ---------------------------------------------------------
+% recipient data
+\recipient{Company Recruitment team}{Company, Inc.\\123 somestreet\\some city}
+\date{January 01, 1984}
+\opening{Dear Sir or Madam,}
+\closing{Yours faithfully,}
+\enclosure[Attached]{curriculum vit\ae{}}          % use an optional argument to use a string other than "Enclosure", or redefine \enclname
+\makelettertitle
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ullamcorper neque sit amet lectus facilisis sed luctus nisl iaculis. Vivamus at neque arcu, sed tempor quam. Curabitur pharetra tincidunt tincidunt. Morbi volutpat feugiat mauris, quis tempor neque vehicula volutpat. Duis tristique justo vel massa fermentum accumsan. Mauris ante elit, feugiat vestibulum tempor eget, eleifend ac ipsum. Donec scelerisque lobortis ipsum eu vestibulum. Pellentesque vel massa at felis accumsan rhoncus.
+
+Suspendisse commodo, massa eu congue tincidunt, elit mauris pellentesque orci, cursus tempor odio nisl euismod augue. Aliquam adipiscing nibh ut odio sodales et pulvinar tortor laoreet. Mauris a accumsan ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse vulputate sem vehicula ipsum varius nec tempus dui dapibus. Phasellus et est urna, ut auctor erat. Sed tincidunt odio id odio aliquam mattis. Donec sapien nulla, feugiat eget adipiscing sit amet, lacinia ut dolor. Phasellus tincidunt, leo a fringilla consectetur, felis diam aliquam urna, vitae aliquet lectus orci nec velit. Vivamus dapibus varius blandit.
+
+Duis sit amet magna ante, at sodales diam. Aenean consectetur porta risus et sagittis. Ut interdum, enim varius pellentesque tincidunt, magna libero sodales tortor, ut fermentum nunc metus a ante. Vivamus odio leo, tincidunt eu luctus ut, sollicitudin sit amet metus. Nunc sed orci lectus. Ut sodales magna sed velit volutpat sit amet pulvinar diam venenatis.
+
+Albert Einstein discovered that $e=mc^2$ in 1905.
+
+\[ e=\lim_{n \to \infty} \left(1+\frac{1}{n}\right)^n \]
+
+\makeletterclosing
+
+%\clearpage\end{CJK*}                              % if you are typesetting your resume in Chinese using CJK; the \clearpage is required for fancyhdr to work correctly with CJK, though it kills the page numbering by making \lastpage undefined
+\end{document}
+
+
+%% end of file `template.tex'.

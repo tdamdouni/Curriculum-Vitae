@@ -1,0 +1,144 @@
+\documentclass[11pt]{dinbrief}%Schriftgr??en k?nnen variieren!
+\usepackage[T1]{fontenc}
+
+%Bitte je nach System "freischalten":
+
+%\usepackage[applemac]{inputenc}  % f?r einen Mac
+%\usepackage[latin1]{inputenc} % f"ur Windows 9x/NT ff.
+
+\usepackage[ngerman]{babel}%bei englischen Bewerbungen: "english" als Option setzen
+\usepackage{currvita}
+\usepackage{graphicx}%f?r passfoto etc.
+% Kopf-/Fu?zeile
+\setlength{\unitlength}{1cm}
+\renewcommand{\labelitemi}{\labelitemii}
+\pagestyle{empty} % keine Kopf und Fu"szeile
+
+\setlength{\parindent}{0pt}%keinen Absatzeinzug
+\nowindowtics %kein Falz am Rand
+\nowindowrules %keine Linien "uber und unter der Adresse
+\date{}% Muss leer sein sonst gibst ein Datum in die Seite
+
+\begin{document}
+% Das bis \end{letter} ist jetzt EIN "Brief"; Nur nach oben verschoben
+\address{}%Bitte LEER lassen
+\begin{letter}{}%Bitte LEER lassen
+\opening{}%Bitte LEER lassen
+
+
+%das wird ein Deckblatt
+\vspace{-9cm}
+\begin{center}\textsc{\Huge Bewerbung}\end{center}
+\hrule
+\vspace{4cm}
+\begin{center}
+	\fbox{\resizebox{6cm}{!}{\includegraphics{passfoto}}}%hier bitte den Namen deiner Passfotodatei angeben, als jpg und ohne Endung
+\end{center}
+\begin{center}
+	\begin{large}
+			Frau Johanna Musterfrau \\
+			Muster Stra?e 123\\
+			44568 Musterhausen\par
+			Telefon: (01 23 4) 5 67 89 \\
+			E-Mail: deine@email-adresse.xy
+	\end{large}
+\end{center}
+\closing{} %Bitte LEER lassen
+\end{letter}
+%Deckblatt Ende
+%======================================================
+% Anschreiben
+%======================================================
+
+% Hier f"angt jetzt der Berwerbungsbrief an siehe dinbrief package
+
+\place{Musterhausen}
+\date{den \today}
+\signature{$\overline{\hspace{1.5 cm}\textnormal{\textit{Johanna Musterfrau}}\hspace{1.5 cm}}$}
+\centeraddress
+\enabledraftstandard
+%hier muss die gr"o"se von Tabular auf dein Namen so angepasst werden, dass die Seitebreite Voll ist aber keine warnung wegen einer zu vollen box kommt. einfach ausprobieren. Du kannst hier aber auch selbst etwas reinschreiben
+\bottomtext{
+	\begin{minipage}[t]{16.5cm}
+	\rule[1mm]{16.5cm}{0.4pt}
+	\fontsize{8pt}{1ex}\selectfont
+                %Achtung, hier beginnt eine Tabelle
+		\begin{tabular}{llp{6.9cm}ll}
+                    Telefon:&(01 23 4) 5 67 89 \\
+                    E-Mail:&deine@email-adresse.xy\\
+		\end{tabular}
+        \end{minipage}
+}%bottomtext
+
+
+\subject{\textbf{Bewerbung}}
+\begin{letter}{Hier Der Adressat\\ und seine\\ umf?ngliche\\Adresse\\[1ex]PLZ Stadt des Adressaten}
+
+\opening{Sehr geehrte/r Frau/Herr Adressat,}
+hiermit bewerbe ich mich um eine der ausgeschriebenen Stellen als Musterarbeiter.\par
+Ich bin ganz toll f?r diesen Job, weil ? \par
+Und falls das Anschreiben etwas l?nger wird ... \par
+Ist auch Platz f?r noch einen Absatz .... \par
+Hier ein letzter Satz, dass Du Dich auf ein pers?nliches Gespr?ch freust (bitte keinen Konjunktiv!).
+\closing{Mit freundlichen Gr??en/Hochachtungsvoll/eine noch kreativere Gru?formel}
+\vfill%wenn die "Anlagen" am unteren Rand ausgerichtet sein sollen
+\encl{%Anlagen
+	   Kurzbewerbung}%oder auch: Vollst?ndige Bewerbungsunterlagen, je nach dem
+\end{letter}
+
+% Lebenslauf
+%siehe package currvita
+	\begin{cv}{Lebenslauf}
+		\begin{cvlist}{Pers?nliche Daten}
+			\item[Anschrift] Frau Johanna Musterfrau \\
+									Muster Stra?e 123\\
+									44568 Musterhausen
+			\item[Telefon](01 23 4) 5 67 89 
+			\item[E-Mail]deine@email-adresse.xy
+			\item[Homepage]http://www.deine-homepage.de
+			\item[Geboren]01.01.1900 in Lummerland
+			\item[Staatsang.]deine Staatsangeh?rigkeit
+			\item[Familienstand]dein Familienstand
+		\end{cvlist}
+
+		\begin{cvlist}{Schulische Ausbildung}
+			\item[Monat/Jahr--Monat/Jahr]Grundschule Musterhausen
+			\item[Monat/Jahr--Monat/Jahr]Deine weiterf?hrende Schule Musterhausen
+			\item[Monat/Jahr]Dein Abschluss
+		\end{cvlist}
+
+		\begin{cvlist}{Ausbildung/Studium/Was auch immer}
+			\item[seit Monat/Jahr]Studium der Musterwissenschaften an der Muster-Universit?t Musterhausen
+			\item[Monat/Jahr]falls Du noch wichtige Zwischenstationen erw?hnen m?chtest,
+			\item[Monat/Jahr]kannst Du das hier
+			\item[Monat/Jahr]beliebig oft tun
+			\item[Monat/Jahr]Abschluss der Musteruniversit?t (Note: x.y)
+		\end{cvlist}
+
+		\begin{cvlist}{Sprachkenntnisse}
+			\item[Monat/Jahr--Monat/Jahr]Englisch 
+			\item[Monat/Jahr--Monat/Jahr]Russisch 
+			\item[Monat/Jahr--Monat/Jahr]Hebr?isch AG 
+			\item[Semester Jahr] Zertifikat in Spanisch
+		\end{cvlist}
+
+\begin{cvlist}{Engagement/praktische Erfahrungen}
+			\item[Monat/Jahr--Monat/Jahr]Sch?lerbetriebspraktikum in Musterbetrieb am Platz 1 in Musterhausen
+			\item[Monat/Jahr--Monat/Jahr]was Du auch immer 
+			\item[Monat/Jahr--Monat/Jahr]hier alles erw?hnen m?chtest
+			\item[Monat/Jahr--Monat/Jahr]es ist viel Platz
+			\end{cvlist}
+\begin{cvlist}{Zusatzqualifikationen}
+			\item[Monat/Jahr]Zusprache eines Stipendiums der Muster-Stiftung 			
+			\item Deine Softwarekenntnisse?
+			\item Beherrschen der Standard-Office-Anwendungen sowie des Textsatzsystems \LaTeX, Journaling und Homepagegestaltung mittels CMS u. ?.
+			\item Grundkenntnisse in Photoshop und SPSS
+			\item Was, Du kannst noch mehr?!
+		\end{cvlist}
+		\begin{cvlist}{Hobbies/Interessen/\dots}
+			\item Jonglieren, Freunde und Ehren?mter, Lesen, Computer \& Webseitengestaltung
+		\end{cvlist}
+		\cvplace{Deine Stadt}
+			\date{den \today}%setzt das heutige Datum ein
+	\end{cv}
+\end{document}

@@ -1,0 +1,45 @@
+
+% Minimalbeispiel 
+\documentclass[a4paper,fontsize=12pt,parskip=half]{scrartcl} 
+\usepackage[T1]{fontenc} 
+\usepackage[utf8]{inputenc} 
+\usepackage[ngerman]{babel} 
+\usepackage[demo]{graphicx} 
+\usepackage{bera,picinpar,fancyvrb,lipsum} 
+
+\addtokomafont{caption}{\itshape} 
+\addtokomafont{captionlabel}{\sffamily\bfseries} 
+\renewcommand*{\captionformat}{~--~} 
+
+\begin{document} 
+\section*{Minimalbeispiel} 
+\lipsum*[2] 
+
+\begin{figure}[h!] 
+\centering 
+\includegraphics[width=4cm,height=2cm]{plank} 
+\caption{Blick in die perfekte Nacht} 
+\end{figure} 
+
+\begin{figwindow}[2,l,{ 
+\unitlength15mm 
+\begin{picture}(3,1.4) 
+\put(0.7,0.7){\circle*{0.2}} \put(0.7,0.7){\circle{1.2}} 
+\put(0.7,0.7){\vector(0,1){0.6}} \put(2.5,0.7){\circle*{0.5}} 
+\end{picture}},{Kreise}] 
+\lipsum*[3] 
+\end{figwindow} 
+
+\subsection*{Wer ist das Problem, picinpar oder scrartcl?} 
+Wie man leicht sieht, gibt es hier zwei Grafiken mit \texttt{caption}, 
+dessen Formatierung folgendermaßen angepasst wurde. 
+
+\begin{Verbatim}[fontsize=\footnotesize] 
+\addtokomafont{caption}{\itshape} 
+\addtokomafont{captionlabel}{\sffamily\bfseries} 
+\renewcommand*{\captionformat}{~--~} 
+\end{Verbatim} 
+
+Jedoch kümmert sich die textumflossene Grafik -- die mit dem Paket 
+\texttt{picinpar} eingebracht wurde -- überhaupt nicht darum. 
+\end{document} 

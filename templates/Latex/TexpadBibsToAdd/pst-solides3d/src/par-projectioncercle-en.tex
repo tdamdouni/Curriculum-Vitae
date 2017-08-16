@@ -1,0 +1,66 @@
+\section{Circles}
+
+\subsection{Direct definition}
+
+The object \Lkeyword{cercle} allows us to define and draw a \Index{circle}.
+In the \texttt{pst-solides3d} package, a circle in 2D is defined
+by its centre and radius.
+
+We use the option \Lkeyword{args} to specify the centre and radius of
+the chosen circle. We can use coordinates or named variables.
+
+The argument \texttt{\Lkeyword{range}=$t_{\rm min}$ $t_{\rm max}$} allows %$
+us to specify an arc of the chosen circle.
+
+As for all the other object, we can save the circle data using the
+option \Lkeyword{name}.
+
+\begin{LTXexample}[width=7.5cm]
+\begin{pspicture}(-3,-3)(4,3.5)%
+\psframe*[linecolor=blue!50](-3,-3)(4,3.5)
+\psset{viewpoint=50 30 15,Decran=60}
+\psset{solidmemory}
+%% definition du plan de projection
+\psSolid[object=plan,
+   definition=equation,
+   args={[1 0 0 0] 90},
+   planmarks,
+   name=monplan]
+\psset{plan=monplan}
+%% definition du point A
+\psProjection[object=point,
+   name=A,
+   text=A,
+   pos=ur](-2,1.25)
+\psProjection[object=cercle,
+   args=A 1,
+   range=0 360]
+\psProjection[object=cercle,
+   args=1 1 .5,linecolor=blue,
+   range=0 180]
+\composeSolid
+\end{pspicture}
+\end{LTXexample}
+
+\subsection{Some other definitions}
+
+There are additional methods to define a circle in 2D. The options
+\Lkeyword{definition} and \Lkeyword{args} give the following supported
+methods:
+
+\begin{itemize}
+
+\item \texttt{\Lkeyword{definition}=\Lkeyword{ABcercle}};
+\texttt{\Lkeyword{args}=$A$ $B$ $C$}.
+
+A circle through the points $A$, $B$
+and $C$.
+
+\item \texttt{\Lkeyword{definition}=\Lkeyword{diamcercle}};
+\texttt{\Lkeyword{args}=$A$ $B$}.
+
+A circle with diameter $[AB]$.
+
+\end{itemize}
+
+\endinput

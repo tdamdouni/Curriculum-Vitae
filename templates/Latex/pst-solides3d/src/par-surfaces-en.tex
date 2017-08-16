@@ -1,0 +1,248 @@
+\section{Presentation}
+
+The command has the following form:
+\begin{verbatim}
+\psSurface[options](xmin,ymin)(xmax,ymax){equation of the surface z=f(x,y)}
+\end{verbatim}
+ with the same options which apply to solids, and these additional
+ones:
+\begin{itemize}
+  \item The surface grid is defined by the parameter
+    \texttt{\Lkeyword{ngrid}=n1 n2}, which has these specifics:
+
+\begin{minipage}{1\linewidth}
+  \begin{itemize}
+    \item If \texttt{n1} and/or  \texttt{n2} are integers, the
+      number(s) represent(s) the number of grids following $Ox$ and/or
+      $Oy$.
+    \item If \texttt{n1} and/or  \texttt{n2 } are decimals, the
+      number(s) represent(s) the incrementing steps following $Ox$
+      and/or $Oy$.
+    \item If \texttt{\Lkeyword{ngrid}=n}, with only one parameter value,
+      the number of grids, or the incrementing steps,
+      are identical on both axes.
+  \end{itemize}
+\end{minipage}
+
+  \item \Lkeyword{algebraic}: this option allows you to write the function in
+algebraic notation; \texttt{pstricks.pro} meanwhile contains
+the code \texttt{AlgToPs}
+   from Dominique \textsc{Rodriguez}, which allows this notation and which is
+included in the \texttt{pstricks-add.pro} file. This version
+of \texttt{pstricks} %%%% should this be pstricks-add(.pro) ??
+   is provided with \texttt{pst-solides3d}. If necessary, you must load the
+\texttt{pstricks-add} package in the document preamble.
+  \item \Lkeyword{grid}: by default the grid is activated. If the
+  option \Lkeyword{grid} is used, the grid will be deactivated! %%%% this seems perverse; would [nogrid] be better?
+  \item \Lkeyword{axesboxed}: this option allows you to draw the 3D
+  coordinate axes
+in a semi-automatic way, but because of the need to specify
+the limits of $z$ by hand this option is deactivated by
+default:
+   \begin{itemize}
+     \item \Lkeyword{Zmin}: minimum value;
+     \item \Lkeyword{Zmax}: maximum value;
+     \item \Lkeyword{QZ}: allows a vertical shift of the coordinate axes
+with the value \texttt{\Lkeyword{QZ}=value};
+     \item \Lkeyword{spotX}: alters the placing of the $x$-axis tick values
+     at the end of ticks, if the default behaviour is unsatisfactory.
+     The positioning can be altered with the command
+\verb+\uput[angle](x,y){ticklabel}+;
+     \item \Lkeyword{spotY}: is similar;
+     \item \Lkeyword{spotZ}: likewise.
+   \end{itemize}
+\end{itemize}
+If the option \Lkeyword{axesboxed} doesn't meet your needs, it is
+possible to adapt the following command, which is appropriate for
+the first example:
+
+
+
+\small
+\begin{verbatim}
+\psSolid[object=parallelepiped,a=8,b=8,c=8,action=draw](0,0,0)
+\multido{\ix=-4+1}{9}{%
+    \psPoint(\ix\space,4,-4){X1}
+    \psPoint(\ix\space,4.2,-4){X2}
+    \psline(X1)(X2)\uput[dr](X1){\ix}}
+\multido{\iy=-4+1}{9}{%
+    \psPoint(4,\iy\space,-4){Y1}
+    \psPoint(4.2,\iy\space,-4){Y2}
+    \psline(Y1)(Y2)\uput[dl](Y1){\iy}}
+\multido{\iz=-4+1}{9}{%
+    \psPoint(4,-4,\iz\space){Z1}
+    \psPoint(4,-4.2,\iz\space){Z2}
+    \psline(Z1)(Z2)\uput[l](Z1){\iz}}
+\end{verbatim}
+
+%L'option \Cadre{[hue=0 1]} permet de remplir les facettes avec des d\'{e}grad\'{e}s
+%de couleur.
+\section{Example 1: a \Index{saddle}}
+\begin{LTXexample}[width=7.5cm]
+\psset{unit=0.45}
+\psset{viewpoint=50 40 30 rtp2xyz,Decran=50}
+\psset{lightsrc=viewpoint}
+\begin{pspicture}(-7,-8)(7,8)
+\psSurface[ngrid=.25 .25,incolor=yellow,
+   linewidth=0.5\pslinewidth,axesboxed,
+   algebraic,hue=0 1](-4,-4)(4,4){%
+   ((y^2)-(x^2))/4 }
+\end{pspicture}
+\end{LTXexample}
+%\newpage
+\section{Example 2: a saddle without a grid}
+
+The grid lines are suppressed, when using in the option:
+\Lkeyword{grid}.
+\begin{LTXexample}[width=7.5cm]
+\psset{unit=0.5}
+\psset{lightsrc=30 30 25}
+\psset{viewpoint=50 40 30 rtp2xyz,Decran=50}
+\begin{pspicture}(-7,-8)(7,8)
+\psSurface[fillcolor=red!50,ngrid=.25 .25,
+   incolor=yellow,linewidth=0.5\pslinewidth,
+   grid,axesboxed](-4,-4)(4,4){%
+   y dup mul x dup mul sub 4 div }
+\end{pspicture}
+\end{LTXexample}
+
+%\newpage
+
+\section{Example 3: a \Index{paraboloid}}
+
+\begin{LTXexample}[width=7.5cm]
+\psset{unit=0.5}
+\psset{lightsrc=30 -10 10,linewidth=0.5\pslinewidth}
+\psset{viewpoint=50 40 30 rtp2xyz,Decran=50}
+\begin{pspicture}(-7,-4)(7,12)
+\psSolid[object=grille,base=-4 4 -4 4,action=draw]%
+\psSurface[
+   fillcolor=cyan!50,
+   intersectionplan={[0 0 1 -5]},
+   intersectioncolor=(bleu),
+   intersectionlinewidth=3,
+    intersectiontype=0,
+     ngrid=.25 .25,incolor=yellow,
+   axesboxed,Zmin=0,Zmax=8,QZ=4](-4,-4)(4,4){%
+   y dup mul x dup mul add 4 div }
+\end{pspicture}
+\end{LTXexample}
+
+\newpage
+
+\section{Example 4: a \Index{sinusoidal wave}}
+\begin{LTXexample}[width=7.5cm]
+\psset{unit=0.35}
+\psset{lightsrc=30 -10 10}
+\psset{viewpoint=50 20 30 rtp2xyz,Decran=70}
+\begin{pspicture}(-11,-8)(7,8)
+\psSurface[ngrid=.2 .2,algebraic,Zmin=-1,Zmax=1,
+           linewidth=0.5\pslinewidth,spotX=r,spotY=d,spotZ=l,
+           hue=0 1](-5,-5)(5,5){%
+   sin((x^2+y^2)/3) }
+\end{pspicture}
+\end{LTXexample}
+
+%\newpage
+
+\section{Example 5: another \Index{sinusoidal wave}}
+
+In this example we show how to colour the faces, each with a
+different coloration, directly using PostScript code.
+
+\begin{LTXexample}[width=7.5cm]
+\psset{unit=0.25}
+\psset{lightsrc=30 -10 10}
+\psset{viewpoint=100 20 20 rtp2xyz,Decran=80}
+\begin{pspicture}(-15,-10)(7,12)
+\psSurface[ngrid=0.4 0.4,algebraic,Zmin=-2,Zmax=10,QZ=4,
+           linewidth=0.25\pslinewidth,
+           fcol=0 1 4225
+           {/iF ED iF [iF 4225 div 0.75 1] (sethsbcolor) astr2str} for
+          ](-13,-13)(13,13){%
+   10*sin(sqrt((x^2+y^2)))/(sqrt(x^2+y^2)) }
+\end{pspicture}
+\end{LTXexample}
+
+%\newpage
+
+\section{Example 6: a \Index{hyperbolic paraboloid} with the equation $z = xy$}
+
+In this example we combine the graph of the surface and the curves
+of intersection of the paraboloid with the planes $z=4$ and
+$z=-4$. In this case we use \verb+\psSolid[object=courbe]+.
+\begin{verbatim}
+\defFunction{F}(t){t}{4 t div 4 min}{4}
+\psSolid[object=courbe,range=1 4,
+   linecolor=red,linewidth=2\pslinewidth,
+   function=F]
+\end{verbatim}
+You will note the use of the functions \texttt{min} and
+\texttt{max}, which return the minimum and the maximum,
+respectively, of two values.
+
+
+\begin{LTXexample}[width=7.5cm]
+\psset{unit=0.5}
+\psset{viewpoint=50 20 30 rtp2xyz,Decran=50}
+\psset{lightsrc=viewpoint,linewidth=0.5\pslinewidth}
+\begin{pspicture}(-7,-8)(7,8)
+\psSolid[object=datfile,file=./paraboloid,hue=0 1 0.5 1,incolor=yellow]
+\gridIIID[Zmin=-4,Zmax=4,spotX=r](-4,4)(-4,4)
+\defFunction{F}(t){t}{4 t div 4 min}{4}
+\psSolid[object=courbe,range=1 4,r=0,
+   linecolor=red,linewidth=2\pslinewidth,
+   function=F]
+\defFunction{G}(t){t}{4 t div -4 max}{4}
+\psSolid[object=courbe,range=-1 -4,r=0,
+   linecolor=red,linewidth=2\pslinewidth,
+   function=G]
+\defFunction{H}(t){t neg}{4 t div -4 max}{-4}
+\psSolid[object=courbe,range=-1 -4,r=0,
+   linecolor=red,linewidth=2\pslinewidth,
+   function=H]
+\end{pspicture}
+\end{LTXexample}
+%\newpage
+
+\section{Example 7: a surface with the equation $z = xy(x^2+y^2)$}
+
+\begin{LTXexample}[width=7.5cm]
+\psset{unit=0.35}
+\psset{lightsrc=10 12 20,linewidth=0.5\pslinewidth}
+\psset{viewpoint=30 50 60 rtp2xyz,Decran=50}
+\begin{pspicture}(-10,-10)(12,10)
+\psSurface[
+   fillcolor=cyan!50,algebraic,
+   ngrid=.25 .25,incolor=yellow,hue=0 1,
+   Zmin=-3,Zmax=3](-3,-3)(3,3){%
+   x*y*(x^2-y^2)*0.1}
+\end{pspicture}
+\end{LTXexample}
+
+\section{Example 8: a surface with the equation $z = \left(1-\frac{x^2+y^2}{2}\right)^2$}% $
+
+\begin{LTXexample}[width=7.5cm]
+\psset{unit=0.5cm,viewpoint=50 60 30 rtp2xyz,Decran=50}
+\psset{lightsrc=viewpoint}
+\begin{pspicture}(-4,-5)(6,8)
+  \psSurface[ngrid=.25 .25,incolor=yellow,linewidth=0.5\pslinewidth,
+    base= -2 2 -2 2, axesboxed, Zmin=-5,Zmax=2,hue=0 1](-5,-5)(5,5){%
+    1 0.5 x dup mul y dup mul add mul sub dup -5 lt { pop -5 }if }
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=7.5cm]
+\psset{unit=0.5cm,viewpoint=50 60 30 rtp2xyz,Decran=50,
+  lightsrc=viewpoint}
+\begin{pspicture}(-4,-5)(6,8)
+  \psSurface*[ngrid=.25 .25,incolor=yellow,
+    linewidth=0.5\pslinewidth,
+    r = 3 sqrt 2 mul, axesboxed, Zmin=-5,Zmax=2,hue=0 1](-5,-5)(5,5){%
+    1 0.5 x dup mul y dup mul add mul sub dup -5 lt { pop -5 }if }
+\end{pspicture}
+\end{LTXexample}
+
+
+
+\endinput

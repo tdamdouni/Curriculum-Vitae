@@ -1,0 +1,242 @@
+%% progressbar.tex
+%% Copyright 2010-2014 Marcel Jira
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3c
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status `maintained'.
+% 
+% The Current Maintainer of this work is Marcel Jira.
+%
+% This work consists of the files progressbar.sty and progressbar.tex.
+%
+\documentclass{ltxdoc}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily\small\mdseries,linewidth=\linewidth,breaklines=true,escapeinside={(*}{*)},}
+
+\usepackage{progressbar}
+
+\usepackage{hyperref}
+
+\title{\texttt{progressbar}}
+\author{by Marcel Jira}
+\date{2013/01/06}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This package allows you to easily visualize shares of total amounts in the form of a bar. So basically you can convert a number like $0.735$ to \progressbar{0.735} using the command \lstinline+\progressbar{0.735}+.
+
+Of course also a lot of customizations are possible (like this: \progressbar[emptycolor=yellow,filledcolor=red,linecolor=blue,subdivisions=4,roundnessr=0.5,tickscolor=green,tickswidth=1,ticksheight=1]{0.735}).
+\end{abstract}
+
+\noindent\progressbar[width=\textwidth,heighta=3cm,filledcolor=red,emptycolor=green,borderwidth=5pt,tickswidth=2.5pt,roundnessr=0.5,subdivisions=20]{0.55}
+\begin{lstlisting}[basicstyle=\ttfamily\normalsize\mdseries]
+\progressbar[width=textwidth, heighta=3cm, filledcolor=red, emptycolor=green, borderwidth=5pt, tickswidth=2.5pt, roundnessr=0.5, subdivisions=20]{0.55}
+\end{lstlisting}
+
+\tableofcontents
+
+\section{Installation}
+Make sure the file \texttt{progressbar.sty} is placed somewhere, where \LaTeX can find it. Usually that means, you simply download the package \texttt{progressbar} with the \LaTeX-package-manager of your choice.
+
+\subsection{Dependencies}
+You also have to ensure that all packages needed by \texttt{progressbar} are present (some package-managers do this for you).
+The dependencies are:
+\begin{itemize}
+	\item calc
+	\item kvsetkeys
+	\item kvoptions
+	\item tikz
+\end{itemize}
+\section{How to use \texttt{progressbar}}
+\DescribeMacro{\usepackage\{progressbar\}}
+\DescribeMacro{\usepackage[]\{progressbar\}}
+Like any other package, to use \texttt{progressbar}, you have to load it first. You do this with
+\begin{lstlisting}
+\usepackage{progressbar}
+\end{lstlisting}
+or
+\begin{lstlisting}
+\usepackage[<options>]{progressbar}
+\end{lstlisting}
+(You can find an explanation of all options in the section \ref{options}.)
+
+Once you have loaded \texttt{progressbar}, you can use two different commands, described in the following.
+\subsection{\texttt{\textbackslash{}progressbar}}\label{commandprogressbar}
+\DescribeMacro{\progressbar\{\}}
+\DescribeMacro{\progressbar[]\{\}}
+The command
+\begin{lstlisting}
+\progressbar{<number>}
+\end{lstlisting}
+will draw you a progressbar with the share \texttt{<number>}. For example \lstinline+\progressbar{0.666}+ gives you this \progressbar{0.666}. You would want to use only numbers in the interval $[0,1]$, although other numbers are also possible (but will look just the same as \lstinline+\progressbar{0}+ or \lstinline+\progressbar{1}+).
+
+If you want one specific progressbar to look different than the others, use
+\begin{lstlisting}
+\progressbar[<options>]{<number>}
+\end{lstlisting}
+instead. This command is just the same as \lstinline+\progressbar{<number>}+ but allows you to manipulate the appearance of the current progressbar. So \lstinline+\progressbar[width=5cm,heightr=1,filledcolor=red,emptycolor=blue!30]{0.75}+ would look like this: \progressbar[width=5cm,heightr=1,filledcolor=red,emptycolor=blue!30]{0.75}. In this case the options are only changed locally. (You can find an explanation of all options in the section \ref{options}.)
+
+\subsection{\texttt{\textbackslash{}progressbarchange}}
+\DescribeMacro{\progressbarchange\{\}}
+In principle, the command \lstinline+\progressbar{<number>}+ uses the options specified with \lstinline+\usepackage[<options>]{progressbar}+ or the default options (if an option was not specified). As described in the previous section (\ref{commandprogressbar}), you can override these options with \lstinline+\progressbar[<options>]{<number>}+. However, if you want to change the settings for \emph{all} following progressbar, you can use the command
+\begin{lstlisting}
+\progressbarchange{<options>}
+\end{lstlisting}
+
+So basically
+\begin{lstlisting}
+\progressbar{0.3}\\
+\progressbar[roundnessr=0.5,ticksheight=1,tickswidth=1.5pt]{0.4}\\
+\progressbar[roundnessr=0.5,ticksheight=1,tickswidth=1.5pt]{0.5}\\
+\progressbar[roundnessr=0.5,ticksheight=1,tickswidth=1.5pt]{0.6}
+\end{lstlisting}
+gives you the same as
+\begin{lstlisting}
+\progressbar{0.3}\\
+\progressbarchange{roundnessr=0.5,ticksheight=1,tickswidth=1.5pt}
+\progressbar{0.4}\\
+\progressbar{0.5}\\
+\progressbar{0.6}
+\end{lstlisting}
+
+However, keep in mind that in the second case the options are changed globally. Therefore, all following progressbars will keep the changed design (as long as you don't call \lstinline+\progressbarchange{<options>}+ with other options again). (You can find an explanation of all options in the section \ref{options}.)
+
+\section{Options}\label{options}
+\subsection{Global and local options}
+You can set global options when you load the \texttt{progressbar} with \lstinline+\usepackage[options]{progressbar}+ and with the command \lstinline+\progressbarchange{<options>}+. These options affect all following calls of the commands \lstinline+\progressbar{<number>}+ and \lstinline+\progressbar[<options>]{<number>}+.
+
+However, you can override global options with local options specified with \lstinline+\progressbar[<options>]{<number>}+.
+
+\subsection{Options, their defaults and how to change them}
+All listed options can be used globally and locally.
+
+You will notice that some of the options are available with the prefix \texttt{r} (standing for relative) aswell as with the prefix \texttt{a} (standing for absolute). I would recommend you to always use those options with the prefix \texttt{r}, as using absolute values might not interact too well with the rest of your documents settings. But as long as you know what you are doing, it's up to you.
+
+\DescribeMacro{heightr} default=\texttt{1}\\
+	The progressbars height as a fraction of the textheight\footnote{I used the capital letter ``I'' as a reference for the textheight}.
+\begin{lstlisting}
+\progressbar[heightr=1]{0.1}A progressbar that has the same height as the text\\
+\progressbar[heightr=0.5]{0.9}A progressbar that has half the height
+\end{lstlisting}
+	\progressbar[heightr=1]{0.1} A progressbar that has the same height as the text\\
+	\progressbar[heightr=0.5]{0.9} A progressbar that has half the height
+
+\DescribeMacro{heighta} default=\texttt{unused}\\
+	With this option you can define the progressbars height absolutely.
+\begin{lstlisting}
+\progressbar[heighta=2cm]{0.3} A progressbar that has the height 2~cm\\
+\progressbar[heighta=10pt]{0.7} A progressbar that has the height 10~pt\\
+\progressbar[heighta=\heightof{a} + 0.8pt]{0.42} A progressbar whose upper border starts at the same height as the letter "a"
+\end{lstlisting}
+	\progressbar[heighta=2cm]{0.3} A progressbar that has the height 2~cm\\
+	\progressbar[heighta=10pt]{0.7} A progressbar that has the height 10~pt\\
+	\progressbar[heighta=\heightof{a} + 0.8pt]{0.42} A progressbar whose upper border starts at the same height as the letter "a"\footnote{The \texttt{\textbackslash{}heightof} command and the possibility of adding is provided by the package \texttt{calc}}
+
+\DescribeMacro{roundnessr} default=\texttt{0.15}\\
+	\texttt{progressbar} allows rounded corners. With this option you can set them as a fraction of the progressbars height. You would not want to use numbers higher than $0.5$.
+\begin{lstlisting}
+\progressbar[roundnessr=0.25]{0.8} More rounder corners than the default\\
+\progressbar[roundnessr=0.5]{0.5} In fact no more corners -- complete roundness
+\end{lstlisting}
+	\progressbar[roundnessr=0.25]{0.8} More rounder corners than the default\\
+	\progressbar[roundnessr=0.5]{0.5} In fact no more corners -- complete roundness
+
+\DescribeMacro{roundnessa} default=\texttt{unused}\\
+	You can also define the corners radius as absolute values.
+\begin{lstlisting}
+\progressbar[roundnessa=2pt]{0} Rounded corners radius 2~pt\\
+\progressbar[roundnessa=0cm]{1} No rounded corners
+\end{lstlisting}
+	\progressbar[roundnessa=2pt]{0} Rounded corners radius 2~pt\\
+	\progressbar[roundnessa=0cm]{1} No rounded corners
+
+\DescribeMacro{width} default=\texttt{6em}\\
+	The width of the progressbar.
+\begin{lstlisting}
+\progressbar[width=5cm]{0.123} Width: 5~cm\\
+\progressbar[width=20em]{0.785} Width: 20~em
+\end{lstlisting}
+	\progressbar[width=5cm]{0.123} Width: 5~cm\\
+	\progressbar[width=20em]{0.785} Width: 20~em
+
+\DescribeMacro{borderwidth} default=\texttt{0.8pt}\\
+	The linewidth of the progressbars border.
+\begin{lstlisting}
+\progressbar[borderwidth=2pt]{0.6} Borderwidth: 2~pt\\
+\progressbar[borderwidth=0.025em]{0.3} Borderwidth: 0.025~em
+\end{lstlisting}
+	\progressbar[borderwidth=2pt]{0.6} Borderwidth: 2~pt\\
+	\progressbar[borderwidth=0.025em]{0.3} Borderwidth: 0.025~em
+
+\DescribeMacro{subdivisions} default=\texttt{10}\\
+	As you may have noticed, (by default) the progressbar also has ticks. Those ticks splits the progressbar in multiple subdivisions. You can define the number of subdivisions with \texttt{subdivisions=<number>}. Therefore the number of ticks is $\texttt{<number>}-1$.
+\begin{lstlisting}
+\progressbar[subdivisions=3]{0.666667} 3 subdivisions and 2 ticks\\
+\progressbar[subdivisions=15]{0.466667} 15 subdivisions and 14 ticks
+\end{lstlisting}
+	\progressbar[subdivisions=3]{0.666667} 3 subdivisions and 2 ticks\\
+	\progressbar[subdivisions=15]{0.466667} 15 subdivisions and 14 ticks
+
+\DescribeMacro{tickswidth} default=\texttt{0.4pt}\\
+	The linewidth of the ticks.
+\begin{lstlisting}
+\progressbar[tickswidth=1mm]{0.55} Tickswidth: 1~mm\\
+\progressbar[tickswidth=0.1pt]{0.4} Tickswidth: 0.1~pt
+\end{lstlisting}
+	\progressbar[tickswidth=1mm]{0.55} Tickswidth: 1~mm\\
+	\progressbar[tickswidth=0.1pt]{0.4} Tickswidth: 0.1~pt
+
+\DescribeMacro{ticksheight} default=\texttt{0.33}\\
+	The height of the ticks as a fraction of the total progressbars height.
+\begin{lstlisting}
+\progressbar[ticksheight=0.1]{0.22} Ticksheight: 10 ~\% of the total height\\
+\progressbar[ticksheight=1]{0.88} Ticks are end-to-end
+\end{lstlisting}
+	\progressbar[ticksheight=0.1]{0.22} Ticksheight: 10 ~\% of the total height\\
+	\progressbar[ticksheight=1]{0.88} Ticks are end-to-end
+
+\DescribeMacro{linecolor} default=\texttt{black}
+
+\DescribeMacro{tickscolor} default=\texttt{black}
+
+\DescribeMacro{emptycolor} default=\texttt{black!10}
+
+\DescribeMacro{filledcolor} default=\texttt{black!60}\\
+These options should be self-explaining. Just use \texttt{xcolor}-color-definitions (use color names or the syntax \lstinline+<color-name>!<number between 0 and 100>+) for brighter colors).
+\begin{lstlisting}
+\progressbar[linecolor=blue,tickscolor=orange,emptycolor=yellow,filledcolor=red]{0.6}
+\end{lstlisting}
+	\progressbar[linecolor=blue,tickscolor=orange,emptycolor=yellow,filledcolor=red]{0.6}
+
+\section{Changelog}
+\begin{tabbing}
+\texttt{2014/05/04 v.1.0b\~{}4} \= version control for kvoptions updated (for unknown\\ \>
+reason required version didn't exist)\\
+\texttt{2013/01/06 v.1.0b\~{}3} \= replaced \lstinline+\progressbar@LoadFile@IfExist+ with\\ \> \lstinline+\RequirePackage+\\
+\texttt{2012/02/18 v.1.0b\~{}2} \> added version control for kvoptions\\
+\texttt{2010/10/02 v1.0b} \> first release - all basic functionality
+\end{tabbing}
+
+\section{Acknoledgment}
+A big shoutout to the pros from \url{http://www.mrunix.de/} (it's german). They helped me a lot and made \texttt{progressbar} possible.
+
+I also want to thank Robin Schneider (\url{https://ypid.wordpress.com/}) and Heiko Oberdiek who called my attention to the problems with\\ \lstinline+\progressbar@LoadFile@IfExist+.
+
+\section{Contact}
+If you have any question concerning \texttt{progressbar} or if you miss a feature, please write me a mail: \href{mailto:mails4me@gmx.at}{\texttt{mails4me@gmx.at}}.
+
+\end{document}

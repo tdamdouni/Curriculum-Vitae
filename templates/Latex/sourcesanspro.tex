@@ -1,0 +1,32 @@
+\documentclass[danish,a4paper,11pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{slantsc}
+\usepackage{array}
+\usepackage{amsmath}
+\setkomafont{subsection}{\usefont{T1}{fvm}{m}{n}}
+\setkomafont{section}{\usefont{T1}{fvs}{b}{n}\Large}
+\setcounter{secnumdepth}{0}
+\pagestyle{empty}
+\usepackage[default]{sourcesanspro}
+\usepackage[T1]{fontenc}
+
+\begin{document}
+\section*{Source Sans Pro}
+\subsection*{\textbackslash normalfont}
+\normalfont\normalfont
+\input catalogue
+\subsection*{\textbackslash slshape}
+\normalfont\slshape
+\input catalogue
+\subsection*{\textbackslash bfseries}
+\normalfont\bfseries
+\input catalogue
+\subsection*{\textbackslash bfseries\textbackslash slshape}
+\normalfont\bfseries\slshape
+\input catalogue
+\newpage
+\normalfont\normalfont
+\input fonttable
+
+\end{document}

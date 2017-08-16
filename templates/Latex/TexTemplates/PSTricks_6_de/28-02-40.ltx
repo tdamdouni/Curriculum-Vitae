@@ -1,0 +1,34 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2008 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{214.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-func}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture*}(-3,-3.2)(3.5,3.5)
+\psaxes{->}(0,0)(-3,-3)(3.2,3)
+\psplotImp[linewidth=2pt,
+  linecolor=green](-6,-6)(4,2.4){
+    x 3 exp y 3 exp add
+    4 x y mul mul sub }
+\uput*[45](-2.5,2){%
+  $\left(x^3+y^3\right)-4xy=0$}
+\end{pspicture*}
+\end{document}

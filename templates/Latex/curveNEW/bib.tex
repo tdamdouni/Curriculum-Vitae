@@ -1,0 +1,55 @@
+%%% bib.tex --- Example of CurVe usage with BibTeX.
+
+%% Copyright (C) 2000, 2001, 2002, 2003, 2004, 2005, 2010 Didier Verna.
+
+%% Author:        Didier Verna <didier@lrde.epita.fr>
+%% Maintainer:    Didier Verna <didier@lrde.epita.fr>
+%% Created:       Mon Dec  6 10:57:19 2010
+%% Last Revision: Mon Dec  6 11:33:52 2010
+
+%% This file is part of CurVe.
+
+%% CurVe may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.1
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%% http://www.latex-project.org/lppl.txt
+%% and version 1.1 or later is part of all distributions of LaTeX
+%% version 1999/06/01 or later.
+
+%% CurVe consists of the files listed in the file `README'.
+
+
+%%% Commentary:
+
+%% Contents management by FCM version 0.1.
+
+
+%%% Code:
+
+\NeedsTeXFormat{LaTeX2e}
+\documentclass{curve}
+
+\leftheader{Left header\\
+  Insert information here\\
+  And also here}
+\rightheader{Right header\\
+  Insert information here\\
+  And also here}
+
+\title{CV Title}
+\subtitle{Subtitle}
+
+\begin{document}
+
+\makeheaders[t]
+\maketitle
+
+\nocite{*}
+\bibliographystyle{plain}
+\bibliography{bib}
+
+\end{document}
+
+
+%%% bib.tex ends here

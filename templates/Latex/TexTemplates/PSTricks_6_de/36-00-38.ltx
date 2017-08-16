@@ -1,0 +1,273 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pstricks,pst-fill,graphicx}
+\definecolor{case1}{cmyk}{0.102,0.176,0.204,0}
+\definecolor{case2}{cmyk}{0.3413,0.592,0.3417,0}
+\definecolor{case3}{cmyk}{0.341,0.475,0.42,0}
+\definecolor{case4}{cmyk}{0.0275,0.043,0.047,0}
+\def\SaintMarc{{%
+  \psset{unit=0.5}
+  \pspicture(2,2)
+    \pspolygon*[linecolor=case1](0,0)(1,1)(0,2)
+    \pspolygon*[linecolor=case2](0,2)(1,1)(2,2)
+    \pspolygon*[linecolor=case3](2,0)(1,1)(2,2)
+    \pspolygon*[linecolor=case4](0,0)(1,1)(2,0)
+  \endpspicture%
+}}
+%
+\def\CyanBouteille{0.3}
+\def\MagentaBouteille{0}
+\def\YellowBouteille{0.5}
+\def\KBouteille{0.15}
+\def\KCulBouteille{0.30}
+\def\MagentaVinInBouteille{0.9}
+\definecolor{bouteille}{cmyk}{\CyanBouteille,\MagentaBouteille,\YellowBouteille,\KBouteille}
+\def\bouteille{%
+  \psline(-0.75,0)(0.75,0)
+  \psarc(0.75,0.5){0.5}{-90}{0}
+  \psline(1.25,0.5)(1.25,4)
+  \psarc(-0.75,4){2}{0}{30}
+  \psarcn(5.31218,7.5){5}{210}{180}
+  \psline(0.31218,7.5)(0.31218,8.5)(-0.31218,8.5)(-0.31218,7.5)
+  \psarcn(-5.31218,7.5){5}{0}{-30}
+  \psarc(0.75,4){2}{150}{180}
+  \psline(-1.25,4)(-1.25,0.5)
+  \psarc(-0.75,0.5){0.5}{180}{270}}
+%
+\def\CulBouteille{%
+  \pscurve(0.75,0)(0,0.2)(-0.75,0)}
+\definecolor{CulBouteille}{cmyk}{\CyanBouteille,\MagentaBouteille,\YellowBouteille,\KCulBouteille}
+%
+\def\FlaqueVin{%
+  \pscurve(0,8.5)(-0.3,9.5)(-1.5,10)(-1,11)(-1.2,12)(0,13)
+          (0.5,14)(1,13)(2,11.5)(2.5,10)(1,9.5)(0.1,8.7)(0,8.5)}
+\definecolor{FlaqueVin}{cmyk}{0,0.9,0.1,0}
+\makeatletter
+% routine de Donald Arseneau
+% dans RANDOM.TEX       v.1
+\def\pointless{\expandafter\PoinTless\the}
+{\catcode`p=12 \catcode`t=12
+\gdef\PoinTless#1pt{#1}}
+%
+\pst@dimc=0.102 pt
+    \advance\pst@dimc by \CyanBouteille pt
+    \ifdim\pst@dimc >1pt \pst@dimc=1pt \fi
+\pst@dimd=0.176 pt
+    \advance\pst@dimd by \MagentaBouteille pt
+    \ifdim\pst@dimd >1pt \pst@dimd=1pt \fi
+\pst@dimg=0.204 pt
+    \advance\pst@dimg by \YellowBouteille pt
+    \ifdim\pst@dimg >1pt \pst@dimg=1pt \fi
+\definecolor{case11}{cmyk}{\pointless\pst@dimc,\pointless\pst@dimd,\pointless\pst@dimg,\KBouteille}
+\definecolor{case11Cul}{cmyk}{\pointless\pst@dimc,\pointless\pst@dimd,\pointless\pst@dimg,\KCulBouteille}
+\definecolor{case11Vin}{cmyk}{\pointless\pst@dimc,\MagentaVinInBouteille,\pointless\pst@dimg,\KBouteille}
+\pst@dimc=0.3413 pt
+    \advance\pst@dimc by \CyanBouteille pt
+    \ifdim\pst@dimc >1pt \pst@dimc=1pt \fi
+\pst@dimd=0.592 pt
+    \advance\pst@dimd by \MagentaBouteille pt
+    \ifdim\pst@dimd >1pt \pst@dimd=1pt \fi
+\pst@dimg=0.3417 pt
+    \advance\pst@dimg by \YellowBouteille pt
+    \ifdim\pst@dimg >1pt \pst@dimg=1pt \fi
+\definecolor{case22}{cmyk}{\pointless\pst@dimc,\pointless\pst@dimd,\pointless\pst@dimg,\KBouteille}
+\definecolor{case22Cul}{cmyk}{\pointless\pst@dimc,\pointless\pst@dimd,\pointless\pst@dimg,\KCulBouteille}
+\definecolor{case22Vin}{cmyk}{\pointless\pst@dimc,\MagentaVinInBouteille,\pointless\pst@dimg,\KBouteille}
+\pst@dimc=0.341 pt
+    \advance\pst@dimc by \CyanBouteille pt
+\pst@dimd=0.475 pt
+    \advance\pst@dimd by \MagentaBouteille pt
+    \ifdim\pst@dimd >1pt \pst@dimd=1pt \fi
+\pst@dimg=0.42 pt
+    \advance\pst@dimg by \YellowBouteille pt
+    \ifdim\pst@dimg >1pt \pst@dimg=1pt \fi
+\definecolor{case33}{cmyk}{\pointless\pst@dimc,\pointless\pst@dimd,\pointless\pst@dimg,\KBouteille}
+\definecolor{case33Cul}{cmyk}{\pointless\pst@dimc,\pointless\pst@dimd,\pointless\pst@dimg,\KCulBouteille}
+\definecolor{case33Vin}{cmyk}{\pointless\pst@dimc,\MagentaVinInBouteille,\pointless\pst@dimg,\KBouteille}
+\pst@dimc=0.043 pt
+    \advance\pst@dimc by \CyanBouteille pt
+    \ifdim\pst@dimc >1pt \pst@dimc=1pt \fi
+\pst@dimd=0.043 pt
+    \advance\pst@dimd by \MagentaBouteille pt
+\pst@dimg=0.047 pt
+    \advance\pst@dimg by \YellowBouteille pt
+    \ifdim\pst@dimg >1pt \pst@dimg=1pt \fi
+\definecolor{case44}{cmyk}{\pointless\pst@dimc,\pointless\pst@dimd,\pointless\pst@dimg,\KBouteille}
+\definecolor{case44Cul}{cmyk}{\pointless\pst@dimc,\pointless\pst@dimd,\pointless\pst@dimg,\KCulBouteille}
+\definecolor{case44Vin}{cmyk}{\pointless\pst@dimc,\MagentaVinInBouteille,\pointless\pst@dimg,\KBouteille}
+% l'ombre de la bouteille
+\pst@dimc=0.102 pt
+    \advance\pst@dimc by 0.15 pt
+    \ifdim\pst@dimc >1pt \pst@dimc=1pt \fi
+\pst@dimd=0.176 pt
+    \advance\pst@dimd by 0.15 pt
+    \ifdim\pst@dimd >1pt \pst@dimd=1pt \fi
+\pst@dimg=0.204 pt
+    \advance\pst@dimg by 0.15 pt
+    \ifdim\pst@dimg >1pt \pst@dimg=1pt \fi
+\definecolor{shadow11}{cmyk}{\pointless\pst@dimc,\pointless\pst@dimd,\pointless\pst@dimg,\KBouteille}
+\pst@dimc=0.3413 pt
+    \advance\pst@dimc by 0.15 pt
+    \ifdim\pst@dimc >1pt \pst@dimc=1pt \fi
+\pst@dimd=0.592 pt
+    \advance\pst@dimd by 0.15 pt
+    \ifdim\pst@dimd >1pt \pst@dimd=1pt \fi
+\pst@dimg=0.3417 pt
+    \advance\pst@dimg by 0.15 pt
+    \ifdim\pst@dimg >1pt \pst@dimg=1pt \fi
+\definecolor{shadow22}{cmyk}{\pointless\pst@dimc,\pointless\pst@dimd,\pointless\pst@dimg,\KBouteille}
+\pst@dimc=0.341 pt
+    \advance\pst@dimc by 0.15 pt
+\pst@dimd=0.475 pt
+    \advance\pst@dimd by 0.15 pt
+    \ifdim\pst@dimd >1pt \pst@dimd=1pt \fi
+\pst@dimg=0.42 pt
+    \advance\pst@dimg by 0.15 pt
+    \ifdim\pst@dimg >1pt \pst@dimg=1pt \fi
+\definecolor{shadow33}{cmyk}{\pointless\pst@dimc,\pointless\pst@dimd,\pointless\pst@dimg,\KBouteille}
+\pst@dimc=0.043 pt
+    \advance\pst@dimc by 0.15 pt
+    \ifdim\pst@dimc >1pt \pst@dimc=1pt \fi
+\pst@dimd=0.043 pt
+    \advance\pst@dimd by 0.15 pt
+\pst@dimg=0.047 pt
+    \advance\pst@dimg by 0.15 pt
+    \ifdim\pst@dimg >1pt \pst@dimg=1pt \fi
+\definecolor{shadow44}{cmyk}{\pointless\pst@dimc,\pointless\pst@dimd,\pointless\pst@dimg,\KBouteille}
+%
+\def\SaintMarcBouteille{{%
+\psset{unit=0.5}
+\pspicture(2,2)
+  \pspolygon*[linecolor=case11](0,0)(1,1)(0,2)
+  \pspolygon*[linecolor=case22](0,2)(1,1)(2,2)
+  \pspolygon*[linecolor=case33](2,0)(1,1)(2,2)
+  \pspolygon*[linecolor=case44](0,0)(1,1)(2,0)
+\endpspicture}}
+%
+\def\ShadowBouteille{{%
+\psset{unit=0.5}
+\pspicture(2,2)
+  \pspolygon*[linecolor=shadow11](0,0)(1,1)(0,2)
+  \pspolygon*[linecolor=shadow22](0,2)(1,1)(2,2)
+  \pspolygon*[linecolor=shadow33](2,0)(1,1)(2,2)
+  \pspolygon*[linecolor=shadow44](0,0)(1,1)(2,0)
+\endpspicture}}
+%
+\def\VinInBouteille{{%
+  \psline(0.75,0)(0.75,4)
+  \pscurve(0.75,4)(0,5.5)(-0.75,4)
+  \psline(-0.75,4)(-0.75,0)}}
+\definecolor{VinBouteille}{cmyk}{\CyanBouteille,\MagentaVinInBouteille,\YellowBouteille,\KBouteille}
+%
+\def\SaintMarcVinInBouteille{{%
+\psset{unit=0.5}
+\pspicture(2,2)
+  \pspolygon*[linecolor=case11Vin](0,0)(1,1)(0,2)
+  \pspolygon*[linecolor=case22Vin](0,2)(1,1)(2,2)
+  \pspolygon*[linecolor=case33Vin](2,0)(1,1)(2,2)
+  \pspolygon*[linecolor=case44Vin](0,0)(1,1)(2,0)
+\endpspicture}}
+\definecolor{VinBouteille}{cmyk}{\CyanBouteille,\MagentaVinInBouteille,\YellowBouteille,\KBouteille}
+\def\SaintMarcCulBouteille{{%
+\psset{unit=0.5}
+\pspicture(2,2)
+  \pspolygon*[linecolor=case11Cul](0,0)(1,1)(0,2)
+  \pspolygon*[linecolor=case22Cul](0,2)(1,1)(2,2)
+  \pspolygon*[linecolor=case33Cul](2,0)(1,1)(2,2)
+  \pspolygon*[linecolor=case44Cul](0,0)(1,1)(2,0)
+\endpspicture}}
+\pst@dimd=0.176 pt
+    \advance\pst@dimd by 0.9 pt
+    \ifdim\pst@dimd >1pt \pst@dimd=1pt \fi
+\pst@dimg=0.204 pt
+    \advance\pst@dimg by 0.1 pt
+    \ifdim\pst@dimg >1pt \pst@dimg=1pt \fi
+\definecolor{case111}{cmyk}{0.102,\pointless\pst@dimd,\pointless\pst@dimg,0}
+\pst@dimd=0.592 pt
+    \advance\pst@dimd by 0.9 pt
+    \ifdim\pst@dimd >1pt \pst@dimd=1pt \fi
+\pst@dimg=0.3417 pt
+    \advance\pst@dimg by 0.1 pt
+    \ifdim\pst@dimg >1pt \pst@dimg=1pt \fi
+\definecolor{case222}{cmyk}{0.3413,\pointless\pst@dimd,\pointless\pst@dimg,0}
+\pst@dimd=0.475 pt
+    \advance\pst@dimd by 0.9 pt
+    \ifdim\pst@dimd >1pt \pst@dimd=1pt \fi
+\pst@dimg=0.42 pt
+    \advance\pst@dimg by 0.1 pt
+    \ifdim\pst@dimg >1pt \pst@dimg=1pt \fi
+\definecolor{case333}{cmyk}{0.341,\pointless\pst@dimd,\pointless\pst@dimg,0}
+\pst@dimd=0.043 pt
+    \advance\pst@dimd by 0.9 pt
+    \ifdim\pst@dimd >1pt \pst@dimd=1pt \fi
+\pst@dimg=0.047 pt
+    \advance\pst@dimg by 0.1 pt
+    \ifdim\pst@dimg >1pt \pst@dimg=1pt \fi
+\definecolor{case444}{cmyk}{0.043,\pointless\pst@dimd,\pointless\pst@dimg,0}
+\makeatother
+\def\SaintMarcVin{{%
+\psset{unit=0.5}
+\pspicture(2,2)
+  \pspolygon*[linecolor=case111](0,0)(1,1)(0,2)
+  \pspolygon*[linecolor=case222](0,2)(1,1)(2,2)
+  \pspolygon*[linecolor=case333](2,0)(1,1)(2,2)
+  \pspolygon*[linecolor=case444](0,0)(1,1)(2,0)
+\endpspicture}}
+\def\ImageShadow{%
+\psboxfill{\SaintMarc}
+  \psframe[linestyle=none,fillstyle=boxfill](16,14)
+\psclip{\rput{-125}(1.9,9.9){\pscustom[linestyle=none]{\bouteille}}}
+  \psboxfill{\ShadowBouteille}
+ \psframe[linestyle=none,fillstyle=boxfill](16,14)
+\endpsclip}
+\def\ImageOne{%
+\psboxfill{\SaintMarc}
+\psclip{\rput{-120}(2,10){\pscustom[linestyle=none]{\bouteille}}}
+  \psboxfill{\SaintMarcBouteille}
+ \psframe[linestyle=none,fillstyle=boxfill](16,14)
+\endpsclip}
+\def\ImageFour{%
+\psclip{\rput{-120}(2,10){\pscustom[linestyle=none]{\CulBouteille}}}
+  \psboxfill{\SaintMarcCulBouteille}
+ \psframe[linestyle=none,fillstyle=boxfill](16,14)
+\endpsclip}
+\def\ImageThree{%
+\psclip{\rput{-120}(2,10){\pscustom[linestyle=none]{\VinInBouteille}}}
+  \psboxfill{\SaintMarcVinInBouteille}
+ \psframe[linestyle=none,fillstyle=boxfill](16,14)
+\endpsclip}
+\definecolor{DarkGreen}{cmyk}{1,0,1,0.6}
+
+\StopShownPreambleCommands
+\begin{document}
+\resizebox{\textwidth}{!}{%
+\begin{pspicture}*(0,3)(16,13.5)
+\ImageShadow
+\ImageOne
+\ImageThree
+\ImageFour
+\rput{-120}(2,10){\psline[linecolor=white,linearc=0.5cm](0.7,1)(0.7,4.5)(0.2,6)(0.1,7)%
+                  \psline[linecolor=white](0.2,8.3)(-0.2,8.3)
+                  \psset{linecolor=DarkGreen}\bouteille\CulBouteille}
+\end{pspicture}%
+}
+\end{document}

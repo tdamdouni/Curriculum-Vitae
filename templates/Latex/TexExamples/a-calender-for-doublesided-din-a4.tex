@@ -1,0 +1,218 @@
+% DIN-A4 doublesided year calendar
+% Author: Robert Krause
+% License : Creative Commons attribution license
+% Submitted to TeXample.net on 13 July 2012
+\documentclass[landscape,a4paper, ngerman, 10pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{tikz} 			% Use the calendar.sty style
+
+\usepackage{translator}	% German Month and Day names
+\usepackage{fancyhdr}		% header and footer
+\usepackage{fix-cm}		% Large year in header
+
+\usepackage[landscape, headheight = 2cm, margin=.5cm,
+  top = 3.2cm, nofoot]{geometry}
+\usetikzlibrary{calc}
+\usetikzlibrary{calendar}
+%%%<
+\usepackage{verbatim}
+\usepackage[tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{5pt}%
+%%%>
+\begin{comment}
+:Title: A calender for doublesided DIN-A4
+Tags: Calendar library;Calendars
+:Author: Robert Krause
+
+An example how the calendar package can be used to provide
+an doublesided calendar for the whole year.
+\end{comment}
+
+\renewcommand*\familydefault{\sfdefault}
+
+% User defined
+\def\year{2013}
+% Names of Holidays are inserted by employing this macro
+\def\termin#1#2{
+  \node [anchor=north west, text width= 3.4cm] at
+    ($(cal-#1.north west)+(3em, 0em)$) {\tiny{#2}};
+}
+
+%Header
+\renewcommand{\headrulewidth}{0.0pt}
+\setlength{\headheight}{10ex}
+\chead{
+  \fontsize{60}{70}\selectfont\textbf{\year}
+  \Large\textbf{Ferienkalender}\hfill
+}
+%Footer
+\cfoot{\footnotesize\texttt{http://www.texample.net/}}
+
+
+
+\begin{document}
+\pagestyle{fancy}
+\begin{center}
+\begin{tikzpicture}[every day/.style={anchor = north}]
+\calendar[
+  dates=\year-01-01 to \year-06-30,
+  name=cal,
+  day yshift = 3em,
+  day code=
+  {
+    \node[name=\pgfcalendarsuggestedname,every day,shape=rectangle,
+    minimum height= .53cm, text width = 4.4cm, draw = gray]{\tikzdaytext};
+    \draw (-1.8cm, -.1ex) node[anchor = west]{\footnotesize%
+      \pgfcalendarweekdayshortname{\pgfcalendarcurrentweekday}};
+  },
+  execute before day scope=
+  {
+    \ifdate{day of month=1}
+    {
+      % Shift right
+      \pgftransformxshift{4.8cm}
+      % Print month name 
+      \draw (0,0)node [shape=rectangle, minimum height= .53cm,
+        text width = 4.4cm, fill = red, text= white, draw = red, text centered]
+        {\textbf{\pgfcalendarmonthname{\pgfcalendarcurrentmonth}}};
+    }{}
+    \ifdate{workday}
+    {
+      % normal days are white
+      \tikzset{every day/.style={fill=white}}
+      % Vacation (Germany, Baden-Wuerrtemberg) gray background
+      \ifdate{between=2012-12-24 and 2013-01-05}{%
+        \tikzset{every day/.style={fill=gray!30}}}{}
+      \ifdate{between=2013-03-25 and 2013-04-05}{%
+        \tikzset{every day/.style={fill=gray!30}}}{}
+      \ifdate{between=2013-05-21 and 2013-06-01}{%
+        \tikzset{every day/.style={fill=gray!30}}}{}
+      \ifdate{between=2013-07-25 and 2013-09-07}{%
+        \tikzset{every day/.style={fill=gray!30}}}{}
+      \ifdate{between=2013-10-28 and 2013-10-30}{%
+        \tikzset{every day/.style={fill=gray!30}}}{}
+      \ifdate{between=2013-12-23 and 2014-01-04}{%
+        \tikzset{every day/.style={fill=gray!30}}}{}
+    }{}
+    % Saturdays and half holidays (Christma's and New year's eve)
+    \ifdate{Saturday}{\tikzset{every day/.style={fill=red!10}}}{}
+    \ifdate{equals=12-24}{\tikzset{every day/.style={fill=red!10}}}{}
+    \ifdate{equals=12-31}{\tikzset{every day/.style={fill=red!10}}}{}
+    % Sundays and full holidays
+    \ifdate{Sunday}{\tikzset{every day/.style={fill=red!20}}}{}
+    \ifdate{equals=01-01}{\tikzset{every day/.style={fill=red!20}}}{}
+    \ifdate{equals=01-06}{\tikzset{every day/.style={fill=red!20}}}{}
+    \ifdate{equals=05-01}{\tikzset{every day/.style={fill=red!20}}}{}
+    \ifdate{equals=10-03}{\tikzset{every day/.style={fill=red!20}}}{}
+    \ifdate{equals=11-01}{\tikzset{every day/.style={fill=red!20}}}{}
+    \ifdate{equals=12-25}{\tikzset{every day/.style={fill=red!20}}}{}
+    \ifdate{equals=12-26}{\tikzset{every day/.style={fill=red!20}}}{}
+    % Christian holidays
+    \ifdate{equals=2013-03-29}{\tikzset{every day/.style={fill=red!20}}}{}
+    \ifdate{equals=2013-04-01}{\tikzset{every day/.style={fill=red!20}}}{}
+    \ifdate{equals=2013-05-09}{\tikzset{every day/.style={fill=red!20}}}{}
+    \ifdate{equals=2013-05-20}{\tikzset{every day/.style={fill=red!20}}}{}
+    \ifdate{equals=2013-05-30}{\tikzset{every day/.style={fill=red!20}}}{}
+  },
+ execute at begin day scope=
+  {
+    % each day is shifted down according to the day of month
+    \pgftransformyshift{-.53*\pgfcalendarcurrentday cm}
+  }
+];
+
+% Print name of Holidays
+\termin{\year-01-01}{Neujahr}
+\termin{\year-01-06}{Heilige Drei Könige}
+\termin{2013-03-29}{Karfreitag}
+\termin{2013-03-31}{Ostersonntag}
+\termin{2013-04-01}{Ostermontag}
+\termin{\year-05-01}{Tag der Arbeit}
+\termin{2013-05-09}{Christi Himmelfahrt}
+\termin{2013-05-19}{Pfingstsonntag}
+\termin{2013-05-20}{Pfingstmontag}
+\termin{2013-05-30}{Fronleichnam}
+\end{tikzpicture}
+% Repeat the whole thing for the second page
+\pagebreak
+\begin{tikzpicture}[every day/.style={anchor = north}]
+\calendar[dates=\year-07-01 to \year-12-31,
+  name=cal,
+  day yshift = 3em,
+  day code=
+  {
+    \node[name=\pgfcalendarsuggestedname,every day,shape=rectangle, 
+      minimum height= .53cm, text width = 4.4cm, draw = gray]{\tikzdaytext};
+    \draw (-1.8cm, -.1ex) node[anchor = west]
+    {
+      \footnotesize\pgfcalendarweekdayshortname{\pgfcalendarcurrentweekday}
+    };
+  },
+  execute before day scope=
+  {
+    \ifdate{day of month=1} {
+    % Shift right
+    \pgftransformxshift{4.8cm}
+    % Print month name 
+    \draw (0,0)node [shape=rectangle, minimum height= .53cm, 
+      text width = 4.4cm, fill = red, text= white, draw = red, text centered]
+    {
+      \textbf{\pgfcalendarmonthname{\pgfcalendarcurrentmonth}}
+    };
+  }{}
+  \ifdate{workday}
+  {
+    \tikzset{every day/.style={fill=white}}
+    % Vacation (Germany Baden-Wuerrtemberg)
+    \ifdate{between=2012-12-24 and 2013-01-05}{%
+      \tikzset{every day/.style={fill=gray!30}}}{}
+    \ifdate{between=2013-03-25 and 2013-04-05}{%
+      \tikzset{every day/.style={fill=gray!30}}}{}
+    \ifdate{between=2013-05-21 and 2013-06-01}{%
+      \tikzset{every day/.style={fill=gray!30}}}{}
+    \ifdate{between=2013-07-25 and 2013-09-07}{%
+      \tikzset{every day/.style={fill=gray!30}}}{}
+    \ifdate{between=2013-10-28 and 2013-10-30}{%
+      \tikzset{every day/.style={fill=gray!30}}}{}
+    \ifdate{between=2013-12-23 and 2014-01-04}{%
+      \tikzset{every day/.style={fill=gray!30}}}{}
+  }{}
+  % Saturdays and half holidays (Christma's and New year's eve)
+  \ifdate{Saturday}{\tikzset{every day/.style={fill=red!10}}}{}
+  \ifdate{equals=12-24}{\tikzset{every day/.style={fill=red!10}}}{}
+  \ifdate{equals=12-31}{\tikzset{every day/.style={fill=red!10}}}{}
+  % Sundays and full holidays
+  \ifdate{Sunday}{\tikzset{every day/.style={fill=red!20}}}{}
+  \ifdate{equals=01-01}{\tikzset{every day/.style={fill=red!20}}}{}
+  \ifdate{equals=01-06}{\tikzset{every day/.style={fill=red!20}}}{}
+  \ifdate{equals=05-01}{\tikzset{every day/.style={fill=red!20}}}{}
+  \ifdate{equals=10-03}{\tikzset{every day/.style={fill=red!20}}}{}
+  \ifdate{equals=11-01}{\tikzset{every day/.style={fill=red!20}}}{}
+  \ifdate{equals=12-25}{\tikzset{every day/.style={fill=red!20}}}{}
+  \ifdate{equals=12-26}{\tikzset{every day/.style={fill=red!20}}}{}
+  % Christian holidays
+  \ifdate{equals=2013-03-29}{\tikzset{every day/.style={fill=red!20}}}{}
+  \ifdate{equals=2013-04-01}{\tikzset{every day/.style={fill=red!20}}}{}
+  \ifdate{equals=2013-05-09}{\tikzset{every day/.style={fill=red!20}}}{}
+  \ifdate{equals=2013-05-20}{\tikzset{every day/.style={fill=red!20}}}{}
+  \ifdate{equals=2013-05-30}{\tikzset{every day/.style={fill=red!20}}}{}
+  },
+  execute at begin day scope=
+  {
+   % Each day is shifted down according to the day of month
+    \pgftransformyshift{-.53*\pgfcalendarcurrentday cm}
+  }
+];
+% Holidaynames
+\termin{\year-10-03}{Tag der deutschen Einheit}
+\termin{\year-11-01}{Allerheiligen}
+\termin{\year-12-24}{Heilig Abend}
+\termin{\year-12-25}{1.\ Weihnachtsfeiertag}
+\termin{\year-12-26}{2.\ Weihnachtsfeiertag}
+\termin{\year-12-31}{Silvester}
+\end{tikzpicture}
+\end{center}
+\end{document}

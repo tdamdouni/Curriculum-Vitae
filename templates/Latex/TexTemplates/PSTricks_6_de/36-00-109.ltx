@@ -1,0 +1,64 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pstricks,pst-plot,graphicx,amsmath}
+\newcommand\htick[1]{\psline[linewidth=.1mm](#1,-.75mm)(#1,.75mm)}
+\newcommand\vtick[1]{\psline[linewidth=.1mm](-.75mm,#1)(.75mm,#1)}
+
+\StopShownPreambleCommands
+\begin{document}
+\resizebox{\linewidth}{!}{%
+\psset{xunit=5.83mm,yunit=5.83mm,curvature=1 .1 .75,plotpoints=200}
+\begin{pspicture}(-3,-5)(9,6)
+\psaxes[Dx=1,dx=2,Dy=1,dy=2,labelsep=.75mm,arrowlength=1.75,ticksize=2pt,linewidth=0.17mm]%
+{->}(0,0)(-2.99,-4.99)(9,6)
+\rput[Br](9,.4){$\text{Re}(z),\ \text{Re}(w)$}
+\rput[tl](.3,6){$\text{Im}(z),\ \text{Im}(w)$}
+\rput[Br](-.25,-.584){$0$}
+\htick{1}
+\rput(.7,-.584){$\frac{1}{4}$}
+%
+\rput[tl](-2.8,5.8){$w=\frac{1}{z^{*\vphantom{2}}}$}
+\rput[tl](-2.8,4.8){$\text{Re}(z)=\frac{1}{4}$}
+%
+\psline[linewidth=.17mm,linecolor=red](.5,-5)(.5,6)
+\htick{0.5}
+\pscircle[linewidth=.5mm,linecolor=blue](4,0){2.332}
+\pscircle[linewidth=.5mm,linecolor=red](0,0){1.166}
+%
+\end{pspicture}
+\hspace{1em}
+\begin{pspicture}(-5,-5)(7,6)
+\psaxes[Dx=.5,dx=2,Dy=.5,dy=2,labelsep=.75mm,arrowlength=1.75,ticksize=2pt,linewidth=0.17mm]%
+    {->}(0,0)(-4.99,-4.99)(7,6)
+\rput[Br](7,.4){$\text{Re}(z),\ \text{Re}(w)$}
+\rput[tl](.3,6){$\text{Im}(z),\ \text{Im}(w)$}
+\rput[Br](-.25,-.584){$0$}
+%
+\rput[l](-4.8,5.2){$w=\frac{1}{z^{*\vphantom{2}}}$}
+\rput[l](4.2,5.2){$\text{Re}(z)=1$}
+%
+\psline[linewidth=.17mm,linecolor=red](4,-5)(4,6)
+\pscircle[linewidth=.5mm,linecolor=red](0,0){2.332}
+\pscircle[linewidth=.5mm,linecolor=blue](2,0){1.166}
+\end{pspicture}
+}
+\end{document}

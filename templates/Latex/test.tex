@@ -1,0 +1,36 @@
+\documentclass[ngerman]{scrartcl}[2014/12/17] 
+\usepackage{scrletter} 
+\usepackage{graphicx} 
+\usepackage{blindtext} 
+\usepackage{babel} 
+\setkomavar{fromname}{Tic Duck} 
+\setkomavar{fromaddress}{Postfach 12\\Duckburg} 
+\setkomavar{subject}{Anstellung als Sicherheitsente} 
+\KOMAoption{enlargefirstpage}{true} 
+\begin{document} 
+\begin{letter}{Herr Personalchef\\Personalraum\\Geldspeicher} 
+\opening{Hallo Herr Personalmensch,} 
+ich will den Job, weil \blindtext 
+
+
+\closing{Vielen Danke, ihr ergebener} 
+\encl{Abizeugnis, Diplomzeugnis, Zertifikat von 
+irgendwas} 
+\end{letter} 
+\noindent\parbox{.5\textwidth}{% 
+\raggedright 
+\usekomavar{fromname}\\ 
+30.02.1889 in Duckburg 
+}\parbox{.5\textwidth}{\hfill% 
+\includegraphics[width=.5\linewidth]{example-image-1x1}} 
+\addsec{Schule} 
+\begin{labeling}[:]{1910 -- 1917} 
+\item [1901 -- 1908] Grundschule am Berg 
+\item [1910 -- 1917] Gymnasium im Tal 
+\end{labeling} 
+\addsec{Akademische Laufbahn} 
+\begin{labeling}{1917 -- 1922} 
+\item [1917 -- 1922] TU Entenhausen; Diplom-Sicherheitsente 
+\item [1922 -- 1940] Schlie\ss er im Knast 
+\end{labeling} 
+\end{document} 

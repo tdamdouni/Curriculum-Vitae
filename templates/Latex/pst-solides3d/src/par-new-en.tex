@@ -1,0 +1,142 @@
+\section{Construction from scratch}
+
+The object \Lkeyword{new} constructs a solid.  Two parameters are used: \Lkeyword{sommets}
+which indicates the list of coordinates of the different vertices, and \Lkeyword{faces} which
+gives the list of faces of the solid; a face is characterized by a list of the indices of its\Index{vertices}, listed
+in counterclockwise order
+when the face is viewed from the exterior of the solid.
+
+\clearpage
+
+\subsection{Example 1: a house}
+\begin{LTXexample}[width=6.5cm]
+\psset{unit=0.5}
+\psset{lightsrc=10 -20 50,viewpoint=50 -20 30 rtp2xyz,Decran=50}
+\begin{pspicture*}(-7,-4)(7,7)
+\psSolid[object=new,
+  sommets=
+    2  4  3   -2  4  3  -2 -4  3   2 -4  3
+    2  4  0   -2  4  0  -2 -4  0   2 -4  0
+   0  4  5   0 -4  5,
+  faces={
+  [0 1 2 3] [7 6 5 4] [0 3 7 4]
+  [3 9 2]   [1 8 0]   [8 9 3 0]
+  [9 8 1 2] [6 7 3 2] [2 1 5 6]},
+  num=all,show=all,action=draw]
+\end{pspicture*}
+\end{LTXexample}
+
+Note that the solid \Lkeyword{new} uses the same options as the other solids.
+For example, we give the same solid as above below, using the parameters
+\Lkeyword{hollow}, \Lkeyword{incolor}, \Lkeyword{fillcolor}, and \Lkeyword{rm}.
+
+%% example 2
+\begin{LTXexample}[width=6.5cm]
+\psset{unit=0.5}
+\psset{lightsrc=10 -20 50,viewpoint=50 -20 30 rtp2xyz,Decran=50}
+\begin{pspicture*}(-7,-3.5)(7,7.5)
+\psSolid[object=new,fillcolor=red!50,incolor=yellow,
+  action=draw**,hollow,rm=2,
+  sommets=
+   2  4  3  -2  4  3  -2 -4  3   2 -4  3
+   2  4  0  -2  4  0  -2 -4  0   2 -4  0
+   0  4  5   0 -4  5,
+  faces={   [0 1 2 3][7 6 5 4][0 3 7 4]
+   [3 9 2]  [1 8 0]  [8 9 3 0][9 8 1 2]
+   [6 7 3 2][2 1 5 6]},
+  num=all,show=all]
+\end{pspicture*}
+\end{LTXexample}
+
+\subsection{Example 2: a \Index{hyperboloid} with a fixed radius}
+
+%\psset{lightsrc=10 20 30,SphericalCoor=true,viewpoint=50 20 30}
+%\psset{SphericalCoor=true,viewpoint=50 20 30}
+
+
+As always, the options of the macro \Lcs{psSolid} can handle Postscript code, even \textit{jps code}
+
+Unlike an example in pure PostScript, where we use the parameters
+$a$, $b$ and $h$ which are transmitted by the options of PSTricks.
+In this way one obtains a variable solid constructed from scratch.
+
+Remark: the code being used comes from a \textit{jps} source used in practice, as in:
+
+\noindent\url{http://melusine.eu.org/lab/bjps/solide/tour.jps}
+\begin{LTXexample}[width=6.5cm]
+\psset{unit=0.75}
+\psset{lightsrc=10 -20 50,viewpoint=50 -20 30 rtp2xyz,Decran=50}
+\begin{pspicture*}(-5,-5)(3,5)
+\psSolid[object=new,fillcolor=red!50,incolor=yellow,
+  hollow, a=10, %% nb d'etages
+  b=20, %% diviseur de 360, nb de meridiens
+  h=8,  %% hauteur
+  action=draw**,sommets=
+   /z0 h neg 2 div def
+   a -1 0 {
+    /k exch def
+    0 1 b 1 sub {
+     /i exch def
+     /r z0 h a div k mul add dup mul 4 div 1 add sqrt def
+     360 b idiv i mul cos r mul 360 b idiv i mul sin r mul
+     z0 h a div k mul add
+    } for
+   } for,
+   faces={
+    0 1 a 1 sub {
+    /k exch def
+    k b mul 1 add 1 k 1 add b mul 1 sub {
+    /i exch def
+    [i i 1 sub b i add 1 sub b i add]
+   } for
+   [k b mul k 1 add b mul 1 sub k 2 add b mul 1 sub k 1 add b mul]
+  } for
+}]
+\end{pspicture*}
+\end{LTXexample}
+
+
+
+\subsection{Example 3: importing external files}
+
+
+From a file describing a solid in a particular format (other than \texttt{\Index{.obj}} or \texttt{\Index{.off}}),
+we can create a \texttt{\Index{.dat}} file containing the coordinates of the vertices,
+and another \texttt{.dat} file containing the tables of indices of the vertices on each face.
+These files can then be entered as parameters \Lkeyword{sommets} and \Lkeyword{faces}
+when using the PostScript instruction \Lkeyword{run}.
+
+
+In the example below, the files \verb+sommets_nefer.dat+
+and \verb+faces_nefer.dat+ have been placed in the directory of the compiler.
+
+\begin{LTXexample}[width=5.5cm]
+\psset{unit=0.4}
+\definecolor{AntiqueWhite}{rgb}{0.98,0.92,0.84}
+\begin{pspicture}(-7,-9)(7,7)
+\psset{lightsrc=30 -40 10}
+\psset{viewpoint=50 -50 20 rtp2xyz,Decran=50}
+\psset{RotX=90,sommets= (./sommets_nefer.dat) run}
+\psSolid[object=new,fillcolor=AntiqueWhite,linewidth=0.5\pslinewidth,
+    faces={(./faces_nefer.dat) run}]%
+\psSolid[object=new,fillcolor=red,linewidth=0.5\pslinewidth,
+    faces={(./faces_nefer_levres.dat) run}]%
+\psSolid[object=new,fillcolor=black,
+    faces={(./faces_nefer_sourcils.dat) run}]%
+\end{pspicture}
+\hfill
+\begin{pspicture}(-7,-9)(7,7)
+\psset{lightsrc=-10 -40 -5,lightintensity=.5}
+\psset{viewpoint=50 -80 10 rtp2xyz,Decran=50}
+\psset{RotX=90,RotZ=30,sommets= (./sommets_nefer.dat) run}
+\psSolid[object=new,fillcolor=AntiqueWhite,linewidth=0.5\pslinewidth,
+  grid,faces={(./faces_nefer.dat) run}]
+\psSolid[object=new,fillcolor=red,linewidth=0.5\pslinewidth,grid,
+    faces={(./faces_nefer_levres.dat) run}]
+\psSolid[object=new,fillcolor=black,
+    faces={(./faces_nefer_sourcils.dat) run}]
+\end{pspicture}
+\end{LTXexample}
+
+
+\endinput

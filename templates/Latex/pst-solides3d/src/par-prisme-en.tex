@@ -1,0 +1,194 @@
+\section{The \Index{prism}}
+
+A prism is determined by two parameters:
+\begin{itemize}
+	\item The base of the prism can be defined by the coordinates of the vertices
+	in the $xy$-plane.  Note that it is necessary that the four
+	vertices be given in counterclockwise order with respect to the barycentre of
+	the base;
+	\item the direction of the prism axis (the components of the shearing vector).
+\end{itemize}
+
+
+\subsubsection{Example 1: a right and \Index{oblique prisms} with polygonal section}
+
+\begin{center}
+\psset{unit=0.5}
+\psset{lightsrc=10 5 50,viewpoint=50 20 30 rtp2xyz,,Decran=50}
+\begin{minipage}{5cm}
+\begin{pspicture*}(-6,-4)(6,9)
+\psframe(-6,-4)(6,9)
+\psSolid[object=grille,base=-4 4 -4 4,action=draw]%
+\psSolid[object=prisme,h=6,base=0 1 -1 0 0 -2 1 -1 0 0]%
+ \axesIIID(4,4,6)(4.5,4.5,8)
+\end{pspicture*}
+
+\small\texttt{[base=\psframebox[fillstyle=solid,fillcolor=black]{\textcolor{white}{0 1 -1 0 0 -2 1 -1 0 0}},h=6]}
+\\
+\end{minipage}
+\hspace{2cm}
+\begin{minipage}{5cm}
+\begin{pspicture*}(-6,-4)(6,9)
+\psframe(-6,-4)(6,9)
+\psSolid[object=grille,base=-4 4 -4 4,action=draw]%
+\psSolid[object=prisme,axe=0 1 2,h=8,base=0 -2 1 -1 0 0 0 1 -1 0]%
+ \axesIIID(4,4,4)(4.5,4.5,8)
+\psPoint(0,4,8){V}
+\psPoint(0,4,0){Vy}
+\psPoint(0,0,8){Vz}
+\uput[l](Vz){8}
+\uput[ur](Vy){4}
+\psline[linecolor=blue]{->}(O)(V)
+\psline[linestyle=dashed](Vz)(V)(Vy)
+\end{pspicture*}
+
+\small\texttt{[base=\psframebox[fillstyle=solid,fillcolor=black]{\textcolor{white}{0 -2 1 -1 0 0 0 1 -1 0}},}%
+\\
+ \texttt{ axe=\psframebox[fillstyle=solid,fillcolor=black]{\textcolor{white}{0 4 8}},h=8]}
+\end{minipage}
+\end{center}
+
+
+
+\subsubsection{Example 2: a \Index{right prism} with cross-section a rounded square}
+
+\begin{LTXexample}[width=6.5cm]
+\psset{unit=0.5cm}
+\psset{lightsrc=10 -20 50,viewpoint=50 -20 30 rtp2xyz,Decran=50}
+\begin{pspicture}(-5,-4)(3,9)
+\psSolid[object=grille,base=-4 4 -4 4,action=draw]
+\psSolid[object=prisme,h=6,fillcolor=yellow,
+ base=
+    0 10 90 {/i exch def i cos 1 add i sin 1 add } for
+   90 10 180 {/i exch def i cos 1 sub i sin 1 add} for
+  180 10 270 {/i exch def i cos 1 sub i sin 1 sub} for
+  270 10 360 {/i exch def i cos 1 add i sin 1 sub} for]
+\axesIIID(4,4,6)(6,6,8)
+\end{pspicture}
+\end{LTXexample}
+
+
+\subsubsection{Example 4: a prism with an elliptic section}
+
+\psResetSolidKeys
+\begin{LTXexample}[width=6.5cm]
+\psset{unit=0.5cm}
+\begin{pspicture}(-6,-5)(4,12)
+\psset{lightsrc=10 20 30,viewpoint=50 20 25 rtp2xyz,Decran=50}
+\psSolid[object=grille,base=-6 6 -4 4,action=draw]
+\defFunction{FuncI}(t){t cos 4 mul}{t sin 2 mul}{}
+\psSolid[object=prisme,h=8,fillcolor=green!20,
+       base=0 350 {FuncI} CourbeR2+]%
+\defFunction{FuncII}(t){t cos 4 mul}{t sin 2 mul}{8}
+\psSolid[object=courbe,r=0,
+   function=FuncII,range=0 360,
+   linewidth=2\pslinewidth,
+   linecolor=green]
+\axesIIID(6,4,8)(8,6,10)
+\end{pspicture}
+\end{LTXexample}
+
+\psset{unit=1cm}
+
+\subsubsection{Example 3: a right prism with a star-shaped section}
+
+\begin{LTXexample}[width=6.5cm]
+\psset{unit=0.5cm}
+\psset{lightsrc=10 -20 50,viewpoint=50 -20 30 rtp2xyz,Decran=50}
+\begin{pspicture*}(-5,-4)(6,9)
+\defFunction{F}(t){3 t cos 3 exp mul}{3 t sin 3 exp mul}{}
+\psSolid[object=grille,base=-4 4 -4 4,action=draw]%
+\psSolid[object=prismecreux,h=8,fillcolor=red!50,
+       resolution=36,
+       base=0 350 {F} CourbeR2+
+      ]%
+\end{pspicture*}
+\end{LTXexample}
+
+
+
+\clearpage
+\subsubsection{Example 5: a \Index{roof gutter} with a semi-circular section}
+
+\begin{LTXexample}[width=7cm]
+\psset{unit=0.35cm}
+\psset{lightsrc=10 20 30,viewpoint=50 30 25 rtp2xyz,Decran=50}
+\begin{pspicture}(-10,-5)(6,10)
+\defFunction[algebraic]{F}(t)
+  {3*cos(t)}{3*sin(t)}{}
+\defFunction[algebraic]{G}(t)
+  {2.5*cos(t)}{2.5*sin(t)}{}
+\psSolid[object=grille,
+  base=-6 6 -6 6,action=draw]%
+\psSolid[object=prisme,h=12,
+  fillcolor=blue!30,RotX=-90,
+  resolution=19,
+  base=0 pi {F} CourbeR2+
+  pi 0 {G} CourbeR2+](0,-6,3)
+\axesIIID(6,6,2)(8,8,8)
+\end{pspicture}
+\end{LTXexample}
+
+We draw the exterior face (semicircle of radius 3~cm) in counterclockwise
+order: \verb!0 pi {F} CourbeR2+!
+Then the interior face (semicircle of radius  2{.}5~cm), is drawn in clockwise order:
+\verb!pi 0 {G} CourbeR2+!
+
+We can turn the solid $-90^{\mathrm{o}}$ and place it at the point $(0,-6,3)$.
+If we use the \verb+algebraic+ option to define the functions $F$
+and $G$, the functions $\sin$ and $\cos$ are in radians.
+
+\subsubsection{The parameter \texttt{\Index{decal}}}
+
+We wrote above that the first four vertices must be given in counterclockwise order
+with respect to the barycentre of the vertices of the base.  In fact, this is the
+default version of the following rule: If the base has $n+1$ vertices,
+and if $G$ is their barycentre,
+then $(s_0,s_1)$ on one hand and $(s_{n-1},s_n)$ on the other, should be
+in counterclockwise order with respect to $G$.
+
+
+This rule puts constraints on the coding of the base of a prism which
+sometimes renders the latter unaesthetically.
+For this reason we have introduced the argument \Lkeyword{decal} (default value$=-2$)
+which allows us to consider the list of vertices of the base as a circular file
+which you will shift round if needed.
+
+An example: default behavior with \texttt{\Lkeyword{decal}=-2}:\par
+\psset{lightsrc=10 20 30,viewpoint=50 80 35 rtp2xyz,Decran=50}
+\begin{LTXexample}[width=6cm]
+\psset{unit=0.5}
+\begin{pspicture}(-6,-4)(6,7)
+\defFunction{F}(t){t cos 3 mul}{t sin 3 mul}{}
+\psSolid[object=prisme,h=8,
+      fillcolor=yellow,RotX=-90,
+      num=0 1 2 3 4 5 6,
+      show=0 1 2 3 4 5 6,
+      resolution=7,
+      base=0 180 {F} CourbeR2+
+      ](0,-10,0)
+\end{pspicture}
+\end{LTXexample}
+
+We see that the vertex with index~$0$ is not where we expect to find it.
+
+We start again, but this time suppressing the renumbering: \par
+%
+\psset{lightsrc=10 20 30,viewpoint=50 80 35 rtp2xyz,Decran=50}
+\begin{LTXexample}[width=6cm]
+\psset{unit=0.5}
+\begin{pspicture}(-6,-4)(6,7)
+\defFunction{F}(t){t cos 3 mul}{t sin 3 mul}{}
+\psSolid[object=prisme,h=8,
+      fillcolor=yellow,RotX=-90,
+      decal=0,
+      num=0 1 2 3 4 5 6,
+      show=0 1 2 3 4 5 6,
+      resolution=7,
+      base=0 180 {F} CourbeR2+
+      ](0,-10,0)
+\end{pspicture}
+\end{LTXexample}
+
+
+\endinput

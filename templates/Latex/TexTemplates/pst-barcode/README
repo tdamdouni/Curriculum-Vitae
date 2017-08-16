@@ -1,0 +1,10 @@
+This version of pst-barcode uses the xkeyval package, the extended
+version of keyval.
+
+Save the files pst-barcode.sty|.tex|.pro in a directory, which is part of your 
+local TeX tree. pst-barcode.pro should be saved in ../texmf/dvips/pstricks/
+Then do not forget to run texhash to update this tree.
+pst-barcode needs pstricks, which should be part of your
+local TeX installation, otherwise get it from a CTAN server, f.ex.
+http://mirror.ctan.org/graphics/pstricks/
+

@@ -1,0 +1,34 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-map2dII}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}*(-5,7)(10,21)
+  \psset{unit=4,type=1,level=50,all=true,path=pst-geo/dataII}
+  \WorldMapII[maillage=false,linewidth=0.75\pslinewidth,limiteL=190,borders=true]
+  \input capitales   \pnodeMap(20,35){MerMed}
+  \rput(MerMed){\shortstack{Mer\\M\'editerann\'ee}} \pnodeMap(35,43){MerNoire}
+  \rput(MerNoire){\shortstack{Mer\\Noire}}      \pnodeMap(-15,50){OceanAtlan}
+  \rput{90}(OceanAtlan){O c \'e{} a n\hspace{2em} A t l a n ti q u e}
+  \pnodeMap(4,56){MerNoire}  \rput(MerNoire){\shortstack{Mer\\du\\Nord}}
+\end{pspicture}
+\end{document}

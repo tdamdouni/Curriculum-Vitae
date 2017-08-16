@@ -1,0 +1,34 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-3d,multido}
+\StopShownPreambleCommands
+\begin{document}
+\newpsstyle{TransparencyCyan}{%
+  fillstyle=vlines,hatchwidth=0.1\pslinewidth,
+  hatchcolor=cyan,hatchsep=1.5\pslinewidth}
+\begin{pspicture}(2,4)
+  \rput[lb](0,0){\pstilt{45}{%
+    \psframe[linestyle=dashed,
+     fillstyle=solid,fillcolor=red](2,4)}}
+  \psframe[style=TransparencyCyan](0,0)(2,4)
+\end{pspicture}
+\end{document}

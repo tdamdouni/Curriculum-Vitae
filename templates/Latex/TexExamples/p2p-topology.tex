@@ -1,0 +1,113 @@
+% P2P system topology
+% Author Fiandrino Claudio 2011 - http://claudiofiandrino.altervista.org/
+% Description: physical and overlay topology characterization
+\documentclass{article}
+\usepackage{tikz}
+\usepackage[active,tightpage]{preview}
+\usetikzlibrary{shapes}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{7pt}
+%%%<
+\usepackage{verbatim}
+%%%>
+\begin{comment}
+:Title: P2P system topology
+:Tags: Networking; Foreach; Node Positioning; Styles; Graphs
+:Author: Claudio Fiandrino
+:Slug: p2p-topology
+
+Physical and overlay topology characterization of a P2P system topology
+\end{comment}
+\definecolor{pinegreen}{cmyk}{0.92,0,0.59,0.25}
+\definecolor{royalblue}{cmyk}{1,0.50,0,0}
+\definecolor{lavander}{cmyk}{0,0.48,0,0}
+\definecolor{violet}{cmyk}{0.79,0.88,0,0}
+\tikzstyle{cblue}=[circle, draw, thin,fill=cyan!20, scale=0.8]
+\tikzstyle{qgre}=[rectangle, draw, thin,fill=green!20, scale=0.8]
+\tikzstyle{rpath}=[ultra thick, red, opacity=0.4]
+\tikzstyle{legend_isps}=[rectangle, rounded corners, thin, 
+                       fill=gray!20, text=blue, draw]
+                        
+\tikzstyle{legend_overlay}=[rectangle, rounded corners, thin,
+                           top color= white,bottom color=green!25,
+                           minimum width=2.5cm, minimum height=0.8cm,
+                           pinegreen]
+\tikzstyle{legend_phytop}=[rectangle, rounded corners, thin,
+                          top color= white,bottom color=cyan!25,
+                          minimum width=2.5cm, minimum height=0.8cm,
+                          royalblue]
+\tikzstyle{legend_general}=[rectangle, rounded corners, thin,
+                          top color= white,bottom color=lavander!25,
+                          minimum width=2.5cm, minimum height=0.8cm,
+                          violet]
+\begin{document}
+\begin{tikzpicture}[auto, thick]
+ % Cloud creation
+  \node[cloud, fill=gray!20, cloud puffs=16, cloud puff arc= 100,
+        minimum width=7cm, minimum height=2.5cm, aspect=1] at (0,0) {};
+
+ % Physical layer nodes
+  \foreach \place/\x in {{(-2.5,0.3)/1}, {(-1.75,-0.55)/2},{(-1.2,0.55)/3},
+    {(-0.75,-0.7)/4}, {(-0.25,0)/5}, {(0.25,0.7)/6}, {(0.75,-0.3)/7}, 
+    {(1.5,0)/8},{(2.5,0.4)/9}}
+  \node[cblue] (a\x) at \place {};
+ 
+ % Physical layer links
+  \path[thin] (a1) edge (a2);
+  \path[thin] (a1) edge (a3);
+  \path[thin] (a2) edge (a3);
+  \path[thin] (a3) edge (a6);
+  \path[thin] (a2) edge (a4);
+  \path[thin] (a5) edge (a6);
+  \path[thin] (a5) edge (a4);
+  \path[thin] (a5) edge (a2);
+  \path[thin] (a5) edge (a7);
+  \path[thin] (a6) edge (a7);
+  \path[thin] (a6) edge (a9);
+  \path[thin] (a6) edge (a8);
+  \path[thin] (a8) edge (a9);
+  \path[thin] (a7) edge (a8);
+ 
+ % ISPs labelling
+  \draw[very thick, blue, dashed] 
+    (1.8,1.2).. controls +(left:2.2cm) and +(down:0.5cm) ..(0.7,-1.1);
+  \draw[very thick, blue, dashed] 
+    (-3,1).. controls +(right:2.2cm) and +(down:0.4cm) ..(-1,-1);
+  \node[legend_isps] (i1) at (-2.75,-2) {\textsc{Isp 1}};
+  \node[legend_isps] (i2) at (0,-2) {\textsc{Isp 2}};
+  \node[legend_isps] (i3) at (2,-2) {\textsc{Isp 3}};
+  \draw[-latex, thick, red] (i1) -- (-2.75,0);
+  \draw[-latex, thick, red] (i2) -- (0,-0.7);
+  \draw[-latex, thick, red] (i3) -- (2,0);
+
+ % Overlay layer nodes
+  \foreach \place/\i in {{(-2.5,2.3)/1},{(-1.75,1.45)/2},{(-1.2,2.55)/3},
+    {(-0.75,1.3)/4}, {(-0.25,2)/5}, {(0.25,2.7)/6}, {(0.75,1.7)/7},
+    {(1.5,2)/8},{(2.5,2.4)/9}}
+    \node[qgre] (b\i) at \place {};
+ 
+ % Overlay layer links
+  \path[thin] (b1) edge (b2);
+  \path[thin] (b2) edge (b4);
+  \path[thin] (b4) edge (b5);
+  \path[thin] (b5) edge (b7);
+  \path[thin] (b4) edge (b3);
+  \path[thin] (b7) edge (b8);
+  \path[thin] (b8) edge (b9);
+  \path[thin] (b9) edge (b6);
+  \path[thin] (b6) edge (b3);
+  \path[thin] (b3) edge (b1);
+  \path[thin] (b5) edge (b8);
+  \path[thin] (b5) edge (b3);
+  \path[thin] (b5) edge (b6);
+ 
+ % Links between overlay and physical topology
+  \foreach \i in {1,...,9}
+    \path[rpath] (a\i) edge (b\i);
+ 
+ % Legends
+  \node[legend_general] at (0,4){\textsc{P2P System Topology}};
+  \node[legend_overlay] at (6,2){\textsc{Overlay Network}};
+  \node[legend_phytop] at (6,0){\textsc{Physical Network}};
+\end{tikzpicture}
+\end{document}

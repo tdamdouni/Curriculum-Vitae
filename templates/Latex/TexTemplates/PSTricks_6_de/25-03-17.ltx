@@ -1,0 +1,45 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-optic}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(-5,-3)(5,3)
+  \pnode(-1,-2.5){A} \pnode(1,-2.5){B} \pnode(1,2.5){C} \pnode(-1,2.5){D}
+  \uput[-135](A){A}  \uput[-45](B){B}  \uput[45](C){C}  \uput[135](D){D}
+  \pspolygon[fillcolor=lightgray,fillstyle=solid,linecolor=blue](A)(B)(C)(D)
+  \refractionRay(-3,-3)(-2,-2)(D)(A){1}{1.5}{END}%    1.
+  \psset{linecolor=red,linewidth=2pt,arrowsize=5pt,arrows=->}
+  \arrowLine(-3,-3)(END){2}  \ABinterCD(END)(END')(C)(B){Out}
+  \arrowLine(END)(Out){1}    \refractionRay(END)(Out)(C)(B){1.5}{1}{Q}
+  \arrowLine(Q)(Q'){1}       \psOutLine[length=2](Q)(Q'){End}
+  \refractionRay(-3,0)(-2,0)(A)(D){1}{1.5}{END}%      2.
+  \psset{linecolor=green,linewidth=2pt,arrowsize=5pt,arrows=->}
+  \arrowLine(-3,0)(END){2}  \ABinterCD(END)(END')(C)(B){Out}
+  \arrowLine(END)(Out){1}   \refractionRay(END)(Out)(C)(B){1.5}{1}{Q}
+  \arrowLine(Q)(Q'){1}      \psOutLine[length=2](Q)(Q'){End}
+  \refractionRay(-3,3)(-2,2)(D)(A){1}{1.5}{END}%      3.
+  \psset{linecolor=blue,linewidth=2pt,arrowsize=5pt,arrows=->}
+  \arrowLine(-3,3)(END){2}   \ABinterCD(END)(END')(C)(B){Out}
+  \arrowLine(END)(Out){1}    \refractionRay(END)(Out)(C)(B){1.5}{1}{Q}
+  \arrowLine(Q)(Q'){1}       \psOutLine[length=2](Q)(Q'){End}
+\end{pspicture}
+\end{document}

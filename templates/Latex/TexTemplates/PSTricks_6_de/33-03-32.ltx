@@ -1,0 +1,48 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pstricks,pst-node,pst-grad}\SpecialCoor
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(0,-3)(12,3)
+\pnode(0,0){S}   \pnode(4,1){L'1}  \pnode(4,-1){L'2}  \pnode(6,1){E'1}   \pnode(6,-1){E'2}
+\pnode(6,0.5){E1}\pnode(6,-0.5){E2}\pnode(8.5,1.5){L1}\pnode(8.5,0.5){L2}\pnode(11.5,1.25){P}
+\pspolygon[linestyle=none,fillstyle=vlines,hatchcolor=yellow](S)(L'1)(E'1)(E1)(L1)(P)(L2)(E2)(E'2)(L'2)
+% lentille L'
+\pscustom[fillstyle=gradient,linecolor=blue,gradend=white]{%
+  \code{0.5 0.83333 scale}
+  \psarc(4,0){4.176}{-16.699}{16.699}
+  \psarc(12,0){4.176}{163.30}{196.699}}
+% lentille L
+\pscustom[fillstyle=gradient,linecolor=blue,gradend=white]{%
+  \code{1 1.5 scale}
+  \psarc(4.5,0){4.176}{-16.699}{16.699}
+  \psarc(12.5,0){4.176}{163.30}{196.699}}
+\uput[90](4,1){$L'$}\uput[90](8.5,2){$L$}
+\psdot(S)\uput[180](S){S}
+\psline(S)(12,0)\psline[linewidth=2\pslinewidth](6,2)(6,0.5)\psline[linewidth=2\pslinewidth](6,-2)(6,-0.5)
+\psline[linestyle=dashed](6,0.5)(6,-0.5)\psline(11.5,-3)(11.5,3)\psline(S)(L'1)(E'1)\psline(S)(L'2)(E'2)
+\uput[0](P){P}
+\psline(E1)(L1)(P)\psline(E2)(L2)(P)\psline[linestyle=dashed](8.5,0)(P)
+%\rput(8.5,0){\psarc{->}(0,0){1.5}{0}{!1.25 3 atan}\uput[0](1.5;15){$\theta$}}
+\uput[-90](10,0){$f$}\uput[0](6,2){E}\uput[135](6,0){T}\uput[45](11.5,0){O}
+\end{pspicture}
+\end{document}

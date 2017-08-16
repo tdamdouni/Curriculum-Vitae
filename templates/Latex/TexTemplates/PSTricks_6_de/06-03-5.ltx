@@ -1,0 +1,89 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\newcount\NumberDots
+\newdimen\DotSize
+\newdimen\Hue
+\newdimen\XPos
+\newdimen\YPos
+
+% Circle with dots at random positions
+\def\CircleWithDotsA[#1]#2#3{%
+% #1=dotstyle
+% #2=radius of the circle
+% #3=number of dots (put on the (-#1,-#1)(#1,#1) square,
+%    not on the circle itself!)
+\pspicture(-#2,-#2)(#2,#2)
+  \setrannum{\NumberDots}{0}{#3}%
+  \psclip{\pscircle{#2}}
+    \multido{\iDots=1+1}{\NumberDots}{%
+      \setrandim{\XPos}{-#2 pt}{#2 pt}%
+      \setrandim{\YPos}{-#2 pt}{#2 pt}%
+      \psdot[dotstyle=#1](\pointless\XPos,\pointless\YPos)}
+  \endpsclip
+\endpspicture}
+
+% Circle with dots at random positions, with random dot sizes
+\def\CircleWithDotsB[#1]#2#3{%
+% #1=dotstyle
+% #2=radius of the circle
+% #3=number of dots (put on the (-#1,-#1)(#1,#1) square,
+%    not on the circle itself!)
+\pspicture(-#2,-#2)(#2,#2)
+  \setrannum{\NumberDots}{0}{#3}%
+  \psclip{\pscircle{#2}}
+    \multido{\iDots=1+1}{\NumberDots}{%
+      \setrandim{\XPos}{-#2 pt}{#2 pt}%
+      \setrandim{\YPos}{-#2 pt}{#2 pt}%
+      \setrandim{\DotSize}{2pt}{15pt}%
+      \psdot[dotstyle=#1,dotsize=\DotSize](\pointless\XPos,\pointless\YPos)}
+  \endpsclip
+\endpspicture}
+
+% Circle with dots at random positions, with random dot sizes
+% and random colors
+\def\CircleWithDotsC[#1]#2#3{%
+% #1=dotstyle
+% #2=radius of the circle
+% #3=number of dots (put on the (-#1,-#1)(#1,#1) square,
+%    not on the circle itself!)
+\pspicture(-#2,-#2)(#2,#2)
+  \setrannum{\NumberDots}{0}{#3}%
+  \psclip{\pscircle{#2}}
+    \multido{\iDots=1+1}{\NumberDots}{%
+      \setrandim{\XPos}{-#2 pt}{#2 pt}%
+      \setrandim{\YPos}{-#2 pt}{#2 pt}%
+      \setrandim{\DotSize}{2pt}{15pt}%
+      \setrandim{\Hue}{0pt}{1pt}%
+      \definecolor{MyColor}{hsb}{\pointless\Hue,0.8,1}
+      \psdot[dotstyle=#1,dotsize=\DotSize,linecolor=MyColor](\pointless\XPos,\pointless\YPos)}
+  \endpsclip
+\endpspicture}
+\StartShownPreambleCommands
+\usepackage{pstricks,multido}
+\input{random}
+\randomi=123456   % To fix the random seed (otherwise the clock is used)
+\StopShownPreambleCommands
+\begin{document}
+\CircleWithDotsA[+]{1}{10}\CircleWithDotsA[o]{1}{50}\CircleWithDotsA[*]{1}{100}
+\CircleWithDotsA[square]{1}{1000}\CircleWithDotsA[square*]{1}{1500}\\
+\CircleWithDotsC[|]{1.25}{50} \CircleWithDotsC[x]{1.25}{100}
+\CircleWithDotsC[oplus]{1.25}{500}
+\end{document}

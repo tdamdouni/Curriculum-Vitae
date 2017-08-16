@@ -1,0 +1,38 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-solides3d}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(-3,-1.5)(3,5.5)
+\psset{unit=.5,lightsrc=40 50 50,viewpoint=18 65 30 rtp2xyz,solidmemory,linewidth=.2pt}
+\psSolid[object=plan,definition=equation,args={[1 0 0.15 0] 90},base=-2 2 -0.5 4,
+  fillcolor=blue!20,name=E1,ngrid=30 30,action=none]
+\psSolid[object=plan,definition=equation,args={[1 1 0 0]},base=-2 2 -0.5 3.5,
+  fillcolor=green!20,name=E2,ngrid=20 20,action=none](0,0,3)
+\psSolid[object=plan,definition=equation,args={[0 1 0 0] 180},base=-2 2 -0.5 3.5,
+  fillcolor=red!20,name=E3,ngrid=20 20,action=none]
+\psSolid[object=fusion,base=E1_s E2_s E3_s]
+\psProjection[object=texte,fontsize=50,text=Ja,plan=E3](-1,2)
+\psProjection[object=texte,fontsize=50,text=n,plan=E1](1,2)
+\psProjection[object=texte,fontsize=50,text=a,plan=E2,phi=180](-1.7,1.4)
+\end{pspicture}
+\end{document}

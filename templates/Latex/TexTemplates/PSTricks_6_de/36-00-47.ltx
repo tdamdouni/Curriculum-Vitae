@@ -1,0 +1,79 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pstricks-add}\newcommand\Touch{%
+\psframe[linestyle=none,fillstyle=solid,fillcolor=bl,dimen=middle](0.1,0.75)}
+\definecolor[ps]{bl}{rgb}{tx@addDict begin Red Green Blue end}%
+% Echelle 1cm <-> 40 nm
+%         1 nm <-> 0.025 cm
+
+\StopShownPreambleCommands
+\begin{document}
+\psframebox[fillstyle=solid,fillcolor=black]{%
+\begin{pspicture}(-1,-0.5)(12,1.5)
+\multido{\iLAMBDA=380+2}{200}{%
+  \pstVerb{
+    /lambda \iLAMBDA\space def
+    lambda
+    tx@addDict begin  wavelengthToRGB end
+  }%
+ \rput(! lambda 0.025 mul 9.5 sub 0){\Touch}
+}
+\multido{\n=0+1,\iDiv=380+40}{11}{%
+    \psline[linecolor=white](\n,0.1)(\n,-0.1)
+    \uput[270](\n,0){\textbf{\white\iDiv}}}
+    \psline[linecolor=white]{->}(11,0)
+    \uput[270](11,0){\textbf{\white$\lambda$(nm)}}
+\end{pspicture}}
+
+\psframebox[fillstyle=solid,fillcolor=black]{%
+\begin{pspicture}(-1,-0.5)(12,1)
+  \pstVerb{
+    /lambda 656 def
+    lambda
+    tx@addDict begin  wavelengthToRGB end
+  }%
+ \rput(! 656 0.025 mul 9.5 sub 0){\Touch}
+  \pstVerb{
+    /lambda 486 def
+    lambda
+    tx@addDict begin  wavelengthToRGB end
+  }%
+ \rput(! 486 0.025 mul 9.5 sub 0){\Touch}
+   \pstVerb{
+    /lambda 434 def
+    lambda
+    tx@addDict begin  wavelengthToRGB end
+  }%
+ \rput(! 434 0.025 mul 9.5 sub 0){\Touch}
+  \pstVerb{
+    /lambda 410 def
+    lambda
+    tx@addDict begin  wavelengthToRGB end
+  }%
+ \rput(! 410 0.025 mul 9.5 sub 0){\Touch}
+\multido{\n=0+1,\iDiv=380+40}{11}{%
+    \psline[linecolor=white](\n,0.1)(\n,-0.1)
+    \uput[270](\n,0){\textbf{\white\iDiv}}}
+    \psline[linecolor=white]{->}(11,0)
+    \uput[270](11,0){\textbf{\white$\lambda$(nm)}}
+\end{pspicture}}
+\end{document}

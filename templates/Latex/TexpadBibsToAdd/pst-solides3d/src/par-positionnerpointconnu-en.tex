@@ -1,0 +1,42 @@
+\section{Positioning a named point}
+
+\begin{verbatim}
+\psPoint(x,y,z){name}
+\end{verbatim}
+This is a command similar to \verb+\pnode(! x y){name}+. It places
+the node \texttt{(name)} at the point with the coordinates $(x,y,z)$,
+viewed with the chosen point of view \texttt{\Lkeyword{viewpoint}=vx vy vz}. We can
+now use the point to mark it, draw lines, polygons, etc.
+
+Let's place the centres of the atoms of the methanol molecule $\mathrm{CH_3COH}$.
+
+\begin{LTXexample}[width=8cm]
+\begin{pspicture}(-4,-4)(4,5)
+\psset{viewpoint=100 50 20 rtp2xyz,Decran=20}
+\axesIIID(3,3,3)(20,20,20)
+\psPoint(-4.79,2.06,0){C1}
+\psPoint(-4.79,15.76,0){Ox}
+\psPoint(8.43,5.57,0){C2}
+\psPoint(-14.14,3.34,0){H3}
+\psPoint(14.14,-2.94,8.90){H6}
+\psPoint(14.14,-2.94,-8.90){H7}
+\psPoint(6.43,-16.29,0){H8}
+\psline(C1)(H3)\psline(C2)(H7)
+\psline(C2)(H8)\psline(C1)(C2)
+\psline[doubleline=true](C1)(Ox)
+\psline(C2)(H6)
+\uput[r](H3){$\mathrm{H_1}$}
+\uput[l](H6){$\mathrm{H_2}$}
+\uput[l](H7){$\mathrm{H_3}$}
+\uput[l](H8){$\mathrm{H_4}$}
+\uput{0.25}[u](C1){$\mathrm{C_1}$}
+\uput{0.25}[d](C2){$\mathrm{C_2}$}
+\uput{0.25}[r](Ox){$\red\mathrm{O}$}
+\psdots[dotstyle=o,dotsize=0.3](H3)(H6)(H7)(H8)
+\psdots[dotsize=0.4](C1)(C2)
+\psdot[linecolor=red,dotsize=0.4](Ox)
+\end{pspicture}
+\end{LTXexample}
+
+
+\endinput

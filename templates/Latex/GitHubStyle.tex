@@ -1,0 +1,715 @@
+\documentclass[12pt]{article}
+
+
+% Lengths ----------------------------------------------------------------------
+
+% save parindent to a new length, originalparindent
+\newlength{\originalparindent}
+\setlength{\originalparindent}{\parindent}
+
+% set parskip to bigskipamount for space between paragraphs
+\setlength{\parskip}{\bigskipamount}
+
+% set parindent to 0pt for disabling paragraph indentation
+\setlength{\parindent}{0pt}
+
+
+% Packages ---------------------------------------------------------------------
+
+% geometry package for setting page
+% size, and for refining page margins
+\usepackage[a4paper, hscale=0.85, vscale=0.85]{geometry}
+
+% Set font encoding
+\usepackage[T1]{fontenc}
+
+% url package for handlink hyperlinks
+\usepackage{url}
+
+% hyperref package for handling in-document links and styling links
+\usepackage{hyperref}
+
+% fontspec package to load custom fonts
+\usepackage{fontspec}
+
+% xcolor package for 
+\usepackage[table]{xcolor}
+
+% secdot package for adding dot after section numbers
+\usepackage{secdot}
+
+% ulem package for enabling strikethrough 
+\usepackage[normalem]{ulem}
+
+% tocloft package for disabling
+% bold font in the table of contents
+\usepackage{tocloft}
+
+% titletoc package for adding a dot after
+% section numbers in the table of contents
+\usepackage[dotinlabels]{titletoc}
+
+% setspace package for altering linespread in tables
+\usepackage{setspace}
+
+% float package for placing tables
+% and figure at exact position
+\usepackage{float}
+
+% caption package
+% for caption styling 
+\usepackage{caption}
+
+% colortbl package for colored tables
+\usepackage{colortbl}
+
+% tikz package for inline code
+% styling, and horizontal rules
+\usepackage{tikz}
+
+% verbatim package for verbatim
+% environment in code block environments
+\usepackage{verbatim}
+
+% mdframed environment for custom
+% code blocks and custom quotes
+% (common options for all mdframed based
+% environments are set at package loading)
+\usepackage[framemethod=tikz,%
+    innerleftmargin=0.5\originalparindent,%
+    innerrightmargin=0.5\originalparindent,%
+    skipabove=0.4\baselineskip,%
+    skipbelow=0.4\baselineskip,%
+    innertopmargin=0.4\baselineskip,%
+    innerbottommargin=0.4\baselineskip]{mdframed}
+
+% tabu package for
+% easier tabular styling
+\usepackage{tabu}
+
+
+% Package Setups ---------------------------------------------------------------
+
+% setup for hyperref package:
+%   enabled pdf bookmarks,
+%   setting link styles
+\hypersetup{bookmarks=true,%
+    bookmarksnumbered=true,%
+    pdfencoding=unicode,%
+    colorlinks=true,%
+    pdfborder={0 0 0},%
+    linkcolor=black,%
+    menucolor=black,%
+    citecolor=mdhyperlinkcolor,%
+    urlcolor=mdhyperlinkcolor,%
+    filecolor=mdhyperlinkcolor}
+
+% setup for tikz package:
+%   load library for fancy hrlues
+\usetikzlibrary{decorations.pathreplacing}
+
+% setup url package:
+%   set url font to sans serif instead of teletype
+\urlstyle{sf}
+
+% Font settings ----------------------------------------------------------------
+
+\usepackage{sourcesanspro}
+\usepackage{sourcecodepro}
+
+% set document default font to Source Sans Pro and its variants
+\setmainfont[Mapping=tex-text,%
+    ItalicFont=Source Sans Pro Light Italic,%
+    BoldFont=Source Sans Pro,%
+    BoldItalicFont=Source Sans Pro Italic]{Source Sans Pro Light}
+
+% set sans serif font to Source Sans Pro and its variants (just in case)
+\setsansfont[Mapping=tex-text,%
+    ItalicFont=Source Sans Pro Light Italic,%
+    BoldFont=Source Sans Pro,%
+    BoldItalicFont=Source Sans Pro Italic]{Source Sans Pro Light}
+
+% set monospace font to Source Code Pro and its variants
+\setmonofont[Mapping=tex-text,%
+    ItalicFont=Source Code Pro ExtraLight,%
+    BoldFont=Source Code Pro]{Source Code Pro Light}
+
+
+% Color definitions ------------------------------------------------------------
+
+\definecolor{mdfancyhlinecolor}{HTML}{CCCCCC}
+\definecolor{mdsimplehlinecolor}{HTML}{DDDDDD}
+\definecolor{mdhyperlinkcolor}{HTML}{4183C4}
+\definecolor{mdinlinecodeboxbackgroundcolor}{HTML}{F8F8F8}
+\definecolor{mdinlinecodeboxframecolor}{HTML}{DDDDDD}
+\definecolor{mdblockquotelinecolor}{HTML}{DDDDDD}
+\definecolor{mdalternatingtablerowcolor}{HTML}{F8F8F8}
+\definecolor{mdtableframecolor}{HTML}{DDDDDD}
+\definecolor{mdimgboxcolor}{HTML}{DDDDDD}
+
+
+% Styling table of contents ----------------------------------------------------
+
+% set dot fill style
+\renewcommand{\cftsecdotsep}{\cftdotsep}
+\renewcommand{\cftsubsecdotsep}{\cftdotsep}
+\renewcommand{\cftsubsubsecdotsep}{\cftdotsep}
+\renewcommand{\cftparadotsep}{\cftdotsep}
+\renewcommand{\cftsubparadotsep}{\cftdotsep}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftsecdotsep}}
+\renewcommand{\cftsubsecleader}{\cftdotfill{\cftsubsecdotsep}}
+\renewcommand{\cftsubsubsecleader}{\cftdotfill{\cftsubsubsecdotsep}}
+\renewcommand{\cftparaleader}{\cftdotfill{\cftparadotsep}}
+\renewcommand{\cftsubparaleader}{\cftdotfill{\cftsubparadotsep}}
+
+% set section font style
+\renewcommand\cftsecfont{\normalfont}
+\renewcommand\cftsecpagefont{\normalfont}
+
+% set indentation of toc entries
+\newlength{\mycftsecindent}
+\newlength{\mycftsubsecindent}
+\newlength{\mycftsubsubsecindent}
+\newlength{\mycftparaindent}
+\newlength{\mycftsubparaindent}
+\setlength{\mycftsecindent}{0.5\cftsecindent}
+\setlength{\mycftsubsecindent}{0.5\cftsubsecindent}
+\setlength{\mycftsubsubsecindent}{0.5\cftsubsubsecindent}
+\setlength{\mycftparaindent}{0.5\cftparaindent}
+\setlength{\mycftsubparaindent}{0.5\cftsubparaindent}
+\setlength{\cftsecindent}{\mycftsecindent}
+\setlength{\cftsubsecindent}{\mycftsubsecindent}
+\setlength{\cftsubsubsecindent}{\mycftsubsubsecindent}
+\setlength{\cftparaindent}{\mycftparaindent}
+\setlength{\cftsubparaindent}{\mycftsubparaindent}
+\addtolength{\cftsecnumwidth}{0.3em}
+\addtolength{\cftsubsecnumwidth}{0.3em}
+\addtolength{\cftsubsubsecnumwidth}{0.3em}
+\addtolength{\cftparanumwidth}{0.3em}
+\addtolength{\cftsubparanumwidth}{0.3em}
+
+% set parskip between toc entries
+\newlength{\mycftbeforeskip}
+\setlength{\mycftbeforeskip}{0.5\cftbeforesecskip}
+\setlength{\cftbeforesecskip}{\mycftbeforeskip}
+\setlength{\cftbeforesubsecskip}{\mycftbeforeskip}
+\setlength{\cftbeforesubsubsecskip}{\mycftbeforeskip}
+\setlength{\cftbeforeparaskip}{\mycftbeforeskip}
+\setlength{\cftbeforesubparaskip}{\mycftbeforeskip}
+
+% set table of contents depth to 5
+\setcounter{tocdepth}{5}
+
+
+% Section styling --------------------------------------------------------------
+
+% add dots after section numbers (secdot package)
+\sectiondot{section}
+\sectiondot{subsection}
+\sectiondot{subsubsection}
+\sectiondot{paragraph}
+\sectiondot{subparagraph}
+
+% changing the style of \paragraph and \subparagraph titles, so
+% text after \paragraph and \subparagraph are broken into new lines
+\makeatletter
+    \renewcommand\paragraph{%
+        \@startsection{paragraph}{4}{0mm}%
+            {-\baselineskip}%
+            {.3\baselineskip}%
+            {\normalfont\normalsize\bfseries}}
+    \renewcommand\subparagraph{%
+        \@startsection{subparagraph}{5}{0mm}%
+            {-\baselineskip}%
+            {.3\baselineskip}%
+            {\normalfont\normalsize\bfseries}}
+\makeatother
+
+% set section number up to level 5
+\setcounter{secnumdepth}{5}
+
+% add a dot after section
+% numbers in the pdf bookmarks
+% http://tex.stackexchange.com/questions/150983/add-dot-to-the-end-of-section-numbering-in-pdf-bookmarks
+\makeatletter
+\renewcommand{\Hy@numberline}[1]{#1. }
+\makeatother
+
+
+% Paragraph styling ------------------------------------------------------------
+
+% prevent widows and orphans
+\widowpenalty=10000
+\clubpenalty=10000
+
+% prevent overfull lines
+\sloppy
+
+
+% New commands -----------------------------------------------------------------
+
+% mdtitle command for document title
+% (not listend in the table of contents)
+\newcommand{\mdtitle}[1]{{\LARGE\textbf{#1}}}
+
+% mdtableofcontents command for custom styled table of contents
+\newcommand{\mdtableofcontents}{{\setlength{\parskip}{0pt}\tableofcontents}}
+
+% mdsimplehrule command for a simple horizontal rule
+\newcommand{\mdsimplehrule}{%
+    \nopagebreak\begin{tikzpicture}%
+        \path[draw, mdsimplehlinecolor] (0, 0) -- (\textwidth{}, 0);%
+    \end{tikzpicture}%
+}
+
+% mdfancyhrule command for a fancy horizontal rule
+\newcommand{\mdfancyhrule}{%
+    \nopagebreak\begin{tikzpicture}%
+        \pgfdeclaredecoration{fancyhrule}{initial}{%
+            \state{initial}[width=4.25pt]%
+            {%
+                \fill[mdfancyhlinecolor] (0pt, 0pt) -- (3pt, 3pt) -- (4.25pt, 3pt) -- (1.25pt, 0pt) -- cycle;%
+            }%
+            \state{final}%
+            {%
+                \pgfpathmoveto{\pgfpointdecoratedpathlast}%
+            }%
+        }%
+        \path[decorate, decoration=fancyhrule] (0, 0) -- (\textwidth, 0);%
+    \end{tikzpicture}%
+%    \nopagebreak\begin{tikzpicture}[decoration={border, angle=45, segment length=4pt, amplitude=4pt}, thick]%
+%        \path[postaction={decorate, draw}, mdfancyhlinecolor] (0, 0) -- (\textwidth{}, 0);%
+%    \end{tikzpicture}%
+}
+
+% mdinlinecode command for including code snippets inline
+% (fake verbatim, so all special character should be escaped,
+% or textmode equivalents of special characters should be used)
+\newcommand{\mdinlinecode}[1]{%
+    \begin{tikzpicture}[baseline=0ex]%
+        \node[anchor=base,%
+            text height=1em,%
+            text depth=1ex,%
+            inner ysep=0pt,%
+            draw=mdinlinecodeboxframecolor,%
+            fill=mdinlinecodeboxbackgroundcolor,%
+            rounded corners=2pt] at (0,0) {\footnotesize\texttt{#1}};%
+    \end{tikzpicture}%
+}
+
+% bfdescriptionlabel command for changing the description
+% label style in the mdbfdescription environment
+\newcommand{\bfdescriptionlabel}[1]{%
+    \hspace{\labelsep}\normalfont{\textbf{#1:}}%
+}
+
+% codedescriptionlabel command for changing the description
+% label style in the mdcodedescription environment
+\newcommand{\codedescriptionlabel}[1]{%
+    \hspace{\labelsep}\normalfont{\mdinlinecode{#1}}%
+}
+
+% mdimgbox for a frame around figures,
+% but it can be used for anything
+\newcommand{\mdimgbox}[1]{%
+    \setlength{\fboxsep}{0pt}%
+    \setlength{\fboxrule}{0.4pt}%
+    \fcolorbox{mdimgboxcolor}{white}{#1}%
+}
+
+% New environments -------------------------------------------------------------
+
+% mdcodeblock environment for including code blocks
+% (based on mdframed, breaks between pages)
+\newmdenv[font=\footnotesize,%
+linewidth=0.4pt,%
+roundcorner=2pt,%
+linecolor=mdinlinecodeboxframecolor,%
+backgroundcolor=mdinlinecodeboxbackgroundcolor,%
+settings={\setlength{\parindent}{0pt}}]{mdcdblk}
+\newenvironment{mdcodeblock}{\endgraf\verbatim}{\endverbatim}
+\BeforeBeginEnvironment{mdcodeblock}{\begin{mdcdblk}}
+\AfterEndEnvironment{mdcodeblock}{\end{mdcdblk}}
+
+% mdnonbreakcodeblock environment for including code blocks
+% (based on mdframed, doesn't break between pages)
+\newmdenv[font=\footnotesize,%
+linewidth=0.4pt,%
+roundcorner=2pt,%
+linecolor=mdinlinecodeboxframecolor,%
+backgroundcolor=mdinlinecodeboxbackgroundcolor,%
+nobreak=true,%
+settings={\setlength{\parindent}{0pt}}]{mdnonbreakcdblk}
+\newenvironment{mdnonbreakcodeblock}{\endgraf\verbatim}{\endverbatim}
+\BeforeBeginEnvironment{mdnonbreakcodeblock}{\begin{mdnonbreakcdblk}}
+\AfterEndEnvironment{mdnonbreakcodeblock}{\end{mdnonbreakcdblk}}
+
+% mdblockquote environment for custom styled blockquotes
+% (based on mdframed, breaks between pages)
+\newmdenv[linewidth=3pt,%
+linecolor=mdblockquotelinecolor,%
+topline=false,%
+rightline=false,%
+bottomline=false,%
+settings={\setlength{\parindent}{0pt}}]{mdblockquote}
+
+% mditemize environment for
+% custom styled unordered lists
+\newenvironment{mditemize}%
+    {\begin{itemize}
+        \setlength{\parskip}{0.5\smallskipamount}}%
+    {\end{itemize}}
+
+% mdenumerate environment for
+% custom styled enumerated lists
+\newenvironment{mdenumerate}%
+    {\begin{enumerate}
+        \setlength{\parskip}{0.5\smallskipamount}}%
+    {\end{enumerate}}
+
+% mdbfdescription environment for
+% custom (bold) styled description lists
+\newenvironment{mdbfdescription}%
+{\renewcommand{\descriptionlabel}{\bfdescriptionlabel}%
+    \begin{description}%
+    \setlength{\itemindent}{\parindent}%
+    \setlength{\parskip}{0.5\smallskipamount}}%
+{\end{description}}
+
+% mdcodedescription environment for
+% custom (mdinlinecode) styled description lists
+\newenvironment{mdcodedescription}%
+{\renewcommand{\descriptionlabel}{\codedescriptionlabel}
+    \begin{description}%
+    \setlength{\itemindent}{\parindent}%
+    \setlength{\parskip}{0.5\smallskipamount}}%
+{\end{description}}
+
+
+% Document start ---------------------------------------------------------------
+
+\begin{document}
+
+\mdtitle{GitHub Markdown style \LaTeX}
+
+\mdfancyhrule
+
+\mdtableofcontents
+
+\mdfancyhrule
+
+\section{Headings}
+
+Document title with \mdinlinecode{\textbackslash{}mdtitle\{\}}.
+
+Standard \LaTeX section headings can be used (level 1--5).
+
+\subsection{Subsection}
+
+\subsubsection{Subsubsection}
+
+\paragraph{Paragraph}
+
+\subparagraph{Subparagraph}
+
+And these also appear nicely in the table of contents.
+
+\mdsimplehrule
+
+\section{Emphasis}
+
+Emphasis, aka \emph{italics}, with standard \mdinlinecode{\textbackslash{}emph\{\}}.
+
+Strong emphasis, aka \textbf{bold}, with standard \mdinlinecode{\textbackslash{}textbf\{\}}.
+
+\emph{\textbf{Combined emphasis}} with standard \mdinlinecode{\textbackslash{}emph\{\}} and \mdinlinecode{\textbackslash{}textbf\{\}}.
+
+\sout{Strikethrough} with \mdinlinecode{\textbackslash{}sout\{\}} from the \mdinlinecode{ulem} package.
+
+\mdsimplehrule
+
+\section{Lists}
+
+Unordered list with the \mdinlinecode{mditemize} environment:
+
+\begin{mditemize}
+\item foo
+\item bar
+\end{mditemize}
+
+Enumeration, aka ordered list with the \mdinlinecode{mdenumerate} environment:
+
+\begin{mdenumerate}
+\item foo
+\item bar
+\end{mdenumerate}
+
+Bold style description list with the \mdinlinecode{mdbfdescription} environment:
+
+\begin{mdbfdescription}
+\item[foo] bar
+\item[R. Daneel Olivaw] A fictional robot created by Isaac Asimov.
+\end{mdbfdescription}
+
+Inline code description list with the \mdinlinecode{mdcodedescription} environment
+
+\begin{mdcodedescription}
+\item[void *] A special type of pointer that can be pointed at objects of any data type.
+\item[R. Daneel Olivaw] a fictional robot created by Isaac Asimov.
+\end{mdcodedescription}
+
+\emph{Note: the description label inside the \mdinlinecode{mdcodedescription} environment is fake verbatim, so everything must be escaped inside it or textmode equivalents should be used of special characters. (See \hyperref[sec:mdinlinecodedef]{\mdinlinecode{\textbackslash{}mdinlinecode\{\}}'s definition}.)}
+
+\newpage
+
+Combined lists are also available. The style modifications don't affect nesting:
+
+\begin{mdenumerate}
+\item This supposed to be an example with custom styled lists.
+\begin{mditemize}
+\item unordered
+\item list
+\end{mditemize}
+\item Let's see a nested description list.
+\begin{mdbfdescription}
+\item[The Doctor] So, the year 5 billion. The Sun expands, the Earth gets roasted.
+\item[Rose] That was our first date.
+\end{mdbfdescription}
+\end{mdenumerate}
+
+\mdsimplehrule
+
+\section{Links}
+
+Links with description with \mdinlinecode{\textbackslash{}href\{url\}\{description\}}:
+
+\href{http://en.wikipedia.org/wiki/Three_Laws_of_Robotics}{Three Laws of Robotics - Wikipedia, the free encyclopedia}
+
+URLs with \mdinlinecode{\textbackslash{}url\{\}}:
+
+\url{http://en.wikipedia.org/wiki/Three_Laws_of_Robotics}
+
+\mdsimplehrule
+
+\section{Inline code and code blocks}
+
+Inline code with \mdinlinecode{\textbackslash{}mdinlinecode\{inline code\}}:
+
+Lorem ipsum dolor \mdinlinecode{sit} amet, consectetur adipiscing elit. Phasellus quis auctor \mdinlinecode{nunc}. Nam ac egestas lectus, ac tincidunt purus. Aliquam viverra dictum est, ut pretium magna tristique eget. Donec venenatis \mdinlinecode{purus} \mdinlinecode{eget} justo malesuada suscipit.
+
+\emph{Note: \mdinlinecode{\textbackslash{}mdinlinecode\{\}} is fake verbatim, so everything must be escaped inside it or textmode equivalents should be used of special characters.}
+
+Code blocks with the \mdinlinecode{mdcodeblock} environment (the example shows \mdinlinecode{\textbackslash{}mdinlinecode\{\}}'s definition):
+
+\label{sec:mdinlinecodedef}
+
+\begin{mdcodeblock}
+\newcommand{\mdinlinecode}[1]{%
+    \begin{tikzpicture}[baseline=0ex]%
+        \node[anchor=base,%
+            text height=1em,%
+            text depth=1ex,%
+            inner ysep=0pt,%
+            draw=mdinlinecodeboxframecolor,%
+            fill=mdinlinecodeboxbackgroundcolor,%
+            rounded corners=2pt] at (0,0) {\footnotesize\texttt{#1}};%
+    \end{tikzpicture}%
+}
+\end{mdcodeblock}
+
+Or with the \mdinlinecode{mdnonbreakcodeblock} environment, which won't break between pages.
+
+\mdsimplehrule
+
+\section{Figures}
+A framed figure (\mdinlinecode{\textbackslash{}mdimgbox\{\}}) with left aligned caption:
+
+\begin{mdcodeblock}
+\begin{figure}[H]
+    \captionsetup{justification=justified, singlelinecheck=false}
+    \mdimgbox{\textcolor{white!0}{\rule{0.333\textwidth}{0.333\textwidth}}}
+    \caption{\url{http://en.wikipedia.org/wiki/Deus_Irae}}
+\end{figure}
+\end{mdcodeblock}
+
+\begin{figure}[H]
+    \captionsetup{justification=justified, singlelinecheck=false}
+    \mdimgbox{\textcolor{white!0}{\rule{0.333\textwidth}{0.333\textwidth}}}
+    \caption{\url{http://en.wikipedia.org/wiki/Deus_Irae}}
+\end{figure}
+
+\mdsimplehrule
+
+\section{Tables}
+
+Table created with the help of \mdinlinecode{colortbl} and the standard table environments:
+
+\begin{mdcodeblock}
+{\linespread{1.9}
+\begin{table}[H]
+    \rowcolors{2}{mdalternatingtablerowcolor}{white}
+    \begin{tabular}{!{\color{mdtableframecolor}\vrule}l!%
+{\color{mdtableframecolor}\vrule}l!{\color{mdtableframecolor}\vrule}}
+        \arrayrulecolor{mdtableframecolor}\hline
+        \textbf{Distribution} & \textbf{Package name}\\
+        \arrayrulecolor{mdtableframecolor}\hline
+        Arch Linux & \mdinlinecode{ncurses}\\
+        Debian & \mdinlinecode{ncurses-bin}\\
+        Fedora & \mdinlinecode{ncurses}\\
+        openSUSE & \mdinlinecode{ncurses-utils}\\
+        Ubuntu & \mdinlinecode{ncurses-bin}\\
+        \arrayrulecolor{mdtableframecolor}\hline
+    \end{tabular}
+\end{table}}
+\end{mdcodeblock}
+
+{\linespread{1.9}
+\begin{table}[H]
+    \rowcolors{2}{mdalternatingtablerowcolor}{white}
+    \begin{tabular}{!{\color{mdtableframecolor}\vrule}l!%
+{\color{mdtableframecolor}\vrule}l!{\color{mdtableframecolor}\vrule}}
+        \arrayrulecolor{mdtableframecolor}\hline
+        \textbf{Distribution} & \textbf{Package name}\\
+        \arrayrulecolor{mdtableframecolor}\hline
+        Arch Linux & \mdinlinecode{ncurses}\\
+        Debian & \mdinlinecode{ncurses-bin}\\
+        Fedora & \mdinlinecode{ncurses}\\
+        openSUSE & \mdinlinecode{ncurses-utils}\\
+        Ubuntu & \mdinlinecode{ncurses-bin}\\
+        \arrayrulecolor{mdtableframecolor}\hline
+    \end{tabular}
+\end{table}}
+
+Table created using only \mdinlinecode{tabu}:
+
+\begin{mdcodeblock}
+\taburowcolors[2] {white .. mdalternatingtablerowcolor}
+\taburulecolor{mdtableframecolor}
+\tabulinesep=^1.2ex
+\tabulinesep=_0.75ex
+\arrayrulewidth=0.4pt
+\everyrow{\hline}
+\begin{tabu}{|l|l|}
+\rowfont[c]\bfseries
+Distribution & Package name\\
+Arch Linux & \mdinlinecode{ncurses}\\
+Debian & \mdinlinecode{ncurses-bin}\\
+Fedora & \mdinlinecode{ncurses}\\
+openSUSE & \mdinlinecode{ncurses-utils}\\
+Ubuntu & \mdinlinecode{ncurses-bin}\\
+\end{tabu}
+\end{mdcodeblock}
+
+\taburowcolors[2] {white .. mdalternatingtablerowcolor}
+\taburulecolor{mdtableframecolor}
+\tabulinesep=^1.2ex
+\tabulinesep=_0.75ex
+\arrayrulewidth=0.4pt
+\everyrow{\hline}
+\begin{tabu}{|l|l|}
+\rowfont[c]\bfseries
+Distribution & Package name\\
+Arch Linux & \mdinlinecode{ncurses}\\
+Debian & \mdinlinecode{ncurses-bin}\\
+Fedora & \mdinlinecode{ncurses}\\
+openSUSE & \mdinlinecode{ncurses-utils}\\
+Ubuntu & \mdinlinecode{ncurses-bin}\\
+\end{tabu}
+
+\newpage
+
+Also created with \mdinlinecode{tabu}:
+
+\begin{mdcodeblock}
+\begin{table}[H]
+\captionsetup{justification=justified, singlelinecheck=false}
+\newcolumntype{C}[1]{>{\centering}m{#1}}
+\taburowcolors[2] {white .. mdalternatingtablerowcolor}
+\taburulecolor{mdtableframecolor}
+\tabulinesep=^1.2ex
+\tabulinesep=_0.75ex
+\arrayrulewidth=0.4pt
+\everyrow{\hline}
+\begin{tabu}{|l|C{2.5cm}|C{2.5cm}|p{5.5cm}|}
+\rowfont[c]\bfseries
+Day & Minimum Temperature & Maximum Temperature & Summary \\
+Monday & 11 \textdegree{}C & 22 \textdegree{}C & A clear day with lots
+of sunshine. However, the strong breeze will bring down the temperatures. \\
+Tuesday & ~9 \textdegree{}C & 19 \textdegree{}C & Cloudy with rain,
+across many northern regions. Clear spells across most of Scotland and
+Northern Ireland, but rain reaching the far northwest. \\
+Wednesday & 10 \textdegree{}C & 21 \textdegree{}C & Rain will still linger
+for the morning. Conditions will improve by early afternoon
+and continue throughout the evening. \\
+\end{tabu}
+\caption{Weather forecast for the next 3 days.}
+\end{table}
+\end{mdcodeblock}
+
+\begin{table}[H]
+\captionsetup{justification=justified, singlelinecheck=false}
+\newcolumntype{C}[1]{>{\centering}m{#1}}
+\taburowcolors[2] {white .. mdalternatingtablerowcolor}
+\taburulecolor{mdtableframecolor}
+\tabulinesep=^1.2ex
+\tabulinesep=_0.75ex
+\arrayrulewidth=0.4pt
+\everyrow{\hline}
+\begin{tabu}{|l|C{2.5cm}|C{2.5cm}|p{5.5cm}|}
+\rowfont[c]\bfseries
+Day & Minimum Temperature & Maximum Temperature & Summary \\
+Monday & 11 \textdegree{}C & 22 \textdegree{}C & A clear day with lots
+of sunshine. However, the strong breeze will bring down the temperatures. \\
+Tuesday & ~9 \textdegree{}C & 19 \textdegree{}C & Cloudy with rain,
+across many northern regions. Clear spells across most of Scotland and
+Northern Ireland, but rain reaching the far northwest. \\
+Wednesday & 10 \textdegree{}C & 21 \textdegree{}C & Rain will still linger
+for the morning. Conditions will improve by early afternoon
+and continue throughout the evening. \\
+\end{tabu}
+\caption{Weather forecast for the next 3 days.}
+\end{table}
+
+Text source: \url{http://en.wikibooks.org/wiki/LaTeX/Tables#Text_wrapping_in_tables}
+
+\mdsimplehrule
+
+\section{Blockquotes}
+
+Blockquotes with the \mdinlinecode{mdblockquote} environment:
+
+\begin{mdblockquote}
+The Three Laws of Robotics (often shortened to The Three Laws or Three Laws) are a set of rules devised by the science fiction author Isaac Asimov.
+
+The rules were introduced in his 1942 short story ``Runaround'', although they had been foreshadowed in a few earlier stories. The Three Laws are:
+
+\begin{mdenumerate}
+\item A robot may not injure a human being or, through inaction, allow a human being to come to harm.
+\item A robot must obey the orders given to it by human beings, except where such orders would conflict with the First Law.
+\item A robot must protect its own existence as long as such protection does not conflict with the First or Second Law.
+\end{mdenumerate}
+\end{mdblockquote}
+
+Source: \href{http://en.wikipedia.org/wiki/Three_Laws_of_Robotics}{Three Laws of Robotics -- Wikipedia, the free encyclopedia}
+
+\mdsimplehrule
+
+\section{Horizontal rules}
+
+Fancy horizontal rule with \mdinlinecode{\textbackslash{}mdfancyhrule}:
+
+\mdfancyhrule
+
+Simple horizontal rule with \mdinlinecode{\textbackslash{}mdsimplehrule}:
+
+\mdsimplehrule
+
+\section{etc.}
+
+Table of contents with \mdinlinecode{\textbackslash{}mdtableofcontents}.
+
+List of figures and tables are the same as usual (\mdinlinecode{\textbackslash{}listoffigures}, \mdinlinecode{\textbackslash{}listoftables}).
+
+\mdsimplehrule
+
+\end{document}

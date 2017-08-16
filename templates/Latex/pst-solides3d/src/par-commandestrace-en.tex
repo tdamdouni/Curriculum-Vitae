@@ -1,0 +1,48 @@
+\section{Commands for drawing}
+
+The parameter for \Index{drawing} comes with the key value \Lkeyword{action} within the command
+\Lcs{psSolid}.
+
+Four values are possible:
+\begin{compactitem}
+\item \Lkeyval{none}: nothing is drawn.
+\item \Lkeyval{draw}: draws the solid as a framework and sets up dashed lines for the hidden edges.
+\item \Lkeyval{draw*}: draws the solid with dashed lines for the hidden edges and colours the visible faces.
+\item \Lkeyword{draw**}: draws the solid with a painting algorithm, without the
+    hidden edges and with colouration of the visible faces.
+\end{compactitem}
+\encadre{The key values \Lkeyval{draw} and \Lkeyword{draw*} only make sense for convex solids.}
+
+\begin{center}
+%%
+
+\psset{viewpoint=50 -20 30 rtp2xyz}
+%%
+\hfil
+\begin{pspicture}(-2.5,-2.5)(2.5,2.5)
+\psframe(-2.5,-2.5)(2.5,2.5)
+\psset{Decran=20}
+\psSolid[object=cube,action=draw,RotZ=20]%
+\rput(-1,-2){\texttt{draw}}
+\end{pspicture}
+\hfil
+%%
+\begin{pspicture}(-2.5,-2.5)(2.5,2.5)
+\psframe(-2.5,-2.5)(2.5,2.5)
+\psset{Decran=20}
+\psSolid[object=cube,action=draw*,fillcolor=magenta!20,RotZ=20]%
+\rput(-1,-2){\texttt{draw*}}
+\end{pspicture}
+\hfil
+%%
+\begin{pspicture}(-2.5,-2.5)(2.5,2.5)
+\psframe(-2.5,-2.5)(2.5,2.5)
+\psset{Decran=20}
+\psSolid[object=cube,fillcolor=magenta!20,RotZ=20]%
+\rput(-1,-2){\texttt{draw**}}
+\end{pspicture}
+\hfil
+%%
+\end{center}
+
+\endinput

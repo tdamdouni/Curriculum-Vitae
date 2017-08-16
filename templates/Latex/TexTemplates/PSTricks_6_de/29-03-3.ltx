@@ -1,0 +1,48 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{graphicx,pst-eucl}
+\StopShownPreambleCommands
+\begin{document}
+\resizebox{\linewidth}{!}{%
+\begin{pspicture}(-2,0)(13,9)% Dominique Rodriguez
+  \pstGeonode(9,3){O}(3,6){O'}(-1,8){O''}
+  \psset{PointSymbol=none, PointName=none}
+  \pstCircleOA[Radius=\pstDistVal{3},fillstyle=solid,fillcolor=black!10]{O}{}
+  \pstCircleOA[Radius=\pstDistVal{1},fillstyle=solid,fillcolor=black!15]{O'}{}
+  \pstCircleOA[Radius=\pstDistVal{.5}]{O''}{}
+  \pstInterLC[Radius=\pstDistVal{3}]{O}{O'}{O}{}{M}{toto}
+  \pstInterLC[Radius=\pstDistVal{1}]{O}{O'}{O'}{}{M'}{toto}
+  \pstRotation[RotAngle=30]{O}{M}[N]
+  \pstRotation[RotAngle=30]{O'}{M'}[N']
+  \pstInterLL[PointSymbol=default, PointName=\Omega]{O}{O'}{N}{N'}{Omega}
+  \pstMiddleAB{O}{Omega}{I}
+  \pstInterCC{I}{O}{O}{M}{A}{B}
+  \psset{nodesepA=-1, nodesepB=-3, linecolor=blue, linewidth=1.3\pslinewidth}
+  \pstLineAB[nodesep=-2]{A}{Omega}\pstLineAB[nodesep=-2]{B}{Omega}
+  \pstRotation[RotAngle=-150]{O'}{M'}[N'']
+  \pstInterLL[PointSymbol=default, PointName=\Omega']{O}{O'}{N}{N''}{Omega'}
+  \pstMiddleAB{O}{Omega'}{J}
+  \pstInterCC{J}{O}{O}{M}{A'}{B'}
+  \psset{nodesepA=-1, nodesepB=-3, linecolor=red}
+  \pstLineAB{A'}{Omega'}\pstLineAB{B'}{Omega'}
+\end{pspicture}}
+\end{document}

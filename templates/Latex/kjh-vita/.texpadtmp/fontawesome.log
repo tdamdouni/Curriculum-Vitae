@@ -1,0 +1,123 @@
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xetex 2016.12.21)  21 DEC 2016 14:15
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**fontawesome.sty
+(./fontawesome.sty
+./fontawesome.sty:12: Undefined control sequence.
+l.12 \NeedsTeXFormat
+                    {LaTeX2e}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./fontawesome.sty:13: Undefined control sequence.
+l.13 \ProvidesPackage
+                     {fontawesome}[2016/05/15 v4.6.3.1 font awesome icons]
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./fontawesome.sty:19: Undefined control sequence.
+l.19 \RequirePackage
+                    {ifxetex,ifluatex}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./fontawesome.sty:20: Undefined control sequence.
+l.20 \newif\iffontawesome@otf\fontawesome
+                                         @otffalse
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./fontawesome.sty:21: Undefined control sequence.
+l.21 \ifxetex
+             
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./fontawesome.sty:22: Undefined control sequence.
+l.22   \fontawesome
+                   @otftrue
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./fontawesome.sty:23: Extra \else.
+l.23 \else
+          
+I'm ignoring this; it doesn't match any \if.
+
+./fontawesome.sty:24: Undefined control sequence.
+l.24   \ifluatex
+                
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./fontawesome.sty:25: Undefined control sequence.
+l.25     \fontawesome
+                     @otftrue\fi\fi
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./fontawesome.sty:25: Extra \fi.
+l.25     \fontawesome@otftrue\fi
+                                \fi
+I'm ignoring this; it doesn't match any \if.
+
+./fontawesome.sty:25: Extra \fi.
+l.25     \fontawesome@otftrue\fi\fi
+                                   
+I'm ignoring this; it doesn't match any \if.
+
+./fontawesome.sty:32: Undefined control sequence.
+l.32 \newcommand
+                *{\faicon}[1]{%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./fontawesome.sty:32: Undefined control sequence.
+l.32 \newcommand*{\faicon
+                         }[1]{%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./fontawesome.sty:36: I can't find file `{fontawesomesymbols-generic.tex}'.
+l.36 \input{fontawesomesymbols-generic.tex}
+                                           
+(Press Enter to retry, or Control-D to exit)
+Please type another input file name
+./fontawesome.sty:36: Emergency stop.
+l.36 \input{fontawesomesymbols-generic.tex}
+                                           
+*** (job aborted, file error in nonstop mode)
+
+No pages of output.

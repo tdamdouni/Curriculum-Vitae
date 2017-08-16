@@ -1,0 +1,59 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-plot,pst-coil}
+\SpecialCoor
+\StopShownPreambleCommands
+\begin{document}
+\newdimen\Y\Y=3.2cm
+\fbox{\pspicture(3,3)(5,8.7)
+\psclip{\pspolygon[linewidth=0pt,linestyle=none]%
+  (3.0,8.7)(3.0,3.2)(3.225,7.5)(3.45,3.2)(3.675,7.5)(3.9,3.2)%
+  (4.125,7.5)(4.35,3.2)(4.575,7.5)(4.8,3.2)(4.8,8.7)(3.0,8.7)}%
+  \loop\ifdim\Y<8.7cm\rput(3,\Y){\psCoil[coilaspect=0,
+    coilarm=0,coilheight=3,coilwidth=.1cm,linearc=.1,linewidth=.4pt]{0}{2880}}
+\advance\Y by.15cm\repeat
+\endpsclip
+\endpspicture}\quad
+%
+\def\Radius{2 }
+\def\radius{0.3 }
+\def\speed{40 }
+\pspicture(-2.2,-2.2)(2.3,2.2)
+   \parametricplot[plotpoints=3000]{0}{360}{
+   \radius t \speed mul cos mul
+   \Radius t cos mul add
+   \radius t \speed mul sin mul
+   \Radius t sin mul add
+  }
+\endpspicture
+%
+\pstVerb{ /Radius 0.5 def }
+\pspicture(-2.2,-2.2)(2.2,2.2)
+   \parametricplot[plotpoints=3000]{0}{1080}{
+   \radius t \speed mul cos mul
+   Radius t cos mul add
+   \radius t \speed mul sin mul
+   Radius t sin mul add
+   Radius 0.0015 add /Radius exch def
+  }
+\endpspicture
+\end{document}

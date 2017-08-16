@@ -1,0 +1,60 @@
+% Author: Berteun Damman
+% Faking slanted small caps using TikZ low level transforms.
+\documentclass{minimal}
+\usepackage{tikz}
+%%%<
+\usepackage{verbatim}
+\usepackage[active,tightpage]{preview}
+\setlength\PreviewBorder{5pt}%
+%%%>
+
+\begin{comment}
+:Title:  Faking slanted small caps using TikZ low level transforms
+:Slug: faking-slanted-small-caps
+
+In italicized environments normal small caps often looks wrong because of
+its upright shape. A solution is to simply use all-uppercase in these
+environments, but this too is ugly. Using TikZ one can fake a slant. This
+is not that great, but better than nothing.
+
+Note that `kpfonts <http://www.ctan.org/tex-archive/fonts/kpfonts/>`_ for example
+provides a font which has slanted small caps by default.
+
+\end{comment}
+
+\usepackage{amsthm}
+\newtheorem{lem}{Lemma}
+% If you externalize figures this will give a new figure for
+% each usage!
+\makeatletter
+\newcommand{\textscsl}[1]{%
+   \tikz[baseline=(N.base)]%
+   % The transform says:
+   % x' = 1x + 0.22y + 0pt
+   % y' = 0x + 1y    + 0pt
+   % This gives a slant - adjust the value for each font!
+   \pgfsys@transformcm{1}{0}{0.22}{1}{0pt}{0pt}%
+   \node[inner sep=0pt] (N) {\textsc{#1}};%
+}
+\makeatother
+\begin{document}
+   % In italicized environments normal small caps often looks wrong because of
+   % its upright shape. A solution is to simply use all-uppercase in these
+   % environments, but this too is ugly. Using TikZ one can fake a slant. This
+   % is not that great, but better than nothing.
+   %
+   % Note that http://www.ctan.org/tex-archive/fonts/kpfonts/ for example
+   % provides a font which has slanted small caps by default.
+\begin{preview}
+   \begin{minipage}{4.5cm}
+       \begin{lem}
+           The \textsc{gcd} of two numbers can be used to find
+           the \textsc{lcm} of these numbers.
+       \end{lem}
+       \begin{lem}
+           The \textscsl{gcd} of two numbers can be used to find
+           the \textscsl{lcm} of these numbers.
+       \end{lem}
+   \end{minipage}
+\end{preview}
+\end{document}

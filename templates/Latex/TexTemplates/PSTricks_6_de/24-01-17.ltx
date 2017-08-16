@@ -1,0 +1,39 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-uml}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(6,5)
+ \rput(3,3){\rnode{Objekt1}{%
+  \umlClass{Objekt 1}{}}}
+ \pnode(0,1){pnode1}\psdot(pnode1)
+ \rput(6,1){\rnode{Objekt2}{%
+  \umlClass{Objekt 2}{Attr1\\Attr2\\\hline Attr3}}}
+ \rput(2,1){\rnode{Objekt3}{\umlClass{Objekt 3}{}}}
+ \rput(1,5){\rnode{Objekt4}{\umlClass{Objekt 4}{}}}
+ \rput(4,5){\rnode{Client}{\umlActor{Client}}}
+ \ncline{->}{Objekt1}{Objekt3}
+ \ncline[doubleline=true]{<->}{Objekt2}{Client}
+ \ncline[linestyle=dashed]{<->}{pnode1}{Client}
+ \ncline[linestyle=dashed]{<-}{Objekt1}{Objekt4}
+\end{pspicture}
+\end{document}

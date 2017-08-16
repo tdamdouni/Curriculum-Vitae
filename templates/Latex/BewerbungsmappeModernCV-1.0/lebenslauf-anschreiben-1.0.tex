@@ -1,0 +1,159 @@
+%% start of file `template.tex'.
+%% Copyright 2006-2013 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+%\documentclass[11pt,a4paper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+% moderncv themes
+%\moderncvstyle{casual}                             % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
+%\moderncvcolor{blue}                               % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+%\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+%\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+%___
+\documentclass[11pt,a4paper]{moderncv}
+\include{moderncv-additions}
+\usepackage[ngerman]{babel}
+\usepackage{moderncv-additions}
+\moderncvtheme[blue, roman]{casual}
+%___
+\usepackage{lipsum,blindtext,xstring}
+\DeclareRobustCommand\bcolor[2][color1]{%
+    {\bfseries\textcolor{#1}{\StrLeft{#2}{3}}%
+    \textcolor{black}{\StrGobbleLeft{#2}{3}}
+    }}
+% character encoding
+\usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
+\usepackage[ngerman]{babel}
+%\usepackage{CJKutf8}                              % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
+
+% adjust the page margins
+\usepackage[scale=0.75]{geometry}
+%\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
+%\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+
+% personal data
+\name{Hans}{im Glück}
+\title{M.Sc.}                               % optional, remove / comment the line if not wanted
+\address{Glücksstr. 13}{55444 Glücksdorf}{Deutschland \medskip}% optional, remove / comment the line if not wanted; the "postcode city" and "country" arguments can be omitted or provided empty
+\phone[mobile]{+49~(176)~111~2222}                   % optional, remove / comment the line if not wanted; the optional "type" of the phone can be "mobile" (default), "fixed" or "fax"
+\phone[fixed]{+49~(765)~1234~5678}
+%\phone[fax]{+3~(456)~789~012}
+\email{hglueck@bsp.de}                               % optional, remove / comment the line if not wanted
+% \homepage{www.johndoe.com}                         % optional, remove / comment the line if not wanted
+% \social[linkedin]{john.doe}                        % optional, remove / comment the line if not wanted
+% \social[twitter]{jdoe}                             % optional, remove / comment the line if not wanted
+% \social[github]{jdoe}                              % optional, remove / comment the line if not wanted
+% \extrainfo{optional}                 % optional, remove / comment the line if not wanted
+\photo[4,0cm][0.2pt]{bewerbungsbild.png}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
+% \quote{Some quote}                                 % optional, remove / comment the line if not wanted
+
+% to show numerical labels in the bibliography (default is to show no labels); only useful if you make citations in your resume
+%\makeatletter
+%\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
+%\makeatother
+%\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}% CONSIDER REPLACING THE ABOVE BY THIS
+
+% bibliography with mutiple entries
+%\usepackage{multibib}
+%\newcites{book,misc}{{Books},{Others}}
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+
+% #################################
+% Anschreiben.............
+
+\recipient{Max Mustermann AG}{Personalwesen \\ Hans-Beispiel-Straße 2 \\ 55555 Beispielhausen}
+
+\date{\today}
+\opening{Sehr geehrter Damen und Herren,}
+\closing{Mit freundlichen Grüßen, \vspace{0,3cm} \\ \includegraphics[width=4.5cm]{unterschrift.png} \vspace{-1,0cm}}
+%\enclosure[Anhänge]{Lebenslauf, Zeugnisse}          % use an optional argument to use a string other than "Enclosure", or redefine \enclname
+\makelettertitle
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.
+
+Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante.
+
+Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia. Nam pretium turpis et arcu.
+
+\bigskip
+
+
+\makeletterclosing
+
+\newpage
+
+% #################################
+% Lebenslauf......................
+
+\makecvtitle
+
+\section{Ausbildung}
+% arguments 3 to 6 can be left empty
+\cventry{10/04--05/05}{Master}{Karl Tux Institut für Technologie}{}{\textit{Note: 1,1}}{Pinguinkunde, Hauptfächer Prokrastination und Bummelei I, Celebrare maximus und systematische Zeitverschwendung.}
+\cventry{10/97--05/03}{Bachelor}{Universität Tuxhausen}{}{\textit{Note: 1,0}}{Biologie, Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac enim. Aliquam lorem ante.}  
+\cventry{10/96--07/02}{Abitur}{Hans Pinguin Gymnasium}{Tuxdorf}{\textit{Note: "`sehr gut"'}}{Allgemeine Hochschulreife, Technisches Gymnasium}
+
+\section{Masterarbeit}
+\cvitem{Thema}{\emph{Pressures Produced When Penguins Pooh -- Calculations on Avian Defaecation", Note: 1,0}}
+\cvitem{Betreuer}{Prof. Dr. Tom Tux, Dipl.-Ing. Tina Tinker}
+\cvitem{Abstrakt}{Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.}
+
+\section{Bachelorarbeit}
+\cvitem{Thema}{\emph{Untersuchung der Gleitfähigkeit von Bananenschalen, Note: 1,5}}
+\cvitem{Betreuer}{Prof. Dr. Andreas Code, Dipl.-Ing. Johan Github}
+\cvitem{Abstrakt}{Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.}
+
+\newpage
+
+\section{Berufserfahrung}
+\cventry{07/03--02/04}{Werkstudent}{Fraunhofer-Institut für Pinguinkunde}{Tuxhausen}{}{Mitarbeit im Labor: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.}
+\cventry{10/00--12/02}{Wissenschaftliche Hilfskraft}{Institut für Angewandtes Nichtstun}{Karl-Tux-Stadt}{}{Mitarbeit in der Verwaltung: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.}
+
+\section{Praktika}
+\cventry{10/01--04/02}{Fachpraktikum}{Tux GmbH}{Debianstadt}{}{Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.}
+\cventry{03/99--04/99}{Grundpraktikum}{Pinguin AG}{Archdorf}{}{Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.}
+
+\section{Soziales Engagement}
+\cventry{10/91--06/92}{Linux-Nachhilfe}{}{Tuxdorf}{}{Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi.}
+
+\section{Sprachen}
+\cvitemwithcomment{Deutsch}{Muttersprache}{}
+\cvitemwithcomment{Englisch}{Verhandlungssicher}{}
+\cvitemwithcomment{Spanisch}{Gute Kenntnisse}{}
+\cvitemwithcomment{Portugisisch}{Grundkenntnisse}{}
+
+\section{EDV}
+\cvdoubleitem{Betriebssysteme}{Windows, Linux}{Programmieren}{Java, C, Python}
+\cvdoubleitem{Office}{Microsoft Office, LibreOffice}{CAD}{SolidWorks}
+\cvdoubleitem{Mathematik}{OriginPro, Maple}{Textsatz}{\LaTeX}
+
+\section{Referenzen}
+\cvitem{Prof. Dr.-Ing. habil. Tom Tuxer}{Fraunhofer Institut für Pinguinkunde, tom.tuxer@pingu.edu, (098)~7654~321}
+
+% Publications from a BibTeX file without multibib
+%  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% CONSIDER MERGING WITH PREAMBLE PART
+%  to redefine the heading string ("Publications"): \renewcommand{\refname}{Articles}
+\nocite{*}
+\bibliographystyle{plain}
+\bibliography{publications}                        % 'publications' is the name of a BibTeX file
+
+% Publications from a BibTeX file using the multibib package
+%\section{Publications}
+%\nocitebook{book1,book2}
+%\bibliographystylebook{plain}
+%\bibliographybook{publications}                   % 'publications' is the name of a BibTeX file
+%\nocitemisc{misc1,misc2,misc3}
+%\bibliographystylemisc{plain}
+%\bibliographymisc{publications}                   % 'publications' is the name of a BibTeX file
+
+\clearpage
+
+\end{document}
+%% end of file `template.tex'.

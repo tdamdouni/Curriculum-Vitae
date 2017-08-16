@@ -1,0 +1,285 @@
+/* General */
+* {
+  box-sizing: border-box; }
+
+body {
+  font-size: 10px;
+  background-color: #2969B0; }
+
+header {
+  background-color: #2969B0;
+  position: absolute;
+  z-index: 1;
+  color: #fff;
+  opacity: .5;
+  padding: 1.5rem 0;
+  position: fixed;
+  height: 8.5rem;
+  width: 100%; }
+  header .titulo {
+    text-align: center;
+    font-size: 2rem; }
+
+.page {
+  background-color: #fff;
+  position: relative;
+  border-color: #ededed;
+  border-radius: 1rem;
+  margin-bottom: 3rem;
+  height: 70rem;
+  top: 9rem; }
+  .page .encabezado .logo_europass {
+    margin-top: 2rem;
+    width: 100%; }
+  .page .encabezado h3 {
+    text-align: center;
+    font-size: 1.5rem; }
+  .page .encabezado div:nth-child(3) h3 {
+    font-size: .8rem; }
+  @media (min-width: 768px) {
+    .page {
+      width: 90%; } }
+  @media (min-width: 980px) {
+    .page {
+      width: 80%; } }
+  @media (min-width: 1280px) {
+    .page {
+      width: 70%; } }
+
+/** Pagina 1 */
+#page1 {
+  height: 75rem; }
+  #page1 .texto_carta {
+    position: relative;
+    top: 100px;
+    font-size: 1.2rem;
+    line-height: 1.2;
+    text-align: justify; }
+    #page1 .texto_carta p {
+      text-indent: 4rem;
+      margin-bottom: 4rem; }
+    #page1 .texto_carta p:last-child {
+      margin-top: -2rem;
+      text-indent: 6rem; }
+  @media (min-width: 360px) {
+    #page1 .texto_carta {
+      width: 80%;
+      margin-left: 10%;
+      font-size: 1.5rem; } }
+  @media (min-width: 768px) {
+    #page1 #page1 {
+      height: 60rem; } }
+
+/** Pagina 2 */
+#page2 {
+  height: auto; }
+  #page2 ul {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0; }
+
+/** Accordion */
+#accordion {
+  margin-top: 50px; }
+  #accordion .titulo_apartado {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    line-height: 1.2;
+    text-align: right;
+    color: #2969B0;
+    font-weight: 700; }
+  #accordion .panel {
+    margin-top: 0;
+    box-shadow: none !important; }
+  #accordion .panel + .panel {
+    margin-top: 0; }
+  #accordion .panel-default {
+    border-color: transparent;
+    margin-top: 0; }
+    #accordion .panel-default .panel-heading {
+      background-color: transparent;
+      border-color: transparent; }
+  #accordion .panel-title .hr {
+    border-bottom: 2px solid #337ab7;
+    padding: 0;
+    height: 45px;
+    position: relative;
+    left: -10px; }
+  #accordion :last-child .panel-title .hr {
+    height: 31px; }
+  #accordion .panel-collapse .panel-body {
+    border-top: transparent; }
+  @media (min-width: 360px) {
+    #accordion .titulo_apartado {
+      font-size: 1.5rem; } }
+  @media (min-width: 400px) {
+    #accordion .panel-title .hr {
+      height: 32px; } }
+
+/** Info Personal */
+#info_personal {
+  margin-top: 4rem; }
+  #info_personal #foto_cv {
+    width: 50%;
+    height: 170px;
+    margin-left: 25%; }
+  #info_personal .datos_personales h1 {
+    font-size: 2rem;
+    text-align: center;
+    font-weight: 100; }
+  #info_personal .datos_personales .item_lista_datos {
+    padding-bottom: 1px; }
+    #info_personal .datos_personales .item_lista_datos h4 {
+      font-size: 1.2rem; }
+      #info_personal .datos_personales .item_lista_datos h4 a {
+        color: #333; }
+    #info_personal .datos_personales .item_lista_datos span {
+      color: #337ab7;
+      padding-right: 5px; }
+    #info_personal .datos_personales .item_lista_datos .lista_final span {
+      padding: 0 3px 0 6px; }
+  @media (min-width: 360px) {
+    #info_personal {
+      margin-top: 0; }
+      #info_personal .datos_personales h1 {
+        margin-bottom: 20px; }
+      #info_personal .datos_personales .item_lista_datos h4 {
+        font-size: 1.5rem; }
+      #info_personal .datos_personales .item_lista_datos span {
+        padding-left: 0px; }
+      #info_personal .datos_personales .item_lista_datos .lista_final span:first-child {
+        padding-left: 0; } }
+  @media (min-width: 360px) and (max-width: 768px) {
+    #info_personal .lista_datos {
+      display: block;
+      margin: 0px auto;
+      width: 30rem; } }
+  @media (min-width: 768px) {
+    #info_personal .datos_personales h1 {
+      text-align: left; } }
+
+/* Preferred Job */
+#preferred_job h4 {
+  font-size: 1.2rem;
+  text-align: center;
+  font-weight: 700; }
+@media (min-width: 360px) {
+  #preferred_job h4 {
+    font-size: 2rem; } }
+
+/* Work Experience */
+#work_experience .item_lista_experiencia {
+  margin-bottom: 15px; }
+  #work_experience .item_lista_experiencia .fecha_trabajo {
+    padding: 0;
+    position: relative;
+    left: 6px; }
+    #work_experience .item_lista_experiencia .fecha_trabajo .titulo_apartado {
+      font-size: 1.1rem;
+      margin-top: 0; }
+  #work_experience .item_lista_experiencia .trabajo .puesto {
+    font-weight: 700;
+    margin-top: 0;
+    font-size: 1.2rem;
+    color: #2969B0; }
+  #work_experience .item_lista_experiencia .trabajo .empresa {
+    font-size: 1rem; }
+    #work_experience .item_lista_experiencia .trabajo .empresa .web_empresa {
+      margin-top: 5px;
+      display: block; }
+  #work_experience .item_lista_experiencia .trabajo .sector_empresa {
+    font-weight: 600; }
+@media (min-width: 360px) {
+  #work_experience .item_lista_experiencia .fecha_trabajo .titulo_apartado {
+    font-size: 1.3rem; }
+  #work_experience .item_lista_experiencia .trabajo .puesto {
+    font-size: 1.4rem; }
+  #work_experience .item_lista_experiencia .empresa {
+    font-size: 1.2rem !important; }
+  #work_experience .item_lista_experiencia .despricion_puesto {
+    font-size: 1.3rem;
+    line-height: 1.2; } }
+
+/* Education Experience */
+#education .item_lista_educacion {
+  margin-bottom: 15px; }
+  #education .item_lista_educacion .fecha_curso {
+    padding: 0;
+    position: relative;
+    left: 6px; }
+    #education .item_lista_educacion .fecha_curso .titulo_apartado {
+      font-size: 1.1rem;
+      margin-top: 0; }
+  #education .item_lista_educacion .curso .titulo {
+    font-weight: 700;
+    margin-top: 0;
+    font-size: 1.2rem;
+    color: #2969B0; }
+  #education .item_lista_educacion .curso .colegio {
+    font-size: 1rem; }
+    #education .item_lista_educacion .curso .colegio .web_empresa {
+      margin-top: 5px;
+      display: block; }
+@media (min-width: 360px) {
+  #education .item_lista_educacion .fecha_curso .titulo_apartado {
+    font-size: 1.3rem; }
+  #education .item_lista_educacion .curso .titulo {
+    font-size: 1.4rem; }
+  #education .item_lista_educacion .colegio {
+    font-size: 1.2rem !important; }
+  #education .item_lista_educacion .lista_asignaturas_curso li {
+    font-size: 1.2rem; } }
+
+/* Personal skills */
+#personal_skills .item_lista_personal_skills {
+  margin-bottom: 15px; }
+  #personal_skills .item_lista_personal_skills .titulo_apartado {
+    font-size: 1.1rem;
+    margin-top: 0;
+    text-transform: lowercase; }
+#personal_skills .table-responsive .table th {
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 10px; }
+#personal_skills .table-responsive .table td {
+  text-align: center; }
+#personal_skills .despricion_skill span {
+  font-weight: 600; }
+#personal_skills .despricion_skill ul li {
+  padding: 2px 0; }
+@media (min-width: 360px) {
+  #personal_skills .item_lista_personal_skills .skill .titulo_apartado {
+    font-size: 1.3rem; }
+  #personal_skills .item_lista_personal_skills .despricion_skill {
+    font-size: 1.3rem;
+    line-height: 1.2; } }
+
+/* Portfolio */
+#portfolio {
+  text-align: left; }
+  #portfolio h3 {
+    font-size: 1.1rem;
+    color: #2969B0; }
+  #portfolio .lista_portfolio {
+    padding-left: 20px; }
+    #portfolio .lista_portfolio li {
+      margin-bottom: 15px;
+      font-size: 1.2rem; }
+      #portfolio .lista_portfolio li span {
+        font-size: 0.8rem; }
+  @media (min-width: 360px) {
+    #portfolio {
+      float: right; }
+      #portfolio h3 {
+        font-size: 1.5rem; }
+      #portfolio .lista_portfolio li {
+        margin-bottom: 1rem;
+        font-size: 1.5rem; }
+        #portfolio .lista_portfolio li span {
+          font-size: 1rem; } }
+  @media (min-width: 768px) {
+    #portfolio {
+      float: none;
+      text-align: center; } }
+
+/*# sourceMappingURL=cv.css.map */

@@ -1,0 +1,60 @@
+% A simple compass
+% Author: Dario Orescanin
+
+\documentclass{minimal}
+\usepackage{tikz}
+\usepackage{verbatim}
+
+\begin{comment}
+:Title: Degree wheel
+:Tags: Foreach
+
+A degree wheel inspired by `an example`_ on the `PSTricks website`_.
+
+.. _an example: http://tug.org/PSTricks/main.cgi?file=examples#compass
+.. _pstricks website: http://tug.org/PSTricks/main.cgi
+
+:Author: Dario Orescanin
+
+\end{comment}
+
+\begin{document}
+
+\begin{centering}
+
+% Define a few constants for easy configuration
+\def\radius{2cm}
+\def\onedegrad{1.8cm}
+\def\fivedegrad{1.75cm}
+\def\tendegrad{1.7cm}
+\def\labelrad{1.6cm}
+
+\begin{tikzpicture}[scale=4]
+
+  % adding a subtle gray tone to add a bit of "personality"
+  \shade[shading=radial, inner color=white, outer color=gray!15] (0,0) circle (\radius);
+
+  \draw (0,0) circle (\radius);
+  \draw[fill=black] (0,0) circle (.02mm);
+  \node[draw, circle, inner sep=.2mm] (a) at (0,0) {};
+
+  % helper lines
+  \foreach \x in {0, 45, ..., 360} \draw[very thin, gray!40] (a) -- (\x:\radius);
+
+  % main lines
+  \foreach \x in {0,...,359} \draw (\x:\onedegrad) -- (\x:\radius);
+
+  % labels and longer lines at every 10 degrees
+  \foreach \x in {0,10,...,350}
+  {
+    \node[scale=1.4, rotate=\x*-1] at (360-\x+90:\labelrad) {\x};
+    \draw (\x:\tendegrad) -- (\x:\radius);
+  };
+
+  % lines at every 5 degrees
+  \foreach \x in {0,5,...,355}  \draw (\x:\fivedegrad) -- (\x:\radius);
+
+\end{tikzpicture}
+\end{centering}
+
+\end{document}

@@ -1,0 +1,131 @@
+% Ulam spiral
+% Author: Alain Matthes (http://altermundus.fr/)
+
+\documentclass[]{article}
+\usepackage{ifthen,fullpage}
+\usepackage{tikz}
+\usepackage{verbatim}
+
+\begin{comment}
+:Title: Ulam spiral
+:Tags: Macros, Foreach
+
+The `Ulam spiral`_ reveals some interesting prime number patters. The code
+is an excellent example of how TeX' control logic can be used to create
+complex drawings. Experiment with the code to reveal other prime number patterns.
+
+.. _Ulam spiral: http://en.wikipedia.org/wiki/Ulam_spiral
+
+:Author: `Alain Matthes`_
+:Source: `Altermundus`_
+
+.. _Alain Matthes: http://altermundus.fr/index.html
+.. _Altermundus: http://www.altermundus.fr/pages/math/ulam.html
+\end{comment}
+
+\newcounter{cmpt}
+\newcounter{next}
+\newcounter{end}
+\makeatletter
+\newcounter{prim@a}
+\newcounter{prim@n}
+\newcounter{prim@d}
+\newcounter{prim@b}
+\newboolean{reponse}
+
+\newcommand*\primality[1]
+{\setboolean{reponse}{true}
+ \setcounter{prim@n}{#1}
+ \ifthenelse{\value{prim@n}=0}% n = 0
+   {\setboolean{reponse}{false}}
+   {\ifthenelse{\value{prim@n}=1}% n =1
+     {\setboolean{reponse}{false}}%
+     {\ifthenelse{\value{prim@n}=2}{}% n = 2
+       {\ifthenelse{\value{prim@n}=3}{}% n = 3
+         {\ifthenelse{\isodd{\value{prim@n}}}% n > 3 parité ?
+            {\setcounter{prim@a}{#1}
+             \setcounter{prim@d}{3} % n impair on continue
+            \whiledo{\value{prim@a}>\value{prim@d}}% deb whiledo
+              {\setcounter{prim@a}{\value{prim@n}/\value{prim@d}}
+               \setcounter{prim@b}{\value{prim@a}*\value{prim@d}}
+               \ifthenelse{\value{prim@b}=\value{prim@n}}%
+                 {\setboolean{reponse}{false}
+                  \setcounter{prim@d}{\value{prim@a}}}%
+                 {\addtocounter{prim@d}{2}%
+                 }%
+              }% end whiledo
+           }
+           {\setboolean{reponse}{false}}% n est pair
+         }%
+       }%
+     }%
+   }
+}%end macro
+\makeatother
+
+\newcommand*\ballcolor{%
+    \stepcounter{cmpt}
+    \primality{\value{cmpt}}
+    \ifthenelse{\boolean{reponse}}%
+        { \colorlet{colornb}{blue!50}}%
+        { \colorlet{colornb}{red!30}}%
+}
+
+\newcommand*{\ulam}[2]{%
+    \setcounter{cmpt}{#1}
+    \addtocounter{cmpt}{-1}
+    \setcounter{next}{0}
+    \setcounter{end}{#2}
+
+    \ballcolor
+    \node(place) at (0,0)  {$\mathbf\thecmpt$};
+
+    \whiledo{\value{cmpt}<\value{end}}%
+    {
+            \foreach \i in {0,...,\thenext}
+            {\ballcolor
+            \node[above of=place] (place) {$\mathbf\thecmpt$};
+        }
+
+        \foreach \i in {0,...,\thenext}
+        {
+            \ballcolor
+            \node[right of=place] (place) {$\mathbf\thecmpt$};
+        }
+        \stepcounter{next}
+
+        \foreach \i in {0,...,\thenext}
+        {
+            \ballcolor
+            \node[below of=place] (place) {$\mathbf\thecmpt$};
+        }
+
+        \foreach \i in {0,...,\thenext}
+        {
+            \ballcolor
+            \node[left of=place] (place) {$\mathbf\thecmpt$};
+        }
+        \stepcounter{next}
+    }
+    \addtocounter{next}{-1}
+    \foreach \i in {0,...,\thenext}
+    {
+        \ballcolor
+        \node[above of=place] (place) {$\mathbf\thecmpt$};}
+}
+\begin{document}
+
+\begin{center}
+  \begin{tikzpicture}
+  \tikzstyle{every node}=[draw,%
+                          rectangle,%
+                          shade,%
+                          minimum size  = 1.6cm,%
+                          ball color    = colornb,%
+                          node distance = 1.6cm]
+
+  \ulam{41}{113}
+
+  \end{tikzpicture}
+\end{center}
+\end{document}

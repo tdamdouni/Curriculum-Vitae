@@ -1,0 +1,39 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pstricks,pst-solides3d}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(-2,-2)(3,2)
+\psset{unit=0.4}
+\psset{viewpoint=50 -20 30 rtp2xyz,Decran=50}
+\psSolid[object=grille,base=-4 6 -4 4,action=draw,linecolor=gray](0,0,0)
+\psSolid[object=face,fillcolor=yellow,
+      incolor=blue,
+      base=0 0 3 0 1.5 3
+      ](0,1,0)
+\psSolid[object=face,fillcolor=yellow,
+      incolor=blue,
+      base=0 0 3 0 1.5 3,
+      RotX=180](0,-1,0)
+\axesIIID(0,0,0)(6,6,3)
+\end{pspicture}
+\end{document}

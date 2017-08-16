@@ -1,0 +1,32 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{118.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-node}
+\StopShownPreambleCommands
+\begin{document}
+\Cnode[radius=.3cm](.25,0){A}\Cnode[radius=.3cm](2.5,0){B}%
+\ncbar[angle=90]{->}{A}{B}\ncbar[angle=-90,arm=.2cm]{->}{B}{A}
+
+\vspace{1cm}
+\Cnode[radius=.3cm](.25,0){A}\Cnode[radius=.3cm](2.5,0){B}
+\psset{linearc=.2cm}\ncdiag[angle=90]{->}{A}{B}%
+\ncdiag[angle=-90,armA=.2cm,armB=.75cm]{->}{B}{A}
+\end{document}

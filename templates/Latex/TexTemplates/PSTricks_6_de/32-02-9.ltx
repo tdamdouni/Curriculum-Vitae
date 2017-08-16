@@ -1,0 +1,42 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{uml}
+\StopShownPreambleCommands
+\begin{document}
+\umlDiagram[box=,sizeX=5cm,sizeY=5cm,ref=relation]{%
+  \umlClass[pos=\umlBottomLeft{relation},posDelta={1,1},refpoint=bl,
+    reference=A]{Class A}{}{}
+  \umlClass[pos=\umlTopRight{relation},posDelta={-1,-1},refpoint=tr,
+    reference=B]{Class B}{}{}
+  \umlRelation{A}{B}{\umlLabelA{AB}{*}\umlLabelB{AB}{1}}
+  \umlLabel[fraction=0.5,offset=0]{AB}{Mitte}
+  \umlSubclass[ref=ABsub,angleA=0,armA=5,armAngleA=0,angleB=300,nodesep=1ex]{A}{B}
+  \umlComposition[%
+    reference=ABComp, % Marke
+    angleA=120,       % Startpunkt bei A
+    arm=3,            % Mittlere Linie
+    armAngleA=80,     % Winkel des Arms A
+    angleB=180,       % Startpunkt bei B
+    armAngleB=190     % Winkel des Arms B
+    ]{A}{B} % obere Linie
+  \umlNavigabilityA{ABComp}}% Pfeil an A
+\end{document}

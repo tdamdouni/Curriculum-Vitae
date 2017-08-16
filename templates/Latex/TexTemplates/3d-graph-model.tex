@@ -1,0 +1,120 @@
+% Author: Andreas Menge
+\documentclass[10pt]{article}
+\usepackage{tikz}
+%%%<
+\usepackage{verbatim}
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{5pt}%
+%%%>
+
+\begin{comment}
+:Title: A simple graph-model in 3D
+:slug: 3d-graph-model
+
+A simple graph-model in 3D with a helping grid but not with a rotation of 45 degrees to avoid overlapping edges. The graph lines are drawn with a white background to visualize the ones closer to the viewer and hence improve the 3D-view. Code duplication is reduced.
+\end{comment}
+
+%transforms all coordinates the same way when used (use it within a scope!)
+%(rotation is not 45 degress to avoid overlapping edges)
+% Input: point of origins x and y coordinate
+\newcommand{\myGlobalTransformation}[2]
+{
+    \pgftransformcm{1}{0}{0.4}{0.5}{\pgfpoint{#1cm}{#2cm}}
+}
+
+% draw a 4x4 helper grid in 3D
+% Input: point of origins x and y coordinate and additional drawing-parameters
+\newcommand{\gridThreeD}[3]
+{
+    \begin{scope}
+        \myGlobalTransformation{#1}{#2};
+        \draw [#3,step=2cm] grid (8,8);
+    \end{scope}
+}
+
+\tikzstyle myBG=[line width=3pt,opacity=1.0]
+
+% draws lines with white background to show which lines are closer to the
+% viewer (Hint: draw from bottom up and from back to front)
+%Input: start and end point
+\newcommand{\drawLinewithBG}[2]
+{
+    \draw[white,myBG]  (#1) -- (#2);
+    \draw[black,very thick] (#1) -- (#2);
+}
+
+% draws all horizontal graph lines within grid
+\newcommand{\graphLinesHorizontal}
+{
+    \drawLinewithBG{1,1}{7,1};
+    \drawLinewithBG{1,3}{7,3};
+    \drawLinewithBG{1,5}{7,5};
+    \drawLinewithBG{1,7}{7,7};
+}
+
+% draws all vertical graph lines within grid
+\newcommand{\graphLinesVertical}
+{
+    %swaps x and y coordinate (hence vertical lines):
+    \pgftransformcm{0}{1}{1}{0}{\pgfpoint{0cm}{0cm}}
+    \graphLinesHorizontal;
+}
+
+%draws nodes of the grid
+%Input: point of origins x and y coordinate
+\newcommand{\graphThreeDnodes}[2]
+{
+    \begin{scope}
+        \myGlobalTransformation{#1}{#2};
+        \foreach \x in {1,3,5,7} {
+            \foreach \y in {1,3,5,7} {
+                \node at (\x,\y) [circle,fill=black] {};
+                %this way circle of nodes will not be transformed
+            }
+        }
+    \end{scope}
+}
+
+
+\begin{document}
+\pagestyle{empty}
+
+
+\begin{tikzpicture}
+
+    %draws helper-grid:
+    \gridThreeD{0}{0}{black!50};
+    \gridThreeD{0}{4.25}{black!50};
+
+    %draws lower graph lines and those in z-direction:
+    \begin{scope}
+        \myGlobalTransformation{0}{0};
+        \graphLinesHorizontal;
+
+        %draws all graph lines in z-direction (reset transformation first!):
+        \foreach \x in {1,3,5,7} {
+            \foreach \y in {1,3,5,7} {
+                \node (thisNode) at (\x,\y) {};
+                {
+                    \pgftransformreset
+                    \draw[white,myBG]  (thisNode) -- ++(0,4.25);
+                    \draw[black,very thick] (thisNode) -- ++(0,4.25);
+                }
+            }
+        }
+    \end{scope}
+
+    %draws upper graph-lines:
+    \begin{scope}
+        \myGlobalTransformation{0}{4.25};
+        \graphLinesVertical;
+    \end{scope}
+
+    % draws all graph nodes:
+    \graphThreeDnodes{0}{0};
+    \graphThreeDnodes{0}{4.25};
+
+\end{tikzpicture}
+
+\end{document}

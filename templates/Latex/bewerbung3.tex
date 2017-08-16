@@ -1,0 +1,61 @@
+%TODO 
+
+\documentclass[ebner,paper=a4,fontsize=11pt,ngerman,BCOR=10mm]{scrlttr2}% 
+
+\KOMAoptions{foldmarks=false,backaddress=false,parskip=full}
+
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}      % T1-encoded fonts: auch Wörter mit Umlauten trennen
+\usepackage[latin9]{inputenc}
+
+%\usepackage{marvosym}       % Fuer Telefon-, Handy- und Briefsymbol
+
+% prefer syntax as sans serif
+
+\usepackage{url}
+
+
+
+% neuen satzspiegel berechnen, wg neuer Schrift
+%\typearea{calc}              % (preferred for a5paper)
+%\typearea{default}           % (preferred for a4paper)
+
+
+% todo: implement use of my variable frommobilephone 
+\firstfoot{} % no bank information
+
+\begin{document}%\sffamily
+\pagestyle{empty}
+%% Adresse muss im Sourcecode in einer einzigen Zeile stehen!!! (keine Zeilenumbrueche)
+\begin{letter}{Musterfirma\\Musterbereich\\ Herr Hans Mustermann\\Musterstrasse\\\\55555 Musterhausen}
+
+\setkomavar{date}{\today} 
+\setkomavar{subject}{Bewerbung auf/als}
+
+%\opening{Sehr geehrte Damen und Herren,}
+
+\opening{Sehr geehrter Herr Mustermann,}
+
+dein text
+
+\closing{Mit freundlichen Gr"u"sen}
+\enlargethispage{6\baselineskip}
+
+\medskip
+\noindent Anlagen
+
+% Wort Anlagen reicht bei Bewerbungen
+%\encl{
+% anlagen
+%}
+
+\end{letter}
+\end{document}
+
+\endinput
+%% end of file
+
+% Local Variables: 
+% mode: latex
+% TeX-master: "anschreiben.tex"
+% End: 

@@ -1,0 +1,240 @@
+\documentclass[a4paper,12pt,openany,oneside]{memoir} 
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{utopia}
+%\usepackage{palatino}	% this works
+%\raggedright
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{tabulary}
+
+%\usepackage{microtype} % does not help with ligature bug
+%\DisableLigatures[f]{encoding=T1, family=*}
+
+% my global lengths
+\newlength{\myparskip}
+\setlength{\myparskip}{1.0ex plus 0.2ex minus 0.2ex}
+\newlength{\myindent}
+\setlength{\myindent}{3ex}
+\newlength{\myskipbig}		% for headings
+\setlength{\myskipbig}{5ex plus 1.0ex minus 1.0ex}
+\newlength{\myskipsmall}		% for headings
+\setlength{\myskipsmall}{1.5ex plus 0.3ex minus 0.3ex}
+
+% page layout
+\pagestyle{plain}
+\setlrmarginsandblock{35mm}{35mm}{*}
+\setulmarginsandblock{25mm}{25mm}{*}
+\setlength{\footskip}{8mm}
+\checkandfixthelayout
+
+% paragraphs
+\setlength{\parindent}{0pt}
+\abnormalparskip{\myparskip}
+
+% the headings
+\setsecnumdepth{chapter} % number chapters but not lesser headings
+
+% h1 - same as chapter heading but no number
+\newcommand{\mytitle}[1]%
+    {{\newpage\vspace*{-1.2\topskip}%
+     \Large\mdseries\raggedright{#1}%
+     \vspace{\myskipbig}}} % is a group
+
+% h2 - chapter heading
+\chapterstyle{section}
+\renewcommand*{\chapterheadstart}{\vspace*{-1.4\topskip}} % space before
+\renewcommand*{\chapnumfont}{\Large\mdseries\raggedright}
+\renewcommand*{\afterchapternum}{\hspace{1.0ex}} % space after number
+\renewcommand*{\chaptitlefont}{\Large\mdseries\raggedright}
+\setlength{\afterchapskip}{\myskipbig} % space after
+
+% h3 - section heading
+\setbeforesecskip{-\myskipbig} % - for no hdr indent
+\setsecheadstyle{\large\mdseries\raggedright}
+\setaftersecskip{\myskipsmall}
+
+% h4 - subsection heading
+\setbeforesubsecskip{-\myskipbig} % - for no hdr indent
+\setsubsecheadstyle{\itshape\raggedright}
+\setaftersubsecskip{\myskipsmall}
+
+% h5 & h6 subsubsection heading - runin
+\setbeforesubsubsecskip{-\myskipbig} % - for no hdr indent
+\setsubsubsecheadstyle{\itshape\raggedright}
+\setaftersubsubsecskip{-1.4ex} % for runin heading
+    
+% lists, using enumitem
+\newenvironment{myul}%   % unordered list
+    {\begin{itemize} [topsep=0pt, partopsep=0pt, itemsep=0pt, %
+     parsep=\parskip, leftmargin=\myindent, labelindent=1.0pt, %
+     labelsep=*, label={\rule[0.2ex]{0.7ex}{0.7ex}}]}%
+    {\end{itemize} \vspace{0ex} }
+
+\newenvironment{myol}%   % ordered list
+    {\begin{enumerate} [topsep=0pt, partopsep=0pt, itemsep=0pt, %
+     parsep=\parskip, leftmargin=\myindent, labelindent=0.5pt, %
+     labelsep=*, label=\arabic*]}%
+    {\end{enumerate} \vspace{0ex} }
+
+% miscellaneous
+\newenvironment{myblockquote}%
+    {\leftskip=\myindent}%
+    {}
+
+% verbatim: zero the space above and below trivlists, for verbatim
+% caution: affects all trivlist environments (eg centering) beneficially
+\zerotrivseps					
+\verbatimindent=0ex		% for memoir verbatim
+\newenvironment{myverbatim}%
+    {\verbatim\leftskip=\myindent}%
+    {\endverbatim}
+
+\pfbreakskip=\myskipbig	% hr -> \pfbreak; set the gap
+%\newcommand{\myhr}%    old hr
+%    {{\centering\rule[0.4ex]{10ex}{0.3pt}\par}} % inner set {} is group
+
+\begin{document}
+
+\mytitle{Christophe-Marie Duquesne}
+
+\pfbreak
+
+\begin{myblockquote}
+
+Specialties: C++, Python, Linux, Operations Research\
+ Doctor in Computer Science and Mathematics
+
+\end{myblockquote}
+
+\pfbreak
+
+\chapter{Corporate Experience}
+
+Since 2013
+:   \emph{Data Scientist for <a href="https://www.airconomy.com/">Airconomy</a>}
+    (Frankfurt am Main, Germany).
+
+\begin{myverbatim}Data mining on various sources to forecast passenger demands over
+airline networks.
+\end{myverbatim}
+
+2009-2012
+:   \emph{PhD in Operations Research with
+    <a href="http://www.amadeus.com/amadeus/amadeus.html">Amadeus</a>} (Sophia
+    Antipolis, France).
+
+\begin{myverbatim}Researched how to assign aircraft on an airline network in the most
+ef\kern0pt{}ficient way. I authored several projects, including a C++ solver,
+a Python suite of 20+ command line tools, and Hadoop data mining
+scripts. I also worked as a teaching assistant at the university,
+further improving my communication and public speaking skills.
+\end{myverbatim}
+
+2008 (3 months)
+:   \emph{Internship at <a href="http://www.riotintoalcan.com/">Rio Tinto Alcan</a>}
+    (Clermont Ferrand, France).
+
+\begin{myverbatim}Co-authored a C++ library for optimizing the revenue of a metal
+factory. This work was published in the corporate journal of the
+company.
+\end{myverbatim}
+
+2007 (3 months)
+:   \emph{Internship at <a href="http://www3.gehealthcare.com/en/Global_Gateway">GE Healthcare</a>} (Paris, France).
+
+\begin{myverbatim}Elaborated an UML spec for the refactoring of 20.000 lines of C++.
+\end{myverbatim}
+
+\chapter{Selected Open Source Contributions}
+
+Python
+:   Contributor to <a href="http://code.google.com/p/pulp-or/">pulp-or</a>, a
+    linear programming Python library. Author of small tools, like
+    <a href="https://github.com/chmduquesne/michel">michel</a>, a command line
+    program providing bidirectionnal synchronization of google tasks
+    with text files.
+
+C++
+:   Author of
+    <a href="http://yaposib.readthedocs.org/en/latest/index.html">yaposib</a>, a
+    Python binding to COIN-OSI that is now supported by
+    <a href="http://code.google.com/p/pulp-or/">pulp-or</a>.
+
+C
+:   Author of
+    <a href="https://code.google.com/p/lazylpsolverlibs/">lazylpsolverlibs</a>, a
+    set of proxy libraries targeting cplex, gurobi and xpress. I also
+    started writing
+    <a href="https://github.com/chmduquesne/sharebox-fs">sharebox</a>, a
+    distributed FUSE file system based on git.
+
+Java
+:   Author of <a href="http://code.google.com/p/talkmyphone/">talkmyphone</a>, an
+    android application allowing phone control via gtalk. It had 10.000+
+    downloads, and was forked 50 times. It was then successfully handed
+    over to <a href="http://code.google.com/p/gtalksms/">other developers</a>.
+
+Misc
+:   Lua, Ada, Bash, Makefile, m4, autotools, cmake... See my <a href="http://resume.github.com/?chmduquesne">github
+    résumé</a>. My
+    <a href="http://meta.ohloh.net/kudos/">kudorank</a> on ohloh is 9, among the
+    top 2% of opensource developers.
+
+Linux
+:   My daily operating system: I <a href="http://blog.chmd.fr">blog</a> about it
+    sometimes.
+
+\chapter{Education}
+
+2009-2012
+:   \emph{PhD in Mathematics and Computer Science at G-SCOP Laboratory}
+    (Grenoble, France).
+
+\begin{myverbatim}Title: Integration of Fleet Deployment and of Passenger Service in
+Airline Schedule Management. Done at Amadeus, in the Operation
+Research team led by [Semi
+Gabteni](http://www.linkedin.com/in/semigabteni). Advisors: [Denis
+Naddef](http://www.g-scop.inpg.fr/~naddefd/), [Olivier
+Briant](http://www.g-scop.inpg.fr/~brianto/index.php?page=1).
+Defended in January 2013.
+\end{myverbatim}
+
+2005-2009
+:   \emph{MS in Computer Science in ENSIMAG} (Grenoble, France).
+
+\begin{myverbatim}Top French school of Applied Mathematics and Computer Science with
+highly selective recruitment.
+\end{myverbatim}
+
+2002-2005
+:   \emph{Preparatory classes in Lycée Thiers} (Marseille, France).
+
+\begin{myverbatim}Mathematics and Physics courses before a national competitive
+examination to Grandes Écoles.
+\end{myverbatim}
+
+\chapter{Activities and interests}
+
+Hobbies
+:   I like travelling. I backpacked in 13 countries in Eastern Europe
+    and South East Asia.
+
+Sports
+:   Running, Cycling, Hiking. I also played rugby union for 7 years.
+
+Activities
+:   I was the president of the <a href="http://www.grandcercle.org">grand
+    cercle</a>, one of the largest French
+    campus student associations (5.000 members) during university.
+
+\pfbreak
+
+\begin{myblockquote}
+
+<a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#99;&#104;&#109;&#100;&#64;&#99;&#104;&#109;&#100;&#46;&#102;&#114;">&#99;&#104;&#109;&#100;&#64;&#99;&#104;&#109;&#100;&#46;&#102;&#114;</a> • +336 84 14 26 82 • 28 years old\
+ 275, chemin du Petit Castel - 13100 Aix en Provence, FRANCE
+
+\end{myblockquote}
+\end{document}

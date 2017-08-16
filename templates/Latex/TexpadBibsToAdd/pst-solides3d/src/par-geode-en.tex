@@ -1,0 +1,200 @@
+\section{The object \texttt{geode}}
+
+\subsection{Mathematical presentation}
+
+Some excellent tutorials about geodes and their duals are available on the following websites:
+
+\centerline{\url{http://fr.wikipedia.org/wiki/G\%C3\%A9ode}}
+%I was not sure whether you meant ``geode'' so I looked up this url.  Wikipedia indicated that there is no article about this.
+
+The parametrisation of a geode complies with that given on the website:
+
+
+\centerline{\url{http://hypo.ge-dip.etat-ge.ch/www/math/html/amch104.html}}
+
+``\textit{We can define a geode with two parameters: a number $N$ indicating the type of the initial polyhedron  ($N = 3$ for the tetrahedron, $N = 4$ for the octahedron and $N = 5$ for the icosahedron) and a number $n$ indicating the number of divisions along the edge's length.}''
+
+
+The article \textit{Indexing the Sphere with the Hierarchical Triangular Mesh} describes a method that allows us to obtain a representation of geodes:
+
+
+\centerline{\url{http://research.microsoft.com/research/pubs/view.aspx?msr_tr_id=MSR-TR-2005-123}}
+
+\subsection{Construction with pst-solides3d}
+
+Two approaches are possible to generate a geode or its dual:
+either via \verb+\codejps+, or via the objects of
+\Lcs{psSolid}.
+
+For a geode, the codes
+\begin{verbatim}
+\codejps{N n newgeode drawsolid**}
+\end{verbatim}
+and
+\begin{verbatim}
+\psSolid[object=geode,ngrid=N n]
+\end{verbatim}
+are equivalent. And for its dual, the codes
+\begin{verbatim}
+\codejps{N n newdualgeode drawsolid**}
+\end{verbatim}
+and
+\begin{verbatim}
+\psSolid[object=geode,dualreg,ngrid=N n]
+\end{verbatim}
+
+
+
+\subsection{Some examples of geodes and their duals}
+
+\begin{LTXexample}[width=6cm]
+\begin{pspicture}(-3,-3)(3,3)
+\psset{viewpoint=50 -20 30 rtp2xyz,Decran=100}
+\psSolid[object=geode,
+         ngrid=5 0]
+%\codejps{5 0 newgeode drawsolid**}
+\psframe*(-2,-2.8)(2,-2.2)
+\rput(0,-2.5){\textcolor{white}{\textsf{N=5 n=0}}}
+\end{pspicture}
+\end{LTXexample}
+\begin{LTXexample}[width=6cm]
+\begin{pspicture}(-3,-3)(3,3)
+\psset{viewpoint=50 -20 30 rtp2xyz,Decran=100}
+\psSolid[object=geode,
+   dualreg,
+   ngrid=5 0]
+%\codejps{5 0 newdualgeode drawsolid**}
+\psframe*(-2,-2.8)(2,-2.2)
+\rput(0,-2.5){\textcolor{white}{\textsf{N=5 n=0}}}
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=6cm]
+\begin{pspicture}(-3,-3)(3,3)
+\psset{viewpoint=50 -20 30 rtp2xyz,Decran=100}
+\psSolid[object=geode,
+   ngrid=5 1]
+%\codejps{5 1 newgeode drawsolid**}
+\psframe*(-2,-2.8)(2,-2.2)
+\rput(0,-2.5){\textcolor{white}{\textsf{N=5 n=1}}}
+\end{pspicture}
+\end{LTXexample}
+\begin{LTXexample}[width=6cm]
+\begin{pspicture}(-3,-3)(3,3)
+\psset{viewpoint=50 -20 30 rtp2xyz,Decran=100}
+\psSolid[object=geode,
+   dualreg,
+   ngrid=5 1]
+%\codejps{5 1 newdualgeode drawsolid**}
+\psframe*(-2,-2.8)(2,-2.2)
+\rput(0,-2.5){\textcolor{white}{\textsf{N=5 n=1}}}
+\end{pspicture}
+\end{LTXexample}
+
+\subsection{The parameters of the \Index{geodes}}
+
+The radius of the sphere is fixed at 1, so to vary the dimensions of the
+geodes one plays around with one or the other of the two following parameters:
+\begin{compactitem}
+  \item The unit: \verb+\psset{unit=2}+
+  \item The position of the screen:
+    \texttt{\Lkeyword{viewpoint}=50 -20 30},\texttt{\Lkeyword{Decran}=100}, if the distance to the screen
+    is twice as far  as the distance to the viewer, one scales the scenery by a factor of two.
+\end{compactitem}
+
+\encadre{Within \textit{jps}, the setup for the geode is \textbackslash{}codejps\{\textbf{N n newgeode}\} and
+  for its dual it is \textbackslash{}codejps\{\textbf{N n
+    newdualgeode}\}.}
+
+\encadre{With \Lcs{psSolid}, the parameters $N$ and $n$ are transmitted via the argument \Lkeyword{ngrid}}
+
+The color and \Index{transparency} options are available for the geodes as well.
+
+\begin{LTXexample}[width=7cm]
+\psset{viewpoint=50 -20 30 rtp2xyz,Decran=150}
+\begin{pspicture}(-3.5,-3.5)(3.5,3.5)
+\psset{linewidth=2pt}
+\codejps{
+/geode42{4 2 newdualgeode} def
+.7 setfillopacity
+orange
+/geodetransparente{
+geode42
+dup videsolid
+dup (orange) inputcolors
+dup [.1 .9] solidputhuecolors} def
+geodetransparente
+drawsolid**}
+\end{pspicture}
+\end{LTXexample}
+
+\subsection{Advice for a `fast' construction of a geode}
+
+The calculation time for the geodes and their duals depends on the number of divisions of an edge
+(the second parameter $n$) and will increase rapidly with $n$
+which is really uncomfortable, because one has to wait more or less patiently, until
+the result of the transformation \Cadre{dvips->ps2pdf} is ready.
+
+As happens for all other solids, it is possible to save the calculation in external files,
+ which then saves calculation time when one has to make a test run of colours or view point.
+
+We have to operate in two stages:
+
+\subsubsection{Backup the parameters of the geodes in a \texttt{\Index{.dat}} file}
+
+\begin{verbatim}
+\documentclass{article}
+\usepackage{pst-solides3d}
+\begin{document}
+\codejps{
+4 4 newdualgeode
+ dup {[.5 .6]} exec solidputhuecolors
+(geodedual44) writesolidfile
+}
+\end{document}
+\end{verbatim}
+\Cadre{LaTeX->dvips->GSview (Windows)ou gv (Linux)}
+
+The last operation will generate 4 files:
+\begin{compactitem}
+  \item \texttt{geodedual44-couleurs.dat} $\rightarrow$ the colors of the faces;
+  \item \texttt{geodedual44-faces.dat} $\rightarrow$ the list of the faces;
+  \item \texttt{geodedual44-sommets.dat} $\rightarrow$ the list of the vertices;
+  \item \texttt{geodedual44-io.dat} $\rightarrow$ the number of the faces and vertices.
+\end{compactitem}
+
+\encadre{By default, under Windows and Linux, the security of files on the hard drive is activated and doesn't allow you to write on the drive.
+To deactivate that security option, more or less temporarily, here the two corresponding procedures:
+
+\begin{description}
+
+  \item[Linux:] Advice from Jean-Michel \textsc{Sarlat}: the simplest will be to use GhostScript directly, within the console. As there is no image to wait for:
+
+\$$>$ gs  -dNOSAFER  monfichier.ps quit.ps
+  \item[Windows:] Within the menu \texttt{Options}, the option
+    \textsf{Security of files} must be unchecked.
+\end{description}}
+
+\subsubsection{Reading the data and drawing the geode}
+
+%% \begin{LTXexample}[pos=t]
+%% \psset{unit=2}
+%% \psset{lightsrc=10 0 10,SphericalCoor=true,viewpoint=50 -20 30,Decran=100}
+%% \begin{pspicture}(-2,-2)(2,2)
+%% \psframe(-2,-2)(2,2)
+%% \psSolid[object=datfile,file=./geodedual44]
+%% \end{pspicture}
+%% \end{LTXexample}
+
+The advantage of this method becomes even more evident when one compares the compilation of two files producing the same result by different methods:
+
+The file \texttt{geode42\_direct.tex} calculates the solid  and its view. The file \texttt{geode42\_precalcul.tex} uses the file
+ \texttt{.dat} including the precalculated data of the file
+\texttt{calc\_geode42.tex}. These three files are included in the distribution.
+
+\subsection{Some other examples}
+You will find numerous other  examples of geodes on the website:
+
+\centerline{\url{http://melusine.eu.org/lab/bpst/pst-solides3d/geodes}}
+
+\endinput

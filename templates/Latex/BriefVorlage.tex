@@ -1,0 +1,66 @@
+%%
+% Deutsche LaTeX Briefvorlage von Jan-Philip Gehrcke
+% http://gehrcke.de -- jgehrcke@googlemail.com
+% November 2009, Aktualisierung Januar 2013
+%%
+
+\documentclass[
+    absender,
+    paper=a4,
+    version=last,
+    fontsize=11pt,
+    DIV=13,
+    BCOR=0mm]{scrlttr2}
+\usepackage[english,ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{csquotes}
+
+% Definiere Grundschrift: sans serif Latin Modern
+\usepackage{lmodern}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage[T1]{fontenc}
+
+% Seitenlayout anpassen:
+\usepackage{changepage}
+%\changepage{text height}{text width}{even-side margin}
+%{odd-side margin}{column sep.}
+%{topmargin}{headheight}{headsep}{footskip}
+\changepage{+3cm}{}{}{}{}{}{}{}{-5cm}
+
+
+\begin{document}
+% Anlagentext (Doppelpunkt wird automatisch gesetzt)
+\setkomavar*{enclseparator}{Anlage}
+% Betreff, Datum, Ort:
+\setkomavar{subject}{Betreff: der Stein ist sehr groß}
+\setkomavar{date}{den 09. Januar 2013}
+\setkomavar{place}{Breitburg}
+
+
+% Definiere Brief und Empfaenger 1:
+\begin{letter}{
+    Herr Pille Palle\\
+    Mulle Molle GmbH\\
+    Torkenstr. 1\\
+    12345 Bürgälö
+}
+\opening{Sehr geehrter Herr Palle,}
+
+% In diesem Beispiel soll der Briefkoerper auf Englisch sein. Wenn wir LaTeX die
+% aktuelle Textsprache per `\selectlanguage{}` wissen lassen, verhaelt es sich
+% entsprechend (angepasste Silbentrennung und mehr).
+\selectlanguage{english}
+Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
+
+A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.
+
+The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country.
+
+% Schalte zurueck auf Deutsch
+\selectlanguage{ngerman}
+\closing{Mit freundlichen Grüßen,}
+\encl{Bäume}
+% Ende Brief 1
+\end{letter}
+
+\end{document}

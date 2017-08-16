@@ -1,0 +1,7 @@
+\ProvidesFile{fromaddressmatthias.lco}%
+\setkomavar{fromname}{Matthias Pospiech}
+\setkomavar{fromaddress}{Edenstraﬂe 18 \\ 30161 Hannover}
+\setkomavar{fromphone}{0511 3534318 \\ 0170 5586781}
+\setkomavar{fromurl}{www.matthiaspospiech.de}
+\setkomavar{fromemail}{matthias.pospiech@gmx.de}
+\endinput

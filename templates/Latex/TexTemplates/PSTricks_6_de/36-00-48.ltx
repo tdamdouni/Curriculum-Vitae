@@ -1,0 +1,61 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+%
+\usepackage{bigdelim}
+\usepackage{multirow}
+\usepackage{colortbl}
+\usepackage{array}
+\usepackage{pst-node}
+\definecolor{gray}{rgb}{0.9,0.9,0.9}
+\def\empty{\multicolumn{1}{|c|}{}}
+\def\colCell#1#2{\multicolumn{1}{|>{\columncolor{#1}}c|}{#2}}
+\def\nodeCell#1{\multicolumn{1}{|c|}{\pnode{#1}{}}}
+
+\StopShownPreambleCommands
+\begin{document}
+\def\arraystretch{1.1}
+\begin{tabular}{ccl}
+\textbf{Segment} & \textbf{Usage} & \\
+\textbf{number}  &                & \\\cline{2-2}
+0x0  & \colCell{gray}{Kernel text and data} & \\\cline{2-2}
+0x1  & \colCell{gray}{User text}            & \\\cline{2-2}
+0x2  & \colCell{red}{User stack, data}      & \\\cline{2-2}
+0x3  & \nodeCell{A}
+     & \rdelim\}{10}{1.5cm}[\parbox{6.5cm}{{\color{blue}Available for the user process}\\
+    	    \hspace*{0.25cm}\pnode{A2}if \texttt{shmat()}or \texttt{mmap()} is called}]\\\cline{2-2}
+0x4  & \empty & \\\cline{2-2}
+0x5  & \empty &  \\\cline{2-2}
+0x6  & \empty & \\\cline{2-2}
+0x7  & \empty & \\\cline{2-2}
+0x8  & \empty & \\\cline{2-2}
+0x9  & \empty & \\\cline{2-2}
+0xA  & \empty & \\\cline{2-2}
+0xB  & \empty & \\\cline{2-2}
+0xC  & \nodeCell{B}                         & \\\cline{2-2}
+0xD  & \colCell{gray}{Shared library text}  & \\\cline{2-2}
+0xE  & \empty & \pnode{B2}\\\cline{2-2}
+0xF  & \colCell{gray}{\footnotesize Per-process shared library data} & \\\cline{2-2}
+\end{tabular}
+\ncline[arrows=->,linewidth=2pt,linecolor=blue,doubleline=true]{A}{B}
+\ncdiag[arrows=->,linewidth=1.25pt,linearc=0.2,
+    angleA=180,angleB=0,armA=0.2cm,nodesepB=-0.25cm,armB=0.625cm]{A2}{B2}
+\end{document}

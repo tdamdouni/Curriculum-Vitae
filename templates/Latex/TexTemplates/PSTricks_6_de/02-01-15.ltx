@@ -1,0 +1,43 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pstricks}
+\newcount\WL \unitlength.75pt
+\def\WaveToPS#1{%
+  \definecolor{tmp}{wave}{#1}\extractcolorspec{tmp}\tmp
+  \expandafter\convertcolorspec\tmp{rgb}\tmp \expandafter\WaveToPSi\tmp,}
+\def\WaveToPSi#1,#2,#3,{\pstVerb{/Red {#1} def /Green {#2} def /Blue {#3} def}}
+\pstVerb{/Corr {dup 0 gt {Gamma exp} if } def }
+\definecolor[ps]{lambda}{rgb}{Red Corr Green Corr Blue Corr}
+\StopShownPreambleCommands
+\begin{document}
+\begin{picture}(510,70)(310,-10)\sffamily\tiny
+  \linethickness{1.25\unitlength}\WL=360
+  \pstVerb{/Gamma .8 def}\multiput(320,0)(1,0){456}{%
+    \WaveToPS{\the\WL}{\color{lambda}\line(0,1){50}}\global\advance\WL1}%
+  \linethickness{0.25\unitlength}\WL=360
+  \multiput(320,0)(20,0){23}{%
+    \picture(0,0)
+      \line(0,-1){5}\multiput(5,0)(5,0){3}{\line(0,-1){2.5}}%
+      \put(0,-10){\makebox(0,0){\the\WL}}\global\advance\WL20
+    \endpicture}%
+\end{picture}
+\end{document}

@@ -1,0 +1,39 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{uml}
+\StopShownPreambleCommands
+\begin{document}
+\umlPackage[box=,subof=subof,stereotype=stereo,importedFrom=importedFrom,
+    comment=Kommentar]{Package}{%
+  \umlDiagram[sizeX=7cm,sizeY=4cm,box=,ref=pack]{%
+    \umlClass[pos=\umlBottomLeft{pack},posDelta={2ex,2ex},refpoint=bl]{Buch}{}{}
+    \umlClass[pos=\umlTopLeft{pack},posDelta={2ex,-2ex},refpoint=tl]{Haus}{}{}
+    \umlClass[pos=\umlTopRight{pack},posDelta={-2ex,-2ex},refpoint=tr]{Person}{}{}
+    \umlClass[pos=\umlBottomRight{pack},posDelta={-2ex,2ex},refpoint=br]{Autor}{}{}
+    \umlAssociation{Buch}{Haus}  \umlLabelB[refpoint=l]{BuchHaus}{ist in}
+    \umlAssociation{Buch}{Person}\umlLabelA{BuchPerson}{liest}
+    \umlSubclass{Autor}{Person}  \umlAssociation{Buch}{Autor}
+    \umlLabelA[height=.5ex,refpoint=lb]{BuchAutor}{geschrieben}
+    \umlAssociation{Haus}{Person}\umlLabelA{HausPerson}{lebt in}
+  }% Ende von \umlDiagram
+}% Ende von \umlPackage
+\end{document}

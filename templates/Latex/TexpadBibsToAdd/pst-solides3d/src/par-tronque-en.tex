@@ -1,0 +1,36 @@
+\section{Truncate a solid's vertices}
+
+The option \Lkeyword{trunc} allows us to \Index{truncate} a solid's vertices either
+globally or individually. This option uses the key
+\Lkeyword{trunccoeff} (value $0.25$ by default) which indicates the ratio
+$k$ used for the \Index{truncation} ($0<k\leq 0.5$).
+%
+\begin{itemize}
+  \item \texttt{\Lkeyword{trunc}=\Lkeyval{all}} truncates all the vertices;
+  \item \texttt{\Lkeyword{trunc}=0 1 2 3} truncates the vertices 0, 1, 2 and 3.
+\end{itemize}
+%
+\begin{LTXexample}[width=6cm]
+\psset{viewpoint=50 50 30 rtp2xyz,Decran=25,lightsrc=viewpoint}
+\begin{pspicture}(-3,-2)(2,2)
+\psSolid[
+   action=draw,
+   object=cube,
+   RotZ=30,
+   trunccoeff=.2,
+   trunc=all]%
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=6cm]
+\psset{viewpoint=50 50 30 rtp2xyz,Decran=25,lightsrc=viewpoint}
+\begin{pspicture}(-3,-2)(2,2)
+\psSolid[action=draw,
+   object=cube,
+   RotZ=30,
+   trunccoeff=.2,
+   trunc=0 1 2 3]%
+\end{pspicture}
+\end{LTXexample}
+
+\endinput 

@@ -1,0 +1,21 @@
+Beispielprogramme
+
+Damit die Beispiele mit LaTeX laufen, sind ein paar Dinge zu beachten:
+      Es müssen die ebenfalls auf CTAN vorhandenen Dokumentenklassen benutzt
+      werden. Alle Beispiele sollten auch mit XeLaTeX oder LuaLaTeX laufen, wenn man das Paket
+      fontenc gegen ein entsprechendes PAket austauscht. Die Beispiele laufen nicht
+      mit ConTEXt.
+
+Die verwendete Dokumentenklasse, die im Allgemeinen mit exa
+beginnt, kann durch eine der Standarddokumentenklassen, beispielsweise article
+ersetzt werden, wenn die beiden Zeilen
+ \StartShownPreambleCommands
+ \StopShownPreambleCommands
+gelöscht oder auskommentiert werden. 
+
+Nur die Zeilen zwischen \StartShownPreambleCommands und \StopShownPreambleCommands,
+beziehungsweise zwischen \begin{document} und \end{document} werden im Buch ausgegeben.
+Verwendet man keine der exa-Dokumentenklassen, so sind diese beiden Befehle
+auszukommentieren.
+
+Herbert Voss

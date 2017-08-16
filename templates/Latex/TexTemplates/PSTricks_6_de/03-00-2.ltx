@@ -1,0 +1,37 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{166.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-plot}
+\StopShownPreambleCommands
+\begin{document}
+\psset{xunit=1.5,yunit=0.75,plotpoints=200,
+  plotstyle=dots}
+\begin{pspicture}(-1.1,-3.5)(1.2,3.1)
+  \psaxes[Dx=0.5]{->}(0,0)(-1,-3.5)(1.2,3)%
+    [$x$,0][$y$,0]
+  \rput[l](0.2,2){$f(x)=\arccos x$}
+  \psset{yunit=1.5cm,xunit=.75cm,swapaxes=true}
+  \psplot[linecolor=red]{-3.1415}{0}%
+    {x RadtoDeg cos}
+  \psplot[plotstyle=dots,plotpoints=10]%
+      {0}{1.5707}{x RadtoDeg cos}
+\end{pspicture}
+\end{document}

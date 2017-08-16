@@ -1,0 +1,323 @@
+%%----------------------------------------------------------------------
+% (c) 2008 by
+%   Raoul Rubien - rubienr-at-sbox-dot-tugraz-dot-at
+%   Thomas Quaritsch - tq-qt-sbox-dot-tugraz-dot-at
+%
+% Template Version 0.36 (April 2008)
+%%----------------------------------------------------------------------
+\newcommand{\templateVersion}    {0.36/Apr. 2008}     % template version
+
+%%----------------------------------------------------------------------
+%
+% ToDo: Adjust this details
+% Switch to non draft mode when your document is ready. Note that images
+% are not shown while \documentclass - draft is on, wheras overfull
+% boxes are.
+%
+%\documentclass[a4paper, 11pt, fleqn, parskip, draft]{scrartcl}
+\documentclass[a4paper, 11pt, fleqn, parskip]{scrartcl}
+\newcommand{\isDraft}          {true} % true | false
+
+%%----------------------------------------------------------------------
+%
+% Used packages
+%
+\usepackage[utf8]{inputenc}           % encoding
+\usepackage[ngerman] {babel}          % german wordwrap, use it for german texts
+%\usepackage[english] {babel}          % english wordwrap, use it for english texts
+\usepackage{algorithmic,algorithm}    % expresions
+\usepackage{ifthen}                   % controllflow
+\usepackage{url}                      % url
+%\usepackage{hyperref}                 % href, or cross referencing throgh the document
+\usepackage{color}                    % use color features
+\usepackage{graphicx}                 % print pics
+%\usepackage{amsmath,amssymb,amstext} % printing math formula etc.
+%\usepackage{makeidx}                 % indexing
+\usepackage{fancyhdr}                 % header and footer
+\pagestyle {fancy}                    %
+%\usepackage{listings}                 % sourcecode
+\usepackage{longtable}                % a better table package
+\usepackage{helvet}                   % use Helvetica (normally sans serif)
+\usepackage{paralist}                 % smaller itemize vertical distance
+\usepackage[includehead,includefoot]{geometry}
+\usepackage{setspace}
+
+%%----------------------------------------------------------------------
+%
+% some vars
+%
+\newcommand{\shortCourseName}    {GADI}             % abbr. course name
+\newcommand{\longCourseName}     {Gesellschaftliche Aspekte der Informationstechnologie} % long course name
+%\newcommand{\institute}         {Graz.TeachCenter} % institute name
+%\newcommand{\instituteUrl}      {{\url{http://tugtc.tugraz.at/wbtmaster/welcome.html}}} % institute url
+\renewcommand{\date}{GAdI SS 2008}
+
+
+%%----------------------------------------------------------------------
+%
+% author details
+% ToDo: Adjust this details
+%
+\newcommand{\Author}             {Max Mustermann}            % author details
+%\newcommand{\AuthorMatnum}       {0123456}                   % author's matricula number
+%\newcommand{\AuthorEmail}       {max@sbox.tugraz.at}        % author's email address
+\newcommand{\course} {Gesellschaftliche Aspekte der Informationstechnologie} %
+\newcommand{\method}             {Scientific Writer}         % mode is shown within top header
+\newcommand{\lang}               {ger}                       % language (ger|eng)
+\newcommand{\toc}                {false}                     % table of contents before \tof (true | false)
+\newcommand{\tof}                {false}                     % table of figures at the very last page (true | false)
+
+
+%%----------------------------------------------------------------------
+%
+% other usefull crubbs
+% Using \sloppy may help you if your text causes overfull boxes.
+%
+\sloppy                                                     % less fussy about line breaking and can prevent overfull boxes
+\pagenumbering{arabic}                                      % set pagenumbering to arabic
+\renewcommand{\familydefault}{\sfdefault}                   % definitely sans serif
+
+
+%%----------------------------------------------------------------------
+%
+% useful color definitions
+%
+\definecolor{white}              {rgb}{1,1,1}                % R:255 G:255 B:255
+\definecolor{blue}               {rgb}{0.211,0.373,0.603}    % R: 76 G:129 B:178
+\definecolor{lightblue}          {rgb}{0.3,0.5,0.7}          % R: 54 G: 96 B:154
+
+
+%%----------------------------------------------------------------------
+%
+% margin parameters
+%
+\geometry{verbose,paperwidth=21cm,paperheight=29.7cm}
+\geometry{tmargin=10mm,bmargin=13mm,lmargin=25mm,rmargin=25mm}
+
+%%----------------------------------------------------------------------
+%
+% header / footer
+%
+\renewcommand{\headrule}{} %suppress default headrule
+
+\lhead[]{\sf\hspace*{-2.37cm}\textcolor{white}{\colorbox{lightblue}{\makebox[2.07cm][r]{\thepage}}}\hspace{0.07cm} \course\ -- \method}
+\chead[]{}
+\rhead[]{}
+
+\lfoot[]{\sf\date}
+\cfoot[]{}
+\rfoot[]{}
+
+%%----------------------------------------------------------------------
+%
+%
+%
+\usepackage[
+    pdftex=true,             %% sets up hyperref for use with the pdftex program
+    plainpages=false,        %% set it to false, if pdflatex complains: 
+                             %%``destination with same identifier already exists''
+    backref,                 %% adds a backlink text to the end of each biblio item
+    pagebackref=false,       %% if true, creates backward references as a list of 
+                             %% page numbers in the bibliography
+    colorlinks=true,         %% turn on colored links (true is better for on-screen
+                             %% reading, false is better for printout versions)
+    bookmarks=true,          %% if true, generate PDF bookmarks (requires two passes 
+                             %% of pdflatex)
+    bookmarksopen=false,     %% if true, show all PDF bookmarks expanded
+    bookmarksnumbered=false, %% if true, add the section numbers to the bookmarks
+    %pdfstartpage={1},       %% determines, on which page the PDF file is opened
+    pdfpagemode=None,        %% None, UseOutlines (=show bookmarks), UseThumbs 
+                             %% (show thumbnails), FullScreen
+    linkcolor=black, 
+    urlcolor=black,
+    citecolor=black,
+    anchorcolor=black,
+    pagecolor=black
+  ]{hyperref}
+
+%%----------------------------------------------------------------------
+%
+% section styles
+%
+\makeatletter
+\renewcommand{\section}{                  % the style
+  \@startsection {section}                % the name
+  {1}                                     % the level
+  {0mm}                                   % the indent
+  {-1.6\baselineskip}                     % the before skip
+  {0.1\baselineskip}                      % the after skip
+  {\rm\Large\bfseries\textcolor{blue}} % fontstyle
+}
+
+\renewcommand{\subsection}{               % subsection style
+  \@startsection {subsection}             % the name
+  {2}                                     % the level
+  {0mm}                                   % the indent
+  {-1.6\baselineskip}                     % the before skip
+  {0.1\baselineskip}                      % the after skip
+  {\rmfamily\bfseries\Large\textcolor{lightblue}} % fontstyle
+}
+
+\renewcommand{\subsubsection}{             % subsection style
+  \@startsection {subsubsection}           % the name
+  {3}                                      % the level
+  {5mm}                                    % the indent
+  {-0.8\baselineskip}                      % the before skip
+  {0.1\baselineskip}                       % the after skip
+  {\normalfont\normalsize\sffamily\textbf} % fontstyle
+}
+\makeatother
+
+
+%%----------------------------------------------------------------------
+% some helper
+%%----------------------------------------------------------------------
+% insert highlighted TODOs
+% \toDo {text}
+\newcommand{\toDo}[1]
+{
+  \textcolor{red}{#1}
+}
+
+%%----------------------------------------------------------------------
+%
+% include a picture in the text(paced in .img/...)
+%
+% \includeImg {label} {width} {title} {path/to/image_without_extension(png|ps|jpg)}
+\newcommand{\includeImg}[4]
+{
+  \begin{figure}[htbp]
+    \centering
+    \label{#1}
+    \fbox{
+      \includegraphics[width=#2\textwidth]{./img/#4}
+    }
+    \caption{#3}
+  \end{figure}
+}
+
+
+%%----------------------------------------------------------------------
+%
+% distinguish gernan and english content
+%
+% \selectByLang {german content} {englich content}
+\newcommand{\selectByLang}[2]{
+  \ifthenelse{\equal{\lang}{ger}} {#1} {}
+  \ifthenelse{\equal{\lang}{eng}} {#2} {}
+}
+
+
+%%----------------------------------------------------------------------
+%
+% standard titles
+%
+\newcommand{\gerMainTitle}         {Titel (deutsch) – bitte auf zwei Zeilen \\beschränken}
+\newcommand{\gerSummary}           {Zusammenfassung}
+\newcommand{\gerKeywords}          {Schlüsselwörter}
+\newcommand{\gerIntroduction}      {Einleitung}
+\newcommand{\gerCharacterization}  {Darstellung}
+\newcommand{\gerDiscussion}        {Diskussion}
+\newcommand{\gerBibliography}      {Literaturverzeichnis}
+
+\newcommand{\engMainTitle}         {Title (in English) – no more than two lines at the maximum}
+\newcommand{\engSummary}           {Abstract}
+\newcommand{\engKeywords}          {Keywords}
+\newcommand{\engIntroduction}      {Introduction}
+\newcommand{\engCharacterization}  {Characterization}
+\newcommand{\engDiscussion}        {Discussion}
+\newcommand{\engBibliography}      {Bibliography}
+
+
+%%----------------------------------------------------------------------
+%
+% the document
+%
+\begin{document}
+  %draft beacon
+  \ifthenelse{\boolean{\isDraft}}{
+    \hspace{2mm}\small{(Template Ver.: \templateVersion)}
+  }{}
+
+  %author details
+  \begin{center}
+	\vspace*{3mm}
+    \large \textbf{\Author} % \\ \AuthorMatnum}
+    \vspace*{10mm}
+  \end{center}
+
+ % Title, Abstract and Keywords in both languages
+
+  \selectByLang{
+    \begin{spacing}{2}\textbf{\LARGE\gerMainTitle\normalsize}\end{spacing}
+
+    \textbf{\gerSummary}
+
+    \input{./content/abstract_ger}
+
+    \textbf{\gerKeywords}
+
+    \input{./content/keywords_ger}
+
+	~
+
+    \begin{spacing}{2}\textbf{\LARGE\engMainTitle\normalsize}\end{spacing}
+
+    \textbf{\engSummary}
+
+    \input{./content/abstract_eng}
+
+    \textbf{\engKeywords}
+
+    \input{./content/keywords_eng}
+  }
+  {
+    \begin{spacing}{2}\textbf{\LARGE\engMainTitle\normalsize}\end{spacing}
+
+    \textbf{\engSummary}
+
+    \input{./content/abstract_eng}
+
+    \textbf{\engKeywords}
+
+    \input{./content/keywords_eng}
+  }
+
+  % Introduction
+
+  \selectByLang{\section{\gerIntroduction}}
+               {\section{\engIntroduction}}
+  \label{sec:introduction}
+  \selectByLang{\input{./content/introduction_ger}}
+               {\input{./content/introduction_eng}} %./content/..._(ger|eng).tex
+
+  % Characterization
+
+  \selectByLang {\section{\gerCharacterization}}
+                {\section{\engCharacterization}}
+  \label{sec:characterization}
+  \selectByLang{\input{./content/characterization_ger}}
+               {\input{./content/characterization_eng}} %./content/..._(ger|eng).tex
+
+  % Discussion
+
+  \selectByLang {\section{\gerDiscussion}} 
+                {\section{\engDiscussion}}
+  \label{sec:discussion}
+  \selectByLang{\input{./content/discussion_ger}}
+               {\input{./content/discussion_eng}} %./content/..._(ger|eng).tex
+
+  % Bibliography
+
+  \selectByLang {\section{\gerBibliography}}
+                {\section{\engBibliography}}
+  \label{sec:bibliography}
+  \renewcommand{\refname}{}
+  \selectByLang{\input{./content/bibliography_ger}}
+               {\input{./content/bibliography_eng}} %./content/..._(ger|eng).tex
+
+  %tables of contents
+  \ifthenelse{\boolean{\toc}}{\newpage\tableofcontents}{}
+  \ifthenelse{\boolean{\tof}}{\listoffigures}{}
+\end{document}
+% EoF

@@ -1,0 +1,58 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\usepackage[utf8]{inputenc}
+\StartShownPreambleCommands
+\usepackage{pstricks,pst-node}
+\definecolor{lila}{rgb}{0.6, 0.2, 0.5}
+\definecolor{darkyellow}{rgb}{1, 0.9, 0}
+\StopShownPreambleCommands
+\begin{document}
+\psset{nodesep=3pt}
+Die Bindungsenergie im Tröpfchenmodell setzt sich aus
+folgenden Teilen zusammen:
+\begin{itemize}
+\item dem \rnode{b}{\psframebox[linecolor=lightgray]{Oberflächenanteil,}}
+\item dem \rnode{a}{\psframebox[linecolor=darkyellow]{Volumenanteil,}}\\[0.5cm]
+\def\xstrut{\vphantom{\frac{(A)^1}{(B)^1}}}
+\begin{equation}
+E =
+\rnode[t]{ae}{\psframebox*[fillcolor=darkyellow,
+  linestyle=none]{\xstrut a_vA}} +
+\rnode[t]{be}{\psframebox*[fillcolor=lightgray,
+  linestyle=none]{\xstrut -a_fA^{2/3}}} +
+\rnode[t]{ce}{\psframebox*[fillcolor=green,
+  linestyle=none]{\xstrut -a_c\frac{Z(Z-1)}{A^{1/3}}}} +
+\rnode[t]{de}{\psframebox*[fillcolor=cyan,
+  linestyle=none]{\xstrut -a_s\frac{(A-2Z)^2}{A}}} +
+\rnode[t]{ee}{\psframebox*[fillcolor=yellow,
+  linestyle=none]{\xstrut E_p}}
+\end{equation}\\[-0.2cm]
+\item dem \rnode{c}{\psframebox[linecolor=green]{Coulomb-Anteil,}}
+\item der \rnode{d}{\psframebox[linecolor=cyan]{Symmetrieenergie,}}
+\item sowie einem \rnode{e}{\psframebox[linecolor=yellow]{Paarbildungsbeitrag.}}
+\end{itemize}
+\psset{linecolor=darkgray,linewidth=0.5pt,arrowscale=1.5}
+\nccurve[angleA=-90,angleB=90,linecolor=darkyellow]{->}{a}{ae}
+\nccurve[angleB=45,linecolor=lightgray]{->}{b}{be}
+\nccurve[angleB=-90,linecolor=green]{->}{c}{ce}
+\nccurve[angleB=-90,linecolor=cyan]{->}{d}{de}
+\nccurve[angleB=-90,linecolor=yellow]{->}{e}{ee}
+\end{document}

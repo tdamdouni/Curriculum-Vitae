@@ -1,0 +1,43 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{166.324pt}
+\setlength\parindent{0pt}
+\usepackage{pstricks}
+\def\Markierung{%
+  \psset{linewidth=0.2pt}
+  \psline[arrowscale=2,
+     tbarsize=3mm]{|<->|}(4.5,-3.5)(4.5,-4.5)
+  \psline[linestyle=dashed](3.25,-4.5)(4.5,-4.5)
+  \psline[linestyle=dashed](2.75,-3.5)(4.5,-3.5)}
+\StartShownPreambleCommands
+\usepackage{pst-coil}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(0,-5)(5,5)
+  \pszigzag(0,-4)(3.5,-4)\uput*[0](3.5,-4){coilwidth}
+  \pszigzag[coilwidth=0.75cm](0,-2.6)(3.6,-2.6)
+  \uput*[0](3.5,-2.6){0.75cm}
+  \pszigzag[coilwidth=0.5cm](0,-1.8)(3.5,-1.8)
+  \uput*[0](3.5,-1.8){0.50cm}
+  \pszigzag[coilwidth=0.25cm](0,-1.2)(3.5,-1.2)
+  \uput*[0](3.5,-1.2){0.25cm}
+  \pszigzag*[coilwidth=0.5cm](0,-0.5)(3.5,-0.5)
+  \uput*[0](3.5,-0.5){0.50cm}\Markierung
+\end{pspicture}
+\end{document}

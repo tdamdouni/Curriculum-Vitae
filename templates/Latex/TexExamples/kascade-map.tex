@@ -1,0 +1,114 @@
+% Map of a HiSPARC detector inside the KASCADE experiment
+% Author: David Fokkema
+\documentclass{article}
+\usepackage{tikz}
+%%%<
+\usepackage{verbatim}
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{center}
+\setlength\PreviewBorder{10pt}%
+%%%>
+\begin{comment}
+:Title: Map of a HiSPARC detector inside the KASCADE experiment
+:Tags: Foreach;Styles;Spy library;Physics;Astronomy
+:Author: David Fokkema
+:Slug: kascade-map
+
+The KASCADE experiment is a 200 × 200 m array detecting cosmic rays. It
+consists of 252 detector stations spaced 13 m apart and has taken data
+from 1996 to 2009. It continued to host a few guest experiments,
+including LOPES, TAUWER and HiSPARC, until early 2013. This map shows the
+layout of KASCADE and the location of the HiSPARC station. This figure is
+a minor revision of the one included in
+[my PhD thesis](http://dx.doi.org/10.3990/1.9789036534383).
+\end{comment}
+\usetikzlibrary{spy,arrows}
+\usepackage[detect-all]{siunitx}
+
+\newcommand{\hisparcbox}[1]{%
+    \path[hisparc,#1]
+        (-.4, .7) .. controls (0, .75) ..  (.4, .7) --
+        (.35, -1.7) ..  controls(0, -1.72) ..  (-.35, -1.7) -- cycle;
+}
+
+\begin{document}
+\begin{center}
+\begin{tikzpicture}
+    [ x=.5mm, y=.5mm,
+      font={\sffamily},
+      station/.style={fill=gray},
+      hut/.style={fill=lightgray},
+      cluster/.style={fill=yellow!30, rounded corners=2pt},
+      road/.style={fill=blue!10},
+      calorimeter/.style={fill=green!30},
+      tracker/.style={fill=red!30},
+      hisparc/.style={fill=red, rounded corners=.15pt},
+      hisparcgps/.style={fill=red},
+      axis/.style={gray,very thick,->,>=stealth'},
+      ruler/.style={gray,|<->|,>=stealth'},
+      spy using outlines={red, circle, magnification=4, size=25 * 4,
+                          connect spies}
+    ]
+    % Clusters
+    \foreach \i in {-1.5, -0.5, ..., 1.5} {
+        \foreach \j in {-1.5, -0.5, ..., 1.5} {
+            \path[cluster, shift={(\i * 52, \j * 52)}]
+                (-22, -22) rectangle (22, 22);
+        }
+    }
+
+    % Roads
+    \foreach \i in {-1.5, -0.5, ..., 1.5} {
+        \path[road, shift={(0, \i * 52 + 2)}]
+            (-105, -1.5) rectangle (105, 1.5);
+    }
+
+    % Detector array
+    \foreach \i in {-7.5, -6.5, ..., 7.5} {
+        \foreach \j in {-7.5, -6.5, ..., 7.5} {
+            \path[station, shift={(\i * 13, \j * 13)}]
+                (-1.2, -1.2) rectangle (1.2, 1.2);
+        }
+    }
+    % Two detectors are slightly displaced
+    \path[station, shift={(-6.5, 23.5)}] (-1.2, -1.2) rectangle (1.2, 1.2);
+    \path[station, shift={(6.5, 23.5)}] (-1.2, -1.2) rectangle (1.2, 1.2);
+
+    % Electronic huts
+    \foreach \i in {-1.5, -0.5, ..., 1.5} {
+        \foreach \j in {-1.5, -0.5, ..., 1.5} {
+            \path[hut, shift={(\i * 52, \j * 52 - 1.5)}]
+                (-2.5, -1.2) rectangle (2.5, 1.2);
+        }
+    }
+
+    % Central detector
+    \fill[white] (-13, -13) rectangle (13, 21);
+    \path[calorimeter, shift={(0, 5)}] (-10, -8) rectangle (10, 8);
+
+    % Muon tracker
+    \path[tracker, shift={(0, 4)}] (-2.7, 32.5) rectangle (2.7, 70.5);
+
+    % HiSPARC station
+    \hisparcbox{shift={(65.0, 15.05)}, rotate=180}
+    \hisparcbox{shift={(65.0, 20.82)}, rotate=180}
+    \hisparcbox{shift={(70.0, 23.71)}, rotate=-90}
+    \hisparcbox{shift={(60.0, 23.71)}, rotate=90}
+    \path[hisparcgps, shift={(65.0, 23.71)}] (0, 0) circle (.3);
+
+    % Draw rulers
+    \draw[ruler] (-97.5, -105) -- (97.5, -105)
+        node[midway,below] {\SI{195}{\meter}};
+    \draw[ruler] (84.5, 105) -- (97.5, 105)
+        node[midway,above] {\SI{13}{\meter}};
+    \draw[ruler] (-105, -97.5) -- (-105, 97.5)
+        node[midway,above,sloped] {\SI{195}{\meter}};
+    \draw[ruler] (105, 84.5) -- (105, 97.5)
+        node[midway,below,sloped] {\SI{13}{\meter}};
+
+    % Spy
+    \spy on (65.0, 20.82) in node at (30, -50);
+
+\end{tikzpicture}
+\end{center}
+\end{document}

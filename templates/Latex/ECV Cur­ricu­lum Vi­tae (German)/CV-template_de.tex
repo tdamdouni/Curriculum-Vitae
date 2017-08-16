@@ -1,0 +1,190 @@
+%%
+%% Copyright 2006-2011 Christoph P. Neumann, Bernd Haberstumpf
+%%
+%% This LaTeX file provides a template for a german CV.
+%%
+%% This file is free property; as a special exception the author
+%% gives unlimited permission to copy and/or distribute it, with
+%% or without modifications, as long as this notice is
+%% preserved.
+%%
+%% This file is distributed in the hope that it will be useful,
+%% but WITHOUT ANY WARRANTY, to the extent permitted by law;
+%% without even the implied warranty of MERCHANTABILITY or
+%% FITNESS FOR A PARTICULAR PURPOSE.
+%%
+
+\documentclass[german]{ecv}
+
+% Dateiname: images/<portrait>.jpg
+\ecvPortrait{portrait}
+\ecvName{<Vorname(n), Nachname(n)>}
+
+\begin{document}
+
+\begin{ecv}
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Person
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ecvSec{\hypertarget{hypertarget:\ecvPerson}{\ecvPerson}}
+
+\ecvEPR{Name}   {\textsc{<Nachname(n)>}, <Vorname(n)>}
+\ecvEPR{Adresse}{<Stra"se>, <Hausnummer>,\ecvNewLine
+                 D--<Postleitzahl>, <Ort>}
+\ecvEPR{Telefon}{(49) <Vorwahl> / <Telefonnummer>}
+\ecvEPR{Fax}{(49) <Vorwahl> / <Faxnummer>}
+\ecvEPR{E-Mail} {\ecvHyperEMail{<E-Mail>}}
+\ecvEPR{Staatsangeh"origkeit}
+                {deutsch}
+\ecvEPR{Geburtsdatum}
+                {<Geburtsdatum>}
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Profession
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ecvBSec{\hypertarget{hypertarget:\ecvProfession}{\ecvProfession}}
+
+% Chronologisch beginnend mit den juengsten Beschaeftigungen
+\ecvEFR{Zeitraum}{<Jahr>--<Jahr>}
+\ecvENR{Arbeitgeber}
+                {\ecvBold{<Firmenname>}\\
+                 <Stra"se> <Hausnummer>, <Postleitzahl> <Ort>, <Land>}
+%
+\ecvEFR{Projekt <von> bis <bis>}
+                {<Thema>}
+\ecvENR{Position}{<Stellung innerhalb der Firma>}
+\ecvENR{Wichtigste T"atigkeiten}
+                {<Liste von T"atigkeiten>}
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Education
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ecvBSec{\hypertarget{hypertarget:\ecvEducation}{\ecvEducation}}
+
+% Universit"at
+\ecvEFR{Zeitraum}{<Jahr>--<Jahr>}
+\ecvENR{Erworbene Qualifikation}
+                {\ecvBold{<Titel>}}
+\ecvENR{Bildungseinrichting}
+                {<Name der Bildungseinrichtung>}
+\ecvENR{Hauptf"acher}
+                {<Liste der Hauptf"acher>}
+\ecvENR{Nebenf"acher}
+                {<Liste der Nebenfd"acher>}
+\ecvENR{Note}   {Durchschnitt <Durchschnittsnote>}
+% Schule
+\ecvEFR{Zeitraum}{<Jahr>--<Jahr>}
+\ecvENR{Erworbene Qualifikation}
+                {<Title>}
+\ecvENR{Bildungseinrichting}
+                {<Name der Bildungseinrichtung>}
+\ecvENR{Abiturf"acher}
+                {<Liste der F"acher>}
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Research
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ecvBSec{\hypertarget{hypertarget:\ecvResearch}{\ecvResearch}}
+             
+\ecvEFB{Diplomarbeit}{"`<Titel der Diplomarbeit>"' --- <Institut>}
+\ecvEFB{Studienarbeit}{"`<Titel der Studienarbeit>"' 
+                      --- <Institut>}
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Publications
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ecvBSec{\hypertarget{hypertarget:\ecvPublications}{\ecvPublications}}
+             
+\ecvEFR{Publikation}{<Autorenliste>:
+                     \emph{<Titel der Publikation>}
+                     <Name der Zeitschrift>. <Verlag>, 
+                     <Ort>, <Erscheiningsdatum>}
+
+
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Jobs
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ecvBSec{\hypertarget{hypertarget:\ecvJobs}{\ecvJobs}}
+
+\ecvEFR{Zeitraum}{<Jahr>--<Jahr>}
+\ecvENR{Arbeitgeber}
+                 {\ecvBold{<Name der Firma>}, <Stadt>/<Land>}
+\ecvENR{Arbeitsverh"altnis}
+                 {<Typ des Besch"aftigungsverh"altnisses>}
+\ecvENR{Wichtigste T"atigkeiten}
+                 {<Aufgabe>
+                 }
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Languages
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ecvBSec{\hypertarget{hypertarget:\ecvLanguages}{\ecvLanguages}}
+
+\ecvERSub{Muttersprache}{\ecvBold{Deutsch}}
+
+\ecvEBSub{Sonstige Sprachen}
+                        {<Sprache> -- Lesen: <Erfahrungsgrad>, Schreiben: 
+                         <Erfahrungsgrad>, Sprechen: <Erfahrungsgrad>}
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Language Travels
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ecvBSub{Sprachreisen}
+
+\ecvEFR{Zeitraum}{<Datum>--<Datum>}
+\ecvENR{Ort}    {<Ort>/<Land>}
+\ecvENR{Veranstalter}
+                {<Veranstatlter>}
+\ecvENR{Zertifikat}
+                {<Name des erworbenen Zertifikats>}
+
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Abilities
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ecvPageBreak
+\ecvBSec{\hypertarget{hypertarget:\ecvAbilities}{\ecvAbilities}}
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Abilities / social
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ecvEBSub{Soziale\ecvNewLine F"ahigkeiten}
+                {<Prosabeschreibungen zu den sozialen St"arken>
+                }
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Abilities / organisational
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ecvEBSub{Organisatorische\ecvNewLine F"ahigkeiten}
+                {<Prosabeschreibungen zu Organisatorischen F"ahigkeiten
+                 und wie sie erworben wurden>
+                }
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Abilities / professional
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ecvBEBSub{Fachliche Kompetenz}
+                {<Prosabeschreibung zu fachlichen Kompetenzen>}
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Hobbies
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ecvBEBSub{Hobbies}
+                {<Liste der wichtigsten Hobbies und privaten Interessen>
+                }
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Attachments
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ecvBSec{\hypertarget{hypertarget:\ecvAttachements}{\ecvAttachements}}
+
+\ecvOVR         {<Liste der Anlagen>
+                } 
+
+\end{ecv}
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Signature
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ecvSig{<Nachname>, <Vorname>}{<Ort>}
+
+\end{document}
+\end

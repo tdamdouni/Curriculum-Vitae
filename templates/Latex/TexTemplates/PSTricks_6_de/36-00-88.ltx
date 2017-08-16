@@ -1,0 +1,30 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pstricks,pst-solides3d}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(-2,-2)(2,2)
+\psset{lightsrc=10 20 30,viewpoint=50 20 30 rtp2xyz}
+\psset{Decran=30}
+\psSolid[object=tetrahedron,r=3,linecolor=blue,action=draw*,fillcolor=blue!40]
+\end{pspicture}
+\end{document}

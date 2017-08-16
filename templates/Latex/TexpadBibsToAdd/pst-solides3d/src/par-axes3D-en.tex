@@ -1,0 +1,49 @@
+\section{The \Index{axes} in 3d}
+
+The command \verb+\axesIIID[options](x1,y1,z1)(x2,y2,z2)+ draws the axes $Ox$,
+$Oy$ and $Oz$ dashed from the origin $O$ to the coordinates
+$(x_1,0,0)$ for the $x$-axis, $(0,y_1,0)$ for the $y$-axis and
+$(0,0,z_1)$ for the $z$-axis and from there continues drawing the axes as lines to the points $(x_2,0,0)$, $(0,y_2,0)$ and $(0,0,z_2)$.
+
+The options are the following:
+\begin{compactitem}
+    \item all colour options, line width as well as all types of arrows.
+    \item \texttt{\Lkeyword{labelsep}=length} which allows you to position the \Index{label} in a self defined distance away from the extremity of the arrow of the axis, the default value is \texttt{\Lkeyword{labelsep}=5pt}---this is a real distance in three dimensions and not on screen.
+    \item the choice of the labels on each of the axes with the option: \\
+    \texttt{\Lkeyword{axisnames}={a,b,c}}, the default values are \texttt{\Lkeyword{axisnames}={x,y,z}}.
+    \item the potential to specify the style of the labels with the option: \\
+    \texttt{\Lkeyword{axisemph}=}\verb+\boldmath\Large\color{red}+. By default there is no style predefined, 
+    which means, if no style is chosen one will get \verb+$x$,$y$,$z$+.
+    \item \Lkeyword{showOrigin} is a Boolean, \texttt{true}---by default. If it is set to 
+    \texttt{\Lkeyword{showOrigin}=false} the dashed lines aren't drawn to the origin anymore.
+    \item \Lkeyword{mathLabel} is a Boolean, \texttt{true}---by default, in which case the
+     math mode is activated. Set to \texttt{\Lkeyword{mathLabel}=false} the labels are set in text mode.
+\end{compactitem}
+\encadre{The \Index{labels} are placed at the extemities of the axes.}
+
+\begin{LTXexample}[width=5cm]
+\begin{pspicture}(-2,-2)(3,3)
+\psset{viewpoint=100 30 20,Decran=100}
+\psSolid[object=cube,a=2,
+        action=draw*,
+        fillcolor=magenta!20]
+\axesIIID[showOrigin=false](1,1,1)(3,2,2.5)
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=5cm]
+\begin{pspicture}(-2,-1)(3,4)
+\psset{viewpoint=100 45 20,Decran=100}
+\psSolid[object=cylindre,h=2,r=1,
+        action=draw*,mode=4,
+        fillcolor=green!20]
+\axesIIID[linewidth=1pt,linecolor=red,arrowsize=5pt,
+          arrowinset=0,axisnames={a,b,c},
+          axisemph={\boldmath\Large\color{red}},
+          labelsep=10pt]
+         (1,1,2)(2,2,3)
+\end{pspicture}
+\end{LTXexample}
+
+
+\endinput

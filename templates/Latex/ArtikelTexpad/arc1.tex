@@ -1,0 +1,77 @@
+
+% Minimalbeispiel 
+\documentclass[a4paper,fontsize=11pt,parskip=half]{scrartcl} 
+\usepackage[T1]{fontenc} 
+\usepackage[utf8]{inputenc} 
+\usepackage[ngerman]{babel} 
+\usepackage[demo]{graphicx} 
+\usepackage{picinpar,wrapfig,fancyvrb,lipsum,bera} 
+
+\addtokomafont{caption}{\itshape} 
+\addtokomafont{captionlabel}{\sffamily\bfseries} 
+\renewcommand*{\captionformat}{~--~} 
+
+\begin{document} 
+\section*{Minimalbeispiel} 
+Ein bisschen test Text der nicht von blindtext generiert wurde da das 
+glaube ich einen kleinen Unterschied macht wo man denn letztendlich 
+dann die wrapfigure Umgebung platziert. 
+
+\begin{figure}[h!] 
+\centering 
+\includegraphics[width=4cm,height=2cm]{plank} 
+\caption{Blick in die perfekte Nacht} 
+\end{figure} 
+
+\begin{figwindow}[2,l,{ 
+\unitlength15mm 
+\begin{picture}(3,1.4) 
+\put(0.7,0.7){\circle*{0.2}} \put(0.7,0.7){\circle{1.2}} 
+\put(0.7,0.7){\vector(0,1){0.6}} \put(2.5,0.7){\circle*{0.5}} 
+\end{picture}},{Kreise}] 
+\lipsum*[3] 
+\end{figwindow} 
+
+\begin{wrapfigure}[9]{l}{6cm}% 
+\vspace{-0.8\baselineskip} 
+\centering% 
+\rule{6cm}{3.2cm}% 
+\caption{Mit wrapfigure} 
+\end{wrapfigure}% 
+Test\footnote{Da stolpert manchmal der Algorithmus.} -- \lipsum*[6-8] 
+
+% Das geht auch alles mit \parshape 
+\vspace{\parskip} 
+\hfill\smash{% Adjustment for height/depth 
+\raisebox{\dimexpr-\height-1.5\baselineskip}{% 
+\begin{minipage}{6.0cm}% 
+\includegraphics[width=6.0cm,height=2cm]{blank}% 
+\captionof{figure}{Mit \textbackslash parshape}% 
+\end{minipage}}% 
+}\\[\dimexpr-2\baselineskip-2\parskip] 
+
+% \parshape <num lines> <indent> <width> ... 
+\parshape 11 
+0pt \textwidth 0pt \textwidth 
+0pt 0.55\textwidth 0pt 0.55\textwidth 
+0pt 0.55\textwidth 0pt 0.55\textwidth 
+0pt 0.55\textwidth 0pt 0.55\textwidth 0pt 0.55\textwidth 
+0pt \textwidth 0pt \textwidth 
+Mit etwas mehr Handarbeit geht das jetzt auch anders mit 
+\texttt{\textbackslash parshape}.\footnote{Damit braucht man 
+dann auch kein picinpar mehr.} \lipsum[1] 
+\parshape 0 
+
+\subsection*{Wer ist das Problem, picinpar oder scrartcl?} 
+Wie man leicht sieht, gibt es hier zwei Grafiken mit \texttt{caption}, 
+dessen Formatierung folgendermaßen angepasst wurde. 
+
+\begin{Verbatim}[fontsize=\footnotesize] 
+\addtokomafont{caption}{\itshape} 
+\addtokomafont{captionlabel}{\sffamily\bfseries} 
+\renewcommand*{\captionformat}{~--~} 
+\end{Verbatim} 
+
+Jedoch kümmert sich die textumflossene Grafik \texttt{Kreise} -- die mit 
+dem Paket \texttt{picinpar} eingebracht wurde -- überhaupt nicht darum. 
+\end{document} 

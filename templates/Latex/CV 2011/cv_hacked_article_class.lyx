@@ -1,0 +1,901 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage{lastpage}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\newcommand{\ø}{\raisebox{.3ex}{\tiny$\; \bullet \;$}}
+\renewcommand{\arraystretch}{1.25}
+%\usepackage{fancyhdr}
+%\pagestyle{fancy}
+\headsep 10pt
+\chead{\small{\textrm{\textit{}}}}
+\cfoot{}
+%\usepackage{mathpazo}
+%\usepackage[english]{babel}
+\end_preamble
+\use_default_options false
+\maintain_unincluded_children false
+\language british
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman palatino
+\font_sans cmss
+\font_typewriter cmtt
+\font_default_family rmdefault
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 11
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry true
+\use_amsmath 1
+\use_esint 0
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1.5cm
+\topmargin 1.4cm
+\rightmargin 1.5cm
+\bottommargin 1.4cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip smallskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\html_latex_start <span class='latex'>
+\html_latex_end </span>
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\noindent
+\align center
+
+\size large
+\noun on
+\begin_inset VSpace -8pt
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="6cm">
+<column alignment="center" valignment="top" width="2cm">
+<column alignment="right" valignment="top" width="3cm">
+<column alignment="center" valignment="top" width="5cm">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\noindent
+\align left
+
+\series bold
+\shape smallcaps
+\begin_inset VSpace -70pt
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\series default
+\shape default
+TAHA DHIAEDDINE AMDOUNI
+\begin_inset Newline linebreak
+\end_inset
+
+Milbertshofener Str.
+ 44
+\begin_inset Newline linebreak
+\end_inset
+
+D-80807 München
+\begin_inset Newline linebreak
+\end_inset
+
++49-173-5939609
+\begin_inset Newline linebreak
+\end_inset
+
+tdamdouni@me.com
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\noindent
+\align right
+\begin_inset Graphics
+	filename Foto.JPG
+	lyxscale 40
+	width 3.5cm
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\noindent
+\align right
+
+\series bold
+\shape smallcaps
+\begin_inset VSpace -70pt
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\series default
+\shape default
+männlich
+\begin_inset Newline linebreak
+\end_inset
+
+geb.
+ am 22.6.81
+\begin_inset Newline linebreak
+\end_inset
+
+ Tunesien
+\begin_inset Newline linebreak
+\end_inset
+
+Verheiratet
+\begin_inset Newline linebreak
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset VSpace 30pt
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\noun on
+Berufserfahrung
+\series default
+\noun default
+
+\begin_inset VSpace -8pt
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100line%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace -12pt
+\end_inset
+
+
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 0000.0000.000
+
+\noun on
+2011
+\noun default
+ 
+\series bold
+\noun on
+Führung von Warenwitschaftssystem
+\noun default
+ 
+\shape italic
+
+\begin_inset Newline newline
+\end_inset
+
+
+\series default
+
+\begin_inset Quotes eld
+\end_inset
+
+Gedeon Friseur Kosmetik
+\begin_inset Quotes erd
+\end_inset
+
+, München
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 0000.0000.000
+
+\noun on
+2009--2011
+\noun default
+ 
+\series bold
+\noun on
+Software Entwicklung 
+\begin_inset Quotes eld
+\end_inset
+
+Apps
+\begin_inset Quotes erd
+\end_inset
+
+ für Apple´s iPhone & iPad
+\noun default
+ 
+\shape italic
+
+\begin_inset Newline newline
+\end_inset
+
+
+\series default
+\emph on
+-- Modellierung eines mobilen Clients für das ARMED-System
+\emph default
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Quotes eld
+\end_inset
+
+EADS & TU München
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\emph on
+-- Evaluierung der Auswirkung von Mikro-Adaptivität in Digitalen Lernspielen
+\emph default
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Quotes eld
+\end_inset
+
+Dance Research Group & TU München
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 0000.0000.000
+\noindent
+
+\noun on
+2004--2008 
+\series bold
+Betreuung Ausländischer Patienten in Deutschland
+\series default
+\noun default
+
+\begin_inset Newline newline
+\end_inset
+
+Department Manager - Internatinal Medical Department
+\emph on
+ - 
+\emph default
+Städtischen Kliniken München, Medical Park, Schön Kliniken, ...
+\begin_inset Newline newline
+\end_inset
+
+
+\emph on
+
+\begin_inset Quotes eld
+\end_inset
+
+Europe Health GmbH
+\begin_inset Quotes erd
+\end_inset
+
+, München, Bad Wiessee, Vogtareuth, Murnau, ...
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 0000.0000.000
+\noindent
+2003--2004
+\series bold
+ 
+\noun on
+Seminar Assistant
+\series default
+\noun default
+
+\begin_inset Newline newline
+\end_inset
+
+BICOM - Bioresonanzmethode
+\begin_inset Newline newline
+\end_inset
+
+
+\emph on
+
+\begin_inset Quotes eld
+\end_inset
+
+Regumed GmbH
+\begin_inset Quotes erd
+\end_inset
+
+, München
+\emph default
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 0000.0000.000
+\noindent
+2001--2003
+\series bold
+ 
+\noun on
+Studenten Tätigkeiten
+\series default
+\noun default
+
+\begin_inset Newline newline
+\end_inset
+
+-- Studentenvermittlung Jobs
+\begin_inset Newline newline
+\end_inset
+
+-- EDV Hilfe
+\begin_inset Newline newline
+\end_inset
+
+-- Nachhilfe
+\emph on
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 0000.0000.000
+\noindent
+
+\emph on
+\begin_inset VSpace -4pt
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\noun on
+Studium
+\series default
+\noun default
+
+\begin_inset VSpace -8pt
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100line%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace -12pt
+\end_inset
+
+
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 0000.0000.000
+\noindent
+
+\noun on
+2001--2011 
+\series bold
+Studienfach: Informatik mit Nebenfach Elektrotechnik
+\series default
+\noun default
+ 
+\begin_inset Newline newline
+\end_inset
+
+Schwerpunkt: Software Engineering & Development
+\begin_inset Newline newline
+\end_inset
+
+
+\emph on
+Abschluss: Zeugnis über die Diplomvorprüfung
+\begin_inset Newline newline
+\end_inset
+
+Technische Universität München
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 0000.0000.000
+\noindent
+
+\noun on
+1999--2001 
+\series bold
+Deutsch Kurse
+\series default
+\noun default
+
+\begin_inset Newline newline
+\end_inset
+
+
+\emph on
+Abschluss: Zertifikat Deutsch mit der Note ”Gut” 
+\begin_inset Newline newline
+\end_inset
+
+Bescheinigungen über die erfolgreiche Teilnahme an alle Kurse von der Grundstufe
+, Mittestufe und Oberstufe
+\begin_inset Newline newline
+\end_inset
+
+Goethe-Institut Tunis - München
+\begin_inset Newline newline
+\end_inset
+
+ 
+\begin_inset VSpace 10pt
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\noun on
+Schulausbildung
+\series default
+\noun default
+
+\begin_inset VSpace -8pt
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100line%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace -12pt
+\end_inset
+
+
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 0000.0000.000
+\noindent
+
+\noun on
+2000 
+\series bold
+Abitur: Baccalaureat (17,3 / 20)
+\begin_inset Newline newline
+\end_inset
+
+
+\series default
+\emph on
+\noun default
+Abschluss: Reifzeugnis in der Fachrichtung Mathematik mit der Note ”Sehr
+ Gut”
+\series bold
+\emph default
+\noun on
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 0000.0000.000
+\noindent
+
+\noun on
+1993--2000 
+\series bold
+Gymnasium
+\series default
+\noun default
+
+\begin_inset Newline newline
+\end_inset
+
+
+\emph on
+Pioneer School Ariana - Tunesien
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 0000.0000.000
+\noindent
+
+\noun on
+1987--1993 
+\series bold
+Grunschule
+\series default
+\noun default
+
+\begin_inset Newline newline
+\end_inset
+
+
+\emph on
+École Primaire Farhat Hached - Tunesien
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 0000.0000.000
+\noindent
+
+\emph on
+\begin_inset VSpace -4pt
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\noun on
+Skills
+\series default
+\noun default
+
+\begin_inset VSpace -8pt
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100line%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace -12pt
+\end_inset
+
+
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 0000.0000.0000.0000.00
+\noindent
+
+\noun on
+Technik:
+\noun default
+ 
+\emph on
+Software Engineering
+\begin_inset Newline newline
+\end_inset
+
+Software Testing
+\begin_inset Newline newline
+\end_inset
+
+Software Evaluation
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 0000.0000.0000.0000.00
+\noindent
+
+\noun on
+Business:
+\noun default
+ 
+\emph on
+Projekt Management
+\begin_inset Newline newline
+\end_inset
+
+Geschäftsführung
+\emph default
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 0000.0000.0000.0000.00
+\noindent
+\begin_inset VSpace -4pt
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Sprachkenntnisse
+\series default
+
+\begin_inset VSpace -8pt
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100line%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace -12pt
+\end_inset
+
+
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 0000.0000.0000.0000.00
+\noindent
+
+\noun on
+Mutter
+\begin_inset space ~
+\end_inset
+
+Sprache:
+\noun default
+ Arabisch, Französisch
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 0000.0000.0000.0000.00
+\noindent
+
+\noun on
+Fliessend:
+\series bold
+\noun default
+ 
+\series default
+Deutsch, Englisch 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 0000.0000.0000.0000.00
+\noindent
+
+\noun on
+Basics:
+\noun default
+ Italienisch, Spanisch
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 0000.0000.0000.0000.00
+\noindent
+\begin_inset VSpace -4pt
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Hobbies
+\series default
+
+\begin_inset VSpace -8pt
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100line%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace -3pt
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Apps Programmierung, Web Recherchen über Technik, Sprachen lernen, Reisen,
+ Sport, ...
+\end_layout
+
+\end_body
+\end_document

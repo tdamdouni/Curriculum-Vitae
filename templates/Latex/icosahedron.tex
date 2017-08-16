@@ -1,0 +1,21 @@
+\documentclass{article}
+
+\usepackage{pst-solides3d}
+\usepackage{animate}
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{figure}[ht]
+  \begin{animateinline}[autoplay, loop]{20}
+    \multiframe{72}{rotationangle=0+1}{
+      \psset{viewpoint=0 -100 30,Decran=115,lightsrc=-50 -100 80, lightintensity=1.2}
+      \begin{pspicture}(2.1,2.25)
+        \psSolid[object=icosahedron,a=1,RotZ=\rotationangle,fillcolor=yellow,
+        action=draw*](1.0,0,1.05)
+      \end{pspicture}
+    }
+  \end{animateinline}
+\end{figure}
+
+\end{document}

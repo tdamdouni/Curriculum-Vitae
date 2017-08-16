@@ -1,0 +1,52 @@
+% Author: Ludger Humbert <https://haspe.homeip.net/cgi-bin/pyblosxom.cgi>
+% Source: 
+% https://haspe.homeip.net/projekte/ddi/browser/tex/pgf2/turingmaschine-schema.tex
+%
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{shapes.arrows,chains}
+\usepackage{verbatim}
+
+\begin{comment}
+:Title: Turing machine
+:Slug: turing-machine
+
+An illustration of an `universal Turing machine`_.
+
+.. _universal Turing machine: http://en.wikipedia.org/wiki/Universal_Turing_machine
+
+:Source: `https://haspe.homeip.net/projekte/ddi/browser/tex/pgf2`__
+
+.. __: https://haspe.homeip.net/projekte/ddi/browser/tex/pgf2
+.. _Ludger Humbert: https://haspe.homeip.net/cgi-bin/pyblosxom.cgi
+\end{comment}
+
+\usepackage[ngerman]{babel}
+
+
+% serifenfreier Font -- fuer Praesentation geeignet/er
+\renewcommand\familydefault{\sfdefault} 
+
+\listfiles % damit im Log alle benutzten Pakete aufgelistet werden
+
+\begin{document}
+
+\begin{tikzpicture}[
+      start chain=1 going right,start chain=2 going below,node distance=-0.15mm
+    ]
+    \node [on chain=2] {Tape};
+    \node [on chain=1] at (-1.5,-.4) {\ldots};  
+    \foreach \x in {1,2,...,11} {
+        \x, \node [draw,on chain=1] {};
+    } 
+    \node [name=r,on chain=1] {\ldots}; 
+    \node [name=k, arrow box, draw,on chain=2,
+        arrow box arrows={east:.25cm, west:0.25cm}] at (-0.335,-.65) {};    
+    \node at (1.5,-.85) {Read/write head};
+    \node [on chain=2] {};
+    \node [draw,on chain=2] {Program};
+    \chainin (k) [join]; % Verbindung vom Programm zum Leseschreibkopf
+\end{tikzpicture}
+
+\end{document}
+

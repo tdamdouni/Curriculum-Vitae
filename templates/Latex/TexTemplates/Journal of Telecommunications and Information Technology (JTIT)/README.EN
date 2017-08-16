@@ -1,0 +1,45 @@
+jtitauth.cls
+============
+The authors version of the "Journal of Telecommunications and
+Information Technology" class file.
+
+Requirements:
+============
+The Class is designed for LateX2e system. For proper working it need
+the following standard packages
+* amsmath
+* mathptmx 
+* times
+* graphicx
+* color
+* fancyhdr
+
+The class is compatible with the standard article class ie. an article 
+typeset with help of the article class should be processed without
+errors with the jtitauth class. 
+
+The amsmath package used in the class allows authors to use the
+AMSLaTeX package macros for typesetting equation.
+
+After unpacking file jtitauth.cls should be copied to working
+directory.
+
+The text markup rules are identical with the ones described in the
+standard LaTeX documentation and textbooks. Documentation for
+beginners can be found in the Internet (for instance
+http://www.gust.org.pl/doc.html).
+
+Extensions:
+===========
+
+Conforming to the rules established by the editorial board the article 
+should have a keyword list. The "keyword" environment should be used
+to place the keywords list in the document.
+
+The headers are setup with the standard two argument command \markboth: 
+the first argument should contain the authors' named, the second the
+title of paper (shortened if needed).
+
+Example:
+========
+The example of the paper can be found in the file example.tex.

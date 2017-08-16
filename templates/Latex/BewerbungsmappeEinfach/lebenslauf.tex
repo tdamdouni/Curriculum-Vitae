@@ -1,0 +1,113 @@
+%% This is file `cvtest.tex',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% currvita.dtx  (with options: `testfile')
+%% 
+%% LaTeX sample file for the currvita package
+%% 
+%% Copyright (C) 1999 Axel Reichert
+%% See the files README and COPYING.
+%% 
+%% \CharacterTable
+%%   {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%%   Digits        \0\1\2\3\4\5\6\7\8\9
+%%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%%   Dollar        \$     Percent       \%     Ampersand     \&
+%%   Acute accent  \'     Left paren    \(     Right paren   \)
+%%   Asterisk      \*     Plus          \+     Comma         \,
+%%   Minus         \-     Point         \.     Solidus       \/
+%%   Colon         \:     Semicolon     \;     Less than     \<
+%%   Equals        \=     Greater than  \>     Question mark \?
+%%   Commercial at \@     Left bracket  \[     Backslash     \\
+%%   Right bracket \]     Circumflex    \^     Underscore    \_
+%%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%%   Right brace   \}     Tilde         \~}
+\documentclass[12pt,a4paper]{article}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{currvita}
+\usepackage{graphicx}
+\usepackage{floatflt}
+\newcommand*{\ac}[1]{\mbox{#1}}
+\tolerance=600
+
+%Schriften
+\usepackage{lmodern}
+%\usepackage[scaled]{helvet}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage[T1]{fontenc}
+
+\begin{document}
+
+%% \begin{floatingfigure}[r]{0.2\textwidth}
+%% 	\centering
+%% 	\includegraphics[width=0.29\textwidth]{bild}
+%% 	\label{fig:mein-bild}
+%% \end{floatingfigure}
+
+\begin{cv}{Lebenslauf}
+
+  \begin{cvlist}{Persönliche Daten}
+  \item Max von Tux und Taxis\\
+    Open-Source-Str. 34\\
+    88555 Tuxhausen
+  \item Handy: 0169 111222333\\
+    E-Mail: max.tux.taxis@example.com
+  \item Geb. am 25.08.1991 in Helsinki (Finnland)\\
+  Staatsangehörigkeit: finnisch
+  \end{cvlist}
+
+  \begin{cvlist}{Berufserfahrung}
+  \item[08/07\,-] Senior Consultant WTFPL GmbH
+  \item[01/15\,-\,06/17] Anwendungsentwickler GPL AG
+  \end{cvlist}
+  
+    \begin{cvlist}{Praktika}
+  \item[01/09\,-\,07/09] Grundpraktikum Tux GmbH, Tuxstadt
+  \end{cvlist}
+
+  \begin{cvlist}{Studium}
+    \item[06/14\,-\,10/14] Masterarbeit mit dem Thema "`Lorem ipsum dolor sit amet, consectetuer adipiscing elit"' am Institute for procrastination, Note: 1.0
+    \item[10/12\,-\,10/14] Informatik (M.Sc.), University of Lincity, Abschlussnote: 1.0
+    \item[06/12\,-\,09/12] Bachelorarbeit mit dem Thema "`Li Europan lingues es membres del sam familie"' am Institut für allgemeine Aufschieberitis, Note: 1.3
+  \item[10/09\,-\,09/12] Informatik (B.Sc.), Universität Tuxstadt, Abschlussnote: 1.3
+  \end{cvlist}
+
+  \begin{cvlist}{Schulbildung}
+  \item[06/00\,-\,06/08] Gymnasium Tuxhausen, Abiturnote: Sehr gut
+  \end{cvlist}
+
+  \begin{cvlist}{Fremdsprachen}
+  \item [Finnisch] Muttersprache
+  \item [Deutsch] Verhandlungssicher (DSH mit sehr gut bestanden)
+  \item [Englisch] Sehr gute Kenntnisse
+  \end{cvlist}
+
+  \begin{cvlist}{\ac{EDV}}
+  \item[Betriebssysteme] Linux, Windows
+  \item[Anwendungen] LibreOffice/OpenOffice.org, Maple, Matlab, \LaTeX
+  \item[Programmierung] C, C++, Perl, PHP, Python
+  \end{cvlist}
+
+  \begin{cvlist}{\ac{Referenzen}}
+  \item[Karl Pingu] Bereichsleiter GPL AG\\
+					pingu@gpl-example.com \\
+  					098 776655-0
+
+  \item[Dr. M. Tux] Professor für Aufschieberitis \\
+  					Institut für allgemeine Aufschieberitis \\ 						m.tux@iaa.uni-tuxstadt.de \\
+  					012 12345-765
+  \end{cvlist}
+
+
+  \cvplace{Lincity}
+  \date{1. April 2018}
+\end{cv}
+\end{document}
+\endinput
+%%
+%% End of file `cvtest.tex'.

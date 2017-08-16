@@ -1,0 +1,73 @@
+%%% -----------------------------------------------------------------------
+%\listfiles 
+% \ProvidesPackage{geometry}[2002/07/08 v3.2 Page Geometry]  
+% here: to put v3.2 into working directory
+% not running on geometry.sty 2010/02/15 v5.1 Page Geometry
+%%% -----------------------------------------------------------------------
+%%%
+\documentclass{beamer}
+
+\usetheme{CambridgeUS}
+\beamertemplatenavigationsymbolsempty% to avoid nasty navigation symbols
+
+%%% -----------------------------------------------------------------------
+%%% progress bar in footline
+%%% -----------------------------------------------------------------------
+\definecolor{Yellow}{rgb}{1 .7 0}
+\makeatletter
+\addtobeamertemplate{footline}{%
+  \color{Yellow}% to color the progressbar
+  \hspace*{-\beamer@leftmargin}%
+  \rule{\beamer@leftmargin}{2pt}%
+  \rlap{\rule{\dimexpr
+      \beamer@startpageofframe\dimexpr
+      \beamer@rightmargin+\textwidth\relax/\beamer@endpageofdocument}{2pt}}
+  % next 'empty' line is mandatory!
+  
+  \vspace{.25\baselineskip}
+  {}
+}
+\makeatother
+
+
+%%% -----------------------------------------------------------------------
+%%% just_4_demo
+%%% -----------------------------------------------------------------------
+\usepackage{lipsum}
+\def\FRAME{%
+  \section{Abschnitt\,\thepage}
+  \begin{frame}%[t]
+    \frametitle{Title\,\thepage}
+    \lipsum[4]
+  \end{frame}
+}
+
+
+\title{Progressbar in footline}
+\author{Edico}
+\date{}
+
+
+\begin{document}
+\setcounter{page}{-1}
+\begin{frame}[plain]
+  \maketitle
+\end{frame}
+\section{Inhaltsverzeichnis}
+\begin{frame}[plain]
+  \frametitle{Inhaltsverzeichnis}
+  \tableofcontents
+\end{frame}
+\FRAME \FRAME \FRAME \FRAME \FRAME \FRAME \FRAME \FRAME \FRAME
+\section{Quellen \& Literatur}
+\begin{frame}
+  \frametitle{Quellen \& Literatur}
+  \begin{thebibliography}{9}
+  \bibitem[Beamerpaket]{paket} \emph{Beamer Paket} \\
+    \text{http://latex-beamer.sourceforge.net/}
+  \bibitem[Beamerdokumentation]{doku} \emph{User's Guide to the Beamer}
+  \bibitem[Dante]{dante} \emph{DANTE e.V.} \text{http://www.dante.de}
+  \end{thebibliography}
+\end{frame}
+\end{document}
+\endinput

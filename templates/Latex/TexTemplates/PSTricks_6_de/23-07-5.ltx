@@ -1,0 +1,68 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-mirror,pst-grad,multido}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(-8,-8)(8,8)
+\pstSphereFrame[normale=0 90,Xorigine=50,Yorigine=0,Zorigine=-20,fillstyle=solid,
+  fillcolor=OrangePale](-70,-50)(70,50)
+\pstSphereGrid[normale=0 90,linecolor=blue,linewidth=0.2mm,grille=10,
+  Ymin=-50,Ymax=50,Xmax=70,Xmin=-70](50,0,-20)
+{\psset{fillstyle=solid,fillstyle=solid,fillcolor=GrisClair,A=5,B=A,C=A}
+\multido{\iX=95+-20}{4}{\multido{\iZ=55+-10}{6}{\psset{CX=\iX,CZ=\iZ,CY=45}\pstCube}
+                        \multido{\iZ=-15+10}{2}{\psset{CX=\iX,CZ=\iZ,CY=45}\pstCube}
+                        \multido{\iZ=55+-10}{6}{\psset{CX=\iX,CZ=\iZ,CY=-45}\pstCube}
+                        \multido{\iZ=-15+10}{2}{\psset{CX=\iX,CZ=\iZ,CY=-45}\pstCube}
+                        \multido{\iY=35+-10}{4}{\psset{CX=\iX,CZ=55,CY=\iY}\pstCube}
+                        \multido{\iY=-35+10}{4}{\psset{CX=\iX,CZ=55,CY=\iY}\pstCube}}}
+\multido{\iZ=-15+10,\iRotZ=20+45}{2}{\psset{fillstyle=solid,fillstyle=gradient,
+  fillcolor=GrisClair,A=5,B=A,C=A,CX=5,CY=-65,CZ=\iZ,RotZ=\iRotZ}\pstCube}
+\multido{\iZ=-15+10}{2}{\psset{fillstyle=solid,fillstyle=solid,fillcolor=GrisClair,
+  A=5,B=A,C=A,CX=15,CY=45,CZ=\iZ}\pstCube\psset{CY=-45}\pstCube}
+\multido{\iZ=15+-10,\iRotZ=30+30}{2}{\psset{fillstyle=solid,fillstyle=solid,
+  fillcolor=GrisClair,A=5,B=A,C=A,CX=15,CY=45,CZ=\iZ,RotZ=\iRotZ}\pstCube}
+\multido{\iZ=25+-10,\iRotZ=30+20}{3}{\psset{fillstyle=solid,fillstyle=solid,
+  fillcolor=GrisClair,A=5,B=A,C=A,CX=15,CY=-45,CZ=\iZ,RotZ=\iRotZ}\pstCube}
+\multido{\iX=95+-20}{5}{\multido{\iY=-25+10}{6}{\psset{fillstyle=gradient,
+  gradbegin=white,gradend=red,gradmidpoint=0.2,linewidth=0.05mm,CY=\iY,CZ=-20,CX=\iX}
+  \ifnum\iX=15
+    \ifnum\iY=-15 {\psset{RotY=90,RotZ=-45,CZ=-17.5}\pstSphereCylinder{2.5}{-10}}
+    \else \pstSphereCylinder{2.5}{10}\fi
+  \else\pstSphereCylinder{2.5}{10}\fi}}
+\multido{\iY=25+-10,\iRotY=0+60}{6}{\psset{fillstyle=solid,linewidth=0.05mm,
+  CX=55,CY=\iY,CZ=-10,A=2.5,Hpyramide=5}\pstPyramide}
+\multido{\iY=25+-10,\iRotY=0+60}{6}{\psset{fillstyle=gradient,gradbegin=white,gradend=red,
+  gradmidpoint=.2,linewidth=0.05mm,CX=35,CY=\iY,CZ=-10}\pstSphereCone{2.5}{2.5}}
+\multido{\iY=25+-10,\iRotY=0+60}{6}{%
+ \psset{fillstyle=gradient,gradbegin=white,gradend=blue,gradmidpoint=.2,linecolor=cyan,
+    linewidth=0.1mm}
+  \ifnum\iY=-15{\psset{CX=7.5,CY=-5,CZ=-17.5,RotY=\iRotY}\pstMirrorSphere{2.5}}
+  \else {\psset{CX=15,CY=\iY,CZ=-7.5,RotY=\iRotY}\pstMirrorSphere{2.5}}\fi}
+\psset{CX=2.5,CZ=-10,CY=15,fracHcone=0.5,linecolor=red,fillstyle=gradient,
+  gradbegin=yellow,gradend=red,gradmidpoint=0,linewidth=0.05mm}
+\pstSphereCone{2.5}{5}
+{\psset{RotX=0,RotZ=20,RotY=30,CX=2.5,CZ=-10,CY=2.5,fillstyle=solid,linecolor=black,
+  A=2,Hpyramide=3}\pstPyramide}
+\psset{linecolor=red,CZ=5,A=2.5,B=A,C=A,RotZ=-50,RotX=20,RotY=30,CY=0,CX=20,
+  fillstyle=solid,fillcolor=OrangePale}  \pstDie
+\end{pspicture}
+\end{document}

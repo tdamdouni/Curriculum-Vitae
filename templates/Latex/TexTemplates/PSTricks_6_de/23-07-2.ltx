@@ -1,0 +1,59 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\def\Hintergrund{{%
+ \psset{Xorigine=40}   % hintere Ebene
+ \pstSphereFrame[fillstyle=solid,fillcolor=OrangePale](-70,-50)(70,10)
+ \pstSphereGrid[linecolor=blue,linewidth=0.2mm,grille=10,
+                Ymin=-50,Ymax=10,Xmax=70,Xmin=-70](40,0,0)
+ \psset{normale=0 90,Xorigine=40,Yorigine=0,Zorigine=-10}    % untere Ebene
+ \pstSphereFrame[fillstyle=solid,fillcolor=cyan,opacity=0.5](-70,-30)(70,0)
+ \pstSphereGrid[linecolor=blue,linewidth=0.2mm,grille=10,
+                Ymin=-30,Ymax=0,Xmax=70,Xmin=-70](40,0,-10)
+ \psset{normale=90 0,Xorigine=40,Yorigine=70,Zorigine=-10}   % Linke Ebene
+ \pstSphereFrame[fillstyle=solid,fillcolor=yellow](0,0)(-30,-60)
+ \pstSphereGrid[linecolor=blue,linewidth=0.05mm,grille=10,
+                Ymin=-60,Ymax=0,Xmin=-30,Xmax=0](40,70,-10)
+ \psset{normale=90 0,Xorigine=40,Yorigine=-70,Zorigine=-10}  % Rechte Ebene
+ \pstSphereFrame[fillstyle=solid,fillcolor=yellow](0,0)(-30,-60)
+ \pstSphereGrid[linecolor=blue,linewidth=0.05mm,grille=10,
+                Ymin=-60,Ymax=0,Xmin=-30,Xmax=0](40,-70,-10)
+ \multido{\iY=-70+10}{15}{\pstSpherePoint(40,\iY,0){A}\uput[90](A){\small\red\iY}}
+ \multido{\iX=10+10}{4}{\pstSpherePoint(\iX,0,-10){A} \uput[-45](A){\small\blue\iX}}
+ \multido{\iZ=-10+10}{7}{\pstSpherePoint(40,0,\iZ){A} \uput[135](A){\small\green\iZ}}
+}}
+\StartShownPreambleCommands
+\usepackage{pst-mirror,multido}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(-5,-4)(5,5)  \Hintergrund% siehe Beispiel oben
+\pstSpherePoint(40,0,40){A}    \pstSpherePoint(10,-40,-10){B}
+\pstSpherePoint(10,40,-10){C}  \psdots[dotsize=1mm,linecolor=green](A)(B)(C)
+\pstSphereLine[linecolor=red,linewidth=2pt](10,40,-10)(40,0,40)(10,-40,-10)
+\pstSpherePolygon[linecolor=blue,linewidth=2pt,fillcolor=red!50,fillstyle=solid,
+                  opacity=0.4](14,25,-8)(25,0,35)(14,-25,-8)(25,0,-35)
+\psset{Xorigine=40}%,Yorigine=0,Zorigine=0,normale=0 0}%
+\multido{\iYorig=-65+10}{14}{\psset{Yorigine=\iYorig,Zorigine=15}
+  \pstSphereCircle[linecolor=red]{5}}
+\multido{\iYorig=-65+10}{14}{\psset{Yorigine=\iYorig,Zorigine=50}%
+  \pstSphereArc[linecolor=blue,linewidth=2pt,fillstyle=solid,
+     fillcolor=OrangePale]{5}{180}{360}}
+\end{pspicture}
+\end{document}

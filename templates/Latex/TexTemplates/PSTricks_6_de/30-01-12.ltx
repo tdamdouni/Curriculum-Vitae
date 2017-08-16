@@ -1,0 +1,38 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pstricks-add}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(10,5)
+  \psbrace[braceWidth=1cm,braceWidthInner=1cm,
+    braceWidthOuter=1cm,bracePos=0.6,fillcolor=black!20,
+    nodesepA=10mm,nodesepB=10mm](0,5)(10,5){\fbox{text}}
+\pcline{<->}(3,3)(3,4)\ncput*{\footnotesize\ttfamily braceWidth}
+\pcline{<->}(3,4)(3,5)\ncput*{\footnotesize\ttfamily braceWidthInner}
+\pcline{<->}(3,2)(3,3)\ncput*{\footnotesize\ttfamily braceWidthOuter}
+\pcline{<->}(6,1)(6,2)\ncput{\footnotesize\ttfamily nodesepB}
+\pcline{<->}(6,1)(7,1)\ncput*{\footnotesize\ttfamily A}
+\pcline{<->}(0,0.5)(6,0.5)\ncput*{\footnotesize\ttfamily bracePos}
+\psdot[dotscale=2](0,5)\uput[0](0,5){\textbf{A}}
+\psdot[dotscale=2](10,5)\uput[180](10,5){\textbf{B}}
+\end{pspicture}
+\end{document}

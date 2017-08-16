@@ -1,0 +1,37 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pstricks-add}
+\definecolor[ps]{bl}{rgb}{tx@addDict begin  Red Green Blue end}
+\StopShownPreambleCommands
+\begin{document}
+\psset{unit=1bp}
+\begin{pspicture}(0,-30)(400,100)
+\multido{\iLAMBDA=0+1}{400}{%
+  \pstVerb{
+    \iLAMBDA\space 379 add dup /lambda exch def
+    tx@addDict begin  wavelengthToRGB end
+  }%
+  \psline[linecolor=bl](\iLAMBDA,0)(\iLAMBDA,100)}
+\psaxes[yAxis=false,Ox=350,dx=50bp,
+  Dx=50]{->}(-29,-10)(420,100)[{$\lambda$[\textsf{nm}]},-90][ ,0]
+\end{pspicture}
+\end{document}

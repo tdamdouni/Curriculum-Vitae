@@ -1,0 +1,76 @@
+
+\documentclass{article}
+
+\pagestyle{empty}
+
+\usepackage{fontspec}
+
+%\setmainfont{Calibri}
+
+\usepackage{tikz,xcolor,mwe}
+
+\definecolor{cvgreen}{HTML}{92D14F}
+
+\definecolor{cvgray}{HTML}{D8E4BE}
+
+\definecolor{cvtext}{HTML}{92909B}
+
+\usetikzlibrary{shadows}
+
+\begin{document}
+
+\begin{tikzpicture}[remember picture,overlay]
+
+    % green bar
+
+    \fill[cvgreen] (current page.north west) rectangle ([xshift=5cm]current page.south west);
+
+    % gray bar
+
+    \fill[cvgray] ([yshift=-5cm]current page.north west) rectangle ([yshift=-10cm]current page.north east);
+
+    % title and date
+
+    \node[cvtext,right] at ([yshift=-7cm]current page.north west) {\addfontfeature{Scale = 5}\bfseries Bewerbung als Bankkauffrau};
+
+    \node[cvtext,above left] at ([xshift=-1cm,yshift=-9.5cm]current page.north east) {\huge\bfseries zum 01.09.2013};
+
+    % cover photo
+
+    \node[inner sep=0pt,below right] (image) at ([xshift=5cm,yshift=-10cm]current page.north west) {\includegraphics[width=7cm,height=9cm]{example-image-a}};
+
+    % name and address
+
+    \node[fill=white,drop shadow,align=center,text width=6.4cm,inner sep=0.3cm,below] (name) at (image.south) {\LARGE Martina Mustermann};
+
+    \node[text width=15cm,inner sep=0.3cm,below right] at (name.south west) {\Large\obeylines%
+
+        Musterweg 8
+
+        81929 München
+
+        Tel.: 01 74 / 98 98 61
+
+        E-Mail: Martina.M@web.de
+        
+    };
+
+    % attachments
+
+    \node[white,text width=5cm,inner sep=0.3cm,above right] at ([yshift=1cm]current page.south west) {\large\obeylines%
+
+        \textbf{Anlagen:}
+
+        Lebenslauf
+
+        Bewerbungsschreiben
+
+        Letzte 2 Schulzeugnisse
+
+        Praktikumsbestätigungen
+
+    };
+
+\end{tikzpicture}
+
+\end{document}

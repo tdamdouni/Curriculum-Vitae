@@ -1,0 +1,31 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pstricks,multido}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(-3,-3)(3,3)
+\psset{unit=2}%
+\multido{\rHue=0.01+0.01}{100}{%
+  \pscircle[linewidth=0.01,
+    linecolor={[hsb]{\rHue,1,1}}]{\rHue}}
+\end{pspicture}
+\end{document}

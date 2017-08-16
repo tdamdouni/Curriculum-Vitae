@@ -1,0 +1,35 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{105.84532pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pstricks}
+\StopShownPreambleCommands
+\begin{document}
+\psframebox[framesep=0pt,linestyle=dotted]{%
+\begin{pspicture}(2,1)% cm ist Vorgabe
+  \psset{xunit=0.5mm,yunit=2mm}
+  \psline{->}(40,5)\psline{->}(0,1cm)(40,0)
+\end{pspicture}}\\[20pt]
+\psset{xunit=0.5mm,yunit=2mm}% ändert die Vorgabe!
+\psframebox[framesep=0pt,linestyle=dotted]{%
+\begin{pspicture}(40,5)% Vorgabe für x und y unterschiedlich!
+  \psline{->}(40,5)\psline{->}(0,1cm)(40,0)
+\end{pspicture}}
+\end{document}

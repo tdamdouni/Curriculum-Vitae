@@ -1,0 +1,43 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pstricks,pst-node,pst-tree,calc}
+\definecolor{darkyellow}{rgb}{1, 0.9, 0}
+\newcommand\cbox[1]{\colorbox{darkyellow}{#1}}
+\newcommand*\pbox[2]{\parbox[t]{\widthof{#1}}{\footnotesize #2}}
+\StopShownPreambleCommands
+\begin{document}
+\begin{psmatrix}[rowsep=0pt,colsep=0pt]
+   \verb+if (+      &[name=rn24a] \cbox{Bedingung}
+ & \verb+) {+       &[name=rn25a] \cbox{Anweisungsblock 1}
+ & \verb+} else {+  &[name=rn26a] \cbox{Anweisungsblock 2} & \verb+}+\\[0.75cm]
+ &[name=rn24e] \pbox{( Bedingung )}{Die Bedingung, die WAHR oder FALSCH sein kann}
+&&[name=rn25e] \pbox{\{ Anweisungsblock 1 \}}{%
+        Diese Anweisungen werden ausgef\"uhrt,
+        wenn die Bedingung~$\neq0$ (bedeutet WAHR) ist.}
+&&[name=rn26e]\pbox{\{ Anweisungsblock 2 \}}{%
+        Diese {Anweisungen} werden ausgef\"uhrt, wenn die
+        Bedingung~$=0$ (bedeutet FALSCH) ist.}
+\end{psmatrix}
+\nccurve[angleA=-90,angleB=90]{->}{rn24a}{rn24e}
+\nccurve[angleA=-90,angleB=90]{->}{rn25a}{rn25e}
+\nccurve[angleA=-90,angleB=90]{->}{rn26a}{rn26e}
+\end{document}

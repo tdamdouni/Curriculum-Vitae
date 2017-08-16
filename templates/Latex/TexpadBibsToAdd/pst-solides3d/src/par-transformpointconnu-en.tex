@@ -1,0 +1,66 @@
+\section{\Index{Transformations} to a point}
+
+Given is an initial point $A(x,y,z)$. Now we make some
+rotations around the axes $Ox$, $Oy$ and $Oz$ with the appropriate angles (in degrees):
+\verb+[RotX=valueX,RotY=valueY,RotZ=valueZ]+, in this order,
+then translate it with the vector $(v_x,v_y,v_z)$. The problem is to get back
+the coordinates of the image (final point) $A'(x',y',z')$.
+
+The code
+\texttt{\textbackslash psTransformPoint[RotX=valueX,RotY=valueY,
+ RotZ=valueZ](x y z)(vx,vy,vz)\{A'\}}\\
+now allows us to save the node $A'$, the coordinates of the transformed point.
+
+In the following example, $A(2,2,2)$ is one of the vertices of the initial
+cube, where the centre is placed at the origin.
+
+\begin{verbatim}
+\psSolid[object=cube,a=4,action=draw*,linecolor=red]%
+\end{verbatim}
+
+Some transformations are applied to the cube:
+
+\begin{verbatim}
+\psSolid[object=cube,a=4,action=draw*,RotX=-30,RotY=60,RotZ=-60](7.5,11.25,10)%
+\end{verbatim}
+
+To obtain the image of $A$, we use the following command:
+
+
+\begin{verbatim}
+\psTransformPoint[RotX=-30,RotY=60,RotZ=-60](2 2 2)(7.5,11.25,10){A'}
+\end{verbatim}
+
+This allows us, for example, to name these points and then draw the vector $\overrightarrow{AA'}$.
+\begin{center}
+\begin{pspicture}(-2,-4)(6,6)
+\psframe(-3,-4)(9,6)
+\psset{viewpoint=50 20 30 rtp2xyz,Decran=50,unit=0.5}
+\psSolid[object=cube,a=4,action=draw*,linecolor=red]%
+\psPoint(2,2,2){A}\psdot(A)
+\psSolid[object=cube,a=4,action=draw*,RotX=-30,RotY=60,RotZ=-60](7.5,11.25,10)%
+\psTransformPoint[RotX=-30,RotY=60,RotZ=-60](2 2 2)(7.5,11.25,10){A'}
+\psdot(A')\psline[linecolor=blue,arrowsize=0.3]{{o-v}}(A)(A')
+\uput[u](A'){$A'$}\uput[u](A){$A$}
+\psset{solidmemory,action=none}
+\psSolid[object=cube,a=4,name=A1,](0,0,0)
+\psSolid[object=plan,definition=solidface,args=A1 0,name=P0]
+\psSolid[object=plan,definition=solidface,args=A1 1,name=P1]
+\psSolid[object=plan,definition=solidface,args=A1 4,name=P4]
+\psset{fontsize=100}
+\psProjection[object=texte,linecolor=red,text=A,plan=P0]
+\psProjection[object=texte,linecolor=red,text=B,plan=P1]
+\psProjection[object=texte,linecolor=red,text=E,plan=P4]
+\psSolid[object=cube,a=4,RotX=-30,RotY=60,RotZ=-60,name=A2,](7.5,11.25,10)
+\psSolid[object=plan,definition=solidface,args=A2 0,name=P'0]
+\psSolid[object=plan,definition=solidface,args=A2 1,name=P'1]
+\psSolid[object=plan,definition=solidface,args=A2 2,name=P'2]
+\psProjection[object=texte,text=A,plan=P'0]
+\psProjection[object=texte,text=B,plan=P'1]
+\psProjection[object=texte,text=C,plan=P'2]
+\axesIIID(2,2,2)(10,10,8)
+\end{pspicture}
+\end{center}
+
+
+\endinput

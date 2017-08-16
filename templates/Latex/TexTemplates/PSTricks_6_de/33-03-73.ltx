@@ -1,0 +1,54 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-stru}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(-1,-4)(9,2) \psset{arrowsize=0.8mm,arrowinset=0}
+  \pnode(0,0){A}\pnode(2,0){B}\pnode(8,0){C}\rput{0}(C){\hinge}\rput{0}(B){\roller}
+  \psline[linecolor=red,fillcolor=yellow,fillstyle=solid](0,0)(8,0)(8,1)(0,0)
+  \multido{\nStart=1.00+0.025}{-37}{%
+    \psArrowCivil[RotArrows=0,length=\nStart,start=\nStart,linecolor=magenta](A)(C){}}
+  \rput(8.3,0.4){\large p}\rput(0,-0.4){\Large A}
+  \rput(2,-1){\Large B}\rput(8.3,-0.6){\Large C}
+  \pcline[offset=0,linecolor=blue]{|-|}(0,-3)(2,-3)\lput*{:U}{\bf $\frac{l}{3}$}
+  \pcline[offset=0,linecolor=blue]{|-|}(2,-3)(8,-3)\lput*{:U}{\bf $l$}
+  \def\MflettAB#1#2#3{#1 #2 div -.125 mul x mul x mul x mul #3 mul neg}
+  \pscustom[linecolor=blue,linewidth=1pt,fillstyle=hlines]{
+    \psplot[]{0}{2}{\MflettAB{6}{6}{0.15}}\psline[](2,0)(0,0) }
+  \def\TaglioAB#1#2#3{#1 #2 div -.375 mul x mul x mul #3 mul} %AB
+  \pscustom[linecolor=green,linewidth=1pt,fillstyle=crosshatch]{
+    \psplot[]{0}{2}{\TaglioAB{6}{6}{0.15}}\psline[](2,0)(0,0) }
+  \def\MflettBC#1#2#3{#1 #2 div -.125 mul x mul x mul x mul
+    #1 3.375 div #2 mul x mul add #1 10.125 div #2 mul #2 mul sub #3 mul neg}% BC
+  \pscustom[linecolor=blue,linewidth=1pt,fillstyle=hlines]{
+    \psplot[]{2}{8}{\MflettBC{6}{6}{0.15}}\psline[](8,0)(2,0) }
+  \def\TaglioBC#1#2#3{#1 #2 div -.375 mul x mul x mul #1 3.375 div #2 mul add #3 mul}
+  \pscustom[linecolor=green,linewidth=1pt,fillstyle=crosshatch]{
+    \psplot[]{2}{8}{\TaglioBC{6}{6}{0.15}}\psline[](8,0)(2,0)(2,1.4) }
+  \psline[linewidth=1.5pt](0,0)(8,0)  % Printing beam AC after diagrams BM/S
+  \rput(3,1.6){\em {\scriptsize Shear diagram (green boundary)}}
+  \rput(3,-1.6){\em {\scriptsize Bending Moment diagram (blue boundary)}}
+  \rput(2,-1.9){\scriptsize [assumed positive downwards]}
+  \rput(5,-1){\bf {\large +}}\rput(2.5,0.6){\bf {\large +}}
+  \rput(7.7,-1.3){\bf {\Large -}}
+\end{pspicture}
+\end{document}

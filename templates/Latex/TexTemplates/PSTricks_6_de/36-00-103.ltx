@@ -1,0 +1,63 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-circ}
+\StopShownPreambleCommands
+\begin{document}
+\psset{unit=0.7}
+\psset{intensitycolor=red,
+  intensitylabelcolor=red,tensioncolor=green,%
+  tensionlabelcolor=green,intensitywidth=3pt}
+\begin{pspicture}(-1.25,0)(13.5,9)
+  \circledipole[tension,tensionlabel=$U_0$,tensionoffset=-0.75,%
+         tensionlabeloffset=-1,labeloffset=0](0,6)(0,0){\LARGE\textbf{=}}
+  \wire[intensity,intensitylabel=$i_0$](0,6)(2.5,6)
+  \diode[dipolestyle=thyristor](2.5,6)(4.5,6){$T_1$}
+  \wire[intensity,intensitylabel=$i_1$](4.5,6)(6.5,6)
+  \multidipole(6.5,7.5)(2.5,7.5)%
+    \coil[dipolestyle=rectangle,labeloffset=-0.75]{$L_5$}%
+    \diode[labeloffset=-0.75]{$D_5$}.
+  \wire[intensity,intensitylabel=$i_5$](6.5,6)(6.5,7.5)
+  \wire(2.5,7.5)(2.5,3)
+  \wire[intensity,intensitylabel=$i_c$](2.5,4.5)(2.5,6)
+  \qdisk(2.5,6){2pt}\qdisk(6.5,6){2pt}
+  \diode[dipolestyle=thyristor](2.5,4.5)(4.5,4.5){$T_2$}
+  \wire[intensity,intensitylabel=$i_2$](4.5,4.5)(6.5,4.5)
+  \capacitor[tension,tensionlabel=$u_c$,%
+    tensionoffset=-0.75,tensionlabeloffset=-1](6.5,4.5)(6.5,6){$C_k$}
+  \qdisk(2.5,4.5){2pt}\qdisk(6.5,4.5){2pt}
+  \wire[intensity,intensitylabel=$i_3$](6.5,4.5)(6.5,3)
+  \multidipole(6.5,3)(2.5,3)%
+    \coil[dipolestyle=rectangle,labeloffset=-0.75]{$L_3$}%
+    \diode[labeloffset=-0.75]{$D_3$}.
+  \wire(6.5,6)(9,6)\qdisk(9,6){2pt}
+  \diode(9,0)(9,6){$D_4$}
+  \wire[intensity,intensitylabel=$i_4$](9,3.25)(9,6)
+  \wire[intensity,intensitylabel=$i_a$](9,6)(11,6)
+  \multidipole(11,6)(11,0)%
+    \resistor{$R_L$}
+    \coil[dipolestyle=rectangle]{$L_L$}%
+    \circledipole[labeloffset=0,tension,tensionoffset=0.7,%
+      tensionlabel=$U_B$]{\LARGE\textbf{=}}.
+  \wire(0,0)(11,0)\qdisk(9,0){2pt}
+  \tension(12.5,5.5)(12.5,0.5){$u_a$}
+\end{pspicture}
+\end{document}

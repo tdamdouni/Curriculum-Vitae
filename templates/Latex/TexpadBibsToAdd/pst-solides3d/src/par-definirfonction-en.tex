@@ -1,0 +1,61 @@
+\section{Defining a function}
+
+It is possible to define \Index{functions} usable in a PostScript environment.
+
+The domain can be  $\mathbb{R}$, $\mathbb{R}^2$
+or $\mathbb{R}^3$, and the codomain can be $\mathbb{R}$, $\mathbb{R}^2$ or $\mathbb{R}^3$.
+
+The definition is made with the macro \verb+\defFunction+. This macro comes with six
+arguments, where the first is optional.
+
+
+\verb!\defFunction[<options>]{<name>}(<var>){<x(var)>}{<y(var)>}{<z(var)>}!
+
+\begin{table}[h]
+\begin{tabular}{p{2cm}p{11cm}}
+\verb!<options>! & We insert the options typical to PSTricks, like
+\verb!linewidth! etc., and, some of them defined by
+\verb!pst-solides3d!. A very nice and helpful option is \verb!algebraic!,
+with which one can avoid  RPN (Reverse Polish
+Notation). All the options are key value pairs separated with commas.\\
+
+\verb!<name>! & This is a unique name of your choice---but be careful: avoid
+names that contain accents, PostScript doesn't like them at all.\\
+
+\verb!<var>! & We insert at most three variables, arbitrarily chosen and separated with commas.\\
+
+\verb!<x(var)>! \verb!<y(var)>! \verb!<z(var)>! &
+Here, we place functions defining the three Euclidean components $x,\,y,\,z$.
+If one of the three components is not wanted, just enter a 0 within
+ parentheses---this will also allow you to define some projections of the lines of functions.
+\end{tabular}
+\end{table}
+
+Once you have defined a function, this function is always called by its chosen name \verb!<name>!.
+
+Here some examples:
+\begin{compactitem}
+\item \verb!\defFunction{moncercle}(t){t cos 3 mul}{0}{t sin 3 mul}!
+
+    draws a circle with radis 3 in the $xOz$ plane (notation RPN).
+    \item \verb!\defFunction[algebraic]{helice}(t){cos(t)}{sin(t)}{t}!
+
+    draws a helix in algebraic notation.
+    \item \verb!\defFunction[algebraic]{F}(t){t}{}{}!
+
+    draws a function from $\mathbb{R}$ in $\mathbb{R}$
+    \item \verb!\defFunction[algebraic]{F}(t){t}{t}{}!
+
+    draws a function from $\mathbb{R}$ in $\mathbb{R}^2$
+    \item \verb!\defFunction[algebraic]{F}(t){t}{t}{t}!
+
+    draws a function from $\mathbb{R}$ in $\mathbb{R}^3$
+
+\end{compactitem}
+
+There remains work to be done on this macro.  For the moment it does not permit an arbitrary
+choice of names of variables, as this risks conflict with existing names.  Please use
+names analogous to those used in the documentation.  A good strategy is to systematically use
+one or more numerical characters at the end of the names of your variables.
+
+\endinput

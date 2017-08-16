@@ -1,0 +1,66 @@
+\section{Fusing solids}
+
+It is possible to arrange several solids within the same
+structure: this is done with the operation \Lkeyword{fusion} of
+solids. This technique uses the painting algorithm for the whole
+scene.
+
+To do so, you must activate the option \verb+\psset{solidmemory}+
+to memorize the structures of the different solids within
+\Lcs{psSolid}, with each of them given a separate name.
+
+You use the object \Lkeyword{fusion} of \Lcs{psSolid}, by indicating in
+the parameter \Lkeyword{base} the list of names of the solids to be
+fused.
+
+To draw the scene, don't forget to conclude the code with
+\verb+\composeSolid+.
+
+\psset{lightsrc=50 -50 50,viewpoint=40 16 32 rtp2xyz,Decran=40}
+\begin{LTXexample}[width=7.5cm]
+\psset{unit=.6}
+\begin{pspicture}(-6,-5)(6,7)
+\psset{solidmemory}
+\psSolid[object=cylindre,h=6,fillcolor=blue,
+      r=1.5,
+      ngrid=4 16,
+      action=none,
+      name=A1,
+      ](0,0,-4)
+\psSolid[object=anneau,h=6,fillcolor=red!50,
+      R=4,r=3,h=1,
+      action=none,
+      name=B1,
+      ](0,0,-1)
+\psSolid[object=fusion,
+      action=draw**,
+      base=A1 B1,
+      ](0,0,0)
+\composeSolid
+\end{pspicture}
+\end{LTXexample}
+
+
+\begin{LTXexample}[width=6.5cm]
+\psset{unit=0.5}
+\begin{pspicture}(-6,-5)(6,5)
+\psset{solidmemory}
+\psset{lightsrc=50 -50 50,viewpoint=100 -30 40,
+   Decran=100,linewidth=0.5\pslinewidth,
+   ngrid=18 18,fillcolor=white,
+   h=12,r=2,RotX=90}
+\psframe*[linecolor=black](-6,-5)(6,5)
+\psSolid[object=cylindrecreux,
+   action=none,
+   name=cylindre1](0, 6, 0)
+\psSolid[object=cylindrecreux,
+   RotZ=90,
+   action=none,
+   name=cylindre2](-6, 0, 0)
+\psSolid[object=fusion,
+   base=cylindre1 cylindre2,RotX=0]
+\composeSolid
+\end{pspicture}
+\end{LTXexample}
+
+\endinput

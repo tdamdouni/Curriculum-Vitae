@@ -1,0 +1,18 @@
+# ignore the following files
+*.log
+*.cut
+*.aux
+*.gz
+# *.pdf
+*.swp
+
+# but do track the following files, even though you're ignoring .pdf files above
+!splitted-pdf.pdf
+!two_side.pdf
+!tikz-mec.pdf
+!even.pdf
+!even_rev.pdf
+!merge_odd_and_even_pages_together.pdf
+
+# ignore all files that end with a tilde
+*~

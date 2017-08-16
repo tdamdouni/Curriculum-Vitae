@@ -1,0 +1,106 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage[dvipsnames]{pstricks}
+\usepackage{pst-labo,pst-grad,multido}
+\SpecialCoor
+\definecolor{Bluea}{cmyk}{.2,0,0,0}
+\definecolor{MonGris}{rgb}{0.9,0.9,0.9}
+\definecolor{Indigo}{cmyk}{0.07,0.90,0,0.34}
+\definecolor{Violet}{cmyk}{0.79,0.88,0,0}
+\definecolor{BleuVerre}{cmyk}{0.2,0,0,0}
+\definecolor{Brown}{cmyk}{0,0.81,1,0.60}
+\definecolor{Salmon}{cmyk}{0,0.53,0.38,0}
+\newpsstyle{ChampagneSurface}{linecolor=gray,linewidth=2pt,fillstyle=solid,fillcolor=Beige}
+\def\manometre{%
+  \rput(0,0){%
+    \psline[doubleline=true,doublesep=0.12,linearc=0.2](0,0)(2,0)(2,-2)
+    \pscircle[doubleline=true,fillstyle=solid](0,0){0.9}
+    \psarc(0,0){0.65}{-60}{240}
+    \multido{\i=-60+30}{11}{\psline(0.65;\i)(0.45;\i)}
+    \psline[arrowscale=2,linewidth=2\pslinewidth]{->}(0.5;-20)(0.65;160)
+    \pscircle[fillstyle=solid]{0.1}%
+  }%
+}
+\def\Bouchon{%
+  \psellipse[linewidth=1.5\pslinewidth](0,0.2)(0.6,0.1)
+  \begingroup
+    \psset{fillstyle=solid,fillcolor=lightgray}
+    \psellipse(0,-0.4)(0.32,0.1)
+    \pspolygon(-0.5,0.5)(-0.32,-0.4)(0.32,-0.4)(0.5,0.5)
+    \psellipse[linestyle=none,dimen=outer,linewidth=0.07](0,-0.4)(0.32,0.1)
+    \psellipse(0,0.5)(0.5,0.1)
+  \endgroup
+  \psellipticarc[linewidth=1.5\pslinewidth](0,0.2)(0.6,0.1){180}{0}
+  \psline[doubleline=true,doublesep=0.12,doublecolor=white](-0.2,0.5)(-0.2,0.6)
+  \psline[doubleline=true,dimen=outer,doublesep=0.05,doublecolor=red](0.2,0.5)(0.2,1)%
+}
+\newcommand\erlen{%
+  \begin{psclip}{%
+    \pspolygon[linestyle=none,linearc=0.2](-0.6,3.2)(-0.4,3)(-0.4,2)(-1.2,0)(1.2,0)(0.4,2)%
+            (0.4,3)(0.6,3.2)}
+    \psclip{\pscustom[linecolor=cyan,fillstyle=solid,fillcolor=Bluea]{%
+      \pscurve(-2,0.9)(-1.75,1)(-1.5,0.9)(-1.25,1)(-1,0.9)
+              (-0.75,1)(-0.5,0.9)(-0.25,1)(0,0.9)
+              (0.25,1)(0.5,0.9)(0.75,1)(1,0.9)
+              (1.25,1)(1.5,0.9)(1.75,1)(2,0.9)
+      \psline(2,0.9)(2,-1)(-2,-1)(-2,0.9)}}
+            \BILLES
+      \endpsclip
+  \end{psclip}
+  \psline[linearc=0.2](-0.6,3.2)(-0.4,3)(-0.4,2)(-1.2,0)(1.2,0)(0.4,2)
+  \psline[linearc=0.05](0.4,2)(0.4,2.4)(1.4,2.4)
+  \psline[linearc=0.05](1.4,2.6)(0.4,2.6)(0.4,3)(0.6,3.2)%
+}
+\def\thermometre{%
+    \pspolygon[linearc=0.05,fillstyle=solid,fillcolor=red](0.05,3)(0.05,-1.2)
+    (0.15,-1.2)(0.15,-1.8)(-0.15,-1.8)(-0.15,-1.2)(-0.05,-1.2)(-0.05,3)
+    \psframe[linearc=0.05,fillstyle=solid](-0.05,1)(0.05,3)%
+}
+\newdimen\BX
+\newdimen\BY
+\newdimen\RAYONBULLE
+\newcommand{\BILLES}[1][50]{%
+  \multido{\IBULLE=1+1}{#1}{%
+    \setrandim{\BX}{-1.5\psunit}{1.5\psunit}
+    \setrandim{\BY}{0\psunit}{1\psunit}
+    \setrandim{\RAYONBULLE}{0.01\psunit}{0.15\psunit}
+    \ifdim\BY>2\psunit \multiply \RAYONBULLE by 3
+    \else
+      \ifdim\BY < 2\psunit \ifdim\BY >1\psunit \multiply \RAYONBULLE by 2\fi
+      \else \multiply \RAYONBULLE by 1 \fi
+    \fi
+    \rput(0,0){%
+      \pscircle[style=BilleThreeD](\BX,\BY){\RAYONBULLE}%
+    }%
+  }%
+}
+
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(-3,0)(3,6)
+  \rput(-2.2,4){\manometre}
+  \erlen
+  \rput(0.2,3){\thermometre}
+  \rput(0,3){\Bouchon}
+  \psline[linecolor=blue,linewidth=2pt]{->}(1.5,2.5)(2.5,2.5)
+\end{pspicture}
+\end{document}

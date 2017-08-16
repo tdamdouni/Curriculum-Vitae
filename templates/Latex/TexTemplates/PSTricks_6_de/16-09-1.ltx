@@ -1,0 +1,44 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\usepackage[utf8]{inputenc}
+\StartShownPreambleCommands
+\usepackage{pst-node}
+\StopShownPreambleCommands
+\begin{document}
+Speziell bei der Definition von Knoten mit \verb+\cnode{3pt}{A}+, \cnode*{3pt}{A}
+deren Koordinaten unbekannt sind, weil sie mitten im Text erscheinen oder das Ergebnis
+einer Zwischenrechnung sind, möchte man manchmal gerne ihre Koordinaten wissen.
+Dies ist wie gesagt nicht auf \TeX-Ebene möglich, man kann aber wieder auf die
+Möglichkeiten von PostScript zurückgreifen.
+
+\begin{pspicture}[showgrid](1,1)
+  \Cnode*[radius=0.1](0.5,0.5){B}
+  \makeatletter
+  \psline[arrowscale=2,linestyle=dashed]{->}(B)(!
+    tx@NodeDict begin % node dictionary
+      /N@B load GetCenter /yB ED /xB ED % Mitte von Knoten B
+      /N@A load GetCenter /yA ED /xA ED % Mitte von Knoten A
+      xA xB sub 0.7 mul xB add \pst@number\psxunit div
+      yA yB sub 0.7 mul yB add \pst@number\psyunit div
+    end) % node dictionary
+  \makeatother
+\end{pspicture}
+\end{document}

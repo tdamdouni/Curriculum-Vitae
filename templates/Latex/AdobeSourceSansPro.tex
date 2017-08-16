@@ -1,0 +1,27 @@
+% !TEX TS-program = XeLaTeX
+\documentclass[fontsize=12pt,ngerman]{scrartcl}
+\usepackage[a4paper]{geometry}
+\usepackage{fontspec,xcolor}
+ 
+\usepackage{xkeyval,polyglossia}
+\setmainlanguage[spelling=new]{german}
+\usepackage{graphicx}
+\usepackage{csquotes}
+\usepackage{paralist}
+\usepackage[]{blindtext}
+ 
+\setmainfont[ItalicFont={Source Sans Pro Italic},BoldFont={Source Sans Pro Bold},BoldItalicFont={Source Sans Pro Bold Italic}]{Source Sans Pro}
+ 
+\renewcommand{\familydefault}{\sfdefault}
+ 
+\begin{document}
+ 
+\blindtext
+ 
+{\bfseries \blindtext}
+ 
+{\itshape \blindtext}
+ 
+{\itshape \bfseries \blindtext}
+ 
+\end{document}

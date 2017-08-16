@@ -1,0 +1,33 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-solides3d}
+\StopShownPreambleCommands
+\begin{document}
+\psset{Decran=15,viewpoint=20 10 10}
+\begin{pspicture}(-3,-2.5)(2.5,3)
+  \gridIIID[Zmin=-2,stepX=2,stepY=2,stepZ=4](-3,3)(-3,3)[3,2,2]
+\end{pspicture}
+%
+\begin{pspicture}(-4,-2.5)(2,3.5)
+  \gridIIID[Zmin=0,Zmax=0,stepX=2,stepY=2](-3,3)(-3,3)[1,2,2.5]
+\end{pspicture}
+\end{document}

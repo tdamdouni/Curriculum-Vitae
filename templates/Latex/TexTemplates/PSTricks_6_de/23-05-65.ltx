@@ -1,0 +1,98 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pstricks,pst-3dplot}
+\def\Name#1{\ifcase#1\or HP\or Hm.t\or zA\or zA.t\or jtj\or mw.t\or sn\or sn.t\fi}
+\StopShownPreambleCommands
+\begin{document}
+%
+%\psframebox{%
+\begin{pspicture}(-9,-2)(1.2,11)
+\psset{yunit=0.25,Alpha=10,pOrigin=cB}
+%\pstThreeDCoor
+\pstThreeDLine(1,10,0)(8,10,0)
+\multido{\iA=1+1}{8}{\pstThreeDLine(\iA,10,0)(\iA,10.5,0)%
+    \pstPlanePut[plane=xz,planecorr=normal,origin=lB](\iA,10,-1.5){\Name{\iA}}}
+%
+\pstThreeDLine(8,1,0)(8,10,0)
+\multido{\iA=1+1}{10}{\pstThreeDLine(8,\iA,0)(8.25,\iA,0)
+    \pstPlanePut[plane=xz,planecorr=normal](8.75,\iA,-0.5){\iA}}
+\multido{\iA=1+2}{5}{\pstThreeDLine[linestyle=dashed,linewidth=0.5pt](8,\iA,0)(1,\iA,0)}
+%
+\pstThreeDLine(8,1,0)(8,1,40)
+\multido{\iA=0+5}{9}{\pstThreeDLine(8,1,\iA)(8.2,1,\iA)
+    \pstPlanePut[plane=xz,planecorr=normal](8.75,0,\iA){\iA}}
+%
+\pstThreeDLine[linestyle=dashed,arrows=->](1,1,45)(1,1,50)
+\pstPlanePut[plane=xz,planecorr=normal](1,1,50){445}
+\rput(-3.5,-8){Person}\rput{90}(-9,16){H\"aufigkeit}
+\rput[c]{-37}(-8,-6){\tabular[t]{@{}c@{}}Stelle in \\[-2pt]der Inschrift\endtabular}
+%
+\psset{opacity=0.7}
+\pscustom[fillstyle=solid,fillcolor=black!30,linestyle=none]{%
+\pstThreeDLine%
+    (1,1,0)(1,1,45)(1,2,7)( 1,3,1)( 1,4,1)( 1,5,0)( 1,6,1)(1,7,1)(1,8,0)(1,9,0)(1,10,0)(1,1,0)}
+\pstThreeDLine%
+    (1,1,45)(1,2,7)( 1,3,1)( 1,4,1)( 1,5,0)( 1,6,1)(1,7,1)(1,8,0)(1,9,0)(1,10,0)(1,1,0)
+%
+\pscustom[fillstyle=solid,fillcolor=blue!50,linestyle=none]{%
+\pstThreeDLine%
+    (2,1,0)( 2,2,38)(2,3,13)(2,4,4)( 2,5,1)( 2,6,0)(2,7,5)(2,8,1)(2,9,3)(2,10,0)(2,1,0)}
+\pstThreeDLine%
+    (2,1,0)( 2,2,38)(2,3,13)(2,4,4)( 2,5,1)( 2,6,0)(2,7,5)(2,8,1)(2,9,3)(2,10,0)
+%
+\pscustom[fillstyle=solid,fillcolor=red!50,linestyle=none]{%
+\pstThreeDLine%
+  (3,1,0)(3,1,2)(3,2,30)(3,3,30)(3,4,20)(3,5,14)(3,6,8)(3,7,9)(3,8,3)(3,9,2)(3,10,2)(3,10,0)(3,1,0)}
+\pstThreeDLine%
+  (3,1,2)(3,2,30)(3,3,30)(3,4,20)(3,5,14)(3,6,8)(3,7,9)(3,8,3)(3,9,2)(3,10,2)(3,10,0)
+%
+\pscustom[fillstyle=solid,fillcolor=green!50,linestyle=none]{%
+\pstThreeDLine%
+  (4,1,0)( 4,2,9)( 4,3,11)(4,4,14)(4,5,13)(4,6,11)(4,7,7)(4,8,5)(4,9,4)(4,10,4)(4,10,0)(4,1,0)}
+\pstThreeDLine%
+  (4,1,0)( 4,2,9)( 4,3,11)(4,4,14)(4,5,13)(4,6,11)(4,7,7)(4,8,5)(4,9,4)(4,10,4)
+%
+\pscustom[fillstyle=solid,fillcolor=cyan!50,linestyle=none]{%
+\pstThreeDLine%
+    (5,1,0)( 5,2,11)(5,3,10)(5,4,5)( 5,5,3)( 5,6,3)(5,7,1)(5,8,1)(5,9,2)(5,10,1)(5,10,0)(5,1,0)}
+\pstThreeDLine%
+    (5,1,0)( 5,2,11)(5,3,10)(5,4,5)( 5,5,3)( 5,6,3)(5,7,1)(5,8,1)(5,9,2)(5,10,1)%
+%
+\pscustom[fillstyle=solid,fillcolor=gray!50,linestyle=none]{%
+\pstThreeDLine%
+    (6,1,0)( 6,2,5)( 6,3,7)( 6,4,6)( 6,5,6)( 6,6,1)(6,7,1)(6,8,1)(6,9,2)(6,10,3)(6,10,0)(6,1,0)}
+\pstThreeDLine%
+    (6,1,0)( 6,2,5)( 6,3,7)( 6,4,6)( 6,5,6)( 6,6,1)(6,7,1)(6,8,1)(6,9,2)(6,10,3)%
+%
+\pscustom[fillstyle=solid,fillcolor=yellow!70,linestyle=none]{%
+\pstThreeDLine%
+    (7,1,0)( 7,2,10)(7,3,6)( 7,4,11)(7,5,12)(7,6,11)( 7,7,8)(7,8,5)(7,9,4)(7,10,4)(7,10,0)(7,1,0)}
+\pstThreeDLine%
+    (7,1,0)( 7,2,10)(7,3,6)( 7,4,11)(7,5,12)(7,6,11)( 7,7,8)(7,8,5)(7,9,4)(7,10,4)
+%
+\pscustom[fillstyle=solid,fillcolor=lime!70,linestyle=none]{%
+\pstThreeDLine%
+    (8,1,0)( 8,2,8)( 8,3,9)( 8,4,8)( 8,5,3)( 8,6,8)(8,8,6)(8,8,3)(  8,9,2)(8,10,4)(8,10,0)(8,1,0)}
+\pstThreeDLine%
+    (8,1,0)( 8,2,8)( 8,3,9)( 8,4,8)( 8,5,3)( 8,6,8)(8,8,6)(8,8,3)(  8,9,2)(8,10,4)
+\end{pspicture}%}
+\end{document}

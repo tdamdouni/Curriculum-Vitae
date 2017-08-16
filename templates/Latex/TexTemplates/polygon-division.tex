@@ -1,0 +1,92 @@
+% Polygon division
+% Author: Eric Détrez
+\documentclass{minimal}
+\usepackage{tikz}
+\usepackage{verbatim}
+
+\begin{comment}
+
+:Title: Polygon division
+:Slug: polygon-division
+:Author: Eric Détrez
+
+This example shows the solution of `Euler's polygon division problem`_ for a heptagon. 
+The problem is to find in how many ways a plane convex polygon of *n* sides can
+be divided into triangles. The solution is given by the `Catalan number`_. For
+a heptagon the number is 42. 
+
+.. _Euler's polygon division problem: http://mathworld.wolfram.com/EulersPolygonDivisionProblem.html
+.. _Catalan number: http://mathworld.wolfram.com/CatalanNumber.html
+\end{comment}
+
+\begin{document}
+% Macro for drawing a heptagon   
+\def\hepta{\draw(A) -- (B) -- (C) -- (D) -- (E) -- (F) -- (G) -- cycle;}
+
+% Macro for drawing polygon diagonals. 
+% Example \slice{A/C,C/E,E/G,C/G}
+\newcommand{\slice}[1]{%
+    \hepta
+    \draw \foreach \x/\y in {#1} {(\x)--(\y)};
+}
+
+
+\begin{tikzpicture}
+    % Define the heptagon coordinates
+    \coordinate (A) at (-0.76,1.54);
+    \coordinate (B) at (-0.76,0.69);
+    \coordinate (C) at (-0.10,0.16);
+    \coordinate (D) at (0.73,0.35);
+    \coordinate (E) at (1.1,1.11);
+    \coordinate (F) at (0.73,1.88);
+    \coordinate (G) at (-0.10,2.07);
+
+\matrix[column sep=0.8cm,row sep=0.5cm]
+{
+    \slice{A/C,C/E,E/G,C/G}&
+    \slice{A/C,C/E,E/G,A/E}&
+    \slice{A/C,C/E,A/E,A/F}&
+    \slice{A/C,C/E,C/F,A/F}&
+    \slice{A/C,C/E,C/F,C/G}&
+    \slice{A/C,C/F,D/F,A/F}\\
+    \slice{A/C,C/F,D/F,C/G}&
+    \slice{A/C,C/G,D/G,D/F}&
+    \slice{A/C,C/G,D/G,E/G}&
+    \slice{A/C,A/D,D/F,A/F}&
+    \slice{A/C,A/D,D/F,D/G}&
+    \slice{A/C,A/D,D/G,E/G}\\
+    \slice{A/C,A/D,A/E,E/G}&
+    \slice{A/C,A/D,A/E,A/F}&
+    \slice{A/D,B/D,D/F,A/F}&
+    \slice{A/D,B/D,D/F,D/G}&
+    \slice{A/D,B/D,D/G,E/G}&
+    \slice{A/D,B/D,A/E,E/G}\\
+    \slice{A/D,B/D,A/E,A/F}&
+    \slice{A/E,B/E,B/D,E/G}&
+    \slice{A/E,B/E,B/D,A/F}&
+    \slice{A/E,B/E,C/E,E/G}&
+    \slice{A/E,B/E,C/E,A/F}&
+    \slice{A/F,B/F,B/D,D/F}\\
+    \slice{A/F,B/F,B/D,B/E}&
+    \slice{A/F,B/F,B/E,C/E}&
+    \slice{A/F,B/F,C/F,C/E}&
+    \slice{A/F,B/F,C/F,D/F}&
+    \slice{B/G,B/D,D/F,B/F}&
+    \slice{B/G,B/D,D/F,D/G}\\
+    \slice{B/G,B/D,D/G,E/G}&
+    \slice{B/G,B/D,B/E,E/G}&
+    \slice{B/G,B/D,B/E,B/F}&
+    \slice{B/G,B/E,C/E,E/G}&
+    \slice{B/G,B/E,C/E,B/F}&
+    \slice{B/G,B/F,C/F,C/E}\\
+    \slice{B/G,B/F,C/F,D/F}&
+    \slice{B/G,C/G,C/E,E/G}&
+    \slice{B/G,C/G,C/E,C/F}&
+    \slice{B/G,C/G,C/F,D/F}&
+    \slice{B/G,C/G,D/G,D/F}&
+    \slice{B/G,C/G,D/G,E/G}\\
+};
+\end{tikzpicture}
+
+\end{document}
+

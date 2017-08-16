@@ -1,0 +1,37 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{166.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-plot}
+\StopShownPreambleCommands
+\begin{document}
+\psset{labelsep=0pt}
+\begin{pspicture}(1,4)
+  \psaxes[xAxis=false]{->}(0.5,0)(0.5,4)
+\end{pspicture}
+\begin{pspicture}(1,4)
+  \psaxes[xAxis=false,
+    ylabelPos=axis]{->}(0.5,0)(0.5,4)
+\end{pspicture}
+\begin{pspicture}(1,4)
+  \psaxes[xAxis=false,
+    ylabelPos=right]{->}(0.5,0)(0.5,4)
+\end{pspicture}
+\end{document}

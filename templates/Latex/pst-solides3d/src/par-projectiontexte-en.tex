@@ -1,0 +1,619 @@
+\section{Text}
+
+The object \Lkeyword{texte} of the macro \Lcs{psProjection} allows us
+to \Index{project} character strings onto planes.
+
+\subsection{The parameters and the options}
+
+There are three parameters:\Lkeyword{text} which defines the
+string, \Lkeyword{fontsize}, which gives the dimension of the font
+in points (remember: 28.45~pts correspond to 1~cm), and finally
+\Lkeyword{pos}, which defines the position of the \Index{text}. By
+default, the text is centred at the origin of the plane.
+
+This last parameter needs some explanation. See the string
+ \texttt{petit texte} represented below.
+\begin{center}
+\begin{pspicture}(-5,-2)(5,2)
+\rput(0,0){\psframebox[linestyle=none,fillstyle=solid,
+   fillcolor=yellow!50,framesep=0pt]{\phantom{\timesnormal petit texte}}}
+\rput(0,0){\rnode[lb]{A}{\rnode[rb]{B}{\rnode[rt]{C}{%
+    \rnode[lt]{D}{\rnode[l]{E}{\rnode[r]{F}{%
+    \rnode[t]{G}{\rnode[b]{H}{\timesnormal petit texte}}}}}}}}}
+%\psset{nodesep=5pt}
+\ncline{A}{B}\ncline{B}{C}\ncline{C}{D}\ncline{D}{A}
+\pnode({A}){A'}
+\pnode({B}){B'}
+\pnode({C}){C'}
+\pnode({D}){D'}
+\pnode({E}){E'}
+\pnode({F}){F'}
+\pnode({G}){G'}
+\pnode({H}){H'}
+\rput(A){\pnode(0,\baselineskip){B1}}
+\rput(B){\pnode(0,\baselineskip){B2}}
+\psdots(A')(B')(C')(D')(E')(F')(G')(H')(B1)(B2)(0,0)
+\psline(B1)(B2)
+\pnode(! \GetCenter{A} A.x 0.5 sub A.y 0.5 sub){A1}
+\ncline{->}{A}{A1}
+\uput[dl](A1){\texttt{dl}}
+\pnode(! \GetCenter{B1} B1.x 0.5 sub B1.y){B1l}
+\ncline{->}{B1}{B1l}
+\uput[l](B1l){\texttt{bl}}
+\pnode(! \GetCenter{E} E.x 0.5 sub E.y){El}
+\ncline{->}{E}{El}
+\uput[l](El){\texttt{cl}}
+\pnode(! \GetCenter{D} D.x 0.5 sub D.y 0.5 add){Dl}
+\ncline{->}{D}{Dl}
+\uput[ul](Dl){\texttt{ul}}
+\pnode(! \GetCenter{G} G.x G.y 0.5 add){Gu}
+\ncline{->}{G}{Gu}
+\uput[u](Gu){\texttt{uc}}
+\pnode(! \GetCenter{H} H.x H.y 0.5 sub){Hd}
+\ncline{->}{H}{Hd}
+\uput[d](Hd){\texttt{dc}}
+\pnode(! \GetCenter{C} C.x 0.5 add C.y 0.5 add){Cr}
+\ncline{->}{C}{Cr}
+\uput[ur](Cr){\texttt{ur}}
+\pnode(! \GetCenter{B} B.x 0.5 add B.y 0.5 sub){Br}
+\ncline{->}{B}{Br}
+\uput[dr](Br){\texttt{dr}}
+\pnode(! \GetCenter{B2} B2.x 0.5 add B2.y){B2r}
+\ncline{->}{B2}{B2r}
+\uput[r](B2r){\texttt{br}}
+\pnode(! \GetCenter{F} F.x 0.5 add F.y){Fr}
+\ncline{->}{F}{Fr}
+\uput[r](Fr){\texttt{cr}}
+\end{pspicture}
+\end{center}
+
+We have $4$~horizontal reference lines: the bottom line
+\verb+(d)own+, the base line \verb+(b)aseline+, the median line,
+or centre line \verb+(c)enter+, and the upper line \verb+(u)p+.
+
+There are as well $4$~vertical reference lines: the left line
+\verb+(l)eft+, the base line \verb+(b)aseline+, the centre line
+\verb+(c)enter+ and the right line \verb+(r)ight+. In the case of
+strings, the two vertical lines \verb+l+ and \verb+b+ might be
+indistinguishable and easily confounded.
+
+The intersection of the $4$ horizontal lines with the $4$ vertical
+lines gives us $16$~positioning point possibilities \verb+dl+,
+\verb+bl+, \verb+cl+, \verb+ul+, \verb+db+, \verb+bb+, \verb+cb+,
+\verb+ub+, \verb+dc+, \verb+bc+, \verb+cc+, \verb+uc+, \verb+dr+,
+\verb+br+, \verb+cr+, \verb+ur+.
+
+Of these, $4$~are considered as \textit{inner points}: \verb+bb+,
+\verb+bc+, \verb+cb+ and \verb+cc+.
+
+When the parameter \Lkeyword{pos} of \Lcs{psProjection} is assigned
+one of these four inner points, it means that the latter will be
+situated at the origin of the plane of projection.
+
+When the parameter \Lkeyword{pos} of \Lcs{psProjection} is assigned
+one of the twelve remaining points, it indicates the direction in
+which the text will be positioned relative to the origin of the
+plane of projection.
+
+For example, \verb+\psProjection[...,pos=uc](0,0)+ indicates that
+the text will be centred relative to the point $(0,0)$ and
+situated above it.
+
+%% Le plan doit \^{e}tre d\'{e}fini par son origine
+%% \Cadre{$\mathtt{(x_0ny_0,z_0)}$} et la normale %$
+%% \Cadre{\texttt{[normal=1 0 0 90]}}. Pour les particularit\'{e}s
+%% de la d\'{e}finition de la normale, car il y a trois fa\c{c}ons de le faire !
+%% Tous les d\'{e}tails sont dans la partie \Cadre{\texttt{``Choisir un plan
+%%     par son origine et une normale''}} de la documentation de
+%% \texttt{doc-psProjection}.
+
+%% La taille de la fonte doit \^{e}tre fix\'{e}e en points avec l'option
+%% . .
+
+
+\subsection{Examples of projecting onto a plane}
+
+\subsubsection{Example 1: \Index{projection} onto $Oxy$, with the option \texttt{pos=bc}}
+
+\begin{LTXexample}[width=8cm]
+\begin{pspicture}(-4,-1.5)(4,1.5)
+\psset{solidmemory}
+\psset{lightsrc=10 0 10,
+   viewpoint=50 -90 89.99 rtp2xyz,Decran=50}
+\psSolid[object=plan,definition=normalpoint,plangrid,
+   base=-4 4 -1 1,args={0 0 0 [0 0 1]},name=monplan,]
+\psProjection[object=texte,
+   fontsize=20,linecolor=red,
+   pos=bc,plan=monplan,
+   text=j'aimerais tant voir Syracuse,
+](0,0)%
+\axesIIID(0,0,0)(4,2,1)
+\composeSolid
+\end{pspicture}
+\end{LTXexample}
+
+\subsubsection{Example 2: \Index{projection} onto $Oxy$, centred text}
+
+\begin{LTXexample}[width=8cm]
+\begin{pspicture}(-4,-1.5)(4,1.5)
+\psset{solidmemory}
+\psset{lightsrc=10 0 10,
+   viewpoint=50 -90 89.99 rtp2xyz,,Decran=50}
+\psSolid[object=plan,definition=normalpoint,plangrid,
+   base=-4 4 -1 1,args={0 0 0 [0 0 1]},name=monplan,]
+\psProjection[object=texte,
+   fontsize=20,linecolor=red,
+   text= L'\^{\i}le de P\^{a}ques et Kairouan,
+   plan=monplan]%
+\axesIIID(0,0,0)(4,2,1)
+\end{pspicture}
+\end{LTXexample}
+
+
+\subsubsection{Example 3: \Index{projection} onto $Oxy$,  with different options
+\texttt{pos=dl, etc.}}
+
+\begin{center}
+\psset{unit=.8}
+\begin{pspicture}(-4,-1.5)(4,1.5)
+\psset{solidmemory}
+\psset{lightsrc=10 0 10,viewpoint=50 -90 89.99 rtp2xyz,Decran=50}
+\psSolid[object=plan,definition=normalpoint,plangrid,
+   base=-10 10 -1 1,args={0 0 0 [0 0 1]},name=monplan,]
+\psProjection[object=texte,
+   fontsize=20,linecolor=red,
+   text=Et les grands oiseaux qui s'amusent,
+   pos=dl,
+   plan=monplan]%
+\axesIIID(0,0,0)(8,1,1)
+\rput(0,-1.5){\Cadre{\texttt{[pos=dl]}}}
+\end{pspicture}
+\end{center}
+
+\begin{center}
+\psset{unit=.8}
+\begin{pspicture}(-4,-1.5)(4,1.5)
+\psset{solidmemory}
+\psset{lightsrc=10 0 10,viewpoint=50 -90 89.99 rtp2xyz,Decran=50}
+\psSolid[object=plan,definition=normalpoint,plangrid,
+   base=-10 10 -1 1,args={0 0 0 [0 0 1]},name=monplan,]
+\psProjection[object=texte,
+   fontsize=20,linecolor=red,
+   text= A glisser l'aile sous le vent.,
+   pos=dr,
+   plan=monplan]%
+\axesIIID(0,0,0)(8,1,1)
+\rput(0,-1.5){\Cadre{\texttt{[pos=dr]}}}
+\end{pspicture}
+\end{center}
+
+\begin{center}
+\psset{unit=.8}
+\begin{pspicture}(-4,-1.5)(4,1.5)
+\psset{solidmemory}
+\psset{lightsrc=10 0 10,viewpoint=50 -90 89.99 rtp2xyz,Decran=50}
+\psSolid[object=plan,definition=normalpoint,plangrid,
+   base=-10 10 -1 1,args={0 0 0 [0 0 1]},name=monplan,]
+\psProjection[object=texte,
+   fontsize=20,linecolor=red,
+   text=Avant que ma jeunesse s'use,
+   pos=ur,
+   plan=monplan]%
+\axesIIID(0,0,0)(8,1,1)
+\rput(0,-1.5){\Cadre{\texttt{[pos=ur]}}}
+\end{pspicture}
+\end{center}
+
+\begin{center}
+\psset{unit=.8}
+\begin{pspicture}(-4,-1.5)(4,1.5)
+\psset{solidmemory}
+\psset{lightsrc=10 0 10,viewpoint=50 -90 89.99 rtp2xyz,Decran=50}
+\psSolid[object=plan,definition=normalpoint,plangrid,
+   base=-10 10 -1 1,args={0 0 0 [0 0 1]},name=monplan,]
+\psProjection[object=texte,
+   fontsize=20,linecolor=red,
+   text=Et que mes printemps soient partis,
+   pos=ul,
+   plan=monplan]%
+\axesIIID(0,0,0)(8,1,1)
+\rput(0,-1.5){\Cadre{\texttt{[pos=ul]}}}
+\end{pspicture}
+\end{center}
+
+\begin{center}
+\psset{unit=.8}
+\begin{pspicture}(-4,-1.5)(4,1.5)
+\psset{solidmemory}
+\psset{lightsrc=10 0 10,viewpoint=50 -90 89.99 rtp2xyz,Decran=50}
+\psSolid[object=plan,definition=normalpoint,plangrid,
+   base=-10 10 -1 1,args={0 0 0 [0 0 1]},name=monplan,]
+\psProjection[object=texte,
+   fontsize=20,linecolor=red,
+   text=J'aimerais tant voir Syracuse,
+   pos=uc,
+   plan=monplan]%
+\axesIIID(0,0,0)(8,1,1)
+\rput(0,-1.5){\Cadre{\texttt{[pos=uc]}}}
+\end{pspicture}
+\end{center}
+
+\begin{center}
+\psset{unit=.8}
+\begin{pspicture}(-4,-1.5)(4,1.5)
+\psset{solidmemory}
+\psset{lightsrc=10 0 10,viewpoint=50 -90 89.99 rtp2xyz,Decran=50}
+\psSolid[object=plan,definition=normalpoint,plangrid,
+   base=-10 10 -1 1,args={0 0 0 [0 0 1]},name=monplan,]
+\psProjection[object=texte,
+   fontsize=20,linecolor=red,
+   text=Pour m'en souvenir \`{a} Paris.,
+   pos=dc,
+   plan=monplan]%
+\axesIIID(0,0,0)(8,1,1)
+\rput(0,-1.5){\Cadre{\texttt{[pos=dc]}}}
+\end{pspicture}
+\end{center}
+
+\subsubsection{Example 4: \Index{projection} onto $Oxy$ with text rotation}
+
+\begin{LTXexample}[width=8cm]
+\begin{pspicture}(-4,-3)(4,3)
+\psset{solidmemory}
+\psset{lightsrc=10 0 10,
+   viewpoint=50 -90 89.99 rtp2xyz,Decran=50}
+\psSolid[object=plan,definition=normalpoint,plangrid,
+   base=-4 4 -3 3,args={0 0 0 [0 0 1]},name=monplan,]
+\psset{plan=monplan}
+\psProjection[object=texte,
+   fontsize=28.45,linecolor=gray!50,
+   text=Tournez man\`{e}ges]%
+\psProjection[object=texte,
+   fontsize=28.45,linecolor=red,
+   text=Tournez man\`{e}ges,
+   phi=60]%
+\axesIIID(0,0,0)(4,3,1)
+\end{pspicture}
+\end{LTXexample}
+The text rotation is introduced by the parameter \texttt{phi=60}.
+
+\subsubsection{Example 5: positioning text at a point}
+
+\begin{LTXexample}[width=8cm]
+\begin{pspicture}(-4,-3)(4,3)
+\psset{solidmemory}
+\psset{viewpoint=50 -90 89.99 rtp2xyz,Decran=50}
+\psSolid[object=plan,definition=normalpoint,plangrid,
+   base=-4 4 -3 3,args={0 0 0 [0 0 1]},name=monplan,]
+\psset{fontsize=28.45,plan=monplan}
+\psProjection[object=texte,
+   linecolor=green,
+   text=ici](-2,-2)
+\psProjection[object=texte,
+   linecolor=red,
+   text=ou]%
+\psProjection[object=texte,
+   linecolor=blue,
+   text=l\`{a}](2,2)
+\psPoint(0,0,0){O}
+\psPoint(-2,-2,0){O1}
+\psPoint(2,2,0){O2}
+\psdots[dotsize=0.2](O)(O1)(O2)
+\axesIIID(0,0,0)(4,4,1)
+\end{pspicture}
+\end{LTXexample}
+
+\subsection{Examples for \Index{projecting} onto a face of a solid}
+
+\subsubsection{Method}
+
+The solid must be memorised with the general option
+\texttt{$\backslash$psset$\{$solidmemory$\}$}. The first thing to %$
+do is to find the numbers of the faces of the solid with the
+option \texttt{\Lkeyword{numfaces}=\Lkeyval{all}}.
+\begin{LTXexample}[width=8cm]
+\psset{viewpoint=50 20 30 rtp2xyz,Decran=100}
+\begin{pspicture}(-4,-4)(4,4)
+\psSolid[object=cube,a=2,action=draw,
+   linecolor=red,numfaces=all]%
+\axesIIID(1,1,1)(2,2,2)
+\end{pspicture}
+\end{LTXexample}
+
+Then we define the projection plane as the chosen face, where in
+this case we put \texttt{A} on the face with the index number 0:
+
+
+Then we define the projection plane by a chosen face, there we put \texttt{A} on the face with the index number 0:
+\begin{verbatim}
+\psSolid[object=plan,definition=solidface,args=A 0,name=P0]
+\psProjection[object=texte,linecolor=red,text=A,plan=P0]%
+\end{verbatim}
+
+
+\begin{LTXexample}[width=8cm]
+\psset{viewpoint=50 20 30 rtp2xyz,Decran=50}
+\begin{pspicture}(-4,-4)(4,5)
+\psset{unit=0.5}
+\psset{solidmemory}
+\psSolid[object=cube,a=8,action=draw,name=A,linecolor=red]%
+\psset{fontsize=100}
+\psSolid[object=plan,action=none,
+   definition=solidface,args=A 0,name=P0]
+\psProjection[object=texte,linecolor=red,text=A,plan=P0]%
+\psSolid[object=plan,action=none,
+   definition=solidface,args=A 1,name=P1]
+\psProjection[object=texte,linecolor=red,text=B,plan=P1]%
+\psSolid[object=plan,action=none,
+   definition=solidface,args=A 4,name=P4]
+\psProjection[object=texte,linecolor=red,text=E,plan=P4]%
+\axesIIID(4,4,4)(6,6,6)
+\end{pspicture}
+\end{LTXexample}
+
+\subsubsection{Text rotation with the option \texttt{phi}}
+
+\begin{LTXexample}[width=8cm]
+\psset{viewpoint=50 20 30 rtp2xyz,Decran=50}
+\psset{unit=0.4}
+\begin{pspicture}(-8,-7)(4,9)
+\psset{solidmemory}
+\psSolid[object=cube,a=8,action=draw,linecolor=red,name=A]%
+\psset{fontsize=200}
+\psSolid[object=plan,action=none,
+   definition=solidface,args=A 0,name=P0]
+\psProjection[object=texte,linecolor=gray,text=A,plan=P0]%
+\psset{phi=90}
+\psProjection[object=texte,linecolor=red,text=A,plan=P0]%
+\axesIIID(4,4,4)(6,6,6)
+\end{pspicture}
+\end{LTXexample}
+
+
+\subsection{Examples of \Index{projecting} onto different faces of a solid}
+
+\definecolor{rose}{rgb}{1,0.75,0.74}
+
+\def\JuangJie{%
+\begin{pspicture}(-3.5,-2)(3.5,4)
+\psframe[fillcolor=cyan!50,fillstyle=solid](-3.5,-2)(3.5,4)%
+\psSolid[object=cylindre,r=8,h=0.2,ngrid=1 36,action=draw**,hue=0.5 0.6]%
+\psSolid[object=cube,a=8,h=0.2,ngrid=1 36,action=draw**,color1=magenta!50,
+  color2=red!20,color3=yellow!50,color4=green!50,
+  fcol=0 (color1) 1 (color2) 2 (color3) 3 (color4) 4(White)](0,0,4.2)%
+\psset{solidmemory}%
+\psSolid[object=cube,a=8,
+   name=A,
+   action=none](0,0,4.2)%
+%% la face 0
+\psSolid[object=plan,action=none,definition=solidface,
+   base=-4 4 -4 4,args=A 0,name=P0]%
+%\psSolid[object=plan,definition=plan,action=none,args=P0,planmarks,action=none,]%
+\psset{fontsize=30,plan=P0}%
+\psProjection[object=texte,text=po\`{e}me](0,3)%
+\psProjection[object=texte,text=de](0,2)%
+\psset{fontsize=55}
+\psProjection[object=texte,linecolor=red,text=Juang Jie]
+%% la face 4
+\psSolid[object=plan,action=none,definition=solidface,base=-4 4 -4 4,args=A 4,phi=-90,name=P4]%
+%\psSolid[object=plan,definition=plan,action=none,args=P4,fontsize=10,planmarks,action=none]%
+\psset{fontsize=28.45,pos=bc,plan=P4}
+\psProjection[object=texte,text={Dans ma jeunesse,}](0,3)%
+\psset{fontsize=20}
+\psProjection[object=texte,text=j'\'{e}coutais le son de la pluie](0,2)%
+\psProjection[object=texte,text=dans les maisons de plaisir](0,1)%
+\psProjection[object=texte,text=les tentures frissonnaient]%
+\psProjection[object=texte,text=sous la lumi\`{e}re rouge](0,-1)%
+\psProjection[object=texte,text=des cand\'{e}labres](0,-2)%
+%% la face 1
+\psSolid[object=plan,action=none,definition=solidface,base=-4 4 -4 4,args=A 1,phi=180,name=P1]%
+%\psSolid[object=plan,definition=plan,action=none,args=P1,fontsize=10,planmarks,action=none]%
+\psset{plan=P1}
+\psProjection[object=texte,fontsize=25,text=Dans mon \^{a}ge m\^{u}r](0,3)%
+\psProjection[object=texte,text=j'ai \'{e}cout\'{e} le son de la pluie](0,2)%
+\psProjection[object=texte,fontsize=18,text={en voyage, \`{a} bord d'un bateau}](0,1)%
+\psProjection[object=texte,text=les nuages pesaient bas]%
+\psProjection[object=texte,text=sur l'immensit\'{e} du fleuve](0,-1)%
+\psProjection[object=texte,text=une oie sauvage ](0,-2)%
+\psProjection[object=texte,text=s\'{e}par\'{e}e de ses soeurs](0,-3)%
+%% la face 2
+\psSolid[object=plan,action=none,definition=solidface,base=-4 4 -4 4,args=A 2,phi=180,name=P2]%
+%\psSolid[object=plan,definition=plan,action=none,args=P2,fontsize=10,planmarks,action=none]%
+\psset{plan=P2}
+\psProjection[object=texte,text=appelait dans le vent d'ouest](0,3)%
+\psProjection[object=texte,text={Aujourd'hui,}](0,2)%
+\psProjection[object=texte,text=j'\'{e}coute le son de la pluie](0,1)%
+\psProjection[object=texte,text=sous le charme]%
+\psProjection[object=texte,text=d'un ermitage monastique](0,-1)%
+\psProjection[object=texte,text=Ma t\^{e}te est chenue](0,-2)%
+\psProjection[object=texte,text=chagrins et bonheurs](0,-3)%
+%% la face 3
+\psSolid[object=plan,action=none,definition=solidface,args=A 3,phi=180,name=P3]%
+%\psSolid[object=plan,definition=plan,action=none,args=P3,fontsize=10,planmarks,action=none]%
+\psset{plan=P3}
+\psProjection[object=texte,text=s\'{e}parations et retrouvailles](0,3)%
+\psProjection[object=texte,text=tout est vanit\'{e}](0,2)%
+\psProjection[object=texte,text={Dehors, sur les marches}](0,1)%
+\psProjection[object=texte,text=les gouttes tambourinent]%
+\psProjection[object=texte,text= jusqu'\`{a} l'aube](0,-1)%
+\psProjection[object=texte,text=Juang Jie ](0,-3)%
+\composeSolid
+\end{pspicture}}
+
+\def\MollyBloom{%
+%\psset{lightsrc=-15 -9 5}
+%\psset{viewpoint=20 -150 30 rtp2xyz,Decran=11}
+\psset{solidmemory,visibility}
+%% le plan de base
+\psSolid[object=plan,
+   definition=equation,
+   ngrid=1. 1.,
+   args={[0 0 1 0]},linecolor=red,
+   base=-8 10 -8 8,
+   linecolor=red,
+   name=G]%
+\psset{fontsize=25,,pos=bc,plan=G}
+\psProjection[object=texte,
+   phi=-90,
+   text=le monologue de Molly,
+   pos=bc,
+   ](-5,0)
+\psProjection[object=texte,text=dans Ulysse de James Joyce](1,-5,0)
+\psset{h=1,fillcolor=yellow!50,incolor=rose,hollow}
+\psset{fontsize=20,pos=cc}
+%
+\psSolid[object=ruban,name=ruban1,base=9 8 9 -8]
+\psSolid[object=plan,action=none,definition=solidface,args=ruban1 0,name=R0,phi=-90]
+\psProjection[object=texte,plan=R0,
+   text=O cet effrayant torrent tout au fond O et la mer \'{e}carlate]
+%
+\psSolid[object=ruban,name=ruban1,base=9 -8 -8 -8]
+\psSolid[object=plan,action=none,definition=solidface,args=ruban1 0,name=R0,phi=-90]
+\psProjection[object=texte,plan=R0,
+   text=quelquefois comme du feu et les glorieux couchers de soleil et]
+%
+\psSolid[object=ruban,name=ruban1,base=-8 7 7 7]
+\psSolid[object=plan,action=none,definition=solidface,args=ruban1 0,name=R0,phi=-90]
+\psProjection[object=texte,plan=R0,fontsize=18,
+   text=les ruelles bizarres les maisons roses et bleues et jaunes,]
+%
+\psSolid[object=ruban,name=ruban1,base=7 7 7 -6]
+\psSolid[object=plan,action=none,definition=solidface,args=ruban1 0,name=R0,phi=-90]
+\psProjection[object=texte,plan=R0,
+   text=et les roseraies et les jasmins et les g\'{e}raniums,]
+%
+\psSolid[object=ruban,name=ruban1,base=7 -6 -6 -6]
+\psSolid[object=plan,action=none,definition=solidface,args=ruban1 0,name=R0,phi=-90]
+\psProjection[object=texte,plan=R0,
+   text=et les cactus de Gibraltar quand j'\'{e}tais jeune fille,]
+%
+\psSolid[object=ruban,name=ruban1,base=-6 5 5 5]
+\psSolid[object=plan,action=none,definition=solidface,args=ruban1 0,name=R0,phi=-90]
+\psProjection[object=texte,plan=R0,fontsize=18,
+   text=quand j'ai mis la rose dans mes cheveux,]
+%
+\psSolid[object=ruban,name=ruban1,base=5 5 5 -4]
+\psSolid[object=plan,action=none,definition=solidface,args=ruban1 0,name=R0,phi=-90]
+\psProjection[object=texte,plan=R0,
+   text=comme les filles Andalouses,]
+%
+\psSolid[object=ruban,name=ruban1,base=5 -4 -3 -4]
+\psSolid[object=plan,action=none,definition=solidface,args=ruban1 0,name=R0,phi=-90]
+\psProjection[object=texte,plan=R0,
+   text=ou en mettrai-je une rouge oui,]
+%
+\psSolid[object=ruban,name=ruban1,base=-3 4 3 4]
+\psSolid[object=plan,action=none,definition=solidface,args=ruban1 0,name=R0,phi=-90]
+\psProjection[object=texte,plan=R0,fontsize=18,
+   text=sous le mur mauresque,]
+%
+\psSolid[object=ruban,name=ruban1,base=3 4 3 -2]
+\psSolid[object=plan,action=none,definition=solidface,args=ruban1 0,name=R0,phi=-90]
+\psProjection[object=texte,plan=R0,
+   text=je me suis dit apr\`{e}s,]
+%
+\psSolid[object=ruban,name=ruban1,base=3 -2 -1.5 -2]
+\psSolid[object=plan,action=none,definition=solidface,args=ruban1 0,name=R0,phi=-90]
+\psProjection[object=texte,plan=R0,
+   text=tout aussi bien,]
+%
+\psSolid[object=ruban,name=ruban1,base=-1.5 3 2 3]
+\psSolid[object=plan,action=none,definition=solidface,args=ruban1 0,name=R0,phi=-90]
+\psProjection[object=texte,plan=R0,
+   text=et alors je,]
+\psSolid[object=ruban,name=ruban1,base=-8 -8 -8 7]
+\psSolid[object=plan,action=none,definition=solidface,args=ruban1 0,name=R0,phi=-90]
+\psProjection[object=texte,plan=R0,
+   text=les figuiers dans les jardins de l'Alameda et toutes,]
+%
+\psSolid[object=ruban,name=ruban1,base=-6 -6 -6 5]
+\psSolid[object=plan,action=none,definition=solidface,args=ruban1 0,name=R0,phi=-90]
+\psProjection[object=texte,plan=R0,
+   text=et une Fleur de la montagne oui,]
+%
+\psSolid[object=ruban,name=ruban1,base=-3 -4 -3 4]
+\psSolid[object=plan,action=none,definition=solidface,args=ruban1 0,name=R0,phi=-90]
+\psProjection[object=texte,plan=R0,
+   text=et comme il m'a embrass\'{e}e,]
+%
+\psSolid[object=ruban,name=ruban1,base=-1.5 -2 -1.5 3]
+\psSolid[object=plan,action=none,definition=solidface,args=ruban1 0,name=R0,phi=-90]
+\psProjection[object=texte,plan=R0,
+   text=lui qu'un autre,]
+%
+\composeSolid
+}
+
+We project a poem, verse by verse, onto 4 faces of a cube. It is
+necessary to use the option \texttt{solidmemory} at the beginning
+\begin{verbatim}
+\psset{solidmemory}
+\psSolid[object=cube,a=8,name=A1](0,0,4.2)%
+\end{verbatim}
+of the code. We then define the cube, which is memorised with the
+help of the command \texttt{name=A}:
+
+\begin{verbatim}
+\psset{solidmemory}
+\psProjection[object=texte,text=po\`{e}me,fontsize=30,plan=P0](0,3)%
+\psSolid[object=cube,a=8,name=A](0,0,4.2)%
+\end{verbatim}
+
+The number of each face needs to be known---from a previous run
+of the code with the option \texttt{\Lkeyword{numfaces}=\Lkeyval{all}}. The following
+commands:
+
+
+\begin{verbatim}
+\psSolid[object=plan,action=none,definition=solidface,args=A 0,name=P0]%
+\psProjection[object=texte,text=po\`{e}me,fontsize=30,plan=P0](0,3)%
+\end{verbatim}
+define the plane $P0$ as the oriented plane of the face with index
+number 0 of the solid $A$, before the word \texttt{po\`{e}me} is
+projected onto $P0$, with a font size of 30~pts, to the point with
+coordinates $(0,3)$ (within the coordinate system of that plane).
+We could have changed the orientation of the text to
+\texttt{phi=-90} for example, in the one or other of the commands.
+
+By default, if the face is not visible, its text stays hidden. By
+putting \Lkeyword{visibility} in the options, the text is shown when
+it would otherwise not be, as in the following example.
+
+You must not forget to write \texttt{$\backslash$composeSolid} at
+the end of the text-writing commands for all these lines to be
+taken into account. Any other  PStricks command will have
+the usual effect and \verb+\composeSolid+ will be unnecessary.
+
+
+
+
+\begin{center}
+\psset{viewpoint=40 20 30 rtp2xyz,Decran=16}
+\JuangJie \hfil
+\psset{viewpoint=40 110 30 rtp2xyz,Decran=16}
+\JuangJie
+\end{center}
+\begin{center}
+\psset{viewpoint=40 200 30 rtp2xyz,Decran=16}
+\JuangJie\hfil
+\psset{viewpoint=40 290 30 rtp2xyz,Decran=16}
+\JuangJie
+\end{center}
+
+
+\begin{center}
+\begin{pspicture}(-8,-6)(8,3)
+\psset{lightsrc=-15 -9 5}
+\psframe(-8,-6)(8,3)
+\psset{viewpoint=20 -150 30 rtp2xyz,Decran=11}\MollyBloom
+\end{pspicture}
+\end{center}
+\begin{center}
+\begin{pspicture}(-8,-6)(8,7)
+\psset{lightsrc=0 0 3}
+\psframe(-8,-6)(8,7)
+\psset{viewpoint=6 -150 89.9 rtp2xyz,Decran=2.8}\MollyBloom
+\end{pspicture}
+\end{center}
+
+\endinput

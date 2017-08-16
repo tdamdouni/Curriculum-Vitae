@@ -1,0 +1,71 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-solides3d,arrayjob}
+\newarray\colors
+\readarray{colors}{%
+Apricot&Aquamarine%
+&Bittersweet&Black&Blue&BlueGreen&BlueViolet&BrickRed&Brown&BurntOrange%
+&CadetBlue&CarnationPink&Cerulean&CornflowerBlue&Cyan&Dandelion&DarkOrchid%
+&Emerald&ForestGreen&Fuchsia&Goldenrod&Gray&Green&GreenYellow&JungleGreen%
+&Lavender&LimeGreen&Magenta&Mahogany&Maroon&Melon&MidnightBlue&Mulberry%
+&NavyBlue&OliveGreen&Orange&OrangeRed&Orchid&Peach&Periwinkle&PineGreen%
+&Plum&ProcessBlue&Purple&RawSienna&Red&RedOrange&RedViolet&Rhodamine&RoyalBlue%
+&RoyalPurple&RubineRed&Salmon&SeaGreen&Sepia&SkyBlue&SpringGreen&Tan&TealBlue%
+&Thistle&Turquoise&Violet&VioletRed&White&WildStrawberry&Yellow&YellowGreen&YellowOrange}
+\edef\colorfaces{}%
+\multido{\i=0+1}{67}{%
+ \checkcolors(\i)
+\xdef\colorfaces{\colorfaces\i\space(\cachedata)\space}}
+\StopShownPreambleCommands
+\begin{document}
+\psset{unit=0.35}
+\begin{pspicture}(-7,-7)(7,7)
+\psset[pst-solides3d]{viewpoint=50 40 20,Decran=50,lightsrc=10 10 10}
+\psSolid[a=8,object=cube,ngrid=4,fillcolor=yellow]%
+\psPoint(0,0,0){O}
+\psPoint(0,0,4){Ak}
+\psPoint(0,0,8){Az}
+\uput[u](Az){$z$}
+\psPoint(4,0,0){Ai}
+\psPoint(8,0,0){Ax}
+\uput[u](Ax){$x$}
+\psPoint(0,4,0){Aj}
+\psPoint(0,8,0){Ay}
+\uput[dr](Ay){$y$}
+\psPoint(4,-4,0){A1}
+\psPoint(4,4,0){A2}
+\psPoint(-4,4,0){A3}
+\psPoint(-4,-4,0){A4}
+\uput[dr](Ay){$y$}
+\psline[linecolor=green,arrowsize=2mm,arrowinset=0.2]{->}(Aj)(Ay)
+\psline[linecolor=blue,arrowsize=2mm,arrowinset=0.2]{->}(Ai)(Ax)
+\psline[linecolor=red,arrowsize=2mm,arrowinset=0.2]{->}(Ak)(Az)
+\psdot[linecolor=green](Aj)
+\psdot[linecolor=blue](Ai)
+\psdot[linecolor=red](Ak)
+\end{pspicture}
+\qquad
+\begin{pspicture}(-7,-7)(7,7)
+\psset[pst-solides3d]{viewpoint=50 45 10 rtp2xyz,Decran=40,lightsrc=30 45 0}
+\psSolid[a=8,object=cube,ngrid=3,fcol=\colorfaces,RotY=45,RotX=30,RotZ=20]%
+\end{pspicture}
+\end{document}

@@ -1,0 +1,48 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{166.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pstricks-add}
+\def\Lissa{t dup 2 RadtoDeg mul cos 3.5 mul exch 6 mul RadtoDeg sin 3.5 mul}
+\StopShownPreambleCommands
+\begin{document}
+\psset{unit=0.75cm}
+\begin{pspicture}(-4,-5)(4,5)%  SEKANTENsteigung
+  \parametricplot[plotpoints=500,linewidth=1.5pt]{0}{3.141592}{\Lissa}
+  \multido{\r=0.000+0.314}{11}{%
+    \psplotTangent[arrows=<->,linecolor=black!40]{\r}{1.5}{\Lissa}}
+  \multido{\r=0.157+0.314}{11}{%
+    \psplotTangent[arrows=<->,linecolor=black!40]{\r}{1.5}{\Lissa}}
+  \rput(0,4.5){Sekantensteigung}
+\end{pspicture}\hfill%
+%
+\def\LissaAlg{3.5*cos(2*t)|3.5*sin(6*t)}
+\def\LissaAlgDer{-7*sin(2*t)|21*cos(6*t)}
+\begin{pspicture}(-4,-5)(4,5)%  TANGENTENsteigung
+  \parametricplot[algebraic,plotpoints=500,
+    linewidth=1.5pt]{0}{3.141592}{\LissaAlg}
+  \multido{\r=0.000+0.314}{11}{%
+    \psplotTangent[algebraic,arrows=<->,linecolor=black!40]{\r}{1.5}{\LissaAlg} }
+  \multido{\r=0.157+0.314}{11}{%
+  \psplotTangent[algebraic,arrows=<->,linecolor=black!40,%
+     Derive=\LissaAlgDer]{\r}{1.5}{\LissaAlg} }
+  \rput(0,4.5){Tangentensteigung}
+\end{pspicture}
+\end{document}

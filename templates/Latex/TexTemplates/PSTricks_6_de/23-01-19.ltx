@@ -1,0 +1,83 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\usepackage{pst-3d}
+\makeatletter
+\def\xyEbene#1{%
+  \ThreeDput[normal=0 0 1](0,0,0){% xy-Ebene
+    \psgrid(0,0)(#1,#1)%
+    \psline{->}(0,0)(0,#1) \psline{->}(0,0)(#1,0)
+    \ifdim\psk@gridlabels pt>\z@
+      \uput[180]{0.2}(0,#1){$y$} \uput[-90]{0.2}(#1,0){$x$}%
+    \fi
+  }}
+\def\xzEbene#1{%
+  \ThreeDput[normal=0 -1 0](0,0,0){% xz-Ebene
+    \psgrid(0,0)(#1,#1)%
+    \psline{->}(0,0)(0,5) \psline{->}(0,0)(#1,0)
+    \ifdim\psk@gridlabels pt>\z@
+      \uput[180]{0.2}(0,#1){$z$} \uput[-90]{0.2}(#1,0){$x$}%
+    \fi
+  }}
+\def\yzEbene#1{%
+  \ThreeDput[normal=1 0 0](0,0,0){% yz-Ebene
+    \psgrid(0,0)(#1,#1)%
+    \psline{->}(0,0)(0,#1) \psline{->}(0,0)(#1,0)
+    \ifdim\psk@gridlabels pt>\z@
+      \uput[180]{0.2}(0,#1){$z$} \uput[-90]{0.2}(#1,0){$y$}%
+    \fi
+}}
+%
+\def\DreiDKOSystem{\@ifnextchar[{\DreiDKOSystem@i}{\DreiDKOSystem@i[]}}
+\def\DreiDKOSystem@i[#1]#2{{%
+  \psset{#1}%
+  \xyEbene{#2}\xzEbene{#2}\yzEbene{#2}}}
+\makeatother
+\StartShownPreambleCommands
+\usepackage{pst-3d,multido}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(-4.5,-3)(3,4.75)
+\psset{viewpoint=1 1.5 0.8}
+\DreiDKOSystem[gridlabels=0pt,subgriddiv=0,gridcolor=black!50]{5}
+\ThreeDput[normal=0 0 1]{% xy-Ebene
+    \psline[linewidth=3pt,linecolor=blue]{->}(4,4)(4,5.5)
+    \uput[90](4,5.5){\psrotateleft{\textcolor{blue}{$\vec{n}_A$}}}}
+\ThreeDput[normal=0 -1 0]{%  xz-Ebene
+    \psline[linewidth=3pt,linecolor=green]{->}(4,0)(5.5,0)
+    \uput[90](5.5,0){\psscalebox{-1 1}{\textcolor{green}{$\vec{n}_B$}}}}
+\ThreeDput[normal=1 0 0]{%  yz-Ebene
+    \psline[linewidth=3pt,linecolor=red]{->}(0,4)(0,5.5)
+    \uput[0](0,5.5){$\vec{n}_{oben}$}} % Würfel und Achsen
+\ThreeDput[normal=0 0 1](0,0,4){\psframe*[linecolor=gray!25](4,4)
+    \rput(2,2){\Huge\textbf{OBEN}}}
+\ThreeDput[normal=0 1 0](4,4,0){\psframe*[linecolor=gray!5](4,4)
+    \rput(2,2){\Huge\textbf{Seite A}}}
+\ThreeDput[normal=1 0 0](4,0,0){\psframe*[linecolor=gray!15](4,4)
+    \rput(2,2){\Huge\textbf{Seite B}}}
+% Die kleinen Achsen
+\ThreeDput[normal=0 0 1](0,0,4){\psline(4,0)\uput[90](3,0){X$_{oben}$}
+    \psline(0,4)\uput[0](0,3){Y$_{oben}$}}
+\ThreeDput[normal=0 1 0](4,4,0){\psline(4,0)\uput[90](3,0){X$_{A}$}
+    \psline(0,4)\uput[0](0,3){Y$_{A}$}}
+\ThreeDput[normal=1 0 0](4,0,0){\psline(4,0)\uput[90](3,0){X$_{B}$}
+    \psline(0,4)\uput[0](0,3){Y$_{B}$}}
+\end{pspicture}
+\end{document}

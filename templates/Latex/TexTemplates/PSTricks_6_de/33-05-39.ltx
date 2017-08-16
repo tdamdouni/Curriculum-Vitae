@@ -1,0 +1,43 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\usepackage[utf8]{inputenc}
+\StartShownPreambleCommands
+\usepackage{pst-thick,pst-node,multido}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(-1,-3)(10,3)
+\psthick[curveonly,E=2,K=45]{0}{10}{\fonctionSinus{10}{2}}
+\multido{\i=0+1}{11}{%
+\pnode(! /t \i\space def /E 2 def  /K 45 def
+    /dt 10 360 div def \fonctionSinus{10}{2}
+    /ds dx dup mul dy dup mul add sqrt def
+    /dx dx ds div def /dy dy ds div def
+    /dx' K cos dx mul K sin dy mul sub def
+    /dy' K sin dx mul K cos dy mul add def
+    /nx E 2 div dy' mul neg def % normale x
+    /ny E 2 div dx' mul def % normale y
+    x0 nx add y0 ny add ){A}
+\psdot[linecolor=red](A) \pnode(! x0 nx sub y0 ny sub ){B}
+\psdot[linecolor=red](B) \psdot(!t O t mul sin A mul) \psline(A)(B)}
+\parametricplot[linestyle=dashed]{0}{10}{ t O t mul sin A mul }
+\psaxes(0,0)(-1,-3)(10,3)
+\end{pspicture}
+\end{document}

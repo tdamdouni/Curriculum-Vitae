@@ -1,0 +1,56 @@
+% Fading text
+% Author: Elke Schubert
+\documentclass[border=10pt,varwidth]{standalone}
+%%%<
+\usepackage{verbatim}
+%%%>
+\begin{comment}
+:Title: Fading text
+:Tags: Fading;Styles;Fun
+:Author: Elke Schubert
+:Slug: text-fading
+
+Here we would like to add a color fading to single characters and whole text.
+It should be possible to use the shaded text within normal text, without an
+additional border and aligned at the normal text base line. 
+
+We define a command \fadingtext[<color options>]{<text>} and furthermore
+a style fading text for defining preset colors.
+
+\phantom is used to define a place holder node, we use the same node for
+aligning at the surrounding text's base line, and this node is then
+shaded with the previously defined fading.
+
+The example shows, how the style is set. Note, that the middle color
+has to be set as the last one. So, if you change a color later, re-set
+the middle color (or it's removed).
+
+This example was written by Elke Schubert on TikZ.de.
+http://tikz.de/farbverlauf-auf-einem-text/
+\end{comment}
+\usepackage{tikz}
+\usetikzlibrary{fadings}
+\tikzset{fading text/.style={}}
+
+\newcommand\fadingtext[2][]{%
+  \begin{tikzfadingfrompicture}[name = fading letter]
+    \node[text = transparent!0, inner xsep = 0pt, outer xsep = 0pt] {#2};
+  \end{tikzfadingfrompicture}%
+  \begin{tikzpicture}[baseline = (textnode.base)]
+    \node[inner sep = 0pt, outer sep = 0pt] (textnode) {\phantom{#2}}; 
+    \shade[path fading = fading letter, fading text, #1, fit fading = false]
+    (textnode.south west) rectangle (textnode.north east);% 
+  \end{tikzpicture}% 
+}
+
+\usepackage{lipsum}
+\begin{document}
+\tikzset{fading text/.style = {left color = red, right color = red!50!blue,
+  middle color = green}}
+\setlength\fboxsep{0pt}
+\fbox{\scalebox{4}{\fadingtext[left color = green, right color = red]{$4$}}}
+For testing the alignment: \fadingtext{Here is a colored sample sentence.} 
+
+\noindent\fadingtext[top color = orange, bottom color = purple,
+  middle color=.]{\parbox[b]{\linewidth}{\strut\lipsum[1]}}
+\end{document}

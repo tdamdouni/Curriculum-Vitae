@@ -1,0 +1,38 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2008 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-func}
+\StopShownPreambleCommands
+\begin{document}
+\psset{xunit=1.5}
+\begin{pspicture}(-0.5,-4)(3,4)
+  \psaxes{->}(0,0)(0,-4)(3,4)
+  \psVolume[fillstyle=solid,fillcolor=cyan!40](0,1){4}{x}
+  \psVolume[fillstyle=solid,fillcolor=yellow!40](1,2){4}{x dup mul}
+  \psline(2,0)(3,0)
+\end{pspicture}\qquad
+\begin{pspicture}(-0.5,-4)(3,4)
+  \psaxes{->}(0,0)(0,-4)(3,4)
+  \psVolume[fillstyle=solid,fillcolor=cyan!40](0,1){20}{x}
+  \psVolume[fillstyle=solid,fillcolor=yellow!40](1,2){20}{x dup mul}
+  \psline(2,0)(3,0)
+\end{pspicture}
+\end{document}

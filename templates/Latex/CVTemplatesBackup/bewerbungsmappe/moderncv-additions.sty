@@ -1,0 +1,90 @@
+% (c) 2010 Martin Weiglhofer <weiglhofer@ist.tugraz.at> and 
+%          Thomas Quaritsch <t.quaritsch@student.tugraz.at>
+
+\AtEndPreamble{
+
+	\renewcommand*{\contentsline}[4]{%
+	  #2 \dotfill #3\\
+	}
+
+	\newcommand{\makequote}{
+	  \ifthenelse{\isundefined{\@quote}}%
+	  {}%
+	  {\centering{%
+			\begin{minipage}{\quotewidth}\vspace*{2em}\centering\quotestyle{\@quote}\end{minipage}%
+		}\\[2.5em]%
+	  }%
+	}
+
+	\newcommand{\chapter}{\@ifstar
+	                     \chapterStar
+	                     \chapterNoStar }
+
+	\newcommand*{\chapterNoStar}[2]{%
+	  {%
+	   \addcontentsline{toc}{chapter}{#1#2}%
+	   \chapter*{#1}{#2}%
+	  }%
+	}
+
+	\newcommand*{\chapterStar}[2]{%
+	  {%
+	    \hfill%
+	    {\raggedleft{\firstnamestyle{#1}\familynamestyle{#2}}\\[-.35em]}%
+	  	{\color{firstnamecolor}\rule{\textwidth}{.25ex}\\[0.25em]}%
+	  }%
+	}
+
+	\renewcommand*{\@starttoc}[1]{%
+	  \begingroup
+	    \makeatletter
+	    \parskip\z@
+	    \@input{\jobname.#1}%
+	    \if@filesw
+	      \expandafter\newwrite\csname tf@#1\endcsname
+	      \immediate\openout \csname tf@#1\endcsname \jobname.#1\relax
+	    \fi
+	    \@nobreakfalse
+	  \endgroup
+	}
+	\def\tableofcontents{\@starttoc{toc}}
+
+	% usage: \section{<title>}
+	\renewcommand*{\section}[1]{%
+	  \vspace*{3ex plus 1ex minus 1ex}%
+	  \parbox[m]{\hintscolumnwidth}{\raggedleft\hintfont{\color{sectionrectanglecolor}\rule{\hintscolumnwidth}{1ex}}}%
+	  \phantomsection{}% reset the anchor for hyperrefs
+	  % \addcontentsline{toc}{part}{#1}%
+	  \hspace{\separatorcolumnwidth}%
+	  \parbox[m]{\maincolumnwidth}{\sectionstyle{#1}}%
+	  \vspace*{3ex plus 1ex minus 1ex}%
+	}
+	%  \cvline[1ex]{\color{sectionrectanglecolor}\rule[0]{\hintscolumnwidth}{1ex}}{\sectionstyle{#1}}}% gives bad alignment of rectangle; too bad m{width} columns seem not to work as a valid column definition for tabular environments
+	% starred variant, which is identical but defined to allow its use (e.g. for natbib compatibility, who uses \section*{} for the bibliography header)
+
+	\renewenvironment{thebibliography}[1]%
+	  {%
+	    \subsection{\refname}%
+	%    \vspace*{-0.65em}%
+	    \small%
+	    \begin{list}{\bibliographyitemlabel}%
+	      {%
+	        \setlength{\topsep}{0pt}%
+	        \setlength{\labelwidth}{\hintscolumnwidth}%
+	        \setlength{\labelsep}{\separatorcolumnwidth}%
+	        \leftmargin\labelwidth%
+	        \advance\leftmargin\labelsep%
+	        \@openbib@code%
+	        \usecounter{enumiv}%
+	        \let\p@enumiv\@empty%
+	        \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+	        \sloppy\clubpenalty4000\widowpenalty4000%
+	%        \sfcode`\.\@m%
+	%        \sfcode `\=1000\relax%
+	  }%
+	  {%
+	    \def\@noitemerr{\@latex@warning{Empty `thebibliography' environment}}%
+	    \end{list}%
+	  }
+
+}

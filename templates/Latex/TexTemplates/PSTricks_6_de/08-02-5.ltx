@@ -1,0 +1,38 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pstricks-add}
+\StopShownPreambleCommands
+\begin{document}
+\psset{arrowsize=8pt,arrowlength=1,linewidth=1pt,nodesep=2pt,shortput=tablr}
+\begin{psmatrix}[colsep=12mm,rowsep=10mm]
+        &   & $R_2$            \\
+        &   &   0   &   & $R_3$\\
+$e_b:S$ & 1 &       & 1 & 0    \\
+        &   &   0              \\
+        &   &   $R_1$          \\
+\end{psmatrix}
+\ncline{h-}{1,3}{2,3}<{$e_{r2}$}>{$f_{r2}$}\ncline{-h}{2,3}{3,2}<{$e_1$}
+\ncline{-h}{3,1}{3,2}^{$e_s$}_{$f_{s}$}\ncline{-h}{3,2}{4,3}>{$e_3$}<{$f_3$}
+\ncline{-h}{4,3}{3,4}>{$e_4$}<{$f_4$}  \ncline{-h}{3,4}{2,3}>{$e_2$}<{$f_2$}
+\ncline{-h}{3,4}{3,5}^{$e_5$}          \ncline{-h}{3,5}{2,5}<{$e_{r3}$}>{$f_{r3}$}
+\ncline{-h}{4,3}{5,3}<{$e_{r1}$}>{$f_{r1}$}
+\end{document}

@@ -1,0 +1,38 @@
+\section{Drawing a \Index{line}}
+
+This command is adapted from the macro \verb+\pstThreeDLine+ from the package
+\texttt{pst-3dplot} of Herbert \textsc{Voss}%
+\footnote{\url{http://tug.ctan.org/tex-archive/graphics/pstricks/contrib/pst-3dplot}.}
+
+We use \texttt{\textbackslash psLineIIID[options](x0,y0,z0)(x1,y1,z1)\ldots(xn,yn,zn)},
+with the following possible options:
+\begin{itemize}
+  \item \texttt{\Lkeyword{linecolor}=colour};
+  \item \texttt{\Lkeyword{doubleline}=true};
+  \item \texttt{\Lkeyword{linearc}=value}.
+\end{itemize}
+It is not possible to put arrowheads at the ends of the lines.
+
+\begin{LTXexample}[width=6.5cm]
+\psset{viewpoint=50 20 30 rtp2xyz,Decran=50}
+\begin{pspicture}(-3,-4)(4,4)
+\psSolid[object=cube,a=4,action=draw*,
+  fillcolor=magenta!20]%
+\psLineIIID[linecolor=blue,
+  linewidth=0.1,linearc=0.5,
+  doubleline=true](-2,-2,-2)(2,2,2)(2,2,-2)(2,-2,0)
+\psPoint(2,-2,0){A}\psPoint(-2,-2,-2){B}
+\psPoint(2,2,2){C}\psPoint(2,2,-2){D}
+\psdot[dotsize=0.2](A)\psdot[dotsize=0.2](B)
+\psdot[dotsize=0.2](C)\psdot[dotsize=0.2](D)
+\psLineIIID[linecolor=green]%
+  (-2,-2,-2)(2,2,2)(2,2,-2)(2,-2,0)
+\psPolygonIIID[linecolor=red,
+  fillstyle=vlines,linearc=0.5,
+  linewidth=0.1](-2,-2,2)(-2,2,2)(2,2,2)(2,-2,2)
+\axesIIID(2,2,2)(4,4,4)
+\end{pspicture}
+\end{LTXexample}
+
+
+\endinput

@@ -1,0 +1,51 @@
+\section{The \Index{modes}}
+
+For some solids, there are certain gratings predefined.
+We can setup the key values to \texttt{\Lkeyword{mode}=0, 1, 2, 3 or 4} which allows to have some some gratings from very coarse  \texttt{\Lkeyword{mode}=0} up to very fine \texttt{\Lkeyword{mode}=4}.
+
+This permits us to have a draft version of a solid with \texttt{\Lkeyword{mode}=0} (fewer calculations) and then refine it with \texttt{\Lkeyword{mode}=4} for the final version.
+
+\psResetSolidKeys
+%% avec mode = 0
+\begin{center}
+\psset{lightsrc=10 5 0,viewpoint=50 20 -40 rtp2xyz,Decran=35,unit=0.5cm,%
+       incolor=white,fillcolor=green!50,r0=5,r1=2,h=5,object=troncconecreux,r0=5,r1=2,h=5}
+\begin{pspicture}(-5,-5)(5,5)
+\psframe(-5,-5)(5,5)
+\psSolid[mode=0]
+\rput(0,-4.5){\psframebox[fillstyle=solid,fillcolor=black]{\small \textcolor{white}{\texttt{[mode=0]}}}}
+\end{pspicture}
+%
+\begin{pspicture}(-5,-5)(5,5)
+\psframe(-5,-5)(5,5)
+\psSolid[mode=1]%
+\rput(0,-4.5){\psframebox[fillstyle=solid,fillcolor=black]{\small\textcolor{white}{\texttt{[mode=1]}}}}
+\end{pspicture}
+%
+\begin{pspicture}(-5,-5)(5,5)
+\psframe(-5,-5)(5,5)
+\psSolid[mode=2]%
+\rput(0,-4.5){\psframebox[fillstyle=solid,fillcolor=black]{\textcolor{white}{\texttt{[mode=2]}}}}
+\end{pspicture}
+%
+\begin{pspicture}(-5,-5)(5,5)
+\psframe(-5,-5)(5,5)
+\psSolid[mode=3]%
+\rput(0,-4.5){\psframebox[fillstyle=solid,fillcolor=black]{\textcolor{white}{\texttt{[mode=3]}}}}
+\end{pspicture}
+%
+\begin{pspicture}(-5,-5)(5,5)
+\psframe(-5,-5)(5,5)
+\psSolid[mode=4]%
+\rput(0,-4.5){\psframebox[fillstyle=solid,fillcolor=black]{\textcolor{white}{\texttt{[mode=4]}}}}
+\end{pspicture}
+%
+\begin{pspicture}(-5,-5)(5,5)
+\psframe(-5,-5)(5,5)
+\psSolid[mode=5]%
+\rput(0,-4.5){\psframebox[fillstyle=solid,fillcolor=black]{\small\textcolor{white}{\texttt{[mode=5] => [mode=4] forced}}}}
+\end{pspicture}
+\end{center}
+%\newpage
+
+\endinput

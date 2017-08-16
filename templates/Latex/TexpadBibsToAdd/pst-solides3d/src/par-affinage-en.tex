@@ -1,0 +1,66 @@
+\section{\Index{Hollowing out} a solid's faces}
+
+We call \textit{hollowing by the ratio $k$} an operation, which for a given
+face with the center $G$, executes a dilation on that face with the ratio
+$k$, then divides the original face with using this new face.
+
+For example, a cube with a hollow of its top face with a ratio of $0.8$:
+
+\begin{center}
+\psset{unit=0.5}
+\psset{lightsrc=10 0 10,viewpoint=50 -20 30 rtp2xyz,Decran=50}
+\begin{pspicture*}(-4,-4)(4,4)
+%\psframe(-4,-4)(4,4)
+\psSolid[object=cube,
+   fillcolor=red,
+   affinagerm,
+   fcolor=Yellow,
+   affinage=0]
+\end{pspicture*}
+\end{center}
+
+The option \Lkeyword{affinage} allows us to hollow a solid's faces either globally or
+individually. This option uses the key \Lkeyword{affinagecoeff}
+(value $0.8$ by default) which indicates the ratio $k$ used for the
+hollow ($0<k<1$).
+%
+\begin{compactitem}
+ \item \texttt{\Lkeyword{affinage}=\Lkeyval{all}} hollows all the faces;
+ \item \texttt{\Lkeyword{affinage}=0 1 2 3} hollows the faces 0, 1, 2 and 3;
+\end{compactitem}
+
+When a face is hollowed out, the default behaviour suppresses the resulting central
+face. However, the option \Lkeyword{affinagerm} allows us to conserve that central face.
+
+When we conserve the centre face, it is---by default---drawn with the same colour
+as the original. The option \Lkeyword{fcolor} permits to specify another colour.
+
+%\newpage
+\psset{lightsrc=10 0 10,viewpoint=50 -20 30 rtp2xyz,Decran=50}
+\begin{LTXexample}[width=6cm]
+\psset{unit=0.5}
+\begin{pspicture*}(-5,-4)(6,5)
+\psSolid[object=cube,
+   fillcolor=cyan,
+   incolor=red,
+   hollow,
+   affinage=0]
+\end{pspicture*}
+\end{LTXexample}
+%
+
+\psset{lightsrc=10 0 10,viewpoint=50 -20 30 rtp2xyz,Decran=50}
+\begin{LTXexample}[width=6cm]
+\psset{unit=0.5}
+\begin{pspicture*}(-5,-4)(6,5)
+\psSolid[object=cube,
+   fillcolor=cyan,
+   affinagecoeff=.5,
+   affinagerm,
+   fcolor=.5 setfillopacity Yellow,
+   hollow,
+   affinage=all]
+\end{pspicture*}
+\end{LTXexample}
+
+\endinput

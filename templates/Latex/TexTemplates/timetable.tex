@@ -1,0 +1,97 @@
+%!TEX encoding = UTF-8 Unicode
+% Author: Laurent Dutriaux
+\documentclass[a4paper,11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{fourier} % Utilisation des polices texte
+\usepackage{tikz}
+%%%<
+\usepackage{verbatim}
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{5pt}%
+%%%>
+
+\begin{comment}
+:Title: Timetable
+
+A simple example of a timetable. The main purpose is to provide an easy input of sequences, namely::
+
+    \node[event] at (Day,beginning at Hour) {Text}+ 
+    
+with consistent node styles and positioning. 
+\end{comment}
+
+\usetikzlibrary[positioning]
+\usetikzlibrary{patterns}
+\usepackage[french]{babel} % styles français
+\title{A simple Timetable}
+\author{Laurent Dutriaux}
+\date{\today}
+\newcommand{\daywidth}{2.2 cm}
+\begin{document}
+
+\maketitle
+
+\begin{tikzpicture}[x=\daywidth, y=-1cm, node distance=0 cm,outer sep = 0pt]
+% Style for Days
+\tikzstyle{day}=[draw, rectangle,  minimum height=1cm, minimum width=\daywidth, fill=yellow!20,anchor=south west]
+% Style for hours
+\tikzstyle{hour}=[draw, rectangle, minimum height=1 cm, minimum width=1.5 cm, fill=yellow!30,anchor=north east]
+
+% Styles for events
+% Duration of sequences
+\tikzstyle{hours}=[rectangle,draw, minimum width=\daywidth, anchor=north west,text centered,text width=5 em]
+\tikzstyle{1hour}=[hours,minimum height=1cm]
+\tikzstyle{2hours}=[hours,minimum height=2cm]
+\tikzstyle{3hours}=[hours,minimum height=3cm]
+%Style for type of sequence 
+\tikzstyle{Ang2h}=[2hours,fill=green!20]
+\tikzstyle{Phys2h}=[2hours,fill=red!20]
+\tikzstyle{Math2h}=[2hours,fill=blue!20]
+\tikzstyle{TIPE2h}=[2hours,fill=blue!10]
+\tikzstyle{TP2h}=[2hours, pattern=north east lines, pattern color=magenta]
+\tikzstyle{G3h}=[3hours, pattern=north west lines, pattern color=magenta!60!white]
+\tikzstyle{Planche}=[1hour,fill=white]
+% Positioning labels for days and hours
+\node[day] (lundi) at (1,8) {Lundi};
+\node[day] (mardi) [right = of lundi] {Mardi};
+\node[day] (mercredi) [right = of mardi] {Mercredi};
+\node[day] (jeudi) [right = of mercredi] {Jeudi};
+\node[day] (vendredi) [right = of jeudi] {Vendredi};
+\node[hour] (8-9) at (1,8) {8-9};
+\node[hour] (9-10) [below = of 8-9] {9-10};
+\node[hour] (10-11) [below= of 9-10] {10-11};
+\node[hour] (11-12) [below = of 10-11] {11-12};
+\node[hour] (12-13) [below  = of 11-12] {12-13};
+\node[hour] (13-14) [below = of 12-13] {13-14};
+\node[hour] (14-15) [below = of 13-14] {14-15};
+\node[hour] (15-16) [below = of 14-15] {15-16};
+\node[hour] (16-17) [below = of 15-16] {16-17};
+\node[hour] (17-18) [below = of 16-17] {17-18};
+\node[hour] (18-19) [below = of 17-18] {18-19};
+%Position of sequences
+\node[Ang2h] at (1,10) {Anglais};
+\node[Phys2h] at (1,8) {Physique};
+\node[Phys2h] at (2,8) {Physique};
+\node[Phys2h] at (4,8) {Physique};
+\node[Phys2h] at (5,10) {Physique};
+\node[Math2h] at (2,10) {Maths};
+\node[Math2h] at (2,14) {Maths};
+\node[Math2h] at (3,8) {Maths};
+\node[Math2h] at (4,10) {Maths};
+\node[Math2h] at (5,8) {Maths};
+\node[TIPE2h] at (1,14) {TIPE};
+\node[TIPE2h] at (1,16) {TIPE};
+\node[TIPE2h] at (2,16) {TIPE};
+\node[TIPE2h] at (3,10) {TIPE};
+\node[TIPE2h] at (5,14) {TIPE};
+\node[TIPE2h] at (5,16) {TIPE};
+\node[TP2h] at (3,14) {Phys ou SI};
+\node[TP2h] at (3,16) {SI ou Phys};
+\node[Planche] at (1,13) {Planche};
+\node[Planche] at (1,18) {Colle};
+\node[Planche] at (4,13.5) {Planche};
+\end{tikzpicture}
+
+
+\end{document} 

@@ -1,0 +1,66 @@
+\ProvidesPackage{Vorlage_Bewerbung}
+
+% ============ Packete ============
+\RequirePackage[utf8]{inputenc}     
+\RequirePackage{GemeinsameDaten}
+\RequirePackage{calc,layout,lastpage,lipsum}
+\RequirePackage[ngerman]{babel}
+\RequirePackage[]{pdfpages}
+\RequirePackage[pdftex,unicode]{hyperref} %pdftex
+\RequirePackage{bookmark}
+\usepackage[a4paper,%showframe,showcrop
+	]{geometry}
+
+% ============ Commands ============
+% bei includepdf als zweites argument angeben --> Bookmark auf Seitenanfang statt auf Pseudochapter 
+\newcommand*{\@pageRef}[2][]{\edef\@currentHref{\AM@linkname.\AM@page}\addcontentsline{toc}{section}{\protect\numberline{}#1}}
+
+% ============ Kommentare ============
+%\includepdf[pages=-,link,linkname=testRef]{./build/TestRefs.pdf}
+%\bookmark[page=3,level=0]{blubb} %extra manually set
+%\bookmark[dest=\zeugnis.2]{ZE} %geht nicht so ganzz
+%\includepdf[pages=-,pagecommand={\section{Zeug}}]{\zeugnis}
+%	\includepdf[pages=-,addtotoc={
+%     1,section,1,First Section Entry,p1,   
+%     1,subsection,1,Subsection Entry,p2,
+%     2,section,1,Second Section Entry,p3}]
+%     {publishing-logo+layout.pdf}     
+%\LARGE\hyperlink{\lebenslauf.2}{{LL 2}}\\
+
+% filecontents is a verbatim-like environment and can't be used as an argument of a macro.
+% \newcommand \gen[2]{%
+% 	\begin{filecontents}{#1.tex}
+% 	\input{#2.tex}
+% 	\end{filecontents}
+% 	\immediate\write18{pdflatex  -output-directory=\buildDir\ #1.tex}
+% }
+
+\newenvironment{bildSeite}%
+{	\clearpage%
+	\pagestyle{empty}%
+	\newgeometry{margin=%
+		%{17mm,20mm}} %0mm oder {17mm,20mm}
+		0mm}
+	\noindent\ignorespaces}%
+{	\restoregeometry
+	\par\noindent\ignorespacesafterend%
+	\clearpage}
+	
+\newenvironment{bildSeiteB}[4]%
+{	\clearpage%
+	\pagestyle{empty}%
+	\newgeometry{left=#1mm,right=#2mm,top=#3mm,bottom=#4mm}
+	\noindent\ignorespaces}%
+{	\restoregeometry
+	\par\noindent\ignorespacesafterend%
+	\clearpage}
+
+\newcommand* \bildZentriert[2] {%
+	\newpage\vspace*{\fill}%
+	\centerline{%
+		\includegraphics[keepaspectratio=true,scale=#1]%
+		{#2}}
+	\vspace*{\fill}}
+
+\def \anhang[#1,#2] {\begin{bildSeite}\bildZentriert{#1}{#2}\end{bildSeite}}
+\def \anhangB(#1,#2,#3,#4)[#5,#6] {\begin{bildSeiteB}{#1}{#2}{#3}{#4}\bildZentriert{#5}{#6}\end{bildSeiteB}}

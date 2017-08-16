@@ -1,0 +1,36 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{166.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pstricks-add}
+\StopShownPreambleCommands
+\begin{document}
+\psset{xunit=.5,yunit=0.7,plotpoints=500,method=rk4}
+\begin{pspicture}(0,-4.25)(24,5.25)
+  \psaxes[Dy=2,dx=2]{->}(0,0)(0,-4)(24,5)
+  \psplotDiffEqn[linewidth=1.5pt,linecolor=black!40,plotpoints=50]{0}{24}{5 0}%
+     {dup 3 1 roll -4 div exch 2 mul sub}
+  \psplotDiffEqn[linewidth=1.5pt,linecolor=black,algebraic]{0}{24}{5 0}%
+     {y[1]|-y[1]/4-2*y[0]}
+  \psplot[linestyle=dashed,linecolor=red]{0}{24}{% theoretische Lösung
+     Euler x -8 div exp x 127 sqrt 8 div mul RadtoDeg dup cos
+     5 mul exch sin 127 sqrt div 5 mul add mul}
+\end{pspicture}
+\end{document}

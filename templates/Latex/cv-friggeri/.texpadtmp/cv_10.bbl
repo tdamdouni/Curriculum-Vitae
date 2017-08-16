@@ -1,0 +1,4208 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.7 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{1}
+  \sortlist[entry]{ydnt/global/}
+    \entry{friggeri:2012:hal-00692548:1}{report}{}
+      \name{author}{2}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {INRIA}%
+      }
+      \strng{namehash}{ac710190ef1bdc3439b064abf4c7aac1}
+      \strng{fullhash}{ac710190ef1bdc3439b064abf4c7aac1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{04}
+      \field{number}{RR-7947}
+      \field{title}{{Finding cohesive communities with C³}}
+      \field{type}{Rapport de recherche}
+      \field{year}{2012}
+      \verb{url}
+      \verb http://hal.inria.fr/hal-00692548
+      \endverb
+    \endentry
+    \entry{Lucet:2012gl}{article}{}
+      \name{author}{10}{}{%
+        {{hash=0aa848012dfd67b43955402a542d274b}{%
+           family={Lucet},
+           family_i={L\bibinitperiod},
+           given={Jean-Christophe},
+           given_i={J\bibinithyphendelim C\bibinitperiod}}}%
+        {{hash=451f394267ded5d7e83d6c64b1236f46}{%
+           family={Laouenan},
+           family_i={L\bibinitperiod},
+           given={Cédric},
+           given_i={C\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=7c5b866f713fc7735c58c68f36ec158f}{%
+           family={Veziris},
+           family_i={V\bibinitperiod},
+           given={Nicolas},
+           given_i={N\bibinitperiod}}}%
+        {{hash=27900783f50d25643255aa5fefffba98}{%
+           family={Lepelletier},
+           family_i={L\bibinitperiod},
+           given={Didier},
+           given_i={D\bibinitperiod}}}%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=e756b1e2b5a1a777342ea5966fef0554}{%
+           family={Abiteboul},
+           family_i={A\bibinitperiod},
+           given={Dominique},
+           given_i={D\bibinitperiod}}}%
+        {{hash=27518965019855b17ecca74062782816}{%
+           family={Bouvet},
+           family_i={B\bibinitperiod},
+           given={Elisabeth},
+           given_i={E\bibinitperiod}}}%
+        {{hash=29c95ee56dceb5c2196205a8373bd2d5}{%
+           family={Mentré},
+           family_i={M\bibinitperiod},
+           given={France},
+           given_i={F\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{e027259ce7dea7a0ad131bfc9f051910}
+      \strng{fullhash}{e027259ce7dea7a0ad131bfc9f051910}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{PLoS ONE}
+      \field{month}{05}
+      \field{number}{5}
+      \field{title}{{Electronic Sensors for Assessing Interactions between Healthcare Workers and Patients under Airborne Precautions}}
+      \field{volume}{7}
+      \field{year}{2012}
+      \field{pages}{e37893}
+      \range{pages}{-1}
+    \endentry
+    \entry{friggeri:2011:inria-00587942:1}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \name{editor}{2}{}{%
+        {{hash=3e3cb226436a5008ed08017e5e4797bc}{%
+           family={Ducourthial},
+           family_i={D\bibinitperiod},
+           given={Bertrand},
+           given_i={B\bibinitperiod}}}%
+        {{hash=6668285eef28becfbea5f2cf39c9dc7b}{%
+           family={Felber},
+           family_i={F\bibinitperiod},
+           given={Pascal},
+           given_i={P\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cap Estérel, France}%
+      }
+      \strng{namehash}{c3d8bf9704b279725597677607ab17d1}
+      \strng{fullhash}{c3d8bf9704b279725597677607ab17d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{13es Rencontres Francophones sur les Aspects Algorithmiques de Télécommunications (AlgoTel)}}
+      \field{month}{06}
+      \field{title}{{Communautés : Arrêtons de ne compter que les arêtes}}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00587942
+      \endverb
+      \keyw{france}
+    \endentry
+    \entry{friggeri:2011:inria-00597447:1}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Budapest, Hongrie}%
+      }
+      \strng{namehash}{c3d8bf9704b279725597677607ab17d1}
+      \strng{fullhash}{c3d8bf9704b279725597677607ab17d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{NetSci 2011 The International School and Conference on Network Science}}
+      \field{month}{06}
+      \field{title}{{Egomunities, Exploring Socially Cohesive Person-based Communities}}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00597447
+      \endverb
+    \endentry
+    \entry{friggeri:2011:inria-00565336:2}{report}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {INRIA}%
+      }
+      \strng{namehash}{c3d8bf9704b279725597677607ab17d1}
+      \strng{fullhash}{c3d8bf9704b279725597677607ab17d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{02}
+      \field{number}{RR-7535}
+      \field{title}{{Egomunities, Exploring Socially Cohesive Person-based Communities}}
+      \field{type}{Rapport de recherche}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00565336
+      \endverb
+      \keyw{social networks,complex networks,real-world graphs,community detection,overlapping communities,data mining,modelisation}
+    \endentry
+    \entry{friggeri:2011:inria-00597446:1}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cambridge, États-Unis}%
+      }
+      \strng{namehash}{c3d8bf9704b279725597677607ab17d1}
+      \strng{fullhash}{c3d8bf9704b279725597677607ab17d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{Interdisciplinary Workshop on Information and Decision in Social Networks}}
+      \field{month}{05}
+      \field{note}{31 accepté/140 soumis +250 participants}
+      \field{title}{{Fellows: Crowd-sourcing the evaluation of an overlapping community model based on the cohesion measure}}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00597446
+      \endverb
+    \endentry
+    \entry{friggeri:2011:inria-00626064:1}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Vienna, Autriche}%
+      }
+      \strng{namehash}{c3d8bf9704b279725597677607ab17d1}
+      \strng{fullhash}{c3d8bf9704b279725597677607ab17d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{Complex Dynamics of Human Interactions}}
+      \field{month}{09}
+      \field{title}{{Fellows: Crowd-sourcing the evaluation of an overlapping community model based on the cohesion measure}}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00626064
+      \endverb
+    \endentry
+    \entry{friggeri:2011:inria-00619092:1}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cambridge, États-Unis}%
+      }
+      \strng{namehash}{c3d8bf9704b279725597677607ab17d1}
+      \strng{fullhash}{c3d8bf9704b279725597677607ab17d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{Third IEEE International Conference on Social Computing}}
+      \field{month}{09}
+      \field{title}{{Triangles to Capture Social Cohesion}}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00619092
+      \endverb
+    \endentry
+    \entry{friggeri:2011:inria-00608889:1}{report}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {INRIA}%
+      }
+      \strng{namehash}{c3d8bf9704b279725597677607ab17d1}
+      \strng{fullhash}{c3d8bf9704b279725597677607ab17d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{07}
+      \field{number}{RR-7686}
+      \field{title}{{Triangles to Capture Social Cohesion}}
+      \field{type}{Rapport de recherche}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00608889
+      \endverb
+    \endentry
+    \entry{friggeri:2011:inria-00630363:1}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Lyon, France}%
+      }
+      \strng{namehash}{c3d8bf9704b279725597677607ab17d1}
+      \strng{fullhash}{c3d8bf9704b279725597677607ab17d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{13emes journées Graphes et Algorithmes}}
+      \field{month}{10}
+      \field{title}{{Trouver des communautés socialement cohésives est NP-dur}}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00630363
+      \endverb
+      \keyw{france}
+    \endentry
+    \entry{friggeri:2011:inria-00490195:2}{article}{}
+      \name{author}{6}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+        {{hash=e0dbc5d14d90ebf3c11004f418c205da}{%
+           family={Fraboulet},
+           family_i={F\bibinitperiod},
+           given={Antoine},
+           given_i={A\bibinitperiod}}}%
+        {{hash=29c95ee56dceb5c2196205a8373bd2d5}{%
+           family={Mentré},
+           family_i={M\bibinitperiod},
+           given={France},
+           given_i={F\bibinitperiod}}}%
+        {{hash=0aa848012dfd67b43955402a542d274b}{%
+           family={Lucet},
+           family_i={L\bibinitperiod},
+           given={Jean-Christophe},
+           given_i={J\bibinithyphendelim C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{8988f24c3e427a82b1783c4c09ae6f3d}
+      \strng{fullhash}{8988f24c3e427a82b1783c4c09ae6f3d}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{{Computer Communications}}
+      \field{month}{04}
+      \field{number}{5}
+      \field{title}{{Reconstructing Social Interactions Using an unreliable Wireless Sensor Network}}
+      \field{volume}{34}
+      \field{year}{2011}
+      \field{pages}{609\bibrangedash 618}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1016/j.comcom.2010.06.005
+      \endverb
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00490195
+      \endverb
+      \keyw{complex networks; interaction networks; wireless sensor networks; medical applications}
+    \endentry
+    \entry{friggeri:2011:inria-00597448:1}{article}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=9d825f52adfc84ce8787206125c0408d}{%
+           family={Cointet},
+           family_i={C\bibinitperiod},
+           given={Jean-Philippe},
+           given_i={J\bibinithyphendelim P\bibinitperiod}}}%
+        {{hash=fbbf4f366ec164d3a3322350ecd254e1}{%
+           family={Latapy},
+           family_i={L\bibinitperiod},
+           suffix={Matthieu},
+           suffix_i={M\bibinitperiod},
+           given={Matthieu},
+           given_i={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Complex Systems Publications, Inc.}%
+      }
+      \strng{namehash}{87f40d835a2dbe1515d0eed7cd4d3839}
+      \strng{fullhash}{87f40d835a2dbe1515d0eed7cd4d3839}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{{Complex Systems}}
+      \field{number}{3}
+      \field{title}{{A Real-World Spreading Experiment in the Blogosphere}}
+      \field{volume}{19}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00597448
+      \endverb
+    \endentry
+    \entry{friggeri:2011:inria-00605673:1}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{ac710190ef1bdc3439b064abf4c7aac1}
+      \strng{fullhash}{ac710190ef1bdc3439b064abf4c7aac1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{06}
+      \field{note}{Séminaire w2s @ La Cantine}
+      \field{title}{{Des triangles pour mesurer la cohésion sociale : Fellows, une expérimentation sur Facebook}}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00605673
+      \endverb
+      \keyw{france}
+    \endentry
+    \entry{friggeri:2011:inria-00621065:2}{report}{}
+      \name{author}{2}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {INRIA}%
+      }
+      \strng{namehash}{ac710190ef1bdc3439b064abf4c7aac1}
+      \strng{fullhash}{ac710190ef1bdc3439b064abf4c7aac1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{09}
+      \field{number}{RR-7734}
+      \field{title}{{Maximizing the Cohesion is NP-hard}}
+      \field{type}{Rapport de recherche}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00621065
+      \endverb
+    \endentry
+    \entry{friggeri:2010:inria-00475921:1}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+      }
+      \name{editor}{2}{}{%
+        {{hash=d701d062c77bc88e28d18dd098ed5f92}{%
+           family={Potop-Butucaru},
+           family_i={P\bibinithyphendelim B\bibinitperiod},
+           given={Maria\bibnamedelima Gradinariu},
+           given_i={M\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=c6a95be1883fae2e5edc4c1948b801f0}{%
+           family={Rivano},
+           family_i={R\bibinitperiod},
+           given={Hervé},
+           given_i={H\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Belle Dune, France}%
+      }
+      \strng{namehash}{c653a25a140689a4f9c3f7fcf38338b7}
+      \strng{fullhash}{c653a25a140689a4f9c3f7fcf38338b7}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{12èmes Rencontres Francophones sur les Aspects Algorithmiques de Télécommunications (AlgoTel)}}
+      \field{month}{06}
+      \field{title}{{Biais dans les mesures obtenues par un réseau de capteurs sans fil}}
+      \field{year}{2010}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00475921
+      \endverb
+      \keyw{france}
+    \endentry
+    \entry{lucet:2010:inria-00507447:1}{inproceedings}{}
+      \name{author}{10}{}{%
+        {{hash=0aa848012dfd67b43955402a542d274b}{%
+           family={Lucet},
+           family_i={L\bibinitperiod},
+           given={Jean-Christophe},
+           given_i={J\bibinithyphendelim C\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=451f394267ded5d7e83d6c64b1236f46}{%
+           family={Laouenan},
+           family_i={L\bibinitperiod},
+           given={Cédric},
+           given_i={C\bibinitperiod}}}%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=6a2ead7889a2812954557cc87c920646}{%
+           family={Veziris},
+           family_i={V\bibinitperiod},
+           given={N.},
+           given_i={N\bibinitperiod}}}%
+        {{hash=3d63040e64451a4e7c02c9c008b873a3}{%
+           family={Lepelletier},
+           family_i={L\bibinitperiod},
+           given={D.},
+           given_i={D\bibinitperiod}}}%
+        {{hash=13c81792a38d7c11ea3e14fceb09cb8f}{%
+           family={Abiteboul},
+           family_i={A\bibinitperiod},
+           given={D.},
+           given_i={D\bibinitperiod}}}%
+        {{hash=27518965019855b17ecca74062782816}{%
+           family={Bouvet},
+           family_i={B\bibinitperiod},
+           given={Elisabeth},
+           given_i={E\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+        {{hash=29c95ee56dceb5c2196205a8373bd2d5}{%
+           family={Mentré},
+           family_i={M\bibinitperiod},
+           given={France},
+           given_i={F\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Boston, États-Unis}%
+      }
+      \list{organization}{1}{%
+        {American Society for Microbiology}%
+      }
+      \strng{namehash}{d3179f7da74de40f8becc499eb2c554f}
+      \strng{fullhash}{d3179f7da74de40f8becc499eb2c554f}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{2010 Interscience Conference on Antimicrobial Agents and Chemotherapy}}
+      \field{month}{09}
+      \field{title}{{Electronic Sensors for Measuring Interactions between Healthcare Workers (HCWs) and Patients (Pts): the Case of Tuberculosis (TB)}}
+      \field{year}{2010}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00507447
+      \endverb
+    \endentry
+    \entry{allsopp07}{book}{}
+      \name{author}{1}{}{%
+        {{hash=a0a5154da3981701b81b6553647cdaa2}{%
+           family={Allsop},
+           family_i={A\bibinitperiod},
+           given={John},
+           given_i={J\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {London}%
+      }
+      \list{publisher}{1}{%
+        {Publisher}%
+      }
+      \strng{namehash}{a0a5154da3981701b81b6553647cdaa2}
+      \strng{fullhash}{a0a5154da3981701b81b6553647cdaa2}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{1-59059-814-8}
+      \field{month}{03}
+      \field{title}{Microformats: Empowering Your Markup for Web 2.0}
+      \field{year}{2007}
+    \endentry
+  \endsortlist
+\endrefsection
+
+\refsection{2}
+  \sortlist[entry]{ydnt/global/}
+    \entry{friggeri:2012:hal-00692548:1}{report}{}
+      \name{author}{2}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {INRIA}%
+      }
+      \strng{namehash}{ac710190ef1bdc3439b064abf4c7aac1}
+      \strng{fullhash}{ac710190ef1bdc3439b064abf4c7aac1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{04}
+      \field{number}{RR-7947}
+      \field{title}{{Finding cohesive communities with C³}}
+      \field{type}{Rapport de recherche}
+      \field{year}{2012}
+      \verb{url}
+      \verb http://hal.inria.fr/hal-00692548
+      \endverb
+    \endentry
+    \entry{Lucet:2012gl}{article}{}
+      \name{author}{10}{}{%
+        {{hash=0aa848012dfd67b43955402a542d274b}{%
+           family={Lucet},
+           family_i={L\bibinitperiod},
+           given={Jean-Christophe},
+           given_i={J\bibinithyphendelim C\bibinitperiod}}}%
+        {{hash=451f394267ded5d7e83d6c64b1236f46}{%
+           family={Laouenan},
+           family_i={L\bibinitperiod},
+           given={Cédric},
+           given_i={C\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=7c5b866f713fc7735c58c68f36ec158f}{%
+           family={Veziris},
+           family_i={V\bibinitperiod},
+           given={Nicolas},
+           given_i={N\bibinitperiod}}}%
+        {{hash=27900783f50d25643255aa5fefffba98}{%
+           family={Lepelletier},
+           family_i={L\bibinitperiod},
+           given={Didier},
+           given_i={D\bibinitperiod}}}%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=e756b1e2b5a1a777342ea5966fef0554}{%
+           family={Abiteboul},
+           family_i={A\bibinitperiod},
+           given={Dominique},
+           given_i={D\bibinitperiod}}}%
+        {{hash=27518965019855b17ecca74062782816}{%
+           family={Bouvet},
+           family_i={B\bibinitperiod},
+           given={Elisabeth},
+           given_i={E\bibinitperiod}}}%
+        {{hash=29c95ee56dceb5c2196205a8373bd2d5}{%
+           family={Mentré},
+           family_i={M\bibinitperiod},
+           given={France},
+           given_i={F\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{e027259ce7dea7a0ad131bfc9f051910}
+      \strng{fullhash}{e027259ce7dea7a0ad131bfc9f051910}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{PLoS ONE}
+      \field{month}{05}
+      \field{number}{5}
+      \field{title}{{Electronic Sensors for Assessing Interactions between Healthcare Workers and Patients under Airborne Precautions}}
+      \field{volume}{7}
+      \field{year}{2012}
+      \field{pages}{e37893}
+      \range{pages}{-1}
+    \endentry
+    \entry{friggeri:2011:inria-00587942:1}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \name{editor}{2}{}{%
+        {{hash=3e3cb226436a5008ed08017e5e4797bc}{%
+           family={Ducourthial},
+           family_i={D\bibinitperiod},
+           given={Bertrand},
+           given_i={B\bibinitperiod}}}%
+        {{hash=6668285eef28becfbea5f2cf39c9dc7b}{%
+           family={Felber},
+           family_i={F\bibinitperiod},
+           given={Pascal},
+           given_i={P\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cap Estérel, France}%
+      }
+      \strng{namehash}{c3d8bf9704b279725597677607ab17d1}
+      \strng{fullhash}{c3d8bf9704b279725597677607ab17d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{13es Rencontres Francophones sur les Aspects Algorithmiques de Télécommunications (AlgoTel)}}
+      \field{month}{06}
+      \field{title}{{Communautés : Arrêtons de ne compter que les arêtes}}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00587942
+      \endverb
+      \keyw{france}
+    \endentry
+    \entry{friggeri:2011:inria-00597447:1}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Budapest, Hongrie}%
+      }
+      \strng{namehash}{c3d8bf9704b279725597677607ab17d1}
+      \strng{fullhash}{c3d8bf9704b279725597677607ab17d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{NetSci 2011 The International School and Conference on Network Science}}
+      \field{month}{06}
+      \field{title}{{Egomunities, Exploring Socially Cohesive Person-based Communities}}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00597447
+      \endverb
+    \endentry
+    \entry{friggeri:2011:inria-00565336:2}{report}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {INRIA}%
+      }
+      \strng{namehash}{c3d8bf9704b279725597677607ab17d1}
+      \strng{fullhash}{c3d8bf9704b279725597677607ab17d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{02}
+      \field{number}{RR-7535}
+      \field{title}{{Egomunities, Exploring Socially Cohesive Person-based Communities}}
+      \field{type}{Rapport de recherche}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00565336
+      \endverb
+      \keyw{social networks,complex networks,real-world graphs,community detection,overlapping communities,data mining,modelisation}
+    \endentry
+    \entry{friggeri:2011:inria-00597446:1}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cambridge, États-Unis}%
+      }
+      \strng{namehash}{c3d8bf9704b279725597677607ab17d1}
+      \strng{fullhash}{c3d8bf9704b279725597677607ab17d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{Interdisciplinary Workshop on Information and Decision in Social Networks}}
+      \field{month}{05}
+      \field{note}{31 accepté/140 soumis +250 participants}
+      \field{title}{{Fellows: Crowd-sourcing the evaluation of an overlapping community model based on the cohesion measure}}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00597446
+      \endverb
+    \endentry
+    \entry{friggeri:2011:inria-00626064:1}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Vienna, Autriche}%
+      }
+      \strng{namehash}{c3d8bf9704b279725597677607ab17d1}
+      \strng{fullhash}{c3d8bf9704b279725597677607ab17d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{Complex Dynamics of Human Interactions}}
+      \field{month}{09}
+      \field{title}{{Fellows: Crowd-sourcing the evaluation of an overlapping community model based on the cohesion measure}}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00626064
+      \endverb
+    \endentry
+    \entry{friggeri:2011:inria-00619092:1}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cambridge, États-Unis}%
+      }
+      \strng{namehash}{c3d8bf9704b279725597677607ab17d1}
+      \strng{fullhash}{c3d8bf9704b279725597677607ab17d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{Third IEEE International Conference on Social Computing}}
+      \field{month}{09}
+      \field{title}{{Triangles to Capture Social Cohesion}}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00619092
+      \endverb
+    \endentry
+    \entry{friggeri:2011:inria-00608889:1}{report}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {INRIA}%
+      }
+      \strng{namehash}{c3d8bf9704b279725597677607ab17d1}
+      \strng{fullhash}{c3d8bf9704b279725597677607ab17d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{07}
+      \field{number}{RR-7686}
+      \field{title}{{Triangles to Capture Social Cohesion}}
+      \field{type}{Rapport de recherche}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00608889
+      \endverb
+    \endentry
+    \entry{friggeri:2011:inria-00630363:1}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Lyon, France}%
+      }
+      \strng{namehash}{c3d8bf9704b279725597677607ab17d1}
+      \strng{fullhash}{c3d8bf9704b279725597677607ab17d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{13emes journées Graphes et Algorithmes}}
+      \field{month}{10}
+      \field{title}{{Trouver des communautés socialement cohésives est NP-dur}}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00630363
+      \endverb
+      \keyw{france}
+    \endentry
+    \entry{friggeri:2011:inria-00490195:2}{article}{}
+      \name{author}{6}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+        {{hash=e0dbc5d14d90ebf3c11004f418c205da}{%
+           family={Fraboulet},
+           family_i={F\bibinitperiod},
+           given={Antoine},
+           given_i={A\bibinitperiod}}}%
+        {{hash=29c95ee56dceb5c2196205a8373bd2d5}{%
+           family={Mentré},
+           family_i={M\bibinitperiod},
+           given={France},
+           given_i={F\bibinitperiod}}}%
+        {{hash=0aa848012dfd67b43955402a542d274b}{%
+           family={Lucet},
+           family_i={L\bibinitperiod},
+           given={Jean-Christophe},
+           given_i={J\bibinithyphendelim C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{8988f24c3e427a82b1783c4c09ae6f3d}
+      \strng{fullhash}{8988f24c3e427a82b1783c4c09ae6f3d}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{{Computer Communications}}
+      \field{month}{04}
+      \field{number}{5}
+      \field{title}{{Reconstructing Social Interactions Using an unreliable Wireless Sensor Network}}
+      \field{volume}{34}
+      \field{year}{2011}
+      \field{pages}{609\bibrangedash 618}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1016/j.comcom.2010.06.005
+      \endverb
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00490195
+      \endverb
+      \keyw{complex networks; interaction networks; wireless sensor networks; medical applications}
+    \endentry
+    \entry{friggeri:2011:inria-00597448:1}{article}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=9d825f52adfc84ce8787206125c0408d}{%
+           family={Cointet},
+           family_i={C\bibinitperiod},
+           given={Jean-Philippe},
+           given_i={J\bibinithyphendelim P\bibinitperiod}}}%
+        {{hash=fbbf4f366ec164d3a3322350ecd254e1}{%
+           family={Latapy},
+           family_i={L\bibinitperiod},
+           suffix={Matthieu},
+           suffix_i={M\bibinitperiod},
+           given={Matthieu},
+           given_i={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Complex Systems Publications, Inc.}%
+      }
+      \strng{namehash}{87f40d835a2dbe1515d0eed7cd4d3839}
+      \strng{fullhash}{87f40d835a2dbe1515d0eed7cd4d3839}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{{Complex Systems}}
+      \field{number}{3}
+      \field{title}{{A Real-World Spreading Experiment in the Blogosphere}}
+      \field{volume}{19}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00597448
+      \endverb
+    \endentry
+    \entry{friggeri:2011:inria-00605673:1}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{ac710190ef1bdc3439b064abf4c7aac1}
+      \strng{fullhash}{ac710190ef1bdc3439b064abf4c7aac1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{06}
+      \field{note}{Séminaire w2s @ La Cantine}
+      \field{title}{{Des triangles pour mesurer la cohésion sociale : Fellows, une expérimentation sur Facebook}}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00605673
+      \endverb
+      \keyw{france}
+    \endentry
+    \entry{friggeri:2011:inria-00621065:2}{report}{}
+      \name{author}{2}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {INRIA}%
+      }
+      \strng{namehash}{ac710190ef1bdc3439b064abf4c7aac1}
+      \strng{fullhash}{ac710190ef1bdc3439b064abf4c7aac1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{09}
+      \field{number}{RR-7734}
+      \field{title}{{Maximizing the Cohesion is NP-hard}}
+      \field{type}{Rapport de recherche}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00621065
+      \endverb
+    \endentry
+    \entry{friggeri:2010:inria-00475921:1}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+      }
+      \name{editor}{2}{}{%
+        {{hash=d701d062c77bc88e28d18dd098ed5f92}{%
+           family={Potop-Butucaru},
+           family_i={P\bibinithyphendelim B\bibinitperiod},
+           given={Maria\bibnamedelima Gradinariu},
+           given_i={M\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=c6a95be1883fae2e5edc4c1948b801f0}{%
+           family={Rivano},
+           family_i={R\bibinitperiod},
+           given={Hervé},
+           given_i={H\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Belle Dune, France}%
+      }
+      \strng{namehash}{c653a25a140689a4f9c3f7fcf38338b7}
+      \strng{fullhash}{c653a25a140689a4f9c3f7fcf38338b7}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{12èmes Rencontres Francophones sur les Aspects Algorithmiques de Télécommunications (AlgoTel)}}
+      \field{month}{06}
+      \field{title}{{Biais dans les mesures obtenues par un réseau de capteurs sans fil}}
+      \field{year}{2010}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00475921
+      \endverb
+      \keyw{france}
+    \endentry
+    \entry{lucet:2010:inria-00507447:1}{inproceedings}{}
+      \name{author}{10}{}{%
+        {{hash=0aa848012dfd67b43955402a542d274b}{%
+           family={Lucet},
+           family_i={L\bibinitperiod},
+           given={Jean-Christophe},
+           given_i={J\bibinithyphendelim C\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=451f394267ded5d7e83d6c64b1236f46}{%
+           family={Laouenan},
+           family_i={L\bibinitperiod},
+           given={Cédric},
+           given_i={C\bibinitperiod}}}%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=6a2ead7889a2812954557cc87c920646}{%
+           family={Veziris},
+           family_i={V\bibinitperiod},
+           given={N.},
+           given_i={N\bibinitperiod}}}%
+        {{hash=3d63040e64451a4e7c02c9c008b873a3}{%
+           family={Lepelletier},
+           family_i={L\bibinitperiod},
+           given={D.},
+           given_i={D\bibinitperiod}}}%
+        {{hash=13c81792a38d7c11ea3e14fceb09cb8f}{%
+           family={Abiteboul},
+           family_i={A\bibinitperiod},
+           given={D.},
+           given_i={D\bibinitperiod}}}%
+        {{hash=27518965019855b17ecca74062782816}{%
+           family={Bouvet},
+           family_i={B\bibinitperiod},
+           given={Elisabeth},
+           given_i={E\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+        {{hash=29c95ee56dceb5c2196205a8373bd2d5}{%
+           family={Mentré},
+           family_i={M\bibinitperiod},
+           given={France},
+           given_i={F\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Boston, États-Unis}%
+      }
+      \list{organization}{1}{%
+        {American Society for Microbiology}%
+      }
+      \strng{namehash}{d3179f7da74de40f8becc499eb2c554f}
+      \strng{fullhash}{d3179f7da74de40f8becc499eb2c554f}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{2010 Interscience Conference on Antimicrobial Agents and Chemotherapy}}
+      \field{month}{09}
+      \field{title}{{Electronic Sensors for Measuring Interactions between Healthcare Workers (HCWs) and Patients (Pts): the Case of Tuberculosis (TB)}}
+      \field{year}{2010}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00507447
+      \endverb
+    \endentry
+    \entry{allsopp07}{book}{}
+      \name{author}{1}{}{%
+        {{hash=a0a5154da3981701b81b6553647cdaa2}{%
+           family={Allsop},
+           family_i={A\bibinitperiod},
+           given={John},
+           given_i={J\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {London}%
+      }
+      \list{publisher}{1}{%
+        {Publisher}%
+      }
+      \strng{namehash}{a0a5154da3981701b81b6553647cdaa2}
+      \strng{fullhash}{a0a5154da3981701b81b6553647cdaa2}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{1-59059-814-8}
+      \field{month}{03}
+      \field{title}{Microformats: Empowering Your Markup for Web 2.0}
+      \field{year}{2007}
+    \endentry
+  \endsortlist
+\endrefsection
+
+\refsection{3}
+  \sortlist[entry]{ydnt/global/}
+    \entry{friggeri:2012:hal-00692548:1}{report}{}
+      \name{author}{2}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {INRIA}%
+      }
+      \strng{namehash}{ac710190ef1bdc3439b064abf4c7aac1}
+      \strng{fullhash}{ac710190ef1bdc3439b064abf4c7aac1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{04}
+      \field{number}{RR-7947}
+      \field{title}{{Finding cohesive communities with C³}}
+      \field{type}{Rapport de recherche}
+      \field{year}{2012}
+      \verb{url}
+      \verb http://hal.inria.fr/hal-00692548
+      \endverb
+    \endentry
+    \entry{Lucet:2012gl}{article}{}
+      \name{author}{10}{}{%
+        {{hash=0aa848012dfd67b43955402a542d274b}{%
+           family={Lucet},
+           family_i={L\bibinitperiod},
+           given={Jean-Christophe},
+           given_i={J\bibinithyphendelim C\bibinitperiod}}}%
+        {{hash=451f394267ded5d7e83d6c64b1236f46}{%
+           family={Laouenan},
+           family_i={L\bibinitperiod},
+           given={Cédric},
+           given_i={C\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=7c5b866f713fc7735c58c68f36ec158f}{%
+           family={Veziris},
+           family_i={V\bibinitperiod},
+           given={Nicolas},
+           given_i={N\bibinitperiod}}}%
+        {{hash=27900783f50d25643255aa5fefffba98}{%
+           family={Lepelletier},
+           family_i={L\bibinitperiod},
+           given={Didier},
+           given_i={D\bibinitperiod}}}%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=e756b1e2b5a1a777342ea5966fef0554}{%
+           family={Abiteboul},
+           family_i={A\bibinitperiod},
+           given={Dominique},
+           given_i={D\bibinitperiod}}}%
+        {{hash=27518965019855b17ecca74062782816}{%
+           family={Bouvet},
+           family_i={B\bibinitperiod},
+           given={Elisabeth},
+           given_i={E\bibinitperiod}}}%
+        {{hash=29c95ee56dceb5c2196205a8373bd2d5}{%
+           family={Mentré},
+           family_i={M\bibinitperiod},
+           given={France},
+           given_i={F\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{e027259ce7dea7a0ad131bfc9f051910}
+      \strng{fullhash}{e027259ce7dea7a0ad131bfc9f051910}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{PLoS ONE}
+      \field{month}{05}
+      \field{number}{5}
+      \field{title}{{Electronic Sensors for Assessing Interactions between Healthcare Workers and Patients under Airborne Precautions}}
+      \field{volume}{7}
+      \field{year}{2012}
+      \field{pages}{e37893}
+      \range{pages}{-1}
+    \endentry
+    \entry{friggeri:2011:inria-00587942:1}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \name{editor}{2}{}{%
+        {{hash=3e3cb226436a5008ed08017e5e4797bc}{%
+           family={Ducourthial},
+           family_i={D\bibinitperiod},
+           given={Bertrand},
+           given_i={B\bibinitperiod}}}%
+        {{hash=6668285eef28becfbea5f2cf39c9dc7b}{%
+           family={Felber},
+           family_i={F\bibinitperiod},
+           given={Pascal},
+           given_i={P\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cap Estérel, France}%
+      }
+      \strng{namehash}{c3d8bf9704b279725597677607ab17d1}
+      \strng{fullhash}{c3d8bf9704b279725597677607ab17d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{13es Rencontres Francophones sur les Aspects Algorithmiques de Télécommunications (AlgoTel)}}
+      \field{month}{06}
+      \field{title}{{Communautés : Arrêtons de ne compter que les arêtes}}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00587942
+      \endverb
+      \keyw{france}
+    \endentry
+    \entry{friggeri:2011:inria-00597447:1}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Budapest, Hongrie}%
+      }
+      \strng{namehash}{c3d8bf9704b279725597677607ab17d1}
+      \strng{fullhash}{c3d8bf9704b279725597677607ab17d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{NetSci 2011 The International School and Conference on Network Science}}
+      \field{month}{06}
+      \field{title}{{Egomunities, Exploring Socially Cohesive Person-based Communities}}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00597447
+      \endverb
+    \endentry
+    \entry{friggeri:2011:inria-00565336:2}{report}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {INRIA}%
+      }
+      \strng{namehash}{c3d8bf9704b279725597677607ab17d1}
+      \strng{fullhash}{c3d8bf9704b279725597677607ab17d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{02}
+      \field{number}{RR-7535}
+      \field{title}{{Egomunities, Exploring Socially Cohesive Person-based Communities}}
+      \field{type}{Rapport de recherche}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00565336
+      \endverb
+      \keyw{social networks,complex networks,real-world graphs,community detection,overlapping communities,data mining,modelisation}
+    \endentry
+    \entry{friggeri:2011:inria-00597446:1}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cambridge, États-Unis}%
+      }
+      \strng{namehash}{c3d8bf9704b279725597677607ab17d1}
+      \strng{fullhash}{c3d8bf9704b279725597677607ab17d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{Interdisciplinary Workshop on Information and Decision in Social Networks}}
+      \field{month}{05}
+      \field{note}{31 accepté/140 soumis +250 participants}
+      \field{title}{{Fellows: Crowd-sourcing the evaluation of an overlapping community model based on the cohesion measure}}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00597446
+      \endverb
+    \endentry
+    \entry{friggeri:2011:inria-00626064:1}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Vienna, Autriche}%
+      }
+      \strng{namehash}{c3d8bf9704b279725597677607ab17d1}
+      \strng{fullhash}{c3d8bf9704b279725597677607ab17d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{Complex Dynamics of Human Interactions}}
+      \field{month}{09}
+      \field{title}{{Fellows: Crowd-sourcing the evaluation of an overlapping community model based on the cohesion measure}}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00626064
+      \endverb
+    \endentry
+    \entry{friggeri:2011:inria-00619092:1}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cambridge, États-Unis}%
+      }
+      \strng{namehash}{c3d8bf9704b279725597677607ab17d1}
+      \strng{fullhash}{c3d8bf9704b279725597677607ab17d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{Third IEEE International Conference on Social Computing}}
+      \field{month}{09}
+      \field{title}{{Triangles to Capture Social Cohesion}}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00619092
+      \endverb
+    \endentry
+    \entry{friggeri:2011:inria-00608889:1}{report}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {INRIA}%
+      }
+      \strng{namehash}{c3d8bf9704b279725597677607ab17d1}
+      \strng{fullhash}{c3d8bf9704b279725597677607ab17d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{07}
+      \field{number}{RR-7686}
+      \field{title}{{Triangles to Capture Social Cohesion}}
+      \field{type}{Rapport de recherche}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00608889
+      \endverb
+    \endentry
+    \entry{friggeri:2011:inria-00630363:1}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Lyon, France}%
+      }
+      \strng{namehash}{c3d8bf9704b279725597677607ab17d1}
+      \strng{fullhash}{c3d8bf9704b279725597677607ab17d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{13emes journées Graphes et Algorithmes}}
+      \field{month}{10}
+      \field{title}{{Trouver des communautés socialement cohésives est NP-dur}}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00630363
+      \endverb
+      \keyw{france}
+    \endentry
+    \entry{friggeri:2011:inria-00490195:2}{article}{}
+      \name{author}{6}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+        {{hash=e0dbc5d14d90ebf3c11004f418c205da}{%
+           family={Fraboulet},
+           family_i={F\bibinitperiod},
+           given={Antoine},
+           given_i={A\bibinitperiod}}}%
+        {{hash=29c95ee56dceb5c2196205a8373bd2d5}{%
+           family={Mentré},
+           family_i={M\bibinitperiod},
+           given={France},
+           given_i={F\bibinitperiod}}}%
+        {{hash=0aa848012dfd67b43955402a542d274b}{%
+           family={Lucet},
+           family_i={L\bibinitperiod},
+           given={Jean-Christophe},
+           given_i={J\bibinithyphendelim C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{8988f24c3e427a82b1783c4c09ae6f3d}
+      \strng{fullhash}{8988f24c3e427a82b1783c4c09ae6f3d}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{{Computer Communications}}
+      \field{month}{04}
+      \field{number}{5}
+      \field{title}{{Reconstructing Social Interactions Using an unreliable Wireless Sensor Network}}
+      \field{volume}{34}
+      \field{year}{2011}
+      \field{pages}{609\bibrangedash 618}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1016/j.comcom.2010.06.005
+      \endverb
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00490195
+      \endverb
+      \keyw{complex networks; interaction networks; wireless sensor networks; medical applications}
+    \endentry
+    \entry{friggeri:2011:inria-00597448:1}{article}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=9d825f52adfc84ce8787206125c0408d}{%
+           family={Cointet},
+           family_i={C\bibinitperiod},
+           given={Jean-Philippe},
+           given_i={J\bibinithyphendelim P\bibinitperiod}}}%
+        {{hash=fbbf4f366ec164d3a3322350ecd254e1}{%
+           family={Latapy},
+           family_i={L\bibinitperiod},
+           suffix={Matthieu},
+           suffix_i={M\bibinitperiod},
+           given={Matthieu},
+           given_i={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Complex Systems Publications, Inc.}%
+      }
+      \strng{namehash}{87f40d835a2dbe1515d0eed7cd4d3839}
+      \strng{fullhash}{87f40d835a2dbe1515d0eed7cd4d3839}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{{Complex Systems}}
+      \field{number}{3}
+      \field{title}{{A Real-World Spreading Experiment in the Blogosphere}}
+      \field{volume}{19}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00597448
+      \endverb
+    \endentry
+    \entry{friggeri:2011:inria-00605673:1}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{ac710190ef1bdc3439b064abf4c7aac1}
+      \strng{fullhash}{ac710190ef1bdc3439b064abf4c7aac1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{06}
+      \field{note}{Séminaire w2s @ La Cantine}
+      \field{title}{{Des triangles pour mesurer la cohésion sociale : Fellows, une expérimentation sur Facebook}}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00605673
+      \endverb
+      \keyw{france}
+    \endentry
+    \entry{friggeri:2011:inria-00621065:2}{report}{}
+      \name{author}{2}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {INRIA}%
+      }
+      \strng{namehash}{ac710190ef1bdc3439b064abf4c7aac1}
+      \strng{fullhash}{ac710190ef1bdc3439b064abf4c7aac1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{09}
+      \field{number}{RR-7734}
+      \field{title}{{Maximizing the Cohesion is NP-hard}}
+      \field{type}{Rapport de recherche}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00621065
+      \endverb
+    \endentry
+    \entry{friggeri:2010:inria-00475921:1}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+      }
+      \name{editor}{2}{}{%
+        {{hash=d701d062c77bc88e28d18dd098ed5f92}{%
+           family={Potop-Butucaru},
+           family_i={P\bibinithyphendelim B\bibinitperiod},
+           given={Maria\bibnamedelima Gradinariu},
+           given_i={M\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=c6a95be1883fae2e5edc4c1948b801f0}{%
+           family={Rivano},
+           family_i={R\bibinitperiod},
+           given={Hervé},
+           given_i={H\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Belle Dune, France}%
+      }
+      \strng{namehash}{c653a25a140689a4f9c3f7fcf38338b7}
+      \strng{fullhash}{c653a25a140689a4f9c3f7fcf38338b7}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{12èmes Rencontres Francophones sur les Aspects Algorithmiques de Télécommunications (AlgoTel)}}
+      \field{month}{06}
+      \field{title}{{Biais dans les mesures obtenues par un réseau de capteurs sans fil}}
+      \field{year}{2010}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00475921
+      \endverb
+      \keyw{france}
+    \endentry
+    \entry{lucet:2010:inria-00507447:1}{inproceedings}{}
+      \name{author}{10}{}{%
+        {{hash=0aa848012dfd67b43955402a542d274b}{%
+           family={Lucet},
+           family_i={L\bibinitperiod},
+           given={Jean-Christophe},
+           given_i={J\bibinithyphendelim C\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=451f394267ded5d7e83d6c64b1236f46}{%
+           family={Laouenan},
+           family_i={L\bibinitperiod},
+           given={Cédric},
+           given_i={C\bibinitperiod}}}%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=6a2ead7889a2812954557cc87c920646}{%
+           family={Veziris},
+           family_i={V\bibinitperiod},
+           given={N.},
+           given_i={N\bibinitperiod}}}%
+        {{hash=3d63040e64451a4e7c02c9c008b873a3}{%
+           family={Lepelletier},
+           family_i={L\bibinitperiod},
+           given={D.},
+           given_i={D\bibinitperiod}}}%
+        {{hash=13c81792a38d7c11ea3e14fceb09cb8f}{%
+           family={Abiteboul},
+           family_i={A\bibinitperiod},
+           given={D.},
+           given_i={D\bibinitperiod}}}%
+        {{hash=27518965019855b17ecca74062782816}{%
+           family={Bouvet},
+           family_i={B\bibinitperiod},
+           given={Elisabeth},
+           given_i={E\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+        {{hash=29c95ee56dceb5c2196205a8373bd2d5}{%
+           family={Mentré},
+           family_i={M\bibinitperiod},
+           given={France},
+           given_i={F\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Boston, États-Unis}%
+      }
+      \list{organization}{1}{%
+        {American Society for Microbiology}%
+      }
+      \strng{namehash}{d3179f7da74de40f8becc499eb2c554f}
+      \strng{fullhash}{d3179f7da74de40f8becc499eb2c554f}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{2010 Interscience Conference on Antimicrobial Agents and Chemotherapy}}
+      \field{month}{09}
+      \field{title}{{Electronic Sensors for Measuring Interactions between Healthcare Workers (HCWs) and Patients (Pts): the Case of Tuberculosis (TB)}}
+      \field{year}{2010}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00507447
+      \endverb
+    \endentry
+    \entry{allsopp07}{book}{}
+      \name{author}{1}{}{%
+        {{hash=a0a5154da3981701b81b6553647cdaa2}{%
+           family={Allsop},
+           family_i={A\bibinitperiod},
+           given={John},
+           given_i={J\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {London}%
+      }
+      \list{publisher}{1}{%
+        {Publisher}%
+      }
+      \strng{namehash}{a0a5154da3981701b81b6553647cdaa2}
+      \strng{fullhash}{a0a5154da3981701b81b6553647cdaa2}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{1-59059-814-8}
+      \field{month}{03}
+      \field{title}{Microformats: Empowering Your Markup for Web 2.0}
+      \field{year}{2007}
+    \endentry
+  \endsortlist
+\endrefsection
+
+\refsection{4}
+  \sortlist[entry]{ydnt/global/}
+    \entry{friggeri:2012:hal-00692548:1}{report}{}
+      \name{author}{2}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {INRIA}%
+      }
+      \strng{namehash}{ac710190ef1bdc3439b064abf4c7aac1}
+      \strng{fullhash}{ac710190ef1bdc3439b064abf4c7aac1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{04}
+      \field{number}{RR-7947}
+      \field{title}{{Finding cohesive communities with C³}}
+      \field{type}{Rapport de recherche}
+      \field{year}{2012}
+      \verb{url}
+      \verb http://hal.inria.fr/hal-00692548
+      \endverb
+    \endentry
+    \entry{Lucet:2012gl}{article}{}
+      \name{author}{10}{}{%
+        {{hash=0aa848012dfd67b43955402a542d274b}{%
+           family={Lucet},
+           family_i={L\bibinitperiod},
+           given={Jean-Christophe},
+           given_i={J\bibinithyphendelim C\bibinitperiod}}}%
+        {{hash=451f394267ded5d7e83d6c64b1236f46}{%
+           family={Laouenan},
+           family_i={L\bibinitperiod},
+           given={Cédric},
+           given_i={C\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=7c5b866f713fc7735c58c68f36ec158f}{%
+           family={Veziris},
+           family_i={V\bibinitperiod},
+           given={Nicolas},
+           given_i={N\bibinitperiod}}}%
+        {{hash=27900783f50d25643255aa5fefffba98}{%
+           family={Lepelletier},
+           family_i={L\bibinitperiod},
+           given={Didier},
+           given_i={D\bibinitperiod}}}%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=e756b1e2b5a1a777342ea5966fef0554}{%
+           family={Abiteboul},
+           family_i={A\bibinitperiod},
+           given={Dominique},
+           given_i={D\bibinitperiod}}}%
+        {{hash=27518965019855b17ecca74062782816}{%
+           family={Bouvet},
+           family_i={B\bibinitperiod},
+           given={Elisabeth},
+           given_i={E\bibinitperiod}}}%
+        {{hash=29c95ee56dceb5c2196205a8373bd2d5}{%
+           family={Mentré},
+           family_i={M\bibinitperiod},
+           given={France},
+           given_i={F\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{e027259ce7dea7a0ad131bfc9f051910}
+      \strng{fullhash}{e027259ce7dea7a0ad131bfc9f051910}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{PLoS ONE}
+      \field{month}{05}
+      \field{number}{5}
+      \field{title}{{Electronic Sensors for Assessing Interactions between Healthcare Workers and Patients under Airborne Precautions}}
+      \field{volume}{7}
+      \field{year}{2012}
+      \field{pages}{e37893}
+      \range{pages}{-1}
+    \endentry
+    \entry{friggeri:2011:inria-00587942:1}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \name{editor}{2}{}{%
+        {{hash=3e3cb226436a5008ed08017e5e4797bc}{%
+           family={Ducourthial},
+           family_i={D\bibinitperiod},
+           given={Bertrand},
+           given_i={B\bibinitperiod}}}%
+        {{hash=6668285eef28becfbea5f2cf39c9dc7b}{%
+           family={Felber},
+           family_i={F\bibinitperiod},
+           given={Pascal},
+           given_i={P\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cap Estérel, France}%
+      }
+      \strng{namehash}{c3d8bf9704b279725597677607ab17d1}
+      \strng{fullhash}{c3d8bf9704b279725597677607ab17d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{13es Rencontres Francophones sur les Aspects Algorithmiques de Télécommunications (AlgoTel)}}
+      \field{month}{06}
+      \field{title}{{Communautés : Arrêtons de ne compter que les arêtes}}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00587942
+      \endverb
+      \keyw{france}
+    \endentry
+    \entry{friggeri:2011:inria-00597447:1}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Budapest, Hongrie}%
+      }
+      \strng{namehash}{c3d8bf9704b279725597677607ab17d1}
+      \strng{fullhash}{c3d8bf9704b279725597677607ab17d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{NetSci 2011 The International School and Conference on Network Science}}
+      \field{month}{06}
+      \field{title}{{Egomunities, Exploring Socially Cohesive Person-based Communities}}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00597447
+      \endverb
+    \endentry
+    \entry{friggeri:2011:inria-00565336:2}{report}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {INRIA}%
+      }
+      \strng{namehash}{c3d8bf9704b279725597677607ab17d1}
+      \strng{fullhash}{c3d8bf9704b279725597677607ab17d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{02}
+      \field{number}{RR-7535}
+      \field{title}{{Egomunities, Exploring Socially Cohesive Person-based Communities}}
+      \field{type}{Rapport de recherche}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00565336
+      \endverb
+      \keyw{social networks,complex networks,real-world graphs,community detection,overlapping communities,data mining,modelisation}
+    \endentry
+    \entry{friggeri:2011:inria-00597446:1}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cambridge, États-Unis}%
+      }
+      \strng{namehash}{c3d8bf9704b279725597677607ab17d1}
+      \strng{fullhash}{c3d8bf9704b279725597677607ab17d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{Interdisciplinary Workshop on Information and Decision in Social Networks}}
+      \field{month}{05}
+      \field{note}{31 accepté/140 soumis +250 participants}
+      \field{title}{{Fellows: Crowd-sourcing the evaluation of an overlapping community model based on the cohesion measure}}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00597446
+      \endverb
+    \endentry
+    \entry{friggeri:2011:inria-00626064:1}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Vienna, Autriche}%
+      }
+      \strng{namehash}{c3d8bf9704b279725597677607ab17d1}
+      \strng{fullhash}{c3d8bf9704b279725597677607ab17d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{Complex Dynamics of Human Interactions}}
+      \field{month}{09}
+      \field{title}{{Fellows: Crowd-sourcing the evaluation of an overlapping community model based on the cohesion measure}}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00626064
+      \endverb
+    \endentry
+    \entry{friggeri:2011:inria-00619092:1}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cambridge, États-Unis}%
+      }
+      \strng{namehash}{c3d8bf9704b279725597677607ab17d1}
+      \strng{fullhash}{c3d8bf9704b279725597677607ab17d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{Third IEEE International Conference on Social Computing}}
+      \field{month}{09}
+      \field{title}{{Triangles to Capture Social Cohesion}}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00619092
+      \endverb
+    \endentry
+    \entry{friggeri:2011:inria-00608889:1}{report}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {INRIA}%
+      }
+      \strng{namehash}{c3d8bf9704b279725597677607ab17d1}
+      \strng{fullhash}{c3d8bf9704b279725597677607ab17d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{07}
+      \field{number}{RR-7686}
+      \field{title}{{Triangles to Capture Social Cohesion}}
+      \field{type}{Rapport de recherche}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00608889
+      \endverb
+    \endentry
+    \entry{friggeri:2011:inria-00630363:1}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Lyon, France}%
+      }
+      \strng{namehash}{c3d8bf9704b279725597677607ab17d1}
+      \strng{fullhash}{c3d8bf9704b279725597677607ab17d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{13emes journées Graphes et Algorithmes}}
+      \field{month}{10}
+      \field{title}{{Trouver des communautés socialement cohésives est NP-dur}}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00630363
+      \endverb
+      \keyw{france}
+    \endentry
+    \entry{friggeri:2011:inria-00490195:2}{article}{}
+      \name{author}{6}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+        {{hash=e0dbc5d14d90ebf3c11004f418c205da}{%
+           family={Fraboulet},
+           family_i={F\bibinitperiod},
+           given={Antoine},
+           given_i={A\bibinitperiod}}}%
+        {{hash=29c95ee56dceb5c2196205a8373bd2d5}{%
+           family={Mentré},
+           family_i={M\bibinitperiod},
+           given={France},
+           given_i={F\bibinitperiod}}}%
+        {{hash=0aa848012dfd67b43955402a542d274b}{%
+           family={Lucet},
+           family_i={L\bibinitperiod},
+           given={Jean-Christophe},
+           given_i={J\bibinithyphendelim C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{8988f24c3e427a82b1783c4c09ae6f3d}
+      \strng{fullhash}{8988f24c3e427a82b1783c4c09ae6f3d}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{{Computer Communications}}
+      \field{month}{04}
+      \field{number}{5}
+      \field{title}{{Reconstructing Social Interactions Using an unreliable Wireless Sensor Network}}
+      \field{volume}{34}
+      \field{year}{2011}
+      \field{pages}{609\bibrangedash 618}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1016/j.comcom.2010.06.005
+      \endverb
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00490195
+      \endverb
+      \keyw{complex networks; interaction networks; wireless sensor networks; medical applications}
+    \endentry
+    \entry{friggeri:2011:inria-00597448:1}{article}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=9d825f52adfc84ce8787206125c0408d}{%
+           family={Cointet},
+           family_i={C\bibinitperiod},
+           given={Jean-Philippe},
+           given_i={J\bibinithyphendelim P\bibinitperiod}}}%
+        {{hash=fbbf4f366ec164d3a3322350ecd254e1}{%
+           family={Latapy},
+           family_i={L\bibinitperiod},
+           suffix={Matthieu},
+           suffix_i={M\bibinitperiod},
+           given={Matthieu},
+           given_i={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Complex Systems Publications, Inc.}%
+      }
+      \strng{namehash}{87f40d835a2dbe1515d0eed7cd4d3839}
+      \strng{fullhash}{87f40d835a2dbe1515d0eed7cd4d3839}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{{Complex Systems}}
+      \field{number}{3}
+      \field{title}{{A Real-World Spreading Experiment in the Blogosphere}}
+      \field{volume}{19}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00597448
+      \endverb
+    \endentry
+    \entry{friggeri:2011:inria-00605673:1}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{ac710190ef1bdc3439b064abf4c7aac1}
+      \strng{fullhash}{ac710190ef1bdc3439b064abf4c7aac1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{06}
+      \field{note}{Séminaire w2s @ La Cantine}
+      \field{title}{{Des triangles pour mesurer la cohésion sociale : Fellows, une expérimentation sur Facebook}}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00605673
+      \endverb
+      \keyw{france}
+    \endentry
+    \entry{friggeri:2011:inria-00621065:2}{report}{}
+      \name{author}{2}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {INRIA}%
+      }
+      \strng{namehash}{ac710190ef1bdc3439b064abf4c7aac1}
+      \strng{fullhash}{ac710190ef1bdc3439b064abf4c7aac1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{09}
+      \field{number}{RR-7734}
+      \field{title}{{Maximizing the Cohesion is NP-hard}}
+      \field{type}{Rapport de recherche}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00621065
+      \endverb
+    \endentry
+    \entry{friggeri:2010:inria-00475921:1}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+      }
+      \name{editor}{2}{}{%
+        {{hash=d701d062c77bc88e28d18dd098ed5f92}{%
+           family={Potop-Butucaru},
+           family_i={P\bibinithyphendelim B\bibinitperiod},
+           given={Maria\bibnamedelima Gradinariu},
+           given_i={M\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=c6a95be1883fae2e5edc4c1948b801f0}{%
+           family={Rivano},
+           family_i={R\bibinitperiod},
+           given={Hervé},
+           given_i={H\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Belle Dune, France}%
+      }
+      \strng{namehash}{c653a25a140689a4f9c3f7fcf38338b7}
+      \strng{fullhash}{c653a25a140689a4f9c3f7fcf38338b7}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{12èmes Rencontres Francophones sur les Aspects Algorithmiques de Télécommunications (AlgoTel)}}
+      \field{month}{06}
+      \field{title}{{Biais dans les mesures obtenues par un réseau de capteurs sans fil}}
+      \field{year}{2010}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00475921
+      \endverb
+      \keyw{france}
+    \endentry
+    \entry{lucet:2010:inria-00507447:1}{inproceedings}{}
+      \name{author}{10}{}{%
+        {{hash=0aa848012dfd67b43955402a542d274b}{%
+           family={Lucet},
+           family_i={L\bibinitperiod},
+           given={Jean-Christophe},
+           given_i={J\bibinithyphendelim C\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=451f394267ded5d7e83d6c64b1236f46}{%
+           family={Laouenan},
+           family_i={L\bibinitperiod},
+           given={Cédric},
+           given_i={C\bibinitperiod}}}%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=6a2ead7889a2812954557cc87c920646}{%
+           family={Veziris},
+           family_i={V\bibinitperiod},
+           given={N.},
+           given_i={N\bibinitperiod}}}%
+        {{hash=3d63040e64451a4e7c02c9c008b873a3}{%
+           family={Lepelletier},
+           family_i={L\bibinitperiod},
+           given={D.},
+           given_i={D\bibinitperiod}}}%
+        {{hash=13c81792a38d7c11ea3e14fceb09cb8f}{%
+           family={Abiteboul},
+           family_i={A\bibinitperiod},
+           given={D.},
+           given_i={D\bibinitperiod}}}%
+        {{hash=27518965019855b17ecca74062782816}{%
+           family={Bouvet},
+           family_i={B\bibinitperiod},
+           given={Elisabeth},
+           given_i={E\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+        {{hash=29c95ee56dceb5c2196205a8373bd2d5}{%
+           family={Mentré},
+           family_i={M\bibinitperiod},
+           given={France},
+           given_i={F\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Boston, États-Unis}%
+      }
+      \list{organization}{1}{%
+        {American Society for Microbiology}%
+      }
+      \strng{namehash}{d3179f7da74de40f8becc499eb2c554f}
+      \strng{fullhash}{d3179f7da74de40f8becc499eb2c554f}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{2010 Interscience Conference on Antimicrobial Agents and Chemotherapy}}
+      \field{month}{09}
+      \field{title}{{Electronic Sensors for Measuring Interactions between Healthcare Workers (HCWs) and Patients (Pts): the Case of Tuberculosis (TB)}}
+      \field{year}{2010}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00507447
+      \endverb
+    \endentry
+    \entry{allsopp07}{book}{}
+      \name{author}{1}{}{%
+        {{hash=a0a5154da3981701b81b6553647cdaa2}{%
+           family={Allsop},
+           family_i={A\bibinitperiod},
+           given={John},
+           given_i={J\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {London}%
+      }
+      \list{publisher}{1}{%
+        {Publisher}%
+      }
+      \strng{namehash}{a0a5154da3981701b81b6553647cdaa2}
+      \strng{fullhash}{a0a5154da3981701b81b6553647cdaa2}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{1-59059-814-8}
+      \field{month}{03}
+      \field{title}{Microformats: Empowering Your Markup for Web 2.0}
+      \field{year}{2007}
+    \endentry
+  \endsortlist
+\endrefsection
+
+\refsection{5}
+  \sortlist[entry]{ydnt/global/}
+    \entry{friggeri:2012:hal-00692548:1}{report}{}
+      \name{author}{2}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {INRIA}%
+      }
+      \strng{namehash}{ac710190ef1bdc3439b064abf4c7aac1}
+      \strng{fullhash}{ac710190ef1bdc3439b064abf4c7aac1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{04}
+      \field{number}{RR-7947}
+      \field{title}{{Finding cohesive communities with C³}}
+      \field{type}{Rapport de recherche}
+      \field{year}{2012}
+      \verb{url}
+      \verb http://hal.inria.fr/hal-00692548
+      \endverb
+    \endentry
+    \entry{Lucet:2012gl}{article}{}
+      \name{author}{10}{}{%
+        {{hash=0aa848012dfd67b43955402a542d274b}{%
+           family={Lucet},
+           family_i={L\bibinitperiod},
+           given={Jean-Christophe},
+           given_i={J\bibinithyphendelim C\bibinitperiod}}}%
+        {{hash=451f394267ded5d7e83d6c64b1236f46}{%
+           family={Laouenan},
+           family_i={L\bibinitperiod},
+           given={Cédric},
+           given_i={C\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=7c5b866f713fc7735c58c68f36ec158f}{%
+           family={Veziris},
+           family_i={V\bibinitperiod},
+           given={Nicolas},
+           given_i={N\bibinitperiod}}}%
+        {{hash=27900783f50d25643255aa5fefffba98}{%
+           family={Lepelletier},
+           family_i={L\bibinitperiod},
+           given={Didier},
+           given_i={D\bibinitperiod}}}%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=e756b1e2b5a1a777342ea5966fef0554}{%
+           family={Abiteboul},
+           family_i={A\bibinitperiod},
+           given={Dominique},
+           given_i={D\bibinitperiod}}}%
+        {{hash=27518965019855b17ecca74062782816}{%
+           family={Bouvet},
+           family_i={B\bibinitperiod},
+           given={Elisabeth},
+           given_i={E\bibinitperiod}}}%
+        {{hash=29c95ee56dceb5c2196205a8373bd2d5}{%
+           family={Mentré},
+           family_i={M\bibinitperiod},
+           given={France},
+           given_i={F\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{e027259ce7dea7a0ad131bfc9f051910}
+      \strng{fullhash}{e027259ce7dea7a0ad131bfc9f051910}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{PLoS ONE}
+      \field{month}{05}
+      \field{number}{5}
+      \field{title}{{Electronic Sensors for Assessing Interactions between Healthcare Workers and Patients under Airborne Precautions}}
+      \field{volume}{7}
+      \field{year}{2012}
+      \field{pages}{e37893}
+      \range{pages}{-1}
+    \endentry
+    \entry{friggeri:2011:inria-00587942:1}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \name{editor}{2}{}{%
+        {{hash=3e3cb226436a5008ed08017e5e4797bc}{%
+           family={Ducourthial},
+           family_i={D\bibinitperiod},
+           given={Bertrand},
+           given_i={B\bibinitperiod}}}%
+        {{hash=6668285eef28becfbea5f2cf39c9dc7b}{%
+           family={Felber},
+           family_i={F\bibinitperiod},
+           given={Pascal},
+           given_i={P\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cap Estérel, France}%
+      }
+      \strng{namehash}{c3d8bf9704b279725597677607ab17d1}
+      \strng{fullhash}{c3d8bf9704b279725597677607ab17d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{13es Rencontres Francophones sur les Aspects Algorithmiques de Télécommunications (AlgoTel)}}
+      \field{month}{06}
+      \field{title}{{Communautés : Arrêtons de ne compter que les arêtes}}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00587942
+      \endverb
+      \keyw{france}
+    \endentry
+    \entry{friggeri:2011:inria-00597447:1}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Budapest, Hongrie}%
+      }
+      \strng{namehash}{c3d8bf9704b279725597677607ab17d1}
+      \strng{fullhash}{c3d8bf9704b279725597677607ab17d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{NetSci 2011 The International School and Conference on Network Science}}
+      \field{month}{06}
+      \field{title}{{Egomunities, Exploring Socially Cohesive Person-based Communities}}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00597447
+      \endverb
+    \endentry
+    \entry{friggeri:2011:inria-00565336:2}{report}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {INRIA}%
+      }
+      \strng{namehash}{c3d8bf9704b279725597677607ab17d1}
+      \strng{fullhash}{c3d8bf9704b279725597677607ab17d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{02}
+      \field{number}{RR-7535}
+      \field{title}{{Egomunities, Exploring Socially Cohesive Person-based Communities}}
+      \field{type}{Rapport de recherche}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00565336
+      \endverb
+      \keyw{social networks,complex networks,real-world graphs,community detection,overlapping communities,data mining,modelisation}
+    \endentry
+    \entry{friggeri:2011:inria-00597446:1}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cambridge, États-Unis}%
+      }
+      \strng{namehash}{c3d8bf9704b279725597677607ab17d1}
+      \strng{fullhash}{c3d8bf9704b279725597677607ab17d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{Interdisciplinary Workshop on Information and Decision in Social Networks}}
+      \field{month}{05}
+      \field{note}{31 accepté/140 soumis +250 participants}
+      \field{title}{{Fellows: Crowd-sourcing the evaluation of an overlapping community model based on the cohesion measure}}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00597446
+      \endverb
+    \endentry
+    \entry{friggeri:2011:inria-00626064:1}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Vienna, Autriche}%
+      }
+      \strng{namehash}{c3d8bf9704b279725597677607ab17d1}
+      \strng{fullhash}{c3d8bf9704b279725597677607ab17d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{Complex Dynamics of Human Interactions}}
+      \field{month}{09}
+      \field{title}{{Fellows: Crowd-sourcing the evaluation of an overlapping community model based on the cohesion measure}}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00626064
+      \endverb
+    \endentry
+    \entry{friggeri:2011:inria-00619092:1}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cambridge, États-Unis}%
+      }
+      \strng{namehash}{c3d8bf9704b279725597677607ab17d1}
+      \strng{fullhash}{c3d8bf9704b279725597677607ab17d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{Third IEEE International Conference on Social Computing}}
+      \field{month}{09}
+      \field{title}{{Triangles to Capture Social Cohesion}}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00619092
+      \endverb
+    \endentry
+    \entry{friggeri:2011:inria-00608889:1}{report}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {INRIA}%
+      }
+      \strng{namehash}{c3d8bf9704b279725597677607ab17d1}
+      \strng{fullhash}{c3d8bf9704b279725597677607ab17d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{07}
+      \field{number}{RR-7686}
+      \field{title}{{Triangles to Capture Social Cohesion}}
+      \field{type}{Rapport de recherche}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00608889
+      \endverb
+    \endentry
+    \entry{friggeri:2011:inria-00630363:1}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Lyon, France}%
+      }
+      \strng{namehash}{c3d8bf9704b279725597677607ab17d1}
+      \strng{fullhash}{c3d8bf9704b279725597677607ab17d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{13emes journées Graphes et Algorithmes}}
+      \field{month}{10}
+      \field{title}{{Trouver des communautés socialement cohésives est NP-dur}}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00630363
+      \endverb
+      \keyw{france}
+    \endentry
+    \entry{friggeri:2011:inria-00490195:2}{article}{}
+      \name{author}{6}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+        {{hash=e0dbc5d14d90ebf3c11004f418c205da}{%
+           family={Fraboulet},
+           family_i={F\bibinitperiod},
+           given={Antoine},
+           given_i={A\bibinitperiod}}}%
+        {{hash=29c95ee56dceb5c2196205a8373bd2d5}{%
+           family={Mentré},
+           family_i={M\bibinitperiod},
+           given={France},
+           given_i={F\bibinitperiod}}}%
+        {{hash=0aa848012dfd67b43955402a542d274b}{%
+           family={Lucet},
+           family_i={L\bibinitperiod},
+           given={Jean-Christophe},
+           given_i={J\bibinithyphendelim C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{8988f24c3e427a82b1783c4c09ae6f3d}
+      \strng{fullhash}{8988f24c3e427a82b1783c4c09ae6f3d}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{{Computer Communications}}
+      \field{month}{04}
+      \field{number}{5}
+      \field{title}{{Reconstructing Social Interactions Using an unreliable Wireless Sensor Network}}
+      \field{volume}{34}
+      \field{year}{2011}
+      \field{pages}{609\bibrangedash 618}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1016/j.comcom.2010.06.005
+      \endverb
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00490195
+      \endverb
+      \keyw{complex networks; interaction networks; wireless sensor networks; medical applications}
+    \endentry
+    \entry{friggeri:2011:inria-00597448:1}{article}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=9d825f52adfc84ce8787206125c0408d}{%
+           family={Cointet},
+           family_i={C\bibinitperiod},
+           given={Jean-Philippe},
+           given_i={J\bibinithyphendelim P\bibinitperiod}}}%
+        {{hash=fbbf4f366ec164d3a3322350ecd254e1}{%
+           family={Latapy},
+           family_i={L\bibinitperiod},
+           suffix={Matthieu},
+           suffix_i={M\bibinitperiod},
+           given={Matthieu},
+           given_i={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Complex Systems Publications, Inc.}%
+      }
+      \strng{namehash}{87f40d835a2dbe1515d0eed7cd4d3839}
+      \strng{fullhash}{87f40d835a2dbe1515d0eed7cd4d3839}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{{Complex Systems}}
+      \field{number}{3}
+      \field{title}{{A Real-World Spreading Experiment in the Blogosphere}}
+      \field{volume}{19}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00597448
+      \endverb
+    \endentry
+    \entry{friggeri:2011:inria-00605673:1}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{ac710190ef1bdc3439b064abf4c7aac1}
+      \strng{fullhash}{ac710190ef1bdc3439b064abf4c7aac1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{06}
+      \field{note}{Séminaire w2s @ La Cantine}
+      \field{title}{{Des triangles pour mesurer la cohésion sociale : Fellows, une expérimentation sur Facebook}}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00605673
+      \endverb
+      \keyw{france}
+    \endentry
+    \entry{friggeri:2011:inria-00621065:2}{report}{}
+      \name{author}{2}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {INRIA}%
+      }
+      \strng{namehash}{ac710190ef1bdc3439b064abf4c7aac1}
+      \strng{fullhash}{ac710190ef1bdc3439b064abf4c7aac1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{09}
+      \field{number}{RR-7734}
+      \field{title}{{Maximizing the Cohesion is NP-hard}}
+      \field{type}{Rapport de recherche}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00621065
+      \endverb
+    \endentry
+    \entry{friggeri:2010:inria-00475921:1}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+      }
+      \name{editor}{2}{}{%
+        {{hash=d701d062c77bc88e28d18dd098ed5f92}{%
+           family={Potop-Butucaru},
+           family_i={P\bibinithyphendelim B\bibinitperiod},
+           given={Maria\bibnamedelima Gradinariu},
+           given_i={M\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=c6a95be1883fae2e5edc4c1948b801f0}{%
+           family={Rivano},
+           family_i={R\bibinitperiod},
+           given={Hervé},
+           given_i={H\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Belle Dune, France}%
+      }
+      \strng{namehash}{c653a25a140689a4f9c3f7fcf38338b7}
+      \strng{fullhash}{c653a25a140689a4f9c3f7fcf38338b7}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{12èmes Rencontres Francophones sur les Aspects Algorithmiques de Télécommunications (AlgoTel)}}
+      \field{month}{06}
+      \field{title}{{Biais dans les mesures obtenues par un réseau de capteurs sans fil}}
+      \field{year}{2010}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00475921
+      \endverb
+      \keyw{france}
+    \endentry
+    \entry{lucet:2010:inria-00507447:1}{inproceedings}{}
+      \name{author}{10}{}{%
+        {{hash=0aa848012dfd67b43955402a542d274b}{%
+           family={Lucet},
+           family_i={L\bibinitperiod},
+           given={Jean-Christophe},
+           given_i={J\bibinithyphendelim C\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=451f394267ded5d7e83d6c64b1236f46}{%
+           family={Laouenan},
+           family_i={L\bibinitperiod},
+           given={Cédric},
+           given_i={C\bibinitperiod}}}%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=6a2ead7889a2812954557cc87c920646}{%
+           family={Veziris},
+           family_i={V\bibinitperiod},
+           given={N.},
+           given_i={N\bibinitperiod}}}%
+        {{hash=3d63040e64451a4e7c02c9c008b873a3}{%
+           family={Lepelletier},
+           family_i={L\bibinitperiod},
+           given={D.},
+           given_i={D\bibinitperiod}}}%
+        {{hash=13c81792a38d7c11ea3e14fceb09cb8f}{%
+           family={Abiteboul},
+           family_i={A\bibinitperiod},
+           given={D.},
+           given_i={D\bibinitperiod}}}%
+        {{hash=27518965019855b17ecca74062782816}{%
+           family={Bouvet},
+           family_i={B\bibinitperiod},
+           given={Elisabeth},
+           given_i={E\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+        {{hash=29c95ee56dceb5c2196205a8373bd2d5}{%
+           family={Mentré},
+           family_i={M\bibinitperiod},
+           given={France},
+           given_i={F\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Boston, États-Unis}%
+      }
+      \list{organization}{1}{%
+        {American Society for Microbiology}%
+      }
+      \strng{namehash}{d3179f7da74de40f8becc499eb2c554f}
+      \strng{fullhash}{d3179f7da74de40f8becc499eb2c554f}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{2010 Interscience Conference on Antimicrobial Agents and Chemotherapy}}
+      \field{month}{09}
+      \field{title}{{Electronic Sensors for Measuring Interactions between Healthcare Workers (HCWs) and Patients (Pts): the Case of Tuberculosis (TB)}}
+      \field{year}{2010}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00507447
+      \endverb
+    \endentry
+    \entry{allsopp07}{book}{}
+      \name{author}{1}{}{%
+        {{hash=a0a5154da3981701b81b6553647cdaa2}{%
+           family={Allsop},
+           family_i={A\bibinitperiod},
+           given={John},
+           given_i={J\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {London}%
+      }
+      \list{publisher}{1}{%
+        {Publisher}%
+      }
+      \strng{namehash}{a0a5154da3981701b81b6553647cdaa2}
+      \strng{fullhash}{a0a5154da3981701b81b6553647cdaa2}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{1-59059-814-8}
+      \field{month}{03}
+      \field{title}{Microformats: Empowering Your Markup for Web 2.0}
+      \field{year}{2007}
+    \endentry
+  \endsortlist
+\endrefsection
+
+\refsection{6}
+  \sortlist[entry]{ydnt/global/}
+    \entry{friggeri:2012:hal-00692548:1}{report}{}
+      \name{author}{2}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {INRIA}%
+      }
+      \strng{namehash}{ac710190ef1bdc3439b064abf4c7aac1}
+      \strng{fullhash}{ac710190ef1bdc3439b064abf4c7aac1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{04}
+      \field{number}{RR-7947}
+      \field{title}{{Finding cohesive communities with C³}}
+      \field{type}{Rapport de recherche}
+      \field{year}{2012}
+      \verb{url}
+      \verb http://hal.inria.fr/hal-00692548
+      \endverb
+    \endentry
+    \entry{Lucet:2012gl}{article}{}
+      \name{author}{10}{}{%
+        {{hash=0aa848012dfd67b43955402a542d274b}{%
+           family={Lucet},
+           family_i={L\bibinitperiod},
+           given={Jean-Christophe},
+           given_i={J\bibinithyphendelim C\bibinitperiod}}}%
+        {{hash=451f394267ded5d7e83d6c64b1236f46}{%
+           family={Laouenan},
+           family_i={L\bibinitperiod},
+           given={Cédric},
+           given_i={C\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=7c5b866f713fc7735c58c68f36ec158f}{%
+           family={Veziris},
+           family_i={V\bibinitperiod},
+           given={Nicolas},
+           given_i={N\bibinitperiod}}}%
+        {{hash=27900783f50d25643255aa5fefffba98}{%
+           family={Lepelletier},
+           family_i={L\bibinitperiod},
+           given={Didier},
+           given_i={D\bibinitperiod}}}%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=e756b1e2b5a1a777342ea5966fef0554}{%
+           family={Abiteboul},
+           family_i={A\bibinitperiod},
+           given={Dominique},
+           given_i={D\bibinitperiod}}}%
+        {{hash=27518965019855b17ecca74062782816}{%
+           family={Bouvet},
+           family_i={B\bibinitperiod},
+           given={Elisabeth},
+           given_i={E\bibinitperiod}}}%
+        {{hash=29c95ee56dceb5c2196205a8373bd2d5}{%
+           family={Mentré},
+           family_i={M\bibinitperiod},
+           given={France},
+           given_i={F\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{e027259ce7dea7a0ad131bfc9f051910}
+      \strng{fullhash}{e027259ce7dea7a0ad131bfc9f051910}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{PLoS ONE}
+      \field{month}{05}
+      \field{number}{5}
+      \field{title}{{Electronic Sensors for Assessing Interactions between Healthcare Workers and Patients under Airborne Precautions}}
+      \field{volume}{7}
+      \field{year}{2012}
+      \field{pages}{e37893}
+      \range{pages}{-1}
+    \endentry
+    \entry{friggeri:2011:inria-00587942:1}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \name{editor}{2}{}{%
+        {{hash=3e3cb226436a5008ed08017e5e4797bc}{%
+           family={Ducourthial},
+           family_i={D\bibinitperiod},
+           given={Bertrand},
+           given_i={B\bibinitperiod}}}%
+        {{hash=6668285eef28becfbea5f2cf39c9dc7b}{%
+           family={Felber},
+           family_i={F\bibinitperiod},
+           given={Pascal},
+           given_i={P\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cap Estérel, France}%
+      }
+      \strng{namehash}{c3d8bf9704b279725597677607ab17d1}
+      \strng{fullhash}{c3d8bf9704b279725597677607ab17d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{13es Rencontres Francophones sur les Aspects Algorithmiques de Télécommunications (AlgoTel)}}
+      \field{month}{06}
+      \field{title}{{Communautés : Arrêtons de ne compter que les arêtes}}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00587942
+      \endverb
+      \keyw{france}
+    \endentry
+    \entry{friggeri:2011:inria-00597447:1}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Budapest, Hongrie}%
+      }
+      \strng{namehash}{c3d8bf9704b279725597677607ab17d1}
+      \strng{fullhash}{c3d8bf9704b279725597677607ab17d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{NetSci 2011 The International School and Conference on Network Science}}
+      \field{month}{06}
+      \field{title}{{Egomunities, Exploring Socially Cohesive Person-based Communities}}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00597447
+      \endverb
+    \endentry
+    \entry{friggeri:2011:inria-00565336:2}{report}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {INRIA}%
+      }
+      \strng{namehash}{c3d8bf9704b279725597677607ab17d1}
+      \strng{fullhash}{c3d8bf9704b279725597677607ab17d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{02}
+      \field{number}{RR-7535}
+      \field{title}{{Egomunities, Exploring Socially Cohesive Person-based Communities}}
+      \field{type}{Rapport de recherche}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00565336
+      \endverb
+      \keyw{social networks,complex networks,real-world graphs,community detection,overlapping communities,data mining,modelisation}
+    \endentry
+    \entry{friggeri:2011:inria-00597446:1}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cambridge, États-Unis}%
+      }
+      \strng{namehash}{c3d8bf9704b279725597677607ab17d1}
+      \strng{fullhash}{c3d8bf9704b279725597677607ab17d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{Interdisciplinary Workshop on Information and Decision in Social Networks}}
+      \field{month}{05}
+      \field{note}{31 accepté/140 soumis +250 participants}
+      \field{title}{{Fellows: Crowd-sourcing the evaluation of an overlapping community model based on the cohesion measure}}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00597446
+      \endverb
+    \endentry
+    \entry{friggeri:2011:inria-00626064:1}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Vienna, Autriche}%
+      }
+      \strng{namehash}{c3d8bf9704b279725597677607ab17d1}
+      \strng{fullhash}{c3d8bf9704b279725597677607ab17d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{Complex Dynamics of Human Interactions}}
+      \field{month}{09}
+      \field{title}{{Fellows: Crowd-sourcing the evaluation of an overlapping community model based on the cohesion measure}}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00626064
+      \endverb
+    \endentry
+    \entry{friggeri:2011:inria-00619092:1}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cambridge, États-Unis}%
+      }
+      \strng{namehash}{c3d8bf9704b279725597677607ab17d1}
+      \strng{fullhash}{c3d8bf9704b279725597677607ab17d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{Third IEEE International Conference on Social Computing}}
+      \field{month}{09}
+      \field{title}{{Triangles to Capture Social Cohesion}}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00619092
+      \endverb
+    \endentry
+    \entry{friggeri:2011:inria-00608889:1}{report}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {INRIA}%
+      }
+      \strng{namehash}{c3d8bf9704b279725597677607ab17d1}
+      \strng{fullhash}{c3d8bf9704b279725597677607ab17d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{07}
+      \field{number}{RR-7686}
+      \field{title}{{Triangles to Capture Social Cohesion}}
+      \field{type}{Rapport de recherche}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00608889
+      \endverb
+    \endentry
+    \entry{friggeri:2011:inria-00630363:1}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Lyon, France}%
+      }
+      \strng{namehash}{c3d8bf9704b279725597677607ab17d1}
+      \strng{fullhash}{c3d8bf9704b279725597677607ab17d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{13emes journées Graphes et Algorithmes}}
+      \field{month}{10}
+      \field{title}{{Trouver des communautés socialement cohésives est NP-dur}}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00630363
+      \endverb
+      \keyw{france}
+    \endentry
+    \entry{friggeri:2011:inria-00490195:2}{article}{}
+      \name{author}{6}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+        {{hash=e0dbc5d14d90ebf3c11004f418c205da}{%
+           family={Fraboulet},
+           family_i={F\bibinitperiod},
+           given={Antoine},
+           given_i={A\bibinitperiod}}}%
+        {{hash=29c95ee56dceb5c2196205a8373bd2d5}{%
+           family={Mentré},
+           family_i={M\bibinitperiod},
+           given={France},
+           given_i={F\bibinitperiod}}}%
+        {{hash=0aa848012dfd67b43955402a542d274b}{%
+           family={Lucet},
+           family_i={L\bibinitperiod},
+           given={Jean-Christophe},
+           given_i={J\bibinithyphendelim C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{8988f24c3e427a82b1783c4c09ae6f3d}
+      \strng{fullhash}{8988f24c3e427a82b1783c4c09ae6f3d}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{{Computer Communications}}
+      \field{month}{04}
+      \field{number}{5}
+      \field{title}{{Reconstructing Social Interactions Using an unreliable Wireless Sensor Network}}
+      \field{volume}{34}
+      \field{year}{2011}
+      \field{pages}{609\bibrangedash 618}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1016/j.comcom.2010.06.005
+      \endverb
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00490195
+      \endverb
+      \keyw{complex networks; interaction networks; wireless sensor networks; medical applications}
+    \endentry
+    \entry{friggeri:2011:inria-00597448:1}{article}{}
+      \name{author}{3}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=9d825f52adfc84ce8787206125c0408d}{%
+           family={Cointet},
+           family_i={C\bibinitperiod},
+           given={Jean-Philippe},
+           given_i={J\bibinithyphendelim P\bibinitperiod}}}%
+        {{hash=fbbf4f366ec164d3a3322350ecd254e1}{%
+           family={Latapy},
+           family_i={L\bibinitperiod},
+           suffix={Matthieu},
+           suffix_i={M\bibinitperiod},
+           given={Matthieu},
+           given_i={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Complex Systems Publications, Inc.}%
+      }
+      \strng{namehash}{87f40d835a2dbe1515d0eed7cd4d3839}
+      \strng{fullhash}{87f40d835a2dbe1515d0eed7cd4d3839}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{{Complex Systems}}
+      \field{number}{3}
+      \field{title}{{A Real-World Spreading Experiment in the Blogosphere}}
+      \field{volume}{19}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00597448
+      \endverb
+    \endentry
+    \entry{friggeri:2011:inria-00605673:1}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{ac710190ef1bdc3439b064abf4c7aac1}
+      \strng{fullhash}{ac710190ef1bdc3439b064abf4c7aac1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{06}
+      \field{note}{Séminaire w2s @ La Cantine}
+      \field{title}{{Des triangles pour mesurer la cohésion sociale : Fellows, une expérimentation sur Facebook}}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00605673
+      \endverb
+      \keyw{france}
+    \endentry
+    \entry{friggeri:2011:inria-00621065:2}{report}{}
+      \name{author}{2}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {INRIA}%
+      }
+      \strng{namehash}{ac710190ef1bdc3439b064abf4c7aac1}
+      \strng{fullhash}{ac710190ef1bdc3439b064abf4c7aac1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{09}
+      \field{number}{RR-7734}
+      \field{title}{{Maximizing the Cohesion is NP-hard}}
+      \field{type}{Rapport de recherche}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00621065
+      \endverb
+    \endentry
+    \entry{friggeri:2010:inria-00475921:1}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+      }
+      \name{editor}{2}{}{%
+        {{hash=d701d062c77bc88e28d18dd098ed5f92}{%
+           family={Potop-Butucaru},
+           family_i={P\bibinithyphendelim B\bibinitperiod},
+           given={Maria\bibnamedelima Gradinariu},
+           given_i={M\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=c6a95be1883fae2e5edc4c1948b801f0}{%
+           family={Rivano},
+           family_i={R\bibinitperiod},
+           given={Hervé},
+           given_i={H\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Belle Dune, France}%
+      }
+      \strng{namehash}{c653a25a140689a4f9c3f7fcf38338b7}
+      \strng{fullhash}{c653a25a140689a4f9c3f7fcf38338b7}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{12èmes Rencontres Francophones sur les Aspects Algorithmiques de Télécommunications (AlgoTel)}}
+      \field{month}{06}
+      \field{title}{{Biais dans les mesures obtenues par un réseau de capteurs sans fil}}
+      \field{year}{2010}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00475921
+      \endverb
+      \keyw{france}
+    \endentry
+    \entry{lucet:2010:inria-00507447:1}{inproceedings}{}
+      \name{author}{10}{}{%
+        {{hash=0aa848012dfd67b43955402a542d274b}{%
+           family={Lucet},
+           family_i={L\bibinitperiod},
+           given={Jean-Christophe},
+           given_i={J\bibinithyphendelim C\bibinitperiod}}}%
+        {{hash=40b481957952c0d0b5bce665e2a969a9}{%
+           family={Chelius},
+           family_i={C\bibinitperiod},
+           given={Guillaume},
+           given_i={G\bibinitperiod}}}%
+        {{hash=451f394267ded5d7e83d6c64b1236f46}{%
+           family={Laouenan},
+           family_i={L\bibinitperiod},
+           given={Cédric},
+           given_i={C\bibinitperiod}}}%
+        {{hash=1dccb895063258fc5407bb66029a7d3e}{%
+           family={Friggeri},
+           family_i={F\bibinitperiod},
+           given={Adrien},
+           given_i={A\bibinitperiod}}}%
+        {{hash=6a2ead7889a2812954557cc87c920646}{%
+           family={Veziris},
+           family_i={V\bibinitperiod},
+           given={N.},
+           given_i={N\bibinitperiod}}}%
+        {{hash=3d63040e64451a4e7c02c9c008b873a3}{%
+           family={Lepelletier},
+           family_i={L\bibinitperiod},
+           given={D.},
+           given_i={D\bibinitperiod}}}%
+        {{hash=13c81792a38d7c11ea3e14fceb09cb8f}{%
+           family={Abiteboul},
+           family_i={A\bibinitperiod},
+           given={D.},
+           given_i={D\bibinitperiod}}}%
+        {{hash=27518965019855b17ecca74062782816}{%
+           family={Bouvet},
+           family_i={B\bibinitperiod},
+           given={Elisabeth},
+           given_i={E\bibinitperiod}}}%
+        {{hash=c1766f4512378998ff39a6a2c41f5058}{%
+           family={Fleury},
+           family_i={F\bibinitperiod},
+           given={Eric},
+           given_i={E\bibinitperiod}}}%
+        {{hash=29c95ee56dceb5c2196205a8373bd2d5}{%
+           family={Mentré},
+           family_i={M\bibinitperiod},
+           given={France},
+           given_i={F\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Boston, États-Unis}%
+      }
+      \list{organization}{1}{%
+        {American Society for Microbiology}%
+      }
+      \strng{namehash}{d3179f7da74de40f8becc499eb2c554f}
+      \strng{fullhash}{d3179f7da74de40f8becc499eb2c554f}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{2010 Interscience Conference on Antimicrobial Agents and Chemotherapy}}
+      \field{month}{09}
+      \field{title}{{Electronic Sensors for Measuring Interactions between Healthcare Workers (HCWs) and Patients (Pts): the Case of Tuberculosis (TB)}}
+      \field{year}{2010}
+      \verb{url}
+      \verb http://hal.inria.fr/inria-00507447
+      \endverb
+    \endentry
+    \entry{allsopp07}{book}{}
+      \name{author}{1}{}{%
+        {{hash=a0a5154da3981701b81b6553647cdaa2}{%
+           family={Allsop},
+           family_i={A\bibinitperiod},
+           given={John},
+           given_i={J\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {London}%
+      }
+      \list{publisher}{1}{%
+        {Publisher}%
+      }
+      \strng{namehash}{a0a5154da3981701b81b6553647cdaa2}
+      \strng{fullhash}{a0a5154da3981701b81b6553647cdaa2}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{1-59059-814-8}
+      \field{month}{03}
+      \field{title}{Microformats: Empowering Your Markup for Web 2.0}
+      \field{year}{2007}
+    \endentry
+  \endsortlist
+\endrefsection
+\endinput
+

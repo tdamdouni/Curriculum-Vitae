@@ -1,0 +1,35 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-plot}
+\StopShownPreambleCommands
+\begin{document}
+\psset{plotpoints=200,unit=0.3,labelFontSize=\scriptstyle}
+\begin{pspicture}(-8.5,-8.5)(9,9)% Ulrich Dirr
+  \psaxes[Dx=2,dx=2,Dy=2,dy=2,labelsep=.75mm,%
+    arrowlength=1.75,ticksize=2pt,linewidth=0.17mm]%
+      {->}(0,0)(-8.5,-8.5)(9,9)
+  \rput[Br](9,-.7){$x$} \rput[tr](-.3,9){$y$} \rput[Br](-.3,-.7){$0$}
+
+  \psset{linewidth=.35mm,plotstyle=curve,polarplot}
+  \psplot[linecolor=blue]{0}{720}{8 2.5 x mul sin mul}
+\end{pspicture}
+\end{document}

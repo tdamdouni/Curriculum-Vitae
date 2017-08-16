@@ -1,0 +1,271 @@
+\section{The parameters of \texttt{pst-solides3d}}
+
+\begin{longtable}{|>{\bfseries\ttfamily\color{blue}}l
+ |>{\ttfamily\centering}m{2cm}|m{10cm}|}
+  \hline
+  \multicolumn{1}{|c|}{\textbf{Parameter}}&
+  \multicolumn{1}{c|}{\textbf{Default}}&
+  \multicolumn{1}{c|}{\textbf{Description}} \\ \hline\hline
+\endfirsthead
+\hline
+  \multicolumn{1}{|c|}{\textbf{Parameter}}&
+  \multicolumn{1}{c|}{\textbf{Default}}&
+  \multicolumn{1}{c|}{\textbf{Description}} \\ \hline\hline
+\endhead
+\multicolumn{3}{|r|}{\textit{Continued on next page}}\\ \hline
+\endfoot
+\multicolumn{3}{|r|}{\textit{End of table}}\\ \hline
+\endlastfoot
+
+object&&predefined objects for use with
+\texttt{\textbackslash{}psSolid} and
+\texttt{\textbackslash{}psProjection}: \texttt{\Lkeyword{object}=myName}
+where \texttt{myName} is the type of object\\
+\hline
+
+viewpoint&10 10 10&the coordinates of the point of view\\ \hline
+
+a&2&the value of \texttt{a} has several interpretations: the edge
+length of a cube, the radius of the circumscribed sphere of
+regular polyhedrons, the length of one of the edges of a
+parallelepiped\\ \hline
+
+r&2&the radius of a cylinder or sphere\\ \hline
+
+h&6&the height of a cylinder, cone, truncated cone, or prism\\
+\hline
+
+r0&1.5&the inner radius of a torus\\\hline
+
+r1&4&the mean radius of a torus\\ \hline
+
+phi&0&the lower latitude of a spherical zone\\ \hline
+
+theta&90&the upper latitude of a spherical zone\\ \hline
+
+a,b and c&4&the lengths of three incident edges of a parallelepiped\\
+\hline
+
+base&\begin{tabular}{rr}-1 & -1 \\ 1 & -1 \\ 0 &
+1\end{tabular}&the coordinates of vertices in the $xy$-plane
+for specified shapes\\
+\hline
+
+axe&0 0 1&the direction of the axis of inclination of a prism\\
+\hline
+
+action&draw**&uses the painting algorithm to draw the solid
+without hidden edges and with coloured faces\\ \hline
+
+lightsrc&20 30 50&the Cartesian coordinates of the light source\\
+\hline
+
+lightintensity&2&the intensity of the light source\\ \hline
+
+ngrid&n1 n2& sets the grid for a chosen solid\\ \hline
+
+mode&0&sets a predefined grid: values are 0 to 4.
+\texttt{mode=0} is a large grid and \texttt{mode=4} is a fine
+grid\\ \hline
+
+grid& true&if \texttt{grid} is used then gridlines are suppressed\\
+\hline
+
+biface&true&draw the interior face; if you only want the exterior
+shown write \texttt{biface=false}
+\\ \hline
+
+algebraic&false&\texttt{algebraic=true} (also written as
+\texttt{[algebraic]}) allows you to give the equation of a surface
+in algebraic form (otherwise RPN is enabled); the package
+\texttt{pstricks-add} must be loaded in the preamble\\ \hline
+
+fillcolor&white&specifies a colour for the outer faces of a
+solid\\ \hline
+
+incolor&green&specifies a colour for the inner faces of a solid\\
+\hline
+
+hue&&the colour gradient used for the outer faces of a solid\\
+\hline
+
+inhue&&the colour gradient used for internal faces\\
+\hline
+
+inouthue&&the colour gradient used for both internal and
+external faces as a single continuation\\
+\hline
+
+fcol&&permits you to specify, in order of face number $0$ to $n-1$
+(for $n$ faces) the colour of the appropriate face:\par
+\texttt{fcol=0 (Apricot) 1 (Aquamarine) etc.}\\ \hline
+
+rm&&removes visible faces: \texttt{rm=1 2 8} removes faces 1, 2
+and 8 \\ \hline
+
+show&&determines which vertices are shown as points:
+\texttt{show=0 1 2 3} shows the vertices 0, 1, 2 and 3,
+\texttt{show=all} shows all the vertices\\ \hline
+
+num&&numbers the vertices; for example \texttt{num=0 1 2 3}
+numbers the vertices 0,1,2 and 3, and \texttt{num=all} numbers
+all the vertices\\ \hline
+
+name&&the name given to a solid\\ \hline
+
+solidname&&the name of the active solid\\ \hline
+
+RotX&0&the angle of rotation of the solid around $Ox$ (in
+degrees)\\ \hline
+
+RotY&0&the angle of rotation of the solid around $Oy$ (in
+degrees)\\ \hline
+
+RotZ&0&the angle of rotation of the solid around $Oz$ (in
+degrees)\\ \hline
+
+hollow&false& draws the inside of hollow solids: cylinder, cone,
+truncated cone and prism\\ \hline
+
+decal&-2&reassign the index numbers of the vertices within a \texttt{base}\\
+\hline
+
+axesboxed& false& this option for surfaces allows semi-automatic
+drawing of the 3D coordinate axes, since the limits of $z$ must be
+set by
+hand; enabled with \texttt{axesboxed}\\
+\hline
+
+Zmin&$-4$& the minimum value of $z$\\ \hline
+
+Zmax&$4$& the maximum value of $z$\\ \hline
+
+QZ&$0$& shifts the coordinate axes vertically by the chosen value\\
+\hline
+
+spotX&dr&the position of the tick labels on the $x$-axis\\ \hline
+
+spotY&dl&the position of the tick labels on the $y$-axis\\ \hline
+
+spotZ&l&the position of the tick labels on the $z$-axis\\ \hline
+
+resolution&36&the number of points used to draw a curve\\ \hline
+
+range&-4 4 &the limits for function input\\ \hline
+
+function& f & the name given to a function\\ \hline
+
+path&newpath \par 0 0 moveto& the projected path\\ \hline
+
+%normal&0 0 1&the normal to the surface being defined\\ \hline
+
+text&&the projected text\\ \hline
+
+visibility&false& if \texttt{false} the text applied to a hidden
+face is
+not rendered\\
+\hline
+
+chanfreincoeff&0.2&the chamfering coefficient\\ \hline
+
+trunccoeff&0.25&the truncation coefficient\\ \hline
+
+dualregcoeff&1&the dual solid coefficient\\ \hline %%%% is this used anywhere?
+
+affinagecoeff&0.8&the hollowing coefficient\\ \hline
+
+affinage& & determines which faces are hollowed out:
+\texttt{affinage=0 1 2 3} recesses faces 0, 1, 2 and 3,
+\texttt{affinage=all} recesses all faces\\ \hline
+
+affinagerm& &keep the central part of hollowed out faces\\ \hline
+
+intersectiontype&-1&the type of intersection between a plane and a
+solid; a positive value draws the intersection\\ \hline
+
+plansection&&list of equations of intersecting planes, when used
+only for their intersections \\
+\hline
+
+plansepare&&the equation of the separating plane for a solid\\
+\hline
+
+{\small intersectionlinewidth}&1&the thickness of an intersection
+in \texttt{pt}; if there are several inter\-sections of different
+thicknesses then list them like so:\par
+\texttt{intersectionlinewidth=1 1.5 1.8 etc.}\\
+\hline
+
+intersectioncolor&(rouge)&the colour used for intersections; if
+several inter\-sections in different colours are required, list
+them as follows:\par \texttt{intersectioncolor=(rouge) (vert) etc.}\\
+\hline
+
+intersectionplan&[0 0 1 0]&the equation of the intersecting
+plane\\ \hline
+
+definition&&defines a point, a vector, a plane, a spherical arc,
+etc.\\ \hline
+
+args&&arguments associated with \texttt{definition}\\
+\hline
+
+section&\textbackslash Section&the coordinates of the vertices of
+a cross-section of a solid ring\\ \hline
+
+planmarks&false&scales the axes of the plane\\ \hline
+
+plangrid&false&draws the coordinate axes of the plane \\ \hline
+
+showbase&false&draws the unit vectors of the plane\\ \hline
+
+showBase&false&draws the unit vectors of the plane and the normal
+vector to the plane\\ \hline
+
+deactivatecolor&false&disables the colour management of PSTricks\\
+\hline
+
+transform&&a formula, applied to the vertices of a solid, to
+transform it\\ \hline
+
+axisnames&\{x,y,z\}&the labels of the axes in 3D\\ \hline
+
+axisemph&&the style of the axes labels in 3D\\ \hline
+
+showOrigin&true&draws the axes from the origin, or not if set to
+\texttt{false}\\ \hline
+
+mathLabel&true&draws the axes labels in math mode, or not if set
+to \texttt{false}\\ \hline
+
+file&&the name of the data file having \texttt{.dat} extension
+written with \texttt{action=writesolid} or read with
+\texttt{object=datfile}\\
+\hline
+
+load&&the name of the object to be loaded\\ \hline
+
+fcolor&&the colour of the refined parts of the faces of an object\\
+\hline
+
+sommets&&the list of vertices of a solid for use with \texttt{object=new}\\
+\hline
+
+faces&&the list of faces of a solid for use with \texttt{object=new}\\
+\hline
+
+stepX&1&a positive integer giving the interval between ticks on
+the $x$-axis of \texttt{\textbackslash{}gridIIID}\\ \hline
+
+stepY&1&a positive integer giving the interval between ticks on
+the $y$-axis of \texttt{\textbackslash{}gridIIID}\\ \hline
+
+stepZ&1&a positive integer giving the interval between ticks on
+the $z$-axis of \texttt{\textbackslash{}gridIIID}\\ \hline
+
+ticklength&0.2&the length of tickmarks for
+\texttt{\textbackslash{}gridIIID}\\ \hline
+
+\end{longtable}
+
+\endinput

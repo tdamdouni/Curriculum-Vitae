@@ -1,0 +1,38 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-tree}\SpecialCoor
+\def\edgeCyan#1#2{\ncdiagg[angleA=180,arm=0pt,nodesep=2pt,linecolor=cyan]{#2}{#1}}
+\def\edgeBlue#1#2{\ncdiagg[angleA=180,arm=0pt,nodesep=2pt,linecolor=blue]{#2}{#1}}
+\StopShownPreambleCommands
+\begin{document}
+\pstree[treemode=R,levelsep=*1cm]{\Tr{Friedrich Wilhelm\rnode{A}{}}}{%
+  \pstree{\Tr[edge=\edgeCyan]{Friedrich I.}}{%
+    \Tr[edge=\edgeCyan]{Friedrich Wilhelm I.}
+    \Tr[edge=\edgeCyan]{Friedrich}}
+  \pstree{\Tr[edge=\edgeBlue]{\rnode{B1}{}Albrecht Friedrich\rnode{C}{}}}{%
+    \Tr[edge=\edgeBlue]{\rnode{B2}{}Wilhelm Heinrich}
+    \Tr[edge=\edgeBlue]{Friedrich}}}
+\psset{arrowscale=2,linewidth=0.2pt}
+  \pcline[linestyle=dashed](A)(A|0,-2.5)  \pcline[linestyle=dashed](B1)(B1|0,-2.5)
+  \pcline[linestyle=dashed](B2)(B2|0,-2.5)\pcline[linestyle=dashed](C)(C|0,-2.5)
+  \psline{<->}(A|0,-2.3)(B1|0,-2.3)       \psline{<->}(B2|0,-2.3)(C|0,-2.3)
+\end{document}

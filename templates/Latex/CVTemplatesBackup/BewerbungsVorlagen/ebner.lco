@@ -1,0 +1,102 @@
+% $Id$
+
+% Author: Dr. Michael Ebner, Michael@DrEbner.net
+% Date: May 2005
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  Letter Class Option of Michael Ebner
+%
+
+% briefkopf fuer Dr auch machen (geht das vererbend)??
+
+\ProvidesFile{ebner.lco}[%
+  2002/07/24 LaTeX2e unsupported letter-class-option]
+
+
+\RequirePackage{marvosym}       % Fuer Telefon-, Handy- und Briefsymbol
+
+
+\RequirePackage{relsize}% fuer groesseren fromname
+
+% We need Letter Class Option DINmtext to get more space for text
+% use other first head for it as defined below
+\LoadLetterOption{DINmtext}
+\@setplength{toaddrvpos}{39mm}
+\@addtoplength{toaddrhpos}{10mm}% BCOR correction
+
+%scrlttr2 mit Option DINmtext, wenn es sein muss zusätzlich Optionen 10pt und
+%enlargefirstpage und mit 
+
+%\makeatletter
+%\@setplength{firstfootvpos}{\paperheight}
+%\@addtoplength{firstfootvpos}{-\topmargin}
+%\@addtoplength{firstfootvpos}{-1in}
+%\makeatother
+
+
+%\LoadLetterOption{DINmtext}
+
+
+
+%%Generelle Einstellungen der Dokumenteigenschaften
+%\KOMAoptions{fromlogo}
+%\KOMAoptions{parskip=full}
+
+
+% Personalization
+\KOMAoptions{fromalign=right,fromrule=aftername,fromphone,%
+             fromemail,enlargefirstpage,foldmarks}
+%,headsepline,footsepline
+
+%\setkomavar{emailseparator}{~}
+%\setkomavar{phoneseparator}{~}
+
+\addtokomafont{fromname}{\bfseries\larger}
+\setkomavar{fromname}{Michael~Ebner}
+\setkomavar{signature}{Michael~Ebner}
+\setkomavar{fromaddress}{Strasse~1\\37000~G\"ottingen}
+\setkomavar{backaddress}{Michael~Ebner,~Strasse~1,~37000~G\"ottingen}
+\setkomavar{place}{G\"ottingen}
+
+
+\setkomavar{fromphone}[\Telefon~]{(05\,51)~1\,23\,45\,67}
+\newkomavar{frommobilephone}
+\setkomavar{frommobilephone}{(01\,79)~1\,23\,45\,67}
+
+\setkomavar{fromemail}[\Email~]{mail@post.de}
+\setkomavar{fromurl}{www.MichaelEbner.net}
+
+\setkomavar{frombank}{Bank AG\\
+      Kto 1\,234\,567\\
+      BLZ 123\,456\,78}
+
+%\renewcommand{\raggedsignature}{\raggedright}
+%\setkomavar{backaddressseparator}{$\;\cdot\;$}
+
+
+% Define a new letter foot because frombank is not used 
+% until now by koma-script1
+%\firstfoot{\scriptsize
+%    \usekomavar*{frombank}
+%    \usekomavar{frombank}
+%}
+
+\firstfoot{\parbox[b]{\textwidth}{%
+  \centering\usekomafont{footnote}
+  \@ifundefined{footrulewidth}{%
+     \let\footrulewidth\textwidth}{}
+  \null\rule{\footrulewidth}{.4pt}\\\relax
+  \def\\{\ \textperiodcentered\ \ignorespaces}
+         \usekomavar*{frombank}: \usekomavar{frombank}
+}}
+
+
+
+
+
+\endinput
+%
+%  End of Letter Class Option ebner
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

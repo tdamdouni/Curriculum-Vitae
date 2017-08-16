@@ -1,0 +1,32 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2008 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{392.64803pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-func} \psset{xunit=0.25cm,yunit=10cm}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture*}(-1,-0.1)(51,0.52)
+\psaxes[Dx=5,dx=5\psxunit,Dy=0.2,dy=0.2\psyunit]{->}(50,0.5)[$k$,-90][$P(X=k)$,0]
+\psBinomial[markZeros,linecolor=red]{4}{.5} \psset{linewidth=1pt}
+\psBinomial[linecolor=green]{5}{.5} \psBinomial[linecolor=blue]{10}{.5}
+\psBinomial[linecolor=red]{20}{.5}  \psBinomial[linecolor=magenta]{50}{.5}
+\psBinomial[linecolor=cyan]{75}{.5}
+\end{pspicture*}
+\end{document}

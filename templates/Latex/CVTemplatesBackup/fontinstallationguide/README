@@ -1,0 +1,26 @@
+ABOUT
+
+The Font Installation Guide discusses the most common scenarios you
+are likely to encounter when installing Type 1 Postscript fonts.
+While the individual tools employed in the installation process are
+documented well, the actual difficulty most users are facing when
+trying to install new fonts is understanding how to put all the
+pieces together. This is what this guide is about.
+
+STATUS
+
+The original author of this guide has resigned as maintainer in
+August 2010. The Guide is free documentation. It is up for adoption.
+
+LICENSE
+
+The Font Installation Guide is copyright (c) 2002--2004 Philipp
+Lehman. Permission is granted to copy, distribute and/or modify the
+guide under the terms of the GNU Free Documentation License, version
+1.2, with no invariant sections, no front-cover texts, and no
+back-cover texts.
+
+This software is provided 'as is', without warranty of any kind,
+either expressed or implied, including, but not limited to, the
+implied warranties of merchantability and fitness for a particular
+purpose.

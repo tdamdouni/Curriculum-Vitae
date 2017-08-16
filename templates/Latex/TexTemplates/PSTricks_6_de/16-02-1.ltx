@@ -1,0 +1,65 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\usepackage{pst-node}
+\def\Square{\rule{1cm}{1cm}}
+\def\BildI{%
+\begin{pspicture}[showgrid](5,1)
+\Rnode{A}{\Square}\hspace{3cm}\Rnode{B}{\Square}
+\ncline[linecolor=red,style=line]{A}{B}
+\end{pspicture}}
+\def\BildII{%
+\begin{pspicture}[showgrid](5,4)
+\rput[lb](0,0){\Rnode{A}{\Square}\hspace{3cm}%
+    \Rnode[vref=3cm]{B}{\Square}}
+\psframe*[linecolor=black!20](4,3)(5,4)
+\pcline[linecolor=red,linestyle=dotted,linewidth=2pt](A)(B)
+\ncline[linecolor=red,style=line]{A}{B}
+\pnode(4,0.7ex){C}
+\ncline[linecolor=blue,style=line]{A}{C}
+\pcline{->}(4.5,0.5)(4.5,3.5)\uput[0](3.5,2){vref}
+\end{pspicture}}
+\newpsstyle{line}{linewidth=2pt,arrowscale=2,arrows=->}
+\SpecialCoor
+\StartShownPreambleCommands
+\usepackage{pst-node}
+\StopShownPreambleCommands
+\begin{document}
+\psscalebox{0.8}{\BildI}\\[12pt]
+\psscalebox{0.8}{\BildII}\\[12pt]
+\psscalebox{0.8}{%
+ \begin{pspicture}[showgrid](7,4)%
+  \rput[lb](0,0){\Rnode{A}{\Square}%
+   \hspace{3cm}%
+   \Rnode[href=4,vref=3cm]{B}{\Square}}
+  \psframe*[linecolor=black!20](4,3)(5,4)
+  \psframe*[linecolor=black!20](6,3)(7,4)
+  \psline[arrows=->](4.5,3.5)(6.5,3.5)
+  \uput[-90](5.5,3.5){href}
+  \pcline[linecolor=red,linestyle=dotted,
+    linewidth=2pt](A)(B)
+  \ncline[linecolor=red,style=line]{A}{B}
+  \pnode(4,0.7ex){C}
+  \pcline{->}(4.5,0.5)(4.5,3.5)
+  \uput[0](3.5,2){vref}
+  \pcline[linecolor=white](3.5,0.5)(3.5,1)
+  \ncline[linecolor=blue,style=line]{A}{C}
+\end{pspicture}}
+\end{document}

@@ -1,0 +1,31 @@
+Description
+===========
+
+This package allows you to easily visualize shares of total amounts in the form
+of a bar. So basically you can convert any number between 0 and 1 to a
+progressbar using the command \progressbar{<number>}. Also a lot of
+customizations are possible, allowing you to create an unique progressbar on
+your own.
+
+Changelog
+=========
+2014/05/04 v.1.0b~4: version control for kvoptions updated (for unknown reason required version didn't exist)
+2013/01/06 v.1.0b~3: replaced \progressbar@LoadFile@IfExist with \RequirePackage
+2012/02/18 v.1.0b~2: added version control for kvoptions
+2010/10/02 v1.0b: first release - all basic functionality
+
+License
+=======
+Copyright 2010-2014 Marcel Jira
+
+This work may be distributed and/or modified under the conditions of the LaTeX
+Project Public License, either version 1.3c of this license or (at your option)
+any later version. The latest version of this license is in
+http://www.latex-project.org/lppl.txt and version 1.3c or later is part of all
+distributions of LaTeX version 2005/12/01 or later.
+
+This work has the LPPL maintenance status `maintained'.
+
+The Current Maintainer of this work is Marcel Jira.
+
+This work consists of the files progressbar.sty and progressbar.tex.

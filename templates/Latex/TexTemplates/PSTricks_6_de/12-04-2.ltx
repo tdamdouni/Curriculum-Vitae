@@ -1,0 +1,91 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pstricks,pst-plot,amsmath,graphicx}
+\SpecialCoor
+\definecolor{redtwenty}{cmyk}{0,0.2,0.2,0}
+\definecolor{graytwenty}{cmyk}{0,0,0,0.2}
+\StopShownPreambleCommands
+\begin{document}
+\resizebox{.8\linewidth}{!}{%
+\psset{xunit=10mm,yunit=10mm,curvature=1 .1 .75,plotpoints=200}
+\begin{pspicture}(-7,-6.5)(7,7)
+\pswedge[linecolor=black,linewidth=.17mm,fillstyle=solid,fillcolor=redtwenty](0,-5){1}{0}{135}
+\pswedge[linecolor=black,linewidth=.17mm,fillstyle=solid,fillcolor=redtwenty](-3.535533906,-3.535533906){1}{0}{112.5}
+\pswedge[linecolor=black,linewidth=.17mm,fillstyle=solid,fillcolor=redtwenty](-5,0){1}{0}{90}
+\pswedge[linecolor=black,linewidth=.17mm,fillstyle=solid,fillcolor=redtwenty](-3.535533906,3.535533906){1}{0}{67.5}
+\pswedge[linecolor=black,linewidth=.17mm,fillstyle=solid,fillcolor=redtwenty](0,5){1}{0}{45}
+\pswedge[linecolor=black,linewidth=.17mm,fillstyle=solid,fillcolor=redtwenty](3.535533906,3.535533906){1}{0}{22.5}
+\psaxes[Dx=2,dx=2,Dy=2,dy=2,labelsep=.75mm,arrowlength=1.75,ticksize=2pt,linewidth=0.17mm]%
+{->}(0,0)(-6.99,-6.5)(7,7)
+\rput[Br](7,-.35){$\text{Re}(z)$}
+\rput[tl](.15,7){$\text{Im}(z)$}
+\rput[Br](-.15,-.35){$0$}
+%
+\uput{1mm}[45](6,.1){$w_0$}
+\uput{1mm}[45](4.5,3.9){$w_1$}
+\uput{1mm}[45](.7,5.7){$w_2$}
+\uput{1mm}[90](-3,4.5){$w_3$}
+\uput{1mm}[135](-5,1){$w_4$}
+\uput{1mm}[135](-3.8,-2.6){$w_5$}
+\uput{1mm}[135](-.7,-4.3){$w_6$}
+\uput{1mm}[45](1,.1){$z_0$}
+\uput{1mm}[45](.7,.7){$z_2$}
+\uput{1mm}[135](-.1,1){$z_4$}
+%
+\pscircle[linewidth=.1mm](0,1){.05}
+\pscircle[linewidth=.1mm](0.7071,.7071){.05}
+\pscircle[linewidth=.1mm](6,0){.05}
+\pscircle*[linewidth=.1mm](1,0){.05}
+%
+\pscircle[linewidth=.17mm](0,0){5}
+\pscircle[linewidth=.17mm](0,0){1}
+\pscircle[linewidth=.17mm](5,0){1}
+\pscircle[linewidth=.17mm](0,-5){1}
+\pscircle[linewidth=.17mm](-5,0){1}
+\pscircle[linewidth=.17mm](0,5){1}
+\pscircle[linewidth=.17mm](3.535533906,3.535533906){1}
+\pscircle[linewidth=.17mm](-3.535533906,3.535533906){1}
+\pscircle[linewidth=.17mm](3.535533906,-3.535533906){1}
+\pscircle[linewidth=.17mm](-3.535533906,-3.535533906){1}
+%
+\rput(0,-5){\psline[linewidth=.35mm]{->}(1;135)}
+\rput(-3.535533906,-3.535533906){\psline[linewidth=.35mm]{->}(1;112.5)}
+\rput(-5,0){\psline[linewidth=.35mm]{->}(1;90)}
+\rput(-3.535533906,3.535533906){\psline[linewidth=.35mm]{->}(1;67.5)}
+\rput(0,5){\psline[linewidth=.35mm]{->}(1;45)}
+\rput(3.535533906,3.535533906){\psline[linewidth=.35mm]{->}(1;22.5)}
+%
+\rput(0,-5){%
+\psline[linewidth=.17mm,linestyle=dashed,dash=.7mm .5mm](1;315)}
+\rput(-3.535533906,-3.535533906){%
+\psline[linewidth=.17mm,linestyle=dashed,dash=.7mm .5mm](1;292.5)}
+\rput(-5,0){%
+\psline[linewidth=.17mm,linestyle=dashed,dash=.7mm .5mm](1;270)}
+\rput(-3.535533906,3.535533906){%
+\psline[linewidth=.17mm,linestyle=dashed,dash=.7mm .5mm](1;247.5)}
+\rput(0,5){%
+\psline[linewidth=.17mm,linestyle=dashed,dash=.7mm .5mm](1;225)}
+\rput(3.535533906,3.535533906){%
+\psline[linewidth=.17mm,linestyle=dashed,dash=.7mm .5mm](1;202.5)}
+\end{pspicture}
+}
+\end{document}

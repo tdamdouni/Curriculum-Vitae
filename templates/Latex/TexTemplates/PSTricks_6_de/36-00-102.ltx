@@ -1,0 +1,50 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-plot}
+\definecolor{lightblue}{rgb}{0.9,0.9,1}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(-1.5,-2.5)(10.5,2.5)
+  % draw an airfoil
+    \pscurve[linewidth=0.5pt,linecolor=blue,fillstyle=solid,fillcolor=lightblue]%
+      (0,0)(0.82,0.1)(2.8,0.345)(5.37,0.55)(7.84,0.582)(8.75,0.507)(9.43,0.36)(9.98,0.1)(10,0)
+      (9.98,-0.1)(9.43,-0.36)(8.75,-0.507)(7.84,-0.582)(5.37,-0.55)(2.8,-0.345)(0.82,-0.1)(0,0)
+  \psline[linewidth=1pt, linecolor=black](0.0,0.0)(10.0,0.0)
+  \psaxes[linewidth=1pt, labels=none, ticks=none]{->}(5,0)(5,0)(-1,2)
+ % L'
+  \psline[linewidth=1pt, linecolor=red]{->}(7.5,0.0)(7.5,2.0)
+  % Weight
+  \psline[linewidth=1pt, linecolor=red]{->}(5.0,0.0)(5.0,-2.0)
+  % M'ac
+  \psarc[linewidth=1pt, linecolor=red]{->>}(7.5,0){0.5cm}{-220}{40}
+  % e
+  \psline[linewidth=1pt, linecolor=black]{<->}(5.0,1.0)(7.5,1.0)
+  % x_ac
+  \psline[linewidth=1pt, linecolor=black]{<->}(7.5,1.0)(10.0,1.0)
+  % put c.g. point
+  \qdisk(5,0){4pt}
+  % put a.c. point
+  \qdisk(7.5,0){4pt}
+  \uput[u](6.125,1.0){$e$}
+%  \psgrid[gridcolor=lightgray, gridwidth=0.5pt, subgriddiv=1, gridlabels=7pt](0,0)(0,-2.0)(10.0,2.0)
+\end{pspicture}
+\end{document}

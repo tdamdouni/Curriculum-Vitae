@@ -1,0 +1,155 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\StartShownPreambleCommands
+\usepackage{pstricks,pst-node,pst-dbicons,graphicx}
+\newcommand*{\Mondial}{\textsc{Mondial}}
+\newif\ifblackwhite
+\blackwhitefalse
+\ifblackwhite
+ \definecolor{verylightgray}{gray}{0.95}
+ \seticonparams{entity}{shadow=true,fillcolor=lightgray,fillstyle=solid}
+ \seticonparams{attribute}{fillcolor=lightgray,fillstyle=solid}
+ \seticonparams{relationship}{shadow=true,fillcolor=lightgray,fillstyle=solid}
+\else
+ \definecolor{lightblue}{rgb}{0.68, 0.85, 0.95}
+ \definecolor{verylightblue}{rgb}{0.34, 0.42, 0.5}
+ \definecolor{lightgreen}{rgb}{0.00, 0.98, 0.60}
+ \definecolor{verylightgreen}{rgb}{0.00, 0.5, 0.30}
+ \definecolor{lightred}{rgb}{1.00, 0.71, 0.76}
+ \definecolor{verylightred}{rgb}{0.50, 0.351, 0.38}
+ \seticonparams{entity}{shadow=true,fillcolor=lightred,fillstyle=solid}
+ \seticonparams{attribute}{fillcolor=lightblue,fillstyle=solid}
+ \seticonparams{relationship}{shadow=true,fillcolor=lightgreen,fillstyle=solid}
+\fi
+
+\StopShownPreambleCommands
+\begin{document}
+\psset{nodesep=0pt}
+\resizebox{0.95\textwidth}{!}{%
+\rotatebox{90}{%
+\begin{tabular}{ccc}
+\begin{tabular}{c}
+\entity{Language} \\[12em]
+\entity{EthnicGrp}[Ethnic Grp] \\[12em]
+\entity{Religion}
+\end{tabular}
+\hspace{10em}
+\begin{tabular}{c@{\hspace{10em}}c}
+&\entity[weak]{City} \\[2em]
+\entity{Organization}\\[12em]
+\entity{Country} \\[12em]
+\entity{Continent}\\[2em]
+&\entity[weak]{Province}
+\end{tabular}
+\hspace{10em}
+\begin{tabular}{c}
+\entity{Lake} \\[5em]
+\entity{River} \\[5em]
+\entity{Sea}\\[9em]
+\entity{Mountain}\\[7em]
+\entity{Island}\\[7em]
+\entity{Desert}
+\end{tabular}
+\end{tabular}
+\nodeconnections{\small
+\relationshipbetween{Country}{City}{capital}[is\_capital]
+\relationshipbetween{Province}{City}{capital}[is\_capital](0.4)
+\relationshipbetween[ident]{Province}{City}{in}/\ncarc[arcangle=-30]/
+\relationshipbetween[weak]{Province}{Country}{of}
+\relationshipbetween{Country}{Organization}{ismember}[is\_member](0.6)
+\relationshipbetween{Organization}{City}{hashqin}[has\_hq\_in]
+\relationshipbetween{Country}{Continent}{encompasses}(0.8)
+\relationshipbetween{Country}(A)
+/\ncline[nodesepB=-1cm,offsetA=0.1em,offsetB=0.4cm]/
+                    {Country}(B)
+/\ncline[nodesepB=-1cm,offsetA=-0.1em,offsetB=-0.4cm]/
+                   {borders}(7em,0)
+\relationshipbetween{Province}{Lake}{in}
+\relationshipbetween{Province}{River}{in}
+\relationshipbetween{Province}{Sea}{in}
+\relationshipbetween{Province}{Mountain}{in}
+\relationshipbetween{Province}{Island}{in}
+\relationshipbetween{Province}{Desert}{in}
+\relationshipbetween{City}{Lake}{at}
+\relationshipbetween{City}{River}{at}
+\relationshipbetween{City}{Sea}{at}
+\inrelationship{River}(main)/\ncarc[arcangle=30]/{flows into}
+ [flows into](4em,0)
+\inrelationship{River}(trib.)/\ncarc[arcangle=-30]/{flowsinto}
+\inrelationship{Lake}{flowsinto}
+\inrelationship{Sea}{flowsinto}
+\relationshipbetween{Sea}(A){Sea}(B){merges}(4em,270)
+\relationshipbetween{EthnicGrp}{Country}{belong}(0.3)
+\relationshipbetween{Religion}{Country}{believe}(0.3)
+\relationshipbetween{Language}{Country}{speak}(0.4)
+\attributeof{City}{90}[key]{name}
+\attributeof{City}{45}{pop.}
+\attributeof{City}{0}{longitude}
+\attributeof{City}{-45}{latitude}
+\attributeof{Organization}{70}[key]{abbrev}
+\attributeof{Organization}{130}{name}
+\attributeof{Organization}[4em]{1800}{establ.}
+\attributeof{ismember}{40}{type}
+\attributeof{borders}{60}{length}
+\attributeof{Country}[3em]{30}{name}
+\attributeof{Country}{70}[key]{code}
+\attributeof{Country}{130}{pop.}
+\attributeof{Country}[3em]{190}{area}
+\attributeof{Country}{230}{gov.}
+\attributeof{Country}{280}{infl.}
+\attributeof{Country}[3em]{330}{gdp}
+\attributeof{Country}[4em]{100}{pop.grw}
+\attributeof{Country}[5em]{160}{inf.mort}
+\attributeof{Country}[6.5em]{-30}{gdp.agr}
+\attributeof{Country}[5.5em]{-50}{gdp.serv}
+\attributeof{Country}[5em]{-80}{gdp.ind}
+\attributeof{Country}[5em]{-120}{governm.}
+\attributeof{Continent}{-60}[key]{name}
+\attributeof{Continent}{-120}{area}
+\attributeof{Language}{90}[key]{name}
+\attributeof{speak}{60}{percent}
+\attributeof{EthnicGrp}{90}[key]{name}
+\attributeof{belong}{-90}{percent}
+\attributeof{Religion}{90}[key]{name}
+\attributeof{believe}{-90}{percent}
+\attributeof{encompasses}[4em]{-160}{percent}
+\attributeof{Province}[4em]{180}[key]{name}
+\attributeof{Province}{225}{pop.}
+\attributeof{Province}{270}{area}
+\attributeof{Lake}{0}[key]{name}
+\attributeof{Lake}{180}{area}
+\attributeof{River}{90}[key]{name}
+\attributeof{River}{180}{length}
+\attributeof{Sea}{0}[key]{name}
+\attributeof{Sea}{180}{depth}
+\attributeof{Mountain}{135}[key]{name}
+\attributeof{Mountain}{45}{height}
+\attributeof{Mountain}{-90}{mtcoord}[geo coord]
+\attributeof{mtcoord}[3em]{20}{longitude}
+\attributeof{mtcoord}[3em]{-20}{latitude}
+\attributeof{Island}{90}[key]{name}
+\attributeof{Island}{40}{islands}
+\attributeof{Island}{-90}{islcoord}[geo coord]
+\attributeof{islcoord}[3em]{20}{longitude}
+\attributeof{islcoord}[3em]{-20}{latitude}
+\attributeof{Desert}{90}[key]{name}
+\attributeof{Desert}{0}{area}
+}}}
+\end{document}

@@ -1,0 +1,32 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{392.64803pt}
+\setlength\parindent{0pt}
+\newcommand\Cadre[1]{\psframebox[fillstyle=solid,fillcolor=black,linestyle=none,framesep=0]{#1}}
+\StartShownPreambleCommands
+\usepackage{pst-magneticfield} \psset{unit=0.7cm}
+\StopShownPreambleCommands
+\begin{document}
+\newpsstyle{grille}{subgriddiv=0,gridcolor=blue!50,griddots=10}
+\newpsstyle{cadre}{linecolor=yellow!50}
+\begin{pspicture}(-7,-6)(7,6)
+\psmagneticfieldThreeD[N=8,R=2,L=8,pointsB=1200,linecolor=blue,
+  pointsS=1000](-7,-8)(7,8)
+\end{pspicture}
+\end{document}

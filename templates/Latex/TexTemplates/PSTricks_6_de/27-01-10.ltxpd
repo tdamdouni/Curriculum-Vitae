@@ -1,0 +1,55 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1,2
+
+\documentclass[style=jefka]{exapd}
+\pagestyle{empty}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,esint}
+\title{Example for the style \texttt{jefka}}
+\author{Herbert Vo\ss}
+\pddefinetemplate[slide]{slide}{tocpos}{}
+\pdsetup{lf=foot--left,rf=foot--right}
+\newcommand*\Q[2]{\frac{\partial #1}{\partial #2}}
+\StartShownPreambleCommands
+\documentclass[style=aggie]{powerdot}
+\StopShownPreambleCommands
+\begin{document}
+\maketitle
+\begin{slide}{Example slide}
+The first equation of Green:
+\begin{align}\label{green}
+\underset{\mathcal{G}\quad}\iiint\!\left[u\nabla^{2}v+\left(\nabla u,\nabla v\right)\right]d^{3}V
+	=\underset{\mathcal{S}\quad}\oiint u\Q{v}{n}d^{2}A
+\end{align}
+The equation of Green (\ref{green}) will be proofed later.
+
+\begin{itemize}
+  \item A line with mit \texttt{itemize}.
+  \begin{itemize}
+    \item A line with \texttt{itemize}.
+    \begin{enumerate}
+      \item A line with \texttt{enumerate}.
+      \begin{description}
+        \item[description]-environment
+      \end{description}
+      \item One more \ldots
+    \end{enumerate}
+    \item A line with \texttt{itemize}.
+  \end{itemize}
+  \item A line with \texttt{itemize}.
+\end{itemize}
+\end{slide}
+\end{document}

@@ -1,0 +1,276 @@
+\section{Generalization of the notion of a cylinder and a cone}
+
+\subsection{Cylinder or \Index{cylindric area}}
+
+This paragraph generalizes the  notion of a cylinder, or a cylindric
+area\footnote{This was written by
+Maxime \textsc{Chupin}, as a result of a question on the list
+\url{http://melusine.eu.org/cgi-bin/mailman/listinfo/syracuse}}.
+A \textit{routing} curve has to be defined by a function and the
+direction of the \textit{cylinder} axis needs to be arranged. In
+the example below the routing curve is sinusoidal, situated in the plane $z=-2$:
+\begin{verbatim}
+\defFunction[algebraic]{G1}(t){t}{2*sin(t)}{-2}
+\end{verbatim}
+The direction of the cylinder is defined by the components of a vector
+\texttt{\Lkeyword{axe}=0 1 1}. The drawing calls  \Lkeyword{object}=\Lkeyval{cylindre} which
+in addition to the usual parameters---which is the height \texttt{\Lkeyword{h}=4}---
+is about the \textbf{length of the generator} and not of the distance
+between the two base planes, and needs to define the routing curve
+\texttt{\Lkeyword{function}=G1} and the interval of the variable $t$ \texttt{\Lkeyword{range}=-3 3}.
+
+\begin{verbatim}
+\psSolid[object=cylindre,
+   h=4,function=G1,
+   range=-3 3,
+   ngrid=3 16,
+   axe=0 1 1,
+   incolor=green!50,
+   fillcolor=yellow!50]
+\end{verbatim}
+
+
+\begin{center}
+\psset{unit=0.75}
+\begin{pspicture}(-5,-4)(5,4)
+\psset{lightsrc=viewpoint,viewpoint=100 10 20 rtp2xyz,Decran=100}
+\psSolid[object=grille,base=-4 4 -6 6,linecolor={[rgb]{0.72 0.72 0.5}},action=draw](0,0,-2)
+\defFunction[algebraic]{G1}(t){t}{2*sin(t)}{-2}
+\defFunction[algebraic]{G2}(t){t}{2*sin(t)+4}{2}
+\psSolid[object=courbe,function=G1,
+   range=-3 3,r=0,
+   linecolor=blue,
+   linewidth=2pt]
+\psSolid[object=cylindre,
+   h=5.65685,function=G1,
+   range=-3 3,
+   ngrid=3 16,
+   axe=0 1 1,
+   incolor=green!50,
+   fillcolor=yellow!50]
+\psSolid[object=courbe,function=G2,
+   range=-3 3,r=0,
+   linecolor=blue,
+   linewidth=2pt]
+\psSolid[object=parallelepiped,
+   a=8,b=12,c=4,action=draw](0,0,0)
+\psSolid[object=plan,action=draw,
+   definition=equation,
+   args={[0 0 1 -2] 90},
+   base=-6 6 -4 4,planmarks,showBase]
+\psSolid[object=plan,action=draw,
+   definition=equation,
+   args={[0 1 0 -6] 180},
+   base=-4 4 -2 2,planmarks,showBase]
+\psSolid[object=plan,action=draw,
+   definition=equation,
+   args={[1 0 0 -4] 90},
+   base=-6 6 -2 2,planmarks,showBase]
+\psSolid[object=vecteur,
+         linecolor=red,
+         args=0 3 3]
+\end{pspicture}
+\end{center}
+
+In the following example, before drawing the horizontal planes, we calculate the
+distance between these two planes.
+
+ \begin{verbatim}
+\pstVerb{/ladistance 2 sqrt 2 mul def}
+ \end{verbatim}
+
+{\psset{unit=0.75,lightsrc=viewpoint,viewpoint=100 -10 20 rtp2xyz,Decran=100}
+\begin{LTXexample}[pos=t]
+\begin{pspicture}(-1.5,-3)(6.5,6)
+\psSolid[object=grille,base=-3 3 -1 8,action=draw]
+\pstVerb{/ladistance 2 sqrt 2 mul def}
+\defFunction[algebraic]{G3}(t){6*(cos(t))^3*sin(t)}{4*(cos(t))^2}{0}
+\defFunction[algebraic]{G4}(t){6*(cos(t))^3*sin(t)}{4*(cos(t))^2+ladistance}{ladistance}
+\psSolid[object=courbe,function=G3,range=0 6.28,r=0,linecolor=blue,linewidth=2pt]
+\psSolid[object=cylindre,range=0 -6.28,h=4,function=G3,axe=0 1 1,ngrid=3 36,
+   fillcolor=green!50,incolor=yellow!50]
+\psSolid[object=courbe,function=G4,range=0 6.28,r=0,linecolor=blue,linewidth=2pt]
+\psSolid[object=vecteur,linecolor=red,args=0 ladistance dup]
+\psSolid[object=plan,action=draw,definition=equation,args={[0 0 1 ladistance neg] 90},
+   base=-1 8 -3 3,planmarks,showBase]
+\axesIIID(0,4.5,0)(4,8,5)
+\rput(0,-3){\texttt{axe=0 1 1}}
+\end{pspicture}
+\end{LTXexample}}
+
+
+\begin{LTXexample}[width=8cm]
+\psset{unit=0.75,lightsrc=viewpoint,
+  viewpoint=100 -10 20 rtp2xyz,Decran=100}
+\begin{pspicture}(-1.5,-3)(6.5,6)
+\psSolid[object=grille,base=-3 3 -1 6,action=draw]
+\defFunction[algebraic]{G5}(t)
+  {t}{0.5*t^2}{0}
+\defFunction[algebraic]{G6}(t)
+  {t}{0.5*t^2}{4}
+\psSolid[object=courbe,function=G5,
+  range=-3 2,r=0,linecolor=blue,
+  linewidth=2pt]
+\psSolid[object=cylindre,
+  range=-3 2,h=4,
+  function=G5,
+  axe=0 0 1, %% valeur par d\'{e}faut
+  incolor=green!50,
+  fillcolor=yellow!50,
+  ngrid=3 8]
+\psSolid[object=courbe,function=G6,
+  range=-3 2,r=0,linecolor=blue,
+  linewidth=2pt]
+\axesIIID(0,4.5,0)(4,6,5)
+\psSolid[object=vecteur,
+  linecolor=red,args=0 0 4]
+\psSolid[object=plan,action=draw,
+  definition=equation,
+  args={[0 0 1 -4] 90},
+  base=-1 6 -3 3,planmarks,showBase]
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=8cm]
+\psset{unit=0.75,lightsrc=viewpoint,
+  viewpoint=100 -10 20 rtp2xyz,Decran=100}
+\begin{pspicture}(-3.5,-3)(6.5,6)
+\psset{lightsrc=viewpoint,viewpoint=100 45 45,Decran=100}
+\psSolid[object=grille,base=-3 3 -2 7,fillcolor=gray!30]
+\defFunction[algebraic]{G7}(t)
+   {2*cos(t)}{2*sin(t)}{0}
+\defFunction[algebraic]{G8}(t)
+    {2*cos(t)}{2*sin(t)+4}{4}
+\psSolid[object=courbe,function=G7,
+  range=0 6.28,r=0,
+  linecolor=blue,linewidth=2pt]
+\psSolid[object=cylindre,
+  range=0 6.28,h=5.65685,
+  function=G7,axe=0 1 1,
+  incolor=green!20,
+  fillcolor=yellow!50,
+  ngrid=3 36]
+\psSolid[object=courbe,function=G8,
+  range=0 6.28,r=0,linecolor=blue,
+  linewidth=2pt]
+\axesIIID(2,4.5,2)(4,8,5)
+\psSolid[object=vecteur,
+  linecolor=red,args=0 1 1](0,4,4)
+\psSolid[object=plan,action=draw,
+  definition=equation,
+  args={[0 0 1 -4] 90},
+  base=-2 7 -3 3,planmarks,showBase]
+\end{pspicture}
+\end{LTXexample}
+
+
+\encadre{The routing curve can be any curve and need not necessarily be a plane horizontal.}
+
+\begin{LTXexample}[width=8cm]
+\begin{pspicture}(-3.5,-2)(4,5)
+\psset{unit=0.75,lightsrc=viewpoint,viewpoint=100 -5 10 rtp2xyz,Decran=100}
+\psSolid[object=grille,base=-4 4 -4 4,ngrid=8. 8.](0,0,-1)
+\defFunction[algebraic]{G9}(t)
+  {3*cos(t)}{3*sin(t)}{1*cos(5*t)}
+\psSolid[object=cylindre,
+  range=0 6.28,h=5,function=G9,
+  axe=0 0 1,incolor=green!50,
+  fillcolor=yellow!50,
+  ngrid=4 72,grid]
+\end{pspicture}
+\end{LTXexample}
+
+\subsection{Cone or \Index{conic area}}
+This paragraph generalizes the  notion of a cone, or a conic
+area\footnote{This was written by
+Maxime \textsc{Chupin}, as the result of a question on the list
+\url{http://melusine.eu.org/cgi-bin/mailman/listinfo/syracuse}}.
+A \textit{routing} curve needs to be defined by a function which
+defines the base of the cone, and the vertex of the \textit{cone}
+which is by default \texttt{\Lkeyword{origine}=0 0 0}.  The parts above and
+below the cone are symmetric concerning the vertice.  In the example
+below, the routing curve is a parabolic arc, situated in the plane $z=-2$.
+
+\begin{LTXexample}[width=7.5cm]
+\begin{pspicture}(-3,-4)(4.5,6)
+\psset{unit=0.75,lightsrc=viewpoint,viewpoint=100 10 10 rtp2xyz,Decran=100}
+\psSolid[object=grille,base=-4 4 -3 3,action=draw](0,0,-2)
+\defFunction[algebraic]{G1}(t){t}{0.25*t^2}{-2}
+\defFunction[algebraic]{G2}(t){-t}{-0.25*t^2}{2}
+\psSolid[object=courbe,function=G1,
+  range=-3.46 3,r=0,
+  linecolor=blue,linewidth=2pt]
+\psSolid[object=cone,function=G1,
+  range=-3.46 3,ngrid=3 16,
+  incolor=green!50,
+  fillcolor=yellow!50,
+  origine=0 0 0]
+\psSolid[object=courbe,
+  function=G2,range=-3.46 3,
+   r=0,linecolor=blue,
+   linewidth=2pt]
+\psPoint(0,0,0){I}
+\uput[l](I){\red$(0,0,0)$}
+\psdot[linecolor=red](I)
+\gridIIID[Zmin=-2,Zmax=2,spotX=r](-4,4)(-3,3)
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=7.5cm]
+\begin{pspicture}(-3,-4)(4.5,6)
+\psset{unit=0.7,lightsrc=viewpoint,viewpoint=100 -10 20 rtp2xyz,Decran=100}
+\psSolid[object=grille,base=-4 4 -3 3,
+  linecolor={[rgb]{0.72 0.72 0.5}},action=draw](0,0,-2)
+\defFunction[algebraic]{G1}(t){t}{2*sin(t)}{-2}
+\defFunction[algebraic]{G2}(t){-t}{-2*sin(t)}{2}
+\psSolid[object=courbe,function=G1,
+   range=-3.14 3.14,r=0,
+   linecolor=blue,
+   linewidth=2pt]
+\psSolid[object=cone,function=G1,
+   range=-3.14 3.14,ngrid=3 16,
+   incolor=green!50,
+   fillcolor=yellow!50,
+   origine=0 0 0]
+\psSolid[object=courbe,
+   function=G2,range=-3.14 3.14,
+   r=0,linecolor=blue,
+   linewidth=2pt]
+\psPoint(0,0,0){I} \uput[l](I){\red$(0,0,0)$}
+\psdot[linecolor=red](I)
+\gridIIID[Zmin=-2,Zmax=2,spotX=r](-4,4)(-3,3)
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=7.5cm]
+\begin{pspicture}(-3,-4)(4.5,6)
+\psset{unit=0.7,lightsrc=viewpoint,viewpoint=100 -10 20 rtp2xyz,Decran=100}
+\psSolid[object=grille,base=-4 4 -4 4,linecolor={[rgb]{0.72 0.72 0.5}},action=draw](0,0,-2)
+\defFunction[algebraic]{G1}(t){t}{2*sin(t)}{-2}
+\defFunction[algebraic]{G2}(t){-t}{-2*sin(t)-2}{2}
+\psSolid[object=courbe,function=G1,
+   range=-3.14 3.14,r=0,
+   linecolor=blue,
+   linewidth=2pt]
+\psSolid[object=cone,
+   function=G1,range=-3.14 3.14,
+   ngrid=3 16,incolor=green!50,
+   fillcolor=yellow!50,
+   origine=0 -1 0]
+\psSolid[object=courbe,
+   function=G2,range=-3.14 3.14,
+   r=0,linecolor=blue,
+   linewidth=2pt]
+\psPoint(0,-1,0){I}\uput[l](I){\red$(0,-1,0)$}
+\psdot[linecolor=red](I)
+\gridIIID[Zmin=-2,Zmax=2,spotX=r](-4,4)(-4,4)
+\end{pspicture}
+\end{LTXexample}
+
+\encadre{For the cones as well, the routing curve can be any curve and need not necessarily
+be a plane horizontal curve, as the following example, written by Maxime
+\textsc{Chupin}, will show.}
+
+\centerline{\url{http://melusine.eu.org/lab/bpst/pst-solides3d/cone/cone-dir_02.pst}}
+
+\endinput

@@ -1,0 +1,42 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-solides3d}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(-3,-3)(4,3.5)%
+\psset{lightsrc=50 20 20,Decran=60,
+  viewpoint=50 30 15,solidmemory}
+\psSolid[object=plan,definition=equation,
+  name=Ebene,args={[1 0 0 0] 90},
+  base=-3.2 3.2 -2.2 2.2,planmarks]
+\psset{plan=Ebene}
+\psSolid[object=plan,args=Ebene,plangrid,
+  linecolor=gray!40,action=none]
+\psProjection[object=line,
+  args=-1 0 -3 1 1 2,name=P]
+\psProjection[object=line,args=P -1 0 -45,
+  definition=rotatepol,linecolor=blue]
+\psProjection[object=line,linestyle=dashed,
+  definition={2 -2 addv} papply,args=P]
+\axesIIID(6,4,3)
+\end{pspicture}
+\end{document}

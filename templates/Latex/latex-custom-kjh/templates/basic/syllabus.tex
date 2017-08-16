@@ -1,0 +1,87 @@
+%%%
+%%%  Syllabus template for use with style files at http://kjhealy.github.com/latex-custom-kjh
+%%%  Kieran Healy
+
+\documentclass[11pt,article,oneside]{memoir}
+
+%%% custom style file with standard settings for xelatex and biblatex. Note that when [minion] is present, we assume you have minion pro installed for use with pdflatex.
+\usepackage[minion]{org-preamble-pdflatex} 
+
+%%% alternatively, use xelatex instead
+% \usepackage{org-preamble-xelatex} 
+
+
+%% Script-based version control (requires vc package)
+% \input{vc}     
+
+% Definitions
+\def\myauthor{Author}
+\def\mytitle{Title}
+\def\mycopyright{\myauthor}
+\def\mykeywords{}
+\def\mybibliostyle{plain}
+\def\mybibliocommand{}
+\def\mysubtitle{}
+\def\myaffiliation{Duke University}
+\def\myaddress{276 Soc/Psych}
+\def\myemail{kjhealy@soc.duke.edu}
+\def\myweb{http://www.kieranhealy.org}
+\def\myphone{660-5737}
+\def\myversion{}
+\def\myrevision{}
+
+
+\def\myaffiliation{\ \\Duke University}
+\def\myauthor{Kieran Healy}
+\def\mykeywords{Sociology, Syllabus, Graduate, Sociology, Theory}
+\def\mysubtitle{Syllabus}
+\def\mytitle{{\normalsize \textsc{sociol} 711\newline} \HUGE Contemporary Sociological Theory}
+
+
+\begin{document}
+
+%%% If using xelatex and not pdflatex
+%%% xelatex font choices
+%\defaultfontfeatures{}
+%\defaultfontfeatures{Scale=MatchLowercase}    
+% You will need to buy these fonts, change the names to fonts you own, or comment out if not using xelatex.      
+% \setromanfont[Mapping=tex-text]{Minion Pro} 
+% \setsansfont[Mapping=tex-text]{Myriad Pro} 
+% \setmonofont[Mapping=tex-text,Scale=0.8]{Pragmata} 
+
+%% blank label items; hanging bibs for text
+%% Custom hanging indent for vita items
+\def\ind{\hangindent=1 true cm\hangafter=1 \noindent}
+\def\labelitemi{$\cdot$}
+%\renewcommand{\labelitemii}{~}
+
+%% RCS info string for version tracking
+\chapterstyle{article-4}  % alternative styles are defined in latex-custom-kjh/needs-memoir/
+% \pagestyle{kjh}
+
+\title{\LARGE \mytitle}     
+\author{\Large\myauthor \newline \footnotesize\texttt{\noindent\myemail}}
+\date{Spring 2014. Sociology/Psychology 329.\newline Weds 10:05am--12:35pm.}
+
+\published{\,}
+
+\maketitle
+
+% Include version information in footer if using vc package (see above). 
+\thispagestyle{kjhgit}
+
+% Copyright Page
+% \textcopyright{} \mycopyright
+
+
+%
+% Main Content
+%
+
+\section{Course Description and Objectives}
+
+%\newpage
+%% Uncomment if you want a printed bibliography.
+%\printbibliography 
+
+\end{document}

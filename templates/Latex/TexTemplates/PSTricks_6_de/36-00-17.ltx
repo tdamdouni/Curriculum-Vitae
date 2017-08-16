@@ -1,0 +1,58 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pstricks,multido}
+\SpecialCoor
+\input random
+\def\manometre{%
+  \pscircle[doubleline=true,fillstyle=solid](0,0){1}
+  \psarc(0,0){0.65}{-60}{240}
+  \multido{\i=-60+30}{11}{\psline(0.65;\i)(0.45;\i)}
+    \psline[arrowscale=2,linewidth=2\pslinewidth]{->}(0.5;-70)(0.65;110)
+    \pscircle[fillstyle=solid]{0.1}%
+}
+% idée empruntée à Denis Girou
+\newdimen\Xd
+\newdimen\Yd
+\def\RandomMolecule#1{%
+ \multido{\i=1+1}{#1}{%
+   \setrandim\Xd{-2pt}{1pt}%
+   \setrandim\Yd{-1pt}{1pt}%
+   \pscircle*[linecolor=blue](\pointless\Xd,\pointless\Yd){1pt}}%
+}
+
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(-7,-1.2)(5,1.2)
+\psclip{\psframe(-2,-1)(0.8,1)}
+  \RandomMolecule{400}%
+\endpsclip
+\pscircle[doubleline=true,fillcolor=magenta,fillstyle=solid](-6.5,0){0.6}
+\psframe[fillstyle=solid,fillcolor=lightgray](-6,-0.5)(-2,0.5)
+\psline[doubleline=true,doublesep=2mm](1,0)(3.1,0)
+\psframe(-4,1)(0.8,-1)
+\psline(0.8,1)(1,0.1)(1,-0.1)(0.8,-1)
+\psframe[fillstyle=solid](-4.1,-1.2)(-4,1.2)
+\psline[linewidth=2mm](-2,-1)(-2,1)
+\multido{\n=-3.5+0.5}{9}{\psline(\n,1)(\n,0.7)}
+\rput{-90}(4,0){\manometre}
+\end{pspicture}
+\end{document}

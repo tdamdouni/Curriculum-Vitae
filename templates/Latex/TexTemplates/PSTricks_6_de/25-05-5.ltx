@@ -1,0 +1,34 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\def\TeX{T\kern-.1667em\lower.5ex\hbox{E}\kern-.125emX\@}
+\StartShownPreambleCommands
+\usepackage{pst-plot,pst-light3d}
+\StopShownPreambleCommands
+\begin{document}
+\psset{xunit=8cm,yunit=2.5cm}
+\begin{pspicture}(-0.05,-1)(1,1.2)
+ \psaxes[Dx=0.2,Dy=0.4,dy=0.4]{->}(0,0)(0,-1)(1,1.2)
+ \psset{plotpoints=500,LightThreeDXLength=0.3,LightThreeDYLength=-0.3}
+ \PstLightThreeDGraphic[LightThreeDColorPsCommand=1.5 div 0.05 exch 0.8 sethsbcolor]{
+    \psplot{0}{0.95}{x 10 mul 57.296 mul sin}}
+ \PstLightThreeDGraphic{\psplot{0}{0.95}{x 40 mul 57.296 mul cos 2 div}}
+\end{pspicture}
+\end{document}

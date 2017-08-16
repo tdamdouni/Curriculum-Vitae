@@ -1,0 +1,528 @@
+/* General */
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-size: 10px;
+	background-color: #2969B0;
+}
+
+
+header {
+	background-color: #2969B0;
+	position: absolute;
+	z-index: 1;
+	color: #fff;
+	opacity: .5;
+	padding: 1.5rem 0;
+	position: fixed;
+	height: 8.5rem;
+	width: 100%;
+
+	.titulo {
+		text-align: center;
+		font-size: 2rem;
+	}
+}
+
+
+.page {
+	background-color: #fff;
+    position: relative;
+    border-color: #ededed;
+    border-radius: 1rem;
+    margin-bottom: 3rem;
+    height: 70rem;
+    top: 9rem;
+	
+    .encabezado {
+    	.logo_europass {
+            margin-top: 2rem;
+    		width: 100%;
+    	}
+		h3 {
+			text-align: center;
+			font-size: 1.5rem;
+		}
+        div:nth-child(3) {
+            h3 {
+                font-size: .8rem;
+            }
+        }
+    }
+    
+    @media (min-width: 768px) {
+        width: 90%;
+    }
+    
+    @media (min-width: 980px) {
+        width: 80%;
+    }
+    
+    @media (min-width: 1280px) {
+        width: 70%;
+    }
+    
+}
+
+
+
+/** Pagina 1 */
+#page1 {
+    height: 75rem;
+    
+    .texto_carta {
+        position: relative;
+        top: 100px;
+        font-size: 1.2rem;
+        line-height: 1.2;
+        text-align: justify;
+        p {
+            text-indent: 4rem;
+            margin-bottom: 4rem;
+        }
+        p:last-child {
+            margin-top: -2rem; 
+            text-indent: 6rem;
+        }
+    }
+    
+    @media (min-width: 360px) {
+        .texto_carta {
+            width: 80%;
+            margin-left: 10%;
+            font-size: 1.5rem;
+        }
+    }
+    
+    @media (min-width: 768px) {
+        
+        #page1 {
+            height: 60rem;
+        }
+        
+    }
+
+}
+
+
+/** Pagina 2 */
+#page2 {
+    height: auto;
+
+    ul {
+        list-style: none;
+        margin-left: 0;
+        padding-left: 0;
+    }   
+}
+
+
+
+/** Accordion */
+#accordion {
+    margin-top: 50px;
+    
+    .titulo_apartado {
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        line-height: 1.2;
+        text-align: right;
+        color: #2969B0;
+        font-weight: 700;
+    }
+   
+    .panel {
+        margin-top: 0;
+        box-shadow: none !important;
+    }
+    .panel+ {
+        .panel {
+            margin-top: 0;
+        }
+    }    
+
+    .panel-default {
+        border-color: transparent;
+        margin-top: 0;
+        .panel-heading {
+            background-color: transparent;
+            border-color: transparent;
+        }
+    }
+
+    .panel-title {
+        .hr {
+            border-bottom: 2px solid #337ab7;
+            padding: 0;
+            height: 45px;
+            position: relative;
+            left: -10px;
+        }
+    }
+
+    :last-child {
+        .panel-title {
+            .hr {
+                height: 31px;
+            }
+        }
+    }
+
+    .panel-collapse {
+        .panel-body {
+            border-top: transparent;
+        } 
+    }
+    
+    @media (min-width: 360px) {
+        .titulo_apartado {
+            font-size: 1.5rem;
+        }
+    }
+    
+    @media (min-width: 400px) {
+        .panel-title {
+            .hr {
+                height: 32px;
+            }
+        }
+    }
+
+}
+
+
+
+/** Info Personal */
+#info_personal {
+    margin-top: 4rem;
+
+    #foto_cv {
+        width: 50%;
+        height: 170px;
+        margin-left: 25%;
+    }
+
+    .datos_personales {
+        h1 {
+            font-size: 2rem;
+            text-align: center;
+            font-weight: 100;
+        }
+
+        .item_lista_datos {
+            
+            padding-bottom: 1px;
+            h4 {
+                font-size: 1.2rem;
+                a {
+                   color: #333; 
+                }
+            }
+            span {
+                color: #337ab7;
+                padding-right: 5px;
+            }
+            .lista_final {
+                span {
+                    padding: 0 3px 0 6px;
+                }
+            }
+        }
+    }
+
+    @media (min-width: 360px) {
+        margin-top: 0;
+        
+        .datos_personales {
+            h1 {
+                margin-bottom: 20px;
+            }
+    
+            .item_lista_datos {
+                h4 {
+                    font-size: 1.5rem;
+                }
+                span {
+                    padding-left: 0px;
+                }
+                .lista_final {
+                    span:first-child {
+                        padding-left: 0;
+                    }
+                }
+            }
+        }
+    }
+    
+    @media (min-width: 360px) and (max-width: 768px) {
+        .lista_datos {
+            display: block;
+            margin: 0px auto;
+            width: 30rem;
+        }
+    }
+    
+    @media (min-width: 768px) {
+        .datos_personales {
+            h1 {
+                text-align: left;
+            }
+        }
+    }
+    
+    
+    
+}
+
+
+
+
+/* Preferred Job */
+#preferred_job {
+    h4 {
+        font-size: 1.2rem;
+        text-align: center;
+        font-weight: 700;
+    }
+    
+    @media (min-width: 360px) {
+        h4 {
+            font-size: 2rem;
+        }
+    }
+}
+
+/* Work Experience */
+#work_experience {
+    
+    .item_lista_experiencia {
+        margin-bottom: 15px;
+        .fecha_trabajo {
+            padding: 0;
+            position: relative;
+            left: 6px;
+            .titulo_apartado {
+                font-size: 1.1rem;
+                margin-top: 0;
+            }
+        }
+        .trabajo {
+            .puesto {
+                font-weight: 700;
+                margin-top: 0;
+                font-size: 1.2rem;
+                color: #2969B0;
+            }
+            .empresa {
+                font-size: 1rem;
+                .web_empresa {
+                    margin-top: 5px;
+                    display: block;
+                }
+            }
+            .sector_empresa {
+                font-weight: 600;
+            }
+        }
+    }
+
+    @media (min-width: 360px) {
+        .item_lista_experiencia {
+            .fecha_trabajo {
+                .titulo_apartado {
+                    font-size: 1.3rem;
+                }
+            }
+            .trabajo {
+                .puesto {
+                    font-size: 1.4rem;
+                }
+            }
+            .empresa {
+                font-size: 1.2rem !important;
+            }
+            .despricion_puesto {
+                font-size: 1.3rem;
+                line-height: 1.2;
+            }
+        }  
+    }
+}
+
+
+/* Education Experience */
+#education {
+    
+    .item_lista_educacion {
+        margin-bottom: 15px;
+        .fecha_curso {
+            padding: 0;
+            position: relative;
+            left: 6px;
+            .titulo_apartado {
+                font-size: 1.1rem;
+                margin-top: 0;
+            }
+        }
+        .curso {
+            .titulo {
+                font-weight: 700;
+                margin-top: 0;
+                font-size: 1.2rem;
+                color: #2969B0;
+            }
+            .colegio {
+                font-size: 1rem;
+                .web_empresa {
+                    margin-top: 5px;
+                    display: block;
+                }
+            }
+        }
+    }
+    
+    @media (min-width: 360px) {
+        .item_lista_educacion {
+            .fecha_curso {
+                .titulo_apartado {
+                    font-size: 1.3rem;
+                }
+            }
+            .curso {
+                .titulo {
+                    font-size: 1.4rem;
+                }
+            }
+            .colegio {
+                font-size: 1.2rem !important;
+            }
+            .lista_asignaturas_curso {
+                li {
+                    font-size: 1.2rem;
+                }
+            }
+        }  
+    }
+    
+}
+
+
+
+/* Personal skills */
+#personal_skills {
+    
+    .item_lista_personal_skills {
+        margin-bottom: 15px;
+        
+        .titulo_apartado {
+            font-size: 1.1rem;
+            margin-top: 0;
+            text-transform: lowercase;
+        }
+    }
+    
+    .table-responsive {
+        .table {
+            th {
+                font-weight: 700;
+                text-align: center;
+                margin-bottom: 10px;
+            }
+            td {
+                text-align: center;
+            }
+        }
+    }
+    
+    .despricion_skill {
+        span {
+            font-weight: 600;
+        }
+        ul {
+            li {
+                padding: 2px 0;
+            }
+        }
+    }
+    
+    @media (min-width: 360px) {
+        .item_lista_personal_skills {
+            .skill {
+                .titulo_apartado {
+                    font-size: 1.3rem;
+                }
+            }
+            .despricion_skill {
+                font-size: 1.3rem;
+                line-height: 1.2;
+            }
+        }
+    }
+    
+}
+
+
+
+
+/* Portfolio */
+#portfolio {
+    text-align: left;
+    h3 {
+        font-size: 1.1rem;
+        color: #2969B0;
+    }
+    
+    .lista_portfolio {
+        padding-left: 20px;
+        li {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            span {
+                font-size: 0.8rem;
+            }
+        }
+    }
+    
+    
+    @media (min-width: 360px) {
+        float: right;
+        h3 {
+            font-size: 1.5rem;
+        }
+        .lista_portfolio {
+            li {
+                margin-bottom: 1rem;
+                font-size: 1.5rem;
+                span {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+    
+    @media (min-width: 768px) {
+        float: none;
+        text-align: center;
+    }
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

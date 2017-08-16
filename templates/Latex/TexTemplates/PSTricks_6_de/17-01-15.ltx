@@ -1,0 +1,33 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-tree} \SpecialCoor \psset{nodesep=5pt}
+\StopShownPreambleCommands
+\begin{document}
+\pstree[treemode=R,levelsep=3cm]{\rnode{A}{}\Tr{\rnode{A}{}Friedrich Wilhelm}}{%
+  \pstree{\Tr{Friedrich I.}}{\Tr{\rnode{C}{}Friedrich Wilhelm I.} \Tr{Friedrich}}
+  \pstree{\Tr{\rnode{B}{}Albrecht Friedrich}}{\Tr{Wilhelm Heinrich} \Tr{Friedrich}}}
+\psset{arrowscale=2,linewidth=0.2pt}
+\pcline[linestyle=dashed](A)(A|0,-1)\pcline[linestyle=dashed](B)(B|0,-1)
+\pcline[linestyle=dashed](C)(C|0,-1)\pnode(A|0,-0.8){A1}\pnode(B|0,-0.8){A2}
+\ncline[arrows=<->]{A1}{A2}\ncput*{\texttt{levelsep}}
+\pnode(C|0,-0.8){A3}\ncline[arrows=<->]{A2}{A3}\ncput*{\texttt{levelsep}}
+\end{document}

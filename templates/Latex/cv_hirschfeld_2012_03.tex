@@ -1,0 +1,134 @@
+%% start of file `template.tex'.
+%% Copyright 2006-2012 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+\documentclass[11pt,a4paper,sans]{moderncv}   % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+% moderncv themes
+\moderncvstyle{classic}                        % style options are 'casual' (default) and 'classic' 
+%\moderncvcolor{blue}                          % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+
+% character encoding
+\usepackage[utf8]{inputenc}
+
+% adjust the page margins
+\usepackage[scale=0.75]{geometry}
+%\setlength{\hintscolumnwidth}{3cm}           % if you want to change the width of the column with the dates
+
+\usepackage[ngerman]{babel}
+
+%\usepackage{apalike}
+
+% bibliography with mutiple entries
+\usepackage{multibib}
+\newcites{paper,submitted,chapters,conferences}{{Artikel mit Peer-review},{Artikel in Begutachtung},{Buchkatpitel},{Konferenzbeiträge}}
+
+
+\makeatletter
+\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
+\makeatother
+
+% personal data
+\firstname{Gerrit}
+\familyname{Hirschfeld}
+\address{Dr.-Friedrich-Steiner Str. 5}{45711 Datteln}    % optional, remove the line if not wanted
+\phone{+49~(02363)~975-183}                      % optional, remove the line if not wanted
+\email{g.hirschfeld@kinderklinik-datteln.de}                          % optional, remove the line if not wanted
+\homepage{www.vikp.de}                    % optional, remove the line if not wanted
+%\photo[64pt][0.4pt]{picture.jpg}                  % '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file; optional, remove the line if not wanted
+
+
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+\maketitle
+
+\section{Persönliche Daten}
+\cvitem{Geburtsdatum}{XX.XX.XXXX}
+\cvitem{Nationalität}{Deutsch}
+\cvitem{Familienstand}{Ledig}
+
+\section{Arbeitserfahrung}
+\subsection{Aktuelle Stelle}
+\cventry{seit 10.2010}{Wissenschaftlicher Mitarbeiter}{Deutsches Kinderschmerzzentrum und Lehrstuhl für Kinderschmerztherapie und Pädiatrische Palliativmedizin}{Datteln}{}{Planung und Durchführung von Forschungsprojekten zur Pathophysiologie von chronischen Schmerzen bei Kindern.}
+
+\subsection{Frühere Stellen}
+\cventry{04.2007 --09.2010}{Wissenschaftlicher Mitarbeiter}{Arbeitseinheit Psycholinguistik und kognitive Neurowissenchaften, Westfälische Wilhelms-Universität}{Münster}{}{Durchführung von Lehrveranstaltungen in der Allgemeinen Psychologie und Forschungsprojekten in der Psycholinguistik}
+\cventry{07.2008 --09.2010}{Wissenschaftlicher Mitarbeiter}{Lehrevaluation des Fachbereichs Psychologie Westfälische Wilhelms-Universität}{Münster}{}{Weiterentwicklung bestehender Lehrevaluationsmaßnahmen}
+\cventry{03.2007 --08.2010}{Wissenschaftlicher Mitarbeiter}{Arbeitseinheit psychologische Diagnostik; Westfälische Wilhelms-Universität}{Münster}{}{Erstellung von Lernmaterialien für die online-gestützte Lehre}
+\cventry{2004 --2007}{Studentische Hilfskraft}{Arbeitseinheit pädagogische Psychologie ; Westfälische Wilhelms-Universität}{Münster}{}{Unterstützung bei der Umsetzung von Forschungsprojekten}
+\cventry{2001 --2002}{Studentische Hilfskraft}{Westfälische Klinik für Psychiatrie und Psychotherapie}{Münster}{}{Durchführung der Schlafentzugstherapie}
+
+\newpage
+\section{Ausbildung}
+\cventry{2007--2010}{Dr. rer. nat (Biologie)}{Otto Creutzfeld Center for Cognitive and Behavioral Neurosciences}{Münster}{\textit{'magna cum laude plus'}}{Thema der Dissertation: Semantics in language comprehension}  
+\cventry{2001--2007}{Dipl.-Psych}{Fachbereich Psychologie}{Münster}{\textit{'sehr gut'}}{Thema der Diplomarbeit: Die Illusion der Erklärtiefe}
+
+\section{Lehrveranstaltungen (WWU Münster)}
+\cvitemwithcomment{2011 SoSe}{Blockseminar}{Chronische Schmerzen im Kindes- und Jugendalter}
+\cvitemwithcomment{2010 SoSe}{Praxisseminar}{Persönlichkeits- und Leistungsmessung}
+\cvitemwithcomment{2009 WiSe}{Experimentelles Forschungspraktikum}{Embodied Cognition}
+\cvitemwithcomment{2009 SoSe}{Experimentelles Forschungspraktikum}{Embodied Cognition}
+\cvitemwithcomment{	2008 WiSe}{Basisseminar}{Allgemeine Psychologie I: Lernen und Gedächtnis}
+\cvitemwithcomment{	2008 SoSe}{Basisseminar}{Allgemeine Psychologie I: Lernen und Gedächtnis}
+\cvitemwithcomment{2007 WiSe}{Basisseminar}{Allgemeine Psychologie I: Denken und Problemlösen}
+\cvitemwithcomment{2007 SoSe}{Basisseminar}{Allgemeine Psychologie I: Denken und Problemlösen}
+
+\section{Auszeichnungen und Drittmittel}
+\cventry{2012}{Teilnahme DFG Nachwuchsakademie Klinische Studien}{Detektion Diabetischer Neuropathien}{Witten/Herdecke}{}{}
+\cventry{2011}{Posterpreis Universität Witten/Herdecke Tag der Gesundheitsforschung 2011}{Erste Ergebnisse einer Sensory Decision Theory-Analyse der mechanischen Schmerzempfindlichkeit}{Witten/Herdecke}{}{}
+\cventry{2010}{Reisekostenzuschuss des DAAD zum Annual Meeting der Cognitive Neuroscience Society 2010}{How vision is shaped by language comprehension}{Montreal}{}{}
+\cventry{2009}{Graduate Student Present Award 2009 der Cognitive Neuroscience Society}{MEG-evidence for modal and amodal semantic representations in language comprehension}{San Francisco}{}{}
+\cventry{2008}{Fördermittel des Freundeskreis der Universität Münster}{Erstellung einer Institutsübergreifenden Datenbank für visuelle Stimuli}{Münster}{}{}
+
+\newpage
+\section{Mitgliedschaften}
+\cvlistitem{Cognitive Neuroscience Society}
+\cvlistitem{European Cognitive Science Society}
+\cvlistitem{International Testing Commission}
+
+\section{Ad-hoc Reviewer}
+\cvlistitem{International Journal of Psychophysiology}
+\cvlistitem{Behavior Research Methods}
+\cvlistitem{Language and Cognitive Processes}
+
+
+\section{Programmierkenntnisse}
+\cvitem{Sehr gut}{R, Presentation (SDK und PCL), Inquisit, \LaTeX\ }
+\cvitem{Gut}{Matlab, Python}
+\cvitem{Basal}{html, php, mysql, ruby}
+
+% Publications from a BibTeX file using the multibib package
+%paper,submitted, chapter, conference
+\section{Publikationen und Kongressbeiträge}
+
+\nocitepaper{*}
+\bibliographystylepaper{plainyr_gh}
+\bibliographypaper{paper.bib}              % 'publications' is the name of a BibTeX file
+
+\setcounter{enumiv}{0}
+
+\nocitesubmitted{*}
+\bibliographystylesubmitted{plainyr_gh}
+\bibliographysubmitted{submitted.bib}              % 'publications' is the name of a BibTeX file
+
+\setcounter{enumiv}{0}
+\nocitechapters{*}
+\bibliographystylechapters{plainyr_gh}
+\bibliographychapters{chapters.bib}              % 'publications' is the name of a BibTeX file
+
+\setcounter{enumiv}{0}
+\nociteconferences{*}
+\bibliographystyleconferences{plainyr_gh}
+\bibliographyconferences{conferences.bib}              % 'publications' is the name of a BibTeX file
+\begin{minipage}[t]{.4\textwidth}
+\end{minipage}\\[2em]
+
+
+Bochum, \today
+\end{document}

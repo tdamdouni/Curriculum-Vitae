@@ -1,0 +1,156 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\StartShownPreambleCommands
+\usepackage{pstricks,pst-grad}
+\setlength\parindent{0pt}
+\makeatletter % Box of an pentagon form built using the code of \psframebox
+\newdimen\pspentagonsep
+\def\pspentagonbox{\pst@object{pspentagonbox}}
+\def\pspentagonbox@i{\pst@makebox\pspentagonbox@ii}
+\def\pspentagonbox@ii{%
+  \begingroup
+  \pst@useboxpar
+  \pst@dima=\pslinewidth
+  \advance\pst@dima by \psframesep
+  \pst@dimc=\wd\pst@hbox\advance\pst@dimc by \pst@dima
+  \pst@dimb=\dp\pst@hbox\advance\pst@dimb by \pst@dima
+  \pst@dimd=\ht\pst@hbox\advance\pst@dimd by \pst@dima
+  \setbox\pst@hbox=\hbox{%
+    \ifpsboxsep\kern\pst@dima\fi
+    \begin@ClosedObj
+      \addto@pscode{%
+\psk@cornersize
+\pst@number\pst@dima neg
+\pst@number\pst@dimb neg
+\pst@number\pst@dimc
+\pst@number\pst@dimd
+        .5
+\tx@pentagonA
+      }%
+      \def\pst@linetype{2}%
+      \showpointsfalse
+    \end@ClosedObj
+    \box\pst@hbox
+    \ifpsboxsep\kern\pst@dima\fi%
+  }%
+  \ifpsboxsep\dp\pst@hbox=\pst@dimb\ht\pst@hbox=\pst@dimd\fi
+  \leavevmode
+  \box\pst@hbox
+  \endgroup%
+  \ignorespaces%
+}
+% From the Frame PostScript macro
+\pst@def{pentagonA}<{%
+% .5 dimd dimc -dimb -dima cornersize
+  CLW mul
+  /a ED   % .5*currentlinewidth
+  3 -1 roll
+  2 copy gt { exch } if
+  a sub
+  /y2 ED
+  a add
+  /y1 ED
+  2 copy gt { exch } if
+  a sub /x2 ED
+  a add /x1 ED
+  1 index 0 eq {pop pop \tx@pentagon } { OvalFrame } ifelse
+}>
+\pst@def{pentagon}<{%
+  x2 x1 sub 2 div /dx exch def
+  y2 y1 sub 2 div /dy exch def
+  x1 dx add y1 dy add translate
+  dx dup mul dy dup mul add sqrt /radius exch def
+  0 radius moveto
+  /alpha 90 def
+  5 { /alpha alpha 72 add def
+      radius alpha cos mul
+      radius alpha sin mul
+      lineto
+    } repeat
+  closepath
+}>
+%
+\newsavebox\pstBox
+\newlength\pstWidth
+\newlength\pstHeight
+\def\psLBox{\@ifnextchar[{\psLBox@i}{\psLBox[]}}
+\def\psLBox@i[#1]#2{{%
+  \psset{linearc=0.4,shadow=true,shadowsize=0.2,%
+      fillstyle=solid,fillcolor=white}
+  \ifx#1\empty\else\psset{#1}\fi
+  \sbox\pstBox{#2}
+  \pstWidth=\wd\pstBox
+  \pstHeight=\ht\pstBox
+  \advance\pstHeight by \dp\pstBox
+  \advance\pstHeight by \pslinearc
+  \advance\pstWidth by \pslinearc
+  \begin{pspicture}(\pstWidth,\pstHeight)
+    \psline(\pstWidth,0)(0,0)(0,\pstHeight)(\pstWidth,\pstHeight)%
+    \psline[shadow=false](\pstWidth,\pstHeight)(\pstWidth,0)
+    \rput(0.5\pstWidth,0.5\pstHeight){#2}
+  \end{pspicture}}}
+\makeatother
+\newlength\postercolwidth
+\setlength\postercolwidth{0.3\textwidth}
+\newpsstyle{boxstyle}{framearc=0.2,fillstyle=solid,fillcolor=black!15,framesep=4mm}
+\newsavebox\PBox
+\def\myBox#1#2#3{%
+ \sbox\PBox{\psframebox[style=boxstyle]{\parbox{#1}{#3}}}%
+ \begin{pspicture}(0,-\ht\PBox)(\wd\PBox,1.2\ht\PBox)%\psgrid
+   \rput[l](0,0){\usebox\PBox}
+   \rput[l](5\fboxsep,\ht\PBox){\colorbox{yellow}{#2\hspace{\fboxsep}}}
+ \end{pspicture}%
+}
+\StopShownPreambleCommands
+\begin{document}
+\hspace{10mm}\myBox{\postercolwidth}{\Large Abstract}{%
+   Lorem ipsum dolor sit amet, urna augue. Luctus sollicitudin,
+   accusantium nostrum. Scelerisque duis eget nonummy, rhoncus}
+%
+\hspace{10mm}\myBox{\postercolwidth}{\Large Abstract}{%
+   Lorem ipsum dolor sit amet, urna augue. Luctus sollicitudin,
+   accusantium nostrum. Scelerisque duis eget nonummy, rhoncus
+   Lorem ipsum dolor sit amet, urna augue. Luctus sollicitudin,
+   accusantium nostrum. Scelerisque duis eget nonummy, rhoncus}
+
+\bigskip
+\psLBox{Some text in a box}\qquad
+\psLBox[fillcolor=lightgray]{%
+\parbox{3cm}{Some text in a box with linearcs only
+    on the left side}
+}
+
+\bigskip\Large
+\pspentagonbox{T}\hfill
+\pspentagonbox[framesep=0]{T}\hfill
+\pspentagonbox[framesep=0.6]{T}\hfill
+\pspentagonbox[framesep=1,fillstyle=gradient,gradmidpoint=0.5]{T}
+
+\vspace{1cm}
+\pspentagonbox[shadow=true]{Text}\hfill
+\pspentagonbox[doubleline=true,linecolor=red]{\psscalebox{5}{1}}\hfill
+\pspentagonbox[linecolor=red,fillstyle=solid,fillcolor=cyan,
+              doubleline=true,framesep=0.2]{Text}
+
+\vspace{1cm}
+\pspentagonbox[shadow=true]{Long text}\hfill
+\pspentagonbox[framesep=0.5,fillstyle=hlines]{Long text}\hfill
+\pspentagonbox{\shortstack{Text\\Text\\Text}}\hfill
+\end{document}

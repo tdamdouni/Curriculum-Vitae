@@ -1,0 +1,36 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{118.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-eucl}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(-2,-2)(1,2)
+\psset{arrowscale=2}
+\pstGeonode[PosAngle={-135,-90,180}]%
+  (-1.5,-.2){A}(.5,.2){B}(0,-2){D}
+\pstRotation[PosAngle=90,RotAngle=60,CodeFig=true,
+ CodeFigColor=blue,
+ TransformLabel={\displaystyle\frac{\pi}{3}}]{A}{B}[C]
+\pstRotation[AngleCoef=.5,RotAngle=\pstAngleAOB{B}{A}{C},
+ CodeFigColor=red,CodeFig=true,
+ TransformLabel=\frac{1}{2}\widehat{BAC}]{A}{D}[E]
+\end{pspicture}
+\end{document}

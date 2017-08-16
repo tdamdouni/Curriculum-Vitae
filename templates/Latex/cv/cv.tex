@@ -1,0 +1,350 @@
+% !TeX program = LuaLaTeX
+\documentclass[11pt,draft]{article}
+
+% Font set up
+\usepackage{fontspec}
+\setmainfont[Ligatures = TeX,Numbers = OldStyle]{TeX Gyre Pagella}
+\setsansfont[Ligatures = TeX]{TeX Gyre Adventor}
+\setmonofont[Ligatures = TeX]{Inconsolata}
+
+\usepackage[english,UKenglish]{babel}
+\usepackage[a4paper,nohead,nofoot,hmargin=1.5cm,vmargin=2cm]{geometry}
+\usepackage[version=3]{mhchem}
+\usepackage[final]{microtype}
+
+\usepackage{amstext,array,comment,csquotes,etaremune,fixltx2e,pifont,ragged2e}
+\usepackage{textcomp,titlesec,xcolor}
+
+\usepackage[final]{hyperref}
+
+\hypersetup
+  {
+    hidelinks = true             ,
+    pdfauthor = Joseph Wright    ,
+    pdftitle  = Curriculum Vitae
+  }
+
+% Create some nice looking section dividers without too much fuss
+\titleformat\section{\Large\bfseries\sffamily}{}{0 em}
+  {%
+    % This is put in _before_ the text so that an overlap is possible
+    \begingroup
+      \color{gray!30}%
+      \titleline{\leaders\hrule height 0.6 em\hfill\kern 0 pt\relax}%
+    \endgroup
+    \nobreak
+    \vspace{-1.2 em}%
+    \nobreak
+  }
+  
+\titleformat\subsection{\large\itshape}{}{0 em}{}
+
+\renewcommand*\arraystretch{1.4}
+\setlength\hfuzz{1 pt}
+\pagestyle{empty}
+\frenchspacing
+
+% Publication list set up
+\renewcommand*\labelenumi{\textbf{\textsf{(\theenumi)}}}
+\newcommand*\paper[2]{%
+  % Standard style
+  \item \href{http://dx.doi.org/#1}{\ignorespaces#2\unskip.}
+  % Including DOI
+  %\item \href{http://dx.doi.org/#1}
+  %  {\ignorespaces#2\unskip.\\\textsc{doi}: \texttt{#1}}
+}
+\newcommand*\papertitle[1]{%
+  \begingroup
+    \addfontfeature{Numbers = Lining}%
+    \emph{#1}%
+  \endgroup
+}
+\hyphenation{Bosch-ert}
+
+% I prefer 'running' appearance for these
+\newcommand*\AllTeX{(La)TeX}
+\renewcommand*\LaTeX{LaTeX}
+\renewcommand*\TeX{TeX}
+  
+% Semi-automatically set up the table width
+\newlength\sidewidth
+\newlength\mainwidth
+\AtBeginDocument{%
+  \settowidth\sidewidth{\textbf{Professional bodies}\hspace{0.75 em}}%
+  \setlength\mainwidth{\dimexpr\linewidth - \sidewidth\relax}%
+}
+
+\newcommand*\headline[1]{%
+  \hbox{%
+    \llap{\ding{72}\hspace*{0.2 em}}%
+    \textbf{#1}%
+  }%
+}
+\newenvironment{CVtable}
+  {%
+    \begin{tabular}
+      {@{}>{\bfseries}p{\sidewidth}@{}>{\RaggedRight}p{\mainwidth}@{}}%
+  }
+  {\end{tabular}}
+
+\begin{document}
+
+% Title block
+\begin{raggedleft}
+  \textbf{Joseph Wright}    \\
+  School of Chemistry       \\
+  University of East Anglia \\
+  Norwich NR4 7TJ           \\
+  Tel.: 01603 592902        \\
+  Mobile: 0797 414 8180     \\
+  \href{mailto:joseph.wright@uea.ac.uk}
+    {\texttt{joseph.wright@uea.ac.uk}} \\
+\end{raggedleft}
+
+\begin{center}
+  \Huge\bfseries\sffamily
+  Joseph Alexander Wright
+\end{center}
+
+\section{Employment history}
+
+\subsection{Current position}
+\nocite{*}
+
+\begin{CVtable}
+  2008-- &
+    \headline{PDRA -- University of East Anglia} \par
+    Supervisor Prof.~C.~J.~Pickett \par
+    Studies on [Fe]- and [FeFe]-hydrogenase active sites mimics \par
+    Synthesis of novel ligands and model compounds \par
+    Mechanistic studies using stopped-flow UV and IR spectroscopies
+  \\
+\end{CVtable}
+
+\subsection{Previous positions}
+
+\begin{CVtable}
+  2007--2008 &
+    \headline{Senior Demonstrator -- University of East Anglia} \par
+    Teaching degree level chemistry:
+    tutorials and laboratory classes \par
+    Preparation of M.~Chem.~third year practical course in
+    organic chemistry
+  \\
+      
+  2005--2008 &
+    \headline{PDRA -- University of East Anglia} \par 
+    Supervisor Prof.~M.~Bochmann \par 
+    Use of zirconium phosphonates as heterogeneous catalyst supports \par
+    Synthesis of novel ligand systems for early transition metals
+  \\
+
+  2003--2004 & 
+    \headline{PDRA -- University of Southampton} \par
+    Supervisor Dr A.\,A.~Danopoulos \par
+    Synthesis of novel N-heterocyclic carbene complexes \par
+    Catalytic testing on novel systems
+  \\
+\end{CVtable}
+
+\section{Academic history}
+
+\begin{CVtable}
+  1999--2002 &
+    \headline{Ph.D. -- University of Cambridge} \par
+    Supervisor Dr J.\,B.~Spencer \par
+    Studies on the mechanisms of late transition-metal-catalysed 
+    reactions \par
+    Development of a novel protective-group strategy for alcohols \par
+    Thesis title:
+      \emph{Control of Regioselectivity: Oxidation and Deprotection}
+    % \par
+    % Viva date: 31st March 2003 % When needed 
+  \\
+
+  1995--1999 &
+    \headline{M.Chem. University of Leicester} \par
+    First class degree -- Four year study 
+    % \par
+    % Award date: 23rd July 1999 % When needed
+  \\
+   
+  1995 &
+    \headline{A levels} \par
+    \vspace{0.25 em}
+    \begingroup
+      \renewcommand*\arraystretch{1}
+      \begin{tabular}
+        {@{}>{\textbullet~}l<{:}l>{\textbullet~}l<{:}l}
+        Chemistry & A grade & Physics       & A grade \\
+        Maths     & A grade & Further maths & A grade \\
+      \end{tabular}
+    \endgroup   
+\end{CVtable}
+
+\section{Teaching experience}
+
+\begin{CVtable}
+  Lectures &
+    Two-part course on X-ray crystallography \par
+    Introductory talk \enquote{Skills for new researchers}
+  \\
+  
+  Tutorials &
+    Significant experience of giving both organic and inorganic
+      tutorials \par
+    Advanced tutorials on crystal symmetry  
+  \\
+
+  Supervision &
+    Directly supervised several final year project students \par
+    Planning project aims and direction for Ph.D. students \par
+    Leadership role in laboratory environment 
+  \\
+  
+  Assessment &
+    Oral and written assessment of M.Chem. practical classes \par
+    Final-year project student presentation marking \par
+    Development of a series of model answers for practical course 
+  \\
+    
+  Skills transfer &
+    Training students in the use of X-ray diffraction \par
+    Lead a successful series of \enquote{\LaTeX{} for Beginners} courses
+  \\
+    
+\end{CVtable}
+
+\section{Skills}
+
+\begin{CVtable}
+  NMR & 
+    Hands on experience with Bruker systems \par
+    Use of a range of multi-nuclear and variable-temperature methods
+  \\
+    
+  FT-IR & 
+    Analysis of time-resolved spectra from ReactIR and Bruker Vertex 
+      systems
+  \\
+    
+  X-Ray diffraction &
+    Data collection with both Bruker--Nonius and Oxford Diffraction 
+      instruments \par
+    Structure solution using \textsc{shelx-97} \par
+    Data analysis using \textsc{mercury} and \textsc{platon}
+  \\  
+  
+  Computing & 
+    Advanced document preparation in both Word and \LaTeX \par
+    Web site management, including on-line conference registration \par
+    Programming in \AllTeX{}, (X)HTML and PHP \par
+    Windows and Unix administration
+  \\
+\end{CVtable}
+
+\section{Additional information}
+
+\begin{CVtable}
+  Professional bodies &
+    American Chemical Society \par
+    British Crystallography Association  \par
+    Royal Society of Chemistry
+  \\
+  
+  Membership &
+    Co-ordination Chemistry Discussion Group 2011 committee \par
+    \LaTeX3 Project \par
+    \TeX{} Users Group \par
+    UK \TeX{} Users' Group (Secretary) 
+  \\
+    
+%  Languages & Certificate in German (2005) \par
+%    French to GCSE 
+%  \\
+%    
+%  Ongoing & 
+%    Open University Mathematics degree (2005--) 
+%  \\ 
+\end{CVtable}
+
+\newpage
+
+\section{List of Publications}
+
+% Keep this file relatively short
+\input{publications}
+
+\section{Posters}
+
+\begin{itemize}
+  \item \emph{Replacing Precious Metals: Iron-Containing Enzymes Show
+    the Way}, J.~A. Wright and C.~J. Pickett, \emph{SET for Britain
+    2011}, Houses of Parliament, London, 14th March 2011.
+    
+  \item \emph{[FeFe-Hydrogenase subsite analogues: seeing protonation
+    intermediates by stopped-flow spectroscopy]}, J.~A. Wright,
+    P.~J. Turrell and C.~J. Pickett, \emph{Faraday Discussions 148},
+    Nottingham, UK, 5th to 7th July 2010.
+    
+  \item \emph{Mechanistic investigations into the Wacker reaction of
+    styrenes}, J.~A. Wright, M.~J. Gaunt and J.~B. Spencer,
+    \emph{13th International Symposium on Homogeneous Catalysis},
+    Tarragona, Spain, 3rd to 7th September 2002.
+\end{itemize}
+
+\begin{comment}
+
+\section{Publications}
+
+A total of 44 publications in per-reviewed journals. Recent papers
+include
+\begin{itemize}
+  \paper{10.1039/c1cc11320h}{
+    \papertitle{The role of CN and CO ligands in the vibrational relaxation
+    dynamics of model compounds of the [FeFe]-\break hydrogenase enzyme},
+    S.~Kaziannis, J.~A. Wright, M.~Candelaresi, R.~Kania, G.~M. Greetham,
+    A.~W. Parker, C.~J. Pickett and N.~T. Hunt 
+    \emph{Phys. Chem. Chem. Phys.}, 2011, \textbf{13}, 10295--10305
+  }
+  
+  \paper{10.1039/c1cc11320h}{
+    \papertitle{The hafnium-mediated NH activation of an amido-borane},
+    E.~A. Jacobs, A.-M. Fuller, S.~J. Lancaster and J.~A. Wright,
+    \emph{Chem. Commun.}, 2011, \textbf{47}, 5870--5872
+  }
+  
+  \paper{10.1002/ejic.201001072}{
+    \papertitle{[FeFe]-Hydrogenase models: unexpected variation in
+    protonation rate between dithiolate bridge analogues},
+    A.~Jablonskytė, J.~A. Wright and C.~J. Pickett, \emph{Eur.~J.
+    Inorg. Chem.}, 2011, 1033--1037
+  }
+
+  \paper{10.1002/anie.201004189}{
+    \papertitle{The Third Hydrogenase: A Ferracyclic Carbamoyl with Close
+    Structural Analogy to the Active Site of Hmd}, P.~J. Turrell,
+    J.~A. Wright, J.~N.~T. Peck, V.~Oganesyan and C.~J. Pickett,
+    \emph{Angew. Chem. Int. Ed.}, 2010, \textbf{49}, 7508--7511
+  }
+\end{itemize}
+
+\end{comment}
+
+\section{Talks}
+
+\begin{itemize}
+  \item \emph{The mono-iron hydrogenase: accurate active site models},
+    Coordination Chemistry Discussion Group Meeting, University of
+    East Anglia, 8th July 2011.
+  \item \emph{Model hydrogenase subsites: seeing hydride formation as
+    it happens}, Joe Spencer Memorial Lectures, University of
+    Cambridge, 23rd April 2010.
+  \item \emph{Mechanism studies on hydrogenase models},
+    Dibrugarh University, Dibrugarh, India, 4th December 2009.
+  \item \emph{Mechanism studies on hydrogenase models},
+    Second Young Indian Scientists Networking Conference,
+    Kolkata, India, 2nd December 2009.
+\end{itemize}
+
+\end{document}

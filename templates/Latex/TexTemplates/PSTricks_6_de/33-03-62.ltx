@@ -1,0 +1,29 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\usepackage[a4paper,landscape,margin=1cm]{geometry}
+\StartShownPreambleCommands
+\usepackage{pst-am}
+\newpsstyle{signalModulant}{plotpoints=1000,linecolor=blue,linewidth=1.5pt}
+\StopShownPreambleCommands
+\begin{document}
+\psAM[SignalModulant,timeDiv=1e-4,SignalRedresse,voltDivY2=0.5]\qquad
+\psAM[SignalModulant,timeDiv=0.5e-4,SignalRedresse,SignalDemodule]
+\end{document}

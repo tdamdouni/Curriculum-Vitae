@@ -1,0 +1,126 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pstricks,pst-plot,graphicx,amsmath}
+\SpecialCoor
+\StopShownPreambleCommands
+\begin{document}
+\resizebox{\linewidth}{!}{%
+\psset{xunit=10mm,yunit=10mm,curvature=1 .1 .75,plotpoints=200}
+\begin{pspicture}(-2,-2.6)(2.5,2.4)
+\psaxes[labels=none,arrowlength=1.75,ticks=none,linewidth=0.17mm]%
+    {->}(0,0)(-2,-2)(2.5,2.4)
+\rput[Br](2.5,-.35){$\text{Re}(z)$}
+\rput[tl](.15,2.4){$\text{Im}(z)$}
+\rput[Bl](.15,-.35){$0$}
+%
+\uput{1mm}[90](1.4,0.1){$z_0$}
+\uput{1mm}[45](-.6,1.2){$z_1$}
+\uput{1mm}[315](-.6,-1.2){$z_2$}
+\uput{1mm}[45](0.3,0.3){$120^\circ$}
+\uput{1mm}[225](-0.3,-0.3){$120^\circ$}
+\uput{1mm}[315](0.3,-0.3){$120^\circ$}
+%
+\pscircle[linewidth=.17mm](0,0){1.8}
+\psarc[linewidth=.17mm,linecolor=red]{->}{.5}{0}{120}
+\psarc[linewidth=.17mm,linecolor=red]{->}{.5}{120}{240}
+\psarc[linewidth=.17mm,linecolor=red]{->}{.5}{240}{360}
+\psline[linewidth=.5mm,linecolor=blue]{->}(1.8;120)
+\psline[linewidth=.5mm,linecolor=blue]{->}(1.8;240)
+\psline[linewidth=.5mm,linecolor=blue]{->}(1.8;0)
+%
+\rput[B](-1.8,-.35){\psframebox*{$-1$}}
+\rput[B](1.8,.15){\psframebox*{$1$}}
+\rput[l](.15,1.8){\psframebox*{$1$}}
+\rput[l](.15,-1.8){\psframebox*{$-1$}}
+%
+\uput{0mm}[90](0,-2.6){$z^3=1$}
+\end{pspicture}~
+\begin{pspicture}(-2,-2.6)(2.5,2.4)
+\psaxes[labels=none,arrowlength=1.75,ticks=none,linewidth=0.17mm]%
+    {->}(0,0)(-2,-2)(2.5,2.4)
+\rput[Br](2.5,-.35){$\text{Re}(z)$}
+\rput[tl](.15,2.4){$\text{Im}(z)$}
+%
+\uput{1mm}[90](1.4,.1){$z_0$}
+\uput{1mm}[90](-1.4,.1){$z_2$}
+\uput{1mm}[0](.1,1.5){$z_1$}
+\uput{1mm}[0](.1,-1.5){$z_3$}
+\uput{1mm}[45](0.3,0.3){$90^\circ$}
+\uput{1mm}[135](-0.3,0.3){$90^\circ$}
+\uput{1mm}[225](-0.3,-0.3){$90^\circ$}
+\uput{1mm}[315](0.3,-0.3){$90^\circ$}
+%
+\pscircle[linewidth=.17mm](0,0){1.8}
+%
+\rput[B](-1.8,-.35){\psframebox*{$-1$}}
+\rput[B](1.8,.15){\psframebox*{$1$}}
+\rput[l](.15,1.8){\psframebox*{$1$}}
+\rput[l](.15,-1.8){\psframebox*{$-1$}}
+%
+\psarc[linewidth=.17mm,linecolor=red]{->}{.5}{0}{90}
+\psarc[linewidth=.17mm,linecolor=red]{->}{.5}{90}{180}
+\psarc[linewidth=.17mm,linecolor=red]{->}{.5}{180}{270}
+\psarc[linewidth=.17mm,linecolor=red]{->}{.5}{270}{360}
+%
+\psline[linewidth=.5mm,linecolor=blue]{<->}(-1.8,0)(1.8,0)
+\psline[linewidth=.5mm,linecolor=blue]{<->}(0,-1.8)(0,1.8)
+%
+\uput{0mm}[90](0,-2.6){$z^4=1$}
+\end{pspicture}~
+\begin{pspicture}(-2,-2.6)(2.5,2.4)
+\psaxes[labels=none,arrowlength=1.75,ticks=none,linewidth=0.17mm]%
+    {->}(0,0)(-2,-2)(2.5,2.4)
+\rput[Br](2.5,-.35){$\text{Re}(z)$}
+\rput[tl](.15,2.4){$\text{Im}(z)$}
+%
+\uput{1mm}[90](1.4,0.1){$z_0$}
+\uput{1mm}[0](.5,1.2){$z_1$}
+\uput{1mm}[0](.5,-1.2){$z_4$}
+\uput{1mm}[45](-1.2,1){$z_2$}
+\uput{1mm}[315](-1.2,-1){$z_3$}
+\uput{1mm}[36](0.5,0.2){$72^\circ$}
+\uput{1mm}[110](-0.2,0.5){$72^\circ$}
+\uput{1mm}[200](-0.5,-0.2){$72^\circ$}
+\uput{1mm}[250](-0.2,-0.5){$72^\circ$}
+\uput{1mm}[324](0.5,-0.2){$72^\circ$}
+%
+\pscircle[linewidth=.17mm](0,0){1.8}
+%
+\rput[B](-1.8,-.35){\psframebox*{$-1$}}
+\rput[B](1.8,.15){\psframebox*{$1$}}
+\rput[l](.05,1.8){\psframebox*{$1$}}
+\rput[l](.05,-1.95){$-1$}
+%
+\psarc[linewidth=.17mm,linecolor=red]{->}{.5}{0}{72}
+\psarc[linewidth=.17mm,linecolor=red]{->}{.5}{72}{144}
+\psarc[linewidth=.17mm,linecolor=red]{->}{.5}{144}{216}
+\psarc[linewidth=.17mm,linecolor=red]{->}{.5}{216}{288}
+\psarc[linewidth=.17mm,linecolor=red]{->}{.5}{288}{360}
+\psline[linewidth=.5mm,linecolor=blue]{->}(1.8;72)
+\psline[linewidth=.5mm,linecolor=blue]{->}(1.8;144)
+\psline[linewidth=.5mm,linecolor=blue]{->}(1.8;216)
+\psline[linewidth=.5mm,linecolor=blue]{->}(1.8;288)
+\psline[linewidth=.5mm,linecolor=blue]{->}(1.8;0)
+\uput{0mm}[90](0,-2.6){$z^5=1$}
+\end{pspicture}
+}%
+\end{document}

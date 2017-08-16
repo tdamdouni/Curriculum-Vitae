@@ -1,0 +1,30 @@
+%% Package `pst-solides3d.tex'
+%%
+%% Manuel Luque, Arnaud Schmittbuhl,Jean-Paul Vignault,Jürgen Gilg,
+%% Jean-Michel Sarlat, and Herbert Voss 
+%%
+%% 2014-09-05
+%%
+
+Save the files
+
+pst-solides3d.sty
+pst-solides3d.tex
+solides3d.pro
+
+in any place, where latex or any other TeX program will find it.
+If you like to get the documentation file in another format run 
+
+latex pst-solides3d-doc-EN.tex
+latex pst-solides3d-doc-EN.tex
+dvips pst-solides3d-doc-EN.dvi
+
+to get a PostScript file. But pay attention, that the pst-optic
+files are saved in the above mentioned way, before you run
+latex on the documentation file.
+
+The intermediate DVI file works only with viewers which can 
+interprete the embedded PostScript code, like the one from KDE.
+
+For another PDF output read the Introduction from
+the documentation.

@@ -1,0 +1,81 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-node,multido,amsmath}\newdimen\xMax
+\newdimen\yMax
+\newcount\xLines
+\newcount\yLines
+\newdimen\dx
+\newdimen\dy
+\definecolor{lightred}{rgb}{1.0, 0.8, 0.8}
+\makeatletter
+\newcommand{\grid}[3][black]{{%
+  \psset{linewidth=0.1pt}
+  \xMax=#3%
+  \yMax=#2%
+    \dx=5mm  \xLines=\xMax \divide\xLines by \dx%
+    \dy=5mm  \yLines=\yMax \divide\yLines by \dy%
+    \advance\xLines by 1%
+%    \advance\yLines by 1%
+    \yMax=\dy \multiply\yMax by \yLines%
+    \xMax=\dx \multiply\xMax by \xLines%
+    \advance\xLines by 1%
+    \advance\yLines by 1%
+    \psset{unit=1pt, linecolor=#1}%
+    \multido{\rA=0+\strip@pt\dx}{\xLines}{\psline(\rA,0)(\rA,\yMax)}%
+    \multido{\rA=0+\strip@pt\dy}{\yLines}{\psline(0,\rA)(\xMax,\rA)}%
+}}
+\makeatother
+\newsavebox{\gridbox}
+\newenvironment{dogrid}[1][\linewidth]{%
+  \begin{lrbox}{\gridbox}%
+      \begin{minipage}{#1}%
+}{%
+      \end{minipage}%
+  \end{lrbox}%
+  \yMax=\dp\gridbox \advance\yMax by \ht\gridbox
+  \noindent%
+  \raisebox{-1.05\dp\gridbox}{\grid[lightred]{\yMax}{\wd\gridbox}}%
+  \usebox{\gridbox}
+  \vspace{0.5cm}
+}
+
+\StopShownPreambleCommands
+\begin{document}
+\begin{dogrid}
+\[
+\begin{array}{rcll}
+y & = & x^{2}+bx+c\\
+  & = & x^{2}+2\cdot{\displaystyle\frac{b}{2}x+c}\\
+  & = & \underbrace{x^{2}+2\cdot\frac{b}{2}x+
+            \left(\frac{b}{2}\right)^{2}}-{\displaystyle \left(\frac{b}{2}\right)^{2}+c}\\
+ &  & \qquad\color{blue}\left(x+{\displaystyle \frac{b}{2}}\right)^{2}\\
+ & = & {\color{blue}\left(x+{\displaystyle \frac{b}{2}}\right)^{2}}
+   \color{red}-\left({\displaystyle \frac{b}{2}}\right)^{2}+c & \left|+\left({\displaystyle \frac{b}{2}}\right)^{2}-c\right.\\
+y+\left({\displaystyle \frac{b}{2}}\right)^{2}-c & = & \left(x+{\displaystyle \frac{b}{2}}\right)^{2} & \left|(\textrm{Scheitelpunktform})\right.\\
+y-y_{S} & = & (x-x_{S})^{2}\\
+\mbox{\textbf{S}}\mathbf{\left(x_{S};y_{S}\right)} & \,\textrm{bzw.}\, &
+    \mbox{\textbf{S}}\mathbf{\left(-{\displaystyle \frac{b}{2};\,
+    \left({\displaystyle \frac{b}{2}}\right)^{2}-c}\right)}
+\end{array}
+\]
+\end{dogrid}
+\end{document}

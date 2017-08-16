@@ -1,0 +1,33 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{94.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pstricks}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(3,2)
+\DontKillGlue
+\psframe*[linecolor=lightgray,shadowcolor=red,
+  shadow=true,shadowangle=90,shadowsize=15pt](3,1.75)
+\quad% <---!!!!---
+\psframe[fillcolor=white,fillstyle=solid,
+    framearc=0.5,shadow=true](1.25,0.25)(2.8,1.5)
+\end{pspicture}
+\end{document}

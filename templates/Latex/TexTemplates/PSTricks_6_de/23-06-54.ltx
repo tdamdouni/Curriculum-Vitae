@@ -1,0 +1,44 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-solides3d}
+\StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(-2,-4)(6,6)
+\psset{unit=0.75,viewpoint=40 20 40,Decran=40}
+\psSolid[object=cube,a=4,action=draw*,linecolor=red]%  kleiner Würfel
+\psPoint(2,2,2){A}
+\psSolid[object=cube,a=4,action=draw*,RotX=-30,RotY=60,RotZ=-60](7.5,11.25,10)% großer
+\psTransformPoint[RotX=-30,RotY=60,RotZ=-60](2 2 2)(7.5,11.25,10){A'}
+\psdot(A')\psline[linecolor=blue,arrowsize=0.3]{o->}(A)(A')
+\uput[-90](A'){$\mathbf{A'}$}\uput[u](A){$\mathbf{A}$}
+\psLineIIID[linecolor=blue,linestyle=dashed,arrowsize=0.3]{->}(0,0,0)(7.5,11.25,10)
+\psset{solidmemory,action=none}
+\psSolid[object=cube,a=4,name=A1](0,0,0)
+\psSolid[object=plan,definition=solidface,args=A1 0,name=P0]
+\psset{fontsize=100}
+\psProjection[object=texte,linecolor=red,text=A,plan=P0]
+\psSolid[object=cube,a=4,RotX=-30,RotY=60,RotZ=-60,name=A2](7.5,11.25,10)
+\psSolid[object=plan,definition=solidface,args=A2 0,name=P'0]
+\psProjection[object=texte,text=A,plan=P'0]
+\axesIIID(2,2,2)(10,12,8)
+\end{pspicture}
+\end{document}

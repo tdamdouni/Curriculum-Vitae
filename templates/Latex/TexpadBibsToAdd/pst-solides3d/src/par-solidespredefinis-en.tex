@@ -1,0 +1,1040 @@
+\section {The predefined solids and their parameters}
+
+The basic command is:~
+\texttt{\Lcs{psSolid}[object=\textsl{name}]$(x, y ,z)$} which allows us to translate the chosen object to the point with the coordinates $(x, y,
+z)$.
+
+The available predefined names for the objects are:
+\begin{sloppypar}
+{\ttfamily%\flushleft \hyphenchar\font`\-%
+point, line, vector, plan, grille, cube, cylindre, cylindrecreux, cone, conecreux, tronccone,
+troncconecreux, sphere, calottesphere, calottespherecreuse, tore,
+tetrahedron, octahedron, dodecahedron,
+isocahedron, anneau, prisme, prismecreux, parallelepiped, face, polygonregulier, ruban, surface, surface*, surfaceparamettree, pie, fusion, geode, load, offfile, objfile, datfile, new.}
+\end{sloppypar}
+
+
+The following table gives an example of every one of the above named solids with their specified parameters:
+
+\begin{center}
+\begin{tabular}{>{\bfseries\sffamily\color{blue}}lcm{4cm}m{5cm}}
+  \hline
+\toptableau
+\\\hline
+ \Index{Point}&
+    \begin{tabular}{c}
+    \texttt{[args=1 1 0]}\\
+     coordinates
+    \end{tabular}
+    &
+ \begin{pspicture}(-2,-2)(2,2)
+\psset{lightsrc=10 5 20,viewpoint=50 20 30 rtp2xyz}
+\psSolid[object=point,args=1 1 0]%
+\axesIIID(1.5,1.5,1)
+\end{pspicture}
+ &
+ \begin{minipage}{5cm}
+ \begin{verbatim}
+\psSolid[object=point,
+args=1 1 0]%
+\end{verbatim}
+\end{minipage}
+\\\hline
+ \Index{Line}&
+    \begin{tabular}{c}
+    \texttt{[args=0 -1 0 1 2 2]}\\
+     coordinates of the\\
+     end points
+    \end{tabular}
+    &
+ \begin{pspicture}(-2,-2)(2,2)
+\psset{lightsrc=10 5 20,viewpoint=50 20 30 rtp2xyz}
+\psSolid[object=line,args=0 -1 0 1 2 2]
+\axesIIID(1.5,1.5,1)
+\end{pspicture}
+ &
+\begin{minipage}{5cm}
+\begin{verbatim}
+\psSolid[object=line,
+args=0 -1 0 1 2 2]
+\end{verbatim}
+\end{minipage}
+\\\hline
+ \Index{Vector}&
+    \begin{tabular}{c}
+    \texttt{[args=1 2 2]}\\
+     components of\\
+     the vector
+    \end{tabular}
+    &
+\begin{pspicture}(-2,-2)(2,2)
+\psset{lightsrc=10 5 20,viewpoint=50 20 30 rtp2xyz}
+\psSolid[object=vecteur,args=1 2 2]
+\axesIIID(1.5,1.5,1)
+\end{pspicture}
+ &
+\begin{minipage}{5cm}
+\begin{verbatim}
+\psSolid[object=vecteur,
+args=1 2 2]
+\end{verbatim}
+\end{minipage}
+\\\hline
+ \Index{Plane}&
+    \begin{tabular}{c}
+    \texttt{[base=-x x -y y]}\\
+     range of plane\\
+     \texttt{args={[0 0 1 0]}}\\
+     equation of plane
+    \end{tabular}
+    &
+ \begin{pspicture}(-2,-2)(2,2)
+\psset{lightsrc=10 5 20,viewpoint=50 20 30 rtp2xyz}
+\psSolid[object=plan,
+   definition=equation,
+   args={[0 0 1 0]},
+   base=-1 1 -1.5 1.5]
+\axesIIID(1.5,1.5,1)
+\end{pspicture}
+ &
+\begin{minipage}{5cm}
+\begin{verbatim}
+\psSolid[object=plan,
+definition=equation,
+args={[0 0 1 0]},
+base=-1 1 -1.5 1.5]
+\end{verbatim}
+\end{minipage}
+\\\hline
+
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{>{\bfseries\sffamily\color{blue}}lcm{4cm}m{5cm}}
+  \hline
+\toptableau
+\\\hline
+ \Index{Cube}& \begin{tabular}{c}
+    \texttt{[a=4]}\\
+     edge's length
+    \end{tabular}
+    &
+ \begin{pspicture}(-2,-2)(2,2)
+\psset{lightsrc=10 20 30,viewpoint=50 20 30 rtp2xyz}
+ \psset{Decran=60}
+ \psSolid[
+ object=cube,a=2,action=draw*,fillcolor=magenta!20]%
+ \axesIIID(1,1,1)(1.5,1.5,1.5)
+ \end{pspicture}
+ &
+ \begin{minipage}{5cm}
+ \begin{verbatim}
+\psSolid[
+   object=cube,
+   a=2,
+   action=draw*,
+   fillcolor=magenta!20]
+ \end{verbatim}
+ \end{minipage}
+\\\hline
+ \Index{Cylinder}&
+    \begin{tabular}{c}
+     \texttt{[h=6,r=2]}\\
+     height and radius\\
+     grid:\\
+     \texttt{[ngrid=n1 n2]}
+     \end{tabular}
+     &
+ \begin{pspicture}(-2,-2.5)(2,3)
+\psset{lightsrc=10 20 30,viewpoint=50 20 30 rtp2xyz}
+ \psset{Decran=30}
+\psSolid[object=cylindre,h=5,r=2,fillcolor=white,ngrid=4 32](0,0,-3)
+ \axesIIID(2,2,2.5)(3,3,3.5)
+ \end{pspicture}
+ &
+ \begin{minipage}{5cm}
+ \begin{verbatim}
+\psSolid[
+  object=cylindre,
+  h=5,r=2,
+  fillcolor=white,
+  ngrid=4 32]
+  (0,0,-3)
+ \end{verbatim}
+ \end{minipage}
+\\\hline
+ \Index{Hollow Cylinder}&
+    \begin{tabular}{c}
+     \texttt{[h=6,r=2]}\\
+     height and radius\\
+     grid:\\
+     \texttt{[ngrid=n1 n2]}
+     \end{tabular}
+     &
+ \begin{pspicture}(-2,-2.5)(2,3)
+\psset{lightsrc=10 20 30,viewpoint=50 20 30 rtp2xyz}
+ \psset{Decran=30}
+\psSolid[object=cylindrecreux,h=5,r=2,fillcolor=white,mode=4,incolor=green!50](0,0,-2.5)
+ \axesIIID(2,2,2.5)(3,3,4.5)
+ \end{pspicture}
+ &
+ \begin{minipage}{5cm}
+ \begin{verbatim}
+\psSolid[
+   object=cylindrecreux,
+   h=5,r=2,
+   fillcolor=white,
+   mode=4,
+   incolor=green!50]
+   (0,0,-3)
+ \end{verbatim}
+ \end{minipage}
+ \\\hline
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{>{\bfseries\sffamily\color{blue}}lcm{4cm}m{5cm}}
+  \hline
+\toptableau
+\\\hline
+ \Index{Cone}&
+     \begin{tabular}{c}
+     \texttt{[h=6,r=2]}\\
+     height and radius\\
+     grid:\\
+     \texttt{[ngrid=n1 n2]}
+     \end{tabular}
+     &
+ \begin{pspicture}(-2,-1)(2,4)
+\psset{lightsrc=10 20 30,viewpoint=50 20 30 rtp2xyz}
+ \psset{Decran=30}
+ \psSolid[object=cone,h=5,r=2,fillcolor=cyan,mode=4]%
+ \axesIIID(2,2,5)(2.5,2.5,6)
+ \end{pspicture}
+ &
+ \begin{minipage}{5cm}
+ \begin{verbatim}
+ \psSolid[
+    object=cone,
+    h=5,r=2,
+    fillcolor=cyan,
+    mode=4]%
+ \end{verbatim}
+ \end{minipage}
+\\\hline
+ \Index{Hollow Cone}&
+     \begin{tabular}{c}
+     \texttt{[h=6,r=2]}\\
+     height and radius\\
+     grid:\\
+     \texttt{[ngrid=n1 n2]}
+     \end{tabular}
+     &
+ \begin{pspicture}(-2,-1)(2,4)
+\psset{lightsrc=10 20 30,viewpoint=50 20 30 rtp2xyz}
+ \psset{Decran=30}
+ \psSolid[object=conecreux,h=5,r=2,fillcolor=white,mode=4,RotY=-60,incolor=green!50]%
+ \axesIIID(2,2,5)(2.5,2.5,6)
+ \end{pspicture}
+ &
+ \begin{minipage}{5cm}
+ \begin{verbatim}
+ \psSolid[
+    object=conecreux,
+    h=5,r=2,
+    RotY=-60,
+    fillcolor=white,
+    incolor=green!50,
+    mode=4]%
+ \end{verbatim}
+ \end{minipage}
+ \\\hline
+ \Index{Truncated Cone}&
+     \begin{tabular}{c}
+     \texttt{[h=6,r0=4,r1=1.5]}\\
+     height and radii\\
+     grid:\\
+     \texttt{[ngrid=n1 n2]}
+     \end{tabular}
+     &
+ \begin{pspicture}(-2,-1)(2,4)
+\psset{lightsrc=10 20 30,viewpoint=50 20 30 rtp2xyz}
+ \psset{Decran=30}
+ \psSolid[object=tronccone,r0=2,r1=1.5,h=5,fillcolor=cyan,mode=4]%
+ \axesIIID(2,2,5)(2.5,2.5,6)
+ \end{pspicture}
+ &
+ \begin{minipage}{5cm}
+ \begin{verbatim}
+ \psSolid[
+    object=tronccone,
+    r0=2,r1=1.5,h=5,
+    fillcolor=cyan,
+    mode=4]%
+ \end{verbatim}
+ \end{minipage}
+\\\hline
+     \begin{tabular}{c}
+     Truncated \\
+     Hollow Cone
+     \end{tabular}
+     &
+     \begin{tabular}{c}
+     \texttt{[h=6,r0=4,r1=1.5]}\\
+     height and radii\\
+     grid:\\
+     \texttt{[ngrid=n1 n2]}
+     \end{tabular}
+     &
+ \begin{pspicture}(-2,-1)(2,4)
+\psset{lightsrc=10 20 30,viewpoint=50 20 30 rtp2xyz}
+ \psset{Decran=30}
+ \psSolid[object=troncconecreux,r0=2,r1=1,h=5,fillcolor=white,mode=4]%
+ \axesIIID(2,2,5)(2.5,2.5,6)
+ \end{pspicture}
+ &
+ \begin{minipage}{5cm}
+ \begin{verbatim}
+\psSolid[
+   object=troncconecreux,
+   r0=2,r1=1,h=5,
+   fillcolor=white,
+   mode=4]%
+ \end{verbatim}
+ \end{minipage}
+\\\hline
+\end{tabular}
+\end{center}
+
+%\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+%\begin{tabular}{>{\bfseries\sffamily\color{blue}}lcm{4cm}m{5cm}}
+\begin{tabular}{
+   >{\bfseries\sffamily\color{blue}} l
+   >{\centering} m{4cm} m{4cm} m{5cm}}
+  \hline
+\toptableau
+\\\hline
+ \Index{Sphere} &
+     \begin{tabular}{c}
+     \texttt{[r=2]}\\
+     radius\\
+     grid:\\
+     \texttt{[ngrid=n1 n2]}
+    \end{tabular}
+     &
+ \begin{pspicture}(-2,-2)(2,3)
+\psset{lightsrc=10 20 30,viewpoint=50 20 30 rtp2xyz}
+ \psset{Decran=30}
+ \psSolid[object=sphere,r=3,fillcolor=red!25,ngrid=18 18,linewidth=0.2\pslinewidth]%
+ \axesIIID(3,3,3)(4,4,4)
+ \end{pspicture}
+ &
+ \begin{minipage}{5cm}
+ \begin{verbatim}
+ \psSolid[
+    object=sphere,
+    r=2,fillcolor=red!25,
+    ngrid=18 18]%
+ \end{verbatim}
+ \end{minipage}
+\\\hline
+     \begin{tabular}{c}
+     Spherical \\
+     zone
+     \end{tabular} &
+     \begin{tabular}{c}
+     \texttt{[r=2]} \\
+     radius\\
+     \texttt{[phi=0,theta=90]} \\
+     latitude for slicing\\
+     the zone respectively \\
+     from the bottom and top \\
+    \end{tabular}
+     &
+\begin{pspicture}(-2,-3)(5,3)
+\psset{unit=0.5cm}
+\psset{lightsrc=42 24 13,viewpoint=50 30 15 rtp2xyz,Decran=50}
+\psSolid[object=calottesphere,r=3,ngrid=16 18,
+   fillcolor=cyan!50,incolor=yellow,theta=45,phi=-30,hollow,RotY=-80]%
+\axesIIID(0,3,3)(6,5,4)
+\end{pspicture}
+ &
+ \begin{minipage}{5cm}
+ \begin{verbatim}
+\psSolid[
+   object=calottesphere,
+   r=3,ngrid=16 18,
+   theta=45,phi=-30,
+   hollow,RotY=-80]%
+ \end{verbatim}
+ \end{minipage}
+\\\hline
+ \Index{Torus} &
+     \begin{tabular}{c}
+     \texttt{[r0=4,r1=1.5]} \\
+     inner radius\\
+     mean radius\\
+     grid:\\
+     \texttt{[ngrid=n1 n2]}
+     \end{tabular}
+     &
+ \begin{pspicture}(-2,-2)(2,2.35)
+\psset{lightsrc=42 24 13,viewpoint=50 30 15 rtp2xyz}
+ \psset{Decran=30,unit=0.9cm}
+ \psSolid[r1=2.5,r0=1.5,object=tore,ngrid=18 36,fillcolor=green!30,action=draw**]%
+  \axesIIID(4,4,0)(5,5,4)
+ \end{pspicture}
+ &
+ \begin{minipage}{5cm}
+ \begin{verbatim}
+ \psSolid[
+    r1=2.5,r0=1.5,
+    object=tore,
+    ngrid=18 36,
+    fillcolor=green!30,
+    action=draw*]%
+ \end{verbatim}
+ \end{minipage}
+\\\hline
+     \begin{tabular}{c}
+     Cylindric \\
+     Ring
+     \end{tabular}
+      &
+     \begin{tabular}{c}
+     \texttt{[R=4,r=3}\\
+     inner and outer radius\\
+     \texttt{h=6,section=...]}\\
+     height\\
+     cross \\
+     section
+     \end{tabular}
+     &
+ \begin{pspicture}(-2,-2)(2,2.35)
+%\psset{unit=0.44cm}
+\psset{lightsrc=42 24 13,viewpoint=50 30 15 rtp2xyz}
+ \psset{Decran=30}
+\psSolid[object=anneau,fillcolor=yellow,h=1.5,R=4,r=3]%
+ \axesIIID(4,4,0)(5,5,4)
+ \end{pspicture}
+ &
+ \begin{minipage}{5cm}
+ \begin{verbatim}
+ \psSolid[
+    object=anneau,
+    fillcolor=yellow,
+    h=1.5,R=4,r=3]%
+ \end{verbatim}
+ \end{minipage}
+\\\hline
+\end{tabular}
+\end{center}
+
+
+\begin{center}
+%\begin{tabular}{>{\bfseries\sffamily\color{blue}}lcm{4cm}m{6cm}}
+\begin{tabular}{
+   >{\bfseries\sffamily\color{blue}} l
+   >{\centering} m{4cm} m{4cm} m{5cm}}
+  \hline
+\toptableau
+\\\hline
+ \Index{Tetrahedron}&
+     \begin{tabular}{c}
+     \texttt{[r=2]}\\
+     radius of the\\
+     circumscribed sphere
+     \end{tabular}
+     &
+ \begin{pspicture}(-2,-2)(2,2)
+\psset{lightsrc=10 20 30,viewpoint=50 20 30 rtp2xyz}
+ \psset{Decran=30}
+ \psSolid[object=tetrahedron,r=3,linecolor=blue,action=draw]%
+ \end{pspicture}
+ &
+ \begin{minipage}{5cm}
+ \begin{verbatim}
+\psSolid[
+   object=tetrahedron,
+   r=3,
+   linecolor=blue,
+   action=draw]%
+ \end{verbatim}
+ \end{minipage}
+\\\hline
+\Index{Octahedron} &
+     \begin{tabular}{c}
+     \texttt{[a=2]}\\
+     radius of the\\
+     circumscribed sphere
+     \end{tabular}
+     &
+ \begin{pspicture}(-2,-1.85)(2,2.85)
+\psset{lightsrc=10 20 30,viewpoint=50 20 30 rtp2xyz}
+ \psset{Decran=30}
+ \psSolid[object=octahedron,a=3,linecolor=blue,fillcolor=Turquoise]%
+ \axesIIID(3,3,3)(4,4,4)
+ \end{pspicture}
+ &
+ \begin{minipage}{5cm}
+ \begin{verbatim}
+ \psSolid[
+    object=octahedron,
+    a=3,
+    linecolor=blue,
+    fillcolor=Turquoise]%
+ \end{verbatim}
+ \end{minipage}
+\\\hline
+ \Index{Dodecahedron} &
+     \begin{tabular}{c}
+     \texttt{[a=2]}\\
+     radius of the\\
+     circumscribed sphere
+     \end{tabular}
+     &
+ \begin{pspicture}(-2,-1.85)(2,1.85)
+\psset{lightsrc=10 20 30,viewpoint=50 20 30 rtp2xyz}
+ \psset{Decran=30}
+ \psSolid[object=dodecahedron,a=2.5,RotZ=90,action=draw*,fillcolor=OliveGreen]%
+ \end{pspicture}
+ &
+ \begin{minipage}{5cm}
+ \begin{verbatim}
+ \psSolid[
+    object=dodecahedron,
+    a=2.5,RotZ=90,
+    action=draw*,
+    fillcolor=OliveGreen]%
+ \end{verbatim}
+ \end{minipage}
+\\ \hline
+\Index{Icosahedron} &
+     \begin{tabular}{c}
+     \texttt{[a=2]}\\
+     radius of the\\
+     circumscribed sphere
+     \end{tabular}
+     &
+ \begin{pspicture}(-2,-1.85)(2,2.85)
+\psset{lightsrc=10 20 30,viewpoint=50 20 30 rtp2xyz}
+ \psset{Decran=30}
+ \psSolid[object=icosahedron,a=3,action=draw*,fillcolor=green!50]%
+ \axesIIID(3,3,3)(4,4,4)
+ \end{pspicture}
+ &
+ \begin{minipage}{5cm}
+ \begin{verbatim}
+\psSolid[
+   object=icosahedron,
+   a=3,
+   action=draw*,
+   fillcolor=green!50]%
+ \end{verbatim}
+ \end{minipage}
+\\\hline
+     \Index{Prism}
+      &
+     \begin{tabular}{c}
+     \texttt{[axe=0 0 1]}\\
+     direction of the axis\\
+     \texttt{[base=}\\
+     \texttt{-1 -1 1 -1 0 1]}\\
+     coordinates of\\
+     the vertices\\
+     of the base\\
+     \texttt{[h=6]}\\
+     height
+     \end{tabular}
+     &
+ \begin{pspicture}(-2,-2)(2,3)
+\psset{lightsrc=10 20 30,viewpoint=50 20 30 rtp2xyz}
+ \psset{Decran=30,unit=0.9cm}
+\psSolid[object=prisme,action=draw*,linecolor=red,h=4,fillcolor=gray!50]%
+\psSolid[object=grille,base=-3 3 -3 3,action=draw]%
+ \axesIIID(3,3,4)(5,5,5)
+ \end{pspicture}
+ &
+ \begin{minipage}{5cm}
+ \begin{verbatim}
+\psSolid[
+   object=prisme,
+   action=draw*,
+   linecolor=red,
+   h=4]%
+ \end{verbatim}
+ \end{minipage}
+ \\\hline
+\end{tabular}
+\end{center}
+
+%\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+%\psset{lightsrc=10 20 30,viewpoint=50 20 30 rtp2xyz}
+%\begin{tabular}{>{\bfseries\sffamily\color{blue}}lcm{4cm}m{6cm}}
+\begin{tabular}{
+   >{\bfseries\sffamily\color{blue}} l
+   >{\centering} m{4cm} m{4cm} m{5cm}}
+  \hline
+\toptableau
+\\\hline
+     \Index{Grid}
+      &
+     \begin{tabular}{c}
+     \texttt{[base=-X +X -Y +Y]}
+     \end{tabular}
+     &
+ \begin{pspicture}(-1.5,-2)(2,3)
+\psset{lightsrc=10 20 30,viewpoint=50 20 30 rtp2xyz}
+ \psset{Decran=30,unit=0.9cm}
+\psSolid[object=grille,base=-5 5 -3 3]%
+ \axesIIID(5,3,0)(6,4,4)
+ \end{pspicture}
+ &
+ \begin{minipage}{5cm}
+ \begin{verbatim}
+\psSolid[
+   object=grille,
+   base=-5 5 -3 3]%
+ \end{verbatim}
+ \end{minipage}
+\\\hline
+%
+   \Index{Cuboid}
+      &
+     \begin{tabular}{c}
+     \texttt{[a=4,b=3,c=2]}\\
+     edge lenghts\\
+     with center in $O$
+     \end{tabular}
+     &
+ \begin{pspicture}(-1.5,-2)(2,3)
+ \psset{lightsrc=10 20 30,viewpoint=50 20 30 rtp2xyz}
+ \psset{Decran=30}
+\psSolid[object=parallelepiped,a=5,b=6,c=2,fillcolor=bleuciel,axe=1 1 1](0,0,c 2 div)
+\psSolid[object=grille,base=-2.5 2.5 -3 3,action=draw](0,0,2)
+\psSolid[object=grille,base=-1 1 -3 3,RotY=90,action=draw](2.5,0,1)
+\psSolid[object=grille,base=-2.5 2.5 -1 1,RotX=-90,action=draw](0,3,1)
+ \axesIIID(2.5,3,2)(3.5,4,4)
+ \end{pspicture}
+ &
+ \begin{minipage}{5cm}
+ \begin{verbatim}
+\psSolid[
+   object=parallelepiped,%
+   a=5,b=6,c=2,
+   fillcolor=yellow]%
+   (0,0,c 2 div)
+ \end{verbatim}
+ \end{minipage}
+\\\hline
+%
+   \Index{Face}
+      &
+     \begin{tabular}{l}
+     \texttt{[base=x0 y0 x1 y1}\\
+     \texttt{~     x2 y2 etc.]}\\
+     the coordinates \\
+     of the vertices
+     \end{tabular}
+     &
+\begin{pspicture}(-2,-2)(3,2)
+\psset{unit=0.4cm}
+\psset{viewpoint=50 -20 30 rtp2xyz,Decran=50}
+\psSolid[object=grille,base=-4 6 -4 4,action=draw,linecolor=gray](0,0,0)
+\psSolid[object=face,fillcolor=yellow,
+      incolor=blue,
+      base=0 0 3 0 1.5 3
+      ](0,1,0)
+\psSolid[object=face,fillcolor=yellow,
+      incolor=blue,
+      base=0 0 3 0 1.5 3,
+      RotX=180](0,-1,0)
+\axesIIID(0,0,0)(6,6,3)
+\end{pspicture}
+ &
+ \begin{minipage}{5cm}
+ \begin{verbatim}
+\psSolid[
+   object=face,
+   fillcolor=yellow,
+   incolor=blue,
+   base=0 0 3 0 1.5 3
+   ](0,1,0)
+\psSolid[
+   object=face,
+   fillcolor=yellow,
+   incolor=blue,
+   base=0 0 3 0 1.5 3,
+   RotX=180](0,-1,0)
+ \end{verbatim}
+ \end{minipage}
+\\\hline
+%
+   \Index{Strip}
+      &
+     \begin{tabular}{l}
+     \texttt{[base=x0 y0 x1 y1}\\
+     \texttt{~     x2 y2 etc.]}\\
+     \texttt{[h=height]}\\
+     \texttt{[ngrid=value]}\\
+     number of gridlines\\
+     \texttt{[axe=0 0 1]}\\
+     direction of inclination\\
+     of the strip
+     \end{tabular}
+     &
+\begin{pspicture}(-2,-2)(5,3)
+\psset{lightsrc=10 0 10,viewpoint=50 -20 30 rtp2xyz,Decran=50,unit=0.5cm}
+\psSolid[object=grille,base=-4 6 -2 4,action=draw,linecolor=gray](0,0,0)
+\psSolid[object=ruban,h=3,fillcolor=red!50,
+      base=0 0 2 2 4 0 6 2,
+      num=0 1 2 3,
+      show=0 1 2 3,
+      ngrid=3]%
+\axesIIID(0,2,0)(6,6,6)
+\end{pspicture}
+ &
+ \begin{minipage}{5cm}
+ \begin{verbatim}
+\psSolid[
+   object=ruban,h=3,
+   fillcolor=red!50,
+   base=0 0 2 2 4 0 6 2,
+   num=0 1 2 3,
+   show=0 1 2 3,
+   ngrid=3])
+ \end{verbatim}
+ \end{minipage}
+\\\hline
+\end{tabular}
+\end{center}
+
+%\newpage
+
+%\begin{center}
+%\psset{lightsrc=10 20 30,SphericalCoor,viewpoint=50 20 30}
+%%\begin{tabular}{>{\bfseries\sffamily\color{blue}}lcm{4cm}m{6cm}}
+%\begin{tabular}{
+%   >{\bfseries\sffamily\color{blue}} l
+%   >{\centering} m{4cm} m{4cm} m{5cm}}
+%  \hline
+%\toptableau
+%%    chemin
+%%       &
+%%      \begin{tabular}{l}
+%%      dessine un chemin\\
+%%      d\'{e}fini en postscript\\
+%%      sur un plan
+%%      \end{tabular}
+%%      &
+%% \psset{unit=0.4cm}
+%% \begin{pspicture}(-2,-5)(6,8)%
+%% \psframe*[linecolor=blue!50](-6,-5)(6,7)
+%% \psset{lightsrc=50 20 20,viewpoint=50 30 15,Decran=60}
+%% \psProjection[object=chemin,fillstyle=solid,fillcolor=white,
+%%             linewidth=.05,linecolor=red,
+%%             normal=1 1 2 180,
+%%             path=newpath
+%%                 -4 -4 smoveto
+%%                 -4 4 slineto
+%%                 4 4 slineto
+%%                 4 -4 slineto
+%%                 closepath
+%%             ](1,1,2)
+%% \psProjection[object=chemin,
+%%       linewidth=.02,
+%%       normal=1 1 2 180,
+%%       path=newpath
+%%           -4 1 4
+%%           {-4 exch smoveto
+%%            8 0 srlineto} for
+%%            -4 1 4
+%%           {-4 smoveto
+%%            0 8 srlineto} for
+%%             ](1,1,2)
+%% \psProjection[object=chemin,fillstyle=hlines,hatchcolor=yellow,
+%%             linecolor=red,
+%%             normal=1 1 2 180,
+%%             path=newpath
+%%             2 0 moveto
+%%             0 2 360 {
+%%                 /x exch def
+%%                 x cos 2 mul
+%%              x sin 2 mul
+%%                 slineto
+%%          } for
+%%             ](1,1,2)
+%% \psPoint(0,0,0){O}
+%% \psPoint(1,1,2){O1}\psPoint(1.4,1.4,2.8){K}
+%% \psline[linewidth=.1,linecolor=red](O1)(K)
+%% \psline[linestyle=dashed](O)(O1)
+%% \psProjection[object=chemin,
+%%       linewidth=.1,
+%%       linecolor=green,
+%%       normal=1 1 2 180,
+%%       path=
+%%          newpath
+%%             0 0 smoveto
+%%             1 0 slineto](1,1,2)
+%% \psProjection[object=chemin,
+%%       linewidth=.1,
+%%       linecolor=blue,
+%%       normal=1 1 2 180,
+%%       path=
+%%          newpath
+%%             0 0 smoveto
+%%             0 1 slineto](1,1,2)
+%% \axesIIID(4,4,2)(5,5,6)
+%% \end{pspicture}
+%%  &
+%%  \begin{minipage}{6cm}
+%%  \begin{verbatim}
+%%     \psProjection[object=chemin,
+%%     fillstyle=hlines,
+%%     hatchcolor=yellow,
+%%     linecolor=red,
+%%     normal=1 1 2 180,
+%%     path=newpath
+%%     2 0 smoveto
+%%     0 2 360 {
+%%      /x exch def
+%%      x cos 2 mul
+%%      x sin 2 mul
+%%      slineto
+%%     } for
+%%     ](1,1,2)
+%%  \end{verbatim}
+%%  \end{minipage}
+%\end{tabular}
+%\end{center}
+
+%\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+%\begin{tabular}{>{\bfseries\sffamily\color{blue}}lcm{4cm}m{6cm}}
+\begin{tabular}{
+   >{\bfseries\sffamily\color{blue}} l
+   >{\centering} m{4cm} m{4cm} m{5cm}}
+  \hline
+\toptableau
+\\\hline
+   \Index{Surface}
+      &
+     \begin{tabular}{l}
+     see the related \\
+     paragraph in the \\
+     documentation
+     \end{tabular}
+     &
+\begin{pspicture}(-2,-3)(3,3)
+\psset{unit=0.4cm,lightsrc=30 30 25,viewpoint=50 40 30 rtp2xyz,Decran=50}
+\psSurface[ngrid=.25 .25,incolor=white,axesboxed](-4,-4)(4,4){%
+   x dup mul y dup mul 3 mul sub x mul 32 div}
+\end{pspicture}
+ &
+ \begin{minipage}{5cm}
+ \begin{verbatim}
+\psSurface[ngrid=.25 .25,
+  incolor=white,axesboxed]
+  (-4,-4)(4,4){%
+  x dup mul y dup mul 3 mul
+  sub x mul 32 div}
+ \end{verbatim}
+ \end{minipage}
+\\\hline
+%
+   \Index{New}
+      &
+     \begin{tabular}{l}
+     solid defined\\
+     by the coordinates \\
+     of the vertices\\
+     and the vertices\\
+     of each face
+     \end{tabular}
+     &
+
+\begin{pspicture}(-2,-2)(2,4)
+\psset{unit=0.4cm}
+\psset{viewpoint=50 -20 30 rtp2xyz,Decran=50}
+\psSolid[object=new,
+         action=draw,
+         sommets=
+         2  4  3
+        -2  4  3
+        -2 -4  3
+         2 -4  3
+         2  4  0
+        -2  4  0
+        -2 -4  0
+         2 -4  0
+         0  4  5
+         0 -4  5,
+    faces={
+        [0 1 2 3]
+        [7 6 5 4]
+        [0 3 7 4]
+        [3 9 2]
+        [1 8 0]
+        [8 9 3 0]
+        [9 8 1 2]
+        [6 7 3 2]
+        [2 1 5 6]},
+        num=all,
+      show=all]%
+\axesIIID(0,0,0)(5,5,7)
+\end{pspicture}
+ &
+ \begin{minipage}{5cm}
+ \begin{verbatim}
+ \psSolid[object=new,
+         action=draw,
+         sommets=
+         2  4  3
+        -2  4  3
+        -2 -4  3
+         2 -4  3
+         2  4  0
+        -2  4  0
+        -2 -4  0
+         2 -4  0
+         0  4  5
+         0 -4  5,
+    faces={
+        [0 1 2 3]
+        [7 6 5 4]
+        [0 3 7 4]
+        [3 9 2]
+        [1 8 0]
+        [8 9 3 0]
+        [9 8 1 2]
+        [6 7 3 2]
+        [2 1 5 6]}]%
+ \end{verbatim}
+ \end{minipage}
+\\\hline
+%
+   \Index{Curve}
+      &
+     \begin{tabular}{l}
+     curve of a function\\
+     $\mathbb{R} \rightarrow \mathbb{R}^3$\\
+     defined by its\\
+     paramterised equations\\
+     \end{tabular}
+     &
+
+\begin{pspicture}(-2,-1)(1.75,2.7)
+\psset{unit=0.35cm}
+\psset{lightsrc=10 -20 50,viewpoint=50 -20 20 rtp2xyz,Decran=50}
+%\psframe*[linecolor=blue!50](-6,-3)(6,8)
+\psSolid[object=grille,base=-4 4 -4 4,linecolor=red,linewidth=0.5\pslinewidth]%
+\axesIIID(0,0,0)(4,4,7)
+\defFunction[algebraic]{helice}(t){3*cos(4*t)}{3*sin(4*t)}{t}
+\psSolid[object=courbe,r=0,
+        range=0 6,
+        linecolor=blue,linewidth=0.1,
+        resolution=360,
+        function=helice]%
+\end{pspicture}
+ &
+ \begin{minipage}{5cm}
+% \footnotesize
+ \begin{verbatim}
+\defFunction[algebraic]%
+   {helice}(t)
+   {3*cos(4*t)}{3*sin(4*t)}{t}
+\psSolid[object=courbe,r=0,
+   range=0 6,
+   linecolor=blue,
+   linewidth=0.1,
+   resolution=360,
+   function=helice]%
+ \end{verbatim}
+ \end{minipage}
+\\\hline
+%%    courbeR2
+%%       &
+%%      \begin{tabular}{l}
+%%      trac\'{e} d'une fonction\\
+%%      R --> R\textsuperscript{2}\\
+%%      d\'{e}finie par ses\\
+%%      \'{e}quations param\'{e}triques\\
+%%      \end{tabular}
+%%      &
+%% \psset{unit=0.4cm}
+%% \begin{pspicture}(-6,-7)(6,6)
+%% \psframe*[linecolor=yellow!50](-6,-6)(6,6)
+%% \psset{SphericalCoor,viewpoint=50 -20 30,Decran=50}
+%% {\psset{linewidth=0.5\pslinewidth,linecolor=gray}
+%% \psSolid[object=grille,base=-4 4 -4 0,RotX=90,RotZ=90]%
+%% \psSolid[object=grille,base=-4 4 -4 4]%
+%% \psSolid[object=grille,base=-4 4 0 4,RotX=90,RotZ=90]}
+%% \defFunction{parabole}(t){t}{t dup mul}{}
+%% \defFunction{droite}(t){t}{t 2 add }{}
+%% \axesIIID(0,0,0)(4,4,4)
+%% \psProjection[object=chemin,
+%%       linewidth=.1,
+%%       linecolor=blue,
+%%       normal=0 1 0 1 0 0,
+%%       path=
+%%          newpath
+%%             0 0 moveto
+%%             1 0 lineto]
+%% \psProjection[object=chemin,
+%%       linewidth=.1,
+%%       linecolor=red,
+%%       normal=0 1 0 1 0 0,
+%%       path=
+%%          newpath
+%%             0 0 moveto
+%%             0 1 lineto]
+%% \psProjection[object=courbeR2,
+%%    range=-1 2,fillstyle=vlines,hatchwidth=0.5\pslinewidth,
+%%    normal=0 1 0 1 0 0,
+%%    function=parabole]
+%% \psProjection[object=courbeR2,
+%%    range=-2 2,
+%%    linecolor=green,
+%%    normal=0 1 0 1 0 0,
+%%    function=parabole]
+%% \psProjection[object=courbeR2,
+%%    range=-2 2 ,
+%%    linecolor=red,
+%%    normal=0 1 0 1 0 0,
+%%    function=droite]
+%% \psPoint(0,0,4.15){Z1}
+%% \uput*[60](Z1){$z=y^2$}
+%% \rput(0,-6.5){\psframebox[linecolor=yellow!50]{\texttt{$\backslash${}defFunction\{parabole\}(t)\{t\}\{t dup mul\}\{\}}}}
+%% \end{pspicture}
+%%  &
+%%  \begin{minipage}{6cm}
+%%  \footnotesize
+%%  \begin{verbatim}
+%% \psProjection[object=courbeR2,
+%%    range=-2 2,
+%%    linecolor=green,
+%%    normal=0 1 0 1 0 0,
+%%    function=parabole]
+%%  \end{verbatim}
+%%  \end{minipage}
+%% \\\hline
+\end{tabular}
+\end{center}
+
+Some information about rings and parallelepipeds is available in the documents:
+\begin{itemize}
+  \item \texttt{doc-grille-parallelepiped.tex(.pdf)};
+  \item \texttt{doc-anneau.tex(.pdf).}
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newpage
+
+\endinput

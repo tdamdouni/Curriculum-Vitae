@@ -1,0 +1,34 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{166.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-plot}
+\StopShownPreambleCommands
+\begin{document}
+\psset{xunit=0.1mm,labelFontSize=\scriptstyle}
+\begin{pspicture}(-80,-1.25)(410,1.25)
+ \psaxes[Dx=90,Dy=0.5,labelFontSize=\scriptstyle,
+   showorigin=false]{->}(0,0)(0,-1)(390,1.25)
+ \uput{.3}[0](370,0){$\alpha$}\uput{.3}[0](0,1){y}
+ \psplot[plotstyle=curve,
+   linewidth=1.5pt]{-10}{370}{x sin}
+ \rput[l](180,0.75){$y=\sin x$}
+\end{pspicture}
+\end{document}

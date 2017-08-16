@@ -1,0 +1,133 @@
+%
+% Example for a Presentation with LaTeX
+% Gerrit Hirschfeld
+% Version: 02/2011
+% Note: no R-code
+
+%Latex-settings
+\documentclass{beamer}					%If you want slides
+%\documentclass[handout]{beamer}		%If you want handouts (= without animation) uncomment the next three lines 
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{2 on 1}[a4paper,border shrink=5mm]
+%\usepackage[ngerman]{babel}				%German Umlauts etc.
+\usepackage[utf8]{inputenc}				%Mac
+\usepackage{amsmath,amsfonts,amssymb}	%Symbols
+\usepackage[hyper,notocbib]{apacite}				%Citations 
+\bibliographystyle{apacite}				%APA-Style
+
+
+%Beamer-settings
+%\setbeamertemplate{navigation symbols}{}	%uncomment to remove the navigaton
+\usetheme{Warsaw}						%a popular theme 
+\usecolortheme{crane}					%yellowish-colors
+\useinnertheme{rectangles}				%changes the header and footer
+\useoutertheme{infolines}					%where to put the structure
+\titlegraphic{\includegraphics[width=0.8\textwidth]{logo.jpg}}	%your logo
+
+
+%
+% The Document begins...
+%
+\begin{document}
+
+%Title-slide
+\title[Beamer-Example]{Some simple example slides generated with latex and the beamer class - Does not contain R-code-chunks, yet...}
+\author[Dr. Hirschfeld]{Dr. rer. nat. Gerrit Hirschfeld, Dipl.-Psych.}
+\institute[VIKP]{Vodafone Stiftungsinstitut für Kinderschmerztherapie und
+Pädiatrische Palliativmedizin \\  Vestische Kinder und Jugendklinik Datteln }
+\date{\today} 
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+%Table Of Contents (TOC)
+\begin{frame}\frametitle{}
+	\tableofcontents
+	%[pausesections]					%For an animated TOC
+\end{frame} 
+
+
+%Set-up the sections and subsections
+\section{General Introduction} 
+\subsection{Slides with bullets}
+
+%Slide 1
+\begin{frame}\frametitle{Slides with several blocks}
+	non-block
+	\begin{itemize}
+	\item Item 1	
+	\item Item 2
+	\item Item 3
+	\end{itemize}
+	\begin{block}{Block 1: Bullets }
+		\begin{itemize}
+		\item Item 1
+		\item Item 2
+		\item Item 3
+		\end{itemize}
+	\end{block}
+	\pause							%to "animate" the slides (everything after is only shown after a click)
+	\begin{block}{Block 2 numbered}
+		\begin{enumerate}
+		\item Item 1
+		\item Item 2
+		\item Item 3
+		\end{enumerate}
+	\end{block}
+\end{frame}
+
+%More complex slide with columns and a graphic
+\begin{frame}\frametitle{Results}
+\begin{columns}
+\begin{column}{0.6\textwidth}
+	\begin{block}{behavior-only}
+	Blabub \cite{Hirschfeld2010,Hirschfeld2011,Thielsch2010}.
+	\end{block}
+	\begin{block}{EEG}
+	\cite{Hirschfeld2008}
+	\end{block}
+	\begin{block}{MEG}
+	\cite{Hirschfeld2011a}
+	\end{block}
+\end{column}
+\begin{column}{0.3\textwidth}
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+	\centering
+	\includegraphics[width=\textwidth]{hirschfeld_2011}
+	\caption{Hirschfeld et al. 2011}
+\end{figure}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}\frametitle{}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+	\begin{block}{Thank you for your attention!}
+	\end{block}
+\end{column}
+\end{columns}
+\end{frame}
+
+%more sections and subsections without slides
+\section{Experiment 1}
+\subsection{Method}
+\subsection{Results}
+\subsection{Discussion}
+\section{Experiment 2}
+\subsection{Method}
+\subsection{Results}
+
+
+\subsection{Discussion}
+\section{General Diskussion}
+
+%References
+\begin{frame}[allowframebreaks]				%autmatically breaks the slides
+\frametitle{References}
+\bibliography{references}
+\end{frame}
+
+
+\end{document}

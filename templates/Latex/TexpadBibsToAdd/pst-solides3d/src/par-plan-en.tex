@@ -1,0 +1,364 @@
+\section{The object \texttt{plan}}
+
+\subsection{Presentation: type \texttt{plan\/} and type \texttt{solid} }
+
+The  object
+\Lkeyval{plan} is special in
+\texttt{pst-solides3d}. However, all the objects presented until now have had a common structure:
+ they are of type \verb+solid+: in other words, they are defined by a list of vertices, faces and colours.
+
+For many applications, it is necessary to have some additional information for a \Index{plane}: an origin, an
+orientation, a reference base etc.
+
+To fulfill all these requirements, another
+data structure of type \Lkeyval{plan} was created, which allows one to save all this necessary information. These manipulations of the plane will be controlled
+by such an object.
+Only when rendering takes place will an object of type \Lkeyval{plan} be converted to an object of type \verb+solid+ which conforms to the macro \Lcs{psSolid}.
+
+An object of type \Lkeyval{plan} is used to describe an oriented affine plane.
+For a complete definition of such an object,
+ an origin
+$I$, a basis $(\vec u, \vec v)$ for that plane, a scaling of the axis $(I, \vec u)$ and a scaling of the axis
+$(I, \vec v)$ are needed.
+In addition, we can specify the fineness of the grid---in other words, the number of faces---used to represent that portion of the affine plane
+while transforming in an object of the type \verb+solid+.%I'm confused by this last phrase.
+
+This type of object can be used to define planes of section; it is then necessary to define a plane for projection.%check if this keeps your sense
+
+Its usage is quite easy to understand for users of PSTricks.
+The only thing that you need to know is that, if we manipulate a
+\texttt{\Lkeyword{object}=\Lkeyval{plan}} with the macro \Lcs{psSolid}, we manipulate two objects at the same time: one of type \Lkeyval{plan} and
+the other of type \verb+solid+. When we select a backup
+of that object (see chapter ``\textit{Advanced usage}'') with the name $monplan$ for example with the option \texttt{\Lkeyword{name}=monplan}, there are
+in fact 2 backups that are effected.
+The first, with the name \texttt{monplan}, is an object of  type \Lkeyval{plan}, and the second, with the name \texttt{monplan\_s}, is an object of  type \verb+solid+.
+
+
+\subsection{Defining an oriented plane}
+
+To generate such an object, one uses \texttt{\Lkeyword{object}=\Lkeyval{plan}} which comes with a few arguments:
+
+\begin{itemize}
+
+\item \Lkeyword{definition} which specifies the method to defining the plane.
+
+\item \Lkeyword{args} which specifies the necessary arguments for the method chosen.
+
+\item \texttt{\Lkeyword{base}=$xmin$ $xmax$ $ymin$ $ymax$} which specifies the dimensions of each axis.
+
+\item \verb+[phi]+ (value $0$ by default) which specifies the angle of rotation (in degrees) of the plane around its normal.
+
+
+
+\end{itemize}
+
+\subsection{Special options}
+
+The object \verb+plan+ comes with some special options for  viewing:
+\begin{itemize}
+\item \Lkeyword{planmarks} which shows axes and scaling (with ticks),
+\item \Lkeyword{plangrid} which shows the grid,
+\item \Lkeyword{showbase} which shows the basis vectors for the plane, and
+\item \Lkeyword{showBase} (note the capital letters) which shows the basis vectors of the plane
+and draws the associated normal vector.
+\end{itemize}
+These options apply regardless of the method of definition of the plane.
+
+\begin{center}
+\psset{unit=0.4}
+\psset{viewpoint=10 18 60 rtp2xyz,Decran=10,fontsize=10}
+\begin{pspicture*}(-5,-4)(6,4)
+\psframe(-5,-4)(5,3)
+\psSolid[object=plan,
+   definition=equation,
+   args={[0 0 1 0]},
+   fillcolor=Aquamarine,
+   base=-2.2 2.2 -3.2 3.2]
+\end{pspicture*}
+%%
+\psset{unit=1}
+\psset{viewpoint=10 18 60 rtp2xyz,Decran=10,fontsize=10}
+\begin{pspicture*}(-5,-4)(6,4)
+\psframe(-5,-4)(5,3)
+\psSolid[object=plan,
+   definition=equation,
+   args={[0 0 1 0]},
+   fillcolor=Aquamarine,
+   base=-2.2 2.2 -3.2 3.2,
+   planmarks]
+\end{pspicture*}
+%%
+\psset{unit=1}
+\psset{viewpoint=10 18 60 rtp2xyz,Decran=10,fontsize=10}
+\begin{pspicture*}(-5,-4)(6,4)
+\psframe(-5,-4)(5,3)
+\psSolid[object=plan,
+   definition=equation,
+   args={[0 0 1 0]},
+   fillcolor=Aquamarine,
+   base=-2.2 2.2 -3.2 3.2,
+   plangrid]
+\end{pspicture*}
+%%
+\psset{unit=1}
+\psset{viewpoint=10 18 60 rtp2xyz,Decran=10,fontsize=10}
+\begin{pspicture*}(-5,-4)(6,4)
+\psframe(-5,-4)(5,3)
+\psSolid[object=plan,
+   definition=equation,
+   args={[0 0 1 0]},
+   fillcolor=Aquamarine,
+   base=-2.2 2.2 -3.2 3.2,
+   showbase]
+\end{pspicture*}
+%%
+\psset{unit=1}
+\psset{viewpoint=10 18 60 rtp2xyz,Decran=10,fontsize=10}
+\begin{pspicture*}(-5,-4)(6,4)
+\psframe(-5,-4)(5,3)
+\psSolid[object=plan,
+   definition=equation,
+   args={[0 0 1 0]},
+   fillcolor=Aquamarine,
+   base=-2.2 2.2 -3.2 3.2,
+   showBase]
+\end{pspicture*}
+%%
+\psset{unit=1}
+\psset{viewpoint=10 18 60 rtp2xyz,Decran=10,fontsize=10}
+\begin{pspicture*}(-5,-4)(6,4)
+\psframe(-5,-4)(5,3)
+\psSolid[object=plan,
+   definition=equation,
+   args={[0 0 1 0]},
+   fillcolor=Aquamarine,
+   base=-2.2 2.2 -3.2 3.2,
+   plangrid,
+   showBase,
+   action=none
+]
+\end{pspicture*}
+\end{center}
+
+These options can be used, even if the plane is not drawn.
+
+\subsection{Defining a plane with a cartesian equation}
+
+The \textit{cartesian equation} of a plane is of the form
+\[
+   ax+by+cz+d=0
+\]
+The coefficients $a$, $b$, $c$ and $d$ determine an affine plane.
+
+\subsubsection{Usage with default orientation and origin}
+
+To define an affine plane, we can use
+\texttt{\Lkeyword{definition}=\Lkeyval{equation}}, and \texttt{\Lkeyword{args}=\{[$a$ $b$ $c$
+$d$]\}}. The orientation and origin of the affine plane must be given.
+
+For example, the quadruple $(a, b, c, d) = (0, 0, 1, 0)$ determines
+the plane with the equation $z=0$:
+
+\begin{LTXexample}[width=6.5cm]
+\psset{viewpoint=10 18 60 rtp2xyz,Decran=10,
+  fontsize=10,unit=0.65}
+\begin{pspicture*}(-5,-4)(5,4)
+\psSolid[object=plan,
+   definition=equation,
+   args={[0 0 1 0]},
+   fillcolor=Aquamarine,
+   planmarks,
+   base=-2.2 2.2 -3.2 3.2,
+   showbase]
+\axesIIID(0,0,0)(2.2,3.2,4)
+\end{pspicture*}
+\end{LTXexample}
+
+The parameter \texttt{\Lkeyword{base}=$xmin$ $xmax$ $ymin$ $ymax$} specifies the extent along each axis.
+
+\subsubsection{Specifying the origin}
+
+The parameter \texttt{\Lkeyword{origine}=$x_0$ $y_0$ $z_0$} specifies
+the origin of the affine plane.
+If the chosen point $(x_0, y_0, z_0)$ doesn't fit the equation of the plane, it will be ignored.% The meaning of this is unclear to me.
+
+For example, a plane with the equation $z=0$ for which $(1, 2, 0)$ has been chosen as a possible origin:%(finish the sentence---it does what?)
+
+
+\begin{LTXexample}[width=6.5cm]
+\psset{viewpoint=10 18 60 rtp2xyz,Decran=10,
+  fontsize=10,unit=0.65cm}
+\begin{pspicture*}(-4,-5.5)(6,4)
+\psSolid[object=plan,
+   definition=equation,
+   args={[0 0 1 0]},
+   fillcolor=Aquamarine,
+   origine=1 2 0,
+   base=-2.2 2.2 -3.2 3.2,
+   planmarks]
+\axesIIID(0,0,0)(2.2,3.2,4)
+\end{pspicture*}
+\end{LTXexample}
+
+
+\subsubsection{Specifying the orientation}
+
+If the chosen orientation is unsatisfactory,
+we can specify an angle of rotation $\alpha $ (in degrees) around the normal of the plane with the syntax
+\texttt{\Lkeyword{args}=\{[a b c d] $\alpha $\}}.
+
+
+\begin{LTXexample}[width=6.5cm]
+\psset{viewpoint=10 18 60 rtp2xyz,
+  Decran=10,fontsize=10,unit=0.65cm}
+\begin{pspicture*}(-5,-4)(5,4)
+\psSolid[object=plan,
+   definition=equation,
+   args={[0 0 1 0] 90},
+   fillcolor=Aquamarine,
+   base=-2.2 2.2 -3.2 3.2,
+   planmarks]
+\axesIIID(0,0,0)(3.2,2.2,4)
+\end{pspicture*}
+\end{LTXexample}
+
+
+\subsection{Defining a plane using a normal vector and a point}
+
+It is also possible to define a plane by giving a point and a normal vector.
+ In this case one uses the parameter \texttt{\Lkeyword{definition}=\Lkeyval{normalpoint}}.
+
+If wanted, we can specify the orientation, but it can be omitted.
+
+\subsubsection{First Method: orientation Unspecified}
+
+We use \texttt{\Lkeyword{args}=\{$x_0$ $y_0$ $z_0$ [$a$ $b$ $c$]\}} where $(x_0,
+y_0, z_0)$ is the origin of the affine plane, and $(a, b, c)$ is a vector normal to that plane.
+
+
+\begin{LTXexample}[width=6.5cm]
+\psset{viewpoint=10 18 60 rtp2xyz,
+  Decran=10,fontsize=10,unit=0.65cm}
+\begin{pspicture*}(-5,-4)(5,4)
+\psSolid[object=plan,
+   definition=normalpoint,
+   args={0 0 0 [0 0 1]},
+   fillcolor=Aquamarine,
+   planmarks,
+   base=-2.2 2.2 -3.2 3.2,
+   showbase]
+\axesIIID(0,0,0)(2.2,3.2,4)
+\end{pspicture*}
+\end{LTXexample}
+
+
+\subsubsection{Second Method: Specifying an angle of rotation}
+
+We use \texttt{\Lkeyword{args}=\{$x_0$ $y_0$ $z_0$ [$a$ $b$ $c$ $\alpha
+$]\}} where $(x_0, y_0, z_0)$ is the origin of the affine plane, $(a, b,
+c)$ a normal vector of that plane, and $\alpha $ the angle of rotation (in
+degrees) around the normal vector of that plane.
+
+
+
+\begin{LTXexample}[width=6.5cm]
+\psset{viewpoint=10 18 60 rtp2xyz,
+  Decran=10,fontsize=10,unit=0.65}
+\begin{pspicture*}(-5,-4)(5,4)
+\psSolid[object=plan,
+   definition=normalpoint,
+   args={0 0 0 [0 0 1 45]},
+   fillcolor=Aquamarine,
+   planmarks,
+   base=-2.2 2.2 -3.2 3.2,
+   showbase]
+\axesIIID(0,0,0)(2.2,3.2,4)
+\end{pspicture*}
+\end{LTXexample}
+
+
+\subsubsection{Third Method: Specifying the first basis vector}
+
+We use \texttt{\Lkeyword{args}=\{$x_0$ $y_0$ $z_0$ [$u_x$ $u_y$ $u_z$ $a$ $b$
+$c$ ]\}} where $(x_0, y_0, z_0)$ is the origin of the affine plane,
+$(a, b, c)$ a normal vector of that plane, and $(u_x, u_y, u_z)$ the first basis vector for that plane.
+
+
+\begin{LTXexample}[width=6.5cm]
+\psset{viewpoint=10 18 60 rtp2xyz,
+  Decran=10,fontsize=10,unit=0.65cm}
+\begin{pspicture*}(-5,-4)(5,4)
+\psSolid[object=plan,
+   definition=normalpoint,
+   args={0 0 0 [1 1 0 0 0 1]},
+   fillcolor=Aquamarine,
+   planmarks,
+   base=-2.2 2.2 -3.2 3.2,
+   showbase,
+]
+\axesIIID(0,0,0)(2.2,3.2,4)
+\end{pspicture*}
+\end{LTXexample}
+
+
+\subsubsection{Fourth Method: Specifying the first basis vector and an angle of rotation}
+
+We use \texttt{\Lkeyword{args}=\{$x_0$ $y_0$ $z_0$ [$u_x$ $u_y$ $u_z$ $a$ $b$
+$c$ $\alpha $]\}} where $(x_0, y_0, z_0)$ is the origin of the affine plane,
+$(a, b, c)$ is a normal vector of that plane, $(u_x, u_y, u_z)$ is the first basis vector for that plane and $\alpha $ (in degrees) is a rotation around the axis of the normal vector.
+
+
+\begin{LTXexample}[width=6.5cm]
+\psset{viewpoint=10 18 60 rtp2xyz,
+  Decran=10,fontsize=10,unit=0.65cm}
+\begin{pspicture*}(-5,-4)(5,4)
+\psSolid[object=plan,
+   definition=normalpoint,
+   args={0 0 0 [1 1 0 0 0 1 45]},
+   fillcolor=Aquamarine,
+   planmarks,
+   base=-2.2 2.2 -3.2 3.2,
+   showbase]
+\axesIIID(0,0,0)(2.2,3.2,4)
+\end{pspicture*}
+\end{LTXexample}
+
+
+\subsection{Defining a plane from a face of a solid}
+
+We use \texttt{\texttt{\Lkeyword{definition}=\Lkeyval{solidface}}} with the arguments
+\texttt{\texttt{\Lkeyword{args}=$name$ $i$}} where $name$ is the name of the designated solid and
+$i$ is the index of the face. The origin is taken as the centre of the chosen face.
+
+In the example below, the plane is defined through the face with the index 0 from the cube named $A$.
+
+
+\begin{LTXexample}[width=6.5cm]
+\psset{viewpoint=10 18 20 rtp2xyz,Decran=8}
+\begin{pspicture}(-3.5,-2)(3,2.5)
+\psset{solidmemory}
+\psSolid[object=cube,a=2,fontsize=20,numfaces=all,name=A]
+\psSolid[object=plan,
+   definition=solidface,
+   args=A 0,
+   showBase]
+\end{pspicture}
+\end{LTXexample}
+
+If the user specifies the coordinates $(x, y, z)$ within the macro
+\verb+\psSolid[...](+$x,y,z$\verb+)+, a plane is generated parallel to the face with  index $i$ of the solid $name$, and translated to the point $(x, y, z)$ which now is taken as the origin.
+
+
+\begin{LTXexample}[width=6.5cm]
+\psset{viewpoint=10 18 20 rtp2xyz,Decran=8}
+\begin{pspicture}(-3.5,-1.5)(3,3)
+\psset{solidmemory}
+\psSolid[object=cube,a=2,fontsize=20,numfaces=all,name=A]
+\psSolid[object=plan,
+   definition=solidface,
+   args=A 0,
+   showBase](0,0,2)
+\end{pspicture}
+\end{LTXexample}
+
+\endinput

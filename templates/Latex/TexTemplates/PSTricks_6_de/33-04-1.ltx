@@ -1,0 +1,51 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\StartShownPreambleCommands
+\usepackage[dvipsnames]{pstricks}
+\usepackage{gastex}
+\StopShownPreambleCommands
+\begin{document}
+\psset{unit=2.5pt}
+\begin{pspicture}(-35,-37)(85,15)
+  \node[Nw=16,linecolor=Yellow,fillcolor=Yellow](A)(-20,0){initial}
+  \imark[iangle=200,linecolor=Peach](A)
+  \node[Nmr=0,Nw=14,fillgray=0.85,
+        dash={1}0](B)(20,0){\textcolor{RedViolet}{final}}
+  \fmark[flength=10,fangle=-30,dash={3 1 1 1}0](B)
+  \node[Nadjust=wh,Nadjustdist=2,Nmr=3,Nmarks=r,linecolor=Green](C)(60,-20){%
+    $\left(\begin{array}{ccc}
+         2 &  1 & 0  \\
+        -1 &  0 & 1  \\
+         0 & -1 & 2
+    \end{array}\right)$}
+  \rmark[linecolor=Green,rdist=1.4](C)
+  \drawedge[curvedepth=5,linecolor=Red](A,B){\textcolor{Cyan}{curved}}
+  \drawedge[ELside=r,ELpos=35](A,B){straight}
+  \drawedge[curvedepth=-25,ELside=r,dash={1.5}0](A,B){far}
+  \drawloop[ELpos=75, loopangle=150, dash={0.2 0.5}0](A){loopCW}
+  \drawloop[loopCW=n,ELside=r,loopangle=30,dash={3 1.5}{1.5}](B){loopCCW}
+  \drawqbpedge[ELside=r,ELdist=0,dash={4 1 1 1}0](B,-90,C,180){qbpedge}
+  \drawloop[ELpos=70,loopangle=0](C){$b / 01$}
+  \drawloop[loopCW=n,ELpos=75,ELside=r,loopangle=-90,sxo=6](C){$a / 01$}
+  \drawloop[ELpos=75,loopangle=-90,sxo=-6](C){$b / 10 $}
+  \drawloop[loopangle=50](C){$b / 01$}
+  \drawloop[ELpos=75,loopangle=148](C){$b / 01$}
+\end{pspicture}
+\end{document}

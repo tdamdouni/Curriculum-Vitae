@@ -1,0 +1,29 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{pst-osci}
+\StopShownPreambleCommands
+\begin{document}
+\psscalebox{0.5}{\Oscillo[amplitude1=3.5,phase1=90,amplitude2=3.5,
+  period1=50,period2=50,Lissajous=true,damping1=0.01,damping2=0.01]}~
+\psscalebox{0.5}{\Oscillo[amplitude1=4,amplitude2=3,period1=25,
+  period2=50,Lissajous=true,damping1=0.02,Wave2=\TriangleB]}
+\end{document}

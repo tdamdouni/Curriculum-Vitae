@@ -1,0 +1,605 @@
+%!TEX TS-program = pdflatex
+%!TEX encoding = UTF-8 Unicode
+\documentclass[latin1,german]{europecv}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+%\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{maltese}
+
+
+\usepackage[a4paper,left=2cm,right=2cm,top=2cm,bottom=3cm]{geometry}
+
+\usepackage{ifpdf}
+\usepackage[ngerman]{babel}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Grafiken einfügen                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifpdf
+    \usepackage[pdftex]{graphicx}
+\else
+     \usepackage{graphicx}
+\fi
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Hyperlinks                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{url}
+\ifpdf
+  \usepackage[pdftex,colorlinks]{hyperref}
+\else
+ \usepackage{hyperref}
+\fi
+
+
+\newcommand{\ecv}[1]{\texttt{\textbackslash ecv#1}}
+
+\title{\textsf{europecv}: eine inoffizielle Dokumentklasse\\
+für Europäische Lebensläufe}
+\author{\bf Nicola Vitacolonna\\
+        \href{mailto:vitacolo@dimi.uniud.it}{\texttt{vitacolo@dimi.uniud.it}}\\
+        Abteilung Mathematik und Computerwissenschaften\\
+        Universität Udine, Italien}
+\date{2006/04/24 (Beta-Version)\\
+Deutsche Übersetzung von Susanne Fischer (FSU Jena)}
+
+\hyphenation{europecv}
+
+\begin{document}
+
+\selectlanguage{ngerman}
+
+\maketitle
+
+\pagestyle{plain}
+
+
+\begin{abstract}
+Am 11. März 2002 legte die Europäische Kommission ein einheitliches Format für Lebensläufe fest. Diese Klasse ist eine inoffizielle \LaTeX{}-Anwendung dieses Formats. Obwohl es vor allem für Benutzer in der Europäischen Union bestimmt ist, kann die Klasse für alle Arten der Lebensläufe genutzt werden.
+\end{abstract}
+
+\section{Übersicht}
+
+Diese Klasse ist eine inoffizielle \LaTeX{}-Anwendung des Standardmodells des Lebenslaufes (dem \emph{Europass~Lebenslauf\/}), wie von der Europäischen Kommission empfohlen.\footnote{\url{http://europa.eu.int/scadplus/leg/en/cha/c11057.htm}.} Der Europass~Lebenslauf ersetzt den Europäischen Lebenslauf, eingeführt im Jahre~2002.
+
+Der Europass~Lebenslauf legt sowohl den Inhalt, als auch das Layout eines Lebenslaufes fest. Die \textsf{europecv}-Klasse bietet Unterstützung für Letzteres und für das Erste -- soweit vorhanden -- persönliche Informationen und beherrschte Sprachen. Falls Sie wissen möchten, wie der Inhalt eines Europass~Lebenslaufs strukturiert sein muss, lesen Sie die Dokumentation, welche auf der Europass-Website zur Verfügung gestellt wird.\footnote{\url{http://europass.cedefop.eu.int/htm/index.htm}.}
+
+Diese Klasse versucht so nah wie möglich am Standardmodell zu bleiben, ohne an Flexibilität einzubüßen. Obwohl sie in erster Linie für Benutzer in der Europäischen Union bestimmt ist, kann diese Klasse für alle Arten von Lebensläufen (möglich durch die Optionen \texttt{notitle} und \texttt{nologo}, siehe unten), oder sogar für andere Arten von Dokumenten benutzt werden. Zum Beispiel wurde der Schriftsatz dieser Datei als \textsf{europecv}-Klasse gesetzt. Die Quelldateien sind eingeschlossen in dieses Paket.
+\medskip
+
+Ein kleiner (leerer) Lebenslauf, sehr ähnlich der offiziellen Variante, kann durch den folgenden Code erhalten werden:
+\begin{quote}
+\begin{verbatim}
+\documentclass[helvetica,narrow]{europecv}
+\usepackage{graphicx} % benötigt, um das Logo zu setzen
+\begin{document}
+  \begin{europecv}
+  \end{europecv}
+\end{document}
+\end{verbatim}
+\end{quote}
+Dies erzeugt die folgende Ausgabe, welche nur den Titel \emph{title} (\glqq Europass Lebenslauf\grqq{}) trägt und das Logo des Europass:\footnote{Außerdem wird eine Fußzeile mit der Seitenzahl erzeugt, was hier jedoch nicht dargestellt wird.}
+\bigskip\medskip
+{
+\fontfamily{phv}\fontseries{mc}\selectfont
+\renewcommand{\bfdefault}{bc}
+\begin{europecv}
+\end{europecv}
+}
+
+Der Hauptunterschied, was das offizielle Modell anbelangt, ist der Gebrauch der Schriftart Helvetica (welche in jeder Standard-\LaTeX{}-Distribution vorhanden sein sollte) und der Gebrauch von Vektorgrafiken anstatt niedrig-auflösender Bitmaps.
+
+\section{Übersicht über die Klassenoptionen}
+
+Die folgenden Optionen können mit den \texttt{\textbackslash documentclass}-Optionen genutzt werden, zum Beispiel:
+\begin{quote}
+\texttt{\textbackslash documentclass[latin1,helvetica,narrow,italian,logo,notitle,totpages]\{europecv\}}
+\end{quote}
+\renewcommand*{\ecvtitle}{}
+\renewcommand*{\draweuropasslogo}{}
+\begin{europecv}
+\ecvsection{Zeichensatz}
+\ecvitem[10pt]{\textbf{wichtig!}}{Der Standard-Zeichensatz für die \textsf{europecv}-Klasse ist UTF-8. Falls Sie einen Unicode-fähigen Texteditor besitzen, sollte es Ihnen möglich sein, direkt Text mit Akzenten, Diakritika usw. zu setzen (zum Beispiel brauchen Sie keine \LaTeX{}-Kommandos für spezielle Schriftzeichen). Um dies zu benutzen, müssen Sie sicherstellen, dass Ihr Dokument mit UFT8-Codierung gespeichert ist. Als eine Alternative können Sie einen anderen Datensatz festlegen, der für Ihr Dokument codiert (siehe Optionen unten). Bitte nehmen Sie zur Kenntnis, dass \textsf{ucs} und \textsf{inputenc}-Pakete gebraucht werden, egal, welche Verschlüsselung Sie benutzen (siehe Kapitel ~\ref{sec:abhängigkeit}).}
+\ecvitem{\texttt{utf8}}{Wählt die UTF8-Codierung. Das ist der Standard.}
+\ecvitem[15pt]{andere Optionen}{Die anderen verfügbaren Verschlüsselungen sind: \texttt{ansinew}, \texttt{applemac}, \texttt{ascii}, \texttt{cp850}, \texttt{cp852}, \texttt{cp858}, \texttt{cp437}, \texttt{cp437de}, \texttt{cp865}, \texttt{cp866}, \texttt{cp1250}, \texttt{cp1251}, \texttt{cp1252}, \texttt{cp1257}, \texttt{decmulti}, \texttt{koi8-r}, \texttt{koi8-ru}, \texttt{koi8-u}, \texttt{latin1}, \texttt{latin2}, \texttt{latin3}, \texttt{latin4}, \texttt{latin5}, \texttt{latin9}, \texttt{latin10},   \texttt{maccyr}, \texttt{macukr}, \texttt{next}.}
+\ecvitem{Anmerkungen}{Alle der oben genannten Optionen werden verursacht durch das \textsf{inputenc}-Paket, das mit der festgelegten Verschlüsselung geladen wird,\footnote{\texttt{utf8} lädt \textsf{inputenc} mit der Option~\texttt{utf8x}.} sodass Sie das Paket nicht mehr in Ihrem Dokument laden müssen.}
+\ecvsection{Optionen für Schriftarten}
+\ecvitem{\texttt{helvetica}}{Verwendet Helvetica als Standard-Schriftart.}
+\ecvitem{\texttt{arial}}{Verwendet Arial als Standard-Schriftart. Um diese Option nutzen zu können, muss die Schriftart installiert und für \LaTeX{} zugänglich gemacht worden sein.
+
+Zu erklären, wie man Schriftarten in \LaTeX\ installiert, würde die Kapazitäten dieses Dokuments sprengen. Lesen Sie \emph{The Font Installation Guide}, welchen Sie bei CTAN finden können. Die \textsf{europecv}-Klasse setzt voraus, dass als Dateinamen \texttt{m} für den Anbieter (Monotype) und \texttt{a1} für die Schriftart (Arial) benutzt werden. Für mehr Informationen können Sie im \emph{Fontname}-Handbuch nachschlagen, das Sie bei CTAN finden können.}
+\ecvitem[15pt]{\texttt{narrow}}{Verwendet eine zusammengerückte Version der Schriftart. Diese Option muss entweder mit \texttt{helvetica} oder~\texttt{arial} benutzt werden.}
+\ecvitem{Anmerkungen}{Wenn keine Option festgelegt ist, wird \textsf{europecv} die aktuelle Schriftart benutzen.}
+
+\ecvsection{Sprachoptionen}
+\ecvitem[15pt]{\textbf{wichtig!}}{Die folgenden Optionen sind nicht verwandt mit \textsf{babel}. Beachten Sie die Anmerkungen am Ende dieser Liste.}
+\ecvitem{\texttt{bulgarian}}{Verwendet die bulgarische Sprache. Sie sollten das \textsf{fontenc}-Paket mit der~\texttt{T2A}-Option laden, oder eine gleichwertige Verschlüsselung (binden Sie \texttt{\textbackslash usepackage[T2A]\{fontenc\}} in die Präambel Ihres Dokuments ein). Ein Beispiel können Sie im \textsf{Beispiele}-Ordner finden. Natürlich müssen Sie auch kyrillische Schriftarten besitzen.}
+\ecvitem{\texttt{catalan}}{Verwendet die catalanische Sprache (die Übersetzung ist noch nicht vollständig).}
+
+\ecvitem{\texttt{czech}}{Verwendet die tschechische Sprache.}
+\ecvitem{\texttt{danish}}{Verwendet die dänische Sprache.}
+\ecvitem{\texttt{dutch}}{Verwendet die niederländische Sprache.}
+\ecvitem{\texttt{english}}{Verwendet die englische Sprache. Dies ist der Standard.}
+\ecvitem{\texttt{estonian}}{Verwendet die estnische Sprache.}
+\ecvitem{\texttt{french}}{Verwendet die französische Sprache.}
+\ecvitem{\texttt{finnish}}{Verwendet die finnische Sprache.}
+\ecvitem{\texttt{galician}}{Verwendet die galizische Sprache.}
+\ecvitem{\texttt{german}}{Verwendet die deutsche Sprache.}
+\ecvitem{\texttt{greek}}{Verwendet die griechische Sprache. Das \textsf{babel}-Paket muss mit mindestens griechischen und englischen Sprachoptionen in Ihr Dokument eingeschlossen sein (nehmen Sie \texttt{\textbackslash usepackage[greek,english]\{babel\}} in die Präambel Ihres Dokuments auf). Ein Beispiel können Sie im \textsf{Beispiele}-Ordner finden. Natürlich müssen Sie auch griechische Schriftarten besitzen.}
+\ecvitem{\texttt{hungarian}}{Verwendet die ungarische Sprache.}
+\ecvitem{\texttt{icelandic}}{Verwendet die isländische Sprache. Bitte nehmen Sie zur Kenntnis, dass diese Option nicht mit der~\texttt{OT1}-Verschlüsselung funktioniert. Benutzen Sie das \textsf{fontenc}-Paket, um zu einer anderen Schriftarten-Verschlüsselung zu wechseln, wie~\texttt{T1} (\texttt{\textbackslash usepackage[T1]\{fontenc\}} in der Präambel Ihres Dokumentes).}
+\ecvitem{\texttt{italian}}{Verwendet die italienische Sprache.}
+\ecvitem{\texttt{latvian}}{Verwendet die lettische Sprache.}
+\ecvitem{\texttt{lithuanian}}{Verwendet die litauische Sprache. Bitte nehmen Sie zur Kenntnis, dass diese Option nicht mit der~\texttt{OT1}-Verschlüsselung funktioniert. Benutzen Sie das \textsf{fontenc}-Paket, um zu einer anderen Schriftarten-Verschlüsselung zu wechseln, wie~\texttt{T1} (\texttt{\textbackslash usepackage[T1]\{fontenc\}} in der Präambel Ihres Dokumentes).}
+\ecvitem{\texttt{maltese}}{Verwendet maltesische Sprache (Die Übersetzung ist noch nicht vollständig). Sie sollten die \texttt{T4}-Schriftartenverschlüsselung aktivieren (wenden Sie \texttt{\textbackslash usepackage[T4]\{fontenc\}} in der Präambel Ihres Dokuments an), oder
+schließen Sie das \textsf{maltese}-Paket ein und verwenden Sie die Kommandos \texttt{\textbackslash mh}, \texttt{\textbackslash mH} usw. für~\mh, \mH\ etc. \ldots{} Einige Beispiele können Sie im Ordner 
+%\textsf{Beispiele} 
+einsehen.}
+\ecvitem{\texttt{norwegian}}{Verwendet die norwegische Sprache.}
+\ecvitem{\texttt{polish}}{Verwendet die polnische Sprache. Bitte nehmen Sie zur Kenntnis, dass diese Option nicht mit der~\texttt{OT1}-Verschlüsselung funktioniert. Benutzen Sie das \textsf{fontenc}-Paket, um zu einer anderen Schriftarten-Verschlüsselung zu wechseln, wie~\texttt{T1} (\texttt{\textbackslash usepackage[T1]\{fontenc\}} in der Präambel Ihres Dokumentes).}
+\ecvitem{\texttt{portuguese}}{Verwendet die portugiesische Sprache.}
+\ecvitem{\texttt{romanian}}{Verwendet die rumänische Sprache (Übersetzung ist noch nicht vollständig).}
+\ecvitem{\texttt{serbian}}{Verwendet die serbische Sprache.}
+\ecvitem{\texttt{slovak}}{Verwendet die slowakische Sprache.}
+\ecvitem{\texttt{slovenian}}{Verwendet die slowenische Sprache.}
+\ecvitem{\texttt{spanish}}{Verwendet die spanische Sprache.}
+\ecvitem[15pt]{\texttt{swedish}}{Verwendet die schwedische Sprache.}
+\ecvitem[15pt]{Anmerkungen}{Die Wahl der Sprache wirkt sich auf die Erscheinung des Titels aus (\glqq Europass Lebenslauf\grqq{}), den Abschnitt der persönlichen Informationen, die Tabelle der gesprochenen Sprachen und die Fußzeile mit der Seitenzahl aus. In manchen Fällen wird sie sich auch auf das benutzte Alphabet auswirken (z.\,B. in Bulgarisch).
+
+Wenn Sie die Silbentrennung für die gewählten Sprache(n) nutzen möchten, müssen Sie das \textsf{babel}-Paket in Ihrem Dokument aktivieren. Die Nutzung von \textsf{babel} ist obligatorisch für Griechisch (siehe bei Optionen der griechischen Sprache oben).
+
+Falls Sie eine andere Sprache brauchen, müssen Sie eine neue \texttt{.def}-Datei anlegen und die entsprechende \texttt{\textbackslash DeclareOption} in der Klassenoption aktivieren.}
+\ecvitem{Über unvollständige Übersetzungen}{Die Abschnitte, die als \glqq noch nicht vollständig\grqq{} markiert sind, fehlen die Übersetzungen der folgenden Punkte:
+\begin{itemize}
+\item \glqq Elementare Sprachverwendung\grqq{}
+\item \glqq Selbstständige Sprachverwendung\grqq{}
+\item \glqq Kompetente Sprachverwendung\grqq{}
+\end{itemize}
+Die oben genannten Wendungen werden von \glqq Selbstbeurteilung Europäische Kompetenzstufe\grqq{}-Kommandos benutzt (S.~\pageref{p:vordefiniert}), welches durch~\ecv{CEF} ersetzt werden kann.}
+
+\ecvsection{Flaggenoptionen}
+\ecvitem{\texttt{noflag}}{Nach dem Titel wird keine Flagge gesetzt. Das ist der Standard.}
+\ecvitem{\texttt{flagWB}}{Setzt folgende Flagge: \includegraphics[width=10mm]{EuropeFlagWB}  nach dem Titel.}
+\ecvitem{\texttt{flagBW}}{Setzt folgende Flagge: \includegraphics[width=10mm]{EuropeFlagBW}  nach dem Titel.}
+\ecvitem{\texttt{flagCMYK}}{Setzt folgende Flagge: \includegraphics[width=10mm]{EuropeFlagCMYK}  nach dem Titel.}
+\ecvitem[15pt]{\texttt{flagBlueCMYK}}{Setzt folgende Flagge: \includegraphics[width=10mm]{EuropeFlagBlueCMYK}  nach dem Titel.}
+\ecvitem{Anmerkungen}{Das \textsf{graphicx}-Paket muss in Ihr Dokument eingeschlossen werden, damit eine Flagge gesetzt wird. Das offizielle Modell des Europass~CV benutzt keine Flagge.}
+
+\ecvsection{Logo-Optionen}
+\ecvitem{\texttt{logo}}{Setzt das Europass-Logo: \includegraphics[width=10mm]{europasslogo} am Anfang des Europass~CV. Das ist der Standard.}
+\ecvitem[15pt]{\texttt{nologo}}{Setzt kein Europass Logo.}
+\ecvitem{Anmerkungen}{Das \textsf{graphicx}-Paket muss in Ihr Dokument eingeschlossen werden, damit ein Logo gesetzt wird.}
+
+\ecvsection{Titeloptionen}
+\ecvitem[15pt]{\texttt{notitle}}{Lässt den Titel (\glqq Europass Lebenslauf\grqq{}) am Beginn des Lebenslaufs weg.}
+\ecvitem{Anmerkungen}{Benutzer außerhalb der Europäischen Gemeinschaft, welche die \textsf{europecv}-Klasse nutzen wollen, sollten \texttt{notitle} und \texttt{nologo} zwischen den Klassenoptionen setzen.}
+
+\ecvsection{Seitennummerierung}
+\ecvitem[15pt]{\texttt{totpages}}{Druckt die gesamte Seitenanzahl auf jeder Seite.}
+\ecvitem{Anmerkung}{Diese Option benötigt das \textsf{totpages}-Paket. Das Aussehen der Seitennummerierung kann durch den Befehl~\ecv{page} verändert werden (siehe Kapitel \glqq Fußzeilen und Fußnoten\grqq{}.}
+
+\ecvsection{Tabelle der beherrschten Sprachen}
+\ecvitem[15pt]{\texttt{booktabs}}{Lädt das \textsf{booktabs}-Paket.}
+\ecvitem{Anmerkung}{Diese Option betrifft die Erscheinung der Tabelle der gesprochenen Sprachen (siehe S.~\pageref{gesprochen}).}
+\end{europecv}
+
+
+
+%\pagebreak
+\section{Übersicht über die Befehle}
+\begin{europecv}
+\ecvsection{Persönliche Informationen}
+\ecvitem{\ecv{name}\texttt{\{}\textit{Name}\texttt{\}}}{Setzt Ihren Namen auf \emph{Name}.}
+\ecvitem{\ecv{footername}\texttt{\{}\textit{Name}\texttt{\}}}{Setzt Ihren Namen so, wie in der Fußzeile erscheint. Im Standard ist dies derselbe Name, den Sie mit \ecv{name} gesetzt haben. Benutzen Sie \ecv{footername}, wenn Sie dies ändern wollen (beispielsweise, wenn Sie die Reihenfolge des Vor- und Nachnamens vertauschen wollen).}
+\ecvitem{\ecv{firstname}\texttt{\{}\textit{Vorname}\texttt{\}}}{\textbf{Veraltet.} Verwenden Sie \ecv{name} und \ecv{footername} stattdessen.}
+\ecvitem{\ecv{lastname}\texttt{\{}\textit{Nachname}\texttt{\}}}{\textbf{Veraltet.} Verwenden Sie \ecv{name} und \ecv{footername} stattdessen.}
+\ecvitem{\ecv{address}\texttt{\{}\textit{Adresse}\texttt{\}}}{Setzt die Adresse auf \emph{Adresse}.}
+\ecvitem{\ecv{telephone}\texttt{[}\textit{Handynummer}\texttt{]}
+\texttt{\{}\textit{Telefonnummer}\texttt{\}}}{Setzt die Telefonnummer auf \emph{Telefonnummer} und optional Ihre Handynummer auf~\emph{Handynummer}.}
+\ecvitem{\ecv{fax}\texttt{\{}\textit{Faxnummer}\texttt{\}}}{Setzt die Faxnummer auf \emph{Faxnummer}.}
+\ecvitem{\ecv{email}\texttt{\{}\textit{e-Mailadresse}\texttt{\}}}{Setzt die E-Mailadresse auf \emph{e-Mailadresse}.}
+\ecvitem{\ecv{nationality}\texttt{\{}\textit{Nationalität}\texttt{\}}}{Setzt die Nationalität auf \emph{Nationalität}.}
+\ecvitem{\ecv{dateofbirth}\texttt{\{}\textit{Geburtsdatum}\texttt{\}}}{Setzt das Geburtsdatum auf \emph{Geburtstdatum}.}
+\ecvitem{\ecv{gender}\texttt{\{}\textit{Geschlecht}\texttt{\}}}{Setzt das Geschlecht auf~\emph{Geschlecht}.}
+\ecvitem{\ecv{picture}\texttt{\{}\textit{Passbild}\texttt{\}}}{Setzt das persönliche Foto gespeichert unter dem Dateinamen \emph{Passbild}.}
+\ecvitem{\ecv{beforepicture}\texttt{\{}\textit{text}\texttt{\}}}{\textit{Text\/} wird vor dem Einfügen des Bildes eingeschlossen, wenn die persönlichen Informationen eingegeben sind.}
+\ecvitem{\ecv{afterpicture}\texttt{\{}\textit{text}\texttt{\}}}{\textit{Text\/} wird nach dem Einfügen des Bildes eingeschlossen, wenn die persönlichen Informationen eingegeben sind.}
+\ecvitem{\ecv{space}\texttt{\{}\textit{space}\texttt{\}}}{Diese Kommando kann \emph{nur} in \ecv{beforepicture} oder \ecv{afterpicture} genutzt werden, um das Bild vertikal zu bewegen oder den Text nach dem Bild zu setzen (siehe Beispiel oben).}
+\ecvitem[15pt]{\ecv{personalinfo}\texttt{[}\textit{vspace}\texttt{]}}{Setzt die persönlichen Informationen.}
+\ecvitem{Anmerkungen}{\ecv{personalinfo} darf nur in der \texttt{europecv}-Umgebung erscheinen. Kommandos, um die persönlichen Informationen zu definieren, können überall vor der \texttt{europecv}-Umgebung erscheinen, entweder in der Präambel oder im Dokument.
+
+Beachten Sie, dass das \ecv{picture}-Kommando keine Grafik setzt: Ihr Bild wird dann eingefügt, wenn \ecv{personalinfo} erscheint. Die Bildposition kann mit \ecv{beforepicture} kontrolliert werden: zum Beispiel setzt \ecv{beforepicture}\texttt{\{\textbackslash raggedright\}} das Bild links und \ecv{beforepicture}\texttt{\{\textbackslash centering\}} zentriert das Bild.
+
+Das \ecv{personalinfo}-Kommando hat ein optionales Argument, das aussagt, wie viel vertikaler Platz nach dem Block der persönlichen Informationen gelassen wird.}
+\end{europecv}
+
+
+Zum Beispiel betrachten Sie das folgende Dokument:
+\begin{quote}
+\begin{verbatim}
+\documentclass[helvetica,notitle,nologo]{europecv}
+\usepackage{graphicx}
+
+% Definition der persönlichen Angaben
+\ecvname{Turing, Alan Mathison}
+\ecvnationality{Britisch}
+\ecvdateofbirth{23. Juni 1912}
+\ecvbeforepicture{\raggedright}
+\ecvpicture[height=3cm]{Beispiele/at}
+
+\begin{document}
+  \begin{europecv}
+    \ecvpersonalinfo
+  \end{europecv}
+\end{document}
+\end{verbatim}
+\end{quote}
+Dies wird folgende Ausgabe erzeugen:
+
+{
+\ecvWithHorRule
+\ecvname{Turing, Alan Mathison}
+\ecvnationality{Britisch}
+\ecvdateofbirth{23. Juni 1912}
+\ecvbeforepicture{\raggedright}
+\ecvpicture[height=3cm]{Beispiele/at}
+\fontfamily{phv}\selectfont
+\begin{europecv}
+\ecvpersonalinfo
+\end{europecv}
+}
+
+Wenn Sie nicht so viel Platz verwenden wollen, sollten Sie einigen negativen Abstand mit \ecv{space} hinzufügen, um den Block der persönlichen Informationen anzuheben. In diesem Falle sollte das Bild ganz rechts angeordnet werden. Das Folgende ist ein Beispiel, das zeigt, wie man das Foto an den Rand des Blocks der persönlichen Informationen setzt:
+\begin{quote}
+\begin{verbatim}
+\documentclass[helvetica,notitle,nologo]{europecv}
+\usepackage{graphicx}
+
+\ecvname{Turing, Alan Mathison}
+\ecvnationality{Britisch}
+\ecvdateofbirth{23. Juni 1912}
+\ecvbeforepicture{\raggedleft}
+\ecvpicture[height=3cm]{Beispiele/at}
+\ecvafterpicture{\ecvspace{-3.5cm}}
+
+\begin{document}
+  \begin{europecv}
+    \ecvpersonalinfo
+  \end{europecv}
+\end{document}
+\end{verbatim}
+\end{quote}
+Die Ausgabe des obigen Codes sieht so aus:
+{
+\ecvWithHorRule
+\ecvname{Turing, Alan Mathison}
+\ecvnationality{Britisch}
+\ecvdateofbirth{23. Juni 1912}
+\ecvbeforepicture{\raggedleft}
+\ecvpicture[height=3cm]{Beispiele/at}
+\ecvafterpicture{\ecvspace{-3.5cm}}
+\fontfamily{phv}\selectfont
+\begin{europecv}
+\ecvpersonalinfo
+\end{europecv}
+}
+
+Beachten Sie, dass, wenn Ihre persönlichen Daten (beispielsweise Ihre Adresse) zu lang ist, der Text möglicherweise Ihr Bild überlappt. Eine (nicht so gute) Lösung ist, die Zeile  mit~\texttt{\textbackslash\textbackslash\&} (Backslash~--~Backslash~--~Und-Zeichen) umzubrechen.
+\medskip
+\bigskip
+
+%\ecvNoHorRule
+\begin{europecv}
+\ecvsection{Textaufteilung}
+\ecvitem{\ecv{section}\texttt{[}\textit{vspace}\texttt{]}\texttt{\{}\textit{Titel}\texttt{\}}}{Beginnt einen neuen Abschnitt. Zum Beispiel wurde dieser Abschnitt mit \ecv{section}\texttt{\{Textaufteilung\}} gesetzt.}
+\ecvitem{\ecv{item}\texttt{[}\textit{vspace}\texttt{]}\texttt{\{}\textit{links}\texttt{\}}\texttt{\{}\textit{rechts}\texttt{\}}}{Setzt den Text der Klammer \emph{links\/} auf die linke Seite der horizontalen Linie und den Text der Klammer \emph{rechts\/} auf die rechte Seite der horizontalen Linie.}
+\ecvitem[15pt]{\ecv{item*}\texttt{[}\textit{vspace}\texttt{]}\texttt{\{}\textit{links}\texttt{\}}\texttt{\{}\textit{rechts}\texttt{\}}}{\textbf{Veraltet}. Dasselbe wie oben, aber setzt einen Aufzählungspunkt vor den Text \emph{links\/}, wie im nächsten Eintrag.}
+\ecvitem*{Anmerkungen}{Textaufteilungs-Kommandos müssen innerhalb der \texttt{europecv}-Umgebung benutzt werden, und Text in der Umgebung sollte nur innerhalb eines Aufteilungskommandos gesetzt werden. Alle diese Kommandos haben ein optionales Argument, welches den vertikalen Platz \emph{hinter} dem Kommando gelassen werden soll. Zum Beispiel wurde der vorangegangene Eintrag spezifiziert durch
+\begin{quote}
+\ecv{item}\texttt{[15pt]\{...\}\{...\}}
+\end{quote}
+}
+\ecvsection{Beherrschte Sprachen}
+\ecvitem{\ecv{mothertongue}\texttt{[}\textit{vspace}\texttt{]} \texttt{\{}\textit{Sprache}\texttt{\}}}{Setzt die Muttersprache.}
+\ecvitem{\ecv{languageheader}\texttt{\{}\textit{Symbol}\texttt{\}}}{Setzt den Tabellenkopf der Sprachentabelle. Das Argument ist ein Symbol, das als Fußnotensymbol im Bezug auf den Fuß der Sprachentabelle benutzt wird (siehe unten).}
+\ecvitem{\ecv{languagefooter}\texttt{[}\textit{vspace}\texttt{]} \texttt{\{}\textit{Symbol}\texttt{\}}}{Setzt die Zeile \textit{Kompetenzstufe des gemeinsamen europäischen Referenzrahmens}. Falls vorhanden, sollte das Kommando nach allen Sprachbeschreibungen gesetzt werden. Das \textit{Symbol} sollte mit dem Argument von \ecv{languageheader} übereinstimmen.}
+\ecvitem{\ecv{language}\texttt{[}\textit{vspace}\texttt{]}\texttt{\{}\textit{l1}\texttt{\}}\texttt{\{}\textit{l2}\texttt{\}} \texttt{\{}\textit{l3}\texttt{\}}\texttt{\{}\textit{l4}\texttt{\}}\texttt{\{}\textit{l5}\texttt{\}}}{Setzt eine Zeile in der Sprachentabelle, die die Sprache beschreibt. Die Argumente \textit{l1} bis~\textit{l5} beziehen sich auf die Einträge in der Kopfzeile, diese sollten kurze Beschreibungen ähnlich der folgenden Fähigkeiten enthalten:
+\begin{description}
+\item[\textit{l1}:] Verstehen (Hören);
+\item[\textit{l2}:] Verstehen (Sprechen);
+\item[\textit{l3}:] Sprechen (An Gesprächen teilnehmen);
+\item[\textit{l4}:] Sprechen (Zusammenhängendes Sprechen);
+\item[\textit{l5}:] Schreiben.
+\end{description}
+Der Inhalt sollte gemäß der Richtlinien des Gemeinsamen Europäischen Referenzrahmens für Sprachen sein. Siehe Anhang~\ref{sec:selbsteinschätzung} als Verweis. Vorgefertigte Einträge sind unten definiert.}
+\ecvitem[15pt]{\ecv{lastlanguage}\texttt{[}\textit{vspace}\texttt{]}\texttt{\{}\textit{l1}\texttt{\}} \texttt{\{}\textit{l2}\texttt{\}}\texttt{\{}\textit{l3}\texttt{\}}\texttt{\{}\textit{l4}\texttt{\}}\texttt{\{}\textit{l5}\texttt{\}}}{Falls Sie die \texttt{booktabs}-Klassenoption festgelegt haben, sollten Sie \ecv{lastlanguage} verwenden, um die letzte Sprachbeschreibung zu setzen. Wenn Sie nicht die \texttt{booktabs}-Klassenoption verwenden, ist dies dasselbe wie \ecv{language}.}
+
+\ecvitem[15pt]{Anmerkungen}{Die oben genannten Kommandos (getrennt von \ecv{languageheader}) haben das optionale Argument \textit{vspace}, welches festlegt, wie viel vertikaler Platz nach dem Kommando gelassen werden soll.}
+\ecvitem{\ecv{CEF}\texttt{\{}\textit{Stufe}\texttt{\}}\texttt{\{}\textit{Beschr}\texttt{\}}}{Setzt einen Eintrag in der Tabelle, in welchem \textit{Stufe} die Selbstbeurteilung nach der Europäischen Kompetenzstufe ist und \textit{Beschr} eine Kurzbeschreibung dazu. Siehe Anhang~\ref{sec:selbsteinschätzung} als Verweis.}
+\label{p:vordefiniert}
+\ecvitem{\ecv{AOne}}{Vorgefertigte Niveaubeschreibung: Elementare Sprachverwendung~(A1).}
+\ecvitem{\ecv{ATwo}}{Vorgefertigte Niveaubeschreibung: Elementare Sprachverwendung~(A2).}
+\ecvitem{\ecv{BOne}}{Vorgefertigte Niveaubeschreibung: Selbstständige Sprachverwendung~(B1).}
+\ecvitem{\ecv{BTwo}}{Vorgefertigte Niveaubeschreibung: Selbstständige Sprachverwendung~(B2).}
+\ecvitem{\ecv{COne}}{Vorgefertigte Niveaubeschreibung: Kompetente Sprachverwendung~(C1).}
+\ecvitem{\ecv{CTwo}}{Vorgefertigte Niveaubeschreibung: Kompetente Sprachverwendung~(C2).}
+\end{europecv}
+
+Beispielsweise der folgende Code innerhalb einer \texttt{europecv}-Umgebung:
+\begin{verbatim}
+\ecvmothertongue[10pt]{Englisch}
+\ecvlanguageheader{(*)}
+\ecvlanguage{Französisch}{\ecvCOne}{\ecvCTwo}{\ecvBTwo}{\ecvCOne}{\ecvCTwo}
+\ecvlastlanguage{Deutsch}{\ecvATwo}{\ecvATwo}{\ecvATwo}{\ecvATwo}{\ecvATwo}
+\ecvlanguagefooter{(*)}
+\end{verbatim} 
+wird folgendes erstellen:
+\newpage
+\ecvNoHorRule
+\ecvLeftColumnWidth{3.3cm}
+{
+\fontfamily{phv}\selectfont
+\begin{europecv}
+\ecvmothertongue[10pt]{Englisch}
+\ecvlanguageheader{(*)}
+\ecvlanguage{Französisch}{\ecvCOne}{\ecvCTwo}{\ecvBTwo}{\ecvCOne}{\ecvCTwo}
+\ecvlanguage{Deutsch}{\ecvATwo}{\ecvATwo}{\ecvATwo}{\ecvATwo}{\ecvATwo}
+\ecvlanguagefooter{(*)}
+\end{europecv}
+}
+Wenn Sie die \texttt{booktabs}-Klassenoption festgelegt haben, wird die Tabelle der gesprochenen Sprachen so aussehen:
+
+\makeatletter
+  \renewcommand*\ecvlanguageheader[1]{%
+  {\large\textit{\ecv@assesskey}}\\ \textit{\ecv@levelkey}${}^{\mbox{\scriptsize#1}}$&
+  \setlength\extrarowheight{0pt}
+  \begin{tabular}[t]{m{\ecv@langparwidth}m{\ecv@langparwidth}m{\ecv@langparwidth}m{\ecv@langparwidth}m{\ecv@langparwidth}}
+  \toprule
+  \multicolumn{2}{c}{\textbf{\ecv@understandkey}}&\multicolumn{2}{c}{\textbf{\ecv@speakkey}}&\centering\textbf{\ecv@writekey}\tabularnewline
+  \centering\small{\ecv@listenkey}   & \centering \small{\ecv@readkey} &\centering \small{\ecv@interactkey} &\centering \small{\ecv@productkey} & \tabularnewline
+  \midrule
+  \end{tabular}\vspace{2\arrayrulewidth}\tabularnewline
+  }
+  \renewcommand*\ecvlanguage[7][0pt]{
+  {\textbf{#2}} &
+  \setlength\extrarowheight{0pt}
+  \begin{tabular}{m{\ecv@langparwidth}m{\ecv@langparwidth}m{\ecv@langparwidth}m{\ecv@langparwidth}m{\ecv@langparwidth}}
+   #3 & #4 & #5 & #6 & #7\tabularnewline \midrule
+  \end{tabular}\vspace{#1}
+  \tabularnewline
+  }
+  \renewcommand*\ecvlastlanguage[7][0pt]{
+  {\textbf{#2}} &
+  \setlength\extrarowheight{0pt}
+  \begin{tabular}{m{\ecv@langparwidth}m{\ecv@langparwidth}m{\ecv@langparwidth}m{\ecv@langparwidth}m{\ecv@langparwidth}}
+   #3 & #4 & #5 & #6 & #7\tabularnewline \bottomrule
+  \end{tabular}\vspace{#1}
+  \tabularnewline
+  }
+\makeatother
+
+{
+\fontfamily{phv}\selectfont
+\begin{europecv}\label{gesprochen}
+\ecvmothertongue[10pt]{Englisch}
+\ecvlanguageheader{(*)}
+\ecvlanguage{Französisch}{\ecvCOne}{\ecvCTwo}{\ecvBTwo}{\ecvCOne}{\ecvCTwo}
+\ecvlastlanguage{Deutsch}{\ecvATwo}{\ecvATwo}{\ecvATwo}{\ecvATwo}{\ecvATwo}
+\ecvlanguagefooter{(*)}
+\end{europecv}
+}
+
+\ecvWithHorRule
+\ecvLeftColumnWidth{5cm}
+
+Beachten Sie, dass die Ränder schmal gemacht werden sollten, damit die Tabelle sich gut einpasst.
+
+\begin{europecv}
+\ecvsection{Fußzeile und Fußnoten}
+\ecvitem{\ecv{footnote}\texttt{\{}\textit{Anmerkung}\texttt{\}}}{Schreibt eine Anmerkung in die Fußzeile einer jeden Seite des Lebenslaufes.\footnote{Normale Fußnoten können ebenfalls innerhalb der \texttt{europecv}-Umgebung benutzt werden.}  Die Anmerkung umspannt die passende Spaltenbreite und ist ausgerichtet. Dieses Kommando sollte in der Präambel Ihres Dokumentes erscheinen.}
+\ecvitem{\ecv{page}\texttt{\{}\textit{def}\texttt{\}}}{Benennt die Art und Weise, wie Ihre Seitennummerierung erscheint, um. Der Standard ist das Drucken des Wortes \glqq Seite\grqq{} (in der Sprache Ihrer Wahl), gefolgt von der Seitenzahl. Dies können Sie ändern, z.\,B. können Sie \ecv{page}\texttt{\{\textbackslash thepage\}} verwenden, um das Wort \glqq Seite\grqq{} auszulassen.}
+\ecvitem{Anmerkungen}{Die Fußzeile wird durch das \textsf{fancyhdr}-Paket gesetzt. Sie können also \textsf{fancyhdr}-Kommandos benutzen, um die Fußzeile anzupassen (und die Kopfzeile natürlich ebenfalls). Wenn Sie beispielsweise keine Seitenzahlen anzeigen lassen wollen, können Sie \texttt{\textbackslash pagestyle\{plain\}} zu Beginn Ihres Dokumentes nutzen (wie es für dieses Dokument getan wurde, dessen Quelltext in das Paket eingeschlossen ist).}
+\end{europecv}
+
+Falls Sie Ihre eigene linksbündige, zentrierte oder rechtsbündige Fußzeile benutzen wollen, können Sie die relevanten Kommandos nach \texttt{\textbackslash begin\{document\} setzen}. Zum Beispiel:
+\begin{quote}
+\begin{verbatim}
+% [...]
+\begin{document}
+\fancyfoot{} % Löscht die Fußzeile
+\fancyfoot[L]{meine linksbündige Fußzeile}
+\fancyfoot[C]{meine zentrierte Fußzeile}
+\fancyfoot[R]{meine rechtsbündige Fußzeile}
+\end{verbatim}
+\end{quote}
+
+Manche Parameter können durch die folgenden Kommandos festgelegt werden.
+
+\ecvExtraRowHeight{10pt}
+\ecvColSep{20pt}
+\ecvRuleWidth{2pt}
+\ecvNoHorRule
+\begin{europecv}
+\ecvsection{Feinschliff}
+\ecvitem{\ecv{WithHorRule}}{Setzt eine horizontale Linie zu Beginn des Europass~Lebenslaufs, welche die oberste Spalte umspannt. Dies ist der Standard.}
+\ecvitem{\ecv{NoHorRule}}{Setzt keine horizontale Linie zu Beginn des Europass~Lebenslaufs. Dieser Abschnitt wurde mit \ecv{NoHorRule} gesetzt.}
+\ecvitem{\ecv{RuleWidth}\texttt{\{}\textit{Breite}\texttt{\}}}{Bestimmt die Dicke der Linien. Der Standard ist~\texttt{0.4pt}. Dieser Abschnitt wurde mit \ecv{RuleWidth}\texttt{\{2pt\}} gesetzt. Die vertikale Linie kann durch das Setzen des Parameters auf~\texttt{0pt} ausgelassen werden.}
+\ecvitem{\ecv{ExtraRowHeight}\texttt{\{}\textit{Höhe}\texttt{\}}}{Fügt zusätzlichen Leerraum zwischen \emph{allen\/} darauf folgenden Einträgen in der \texttt{europecv}-Umgebung (eingeschlossen die Zeilen der Tabelle der gesprochenen Sprachen) ein. Der Standard ist~\texttt{0pt}. Dieser Abschnitt wurde mit \ecv{ExtraRowHeight}\texttt{\{10pt\}} gesetzt.}
+\ecvitem{\ecv{ColSep}\texttt{\{}\textit{Breite}\texttt{\}}}{Legt den Platz zwischen der vertikalen Linie und dem umgebenden Text fest. Der Standard ist~\texttt{12pt}. Dieser Abschnitt wurde mit \ecv{ColSep}\texttt{\{20pt\}} gesetzt.}
+\ecvitem{\ecv{FlagWidth}\texttt{\{}\textit{Breite}\texttt{\}}}{Legt die Breite der Flagge fest. Der Standard ist~\texttt{10mm}.}
+\ecvitem{\ecv{LogoWidth}\texttt{\{}\textit{Breite}\texttt{\}}}{Legt die Breite des Europass Logo fest. Der Standard ist~\texttt{23mm}.}
+\ecvitem{\ecv{LogoOffset}\texttt{\{}\textit{Abstand}\texttt{\}}}{Stimmt die vertikale Position des Europass Logo ab. Der Standard ist~\texttt{1cm}.}
+
+\end{europecv}
+\ecvExtraRowHeight{0pt}
+\ecvColSep{12pt}
+\ecvRuleWidth{0.4pt}
+\ecvLeftColumnWidth{6cm}
+\begin{europecv}
+\ecvitem{\ecv{LeftColumnWidth}\texttt{\{}\textit{Breite}\texttt{\}}}{Legt die Textbreite der linken Spalte auf \emph{Breite} fest. Die rechte Spalte füllt die Seite. Der Standard ist ~\texttt{5cm}. Dieser Abschnitt wurde mit \ecv{LeftColumnWidth}\texttt{\{6cm\}} gesetzt.}
+\ecvitem[15pt]{\ecv{TitleKern}}{Verändert die Unterschneidung, also den verringerten Zeichenabstand des Titels. Der Standardwert ist~\texttt{0.5pt}.}
+\hline
+\ecvitem[0pt]{Anmerkungen}{Um die allgemeinen Kalibrierungs-Parameter zu setzen, wie die Seitengröße, die Ränder usw., müssen Sie das \textsf{geometry}-Paket laden.}
+\cline{2-2}
+\ecvitem{}{Sie können horizontale Linien mit \texttt{\textbackslash hline} setzen oder mit \texttt{\textbackslash cline}. Die obigen Linien wurden erhalten durch:
+\begin{quote}
+\texttt{\textbackslash hline\ecv{item}[0pt]\{Notes\}\{\ldots\}\textbackslash cline\{2-2\}  \ecv{item}\{\}\{\ldots\}}
+\end{quote}
+}
+\end{europecv}
+\ecvLeftColumnWidth{5cm}
+\ecvWithHorRule
+
+\section{Literaturhinweise}
+Die Hauptschwäche dieser Klasse besteht in Bezug auf Bibliographien. Wenn Sie eine Bibliographie innerhalb der \verb|europecv|-Umgebung einführen mit einem Kommando wie
+\begin{quote}
+\begin{verbatim}
+\ecvsection{zusätzliche Informationen}
+\ecvitem{}{\bibliographystyle{plain}
+           \nocite{*}
+           \bibliography{mypublications}}
+\end{verbatim}
+\end{quote}
+wird die Bibliographie über die Seite hinausreichen, wenn sie nicht in die aktuelle Seite hineinpasst. Der Grund dafür ist, dass die \verb|europecv|-Umgebung eine \verb|longtable| ist, jedes ~\ecv{item} bezieht sich auf eine Zeile der Tabelle, und eine Zeile kann nicht über mehrere Seiten aufgeteilt werden. Darum können Sie sicher eine Bibliographie durch den Befehl \verb|\bibliography| nur außerhalb der \verb|europecv|-Umgebung benutzen. Dies können Sie tun oder auch nicht.
+
+Ein andere Möglichkeit besteht darin, das \textsf{bibentry}-Paket zu benutzen und jeden \verb|\bibentry|-Befehl innerhalb ein \ecv{item}-Kommando zu schreiben:
+\begin{quote}
+%\ecvsection{Additional Information}
+\begin{verbatim}
+\ecvitem{}{\textsc{Veröffentlichungen}}
+\ecvitem{}{\bibentry{pub1}}
+[...]
+\ecvitem{}{\bibentry{pubN}}
+\end{verbatim}
+\end{quote}
+Der Minuspunkt dieser Lösung ist, dass Sie ein \verb|\bibentry|-Kommando für jeden Eintrag, der in Ihrer Bibliographie erscheinen soll, benutzen müssen. Wenn Sie viele Veröffentlichungen geschrieben haben, kann dies sehr nervig werden. Unglücklicherweise ist die einzige Lösung, die ich kenne, ein Script zu schreiben, das diese Aufgabe automatisch ausführt.
+
+\section{Abhängigkeit}\label{sec:abhängigkeit}
+
+Die \textsf{europecv}-Klasse ist auf der Dokumentklasse \textsf{article} aufgebaut, sodass Sie alle Standard-\textsf{article}-Optionen benutzen können, so wie \verb|12pt|, \verb|draft|, \verb|a4paper|, usw. Dies benötigt \textsf{array}, \textsf{longtable}, \textsf{fancyhdr}, \textsf{ucs} und~\textsf{inputenc}-Pakete, welche standardisiert für jede \LaTeX{}-Distribution verfügbar sein sollten.
+
+\section{Offizieller Europass-Lebenslauf und \textsf{europecv}: Die Unterschiede}
+
+Ausgenommen, dass Sie Arial (Narrow) installieren wollen, werden Sie möglicherweise Ihren Lebenslauf in (Condensed) Helvetica setzen, wenn Sie das Standardmodell befolgen wollen.\footnote{Die Modelle, die nach der Form auf EU-Webseite generiert wurden, wurden in Arial gesetzt und nicht in Arial Narrow.} Die Unterschiede sind sehr klein:
+\begin{quote}
+\fontfamily{phv}\selectfont Helvetica:\\
+A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 0 1 2 3 4 5 6 7 8 9\\
+a b c d e f g h i j k l m n o p q r s t u v w x y z ! ? \$ \% \& / ( ) \# *
+
+\end{quote}
+\begin{quote}
+\fontfamily{ma1}\selectfont Arial:\\
+A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 0 1 2 3 4 5 6 7 8 9\\
+a b c d e f g h i j k l m n o p q r s t u v w x y z ! ? \$ \% \& / ( ) \# * 
+\end{quote}
+\begin{quote}
+\fontfamily{phv}\fontseries{mc}\selectfont Condensed Helvetica:\\
+A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 0 1 2 3 4 5 6 7 8 9\\
+a b c d e f g h i j k l m n o p q r s t u v w x y z ! ? \$ \% \& / ( ) \# *
+
+\end{quote}
+\begin{quote}
+\fontfamily{ma1}\fontseries{mc}\selectfont Arial Narrow:\\
+A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 0 1 2 3 4 5 6 7 8 9\\
+a b c d e f g h i j k l m n o p q r s t u v w x y z ! ? \$ \% \& / ( ) \# * 
+\end{quote}
+
+Die \textsf{europecv}-Klasse verwendet standardmäßig die jeweiligen \LaTeX{}-Schriftgrößen, wodurch einige Fehlanpassungen bezüglich der offiziellen Vorlage entstehen. Die vertikale Linie hat eine andere Breite als die offiziellen Linien, aber dies kann leicht durch das Kommando \ecv{RuleWidth} geändert werden. Die Handynummer ist im offiziellen Modell an einer unüblichen Stelle positioniert: fast rechtsbündig, jedoch nicht ganz. Ich habe entschieden, sie in die \texttt{\textbackslash qquad}-Umgebung zu setzen und einen Doppelpunkt hinzugefügt. Letztendlich habe ich beschlossen, ein Komma zwischen den Nach- und Vornamen in dem Abschnitt der persönlichen Informationen zu setzen, denn ich denke, dass es in manchen Fällen hilft, zwischen ihnen zu unterscheiden.
+%Der letzte  spürbare Unterschied ist die Spannbreite der vertikalen Linie, welche im offiziellen Modell durch die Fußzeile geht. Die \textsf{europecv}-Klasse lässt die Fußzeile separat vom Text des Lebenslaufes.
+
+\section{Danksagung}
+
+Danke an Johann für das Hinzufügen der norwegischen Sprachdefinitionen, an Thomas Clijsner für niederlädische Sprachdefinitionen, an Ivan Lloro Boada für die catalanischen Sprachdefinitionen, an Petres Zolt\'an für die ungarischen Sprachdefinitionen und einzelne Fehlerbehebungen, an Nemanja für serbische Sprachdefinitionen und an Henrique Ferreiro für galizische Sprachdefinitionen. Danke an Axel Kielhorn für die Bereitstellung einer kompletten deutschen Übersetzung und einer deutschen Vorlage, an Andrzej Lichnerowicz für die Bereitstellung einer kompletten polnischen Übersetzung und einer polnischen Dateivorlage, und an Jo\"el Rouvi\`ere für das Bereitstellen einer kompletten französischen Übersetzung. Danke auch an Antonio Ospite für die Bereitstellung einer ersten Version einer Vektorgrafik des Europass-Logos und an Jo\~ao Ventura für die Bereitstellung der aktuellen Vektorgrafik des Europass-Logos. Danke an Roman Bertle für den Vorschlag, Absatzbeschriftungen neu zu definieren. 
+
+\section{Verzichtserklärung}
+
+Ich war in keiner Art und Weise an der Entwicklung des Europass~Lebenslaufs beteiligt, genauso wenig wie an der Definition des vorherigen Europäischen~Lebenslaufs. Falls Sie ihn nicht mögen (ich mag ihn nicht), beschweren Sie sich nicht bei mir, sondern schreiben Sie der Europäischen Kommission und bringen Sie denen gute Form und Typographie bei. Und vielleicht~\TeX.
+
+Ich bin kein \TeX{}perte oder ein Schriftsetzer, sodass ich möglicherweise typographische Fehler selbst eingeabeitet habe, zusätzlich enthält die Klasse möglicherweise Fehler. Bitte unterrichten Sie mich, falls etwas falsch sein sollte, aber benutzen Sie diese Klasse auf eigenes Risiko.
+
+Die Flaggen wurden heruntergeladen von \url{http://europa.eu.int/abc/symbols/emblem/index_en.htm}. Die Vektorgrafik des Logos (in \texttt{eps}- und~\texttt{pdf}-Format) ist eine inoffizielle Version, die freundlicherweise von Jo\~ao Ventura zur Verfügung gestellt wurde. Soweit, wie ich das verstanden habe, verletzt die Verbreitung der Dateien innerhalb dieser Klasse keine Lizenzen oder Urheberrechte.
+
+\section{Linzenz}
+
+Alle Dateien sollten Pakets gemäß der Bestimmungen der öffentlichen \LaTeX{}-Projektlizenz vertrieben werden. Siehe \url{http://www.ctan.org/tex-archive/help/Catalogue/licenses.lppl.html} für die Details dieser Lizenz.
+
+\appendix
+
+\section{Sprach-Selbsteinschätzung}\label{sec:selbsteinschätzung}
+
+Im Folgenden finden Sie eine Kurzbeschreibung der verschiedenen Niveaus der Sprach-Selbsteinschätzung, wie im \emph{gemeinsamen europäischen Referenzrahmen für Sprachen} festgelegt. Für mehr Details siehe \url{http://www.coe.int/T/E/Cultural_Co-operation/education/Languages/Language_Policy/Common_Framework_of_Reference/}
+
+\subsection*{Verstehen}
+\subsubsection*{Hören}
+\begin{description}
+\item[A1:] Ich kann vertraute Wörter und ganz einfache Sätze verstehen, die sich auf mich selbst, meine Familie oder auf konkrete Dinge um mich herum beziehen, vorausgesetzt es wird langsam und deutlich gesprochen.
+\item[A2:]  Ich kann einzelne Sätze und die gebräuchlichsten Wörter verstehen, wenn es um für mich wichtige Dinge geht (z. B. sehr einfache Informationen zur Person und zur Familie, Einkaufen, Arbeit, nähere Umgebung). Ich verstehe das Wesentliche von kurzen, klaren und einfachen Mitteilungen und Durchsagen.
+\item[B1:]  Ich kann die Hauptpunkte verstehen, wenn klare Standardsprache verwendet wird und wenn es um vertraute Dinge aus Arbeit, Schule, Freizeit usw. geht. Ich kann vielen Radio- oder Fernsehsendungen über aktuelle Ereignisse und über Themen aus meinem Berufs- oder Interessengebiet die Hauptinformation entnehmen, wenn relativ langsam und deutlich gesprochen wird.
+\item[B2:]  Ich kann längere Redebeiträge und Vorträge verstehen und auch komplexer Argumentation folgen, wenn mir das Thema einigermaßen vertraut ist. Ich kann am Fernsehen die meisten Nachrichtensendungen und aktuellen Reportagen verstehen. Ich kann die meisten Spielfilme verstehen, sofern Standardsprache gesprochen wird. 
+\item[C1:]  Ich kann längeren Redebeiträgen folgen, auch wenn diese nicht klar strukturiert sind und wenn Zusammenhänge nicht explizit ausgedrückt sind. Ich kann ohne allzu große Mühe Fernsehsendungen und Spielfilme verstehen.
+\item[C2:] Ich habe keinerlei Schwierigkeit, gesprochene Sprache zu verstehen, gleichgültig ob "live" oder in den Medien, und zwar auch, wenn schnell gesprochen wird. Ich brauche nur etwas Zeit, mich an einen besonderen Akzent zu gewöhnen.
+\end{description}
+
+\subsubsection*{Lesen}
+\begin{description}
+\item[A1:] Ich kann einzelne vertraute Namen, Wörter und ganz einfache Sätze verstehen, z. B. auf Schildern, Plakaten oder in Katalogen.
+
+\item[A2:] Ich kann ganz kurze, einfache Texte lesen. Ich kann in einfachen Alltagstexten (z.\,B. Anzeigen, Prospekten, Speisekarten oder Fahrplänen) konkrete, vorhersehbare Informationen auffinden und ich kann kurze, einfache persönliche Briefe verstehen.
+
+\item[B1:] Ich kann Texte verstehen, in denen vor allem sehr gebräuchliche Alltags- oder Berufssprache vorkommt. Ich kann private Briefe verstehen, in denen von Ereignissen, Gefühlen und Wünschen berichtet wird.
+
+\item[B2:] Ich kann Artikel und Berichte über Probleme der Gegenwart lesen und verstehen, in denen die Schreibenden eine bestimmte Haltung oder einen bestimmten Standpunkt vertreten. Ich kann zeitgenössische literarische Prosatexte verstehen.
+
+\item[C1:] Ich kann lange, komplexe Sachtexte und literarische Texte verstehen und Stilunterschiede wahrnehmen. Ich kann Fachartikel und längere technische Anleitungen verstehen, auch wenn sie nicht in meinem Fachgebiet liegen.
+
+\item[C2:] Ich kann praktisch jede Art von geschriebenen Texten mühelos lesen, auch wenn sie abstrakt oder inhaltlich und sprachlich komplex sind, z.\,B. Handbücher, Fachartikel und literarische Werke.
+\end{description}
+
+\subsection*{Sprechen}
+\subsubsection*{An Gesprächen teilnehmen}
+\begin{description}
+\item[A1:] Ich kann mich auf einfache Art verständigen, wenn mein Gesprächspartner bereit ist, etwas langsamer zu wiederholen oder anders zu sagen, und mir dabei hilft zu formulieren, was ich zu sagen versuche. Ich kann einfache Fragen stellen und beantworten, sofern es sich um unmittelbar notwendige Dinge und um sehr vertraute Themen handelt.
+
+\item[A2:] Ich kann mich in einfachen, routinemäßigen Situationen verständigen, in denen es um einen einfachen, direkten Austausch von Informationen und um vertraute Themen und Tätigkeiten geht. Ich kann ein sehr kurzes Kontaktgespräch führen, verstehe aber normalerweise nicht genug, um selbst das Gespräch in Gang zu halten.
+
+\item[B1:] 	Ich kann die meisten Situationen bewältigen, denen man auf Reisen im Sprachgebiet begegnet. Ich kann ohne Vorbereitung an Gesprächen über Themen teilnehmen, die mir vertraut sind, die mich persönlich interessieren oder die sich auf Themen des Alltags wie Familie, Hobbys, Arbeit, Reisen, aktuelle Ereignisse beziehen.
+
+\item[B2:] Ich kann mich so spontan und fließend verständigen, dass ein normales Gespräch mit einem Muttersprachler recht gut möglich ist. Ich kann mich in vertrauten Situationen aktiv an einer Diskussion beteiligen und meine Ansichten begründen und verteidigen.
+
+\item[C1:] Ich kann mich spontan und fließend ausdrücken, ohne öfter deutlich erkennbar nach Worten suchen zu müssen. Ich kann die Sprache im gesellschaftlichen und beruflichen Leben wirksam und flexibel gebrauchen. Ich kann meine Gedanken und Meinungen präzise ausdrücken und meine eigenen Beiträge geschickt mit denen anderer verknüpfen.
+
+\item[C2:] Ich kann mich mühelos an allen Gesprächen und Diskussionen beteiligen und bin auch mit Redewendungen und umgangssprachlichen Wendungen gut vertraut. Ich kann fließend sprechen und auch feinere Bedeutungsnuancen genau ausdrücken. Bei Ausdrucksschwierigkeiten kann ich so reibungslos wieder ansetzen und umformulieren, dass man es kaum merkt.
+\end{description}
+
+\subsubsection*{Zusammenhängendes Sprechen}
+\begin{description}
+\item[A1:] Ich kann einfache Wendungen und Sätze gebrauchen, um Leute, die ich kenne, zu beschreiben und um zu beschreiben, wo ich wohne.
+
+\item[A2:] Ich kann mit einer Reihe von Sätzen und mit einfachen Mitteln z. B. meine Familie, andere Leute, meine Wohnsituation meine Ausbildung und meine gegenwärtige oder letzte berufliche Tätigkeit beschreiben.
+
+\item[B1:] Ich kann in einfachen zusammenhängenden Sätzen sprechen, um Erfahrungen und Ereignisse oder meine Träume, Hoffnungen und Ziele zu beschreiben. Ich kann kurz meine Meinungen und Pläne erklären und begründen. Ich kann eine Geschichte erzählen oder die Handlung eines Buches oder Films wiedergeben und meine Reaktionen beschreiben.
+
+\item[B2:] Ich kann zu vielen Themen aus meinen Interessengebieten eine klare und detaillierte Darstellung geben. Ich kann einen Standpunkt zu einer aktuellen Frage erläutern und Vor- und Nachteile verschiedener Möglichkeiten angeben.
+
+\item[C1:] Ich kann komplexe Sachverhalte ausführlich darstellen und dabei Themenpunkte miteinander verbinden, bestimmte Aspekte besonders ausführen und meinen Beitrag angemessen abschließen.
+
+\item[C2:] Ich kann Sachverhalte klar, flüssig und im Stil der jeweiligen Situation angemessen darstellen und erörtern; ich kann meine Darstellung logisch aufbauen und es so den Zuhörern erleichtern, wichtige Punkte zu erkennen und sich diese zu merken.
+\end{description}
+
+\subsection*{Schreiben}
+\begin{description}
+\item[A1:] Ich kann eine kurze einfache Postkarte schreiben, z.\,B. Feriengrüße. Ich kann auf Formularen, z.\,B. in Hotels, Namen, Adresse, Nationalität usw. eintragen.
+
+\item[A2:] Ich kann kurze, einfache Notizen und Mitteilungen schreiben. Ich kann einen ganz einfachen persönlichen Brief schreiben, z.\,B. um mich für etwas zu bedanken.
+
+\item[B1:] Ich kann über Themen, die mir vertraut sind oder mich persönlich interessieren, einfache zusammenhängende Texte schreiben. Ich kann persönliche Briefe schreiben und darin von Erfahrungen und Eindrücken berichten.
+
+\item[B2:] Ich kann über eine Vielzahl von Themen, die mich interessieren, klare und detaillierte Texte schreiben. Ich kann in einem Aufsatz oder Bericht Informationen wiedergeben oder Argumente und Gegenargumente für oder gegen einen bestimmten Standpunkt darlegen. Ich kann Briefe schreiben und darin die persönliche Bedeutung von Ereignissen und Erfahrungen deutlich machen.
+
+\item[C1:] Ich kann mich schriftlich klar und gut strukturiert ausdrücken und meine Ansicht ausführlich darstellen. Ich kann in Briefen, Aufsätzen oder Berichten über komplexe Sachverhalte schreiben und die für mich wesentlichen Aspekte hervorheben. Ich kann in meinen schriftlichen Texten den Stil wählen, der für die jeweiligen Leser angemessen ist.
+
+\item[C2:] 	Ich kann klar, flüssig und stilistisch dem jeweiligen Zweck angemessen schreiben. Ich kann anspruchsvolle Briefe und komplexe Berichte oder Artikel verfassen, die einen Sachverhalt gut strukturiert darstellen und so dem Leser helfen, wichtige Punkte zu erkennen und sich diese zu merken. Ich kann Fachtexte und literarische Werke schriftlich zusammenfassen und besprechen.
+\end{description}
+\end{document}
+
+

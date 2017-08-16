@@ -1,0 +1,457 @@
+\listfiles % Writes out the package versions in the log file
+\documentclass[%
+    11pt,           % normal font size  (default, alias for fontsize=11pt)
+    BCOR10mm,       % binding correction (deprecated, use: BCOR=10mm)
+    DIV12,          % divison factor for page layout contrution
+                    % (deprecated, use: DIV=12)
+    bibtotoc,       % add unnumbered entry for the bibliography to the table
+                    % of contents (deprecated, use: toc=bibliography or
+                    % bibliography=totoc)
+    parskip,        % use one base line vertical inter-paragraph space and
+                    % at least 1 em horizontal space at the end of paragraphs
+                    % instead of indenting first line of paragraphs
+    twoside,        % use twosided layout (default)
+    smallheadings,  % use smaller font sizes for headings (but at least
+                    % \normalsize) with less vertical above and below headings
+                    % (deprecated, use: headings=small)
+    1.1headlines,   % set head height to 1.1\baselineskip of \normalsize
+                    % (deprecated, use: headlines=1.1)
+    headexclude,    % page head is part of the margins not the type area
+                    % (default, deprecated, use: headinclude=false)
+    footexclude,    % page foot is part of the margins not the type area
+                    % (default, deprecated, use: footinclude=false)
+    mpexclude       % margin notes are part of the margins not the type area
+                    % (default, deprecated, use: mpinclude=false)
+    ]{scrbook}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{scrpage2}
+\pagestyle{scrheadings}
+\usepackage{makeidx}
+\makeindex
+
+%\usepackage{arev}
+%\usepackage{manfnt}
+%\usepackage[garamond]{mathdesign}
+%\renewcommand{\ttdefault}{lmtt}
+
+\usepackage{multicol}   % Intermix single and multiple columns
+\usepackage{longtable}  % Allows tables to flow over page boundaries
+\usepackage{array}      % Extending the array and tabular environments
+\usepackage{arrayjob}   % Management of arrays
+\usepackage{url}        % Verbatim with URL-sensitive line breaks
+\usepackage[a4paper,dvips,hmargin=2cm,vmargin=3cm]{geometry}    % Flexible and complete interface to document dimensions
+\usepackage{framed}            % Framed or shaded regions that can break across pages
+\usepackage{amsmath,amssymb} % allows multiple maths-environments
+\usepackage{ragged2e}
+\usepackage{titlesec}        % Select alternative section titles
+\usepackage{paralist}
+
+
+%%%%%%%
+%%%%%%% Loading the necessary graphic packages
+\usepackage[dvipsnames,svgnames,table]{pstricks} % Loads the basic packages of 'PSTricks'
+                                           % with predefined color schemes from 'xcolor'
+\usepackage[final]{showexpl}   % Typesetting LaTeX source code
+\usepackage{pst-plot}  % Macros for plotting functions and data records
+\usepackage{pst-eucl}  % The 'pst-eucl' package allow the drawing of Euclidean geometric
+                       % figures using LaTeX macros for specifying mathematical constraints.
+                       % It is thus possible to build point using common transformations or intersections.
+                       % The use of coordinates is  limited to points which controlled the figure.
+\usepackage{pst-solides3d}   % The package is designed to draw solids in 3D perspective.
+\let\PSTfileversion\fileversion
+\let\PSTfiledate\filedate
+\usepackage{pstricks-add}    % A collection of add-ons and bugfixes for PSTricks.
+                             % Allows 'algebraic notation' instead of the PostScript
+                             % native RPN (Revers Polish Notation).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Note: 'pstricks-add' always needs to be loaded last. %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\DeclareFixedFont{\timesnormal}{T1}{ptm}{m}{n}{2cm}
+\raggedbottom
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% adapt\'{e} de \psRandom du package pstricks-add
+%% pour rendre al\'{e}atoire la taille des \'{e}toiles
+%% Manuel Luque
+\newdimen\pssizeStar
+\def\psset@sizeStar#1{\pssetlength\pssizeStar{#1}}
+\psset@sizeStar{1pt}
+\def\psRandomStar{\pst@object{psRandomStar}}%
+\def\psRandomStar@i{\@ifnextchar({\psRandomStar@ii}{\psRandomStar@iii(0,0)(1,1)}}
+\def\psRandomStar@ii(#1){\@ifnextchar({\psRandomStar@iii(#1)}{\psRandomStar@iii(0,0)(#1)}}
+\def\psRandomStar@iii(#1)(#2)#3{%
+  \def\pst@tempA{#3}%
+  \ifx\pst@tempA\pst@empty\psclip{\psframe(#2)}\else\psclip{#3}\fi
+  \pst@getcoor{#1}\pst@tempA
+  \pst@getcoor{#2}\pst@tempB
+  \begin@SpecialObj
+  \addto@pscode{
+    \pst@tempA\space /yMin exch def
+    /xMin exch def
+    \pst@tempB\space /yMax exch def
+    /xMax exch def
+    /dy yMax yMin sub def
+    /dx xMax xMin sub def
+    rrand srand                 % initializes the random generator
+    /getRandReal { rand 2147483647 div } def
+     \psk@randomPoints {
+    /DS \pst@number\pssizeStar\space getRandReal mul def
+    \@nameuse{psds@\psk@dotstyle}
+     \ifPst@color getRandReal 1 1 sethsbcolor \fi
+     getRandReal dx mul xMin add
+     getRandReal dy mul yMin add
+     Dot
+     \ifx\psk@fillstyle\psfs@solid fill \fi stroke
+    } repeat
+  }%
+  \end@SpecialObj
+  \endpsclip
+  \ignorespaces
+}
+
+
+\renewcommand*\l@section{\bprot@dottedtocline{1}{1.5em}{2.5em}}   % hv
+\renewcommand*\l@subsection{\bprot@dottedtocline{2}{3.8em}{3.5em}}% hv
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% macro H.Voss sur :
+%%http://tug.org/mailman/htdig/pstricks/2007/004640.html
+
+\def\GetCenter#1{ tx@NodeDict begin /N@#1 load GetCenter end
+  \pst@number\psyunit div /#1.y ED
+  \pst@number\psxunit div /#1.x ED }
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Jean-Michel Sarlat et Guillaume Connan
+\newenvironment{gbar}{%
+  \def\FrameCommand{{\color{red}\vrule width 2pt}\colorbox{yellow!30}}%
+  \MakeFramed {\advance\hsize-\width \FrameRestore}}%
+{\endMakeFramed}
+
+%%%%%%%
+%%%%%%% Setting the Chapter layout
+\titleformat{\chapter}[display] % {command}[shape]
+  {\usekomafont{chapter}\Large \color{OrangeReddy}} % format
+  {                       % label
+  \LARGE\MakeUppercase{\chaptertitlename} \Huge \thechapter \filright%
+  }%}
+  {1pt}                   % sep (from chapternumber)
+  {\titlerule \vspace{0.9pc} \filright \color{OrangeReddy}}   % {before}[after] (before chaptertitle and after)
+  [\color{OrangeReddy} \vspace{0.9pc} \filright {\titlerule}]
+
+
+%%%%%%%
+%%%%%%% Highlight some expressions
+\newcommand\Cadre[1]{\psframebox[fillstyle=solid,fillcolor=gray!20,linecolor=gray!20]{\texttt{#1}}}
+
+%%%%%%%
+%%%%%%% Box and highlight some notes
+\newcommand\encadre[1]{
+\psframebox[fillstyle=solid,fillcolor=gray!20,linecolor=gray!20]{
+  \begin{minipage}{\textwidth}
+  {\textbf{\textcolor{OrangeReddy}{Note:}}\qquad #1}
+  \end{minipage}}
+}
+
+
+%%%%%%%
+%%%%%%% Highlight the table of the predefined solids
+\newcommand\toptableau{%
+\rowcolor{gray!20}
+  \textbf{Solid} & \begin{tabular}{c}
+                      \textbf{Default}\\
+                      \textbf{Parameters}
+                      \end{tabular} &
+                      \begin{minipage}{4cm}
+                      \centerline{\textbf{View}}
+                      \end{minipage}&
+                      \begin{minipage}{4cm}
+                      \centerline{\textbf{Code}}
+                      \end{minipage}}
+%%%%%%%
+%%%%%%% Color array
+\newarray\colors
+\readarray{colors}{%
+Apricot&Aquamarine%
+&Bittersweet&Black&Blue&BlueGreen&BlueViolet&BrickRed&Brown&BurntOrange%
+&CadetBlue&CarnationPink&Cerulean&CornflowerBlue&Cyan&Dandelion&DarkOrchid%
+&Emerald&ForestGreen&Fuchsia&Goldenrod&Gray&Green&GreenYellow&JungleGreen%
+&Lavender&LimeGreen&Magenta&Mahogany&Maroon&Melon&MidnightBlue&Mulberry%
+&NavyBlue&OliveGreen&Orange&OrangeRed&Orchid&Peach&Periwinkle&PineGreen%
+&Plum&ProcessBlue&Purple&RawSienna&Red&RedOrange&RedViolet&Rhodamine&RoyalBlue%
+&RoyalPurple&RubineRed&Salmon&SeaGreen&Sepia&SkyBlue&SpringGreen&Tan&TealBlue%
+&Thistle&Turquoise&Violet&VioletRed&White&WildStrawberry&Yellow&YellowGreen&YellowOrange}
+
+\edef\colorfaces{}%
+\multido{\i=0+1}{67}{%
+ \checkcolors(\i)
+\xdef\colorfaces{\colorfaces\i\space(\cachedata)\space}}
+
+\definecolor{bleuciel}{rgb}{0.78,0.84,0.99}
+\definecolor{OrangeReddy}{rgb}{0.73,0.00,0.00}
+
+%%%%%%%
+%%%%%%% Highlight some commands with backslashes (the three macros)
+\newcommand\bs[1]{%
+  \psframebox[fillstyle=solid,fillcolor=gray!20,
+    linecolor=gray!20]{\texttt{\textbackslash#1}}}
+
+%%%%%%%
+%%%%%%% Positioning the viewpoint
+\def\PointEcran(#1,#2,#3)#4{% position of the viewpoint on the screen
+\pstVerb{/xM #1 def /yM #2 def /zM #3 def
+         /kC dE dup mul xM xE mul yM yE mul zM zE mul add add sub
+           xV xE mul xM xE mul sub
+           yV yE mul yM yE mul sub add
+           zV zE mul zM zE mul sub add
+           div def
+         /x_E kC xV xM sub mul xM add def
+         /y_E kC yV yM sub mul yM add def
+         /z_E kC zV zM sub mul zM add def}%
+\psPoint(x_E,y_E,z_E){#4}}
+
+
+\def\datapath{}% ../doc/}
+
+\lstset{%
+    basicstyle=\ttfamily\footnotesize,
+    commentstyle=\color{PineGreen}\slshape\footnotesize,
+    showspaces=false,
+    showstringspaces=false,
+    breaklines=true,
+    backgroundcolor=\color{gray!20},
+    breakautoindent=true,
+    captionpos=t,
+    language=TeX,
+    emph={\begin,\codejps,\end},
+    emphstyle=\color{RoyalBlue},
+    emph={[2]pspicture},
+    emphstyle={[2]\color{OrangeReddy}},
+    numbersep=5pt,
+    preset=\centering,
+    rframe={}%
+}
+
+%%%%%%%
+%%%%%%% Title Page
+\title{\texttt{pst-solides3d}:\\
+       The Documentation -- The Basics
+        \\[0.5cm]
+{\normalsize v. \PSTfileversion\ (\PSTfiledate)}\\[20pt]
+\includegraphics[scale=0.6]{kepler}
+}
+\author{Jean-Paul Vignault\thanks{\url{<jpv@melusine.eu.org>}}
+\and Manuel Luque\thanks{\url{<manuel.luque27@gmail.com>}}
+\and Arnaud Schmittbuhl\thanks{\url{<aschmittbuhl@libertysurf.fr>}}
+\and Jürgen Gilg\thanks{\url{<gilg@acrotex.net>}}
+\and Jean-Michel Sarlat\thanks{\url{<jm.sarlat@gmail.com>}}
+\and Herbert Voß\thanks{\url{<herbert.voss@fu-berlin.de>}}}
+\date{\today}
+
+
+
+\usepackage[
+% colors for the links
+   colorlinks=true,         % color links
+   urlcolor=OrangeReddy,    % color of URL links
+   filecolor=black,         % color of file links
+   linkcolor=OrangeReddy,   % color of links
+% Links
+   %raiselinks=true,    % raise up links (for HyperTeX backend)
+   %backref=page,           % do bibliographical back refenrernces
+   pagebackref=true,        % back reference by page numbers
+   verbose,                 % be chatty
+   hyperindex=true,         % set up hyperlink indices
+   linktocpage=true,        % make page number, not text, be linked on TOC, LOF, LOT
+   hyperfootnotes=false,    % do not set up hyperlink footnotes
+% Bookmarks
+   bookmarks=true,          % Generating Bookmarks for the PDF-Viewer
+   bookmarksopenlevel=1,    % Level to which Bookmarks are opened
+   bookmarksopen=true,      % Open up Bookmarks tree
+   bookmarksnumbered=true,  % Put section numbers in Bookmarks
+   %bookmarkstype=toc,      % Specify which TOC file to mimic
+% Anchors
+   plainpages=false,        % do not page number anchors as plain arabic
+   pageanchor=true          % put an anchor on every page
+   ]{hyperref}
+
+%%%%%%%
+%%%%%%% PDF Informations
+\hypersetup{%
+   pdftitle={pst-solides3d - The Documentation},    % Text for the PDF title field
+   pdfauthor={Jean-Paul Vignault, Manuel Luque, Arnaud Schmittbuhl;},    % Text for the PDF author field
+   pdfcreator={LaTeX, hyperref, KOMA-Script},       % Text for the PDF creator field
+   %pdfproducer={pdfeTeX 1.10b-2.1}                 % Text for the PDF producer field
+   pdfstartview=FitH,       % Fits the width of the page to the window.
+   pdfpagemode=UseOutlines, % Show Bookmarks in the Viewer
+   pdfpagelabels=true       % set PDF page labels
+   }
+\usepackage{breakurl}   % Line-breakable \url-like links in hyperref when compiling via dvips/ps2pdf
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Herbert %%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{scrheadings}
+\ofoot{\pagemark}
+\newcommand\Input[2][\datapath]{\ifoot{{\footnotesize#2}}\input{#1#2}}
+\def\Lcs#1{\texttt{\textbackslash#1}%
+  \index{#1@\texttt{\textbackslash#1}}%
+  \index{Macro!#1@\texttt{\textbackslash#1}}}
+\def\Lenv#1{\texttt{#1}\index{#1@\texttt{#1}}\index{Environment!#1@\texttt{#1}}}
+\def\Lkeyword#1{\texttt{#1}%
+  \index{#1@\texttt{#1}}\index{Keyword!#1@\texttt{#1}}}
+\def\Lkeyval#1{\texttt{#1}%
+  \index{#1@\texttt{#1}}\index{Value!#1@\texttt{#1}}}
+\def\Index#1{#1\index{#1}}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\newpage
+
+\chapter{Basics for the package}
+\Input{chapter-1-en}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Setting the layout of the scenery}
+\Input{chapter-2-en}
+\Input{par-eclairageponctuel-en}
+\Input{par-axes3D-en}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Predefined solids and their positioning}
+
+\Input{par-solidespredefinis-en}
+\Input{par-positionnersolide-en}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{More options of \textbackslash{}psSolid}
+\Input{par-commandestrace-en}
+\Input{par-solidescreux-en}
+\Input{par-numeroterfacettes-en}
+\Input{par-enleverfacettes-en}
+\Input{par-pointagesommets-en}
+\Input{par-couleurs-en}
+\Input{par-colorierfacettes-en}
+\Input{par-opacity-en}
+\Input{par-definitionmaillage-en}
+
+\Input{par-modes-en}
+
+\Input{par-tronque-en}
+\Input{par-affinage-en}
+\Input{par-chanfrein-en}
+\Input{par-transform-en}
+\Input{par-lignedeniveau-en}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Usage of external files}
+\Input{par-datfile-en}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Some special objects}
+\Input{par-grille-en}
+\Input{par-point-en}
+\Input{par-vecteur-en}
+\Input{par-plan-en}
+\Input{par-geode-en}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Generating some new solids}
+\Input{par-codejps-en}
+\Input{par-definirfonction-en}
+\Input{par-courbeR3-en}
+\Input{par-tube-en}
+\Input{par-prisme-en}
+\Input{par-new-en}
+\Input{par-face-en}
+\Input{par-ruban-en}
+\Input{par-anneaux-en}
+\Input{par-cylindres-cones-en}
+\Input{par-surfacesparametrees-en}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Surfaces defined by a function of the form $z=f(x,y)$}
+\Input{par-surfaces-en}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Advanced usage}
+\Input{par-nommersolide-en}
+\Input{par-section-en}
+\Input{par-fusion-en}
+\Input{par-fusionjps-en}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Interaction with PSTricks}
+
+\Input{par-positionnerpointconnu-en}
+\Input{par-ligne3D-en}
+\Input{par-tracerpolygone-en}
+\Input{par-transformpointconnu-en}
+\Input{par-annoterschema-en}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Projections}
+\Input{par-projpresentation-en}
+\Input{par-projectionvisibility-en}
+\Input{par-definirplanquelconque-en}
+\Input{par-projectionpoint-en}
+\Input{par-projectionvecteur-en}
+\Input{par-projectiondroite-en}
+
+%\newpage
+\Input{par-projectioncercle-en}
+\Input{par-projectionpolygone-en}
+\Input{par-projectionligne-en}
+%\newpage
+\Input{par-projectionangledroit-en}
+\Input{par-projectioncourbe-en}
+\Input{par-projectiontexte-en}
+
+\Input{par-image2d-en}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Possible extensions}
+\Input{par-extensions-en}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\appendix
+\chapter{Appendix}
+\Input{par-parametres-en}
+\Input{par-keywords-en}
+\Input{par-acknowledgements-en}
+\Input{par-poems-en}
+
+\printindex
+
+\nocite{*}
+\bgroup
+\RaggedRight
+\bibliographystyle{plain}
+\bibliography{pst-solides3d-doc}
+\egroup
+
+\end{document} 

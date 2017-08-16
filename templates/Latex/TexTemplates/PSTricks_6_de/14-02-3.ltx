@@ -1,0 +1,60 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\usepackage[utf8]{inputenc}
+\StartShownPreambleCommands
+\usepackage{pstricks}
+\StopShownPreambleCommands
+\begin{document}
+\begin{minipage}{0.8\linewidth}
+\begin{verbatim}
+(pstverb)
+\pstverb{newpath 100 -100 moveto
+    50 0 rlineto  0 50 rlineto
+    -50 0 rlineto 0 -50 rlineto
+    1 1 0 setrgbcolor fill }%
+\pstVerb{newpath 100 -100 moveto
+    50 0 rlineto  0 50 rlineto
+    -50 0 rlineto 0 -50 rlineto
+    1 0 0 setrgbcolor fill }
+(pstVerb)
+\end{verbatim}
+(pstverb)
+\pstverb{newpath 100 -100 moveto
+    50 0 rlineto  0 50 rlineto
+    -50 0 rlineto 0 -50 rlineto
+    1 1 0 setrgbcolor fill }%
+\pstVerb{newpath 100 -100 moveto
+    50 0 rlineto  0 50 rlineto
+    -50 0 rlineto 0 -50 rlineto
+    1 0 0 setrgbcolor fill }
+(pstVerb)
+
+Theoretisch sollten beide Makros dasselbe gefüllte Quadrat zeichnen, da die absoluten
+Koordinaten identisch sind. Es werden aber zwei Quadrate gezeichnet, die logischerweise
+mitten im Text erscheinen, das kleine, rote ganz oben auf dieser Seite
+und das große Quadrat mitten in diesem Absatz. Der Text "`(pstverb)(pstVerb)"` erscheint
+zusammenhängend an der aktuellen Textposition. Weiterhin ist die Schrift auf rot
+(1 0 0) umgestellt.
+Erst ein \black\verb+\black+ schaltet dies hier zurück. Außerdem werden zwei
+verschieden große Quadrate gezeichnet, was jedoch ein Problem mit dem \verb+dvips+
+Programm darstellt, denn es setzt nicht alle Werte korrekt zurück.
+\end{minipage}
+\end{document}

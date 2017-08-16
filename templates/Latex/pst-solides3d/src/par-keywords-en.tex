@@ -1,0 +1,611 @@
+\section{Alphabetical list of keywords}
+
+
+%%% some convenient definitions
+\def\|{\discretionary{|}{}{|}}%%%
+\def\_{\discretionary{}{}{}}%%%
+\def\[{{\upshape [}}%%%
+\def\]{{\upshape ]}}%%%
+\def\({{\upshape (}}%%%
+\def\){{\upshape )}}%%%
+\def\kwd#1{\texttt{\upshape #1}}%%%
+\def\~{\discretionary{\kwd|}{}{\kwd|}}%%%
+\let\mc\multicolumn%%%
+\def\£{\hphantom{def}}
+
+\begin{tabular}{|p{3.5cm}|p{5.8cm}|}
+ \hline
+ \multicolumn2{|c|}{\textbf{Glossary of symbols}}\\[.2em]
+ \hline
+  \multicolumn{1}{|l|}{\textbf{Symbol}}&
+  \multicolumn{1}{l|}{\textbf{Use/meaning}} \\ \hline
+ \kwd{object}, \kwd{sommets}, ...& keywords\\
+ $A$, $B$, $C$, $I$, $P$ & names of points\\
+ $x$ $y$ & coordinates of a point in a plane\\
+ $x$ $y$ $z$ & coordinates of a 3d point\\
+ $r$ $\theta$ $\phi$ & spherical coordinates of a 3d point\\
+ $L$, $M$ & names of lines\\
+ $C$, $r$ & circle, centre name $C$, radius $r$\\
+ $a$ $b$ $c$ & components of a normal\\
+ \[$a$ $b$ $c$ $d$\]&the plane $ax+by+cz+d=0$\\
+ $a$, $b$ & intercepts of lines\\
+ $u$, $v$ & names of vectors\\
+ $\alpha$ & angle/angle of rotation\\
+ $k$ & scaling factor\\
+ $S$ & name of a solid\\
+ $i$ & index number of a vertex/face\\
+ $w$ & linewidth\\
+ \textit{num} & integer\\
+ \textit{value} & real number\\
+ \textit{length} & positive real number\\
+ \textit{string} & text string\\
+ $a$\~$b$\~$c$\~... & alternatives\\
+ \hline
+\end{tabular}
+
+
+\begin{longtable}{|>{\bfseries\ttfamily\color{blue}}p{2.4cm}@{}
+ |>{\ttfamily}p{4.5cm}@{}|>{\itshape}p{7.5cm}@{}|>{\ttfamily}p{1.7cm}@{}|}
+  \hline
+  \multicolumn{1}{|l|}{\textbf{Name}}&
+  \multicolumn{1}{l|}{\textbf{Command/Object}}&
+  \multicolumn{1}{l|}{\textbf{Value}}&
+  \multicolumn{1}{l|}{\textbf{Default}} \\ \hline\hline
+\endfirsthead
+\hline
+  \multicolumn{1}{|l|}{\textbf{Name}}&
+  \multicolumn{1}{l|}{\textbf{Command/Object}}&
+  \multicolumn{1}{l|}{\textbf{Value}}&
+  \multicolumn{1}{l|}{\textbf{Default}} \\ \hline\hline
+\endhead
+\multicolumn{4}{|r|}{\textit{Continued on next page}}\\ \hline
+\endfoot
+\hline \multicolumn{4}{|r|}{\textit{End of table}}\\ \hline
+\endlastfoot
+
+a&
+ \textbackslash{}psSolid&&\\[.5em]
+ &object=cube\|tetrahedron\|octahedron\|%
+ dodecahedron\|icosahedron&length&2\\
+ \hline
+
+a, b and c&
+ \textbackslash{}psSolid&&\\[.5em]
+ &object=\_parallelepiped&length&4\\
+ \hline
+
+action&
+ \textbackslash{}psSolid&\upshape\ttfamily
+ none\|draw\|draw*\|draw**\|writeobj\|writeoff\|writesolid&\texttt{draw**}\\
+ \hline
+
+affinage&
+ \textbackslash{}psSolid&
+ \kwd{all}\~ $i_0$ $i_1$ ... $i_n$&\\
+ \hline
+
+affinage\-coeff&
+ \textbackslash{}psSolid&value&0.8\\
+ \hline
+
+affinagerm&
+ \textbackslash{}psSolid&
+ boolean&true\\
+ \hline
+
+algebraic&
+ \textbackslash{}psFunction, \textbackslash{}psSurface&
+ boolean&false\\
+ \hline
+
+args&
+ \textbackslash{}psSolid&&\\[.5em]
+
+ &object=plan&&\\
+ &definition&&\\
+ &\£=equation&\{\[a b c d \]\}\~%
+  \{\[a b c d \] $\alpha$\}&\\
+ &\£=normalpoint&\{$x_0$ $y_0$ $z_0$ \[a b c\]\}\~&\\
+ &&\{$x_0$ $y_0$ $z_0$ \[a b c $\alpha$\]\}\~&\\
+ &&\{$x_0$ $y_0$ $z_0$ \[$u_x$ $u_y$ $u_z$ a b c\]\}\~&\\
+ &&\{$x_0$ $y_0$ $z_0$ \[$u_x$ $u_y$ $u_z$ a b c $\alpha$\]\}&\\
+ &\£=solidface&$S$ $i$&\\[.5em]
+
+ &object=point&$x$ $y$ $z$ \~ $P$&\\
+ &definition&&\\
+ &\£=addv3d&$x_1$ $y_1$ $z_1$ $x_2$ $y_2$ $z_2$ \~ u v&\\
+ &\£=barycentre3d&\{\[$A$ $i_A$ $B$ $i_B$\]\}&\\
+ &\£=hompoint3d&$P$ $A$ $k$&\\
+ &\£=isobarycentre3d&\{\[$A_0$ $A_1$ ... $A_n$\]\}&\\
+ &\£=milieu3d&$A$ $B$&\\
+ &\£=mulv3d&$x$ $y$ $z$ $k$ \~ $u$ $k$&\\
+ &\£=normalize3d&$x$ $y$ $z$ \~ $u$&\\
+ &\£=orthoprojplane3d&$P$ $A$ $v$&\\
+ &\£=rotateOpoint3d&$P$ $\alpha_x$ $\alpha_y$ $\alpha_z$&\\
+ &\£=scaleOpoint3d&$x$ $y$ $z$ $k_x$ $k_y$ $k_z$ \~ name $k_x$ $k_y$ $k_z$&\\
+ &\£=solidcentreface&$S$ $i$&\\
+ &\£=solidgetsommet&$S$ $i$&\\
+ &\£=subv3d&$x_1$ $y_1$ $z_1$ $x_2$ $y_2$ $z_2$ \~ $u$ $v$&\\
+ &\£=sympoint3d&$P$ $A$&\\
+ &\£=translatepoint3d&$P$ $v$&\\
+ &\£=vectprod3d&$x_1$ $y_1$ $z_1$ $x_2$ $y_2$ $z_2$ \~ $u$ $v$&\\[.5em]
+
+ &object=vecteur&$x$ $y$ $z$ \~&\\
+ &&$x_1$ $y_1$ $z_1$ $x_2$ $y_2$ $z_2$ \kwd{addv3d} \~&\\
+ &&$x_1$ $y_1$ $z_1$ $x_2$ $y_2$ $z_2$ \kwd{subv3d} \~&\\
+ &&$x$ $y$ $z$ $k$ \kwd{mulv3d} \~&\\
+ &&$x$ $y$ $z$ \kwd{normalize3d} \~&\\
+ &&$x_1$ $y_1$ $z_1$ $x_2$ $y_2$ $z_2$ \kwd{vectprod3d} &\\[.5em]
+
+ &object=vecteur3d&$x_A$ $y_A$ $z_A$ $x_B$ $y_B$ $z_B$ \~ $A$ $B$&\\[.6em]
+
+args&
+ \textbackslash{}psProjection&&\\[.5em]
+
+ &object=cercle&$x$ $y$ $r$ \~ $C$ $r$&\\
+ &definition&&\\
+ &\£=ABcercle&$A$ $B$ $C$&\\
+ &\£=diamcercle&$A$ $B$&\\[.5em]
+
+ &object=droite&$x_1$ $y_1$ $x_2$ $y_2$ \~ $A$ $B$&\\
+ &definition&&\\
+ &\£=axesymdroite&$L$ $M$&\\
+ &\£=bissectrice&$A$ $B$ $C$&\\
+ &\£=horizontale&$b$&\\
+ &\£=mediatrice&$A$ $B$&\\
+ &\£=paral&$L$ $A$&\\
+ &\£=perp&$L$ $A$&\\
+ &\£=rotatedroite&$L$ $A$ $\alpha$&\\
+ &\£=translatedroite&$L$ $u$&\\
+ &\£=verticale&$a$&\\[.5em]
+
+ &object=line&$A_0$ $A_1$ ... $A_n$&\\[.5em]
+
+ &object=point&&\\
+ &definition&&\\
+ &\£=axesympoint&$P$ $L$&\\
+ &\£=cpoint&$\alpha$ $C$ $r$&\\
+ &\£=hompoint&$P$ $A$ $k$&\\
+ &\£=interdroite&$L$ $M$&\\
+ &\£=interdroitecercle&$L$ $C$ $r$&\\
+ &\£=milieu&$A$ $B$&\\
+ &\£=orthoproj&$P$ $L$&\\
+ &\£=parallelopoint&$A$ $B$ $C$&\\
+ &\£=projx&$P$&\\
+ &\£=projy&$P$&\\
+ &\£=rotatepoint&$P$ $I$ $\alpha$&\\
+ &\£=sympoint&$P$ $I$&\\
+ &\£=translatepoint&$P$ $u$&\\
+ &\£=xdpoint&$x$ $L$&\\
+ &\£=ydpoint&$y$ $L$&\\[.5em]
+
+ &object=polygone&$A_0$ $A_1$ ... $A_n$&\\
+ &definition&&\\
+ &\£=axesympol&pol $L$&\\
+ &\£=hompol&pol $I$ $\alpha$&\\
+ &\£=rotatepol&pol $I$ $\alpha$&\\
+ &\£=sympol&pol $I$&\\
+ &\£=translatepol&pol $u$&\\[.5em]
+
+ &object=rightangle&$A$ $B$ $C$&\\[.5em]
+
+ &object=vecteur&&\\
+ &definition&&\\
+ &\£=addv&$A$ $B$&\\
+ &\£=mulv&$u$ $k$&\\
+ &\£=normalize&$u$&\\
+ &\£=orthovecteur&$u$&\\
+ &\£=subv&$u$ $v$&\\
+ &\£=vecteur&$A$ $B$&\\
+ \hline
+
+axe&
+ \textbackslash{}psSolid&&\\[.5em]
+ &object=\_cylindre\|prisme\|ruban&$x$ $y$ $z$&0 0 1\\
+ \hline
+
+axesboxed&
+ \textbackslash{}psSolid&boolean&false\\
+ \hline
+
+axisemph&
+ \textbackslash{}axesIIID~ \textbackslash{}gridIIID&\{text style\}&\\
+ \hline
+
+axisnames&
+ \textbackslash{}axesIIID&\{a,b,c\}&\{x,y,z\}\\
+ \hline
+
+base&
+ \textbackslash{}psSolid&&\\[.5em]
+ &object=face\|prisme\|ruban&$x_1$ $y_1$ $x_2$ $y_2$ $x_3$ $y_3$ ...
+  $x_n$ $y_n$&\begin{tabular}[t]{rr} -1 & -1\\ 1 & -1\\ 0 & 1\end{tabular}\\
+ &object=fusion&$S_1$ $S_2$&\\
+ &object=grille&$x_{\textrm{\upshape\scriptsize min}}$
+ $x_{\textrm{\upshape\scriptsize max}}$
+ $y_{\textrm{\upshape\scriptsize min}}$ $y_{\textrm{\upshape\scriptsize max}}$&\\
+ \hline
+
+biface&
+ \textbackslash{}psSolid&&\\[.5em]
+ &object=face&boolean&true\\
+ \hline
+
+chanfrein&
+ \textbackslash{}psSolid&boolean&false\\
+ \hline
+
+chanfrein\-coeff&
+ \textbackslash{}psSolid&value&0.2\\
+ \hline
+
+deactiv\-atecolor&
+ \textbackslash{}psSolid&boolean&false\\
+ \hline
+
+decal&
+ \textbackslash{}psSolid&num&-2\\
+ \hline
+
+definition&
+ \textbackslash{}psSolid&&\\[.5em]
+ &object=plan&
+ \upshape\ttfamily
+ equation\|normalpoint\|solidface&\\[.5em]
+ &object=point&
+ \upshape\ttfamily
+ addv3d\|barycentre3d\|hompoint3d\|isobarycentre3d\|milieu3d\|%
+ orthoprojplane3d\|rotateOpoint3d\|scaleOpoint3d\|solidcentreface\|%
+ solidgetsommets&\\
+ &&&\\[-.6em]
+ &object=vecteur&
+ \upshape\ttfamily
+ vecteur3d\|addv3d\|subv3d\|mulv3d\|normalize3d\|vectprod3d&{}\\
+ &&&\\[-.6em]
+definition&
+ \textbackslash{}psProjection&&\\[.5em]
+ &object=cercle&
+ \upshape\ttfamily
+ ABcercle\|diamcercle&\\
+ &&&\\[-.6em]
+ &object=droite&
+ \upshape\ttfamily
+ axesymdroite\|bissectrice\|horizontale\|mediatrice\|%
+ paral\|perp\|rotatedroite\|translatedroite\|%
+ verticale&\\
+% &&&\\[-.6em]
+ &object=point&
+ \upshape\ttfamily
+ axesympoint\|cpoint\|hompoint\|interdroite\|interdroitecercle\|%
+ milieu\|orthoproj\|parellelopoint\|projx\|projy\|rotatepoint\|%
+ sympoint\|translatepoint\|xdpoint\|ydpoint&\\
+% &&&\\[-.6em]
+ &object=polygone&
+ \upshape\ttfamily
+ axesympol\|hompol\|rotatepol\|sympol\|%
+ translatepol&\\
+% &&&\\[-.6em]
+ &object=vecteur&
+ \upshape\ttfamily
+ addv\|normalize\|mulv\|orthovecteur\|subv\|vecteur&\\
+\hline
+
+dualreg&
+ \textbackslash{}psSolid&&\\[.5em]
+ &object=geode&boolean&false\\
+ \hline
+
+faces&
+ \textbackslash{}psSolid&&\\[.5em]
+ &object=new&\{\[$i_1$ $i_2$ ... $i_n$ \]\[$i_1'$ $i_2'$ ... $i_m'$ \] ... \}&\\
+ \hline
+
+fcol&
+ \textbackslash{}psSolid& $i_0$ \($color_0$\) $i_1$ \($color_1$\) ...&\\
+ \hline
+
+fcolor&
+ \textbackslash{}psSolid&&\\[.5em]
+ &affinagerm& color &\\
+ \hline
+
+file&
+ \textbackslash{}psSolid&&\\[.5em]
+ &action=writesolid&filename&\\[.5em]
+ &object=datfile\|objfile\|offfile&filename&\\
+ \hline
+
+fillcolor&
+ \textbackslash{}psSolid, \textbackslash{}psSurface&color&white\\
+ \hline
+
+function&
+ \textbackslash{}psSolid, \textbackslash{}defFunction&&\\[.5em]
+ &object=cone\|courbe\|courbeR2\|cylindre\|surfaceparametree&name&\\
+ \hline
+
+grid&
+ \textbackslash{}psSolid&boolean&true\\
+ \hline
+
+h&
+ \textbackslash{}psSolid&&\\[.5em]
+ &object=cone\|cylindre\|prisme\|tronccone&length&6\\
+ \hline
+
+hollow&
+ \textbackslash{}psSolid&&\\[.5em]
+ &object=cone\|cylindre\|prisme\|tronccone&boolean&false\\
+ \hline
+
+hue,&
+ \textbackslash{}psSolid, \textbackslash{}psSurface&$h_0$ $h_1$&\\
+inhue, &&$h_0$ $h_1$ $s$ $b$&\\
+inouthue &&$h_0$ $s_0$ $b_0$ $h_1$ $s_1$ $b_1$ \kwd{(hsb)}&\\
+ &&$r_0$ $g_0$ $b_0$ $r_1$ $g_1$ $b_1$&\\
+ &&$c_0$ $m_0$ $y_0$ $k_0$ $c_1$ $m_1$ $y_1$ $k_1$&\\
+ &&\(color$_1$\) \(color$_2$\)&\\
+ \hline
+
+incolor&
+ \textbackslash{}psSolid, \textbackslash{}psSurface&color&green\\
+ \hline
+
+
+intersec\-tioncolor&
+ \textbackslash{}psSolid&\(color$_1$\) ... \(color$_n$\)&(rouge)\\
+ \hline
+
+intersec\-tionline\-width&
+ \textbackslash{}psSolid&$w_1$ ... $w_n$&1\\
+ \hline
+
+intersec\-tionplan&
+ \textbackslash{}psSolid, \textbackslash{}psSurface&name \~ \{eq$_1$ ... eq$_n$\}
+ \textrm{\upshape where eq$_i$=}\[$a_i$ $b_i$ $c_i$ $d_i$\]&\\
+ \hline
+
+labelsep&
+ \textbackslash{}axesIIID&length[unit]&\\
+ \hline
+
+
+light\-intensity&
+ \textbackslash{}psSolid, \textbackslash{}psSurface&value&2\\
+ \hline
+
+lightsrc&
+ \textbackslash{}psSolid, \textbackslash{}psSurface&$x$ $y$ $z$&20 30 50\\
+ \hline
+
+load&
+ \textbackslash{}psSolid&&\\[.5em]
+ &object=load&name&\\
+ \hline
+
+mathLabel&
+ \textbackslash{}axesIIID&boolean&true\\
+ \hline
+
+mode&
+ \textbackslash{}psSolid&
+ \upshape\ttfamily
+ 0\|1\|2\|3\|4&0\\
+ \hline
+
+name&
+ \textbackslash{}psSolid, \textbackslash{}psProjection&name&\\
+ \hline
+
+ngrid&
+ \textbackslash{}psSolid&&\\[.5em]
+ &object=cube\|prisme\|prismecreux&$n_1$&\\
+ &&&\\[-0.6em]
+ &object=cone\|conecreux\|cylindre\|cylindrecreux\|%
+ tore\|tronccone\|troncconecreux&$n_1$ $n_2$&\\
+ &&&\\[-0.6em]
+ &object=grille\|surface\|surface*\|surfaceparametree&$n_1$\~ $n_1$ $n_2$&\\
+ \hline
+
+num&
+ \textbackslash{}psSolid&\kwd{all} \~ $i_0$ $i_1$ ... $i_n$&\\
+ \hline
+
+object&
+ \textbackslash{}psSolid&
+ \upshape\ttfamily
+ new\|anneau\|calottesphere\|cone\|conecreux\|cube\|%
+ cylindre\|cylindrecreux\|datfile\|dodecahedron\|face\|%
+ fusion\|geode\|grille\|icosahedron\|load\|octahedron\|%
+ objfile\|parallelepiped\|plan\|prisme\|ruban\|%
+ sphere\|surfaceparametree\|tetrahedron\|%
+ tore\|tronccone\|troncconecreux&\\
+ &&&\\[-0.6em]
+object&
+ \textbackslash{}psProjection&
+ \upshape\ttfamily
+ cercle\|courbe\|courbeR2\|droite\|line\|point\|polygone\|%
+ rightangle\|texte\|vecteur&\\
+ \hline
+
+
+opacity&
+ \textbackslash{}psSolid&value&1\\
+ \hline
+
+origine&
+ \textbackslash{}psSolid&&\\[.5em]
+ &object=plan&$x_0$ $y_0$ $z_0$&0 0 0\\
+ \hline
+
+path&
+ \textbackslash{}psProjection&pscode&newpath 0 0 moveto\\
+ \hline
+
+phi&
+ \textbackslash{}psSolid, \textbackslash{}psProjection&$\alpha$&0\\
+ \hline
+
+plangrid&
+ \textbackslash{}psSolid&&\\[.5em]
+ &object=plan&boolean&false\\
+ \hline
+
+planmarks&
+ \textbackslash{}psSolid&&\\[.5em]
+ &object=plan&boolean&false\\
+ \hline
+
+plansection&
+ \textbackslash{}psSolid&\{plan$_1$ ... plan$_n$\} \textrm{\upshape where
+ plan$_i$=}\[$a_i$ $b_i$ $c_i$ $d_i$\]&\\
+ \hline
+
+plansepare&
+ \textbackslash{}psSolid&\{\[a b c d \]\}&\\
+ \hline
+
+\pagebreak
+
+pos&
+ \textbackslash{}psProjection&&\\[0.5em]
+ &object=point&
+ \upshape\ttfamily
+ ul\~cl\~bl\~dl\~ub\~cb\~bb\~db\~uc\~cc\~bc\~dc\~ur\~cr\~br\~dr&cc\\
+ \hline
+
+QZ&
+ \textbackslash{}psSolid, \textbackslash{}psSurface&value&0\\
+ \hline
+
+RotX, RotY, RotZ&
+ \textbackslash{}psSolid&$\alpha$&0\\
+ \hline
+
+r&
+ \textbackslash{}psSolid&&\\[.5em]
+ &object=anneau\|courbe&length&2\\
+ \hline
+
+R&
+ \textbackslash{}psSolid&&\\[.5em]
+ &object=anneau&length&4\\
+ \hline
+
+r0&
+ \textbackslash{}psSolid&&\\[.5em]
+ &object=tore\|troncone\|troncconecreux&length&1.5\\
+ \hline
+
+r1&
+ \textbackslash{}psSolid&&\\[.5em]
+ &object=tore\|troncone\|troncconecreux&length&4\\
+ \hline
+
+range&
+ \textbackslash{}psSolid&&\\[.5em]
+ &object=cercle\|courbe\|courbeR2&$t_{\textrm{\upshape\scriptsize min}}$
+ $t_{\textrm{\upshape\scriptsize max}}$&-5 5\\
+ &&&\\[-0.6em]
+ &object=surfacepara\-metree&$u_{\textrm{\upshape\scriptsize min}}$
+ $u_{\textrm{\upshape\scriptsize max}}$
+ $v_{\textrm{\upshape\scriptsize min}}$ $v_{\textrm{\upshape\scriptsize max}}$&\\
+ \hline
+
+resolution&
+ \textbackslash{}psSolid&&\\[.5em]
+ &object=courbe\|courbeR2\|ruban&$n$&36\\
+ \hline
+
+rm&
+ \textbackslash{}psSolid&$i_0$ $i_1$ ... $i_n$&\\
+ \hline
+
+section&
+ \textbackslash{}psSolid&&\\[.5em]
+ &object=anneau&macro\{pscode\}&\textbackslash{}Section\\
+ \hline
+
+show&
+ \textbackslash{}psSolid&\kwd{all} \~ $i_0$ $i_1$ ... $i_n$&\\
+ \hline
+
+showBase&
+ \textbackslash{}psSolid&&\\[.5em]
+ &object=plan&boolean&false\\
+ \hline
+
+showbase&
+ \textbackslash{}psSolid&&\\[.5em]
+ &object=plan&boolean&false\\
+ \hline
+
+showOrigin&
+ \textbackslash{}axesIIID&boolean&true\\
+ \hline
+
+sommets&
+ \textbackslash{}psSolid&&\\[.5em]
+ &object=new&$x_1$ $y_1$ $z_1$ $x_2$ $y_2$ $z_2$ ... $x_n$ $y_n$ $z_n$&\\
+ \hline
+
+spotX,spotY, spotZ&
+ \textbackslash{}psSurface, \textbackslash{}gridIIID&
+ \upshape\ttfamily
+ u\~ul\~l\~dl\~d\~dr\~r\~ur&\\
+ \hline
+
+stepX,stepY, stepZ&
+ \textbackslash{}gridIIID&$n$&1\\[.5em]
+ \hline
+
+text&
+ \textbackslash{}psProjection&&\\[0.5em]
+ &object=point&string&\\
+ \hline
+
+theta&
+ \textbackslash{}psSolid&&\\[.5em]
+ &object=calottesphere&$\alpha$&90\\
+ \hline
+
+ticklength&
+ \textbackslash{}gridIIID&$length$&0.2\\[.5em]
+ \hline
+
+transform&
+ \textbackslash{}psSolid, \textbackslash{}defFunction
+  &\{pscode\}\~function&\\[.5em]
+ \hline
+
+trunc&
+ \textbackslash{}psSolid&
+ \kwd{all} \~ $i_0$ $i_1$ ... $i_n$&\\
+ \hline
+
+trunccoeff&
+ \textbackslash{}psSolid&value&0.2\\
+ \hline
+
+
+viewpoint&
+ \textbackslash{}psset&$x$ $y$ $z$ \~ $r$ $\theta$ $\phi$
+ \kwd{rtp2xyz}
+ &10 10 10\\
+ \hline
+
+visibility&
+ \textbackslash{}psSolid, \textbackslash{}psProjection&boolean&true\\
+ \hline
+
+
+Zmin&
+ \textbackslash{}psSurface, \textbackslash{}gridIIID&value&-4\\
+ \hline
+
+Zmax&
+ \textbackslash{}psSurface, \textbackslash{}gridIIID&value&4\\
+
+\end{longtable}
+
+\endinput
