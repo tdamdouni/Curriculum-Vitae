@@ -1,0 +1,12 @@
+.DS_Store
+.sass-cache
+build
+dist
+
+# vim
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+*~

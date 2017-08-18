@@ -1,0 +1,37 @@
+\usepackage[english]{babel} %english, UKenglish or italian
+\newcommand\titleText{Curriculum Vitae} % or R\'esum\'e
+\newcommand\quoteText{Working from scratch, following simplicity}
+\newcommand\quoteExtended{To obtain a position that would enable me to enlarge my skills\\ in scientific programming, IT and web applications}
+
+% TIMELINE
+\newcommand\educationTitle{Education and Training} % Title in the top left
+\newcommand\schoolTitle{Postgraduate in Civil Engineering\\Geotechnical Field -- Universit\`a di Padova}
+\newcommand\professionalTitle{Professional Engineer\\enrolled at Rovigo Association of Engineers}
+\newcommand\sabbaticalTitle{Study trip \& occasional waiter in Eastbourne (UK)\\achieved an English Course}
+
+\newcommand\worksTitle{Work experience} % Title in the bottom left
+\newcommand\workTitleA{Steward, cashier and wakeful\\Coopgress - Verona $83$, Padova}
+\newcommand\workTitleB{Freelance Civil Engineer\\Project SCARL, Rovigo}
+\newcommand\workTitleC{Internship \& Collaboration\\Scuola Sant'Anna \& ERGO SRL, Pisa}
+% MINDMAP
+\newcommand\mindmapTitle{\textsc{\LARGE knowledge \& expertise}}
+% FIRST MAP (IN THE TOP LEFT)
+\newcommand\mindmapTitleA{\small \textsc{goals\\achieved}}
+\newcommand\mindmapAitemA{Designed and developed Forex panels for the exhibition stand}
+\newcommand\mindmapAitemB{Administered questionnaires in response to certain visual incentives}
+\newcommand\mindmapAitemC{Collected data}
+% SECOND MAP (IN THE TOP RIGHT)
+\newcommand\mindmapTitleB{\small \textsc{adaptive\\skills}}
+\newcommand\mindmapBitemA{Problem solving}
+\newcommand\mindmapBitemB{Teamwork, working with the public, get results}
+\newcommand\mindmapBitemC{Mulltitask}
+% THIRD MAP (IN THE BOTTOM RIGHT)
+\newcommand\mindmapTitleC{\textsc{language\\proficiency}} %conoscenze\\linguistiche
+\newcommand\mindmapCitemA{Italian -- Mothertongue}
+\newcommand\mindmapCitemB{English -- B1, Professional Working\\Eastbourne School of English (2013)}
+\newcommand\mindmapCitemC{French -- A1, Limited Working\\Scholastic level}
+% FOURTH MAP (IN THE BOTTOM LEFT)
+\newcommand\mindmapTitleD{\textsc{software\\used}}
+\newcommand\mindmapDitemA{Microfot Office and LibreOffice, \LaTeX{}}
+\newcommand\mindmapDitemB{Octave, NVivo, R and IPhyton for quantitative and qualitative analysis}
+\newcommand\mindmapDitemC{AutoCAD and Blender for 2D and 3D design}

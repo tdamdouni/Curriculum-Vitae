@@ -1,0 +1,74 @@
+%%
+%% This is file `revnum.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% revnum.dtx 
+%% 
+%% IMPORTANT NOTICE:
+%% 
+%% For the copyright see the source file.
+%% 
+%% Any modified versions of this file must be renamed
+%% with new filenames distinct from revnum.sty.
+%% 
+%% For distribution of the original source see the terms
+%% for copying and modification in the file revnum.dtx.
+%% 
+%% This generated file may be distributed as long as the
+%% original source files, as listed above, are part of the
+%% same distribution. (The sources need not necessarily be
+%% in the same archive or directory.)
+%% File: revnum.dtx, Copyright (C) 1996 Joern Wilms
+%% wilms@astro.uni-tuebingen.de
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{revnum}[1997/05/10 v1.0 reverse enumerate, jw]
+\newcounter{rev@cnti}   \def\therev@cnti{i\arabic{rev@cnti}}
+\newcounter{rev@cntii}  \def\therev@cntii{ii\arabic{rev@cntii}}
+\newcounter{rev@cntiii} \def\therev@cntiii{iii\arabic{rev@cntiii}}
+\newcounter{rev@cntiv}  \def\therev@cntiv{vi\arabic{rev@cntiv}}
+%% \begin{environment}{revnumerate}
+\newenvironment{revnumerate}[1][-1]%
+{%
+\ifnum\@enumdepth >\thr@@\@toodeep\else
+  \advance\@enumdepth\@ne
+  \edef\@enumctr{enum\romannumeral\the\@enumdepth}
+  \edef\@revcnt{rev@cnt\romannumeral\the\@enumdepth}
+  \stepcounter{\@revcnt}
+  \edef\the@revcnt{rev\csname the\@revcnt\endcsname}
+  \expandafter\ifx\csname c@\the@revcnt\endcsname\relax%
+    \newcounter{\the@revcnt}
+    \setcounter{\the@revcnt}{26}
+  \fi
+  \ifnum #1 <0
+    \setcounter{\@enumctr}{\value{\the@revcnt}}
+  \else
+    \setcounter{\@enumctr}{#1}
+  \fi
+  \stepcounter{\@enumctr}%
+  \setcounter{\the@revcnt}{0}%
+  \begin{list}%
+     {\addtocounter{\@enumctr}{-1}%
+      \stepcounter{\the@revcnt}%
+      \global\edef\@currentlabel
+          {\csname p@\@enumctr\endcsname\csname the\@enumctr\endcsname}%
+      \csname label\@enumctr\endcsname%
+     }{}%
+\fi
+}{%
+\end{list}
+\protected@write\@auxout{}{%
+  \string\expandafter%
+  \string\ifx\string\csname\space c@\the@revcnt\string\endcsname\relax%
+  \string\newcounter {\the@revcnt}\string\fi
+}
+\protected@write\@auxout{}{%
+   \string\setcounter {\the@revcnt}%
+     {\number\csname c@\the@revcnt\endcsname}
+   }
+}
+%% \end{environment}
+\endinput
+%%
+%% End of file `revnum.sty'.

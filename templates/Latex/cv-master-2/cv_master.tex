@@ -1,0 +1,244 @@
+%% start of file `template.tex'.
+%% Copyright 2006-2013 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+\documentclass[11pt,a4paper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+\usepackage{multicol}
+
+% moderncv themes
+\moderncvstyle[shortrules]{banking}                             % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
+\moderncvcolor{green}                               % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+%\renewcommand{\familydefault}{\rmdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+%\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+
+% adjust the page margins
+\usepackage[scale=0.8]{geometry}
+%\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
+%\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+
+% personal data
+\name{Viktor}{Doychinov}
+\address{Leeds}{West Yorkshire}{United Kingdom}% optional, remove / comment the line if not wanted; the "postcode city" and "country" arguments can be omitted or provided empty
+%\phone[fixed]{0113~343~1446}
+\phone[mobile]{07961~388~940}                   % optional, remove / comment the line if not wanted; the optional "type" of the phone can be "mobile" (default), "fixed" or "fax"
+%\phone[fax]{+3~(456)~789~012}
+\email{vdoychinov@theiet.org}                               % optional, remove / comment the line if not wanted
+\social[linkedin]{viktordoychinov}                        % optional, remove / comment the line if not wanted
+%\homepage{about.me/vdoychinov}                         % optional, remove / comment the line if not wanted
+%\social[twitter]{jdoe}                             % optional, remove / comment the line if not wanted
+\social[github]{elvd}                              % optional, remove / comment the line if not wanted
+%\extrainfo{additional information}                 % optional, remove / comment the line if not wanted
+%\photo[64pt][0.4pt]{hog}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
+%\quote{Some quote}                                 % optional, remove / comment the line if not wanted
+\moderncvicons{awesome}
+\renewcommand*{\linkedinsocialsymbol}{\faLinkedinSign~~}       % alternative: \faLinkedin
+\def\faLinkedinSign{{\FA\symbol{"F08C}}}
+%\def\faCircleBlank{{\FA\symbol{"F10C}}}
+
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+\setlength{\multicolsep}{0pt} 
+%-----       resume       ---------------------------------------------------------
+\makecvtitle
+\linespread{1.1}
+\vspace{-1em}
+
+\section{Work Experience}
+\cventry{}{University of Leeds, UK}{Research Fellow in Wireless Communication Systems}{Jul 2016 -- now}{}{Currently developing a wireless power transfer system to charge and operate sensor nodes at up to 5 m. Responsible for the joint design and optimisation of sensor electronics and microwave hardware. Design and measure RF rectifiers, individual and phased array antennas at 5.8 GHz, as well as beam forming and beam steering networks. Supervising a PhD student working on antenna arrays for 5G mmWave communication. Investigating the application of 3D printing technology for rapid circuit prototyping. In addition, involved in the set up of a mmWave Testing and Sensing Bed for 5G Communications Laboratory and propagation measurements inside a pipe.}
+
+\cventry{}{University of Leeds, UK}{Research Fellow in Microfabrication for BWOs}{Oct 2015 -- Jun 2016}{}{Optimised fabrication process of Slow Waveguide Structures in a cleanroom environment for Backward Wave Oscillators. Performed 2-port waveguide S-parameter measurements at 220 GHz -- 325 GHz. Designed and manufactured waveguide blocks for the same frequency range. Came up with an alternative, novel application of the same fabrication process. Other duties included communication with collaborators, academics, and technical support staff.}
+
+\cventry{}{University of Leeds, UK}{Module Demonstrator}{Oct 2014 -- Mar 2017}{}{Support tutorials and laboratory classes for "RF \& Microwave Engineering" and "Integrated Circuit Design" modules at University of Leeds. Provide one-to-one help to students, explaining concepts and methods to solve various practical problems. Support students learning how to use commercial CAD packages with practical advice.}
+
+\section{Education}
+\cventry{Awarded 07 March 2016}{University of Leeds}{PhD Electronic and Electrical Engineering}{Oct 2011 -- Aug 2015}{United Kingdom}
+{\cvitemwithcomment{}{}{
+\begin{description}
+    \item[Degree Overview] %\textit{Quantum Barrier Devices for Sub-Millimetre Wave Detection}\\
+	My aim was to study the use of resonant-tunnelling diodes in sub-harmonic mixers operating at millimetre-wave frequencies. I performed circuit modelling and simulations using Keysight ADS and Ansys HFSS, in addition to semiconductor device modelling using Matlab and Python. Fabricated devices and circuits in a cleanroom environment, and measured their characteristics up to 110 GHz using an on-wafer probe station and HP 8510C VNA. I also designed waveveguide housing blocks and components in SolidWorks. Throughout the entire time I worked in close collaboration with academics, technical support staff and fellow research students, to ensure smooth and correct work flow. 
+%
+%    The project aim was to study the use of specific quantum barrier devices as a non-linear element in sub-harmonic mixers operating at millimetre and sub-millimetre frequencies. The devices were further investigated for their application in amplifiers at the same frequency ranges. To address this goal, I performed circuit modelling and simulations using Keysight ADS and Ansoft HFSS, in addition to semiconductor device modelling using Matlab and Python. Fabricated devices and planar circuits in a cleanroom environment, and designed waveveguide blocks and circuits in SolidWorks for manufacture by conventional mechanical means. Throughout the entire time I worked in close collaboration with academics, technical support staff and fellow research students, to ensure smooth and correct work flow. 
+%    \item[Skills gained] \hfill \\
+%    Improved analytical, modelling and numerical skills as a result of research project. Practised presentation and communication skills via attending research conferences and networking with other researchers. By approaching the PhD from a project management perspective, gained good task and time management skills, never missing a deadline. Kept up-to-date with current developments in the general field through webinars and academic and trade journal subscriptions. Attended training courses in microwave measurements offered by equipment vendors, and successfully sat examination for Certified LabVIEW Associate Developer. Furthermore, through training courses at the University of Leeds and elsewhere honed Python and FORTRAN knowledge and applied that to the research project in order to streamline and speed up data processing.
+\end{description}
+}} % arguments 3 to 6 can be left empty
+%\pagebreak
+%\vspace{0.25em}
+\cventry{Awarded with Merit}{University College London}{MSc Spacecraft Technology \& Satellite Communications}{Sept 2010 -- Sept 2011}{United Kingdom}{\cvitemwithcomment[0.25em]{}{}{
+\begin{description}
+	\item[Degree Overview] \hfill \\
+	Degree combined intensive study of scientific satellite subsystems and mission design with applications of RF/Microwave circuits and devices for satellite communications. Expanded RF/Microwave engineering knowledge and gained appreciation for its use in the spacecraft industry. Completed an Individual Project on Communication Subsystem Design for a scientific spacecraft mission. Acted as Team Leader during Group Project stage and designed a suitable trajectory for another satellite.
+%    \item[Individual Project] \textit{Alfv\'{e}n -- Magnetosphere-Ionosphere Connection Explorers}\\
+%    Performed a detailed design of the communication and power subsystems for the Alfven-MICE scientific spacecraft mission, and investigated possibilities for the Attitude Control Subsystem; as well as an alternative mission scenario. Thoroughly researched previous missions and used the specialised mission design software package STK. Utilised Matlab for data processing and link budget design for the communication subsystem. \\ \textit{Project Grade: 65}
+%    \item[Group Project] \textit{Exploring the Early Solar System: Chariklo Fly-by Mission Concept}
+%        \begin{itemize}
+%            \item Appointed Team Leader for the Flight Dynamics group
+%            \item Tasked with designing a suitable trajectory for spacecraft mission under specified restrictions
+%            \item Communicated with other Team Leaders and Project Supervisors
+%            \item Successfully presented and argued proposed solution at group project viva
+%        \end{itemize}
+    \item[Key Modules] \hfill
+        \begin{itemize}
+            \begin{multicols}{2}                    
+                \item Satellite Communications
+                \item RF Circuits \& Subsystems
+                \item Communications Systems Modelling
+                \item Space Systems Engineering
+                \item Space Design - Electronic Subsystems
+                \item Space Instrumentation \& Application
+            \end{multicols}
+        \end{itemize}
+\end{description}
+}}
+
+\vspace{0.25em}
+%\cventry{Erasmus student}{Lancaster University}{BEng Final Year Project}{Mar 2009 -- Aug 2009}{United Kingdom}{\cvitemwithcomment[0.25em]{}{}{
+%\begin{description}
+%    \item \hfill \\
+%    \vspace{-0.5em}
+%    Spent five months as an Erasmus Study Abroad student, working on my BEng dissertation project. The work completed was included and presented in a conference paper. The project dealt with highway traffic estimation in different scenarios, and the overall aim was to investigate the performance of Gaussian Mixture Models and how they can be applied to the traffic estimation problem. My contribution consisted of developing and implementing Matlab simulation models, and validating them with measured data from highway roads in the UK.
+%\end{description}
+%}}
+%\pagebreak
+\vspace{0.25em}
+\cventry{Overall Grade: 5.3 out of 6}{Technical University -- Sofia}{BEng Telecommunications}{Sept 2005 -- Sept 2009}{Bulgaria}{\cvitemwithcomment[0.25em]{}{}{
+\begin{description}
+    \item[Degree Overview] \hfill \\
+        Focus on mobile and wireless communications. Obtained a thorough foundation and understanding of RF and Microwave theory and design principles. Studied in-depth various transmitter and receiver system blocks, such as amplifiers, mixers, and filters. Took modules and successfully completed course projects on antennae, radio propagation, and beamforming network techniques. 
+    \item[Key Modules] \hfill
+        \begin{itemize}
+            \begin{multicols}{2}                    
+                \item Mobile Communications
+                \item RF Communications
+                \item Microwave Circuits \& Devices
+                \item Antennas and Feed Networks
+                \item RF Circuit Design
+                \item Measurement Techniques in Telecommunications
+                \item Digital Signal Processing
+                \item Channel Coding and Modulation Techniques
+            \end{multicols}
+        \end{itemize}
+\end{description}
+}}
+%\cventry{Overall Grade: .3/6}{Technical University--Sofia}{BEng Telecommunications, Contd.}{2005--2009}{}{\cvitemwithcomment[0.25em]{}{}{
+%\begin{description}        
+%    \item[Other Course Projects] \hfill
+%        \begin{itemize}
+%            \item Design of a parabolic antenna with a feed horn for microwave point-to-point link, using Ansoft HFSS
+%            \item Design of a solid-state microwave amplifier operating at 2.45 GHz, using Ansoft Designer
+%        \end{itemize}
+%    \item[Key Modules] \hfill
+%        \begin{itemize}
+%            \begin{multicols}{2}                    
+%                \item Mobile Communications
+%                \item RF Communications
+%                \item Microwave Circuits \& Devices
+%                \item Semiconductor Devices
+%                \item Antenna and Microwave Technology
+%                \item Measurement Techniques in Telecommunications
+%            \end{multicols}
+%        \end{itemize}
+%\end{description}}
+%}
+\section{Skills and Competencies}
+\cvitem{CAD Software}{Proficient user of Keysight ADS, Ansys HFSS and SolidWorks. Competent user of Keysight Momentum, NI LabVIEW, OriginPro, and Matlab.}
+\cvitem{Test \& Measurement Equipment}{Oscilloscopes, Vector Network Analyzers, Spectrum Analyzers, Signal Generators, Power Meters, DC Measurements.}
+\cvitem{Microwave and mmWave Measurements}{Small-signal S-parameters, Arbitrary Waveform Generation, On-wafer device and circuit measurements, Mixer Measurements, Antenna Pattern Measurements.}
+\cvitem{Cleanroom Fabrication}{Wet Bench Processing, Photolithography, Metal Evaporation and Sputtering, SEM Imaging.}
+\cvitem{OS \& Programming}{Windows 7, Ubuntu Linux, \LaTeX, Python, C, HTML/CSS.}
+
+\section{Certificates and Awards}
+\cvlistitem{\textbf{Introduction to Analogue and Mixed Signal IC Design, by \textit{STFC RAL}}}
+\cvlistitem{\textbf{Certified LabVIEW Associate Developer}, Licence 100-314-277}
+\cvlistitem{\textbf{Recipient of an EPSRC Doctoral Training Grant}}
+\cvlistitem{\textbf{European Computer Driving Licence}, Licence BCS101808401}
+\cvlistitem{\textbf{LFS201: Essentials of System Administration}, issued by \textit{The Linux Foundation}}
+%\cvlistitem{\textbf{UCL Enterprise Boot Camp Participation Certificate}}
+\cvlistitem{\textbf{Certificate in Basic Statistics for Researchers}}
+
+\section{Internships}
+\cventry{}{Telepoint LTD}{Data Centre Technician}{Jul 2010 -- Sep 2010}{Sofia, Bulgaria}{Duties involved day-to-day maintenance of a data centre, cable installation and testing, mounting and commissioning telecommunication equipment. Cooperated with client technical support to diagnose and troubleshoot various issues.}
+\cventry{}{Cosmo Bulgaria Mobile}{Microwave Design Intern}{Jul 2008 -- Aug 2008}{Sofia, Bulgaria}{Main responsibility was design and documentation of backhaul microwave point-to-point telecommunication links. Additional responsibilities included liaison with Network Traffic Planning Department to ensure telecommunication traffic requirements are well understood and met.}
+\cventry{}{Bulgarian Telecommunications Company}{Process Management \& Quality Assurance Intern}{Jul 2007 -- Oct 2007}{Sofia, Bulgaria}{Participated in the drafting and completion of flowcharts and diagrams representing the business processes of the company, developed in accordance to the eTOM framework. Attended work group meetings between Heads of Departments in order to make sure the flowcharts were accurate and true representation of the actual business practices.}
+
+\section{Professional Memberships}
+\cvitem{IEEE}{Student Member Dec 2010, Member Dec 2015}
+\cvitem{IET}{Student Member Feb 2014, Member May 2016}
+
+\section{Languages}
+\cvlanguage{Bulgarian}{Native}{}
+\cvlanguage{English}{Fluent}{\textit{CAE Grade: A (2003), IELTS Score: 8.5 (2009)}}
+
+\section{Interests and Activities}
+\cvitem{Volunteering}{Served as Secretary for two student societies at University of Leeds. Have been running a Code Club at Leeds Central Library since November 2015, and started volunteering as IntoUniversity Academic Support in October 2016.}
+\cvitem{Outreach}{Registered and active STEM Ambassador, have supported multiple events including acting as a judge for Tomorrow's Engineers EEP Robotics Challenge 2016/2017. Have presented research to general public during several Science Festivals at the University of Leeds.}
+%\cvitem{Student Societies}{Served as Secretary for the SciFi \& Fantasy and Engineers Without Borders societies at University of Leeds. Responsibilities included organising regular and one-off events, maintaining files and documentation, communicating with the Student Union and making sure the rest of the Committee Members were kept up-to-date.}
+\cvitem{DIY Electronics}{Arduino and Raspberry Pi enthusiast. Designed and built an African Pygmy Hedgehog activity monitoring system.}
+\cvitem{Other Interests}{Science and Technology, Board and Card Games, Scientific Computing, Origami, Model Making, World History}
+
+%\begin{cvcolumns}
+%  \cvcolumn{Category 1}{\begin{itemize}\item Person 1\item Person 2\item Person 3\end{itemize}}
+%  \cvcolumn{Category 2}{Amongst others:\begin{itemize}\item Person 1, and\item Person 2\end{itemize}(more upon request)}
+%  \cvcolumn[0.5]{All the rest \& some more}{\textit{That} person, and \textbf{those} also (all available upon request).}
+%\end{cvcolumns}
+
+% Publications from a BibTeX file without multibib
+%  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% CONSIDER MERGING WITH PREAMBLE PART
+%  to redefine the heading string ("Publications"): \renewcommand{\refname}{Articles}
+%\clearpage
+%\renewcommand{\refname}{Conference Publications}
+%\nocite{*}
+%\bibliographystyle{IEEEtran}
+%\bibliography{publications}                        % 'publications' is the name of a BibTeX file
+
+%\section{References}
+%\textit{Available upon request}
+
+% Publications from a BibTeX file using the multibib package
+%\section{Publications}
+%\nocitebook{book1,book2}
+%\bibliographystylebook{plain}
+%\bibliographybook{publications}                   % 'publications' is the name of a BibTeX file
+%\nocitemisc{misc1,misc2,misc3}
+%\bibliographystylemisc{plain}
+%\bibliographymisc{publications}                   % 'publications' is the name of a BibTeX file
+
+\clearpage
+
+%
+%%-----       letter       ---------------------------------------------------------
+%% recipient data
+%\recipient{Institute of Microwaves and Photonics \\ School of Electronic and Electrical Engineering}{University of Leeds\\Woodhouse Lane\\Leeds LS2 9JT}
+%\date{May 17, 2016}
+%\opening{Dear Members of the Search Committee,}
+%\closing{Yours faithfully,}
+%%\enclosure[Attached]{curriculum vit\ae{}}          % use an optional argument to use a string other than "Enclosure", or redefine \enclname
+%\makelettertitle
+%I am writing to you in order to put forward my application for the recently advertised position of \textit{Research Fellow in the Modelling, Design and Measurement of Wireless Communications Systems}. I am currently a postdoctoral researcher at the Institute of Microwaves and Photonics, working on THz Backward Wave Oscillators. 
+%
+%I firmly believe that my knowledge and expertise in the field of high frequency electronic engineering, combined with my background in wireless communications, make me a suitable candidate to deliver excellent results and outputs for this project. I hope that I will be able to continue to do research at the University of Leeds, which with its world-class facilities and laboratories, along with a thriving and stimulating research environment, is the perfect place to pursue a research career in microwave and millimetre-wave engineering.
+%
+%My long-standing professional interest has been in RF and microwave engineering, pursuing degrees in the field at both undergraduate and postgraduate level. Having designed and worked with various microwave and millimetre-wave circuits and components during my studies and work, I have developed a deep understanding of their application and potential benefits to multiple areas, including mobile and satellite communications, and for ubiquitous sensor connectivity as part of the Internet of Things.
+%
+%During both my PhD and current research projects, I have extensively used, and as a result become proficient in, various software tools for microwave circuit design, modelling, and validation. I have used the 3D FEM simulator Ansoft HFSS for applications such as antennas, planar mixer and amplifier circuits, and waveguide couplers and filters. I have also used Keysight ADS for semiconductor device modelling and linear and non-linear circuit design and simulation. I have further been involved in waveguide block design for manufacture, using SolidWorks, for the purposes of investigating sub-millimetre wave finline circuits, and as a test fixture for Slow Waveguide Structures.
+%
+%I have complemented this work with vendor-provided training on microwave and millimeter-wave measurements, using a wide range of equipment, such as signal generators, vector network analysers, oscilloscopes, spectrum analysers, and power metres. Furthermore, I have developed my skills and knowledge in the area of measurements by becoming a LabVIEW Certified Associate Developer, and applying my LabVIEW skills to semiconductor device measurements.
+%
+%Being part of a vibrant Institute with established research teams, I have been able to participate and contribute to discussions between peers and partners on a variety of topics. I have also assisted in both undergraduate and MSc students' project supervision, something I thoroughly enjoy and would be happy to do again. Furthermore, I seized the opportunity to participate in outreach activities, giving a talk during the recent Be Curious festival, and receiving an invite to speak to PhD students about my experience.
+%
+%I am really excited at the possibility to conduct research at the forefront of microwave and millimetre-wave engineering, and given the opportunity, I am confident that I will make a significant contribution to the project, helping to deliver its expected outcomes through hard work and dedication. 
+%
+%Thank you very much for your time and consideration. I look forward to hearing from you.
+%
+%\makeletterclosing
+
+%%%%\clearpage\end{CJK*}                              % if you are typesetting your resume in Chinese using CJK; the \clearpage is required for fancyhdr to work correctly with CJK, though it kills the page numbering by making \lastpage undefined
+\end{document}
+
+%% end of file `template.tex'.

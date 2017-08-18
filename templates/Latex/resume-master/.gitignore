@@ -1,0 +1,13 @@
+/_site
+/tags
+*.aux
+*.log
+*.pdf
+*.fdb_latexmk
+*.fls
+*.out
+/vc.tex
+/cv.run.xml
+*.bbl
+*.blg
+*.bcf

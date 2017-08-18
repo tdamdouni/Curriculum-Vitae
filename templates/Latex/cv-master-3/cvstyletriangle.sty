@@ -1,0 +1,127 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LEROY Vanessa CV
+% LaTeX use cvandletter
+% Version 1.1 (12/07/2017)
+%
+% Based on : 
+% 'moderncvstyletriangle.sty' of Xavier Danaux (xdanaux@gmail.com).
+%
+% Original author:
+% LEROY Vanessa (leroy.vanessa@live.fr)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% start of file 'cvstyletriangle.sty'.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------
+% IDENTIFICATION
+%----------------------------------------------------------
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{cvstyletriangle}[2017/07/12 v1.1 curriculum vitae style scheme: triangle]
+
+%----------------------------------------------------------
+% REQUIRED PACKAGES
+%----------------------------------------------------------
+%--------------------
+% Gestion des graphiques et schéma
+%--------------------
+\RequirePackage{siunitx}
+\RequirePackage{tikz} % To generate the plot from csv
+\RequirePackage{pgfplots}
+
+\usetikzlibrary{babel,positioning,calc}
+
+\tikzset{every picture/.style={execute at begin picture={
+   \shorthandoff{:;!?};}
+}}
+
+%----------------------------------------------------------
+% RESUME DESIGN
+%----------------------------------------------------------
+
+% commands
+%-------				
+% makes the resume title
+% usage: \makecvtitle
+\renewcommand*{\makecvtitle}{%
+	\phantomsection
+	\addcontentsline{toc}{chapter}{Curriculum Vit\ae{}}
+  % regular lengths
+  \setlength{\parskip}{0\p@}
+	%
+	\begin{tikzpicture}[remember picture,overlay]
+		\fill[color=gray,opacity=0.1,rotate=+40] ($(current page.north west)+(-10,0)$) rectangle ($(current page.north east)+(-12,5.1)$);
+		%\fill[color=brown,rotate=-15] ($(current page.north west)+(0,-2)$) rectangle ($(current page.north east)+(2,0)$);
+		%\fill[color=gray,opacity=0.2] ($(current page.north west)$) rectangle ($(current page.south west)+(8,0)$);
+	\end{tikzpicture}
+	%
+  %% optional detailed information (pre-rendering)
+  %\newbox{\makecontactbox}%
+  %\savebox{\makecontactbox}{\cvcontact[l]}%
+	%%
+  %\newbox{\maketitlebox}%
+  %\savebox{\maketitlebox}{\cvnametitle[c]}%
+  %%
+  %% optional photo (pre-rendering)
+  %\newbox{\makepicturebox}%
+  %\savebox{\makepicturebox}{\cvpicturerect}%
+  %% optional photo (rendering)
+  %\usebox{\makepicturebox}%
+	%% name and title
+	%\hfill
+  %\usebox{\maketitlebox}%
+  %% optional detailed information (rendering)
+	%\\[2.5em]  
+	%\usebox{\makecontactbox}% \llap is used to suppress the width of the box, allowing overlap if the value of makecvtitlenamewidth is forced
+  %%% optional aboutme
+  %%\ifthenelse{\isundefined{\@aboutme}}%
+    %%{}%
+    %%{\centering\begin{minipage}{\aboutmewidth}\centering\@aboutmestyle{\@aboutme}\end{minipage}\\[2.5em]}%
+  %%\par
+	
+}% to avoid weird spacing bug at the first section if no blank line is left after \makecvtitle
+
+% makes a resume section
+% usage: \section{<title>}
+% identical starred and non-starred variants should be defined for compatibility with other packages (e.g. with natbib, that uses \section*{} for the bibliography header)
+\RenewDocumentCommand{\section}{sm}{%
+  \setlength{\maincolumnwidth}{\textwidth-\separatorcolumnwidth-\hintscolumnwidth}%
+	%
+  \par\addvspace{2.5ex}%
+  \phantomsection{}% reset the anchor for hyperrefs
+  \addcontentsline{toc}{section}{#2}%
+  \parbox[t]{\hintscolumnwidth}{%
+		\strut\raggedleft\raisebox{\baseletterheight}{%
+			\color{color1}\rule{\hintscolumnwidth}{0.95ex}
+		}
+	}%
+  \hspace{\separatorcolumnwidth}%
+  \parbox[t]{\maincolumnwidth}{\strut
+	\@sectionstyle{#2}
+	}%
+  \par\nobreak\addvspace{1ex}\@afterheading
+}% to avoid a pagebreak after the heading
+
+\renewcommand*{\cventry}[7][.25em]{%
+  \cvitem[#1]{#2}{%
+    {\bfseries#3}%
+    \ifthenelse{\equal{#4}{}}{}{, {\slshape#4}}%
+    \ifthenelse{\equal{#5}{}}{}{, #5}%
+    \ifthenelse{\equal{#6}{}}{}{, #6}%
+    .\strut%
+    \ifx&#7&%
+      \else{\newline{}\begin{minipage}[t]{\linewidth}\small#7\end{minipage}}\fi%
+	}%
+}
+
+\renewcommand*{\cvitem}[3][.25em]{%
+  \begin{tabular}{@{}p{\hintscolumnwidth}@{\hspace{\separatorcolumnwidth}}p{\maincolumnwidth}@{}}%
+    \raggedleft\@hintstyle{#2} &{#3}%
+  \end{tabular}%
+  \par\addvspace{#1}%
+}
+
+\endinput
+
+%% end of file 'cvstyletriangle.sty'.

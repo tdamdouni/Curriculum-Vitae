@@ -1,0 +1,74 @@
+\documentclass[11,a4paper,roman]{moderncv}
+\moderncvstyle{banking}
+\moderncvcolor{blue}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage[polish]{babel}
+\usepackage[scale=0.90]{geometry}
+\usepackage{graphicx}
+\makeatletter
+\@ifpackageloaded{moderncvstylebanking}{%
+\let\oldmakecvtitle\makecvtitle
+\renewcommand*{\makecvtitle}{
+  {\centering\framebox{\includegraphics[width=75pt]{pic.jpg}}\par\vspace{5pt}}
+  \oldmakecvtitle%
+}%
+}{%
+}
+\nopagenumbers
+\makeatother
+
+\def \polishskill {native} 
+\def \englishskill {C2 / proficient} 
+\def \germanskill {A2 / basic} 
+\def \frenchkill {A1 / basic} 
+
+\firstname{Kacper}
+\familyname{Kasztelanic}
+\title{Junior Developer}
+\email{k.kasztelanic@gmail.com}
+\mobile{+48 793 954 321}
+\social[github][github.com/kacperkasztelanic]{/ kacperkasztelanic}
+\address{Wrocław}{}
+%\extrainfo {}
+%\quote {}
+
+\begin{document}
+\makecvtitle
+\vspace{-1,0cm}
+
+\section{Education}
+\cventry{10/2015-present}{Pursuing degree in Computer Science}{Wrocław University of Science and Technology}{Faculty of Computer Science and Management}{}{}
+\cventry{02/2016-present}{Master's degree in Civil Engineering}{Wrocław University of Science and Technology}{Faculty of Civil Englineering}{}{}
+\cventry{10/2012-01/2016}{Engineer degree in Civil Engineering}{Wrocław University of Science and Technology}{Faculty of Civil Englineering}{}{}
+
+\section{IT Tools}
+\cvitem{Java SE}{Java8, Collections, Multithreading, JDBC, Swing, Apache Libraries}
+\cvitem{Java EE}{Servlets, JSP}
+\cvitem{RDBS/SQL}{MySQL, SQLite}
+\cvitem{Python}{OOP, numpy}
+\cvitem{C++}{OOP, STL}
+\cvitem{}{\textbf{Android}}
+
+\section{IT Skills}
+\cvitem{Operating Systems}{GNU/Linux, Windows}
+\cvitem{Version Control System}{GIT}
+\cvitem{Development techniques}{Design Patterns, SOLID}
+\cvitem{Unit Tests}{JUnit}
+\cvitem{}{\textbf{Relational databases design}}
+
+\section{Languages}
+\cvlanguage{Polish}{\polishskill}{}
+\cvlanguage{English}{\englishskill}{}
+\cvlanguage{German}{\germanskill}{}
+\cvlanguage{French}{\frenchkill}{}
+
+\section{Hobbies}
+\cvitem{} {Software optimization, networking, hardware}
+\cvitem{} {Linguistics, literature, music, psychology}
+\vspace*{\fill}
+\textit{\scriptsize I hereby give consent for my personal data included in my application to be processed for the purposes of the recruitment process under the Personal Data Protection Act as of 29 August 1997, consolidated text: Journal of Laws 2016, item 922 as amended..}
+\newline
+\newline
+\textit{\scriptsize Wyrażam zgodę na przetwarzanie moich danych osobowych dla potrzeb niezbędnych do realizacji procesu rekrutacji (zgodnie z Ustawą z dnia 29.08.1997 roku o Ochronie Danych Osobowych; tekst jednolity: Dz. U. 2016 r. poz. 922)..}
+\end{document}

@@ -1,0 +1,161 @@
+
+\documentclass[11pt]{moderncv}
+
+\usepackage{tikz}
+\usetikzlibrary{tikzmark}
+
+\moderncvstyle{csardi}
+\moderncvcolor{wes}
+
+\bibliography{pubs2}
+
+\name{\tikzmark{start}gábor}{csárdi}
+\title{computer scientist\tikzmark{end}}
+
+\input{vc}
+
+\begin{document}
+
+\RaggedRight
+
+\begin{tikzpicture}[remember picture,overlay]
+\fill[color2]
+  (current page.north west) rectangle ([yshift=-1cm]current page.east|-{pic cs:end});
+\end{tikzpicture}
+
+\makecvtitle
+
+\begin{aside}
+\raggedleft
+334 Harvard street L3,\\
+Cambridge, MA\\
+02139 USA\\[6pt]
++1 (857) 259-0417\\
+csardi.gabor@gmail.com\\
+@gaborcsardi\\
+gaborcsardi.org\\
+github.com/gaborcsardi
+
+\section{skills}
+Algorithms, data structures.
+Graph algorithms,\\
+network analysis.\\[6pt]
+\subsection{expert}
+\textcolor{color5}{\faHeart} 
+\textbf{R}, C, Linux/Unix, Shell.\\[6pt]
+\subsection{experienced}
+C++, Python, JavaScript,
+Java, HTML/CSS, \LaTeX.\\[6pt]
+SQL and noSQL databases.\\[6pt]
+Software engineering tools,
+git, Jenkins CI, etc.
+% Hadoop 
+% Apache spark
+\end{aside}
+
+\vspace*{1ex}
+
+\section{education}
+
+\cventry{2003--2008}{PhD}{Eötvös University}{Budapest, Hungary}%
+{Computer Science}%
+{Dissertation: Modeling complex systems as evolving networks\\
+Summa cum laude.}
+
+\cventry{1998--2003}{MSc}{Eötvös University}{Budapest, Hungary}%
+{Computer Science}%
+{Graduated with distinction (single in class).\\
+Specialized in Programming Languages, Databases, Machine Learning and
+Economics.}
+
+\section{experience}
+
+\cventry{2011--2015}{Postdoctoral researcher}{}{Department of Statistics,
+Harvard University}{Cambridge, MA, USA}{}
+
+\cventry{2008--2011}{Postdoctoral researcher}{}{Computational Biology Group,
+Department of Medical Genetics, University of Lausanne}{Lausanne, Switzerland}%
+{}
+
+\cventry{2006--2007}{Research Fellow}{}{Department of Biophysics, Research
+Institute for Particle and Nuclear and Physics, Hungarian
+Academy of Sciences.}{Budapest, Hungary}%
+{}
+
+\cventry{2003--2006}{Research Assistant}{}{Department of Biophysics, Research
+Institute for Particle and Nuclear and Physics, Hungarian
+Academy of Sciences.}{Budapest, Hungary}%
+{}
+
+\cventry{2002, 2004, 2005, 2006}{Research and teaching assistant}{}{Three months
+each, Center for Complex Systems Studies, Kalamazoo College, Kalamazoo, MI,
+USA.}{Kalamazoo, MI, USA}%
+{}
+
+\cventry{2002}{Erasmus student}{}{Department of Biomedical
+Engineering, Eindhoven University of Technology}{Eindhoven, The Netherlands.}%
+{}
+
+\section{applications}
+\cventry{2005--}{igraph}{}{Library for network analysis and graph algorithms}%
+{C/C++/R/Python \url{http://igraph.org}}{}
+
+\cventry{2014--}{METACRAN}{}{Tools for the CRAN R package repository}%
+{R/JavaScript \url{https://github.com/metacran/metacran}, 
+  \url{http://www.r-pkg.org}}{}
+
+\cventry{2011--2015}{MISO}{}{Mixture of isoforms model for RNA-Seq
+ isoform quantitation}{Python/C 
+ \url{http://genes.mit.edu/burgelab/miso/index.html}}{}
+
+\cventry{2011--}{Other software}{}{See \url{http://github.com/gaborcsardi}}
+{}{\url{http://www.r-pkg.org/maint/csardi.gabor@gmail.com}}
+
+\pagebreak
+
+\section{selected awards}
+
+\cventry{2015}{\mdseries Winner of the W. J. Youden Award in Interlaboratory
+ Testing}{}{}{}{}
+
+\cventry{2012}{\mdseries Best 5 minute postdoc presentation at the Harvard Symposium of
+Applied Statistics}{}{}{}{}
+
+\cventry{2004}{\mdseries Scholarship to the Santa Fé Complex Systems Summer School}{}{}{}{}
+
+\cventry{2003--2006}{\mdseries Young researcher scholarship of the Hungarian Academy
+of Sciences}{}{}{}{}
+
+\cventry{2003}{\mdseries Graduated in computer science with distinction, Eötvös University,
+Faculty of Science}{}{}{}{}
+
+\section{service}
+
+Associate Editor of Journal of Statistical Software.
+
+Reviewing for Journal of Statistical Software, Journal of Machine
+Learning Research, Physical Review E, Bioinformatics, Physica A,
+Biosystems, Computational Statistics and Data Analysis,
+Neural Information Processing Systems, International Conference
+on Artificial Intelligence and Statistics.
+
+\section{selected publications}
+
+\begin{refsection}
+  \nocite{*}
+  \printbibliography[type={book}, title={books}, heading=subbibliography]
+\end{refsection}
+
+\begin{refsection}
+  \nocite{*}
+  \printbibliography[type={article}, title={articles}, heading=subbibliography]
+\end{refsection}
+
+\begin{refsection}
+  \nocite{*}
+  \printbibliography[nottype={book}, nottype={article},
+  title={other}, heading=subbibliography]
+\end{refsection}
+
+
+\end{document}

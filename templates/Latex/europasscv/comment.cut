@@ -1,0 +1,68 @@
+  \ecvsection{Personal skills}
+  \ecvmothertongue{Italian}
+  \ecvlanguageheader
+  \ecvlanguage{English}{B1$^1$}{B1$^1$}{B1$^1$}{B1$^1$}{B1$^1$}
+  \ecvlastlanguage{French}{A1}{A1}{A1}{A1}{A1}
+  \ecvlanguagefooter{\par\hspace{5.3cm}$^1$ Certified by Eastbourne School of English in 2013}
+
+  \ecvblueitem{Communication skills}{
+  \begin{ecvitemize}
+  \item Implemented a dynamic web site in Drupal 7 with publication of material relating to the engineering profession and IT in general in two languages: Italian and English (starting from 2012)
+  \item Press agent at Villadose Rugby Company (2003-2009). Besides I realized in 2007 a promotional video for the First Feast of the Associations of Villadose and subsequently posted on YouTube. The movie through three sections tells the thirty-year history of passion, sacrifice and satisfaction of this Club
+  \item Journalist in a weekly sport magazine called Area Sport, Rovigo (2003-2004)
+  \item Composed and performed a reenactment show, that it has been interpreted by Legio I Italica Group at the Ludi Savarienses festival in Szombathely (Hungary - 2003)
+  \item Oral Presentation at the 4th Congress of Experimental Archaeology with Reconstruction of Roman legionary cuirasses. Description of a reproduction of a lorica segmentata and hamata (Villadose - 2002)
+  \item Foreman of Villadose's Archaelogical Group for mounting and greeting visitor to the stand of Rovigo District at the XXV International Exhibition L'Italia in Giappone (Osaka, Japan - 2002)
+  \item Jubilee volunteer in Rome as pilgrims information clerk (Rome 2000)
+  \end{ecvitemize}
+  }
+
+  \ecvblueitem{Organisational / managerial skills}{
+  \begin{ecvitemize}
+    \item Leadership and good experience in managing a group of people, achieved working as foreman at the Verona 83 SCARL Cooperative starting from 2006
+  \end{ecvitemize}
+  }
+
+  \ecvblueitem{Job-related skills}{
+  \begin{ecvitemize}
+    \item Problem solving
+    \item Teamwork, working with the public, get results
+    \item Mulltitask
+  \end{ecvitemize}
+  }
+
+%----------------------------------
+% DIGITAL COMPETENCE SUBSECTION
+% In according to:
+% europass.cedefop.europa.eu/resources/digital-competences
+% The levels are:
+%       Basic user --> \ecvBasic
+%       Independent user --> \ecvIndependent
+%       Proficient user --> \ecvProficient
+%
+%  And the 5 areas of competence are:
+%      Information processing
+%      Content creation
+%      Communication
+%      Problem solving
+%      Safety
+%----------------------------------
+  \ecvdigitalcompetence
+      {\ecvProficient}
+      {\ecvProficient}
+      {\ecvProficient}
+      {\ecvProficient}
+      {\ecvProficient}
+
+
+  \ecvblueitem{Computer skills}{
+  \begin{ecvitemize}
+  \item Basic: Python, fem, Octave (clone Matlab), Sismicad, Plaxis, Straus.
+  \item Intermediate: Web design and admin, Drupal 7, Graphics 2D \& 3D, Office suites, Microsoft Windows, Linux.
+  \item Advanced: CAD, Computer Hardware and Support.
+  \end{ecvitemize}
+  }
+
+  %\ecvblueitem{Other skills}{Creating and testing open source software. Enjoy rugby, jogging and experiment archaeology. Like to travel and experience different cultures.}
+
+  \ecvblueitem{Driving licence}{B}

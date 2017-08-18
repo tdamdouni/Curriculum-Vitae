@@ -1,0 +1,71 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LEROY Vanessa Cover letter
+% LaTeX use cvandletter
+% Version 1.1 (12/07/2017)
+%
+% Based on : 
+% 'moderncvstyleclassic.sty' of Xavier Danaux (xdanaux@gmail.com).
+%
+% Original author:
+% LEROY Vanessa (leroy.vanessa@live.fr)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% start of file 'letterstyleclassique.sty'.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------
+% IDENTIFICATION
+%----------------------------------------------------------
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{letterstyleclassique}[2017/07/12 v1.1 cover letter style scheme: classic]
+		
+%----------------------------------------------------------
+% COVER LETTER DESIGN
+%----------------------------------------------------------
+
+% commands
+\renewcommand*{\makelettertitle}{%
+	\phantomsection
+  \addcontentsline{toc}{chapter}{Lettre de motivation}%
+  % regular lengths
+  \setlength{\parskip}{1em}
+  % sender contact info
+	\begin{flushleft}
+		\contactstyle\@sendercontact\\[2\parskip]
+	\end{flushleft}
+  % recipient block
+	\begin{flushright}
+		\contactstyle\@recipientcontact\\[2\parskip]
+		% date
+		\@senderdate\\[2\parskip]%
+	\end{flushright}
+	% object
+	\raggedright%
+	Objet : \@object\\[2\parskip]%
+	% opening
+	\@opening\\[2\parskip]%
+	% ensure no extra spacing after \makelettertitle due to a possible blank line
+	\hspace{0pt}\par\vspace{-\baselineskip}\vspace{-\parskip}%
+}
+
+
+\renewcommand*{\lettertext}[2][\parskip]{%
+    \ifx&#2&%
+      \else{\makenewline\begin{minipage}[t]{\linewidth}#2\end{minipage}}\fi\\[#1]%
+}%
+
+\renewcommand*{\makelettercontents}{
+  \begin{minipage}[t]{\linewidth}\@closing\end{minipage}\\[3em]%  
+	\begin{flushright}
+	{\bfseries\@name}%
+	\end{flushright}
+  \ifthenelse{\isundefined{\@attached}}{}{%
+    \vfill%
+    {\color{color2}\itshape\enclname: \@attached}
+	}
+}
+
+\endinput
+
+%% end of file 'letterstyleclassique.sty'.

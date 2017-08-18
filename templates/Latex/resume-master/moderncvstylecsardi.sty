@@ -1,0 +1,225 @@
+%% start of file `moderncvstylecsardi.sty'.
+%% Copyright 2006-2013 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+%-------------------------------------------------------------------------------
+%                identification
+%-------------------------------------------------------------------------------
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{moderncvstylecsardi}[2013/04/29 v1.5.1 modern curriculum vitae and letter style scheme: csardi]
+
+
+%-------------------------------------------------------------------------------
+%                required packages
+%-------------------------------------------------------------------------------
+\RequirePackage{moderncvstyleclassic}
+\RequirePackage{xstring}
+\RequirePackage[left=6.4cm,top=1.7cm,right=1cm,bottom=1.7cm,nohead,nofoot]{geometry}
+\RequirePackage{ragged2e}
+\RequirePackage[style=verbose, maxnames=99, sorting=ydnt]{biblatex}
+\RequirePackage{revnum}
+\moderncvicons{awesome}
+
+
+%-------------------------------------------------------------------------------
+%                overall style definition
+%-------------------------------------------------------------------------------
+% commands
+%   footer symbol used to separate footer elements
+\newcommand*{\footersymbol}{%
+    {~~~{\rmfamily\textbullet}~~~}}% the \rmfamily is required to force Latin Modern fonts when using sans serif, as OMS/lmss/m/n is not defined and gets substituted by OMS/cmsy/m/n
+%   internal command to add an element to the footer
+%   it collects the elements in a temporary box, and checks when to flush the box
+\newsavebox{\footerbox}%
+\newsavebox{\footertempbox}%
+\newlength{\footerwidth}%
+\newlength{\footerboxwidth}%
+\newif\if@firstfooterelement\@firstfooterelementtrue%
+%   adds an element to the footer, separated by footersymbol
+%   usage: \addtofooter[footersymbol]{element}
+\newcommand*{\addtofooter}[2][\footersymbol]{%
+  \if@firstfooterelement%
+    \savebox{\footertempbox}{\usebox{\footerbox}#2}%
+  \else%
+    \savebox{\footertempbox}{\usebox{\footerbox}#1#2}\fi%
+  \settowidth{\footerboxwidth}{\usebox{\footertempbox}}%
+  \ifnum\footerboxwidth<\footerwidth%
+    \savebox{\footerbox}{\usebox{\footertempbox}}%
+    \@firstfooterelementfalse%
+  \else%
+    \flushfooter\\%
+    \savebox{\footerbox}{#2}%
+    \savebox{\footertempbox}{#2}%
+    \settowidth{\footerboxwidth}{\usebox{\footerbox}}%
+    \@firstfooterelementfalse\fi}
+%   internal command to flush the footer
+\newcommand*{\flushfooter}{%
+  \strut\usebox{\footerbox}%
+  \savebox{\footerbox}{}%
+  \savebox{\footertempbox}{}%
+  \setlength{\footerboxwidth}{0pt}}
+
+
+%-------------------------------------------------------------------------------
+%                resume style definition
+%-------------------------------------------------------------------------------
+% fonts
+\setromanfont[Mapping={tex-text}, 
+	Numbers={OldStyle},
+	Ligatures={Common}]{Linux Libertine O}
+\setsansfont[Mapping=tex-text,
+	Ligatures={Common}]{DejaVu Sans}
+\setmonofont[Mapping=tex-text,Scale=0.72]{DejaVu Sans Mono}
+
+\newfontface\scheader[Mapping={tex-text},SmallCapsFont={Linux Libertine O},
+  SmallCapsFeatures={Letters=SmallCaps}]{Linux Libertine O}
+
+\newfontface\addressblock[Mapping={tex-text}, 
+	Numbers={OldStyle},
+	Ligatures={Common}]{Linux Libertine O}
+
+\newfontface\sectionfontdef[Mapping={tex-text}]{DejaVu Sans Bold}
+\renewcommand{\sectionfont}{\sectionfontdef\Huge}
+\renewcommand{\subsectionfont}{\sectionfontdef\large}
+
+\newfontface\surnamefontdef[Mapping={tex-text}]{DejaVu Sans Condensed}
+\newfontface\lastnamefontdef[Mapping={tex-text}]{DejaVu Sans Condensed Bold}
+
+\newcommand*{\surnamefont}{\surnamefontdef\fontsize{48}{50}\mdseries}
+\newcommand*{\lastnamefont}{\lastnamefontdef\fontsize{48}{50}\mdseries}
+\renewcommand*{\addressfont}{\normalsize\mdseries\slshape}
+
+\newfontface\titlefontdef[Mapping={tex-text}]{DejaVu Sans ExtraLight}
+\renewcommand*{\titlefont}{\titlefontdef\normalsize}
+\renewcommand*{\titlestyle}[1]{{\titlefont\textcolor{white}{#1}}}
+
+% commands
+\renewcommand*{\makecvtitle}{%
+  % name
+  \raggedright{\surnamefont\color{white}\@firstname}{\lastnamefont\color{white}\@lastname}
+  % optional title
+  \ifthenelse{\equal{\@title}{}}{}{\\[4pt]\titlestyle{\@title}}\\[25pt]
+  \par}% to avoid weird spacing bug at the first section if no blank line is left after \maketitle
+
+%-------------------------------------------------------------------------------
+%                letter style definition
+%-------------------------------------------------------------------------------
+\renewcommand*{\makelettertitle}{%
+  % recompute lengths (in case we are switching from letter to resume, or vice versa)
+  \recomputeletterlengths%
+  % ensure footer with personal information
+  \makeletterfooter%
+  % recipient block
+  \begin{minipage}[t]{.5\textwidth}
+    \raggedright%
+    \addressfont%
+    {\bfseries\upshape\@recipientname}\\%
+    \@recipientaddress%
+  \end{minipage}
+  % date
+  \hfill% US style
+%  \\[1em]% UK style
+  \@date\\[2em]% US informal style: "April 6, 2006"; UK formal style: "05/04/2006"
+  % opening
+  \raggedright%
+  \@opening\\[1.5em]%
+  % ensure no extra spacing after \makelettertitle due to a possible blank line
+%  \ignorespacesafterend% not working
+  \hspace{0pt}\par\vspace{-\baselineskip}\vspace{-\parskip}}
+
+\renewcommand*{\makeletterfooter}{%
+  \setlength{\footerwidth}{0.8\textwidth}%
+  \fancypagestyle{plain}{%
+    \fancyfoot[c]{%
+      \parbox[b]{\footerwidth}{%
+        \centering%
+        \addressfont\color{color2}%
+        \vspace{\baselineskip}% forces a white line to ensure space between main text and footer (as footer height can't be known in advance)
+        \vspace{-\baselineskip}% to cancel out the extra vertical space taken by the name (below) and ensure perfect alignment of letter and cv footers
+        \strut{\bfseries\upshape\@firstname~\@lastname}\\% the \strut is required to ensure the line is exactly \baselineskip tall
+        \ifthenelse{\isundefined{\@addressstreet}}{}{\addtofooter[]{\addresssymbol\@addressstreet}%
+          \ifthenelse{\equal{\@addresscity}{}}{}{\addtofooter[~--~]{\@addresscity}}% if \addresstreet is defined, \addresscity and addresscountry will always be defined but could be empty
+          \ifthenelse{\equal{\@addresscountry}{}}{}{\addtofooter[~--~]{\@addresscountry}}%
+          \flushfooter\@firstfooterelementtrue\\}%
+        \collectionloop{phones}{% the key holds the phone type (=symbol command prefix), the item holds the number
+          \addtofooter{\csname\collectionloopkey phonesymbol\endcsname\collectionloopitem}}%
+        \ifthenelse{\isundefined{\@email}}{}{\addtofooter{\emailsymbol\emaillink{\@email}}}%
+        \ifthenelse{\isundefined{\@homepage}}{}{\addtofooter{\homepagesymbol\httplink{\@homepage}}}%
+        \collectionloop{socials}{% the key holds the social type (=symbol command prefix), the item holds the link
+          \addtofooter{\csname\collectionloopkey socialsymbol\endcsname\collectionloopitem}}%
+        \ifthenelse{\isundefined{\@extrainfo}}{}{\addtofooter{\@extrainfo}}%
+        \ifthenelse{\lengthtest{\footerboxwidth=0pt}}{}{\flushfooter}% the lengthtest is required to avoid flushing an empty footer, which could cause a blank line due to the \\ after the address, if no other personal info is used
+        }}}%
+  \pagestyle{fancy}}
+
+\renewcommand*{\makeletterclosing}{
+  \@closing\\[3em]%
+  {\bfseries\@firstname~\@lastname}%
+  \ifthenelse{\isundefined{\@enclosure}}{}{%
+    \\%
+    \vfil%
+    {\color{color2}\itshape\enclname: \@enclosure}}%
+    \vfil}
+
+\newcounter{colorCounter}
+\def\@sectioncolor#1{%
+  {%
+    \color{%
+      \ifcase\value{colorCounter}%
+        color5\or%
+        color5\or%
+        color5\or%
+        color5\or%
+        color5\or%
+        color5\or%
+        color5\or%
+        color5\or%
+        color5\else%
+        color5\fi%
+    } #1%
+  }%
+  \stepcounter{colorCounter}%
+}
+
+\renewcommand{\sectionstyle}[2]{\sectionfont\@sectioncolor{#1}#2}
+\renewcommand*{\subsectionstyle}[1]{{\subsectionfont{#1}}}
+
+\RenewDocumentCommand{\section}{sm}{%
+  \par\addvspace{7.0ex}%
+  \phantomsection{}% reset the anchor for hyperrefs
+  \addcontentsline{toc}{section}{#2}%
+  \parbox[t]{\maincolumnwidth}{\strut\sectionstyle{\StrLeft{#2}{3}}{\StrGobbleLeft{#2}{3}}}%
+  \par\nobreak\addvspace{1ex}\@afterheading}% to avoid a pagebreak after the heading
+
+\RenewDocumentCommand{\subsection}{sm}{%
+  \par\addvspace{1ex}%
+  \phantomsection{}% reset the anchor for hyperrefs
+  \addcontentsline{toc}{subsection}{#2}%
+  {\strut\subsectionstyle{#2}}%
+  \par\nobreak\addvspace{0.5ex}\@afterheading}% to avoid a pagebreak after the heading
+
+\RequirePackage[absolute,overlay]{textpos}
+\setlength{\TPHorizModule}{1cm}
+\setlength{\TPVertModule}{1cm}
+\setlength{\TPMargin}{0.5cm}
+\newenvironment{aside}{%
+  \let\oldsection\section
+  \renewcommand{\section}[1]{
+    \par\vspace{\baselineskip}{\Large\sectionfont\color{color0} ##1}%
+    \vspace{.4\baselineskip}\par
+  }
+  \begin{textblock}{5.5}(0.3, 6.88)
+}{%
+  \vfill\hbox{}
+  \end{textblock}
+  \let\section\oldsection
+ }
+
+\endinput
+
+
+%% end of file `moderncvstylecsardi.sty'.

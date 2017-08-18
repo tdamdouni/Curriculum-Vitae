@@ -1,0 +1,194 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LEROY Vanessa CV and cover letter
+% LaTeX use cvandletter
+% Version 1.1 (12/07/2017)
+%
+% Original author:
+% LEROY Vanessa (leroy.vanessa@live.fr)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% start of file 'Vanessa_LEROY-CV2017.tex'.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%---------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%---------------------------------------------------------
+\documentclass[french]{cvandletter}
+\usecolor{green}
+\usefonts{classic}
+\useicons{marvosym}
+\usecvstyle{triangle}  
+\useletterstyle{classique}  
+
+\usepackage[top=1cm, bottom=1cm, left=2cm, right=2cm]{geometry}
+
+%---------------------------------------------------------
+%	 PERSONAL INFORMATION
+%---------------------------------------------------------
+\name{Vanessa}{Leroy}
+\sex{female}             
+\address{33 bis, rue Gambetta}{69800}{Saint Priest}         
+\email{vanessa.leroy@live.fr}          
+\mobile{06\ 87\ 85\ 47\ 83}
+\linkedin{vanessa-leroy}
+\github{VanessaLeroy}
+\birthdate{1989}{10}{21}
+\drivinglicence{B}
+
+\photo{img/photo.jpg}
+
+%---------------------------------------------------------
+%	 JOB SEARCH
+%--------------------------------------------------------- 
+\recipient{<Nom du contact>}{<Entreprise>}{<Nom de la rue>}{<Code postal>}{<Ville>}
+
+\title{<Nom du poste>}
+\aboutme{<Accroche>}
+\object{<Objet de la candidature>}
+
+\opening{Madame, Monsieur,}
+\closing{Je me tiens à votre entière disposition pour tous renseignements complémentaires. Je vous prie, Madame, Monsieur, d'agréer l'expression de mes respectueuses salutations.}
+%\closing{En espérant pouvoir vous exprimer ma motivation dans le cadre d’un entretien, je vous prie de croire, Madame, Monsieur, à l’expression de mes salutations distinguées,}
+
+%---------------------------------------------------------
+%	 AUTRE
+%---------------------------------------------------------  
+\enclosure{Curriculum vit\ae{}}
+	
+\begin{document}
+
+%----------------------------------------------------------
+% COVER LETTER
+%----------------------------------------------------------
+	\makelettertitle
+
+	\lettertext{\lipsum[1]}
+
+	\lettertext{\lipsum[2]}
+
+	\lettertext{\lipsum[3]}
+
+	\makelettercontents
+
+	\clearpage
+	
+%----------------------------------------------------------
+% CV 
+%----------------------------------------------------------
+	\makecvtitle
+
+	%**********************************
+	\section{Mes formations}
+	%**********************************
+	\cventry{2015}
+		{Programmation en C++}
+		{IB Formation}
+		{Paris (75)}
+		{}
+		{Formation d'une semaine pour approfondir les connaissances en C++}
+		
+	\cventry{2014}
+		{Master Mathématiques et Informatique appliqués Parcours Ingénierie Logicielle et Aide à la Décision}
+		{IMA – Université Catholique de l'Ouest}
+		{Angers (49)}
+		{Mention Bien}
+		{}
+
+	\cventry{2012}
+		{Licence Mathématiques et Informatique Spécialité Informatique Appliquées aux Mathématiques}
+		{IMA – Université Catholique de l'Ouest}
+		{Angers (49)}
+		{Mention Assez Bien}
+		{}
+
+	%\cventry{2009}
+		%{Baccalauréat Scientifique}
+		%{Lycée Sacré Cœur}
+		%{Angers (49)}
+		%{}
+		%{Spécialité Mathématiques}
+
+	%\cventry{2008-2009}
+		%{Brevet d'Aptitude aux Fonctions d'Animateur}
+		%{}
+		%{Gennes (49)}
+		%{}
+		%{Session d'approfondissement : Pré-ados et ados}
+
+	%**********************************
+	\section{Mes expériences professionnelles}
+	%**********************************
+	\cventry{Depuis Novembre 2014}
+		{Résolution de problèmes d'emplois du temps sous contraintes de charges - Ingénieur R\&D}
+		{R\&D Opti-RH, Horoquartz}
+		{Vénissieux (69)}
+		{}
+		{}
+		
+		
+	\cventry{Février 2014 à Août 2014}
+		{Planification sous contraintes de ressources humaines - Stagiaire}
+		{R\&D Opti-RH, Horoquartz}
+		{Vénissieux (69)}
+		{}
+		{}
+
+	\cventry{Avril 2013 à Juillet 2013}
+		{Optimisation des formations par méthodes exactes - Stagiaire}
+		{B.ARO, Armée de Terre}
+		{Paris (75)}
+		{}
+		{}
+
+	\cventry{Février 2012 à Juin 2012}
+		{Optimisation du placement d'objets sur palettes - Stagiaire}
+		{Interseed}
+		{Trélazé (49)}
+		{}
+		{}
+
+	%\cventry{Septembre 2012 à Octobre 2012}
+		%{Optimisation de mes tournées de véhicule pour la distribution des pages jaunes}
+		%{S'Pass Diffusion}
+		%{Angers (49)}
+		%{}
+		%{}
+		
+	%**********************************
+	\section{Mes expériences personnelles}
+	%**********************************
+	\cventry{Septembre 2002 à Janvier 2014}
+		{Monitrice de Gymnastique Artistique Féminine}
+		{Guyemer Cygognes}
+		{Beaulieu-sur-Layon (49)}
+		{}
+		{}
+		
+
+
+	%**********************************
+	\section{Mes compétences en informatique}
+	%**********************************
+	\cvitem{Bureautique}{\LaTeX, Pack office}
+	\cvitem{Langages}{C++, Java, C, VBA, PHP, SQL, Batch}
+	\cvitem{Solveurs}{MiniZinc, IBM CPLEX, Gecode, IBM IlogSolver, GLPK, CHOCO, CBLS}
+	\cvitem{Éditeurs}{Eclipse, Visual Studio, Code$::$Blocks, Windev, GUSEK, PostgreSQL, MySQL}
+
+%\skill[langages]{C++, Java, C, VBA, PHP, SQL, Batch}
+%\skill[solveurs]{MiniZinc, IBM CPLEX, Gecode, IBM IlogSolver, GLPK, CHOCO, CBLS}
+%\skill[Bureautique]{}
+%\skill[Éditeurs]{Eclipse, Visual Studio, Code$::$Blocks, Windev, GUSEK, PostgreSQL, MySQL}
+
+	%**********************************
+	\section{Mes centres d'intérêt}
+	%**********************************
+	\cvitem{Sport}{Gymnastique Artistique Féminine, Yoga}
+	\cvitem{Voyage}{Thaïlande, Italie, Espagne}
+	%\interests{la gymnastique, le yoga, les voyages, l'immersion culturelle, l'aventure}
+	
+	\section{Mes atouts}
+		Polyvalente, Persévérante, Sociable, Responsable, Esprit d'équipe, Optimiste
+\end{document}
+
+%% end of file 'Vanessa_LEROY-CV2017.tex'

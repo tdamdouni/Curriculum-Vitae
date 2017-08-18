@@ -1,0 +1,130 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% LEROY Vanessa CV and cover letter
+%% LaTeX use cvandletter
+%% Version 1.1 (12/07/2017)
+%%
+%% Based on : 
+%% 'moderncvstyleclassic.sty' of Xavier Danaux (xdanaux@gmail.com).
+%%
+%% Original author:
+%% LEROY Vanessa (leroy.vanessa@live.fr)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% start of file 'cvandletterfontsclassic.sty'.
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------
+% IDENTIFICATION
+%----------------------------------------------------------
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{cvandletterfontsclassic}[2017/07/12 v1.1 curriculum vitae and cover letter font scheme: classic]
+
+%----------------------------------------------------------
+% REQUIRED PACKAGES
+%----------------------------------------------------------
+
+%----------------------------------------------------------
+% FONT SCHEME DEFINITION
+%----------------------------------------------------------
+% fonts
+%-------
+\renewcommand*{\namefont}{\fontsize{34}{36}\mdseries\upshape}
+\renewcommand*{\contactfont}{\small\mdseries\slshape}
+\renewcommand*{\@titlefont}{\LARGE\mdseries\slshape}
+\renewcommand*{\@aboutmefont}{\large\slshape}
+\renewcommand*{\@sectionfont}{\Large\mdseries\upshape}
+\renewcommand*{\@subsectionfont}{\large\mdseries\upshape}
+\renewcommand*{\@hintfont}{}
+
+% styles
+%-------
+\renewcommand*{\namestyle}[1]{{\namefont\textcolor{color0}{#1}}}
+\renewcommand*{\contactstyle}[1]{{\contactfont\textcolor{color2}{#1}}}
+\renewcommand*{\@titlestyle}[1]{{\@titlefont\textcolor{color2}{#1}}}
+\renewcommand*{\@aboutmestyle}[1]{{\@aboutmefont\textcolor{color1}{#1}}}
+\renewcommand*{\@sectionstyle}[1]{{\@sectionfont\textcolor{color1}{#1}}}
+\renewcommand*{\@subsectionstyle}[1]{{\@subsectionfont\textcolor{color1}{#1}}}
+\renewcommand*{\@hintstyle}[1]{{\@hintfont\textcolor{color0}{#1}}}
+
+
+%% reduced list spacing
+%% package providing hooks into lists
+%%   originally developped by Jakob Schiøtz (see http://dcwww.camd.dtu.dk/~schiotz/comp/LatexTips/tweaklist.sty)
+%%   modified and distributed with cv(not available otherwise on ctan)
+%\RequirePackage{tweaklist}
+%\renewcommand*{\itemhook}{%
+  %\@minipagetrue% removes spacing before lists as they use \addvspace, which doesn't add vertical space inside minipages
+  %\@noparlisttrue% removes spacing at end of lists, caused by \par
+  %\setlength{\topsep}{0pt}% normally not required thanks to \@minipagetrue
+  %\setlength{\partopsep}{0pt}% normally not required thanks to \@minipagetrue
+  %\setlength{\parsep}{0pt}% not required when \itemsep and \parskip are set to 0pt (?)
+  %\setlength{\parskip}{0pt}%
+  %\setlength{\itemsep}{0pt}}
+%\renewcommand*{\enumhook}{\itemhook{}}
+%\renewcommand*{\deschook}{\itemhook{}}
+
+% lengths
+%-------
+% optional maketitle width to force a certain width (if set to 0pt, the width is calculated automatically)
+\newlength{\makecvtitlenamewidth}
+	\setlength{\makecvtitlenamewidth}{0pt}% dummy value
+
+\newlength{\aboutmewidth}
+  \setlength{\aboutmewidth}{0.65\textwidth}%
+
+\newlength{\hintscolumnwidth}
+	\setlength{\hintscolumnwidth}{0.175\textwidth}
+
+\newlength{\separatorcolumnwidth}
+	\setlength{\separatorcolumnwidth}{0.025\textwidth}
+
+\newlength{\baseletterheight}
+	\settoheight{\baseletterheight}{\@sectionstyle{o}}
+	\setlength{\baseletterheight}{\baseletterheight-0.95ex}
+
+  % main lenghts
+\newlength{\maincolumnwidth}
+
+%% minimal base settings
+%\setlength\lineskip{1\p@}
+%\setlength\normallineskip{1\p@}
+%\renewcommand\baselinestretch{}
+%\setlength{\parindent}{0\p@}
+%\setlength{\parskip}{0\p@}
+%\setlength\columnsep{10\p@}
+%\setlength\columnseprule{0\p@}
+%\setlength\fboxsep{3\p@}
+%\setlength\fboxrule{.4\p@}
+%\setlength\arrayrulewidth{.4\p@}
+%\setlength\doublerulesep{2\p@}
+%
+%\raggedbottom
+%\onecolumn
+
+% symbols
+%-------
+%% itemize labels (the struts were added to correct inter-item spacing (works for single line items, until a solution is found for multi-line ones...)
+\newcommand*{\labelitemi}          {\strut\textcolor{color1}{\large\rmfamily\textbullet}}% the \rmfamily is required to force Latin Modern fonts when using sans serif, as OMS/lmss/m/n is not defined and gets substituted by OMS/cmsy/m/n
+%\newcommand*{\labelitemii}         {\strut\textcolor{color1}{\large\bfseries-}}
+%\newcommand*{\labelitemiii}        {\strut\textcolor{color1}{\rmfamily\textperiodcentered}}% alternative: \textasteriskcentered; the \rmfamily is required to force Latin Modern fonts when using sans serif, as OMS/lmss/m/n is not defined and gets substituted by OMS/cmsy/m/n
+%\newcommand*{\labelitemiv}         {\labelitemiii}
+%
+%% enumerate labels
+%\renewcommand{\theenumi}           {\@arabic\c@enumi}
+%\renewcommand{\theenumii}          {\@alph\c@enumii}
+%\renewcommand{\theenumiii}         {\@roman\c@enumiii}
+%\renewcommand{\theenumiv}          {\@Alph\c@enumiv}
+\newcommand*{\listitemsymbol}      {\labelitemi~}
+
+%\newlength{\maincolumnwidth}
+%\newlength{\doubleitemmaincolumnwidth}
+%\newlength{\listitemsymbolwidth}
+%\settowidth{\listitemsymbolwidth}{\listitemsymbol}
+%\newlength{\listitemmaincolumnwidth}
+%\newlength{\listdoubleitemmaincolumnwidth}
+
+
+\endinput
+
+%% end of file 'cvandletterfontsclassic.sty'.
