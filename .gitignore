@@ -4,3 +4,11 @@ guidelines/Beispiele für persönliche und soziale Kompetenzen.md
 guidelines/Résumé (Resümee).md
 
 guidelines/Vorstellungsgespräch-Fragen.md
+
+templates/Latex/cv-folder/src/head_en.tex
+
+templates/Latex/cv-folder/src/personal_letter/coverletter-EN.tex
+
+templates/Latex/cv-folder/src/references/references-EN.tex
+
+templates/Latex/cv-folder/src/resume/resume-EN.tex
