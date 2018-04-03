@@ -1,4 +1,4 @@
-# Beispiele für persönliche und soziale Kompetenzen
+## Beispiele für persönliche und soziale Kompetenzen
 
 * aktiv 
 * analytisches Denken 
@@ -175,3 +175,18 @@
 * zurückhaltend 
 * zuverlässig 
 * zuvorkommend
+
+## Über mich
+
+- Teamfähigkeit und ausgeprägte Dienstleistungsorientierung
+- selbständiges Arbeiten und ein analytisches, konzeptionelles und fachübergreifendes Denken
+- Das Team und die Summe seiner einzelnen Teile 
+- Konflikte sind da wo Menschen auch sind, d.h. verschiedene Bedürfnisse, (WIN/LOOSE), am Ende siegt die Interesse des Unternehmens.
+
+Sie gewinnen mit mir einen dynamischen, hochmotivierten Ingenieur der TUM Informatik, mit fachübergreifenden Wissen, sehr hohen Auffassungsgabe, der mit Termin-Druck umgehen kann, der weiß dass Erfolg immer mit einer Teamleistung zu tun hat, der wirtschaftlich und unternehmerisch denkt und agiert (vorgeht).
+
+Das setzt eine strukturierte Arbeitsweise, ...
+
+Als Mathematiker bin ich gewohnt, die Bedingungen zu hinterfragen und daraus entsprechende Lösungen ableitet.
+
+In der Vergangenheit habe ich immer den Zuspruch und Annerkennung meiner Kollegen ..., sei es an der Uni oder auf dem Arbeitsmarkt; darauf bin ich stolz.
